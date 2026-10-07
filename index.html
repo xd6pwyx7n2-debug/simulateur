@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulateur Rupture Conventionnelle | Outil RH Gratuit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-light: #818cf8;
+            --primary-dark: #3730a3;
+            --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --radius: 16px;
+            --shadow: 0 10px 30px -5px rgba(79, 70, 229, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            min-height: 100vh;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .brand-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .badge {
+            background: #e0e7ff;
+            color: var(--primary-dark);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.35rem 0.75rem;
+            border-radius: 9999px;
+            letter-spacing: 0.02em;
+        }
+
+        /* Content Layout */
+        main {
+            max-width: 1100px;
+            margin: 2.5rem auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 900px) {
+            main {
+                grid-template-columns: 1fr 340px;
+            }
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+        }
+
+        .hero-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-subtitle {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Form Controls */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 0.5rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            background: #f8fafc;
+            border: 1.5px solid var(--border-color);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            transition: all 0.2s ease;
+        }
+
+        input[type="number"]:focus {
+            outline: none;
+            background: #ffffff;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+        }
+
+        .btn-calc {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+            transition: all 0.2s ease;
+            margin-top: 0.5rem;
+        }
+
+        .btn-calc:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.35);
+        }
+
+        /* Result Area */
+        .result-card {
+            display: none;
+            margin-top: 2rem;
+            padding: 1.75rem;
+            background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%);
+            border-radius: 14px;
+            color: white;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .result-card.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .result-label {
+            font-size: 0.875rem;
+            color: #c7d2fe;
+            font-weight: 500;
+        }
+
+        .result-amount {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin: 0.25rem 0 0.5rem 0;
+        }
+
+        .result-disclaimer {
+            font-size: 0.75rem;
+            color: #a5b4fc;
+            line-height: 1.4;
+        }
+
+        /* Ads Slots */
+        .ad-placeholder {
+            background: rgba(241, 245, 249, 0.6);
+            border: 2px dashed #cbd5e1;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #94a3b8;
+            letter-spacing: 0.05em;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-transform: uppercase;
+        }
+
+        /* SEO Content */
+        .article-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .article-text p, .article-text li {
+            color: #475569;
+            font-size: 0.938rem;
+            margin-bottom: 0.85rem;
+        }
+
+        .article-text ul {
+            padding-left: 1.25rem;
+        }
+
+        /* Sidebar Links */
+        .sidebar-links {
+            list-style: none;
+        }
+
+        .sidebar-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .sidebar-links a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.5rem 0;
+            transition: color 0.2s;
+        }
+
+        .sidebar-links a:hover {
+            color: var(--primary-dark);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            background: white;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 5rem;
+        }
+
+        footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin: 0 0.75rem;
+        }
+
+        footer a:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="brand">
+                <div class="brand-icon">S</div>
+                <span>SimuDroit</span>
+            </a>
+            <span class="badge">Conforme 2026</span>
+        </div>
+    </nav>
+
+    <main>
+        <div class="left-column">
+            
+            <div class="ad-placeholder" style="min-height: 90px;">Espace Publicitaire</div>
+
+            <div class="card">
+                <h1 class="hero-title">Calculateur de Rupture Conventionnelle</h1>
+                <p class="hero-subtitle">Obtenez une estimation précise et instantanée de votre indemnité légale de départ.</p>
+
+                <form id="calcForm">
+                    <div class="form-group">
+                        <label for="salary">Salaire mensuel brut moyen (€)</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="salary" placeholder="Ex: 2850" required>
+                        </div>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label for="years">Ancienneté (années)</label>
+                            <input type="number" id="years" min="0" placeholder="Ex: 5" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="months">Mois restants</label>
+                            <input type="number" id="months" min="0" max="11" value="0">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-calc">Calculer mon indemnité</button>
+                </form>
+
+                <div id="resultCard" class="result-card">
+                    <div class="result-label">Indemnité légale minimale estimée</div>
+                    <div id="resultValue" class="result-amount">0,00 €</div>
+                    <div class="result-disclaimer">Montant calculé selon le barème du Code du travail. Votre convention collective peut prévoir un montant supérieur.</div>
+                </div>
+            </div>
+
+            <div class="ad-placeholder" style="min-height: 250px;">Espace Publicitaire</div>
+
+            <div class="card article-text">
+                <h2 class="article-title">Comment fonctionne le calcul d'indemnité ?</h2>
+                <p>L'indemnité de rupture conventionnelle est au moins égale à l'indemnité légale de licenciement fixée par la loi.</p>
+                <p>Le calcul se base sur votre salaire de référence (moyenne des 3 ou 12 derniers mois de salaire brut) :</p>
+                <ul>
+                    <li><strong>1/4 de mois de salaire</strong> par année d'ancienneté pour les 10 premières années.</li>
+                    <li><strong>1/3 de mois de salaire</strong> par année d'ancienneté à partir de la 11ème année.</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <aside>
+            <div class="ad-placeholder" style="min-height: 250px;">Espace Publicitaire</div>
+
+            <div class="card">
+                <h3 class="article-title" style="font-size: 1.1rem;">Autres simulateurs</h3>
+                <ul class="sidebar-links">
+                    <li><a href="#">→ Conversion Brut en Net</a></li>
+                    <li><a href="#">→ Calculateur de Préavis</a></li>
+                    <li><a href="#">→ Simulation Allocation Chômage</a></li>
+                </ul>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <p>© 2026 SimuDroit.fr — Simulateur d'indemnités indépendant.</p>
+        <p style="margin-top: 0.75rem;">
+            <a href="#">Mentions Légales</a> • 
+            <a href="#">Confidentialité</a>
+        </p>
+    </footer>
+
+    <script>
+        document.getElementById('calcForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const salary = parseFloat(document.getElementById('salary').value);
+            const years = parseFloat(document.getElementById('years').value) || 0;
+            const months = parseFloat(document.getElementById('months').value) || 0;
+
+            if (isNaN(salary) || salary <= 0) return;
+
+            const totalSeniority = years + (months / 12);
+            let indemnity = 0;
+
+            if (totalSeniority <= 10) {
+                indemnity = totalSeniority * (salary / 4);
+            } else {
+                const firstTenYears = 10 * (salary / 4);
+                const remainingYears = (totalSeniority - 10) * (salary / 3);
+                indemnity = firstTenYears + remainingYears;
+            }
+
+            const formattedResult = indemnity.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' });
+            document.getElementById('resultValue').innerText = formattedResult;
+            document.getElementById('resultCard').classList.add('active');
+        });
+    </script>
+</body>
+</html>
