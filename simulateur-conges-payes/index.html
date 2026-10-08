@@ -1,164 +1,761 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Simulateur congés payés 2026 – Indemnité congés non pris | SimuDroit</title>
-<meta name="description" content="Calculez votre indemnité compensatrice de congés payés non pris avec notre simulateur gratuit 2026.">
-<link rel="canonical" href="https://simudroit.netlify.app/simulateur-conges-payes/">
-<meta name="robots" content="index,follow">
-<meta name="google-site-verification" content="qNMbDYWbGBih5YLnZttvWh9FPoK4oHcpb1N-GobCzsg">
+  <title>Simulateur congés payés 2026 – Indemnité | SimuDroit</title>
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Simulateur congés payés 2026 | SimuDroit">
-<meta property="og:description" content="Estimez votre indemnité de congés payés non pris.">
-<meta property="og:url" content="https://simudroit.netlify.app/simulateur-conges-payes/">
+  <meta name="description"
+        content="Calculez votre indemnité de congés payés en 2026 avec les deux méthodes légales : règle du dixième et maintien du salaire.">
 
-<style>
-:root{--p:#0d5d7f;--s:#00a896;--d:#17324d;--t:#263746;--m:#687887;--bg:#f5f8fa;--b:#dce5ea}
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--t);line-height:1.6}
-header{background:linear-gradient(135deg,var(--p),#084763);color:#fff;padding:24px 18px}.head{max-width:1050px;margin:auto}.logo{font-size:1.55rem;font-weight:800}.logo span{color:#9df3e8}.crumb{font-size:.9rem;margin-top:6px}.crumb a{color:#fff}
-main{max-width:1050px;margin:auto;padding:35px 16px 60px}.hero{text-align:center;margin-bottom:30px}.hero h1{color:var(--d);font-size:clamp(2rem,5vw,3rem);line-height:1.15}.hero p{color:var(--m);font-size:1.08rem}
-.card{max-width:720px;margin:auto;background:#fff;border:1px solid var(--b);border-radius:18px;padding:28px;box-shadow:0 12px 35px rgba(23,50,77,.08)}
-.field{margin-bottom:18px}label{display:block;font-weight:bold;margin-bottom:7px}input{width:100%;padding:13px;border:1px solid #cbd7de;border-radius:10px;font-size:1rem}
-button{width:100%;padding:15px;border:0;border-radius:11px;background:var(--s);color:#fff;font-weight:bold;font-size:1.05rem}
-.result{display:none;margin-top:22px;padding:20px;background:#eefaf7;border:1px solid #b9e8df;border-radius:14px}.result.show{display:block}.amount{font-size:2.2rem;font-weight:900;color:var(--d)}
-.warning{margin-top:15px;padding:13px;background:#fff8e6;border:1px solid #f0d58a;border-radius:10px;color:#765300;font-size:.92rem}
-.content{max-width:820px;margin:45px auto}.content h2{color:var(--d);margin-top:38px}.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}.links a{background:#fff;border:1px solid var(--b);padding:13px;border-radius:10px;color:var(--p);font-weight:bold;text-decoration:none}
-footer{text-align:center;padding:28px;background:#fff;border-top:1px solid var(--b);color:var(--m)}
-</style>
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical"
+        href="https://simudroit.netlify.app/simulateur-conges-payes/">
+
+  <meta name="google-site-verification"
+        content="qNMbDYWbGBih5YLnZttvWh9FPoK4oHcpb1N-GobCzsg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title"
+        content="Simulateur congés payés 2026 | SimuDroit">
+  <meta property="og:description"
+        content="Estimez votre indemnité de congés payés selon les deux méthodes légales.">
+  <meta property="og:url"
+        content="https://simudroit.netlify.app/simulateur-conges-payes/">
+  <meta property="og:site_name" content="SimuDroit">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title"
+        content="Simulateur congés payés 2026 | SimuDroit">
+  <meta name="twitter:description"
+        content="Calculez votre indemnité de congés payés.">
+
+  <style>
+    :root {
+      --primary: #0d5d7f;
+      --primary-dark: #084763;
+      --secondary: #00a896;
+      --dark: #17324d;
+      --text: #263746;
+      --muted: #687887;
+      --background: #f5f8fa;
+      --white: #ffffff;
+      --border: #dce5ea;
+      --success: #087f5b;
+      --shadow: 0 10px 35px rgba(23, 50, 77, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--background);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 18px 20px;
+    }
+
+    .header-inner {
+      max-width: 1050px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      color: white;
+      font-size: 1.45rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: #7ee7d8;
+    }
+
+    .header-link {
+      color: white;
+      font-size: 0.92rem;
+    }
+
+    main {
+      max-width: 1050px;
+      margin: auto;
+      padding: 22px 18px 60px;
+    }
+
+    .breadcrumb {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    .hero {
+      max-width: 780px;
+      margin: 20px auto 30px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      margin: 0 0 12px;
+      color: var(--dark);
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.15;
+      letter-spacing: -1px;
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .calculator {
+      max-width: 720px;
+      margin: 0 auto 35px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    .calculator h2 {
+      margin-top: 0;
+      color: var(--dark);
+    }
+
+    .field {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .help {
+      display: block;
+      margin-top: 5px;
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid #c8d4da;
+      border-radius: 10px;
+      font-size: 1rem;
+      background: white;
+      color: var(--text);
+    }
+
+    input:focus,
+    select:focus {
+      outline: 3px solid rgba(0, 168, 150, 0.16);
+      border-color: var(--secondary);
+    }
+
+    button {
+      width: 100%;
+      border: 0;
+      border-radius: 10px;
+      padding: 14px 18px;
+      background: var(--primary);
+      color: white;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: var(--primary-dark);
+    }
+
+    .result {
+      display: none;
+      margin-top: 22px;
+      padding: 22px;
+      border-radius: 14px;
+      background: #eefaf7;
+      border: 1px solid #bfe9df;
+    }
+
+    .result.show {
+      display: block;
+    }
+
+    .result-label {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+
+    .amount {
+      font-size: clamp(2rem, 7vw, 2.8rem);
+      font-weight: 800;
+      color: var(--success);
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+
+    .details {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    .warning {
+      margin-top: 15px;
+      padding: 13px 15px;
+      border-radius: 10px;
+      background: #fff8e8;
+      border: 1px solid #efd58a;
+      color: #6e5000;
+      font-size: 0.9rem;
+    }
+
+    .info {
+      max-width: 900px;
+      margin: 0 auto 30px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 25px;
+    }
+
+    .info h2 {
+      color: var(--dark);
+      margin-top: 0;
+    }
+
+    .info h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    .info li {
+      margin-bottom: 7px;
+    }
+
+    .links {
+      max-width: 900px;
+      margin: 0 auto 35px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .link-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 15px;
+    }
+
+    .link-card strong {
+      display: block;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #a9e9df;
+    }
+
+    @media (max-width: 600px) {
+      .calculator,
+      .info {
+        padding: 20px;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "SimuDroit",
+    "url": "https://simudroit.netlify.app/"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Simulateur congés payés 2026",
+    "url": "https://simudroit.netlify.app/simulateur-conges-payes/",
+    "description": "Simulateur indicatif d'indemnité de congés payés."
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "SimuDroit",
+        "item": "https://simudroit.netlify.app/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Congés payés",
+        "item": "https://simudroit.netlify.app/simulateur-conges-payes/"
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Comment calculer une indemnité de congés payés ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "L'employeur doit comparer la règle du dixième avec la règle du maintien du salaire et retenir la méthode la plus favorable au salarié."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quelle est la règle du dixième ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La règle du dixième correspond à 10 % de la rémunération brute totale retenue sur la période de référence, avec une proratisation lorsque la durée de congé est différente."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Qu'est-ce que le maintien du salaire ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cette méthode consiste à déterminer la rémunération que le salarié aurait perçue s'il avait continué à travailler pendant ses congés."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
 
 <header>
-<div class="head">
-<div class="logo">Simu<span>Droit</span></div>
-<div class="crumb"><a href="https://simudroit.netlify.app/">Accueil</a> › Congés payés</div>
-</div>
+  <div class="header-inner">
+
+    <a class="logo" href="https://simudroit.netlify.app/">
+      Simu<span>Droit</span>
+    </a>
+
+    <a class="header-link"
+       href="https://simudroit.netlify.app/">
+      Tous les simulateurs
+    </a>
+
+  </div>
 </header>
 
 <main>
 
-<section class="hero">
-<h1>Simulateur congés payés 2026</h1>
-<p>Estimez votre indemnité compensatrice pour vos congés payés acquis et non pris.</p>
-</section>
+  <div class="breadcrumb">
+    <a href="https://simudroit.netlify.app/">Accueil</a>
+    →
+    Congés payés
+  </div>
 
-<section class="card">
+  <section class="hero">
 
-<h2>Calculer votre indemnité</h2>
+    <h1>Simulateur congés payés 2026</h1>
 
-<div class="field">
-<label for="reference">Rémunération brute de référence (€)</label>
-<input id="reference" type="number" min="0" step="0.01" placeholder="30000">
-</div>
+    <p>
+      Estimez votre indemnité de congés payés avec les deux méthodes
+      légales : dixième et maintien du salaire.
+    </p>
 
-<div class="field">
-<label for="jours">Nombre de jours de congés non pris</label>
-<input id="jours" type="number" min="0" step="0.1" placeholder="10">
-</div>
+  </section>
 
-<div class="field">
-<label for="mensuel">Salaire mensuel brut actuel (€)</label>
-<input id="mensuel" type="number" min="0" step="0.01" placeholder="2500">
-</div>
+  <section class="calculator">
 
-<button onclick="calculer()">Calculer</button>
+    <h2>Calculez votre indemnité</h2>
 
-<div id="resultat" class="result">
-<div id="montant" class="amount"></div>
-<p id="details"></p>
-<div class="warning">
-Estimation simplifiée. Le calcul réel dépend notamment des éléments de rémunération pris en compte et de la méthode applicable.
-</div>
-</div>
+    <div class="field">
 
-</section>
+      <label for="reference">
+        Rémunération brute totale de la période de référence
+      </label>
 
-<section class="content">
+      <input
+        type="number"
+        id="reference"
+        min="0"
+        step="0.01"
+        inputmode="decimal"
+        placeholder="Ex. 30 000"
+      >
 
-<h2>Comment est calculée l'indemnité de congés payés ?</h2>
+      <span class="help">
+        Indiquez la rémunération brute totale servant de base
+        à la règle du dixième.
+      </span>
 
-<p>
-Lorsque le contrat se termine alors que le salarié dispose de congés payés acquis et non pris,
-une indemnité compensatrice peut être due.
-</p>
+    </div>
 
-<p>
-Le calcul doit notamment tenir compte des règles relatives au dixième et au maintien du salaire.
-L'employeur doit retenir la méthode la plus favorable au salarié.
-</p>
+    <div class="field">
 
-<h2>La règle du dixième</h2>
+      <label for="jours">
+        Nombre de jours de congés à indemniser
+      </label>
 
-<p>
-La méthode du dixième consiste à déterminer une indemnité correspondant à 10 % de la rémunération
-brute de référence, avec une adaptation lorsque seule une partie des congés doit être indemnisée.
-</p>
+      <input
+        type="number"
+        id="jours"
+        min="0.5"
+        max="30"
+        step="0.5"
+        inputmode="decimal"
+        placeholder="Ex. 10"
+      >
 
-<h2>Le maintien du salaire</h2>
+      <span class="help">
+        Saisissez le nombre de jours de congés concernés.
+        Le calcul simplifié ci-dessous est exprimé en jours ouvrables.
+      </span>
 
-<p>
-L'autre méthode consiste à déterminer ce que le salarié aurait perçu s'il avait travaillé pendant
-la période correspondant aux congés.
-</p>
+    </div>
 
-<h2>Questions fréquentes</h2>
+    <div class="field">
 
-<h3>Les congés payés non pris sont-ils perdus à la fin du contrat ?</h3>
-<p>
-Non. Lorsqu'ils sont acquis et non pris, une indemnité compensatrice peut être due lors de la rupture.
-</p>
+      <label for="mensuel">
+        Salaire brut mensuel actuel
+      </label>
 
-<h3>L'indemnité est-elle imposable ?</h3>
-<p>
-Oui. Service-Public indique qu'elle est considérée comme du salaire et soumise à l'impôt sur le revenu.
-</p>
+      <input
+        type="number"
+        id="mensuel"
+        min="0"
+        step="0.01"
+        inputmode="decimal"
+        placeholder="Ex. 2 500"
+      >
 
-<h2>Autres simulateurs</h2>
+      <span class="help">
+        Utilisé pour l'estimation selon la méthode du maintien du salaire.
+      </span>
 
-<div class="links">
-<a href="../simulateur-prime-precarite/">Prime de précarité</a>
-<a href="../simulateur-solde-tout-compte/">Solde de tout compte</a>
-<a href="../simulateur-brut-net/">Brut → Net</a>
-<a href="../simulateur-heures-supplementaires/">Heures supplémentaires</a>
-</div>
+    </div>
 
-</section>
+    <button type="button" onclick="calculer()">
+      Calculer mon indemnité
+    </button>
+
+    <div id="resultat" class="result" aria-live="polite">
+
+      <div class="result-label">
+        Indemnité estimée selon la méthode la plus favorable
+      </div>
+
+      <div id="montant" class="amount">
+        0 €
+      </div>
+
+      <p id="details" class="details"></p>
+
+      <div class="warning">
+        Le calcul est une estimation simplifiée. Le calcul réel peut
+        notamment dépendre du nombre de jours ouvrables/ouvrés,
+        de la durée du travail, des éléments de rémunération et
+        de la période de référence.
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="info">
+
+    <h2>Les deux méthodes de calcul</h2>
+
+    <h3>La règle du dixième</h3>
+
+    <p>
+      L'indemnité correspond à <strong>10 % de la rémunération brute
+      totale</strong> perçue pendant la période de référence.
+    </p>
+
+    <p>
+      Lorsque le salarié ne prend qu'une partie de ses congés,
+      l'indemnité correspondante est calculée proportionnellement
+      à la durée du congé.
+    </p>
+
+    <h3>Le maintien du salaire</h3>
+
+    <p>
+      On estime ensuite la rémunération que le salarié aurait perçue
+      s'il avait continué à travailler pendant la période de congé.
+    </p>
+
+    <h3>La méthode la plus favorable</h3>
+
+    <p>
+      L'indemnité versée ne peut pas être inférieure au montant obtenu
+      avec le maintien du salaire. L'employeur doit donc comparer
+      les deux méthodes et retenir celle qui est la plus favorable
+      au salarié. [oai_citation:1‡Légifrance](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000049461568/2026-04-28?utm_source=chatgpt.com)
+    </p>
+
+  </section>
+
+  <section class="info">
+
+    <h2>Pourquoi notre résultat est-il présenté comme une estimation ?</h2>
+
+    <p>
+      La règle du dixième ne consiste pas simplement à appliquer
+      10 % à n'importe quelle rémunération : certaines sommes doivent
+      être incluses ou exclues selon leur nature.
+    </p>
+
+    <p>
+      Le maintien du salaire dépend également de la durée du travail
+      et de la rémunération qui aurait été perçue pendant le congé.
+    </p>
+
+    <p>
+      Le Code du travail prévoit précisément ces deux méthodes
+      et leurs modalités. [oai_citation:2‡Légifrance](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000049461568/2026-04-28?utm_source=chatgpt.com)
+    </p>
+
+    <p>
+      Pour une situation complexe, vérifiez le calcul avec votre
+      employeur, votre convention collective ou les informations
+      officielles disponibles sur
+      <a href="https://www.service-public.fr/"
+         target="_blank"
+         rel="noopener">
+        Service-Public.fr
+      </a>.
+    </p>
+
+  </section>
+
+  <section class="info">
+
+    <h2>Exemple simplifié</h2>
+
+    <p>
+      Si la rémunération brute totale de la période de référence est
+      de 30 000 € et que 10 jours de congés sont concernés :
+    </p>
+
+    <p>
+      Indemnité annuelle selon la règle du dixième :
+      30 000 × 10 % = 3 000 €.
+    </p>
+
+    <p>
+      Pour 10 jours sur une base de 30 jours ouvrables :
+      3 000 × 10 / 30 = <strong>1 000 €</strong>.
+    </p>
+
+    <p>
+      Le résultat doit ensuite être comparé avec celui obtenu par
+      la méthode du maintien du salaire.
+    </p>
+
+  </section>
+
+  <section class="links">
+
+    <a class="link-card"
+       href="https://simudroit.netlify.app/simulateur-solde-tout-compte/">
+      <strong>Solde de tout compte</strong>
+      Estimez les sommes dues à la fin du contrat.
+    </a>
+
+    <a class="link-card"
+       href="https://simudroit.netlify.app/simulateur-rupture-conventionnelle/">
+      <strong>Rupture conventionnelle</strong>
+      Calculez l'indemnité minimale.
+    </a>
+
+    <a class="link-card"
+       href="https://simudroit.netlify.app/simulateur-indemnite-licenciement/">
+      <strong>Indemnité de licenciement</strong>
+      Estimez l'indemnité légale.
+    </a>
+
+    <a class="link-card"
+       href="https://simudroit.netlify.app/simulateur-heures-supplementaires/">
+      <strong>Heures supplémentaires</strong>
+      Calculez votre rémunération majorée.
+    </a>
+
+  </section>
 
 </main>
 
-<footer>© 2026 SimuDroit — Simulateurs gratuits de droit du travail et de salaire.</footer>
+<footer>
+
+  © 2026 SimuDroit ·
+  <a href="https://simudroit.netlify.app/">
+    Tous les simulateurs
+  </a>
+
+</footer>
 
 <script>
-function calculer(){
 
-const reference=parseFloat(document.getElementById("reference").value);
-const jours=parseFloat(document.getElementById("jours").value);
-const mensuel=parseFloat(document.getElementById("mensuel").value);
-
-if([reference,jours,mensuel].some(x=>isNaN(x)||x<0)){
-alert("Veuillez renseigner correctement les valeurs.");
-return;
+function formatEuro(value) {
+  return value.toLocaleString("fr-FR", {
+    style: "currency",
+    currency: "EUR"
+  });
 }
 
-const dixieme=reference*0.10*(jours/30);
-const maintien=mensuel*(jours/26);
+function calculer() {
 
-const indemnisation=Math.max(dixieme,maintien);
+  const reference =
+    parseFloat(document.getElementById("reference").value);
 
-document.getElementById("montant").textContent=
-indemnisation.toLocaleString("fr-FR",{style:"currency",currency:"EUR"});
+  const jours =
+    parseFloat(document.getElementById("jours").value);
 
-document.getElementById("details").innerHTML=
-"Méthode du dixième : <strong>"+dixieme.toLocaleString("fr-FR",{style:"currency",currency:"EUR"})+
-"</strong><br>Maintien du salaire estimatif : <strong>"+
-maintien.toLocaleString("fr-FR",{style:"currency",currency:"EUR"})+"</strong>";
+  const mensuel =
+    parseFloat(document.getElementById("mensuel").value);
 
-document.getElementById("resultat").classList.add("show");
+  if (
+    !Number.isFinite(reference) ||
+    reference <= 0
+  ) {
+    alert(
+      "Veuillez renseigner une rémunération brute totale valide."
+    );
+    return;
+  }
+
+  if (
+    !Number.isFinite(jours) ||
+    jours <= 0 ||
+    jours > 30
+  ) {
+    alert(
+      "Veuillez renseigner un nombre de jours compris entre 0,5 et 30."
+    );
+    return;
+  }
+
+  if (
+    !Number.isFinite(mensuel) ||
+    mensuel <= 0
+  ) {
+    alert(
+      "Veuillez renseigner un salaire mensuel brut valide."
+    );
+    return;
+  }
+
+  /*
+   * MÉTHODE DU DIXIÈME
+   *
+   * 10 % de la rémunération brute totale
+   * puis proratisation du nombre de jours.
+   *
+   * Cette version utilise 30 jours comme base simplifiée.
+   */
+
+  const indemniteTotaleDixieme =
+    reference * 0.10;
+
+  const indemniteDixieme =
+    indemniteTotaleDixieme * (jours / 30);
+
+  /*
+   * MÉTHODE DU MAINTIEN DU SALAIRE
+   *
+   * Pour une estimation simple :
+   * salaire mensuel × jours / 30.
+   *
+   * Le calcul réel peut utiliser les règles liées
+   * aux jours ouvrables/ouvrés et à l'organisation
+   * du travail du salarié.
+   */
+
+  const indemniteMaintien =
+    mensuel * (jours / 30);
+
+  const indemnisation =
+    Math.max(
+      indemniteDixieme,
+      indemniteMaintien
+    );
+
+  const methode =
+    indemniteDixieme >= indemniteMaintien
+      ? "règle du dixième"
+      : "maintien du salaire";
+
+  document
+    .getElementById("montant")
+    .textContent = formatEuro(indemnisation);
+
+  document
+    .getElementById("details")
+    .innerHTML =
+      "Méthode du dixième : <strong>" +
+      formatEuro(indemniteDixieme) +
+      "</strong>.<br>" +
+      "Maintien du salaire : <strong>" +
+      formatEuro(indemniteMaintien) +
+      "</strong>.<br>" +
+      "Méthode retenue pour l'estimation : <strong>" +
+      methode +
+      "</strong>.";
+
+  document
+    .getElementById("resultat")
+    .classList.add("show");
 }
+
 </script>
 
 </body>
