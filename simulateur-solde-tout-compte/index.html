@@ -1,186 +1,760 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8">
 
-<title>Simulateur solde de tout compte 2026 | SimuDroit</title>
-<meta name="description" content="Estimez les sommes pouvant figurer dans votre solde de tout compte : dernier salaire, congés payés et autres indemnités.">
-<link rel="canonical" href="https://simudroit.netlify.app/simulateur-solde-tout-compte/">
-<meta name="robots" content="index,follow">
-<meta name="google-site-verification" content="qNMbDYWbGBih5YLnZttvWh9FPoK4oHcpb1N-GobCzsg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Simulateur solde de tout compte 2026">
-<meta property="og:description" content="Estimez votre solde de tout compte.">
-<meta property="og:url" content="https://simudroit.netlify.app/simulateur-solde-tout-compte/">
+  <title>Simulateur solde de tout compte 2026 | Calcul des sommes dues | SimuDroit</title>
 
-<style>
-:root{--p:#0d5d7f;--s:#00a896;--d:#17324d;--t:#263746;--m:#687887;--bg:#f5f8fa;--b:#dce5ea}
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--t);line-height:1.6}
-header{background:linear-gradient(135deg,var(--p),#084763);color:#fff;padding:24px 18px}.head{max-width:1050px;margin:auto}.logo{font-size:1.55rem;font-weight:800}.logo span{color:#9df3e8}.crumb{margin-top:6px;font-size:.9rem}.crumb a{color:#fff}
-main{max-width:1050px;margin:auto;padding:35px 16px 60px}.hero{text-align:center;margin-bottom:30px}.hero h1{color:var(--d);font-size:clamp(2rem,5vw,3rem);line-height:1.15}.hero p{color:var(--m);font-size:1.08rem}
-.card{max-width:720px;margin:auto;background:#fff;border:1px solid var(--b);border-radius:18px;padding:28px;box-shadow:0 12px 35px rgba(23,50,77,.08)}
-.field{margin-bottom:18px}label{display:block;font-weight:bold;margin-bottom:7px}input{width:100%;padding:13px;border:1px solid #cbd7de;border-radius:10px;font-size:1rem}
-button{width:100%;padding:15px;border:0;border-radius:11px;background:var(--s);color:#fff;font-weight:bold;font-size:1.05rem}
-.result{display:none;margin-top:22px;padding:20px;background:#eefaf7;border:1px solid #b9e8df;border-radius:14px}.result.show{display:block}.amount{font-size:2.2rem;font-weight:900;color:var(--d)}
-.warning{margin-top:15px;padding:13px;background:#fff8e6;border:1px solid #f0d58a;border-radius:10px;color:#765300;font-size:.92rem}
-.content{max-width:820px;margin:45px auto}.content h2{color:var(--d);margin-top:38px}.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}.links a{background:#fff;border:1px solid var(--b);padding:13px;border-radius:10px;color:var(--p);font-weight:bold;text-decoration:none}
-footer{text-align:center;padding:28px;background:#fff;border-top:1px solid var(--b);color:var(--m)}
-</style>
+  <meta name="description" content="Estimez votre solde de tout compte : dernier salaire, congés payés, indemnité de licenciement, préavis, prime de précarité et autres sommes dues. Simulateur gratuit 2026.">
+
+  <meta name="robots" content="index, follow">
+
+  <meta name="google-site-verification" content="qNMbDYWbGBih5YLnZttvWh9FPoK4oHcpb1N-GobCzsg">
+
+  <link rel="canonical" href="https://simudroit.netlify.app/simulateur-solde-tout-compte/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Simulateur solde de tout compte 2026 | SimuDroit">
+  <meta property="og:description" content="Estimez les sommes susceptibles de composer votre solde de tout compte.">
+  <meta property="og:url" content="https://simudroit.netlify.app/simulateur-solde-tout-compte/">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Simulateur solde de tout compte 2026 | SimuDroit">
+  <meta name="twitter:description" content="Estimez votre solde de tout compte gratuitement.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#687887;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+      font-size:1.4rem;
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:17px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:20px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:12px;
+    }
+
+    .result-total {
+      font-size:2rem;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-list {
+      display:grid;
+      gap:8px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:8px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .result-row strong {
+      text-align:right;
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:20px;
+      font-size:.92rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section p {
+      margin-top:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    .links-grid a:hover {
+      border-color:var(--secondary);
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+
+      .result-row strong {
+        text-align:left;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"SimuDroit",
+    "url":"https://simudroit.netlify.app/"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"Simulateur solde de tout compte 2026",
+    "url":"https://simudroit.netlify.app/simulateur-solde-tout-compte/",
+    "description":"Simulateur permettant d'estimer les sommes composant un solde de tout compte."
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {
+        "@type":"ListItem",
+        "position":1,
+        "name":"SimuDroit",
+        "item":"https://simudroit.netlify.app/"
+      },
+      {
+        "@type":"ListItem",
+        "position":2,
+        "name":"Simulateur solde de tout compte",
+        "item":"https://simudroit.netlify.app/simulateur-solde-tout-compte/"
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Qu'est-ce que le solde de tout compte ?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Le solde de tout compte est un document établi par l'employeur qui inventorie les sommes versées au salarié à l'occasion de la rupture de son contrat de travail."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Le solde de tout compte correspond-il à une formule de calcul ?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Non. Le solde de tout compte n'est pas une indemnité unique. Il correspond à l'ensemble des sommes dues au salarié au moment de la rupture, selon sa situation."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Quelles sommes peuvent apparaître dans un solde de tout compte ?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Il peut notamment comprendre le salaire restant dû, une indemnité compensatrice de congés payés, une indemnité de licenciement, une indemnité compensatrice de préavis, des primes ou d'autres sommes dues."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Doit-on signer le reçu pour solde de tout compte ?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Le salarié n'est pas obligé de signer le reçu pour solde de tout compte."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
 
 <header>
-<div class="head">
-<div class="logo">Simu<span>Droit</span></div>
-<div class="crumb"><a href="https://simudroit.netlify.app/">Accueil</a> › Solde de tout compte</div>
-</div>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.netlify.app/">Simu<span>Droit</span></a>
+  </div>
 </header>
 
 <main>
 
-<section class="hero">
-<h1>Simulateur solde de tout compte 2026</h1>
-<p>Estimez les principales sommes pouvant être versées lors de la fin de votre contrat.</p>
-</section>
+  <div class="breadcrumb">
+    <a href="https://simudroit.netlify.app/">Accueil</a>
+    &nbsp;›&nbsp;
+    Simulateur solde de tout compte
+  </div>
 
-<section class="card">
+  <section class="hero">
+    <h1>Simulateur de solde de tout compte</h1>
+    <p>
+      Estimez simplement les principales sommes susceptibles de composer
+      votre solde de tout compte lors de la fin de votre contrat.
+    </p>
+  </section>
 
-<h2>Calculer votre solde</h2>
+  <section class="calculator">
 
-<div class="field">
-<label for="salaire">Salaire mensuel brut (€)</label>
-<input id="salaire" type="number" min="0" step="0.01" placeholder="2500">
-</div>
+    <h2>Calculer votre solde de tout compte</h2>
 
-<div class="field">
-<label for="jours">Jours de salaire à payer</label>
-<input id="jours" type="number" min="0" step="0.1" placeholder="15">
-</div>
+    <div class="intro-note">
+      <strong>Important :</strong> ce simulateur additionne les sommes que vous
+      renseignez. Toutes ne sont pas nécessairement dues dans votre situation.
+      Le résultat constitue une <strong>estimation indicative</strong>.
+    </div>
 
-<div class="field">
-<label for="conges">Indemnité de congés payés (€)</label>
-<input id="conges" type="number" min="0" step="0.01" placeholder="800">
-</div>
+    <div class="field">
+      <label for="salaire">Dernier salaire brut mensuel (€)</label>
+      <input type="number" id="salaire" min="0" step="0.01" placeholder="Ex. 2 500">
+      <div class="field-help">
+        Indiquez votre salaire brut mensuel de référence.
+      </div>
+    </div>
 
-<div class="field">
-<label for="indemnites">Autres indemnités et primes (€)</label>
-<input id="indemnites" type="number" min="0" step="0.01" placeholder="0">
-</div>
+    <div class="field">
+      <label for="jours">Nombre de jours de salaire restant dus</label>
+      <input type="number" id="jours" min="0" step="0.01" placeholder="Ex. 10">
+      <div class="field-help">
+        Laissez 0 si aucun salaire supplémentaire n'est à verser.
+      </div>
+    </div>
 
-<button onclick="calculer()">Calculer mon solde</button>
+    <div class="field">
+      <label for="conges">Indemnité compensatrice de congés payés (€)</label>
+      <input type="number" id="conges" min="0" step="0.01" placeholder="Ex. 850">
+      <div class="field-help">
+        Montant estimé ou déjà calculé de vos congés payés non pris.
+      </div>
+    </div>
 
-<div id="resultat" class="result">
-<div id="montant" class="amount"></div>
-<p id="details"></p>
-<div class="warning">
-Ce résultat est une estimation des sommes renseignées. Il ne détermine pas automatiquement toutes les sommes légalement dues lors de votre départ.
-</div>
-</div>
+    <div class="field">
+      <label for="licenciement">Indemnité de licenciement / rupture (€)</label>
+      <input type="number" id="licenciement" min="0" step="0.01" placeholder="Ex. 5 000">
+      <div class="field-help">
+        À renseigner uniquement si une indemnité est effectivement due.
+      </div>
+    </div>
 
-</section>
+    <div class="field">
+      <label for="preavis">Indemnité compensatrice de préavis (€)</label>
+      <input type="number" id="preavis" min="0" step="0.01" placeholder="Ex. 2 500">
+      <div class="field-help">
+        Par exemple lorsqu'un préavis dû n'est pas exécuté dans certaines situations.
+      </div>
+    </div>
 
-<section class="content">
+    <div class="field">
+      <label for="precarite">Prime de précarité / indemnité de fin de CDD (€)</label>
+      <input type="number" id="precarite" min="0" step="0.01" placeholder="Ex. 1 200">
+      <div class="field-help">
+        À utiliser uniquement lorsque cette indemnité est applicable.
+      </div>
+    </div>
 
-<h2>Qu'est-ce que le solde de tout compte ?</h2>
+    <div class="field">
+      <label for="autres">Autres sommes dues (€)</label>
+      <input type="number" id="autres" min="0" step="0.01" placeholder="Ex. 300">
+      <div class="field-help">
+        Primes, heures supplémentaires, commissions ou autres sommes restant dues.
+      </div>
+    </div>
 
-<p>
-Le solde de tout compte récapitule les sommes versées au salarié lors de la rupture de son contrat.
-Il ne s'agit pas d'une indemnité unique avec une formule légale propre.
-</p>
+    <button type="button" id="calculate">
+      Calculer mon solde de tout compte
+    </button>
 
-<p>
-Selon la situation, il peut notamment comprendre le dernier salaire, une indemnité compensatrice
-de congés payés, une indemnité de préavis, une indemnité de licenciement ou d'autres sommes.
-</p>
+    <div class="result" id="result" aria-live="polite">
 
-<h2>Que calcule notre simulateur ?</h2>
+      <div class="result-title">Estimation du solde de tout compte</div>
 
-<p>
-Le calculateur estime le dernier salaire à partir du salaire mensuel et du nombre de jours renseignés,
-puis ajoute les indemnités et autres sommes indiquées.
-</p>
+      <div class="result-total" id="total">0,00 €</div>
 
-<h2>Congés payés non pris</h2>
+      <div class="result-list">
 
-<p>
-Lorsqu'un salarié quitte son entreprise avec des congés payés acquis et non pris,
-une indemnité compensatrice peut être due. [oai_citation:7‡Service Public](https://www.service-public.fr/particuliers/vosdroits/F24661?utm_source=chatgpt.com)
-</p>
+        <div class="result-row">
+          <span>Salaire restant dû</span>
+          <strong id="resultSalaire">0,00 €</strong>
+        </div>
 
-<h2>Attention au résultat</h2>
+        <div class="result-row">
+          <span>Congés payés</span>
+          <strong id="resultConges">0,00 €</strong>
+        </div>
 
-<p>
-Le montant réellement versé peut différer du résultat affiché, notamment parce que le calcul d'une paie
-ne repose pas nécessairement sur une simple division du salaire mensuel par 30.
-</p>
+        <div class="result-row">
+          <span>Indemnité de licenciement / rupture</span>
+          <strong id="resultLicenciement">0,00 €</strong>
+        </div>
 
-<h2>Questions fréquentes</h2>
+        <div class="result-row">
+          <span>Indemnité de préavis</span>
+          <strong id="resultPreavis">0,00 €</strong>
+        </div>
 
-<h3>Le solde de tout compte correspond-il uniquement au dernier salaire ?</h3>
-<p>
-Non. Il peut comprendre différentes sommes dues au moment de la rupture.
-</p>
+        <div class="result-row">
+          <span>Prime de précarité</span>
+          <strong id="resultPrecarite">0,00 €</strong>
+        </div>
 
-<h3>Les congés payés sont-ils inclus ?</h3>
-<p>
-Oui, lorsqu'une indemnité compensatrice de congés payés est due.
-</p>
+        <div class="result-row">
+          <span>Autres sommes</span>
+          <strong id="resultAutres">0,00 €</strong>
+        </div>
 
-<h3>Le résultat est-il un montant net ?</h3>
-<p>
-Non. Le calculateur travaille principalement sur des montants bruts ou estimatifs.
-</p>
+      </div>
 
-<h2>Autres simulateurs</h2>
+      <div class="warning">
+        Le montant affiché est une estimation. Certaines indemnités sont
+        conditionnées au motif de rupture, au contrat, à la convention collective
+        ou à la situation individuelle du salarié.
+      </div>
 
-<div class="links">
-<a href="../simulateur-conges-payes/">Congés payés</a>
-<a href="../simulateur-prime-precarite/">Prime de précarité</a>
-<a href="../simulateur-brut-net/">Brut → Net</a>
-<a href="../simulateur-rupture-conventionnelle/">Rupture conventionnelle</a>
-<a href="../simulateur-indemnite-licenciement/">Indemnité licenciement</a>
-<a href="../simulateur-preavis-demission/">Préavis démission</a>
-</div>
+    </div>
 
-</section>
+  </section>
+
+  <section class="info-section">
+
+    <h2>Qu'est-ce que le solde de tout compte ?</h2>
+
+    <p>
+      Le solde de tout compte est un document établi par l'employeur lors de la
+      fin du contrat de travail. Il fait l'inventaire des sommes versées au
+      salarié à l'occasion de la rupture du contrat.
+    </p>
+
+    <p>
+      Il peut notamment mentionner le dernier salaire, les congés payés,
+      certaines indemnités de rupture, l'indemnité compensatrice de préavis,
+      des primes ou d'autres sommes restant dues.
+    </p>
+
+    <p>
+      Il ne s'agit donc pas d'une indemnité unique avec une formule universelle.
+      Le montant dépend de la situation du salarié et du motif de fin du contrat.
+    </p>
+
+    <p>
+      Source officielle :
+      <a href="https://code.travail.gouv.fr/fiche-service-public/solde-de-tout-compte"
+         target="_blank"
+         rel="noopener noreferrer">
+        Code du travail numérique
+      </a>.
+    </p>
+
+  </section>
+
+  <section class="info-section">
+
+    <h2>Quelles sommes peuvent être incluses ?</h2>
+
+    <h3>Le dernier salaire</h3>
+    <p>
+      Le salaire correspondant à la période travaillée mais qui n'a pas encore
+      été versé peut figurer dans le solde de tout compte.
+    </p>
+
+    <h3>L'indemnité compensatrice de congés payés</h3>
+    <p>
+      Les congés payés acquis mais non pris peuvent donner lieu à une indemnité
+      compensatrice lors de la rupture du contrat.
+    </p>
+
+    <h3>L'indemnité de licenciement</h3>
+    <p>
+      Elle peut être due en cas de licenciement lorsque les conditions prévues
+      par la loi ou la convention collective sont remplies.
+    </p>
+
+    <h3>L'indemnité compensatrice de préavis</h3>
+    <p>
+      Selon les circonstances de la rupture et l'exécution ou non du préavis,
+      une indemnité compensatrice peut être due.
+    </p>
+
+    <h3>Les primes et autres sommes</h3>
+    <p>
+      Le solde peut également intégrer des primes, heures supplémentaires,
+      commissions ou autres sommes restant dues au salarié.
+    </p>
+
+  </section>
+
+  <section class="info-section">
+
+    <h2>Le reçu pour solde de tout compte est-il obligatoire ?</h2>
+
+    <p>
+      L'employeur doit remettre au salarié un solde de tout compte à la fin
+      de son contrat, quel que soit le motif de rupture.
+    </p>
+
+    <p>
+      Le salarié n'est toutefois pas obligé de signer le reçu pour solde de
+      tout compte. S'il le signe, les sommes qui y sont mentionnées peuvent
+      être contestées dans un délai de 6 mois dans les conditions prévues
+      par le Code du travail.
+    </p>
+
+    <p>
+      <a href="https://code.travail.gouv.fr/fiche-service-public/solde-de-tout-compte"
+         target="_blank"
+         rel="noopener noreferrer">
+        Consulter les règles officielles sur le solde de tout compte
+      </a>
+    </p>
+
+  </section>
+
+  <section class="info-section">
+
+    <h2>Autres simulateurs SimuDroit</h2>
+
+    <div class="links-grid">
+
+      <a href="https://simudroit.netlify.app/simulateur-indemnite-licenciement/">
+        Indemnité de licenciement
+      </a>
+
+      <a href="https://simudroit.netlify.app/simulateur-rupture-conventionnelle/">
+        Rupture conventionnelle
+      </a>
+
+      <a href="https://simudroit.netlify.app/simulateur-preavis-demission/">
+        Préavis de démission
+      </a>
+
+      <a href="https://simudroit.netlify.app/simulateur-conges-payes/">
+        Congés payés
+      </a>
+
+      <a href="https://simudroit.netlify.app/simulateur-prime-precarite/">
+        Prime de précarité
+      </a>
+
+      <a href="https://simudroit.netlify.app/simulateur-chomage/">
+        Allocation chômage
+      </a>
+
+      <a href="https://simudroit.netlify.app/">
+        Tous les simulateurs
+      </a>
+
+    </div>
+
+  </section>
 
 </main>
 
-<footer>© 2026 SimuDroit — Simulateurs gratuits de droit du travail et de salaire.</footer>
+<footer>
+  <div>
+    © 2026 SimuDroit — Simulateurs et informations pratiques en droit du travail.
+  </div>
+</footer>
 
 <script>
-function calculer(){
+  function getValue(id) {
+    const value = parseFloat(document.getElementById(id).value);
+    return Number.isFinite(value) && value > 0 ? value : 0;
+  }
 
-const salaire=parseFloat(document.getElementById("salaire").value);
-const jours=parseFloat(document.getElementById("jours").value);
-const conges=parseFloat(document.getElementById("conges").value)||0;
-const indemnites=parseFloat(document.getElementById("indemnites").value)||0;
+  function formatEuro(value) {
+    return new Intl.NumberFormat("fr-FR", {
+      style: "currency",
+      currency: "EUR"
+    }).format(value);
+  }
 
-if(isNaN(salaire)||salaire<0||isNaN(jours)||jours<0){
-alert("Veuillez renseigner correctement les valeurs.");
-return;
-}
+  document.getElementById("calculate").addEventListener("click", function () {
 
-const dernierSalaire=(salaire/30)*jours;
-const total=dernierSalaire+conges+indemnites;
+    const salaire = getValue("salaire");
+    const jours = getValue("jours");
+    const conges = getValue("conges");
+    const licenciement = getValue("licenciement");
+    const preavis = getValue("preavis");
+    const precarite = getValue("precarite");
+    const autres = getValue("autres");
 
-document.getElementById("montant").textContent=
-total.toLocaleString("fr-FR",{style:"currency",currency:"EUR"});
+    /*
+      Estimation simplifiée :
+      salaire journalier = salaire mensuel / 30
 
-document.getElementById("details").innerHTML=
-"Dernier salaire estimé : <strong>"+
-dernierSalaire.toLocaleString("fr-FR",{style:"currency",currency:"EUR"})+
-"</strong><br>Congés payés : <strong>"+
-conges.toLocaleString("fr-FR",{style:"currency",currency:"EUR"})+
-"</strong><br>Autres sommes : <strong>"+
-indemnites.toLocaleString("fr-FR",{style:"currency",currency:"EUR"})+
-"</strong>";
+      Le calculateur ne cherche pas à déterminer si chaque indemnité
+      est juridiquement due. Il additionne les montants renseignés.
+    */
 
-document.getElementById("resultat").classList.add("show");
-}
+    const salaireRestant = (salaire / 30) * jours;
+
+    const total =
+      salaireRestant +
+      conges +
+      licenciement +
+      preavis +
+      precarite +
+      autres;
+
+    document.getElementById("resultSalaire").textContent =
+      formatEuro(salaireRestant);
+
+    document.getElementById("resultConges").textContent =
+      formatEuro(conges);
+
+    document.getElementById("resultLicenciement").textContent =
+      formatEuro(licenciement);
+
+    document.getElementById("resultPreavis").textContent =
+      formatEuro(preavis);
+
+    document.getElementById("resultPrecarite").textContent =
+      formatEuro(precarite);
+
+    document.getElementById("resultAutres").textContent =
+      formatEuro(autres);
+
+    document.getElementById("total").textContent =
+      formatEuro(total);
+
+    document.getElementById("result").classList.add("visible");
+  });
 </script>
 
 </body>
