@@ -1,166 +1,867 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8">
 
-<title>Simulateur préavis démission 2026 – Date de fin | SimuDroit</title>
-<meta name="description" content="Calculez une date indicative de fin de préavis après une démission avec notre simulateur gratuit.">
-<link rel="canonical" href="https://simudroit.netlify.app/simulateur-preavis-demission/">
-<meta name="robots" content="index,follow">
-<meta name="google-site-verification" content="qNMbDYWbGBih5YLnZttvWh9FPoK4oHcpb1N-GobCzsg">
+  <title>Simulateur préavis démission 2026 | Date de fin du préavis | SimuDroit</title>
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Simulateur préavis démission 2026">
-<meta property="og:description" content="Estimez votre date de fin de préavis après une démission.">
-<meta property="og:url" content="https://simudroit.netlify.app/simulateur-preavis-demission/">
+  <meta name="description" content="Calculez la date de fin de votre préavis après une démission. Simulateur gratuit 2026 pour estimer la fin du préavis selon sa durée.">
 
-<style>
-:root{--p:#0d5d7f;--s:#00a896;--d:#17324d;--t:#263746;--m:#687887;--bg:#f5f8fa;--b:#dce5ea}
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--t);line-height:1.6}
-header{background:linear-gradient(135deg,var(--p),#084763);color:#fff;padding:24px 18px}.head{max-width:1050px;margin:auto}.logo{font-size:1.55rem;font-weight:800}.logo span{color:#9df3e8}.crumb{margin-top:6px;font-size:.9rem}.crumb a{color:#fff}
-main{max-width:1050px;margin:auto;padding:35px 16px 60px}.hero{text-align:center;margin-bottom:30px}.hero h1{color:var(--d);font-size:clamp(2rem,5vw,3rem)}.hero p{color:var(--m);font-size:1.08rem}
-.card{max-width:720px;margin:auto;background:#fff;border:1px solid var(--b);border-radius:18px;padding:28px;box-shadow:0 12px 35px rgba(23,50,77,.08)}
-.field{margin-bottom:18px}label{display:block;font-weight:bold;margin-bottom:7px}input,select{width:100%;padding:13px;border:1px solid #cbd7de;border-radius:10px;font-size:1rem}
-button{width:100%;padding:15px;border:0;border-radius:11px;background:var(--s);color:#fff;font-weight:bold;font-size:1.05rem}
-.result{display:none;margin-top:22px;padding:20px;background:#eefaf7;border:1px solid #b9e8df;border-radius:14px}.result.show{display:block}.amount{font-size:2.1rem;font-weight:900;color:var(--d)}
-.warning{margin-top:15px;padding:13px;background:#fff8e6;border:1px solid #f0d58a;border-radius:10px;color:#765300;font-size:.92rem}
-.content{max-width:820px;margin:45px auto}.content h2{color:var(--d);margin-top:38px}.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}.links a{background:#fff;border:1px solid var(--b);padding:13px;border-radius:10px;color:var(--p);font-weight:bold;text-decoration:none}
-footer{text-align:center;padding:28px;background:#fff;border-top:1px solid var(--b);color:var(--m)}
-</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="robots" content="index, follow">
+
+  <meta name="google-site-verification" content="qNMbDYWbGBih5YLnZttvWh9FPoK4oHcpb1N-GobCzsg">
+
+  <link rel="canonical" href="https://simudroit.netlify.app/simulateur-preavis-demission/">
+
+  <meta property="og:title" content="Simulateur préavis démission 2026 | SimuDroit">
+  <meta property="og:description" content="Calculez la date de fin de votre préavis après une démission.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://simudroit.netlify.app/simulateur-preavis-demission/">
+  <meta property="og:site_name" content="SimuDroit">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Simulateur préavis démission 2026">
+  <meta name="twitter:description" content="Calculez la date estimée de fin de votre préavis.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#687887;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    html {
+      scroll-behavior:smooth;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      color:white;
+      text-decoration:none;
+      letter-spacing:-0.5px;
+    }
+
+    .logo span {
+      color:#7de0d2;
+    }
+
+    nav a {
+      color:white;
+      text-decoration:none;
+      font-size:.95rem;
+    }
+
+    nav a:hover {
+      text-decoration:underline;
+    }
+
+    .breadcrumb {
+      max-width:1050px;
+      margin:0 auto;
+      padding:14px 20px 0;
+      font-size:.88rem;
+      color:#d8e8ef;
+    }
+
+    .breadcrumb a {
+      color:#d8e8ef;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:35px 20px 60px;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:820px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      max-width:720px;
+      margin:0 auto 35px;
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 8px 30px rgba(23,50,77,.07);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+      font-size:1.35rem;
+    }
+
+    .field {
+      margin-bottom:20px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid #c9d6dd;
+      border-radius:10px;
+      font-size:1rem;
+      background:white;
+      color:var(--text);
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .help {
+      margin-top:6px;
+      color:var(--muted);
+      font-size:.88rem;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--secondary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    button:hover {
+      filter:brightness(.95);
+    }
+
+    .result {
+      display:none;
+      margin-top:24px;
+      padding:22px;
+      border-radius:14px;
+      background:#edf9f6;
+      border:1px solid #b8e8df;
+      text-align:center;
+    }
+
+    .result.show {
+      display:block;
+    }
+
+    .result-label {
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .date-result {
+      color:var(--success);
+      font-size:2rem;
+      font-weight:800;
+      margin:5px 0 8px;
+    }
+
+    .result-details {
+      margin:0;
+    }
+
+    .warning {
+      margin-top:18px;
+      padding:15px;
+      border-radius:10px;
+      background:#fff8e6;
+      border:1px solid #f0d58a;
+      color:#624600;
+      font-size:.92rem;
+      text-align:left;
+    }
+
+    .info {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin:0 auto 25px;
+    }
+
+    .info h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .info h3 {
+      color:var(--primary);
+      margin-top:24px;
+    }
+
+    .info ul {
+      padding-left:22px;
+    }
+
+    .example {
+      background:#f0f7fa;
+      border-left:4px solid var(--primary);
+      padding:15px 18px;
+      border-radius:8px;
+      margin:18px 0;
+    }
+
+    .faq-item {
+      margin-bottom:20px;
+    }
+
+    .faq-item:last-child {
+      margin-bottom:0;
+    }
+
+    .faq-item h3 {
+      margin-bottom:6px;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:10px;
+      padding:14px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    .links-grid a:hover {
+      border-color:var(--secondary);
+      background:#f7fffd;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dbe7ee;
+      padding:30px 20px;
+      text-align:center;
+      font-size:.9rem;
+    }
+
+    @media (max-width:700px) {
+      header {
+        padding:15px;
+      }
+
+      .header-inner {
+        align-items:flex-start;
+      }
+
+      nav {
+        display:none;
+      }
+
+      main {
+        padding:28px 15px 45px;
+      }
+
+      .calculator,
+      .info {
+        padding:21px;
+      }
+
+      .date-result {
+        font-size:1.7rem;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"SimuDroit",
+    "url":"https://simudroit.netlify.app/"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"Simulateur préavis démission 2026",
+    "url":"https://simudroit.netlify.app/simulateur-preavis-demission/",
+    "description":"Simulateur gratuit pour calculer la date de fin d'un préavis de démission."
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {
+        "@type":"ListItem",
+        "position":1,
+        "name":"Accueil",
+        "item":"https://simudroit.netlify.app/"
+      },
+      {
+        "@type":"ListItem",
+        "position":2,
+        "name":"Simulateur préavis démission",
+        "item":"https://simudroit.netlify.app/simulateur-preavis-demission/"
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Quelle est la durée du préavis en cas de démission ?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Il n'existe pas une durée unique applicable à tous les salariés. La durée dépend notamment de la convention collective, du contrat de travail ou des usages applicables."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"À partir de quand commence le préavis de démission ?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Le point de départ dépend notamment des modalités de notification de la démission et des règles applicables à la situation du salarié."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Peut-on être dispensé de préavis ?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Une dispense peut notamment être demandée ou accordée selon les conditions applicables. Les conséquences sur la rémunération et la date de fin du contrat dépendent de l'origine de la dispense."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
 
 <header>
-<div class="head">
-<div class="logo">Simu<span>Droit</span></div>
-<div class="crumb"><a href="https://simudroit.netlify.app/">Accueil</a> › Préavis de démission</div>
-</div>
+
+  <div class="header-inner">
+
+    <a class="logo" href="https://simudroit.netlify.app/">
+      Simu<span>Droit</span>
+    </a>
+
+    <nav>
+      <a href="https://simudroit.netlify.app/">
+        Tous les simulateurs
+      </a>
+    </nav>
+
+  </div>
+
+  <div class="breadcrumb">
+    <a href="https://simudroit.netlify.app/">Accueil</a>
+    &nbsp;›&nbsp; Préavis de démission
+  </div>
+
 </header>
 
 <main>
 
-<section class="hero">
-<h1>Simulateur préavis de démission 2026</h1>
-<p>Estimez la date de fin de votre préavis à partir de sa durée.</p>
-</section>
+  <section class="hero">
 
-<section class="card">
+    <h1>Simulateur de préavis de démission</h1>
 
-<h2>Calculer votre date de fin</h2>
+    <p>
+      Calculez la date estimée de fin de votre préavis à partir
+      de la date de notification de votre démission et de sa durée.
+    </p>
 
-<div class="field">
-<label for="date">Date de notification de la démission</label>
-<input id="date" type="date">
-</div>
+  </section>
 
-<div class="field">
-<label for="duree">Durée du préavis</label>
-<input id="duree" type="number" min="0" step="1" placeholder="1">
-</div>
+  <section class="calculator" aria-label="Calculateur de préavis de démission">
 
-<div class="field">
-<label for="unite">Unité</label>
-<select id="unite">
-<option value="mois">Mois</option>
-<option value="jours">Jours</option>
-</select>
-</div>
+    <h2>Calculez votre date de fin de préavis</h2>
 
-<button onclick="calculer()">Calculer la date</button>
+    <div class="field">
 
-<div id="resultat" class="result">
-<div id="montant" class="amount"></div>
-<p id="details"></p>
-<div class="warning">
-La date affichée est indicative. Le point de départ exact du préavis dépend du mode de notification et des règles applicables.
-</div>
-</div>
+      <label for="dateDemission">
+        Date de notification de la démission
+      </label>
 
-</section>
+      <input
+        id="dateDemission"
+        type="date"
+      >
 
-<section class="content">
+      <div class="help">
+        Indiquez la date à laquelle votre démission a été valablement
+        notifiée à votre employeur.
+      </div>
 
-<h2>Quelle est la durée d'un préavis de démission ?</h2>
+    </div>
 
-<p>
-Il n'existe pas une durée unique applicable à toutes les démissions.
-La durée du préavis peut dépendre de la convention collective, du contrat de travail ou des usages.
-</p>
+    <div class="field">
 
-<h2>Quand commence le préavis ?</h2>
+      <label for="dureeType">
+        Durée du préavis
+      </label>
 
-<p>
-Le point de départ dépend notamment de la manière dont la démission est notifiée.
-La date de réception ou de présentation peut avoir une importance.
-</p>
+      <select id="dureeType">
+        <option value="jours">En jours calendaires</option>
+        <option value="semaines">En semaines</option>
+        <option value="mois">En mois</option>
+      </select>
 
-<h2>Pourquoi notre résultat est-il indicatif ?</h2>
+    </div>
 
-<p>
-Le calculateur ajoute simplement la durée renseignée à la date fournie.
-Il ne détermine pas quelle durée de préavis vous est juridiquement applicable.
-</p>
+    <div class="field">
 
-<h2>Questions fréquentes</h2>
+      <label for="duree">
+        Durée
+      </label>
 
-<h3>Le préavis est-il toujours d'un mois ?</h3>
-<p>
-Non. La durée varie selon la situation professionnelle et les règles applicables.
-</p>
+      <input
+        id="duree"
+        type="number"
+        min="0"
+        step="1"
+        placeholder="Ex. 30"
+      >
 
-<h3>Peut-on être dispensé de préavis ?</h3>
-<p>
-Une dispense peut intervenir dans certaines conditions. Ses conséquences doivent être vérifiées au cas par cas.
-</p>
+      <div class="help">
+        Renseignez la durée prévue par votre convention collective,
+        votre contrat ou les règles applicables à votre situation.
+      </div>
 
-<h2>Autres simulateurs</h2>
+    </div>
 
-<div class="links">
-<a href="../simulateur-solde-tout-compte/">Solde de tout compte</a>
-<a href="../simulateur-chomage/">Allocation chômage</a>
-<a href="../simulateur-rupture-conventionnelle/">Rupture conventionnelle</a>
-<a href="../simulateur-indemnite-licenciement/">Indemnité licenciement</a>
-</div>
+    <button type="button" onclick="calculer()">
+      Calculer la date de fin
+    </button>
 
-</section>
+    <div id="resultat" class="result" aria-live="polite">
+
+      <div class="result-label">
+        Date de fin estimée du préavis
+      </div>
+
+      <div id="dateFin" class="date-result">
+        —
+      </div>
+
+      <p id="details" class="result-details"></p>
+
+      <div class="warning">
+        <strong>Important :</strong>
+        ce résultat est une estimation calendaire. Le point de départ
+        et le calcul exact du préavis peuvent dépendre des modalités
+        de notification de la démission, de la convention collective,
+        du contrat de travail et de la situation du salarié.
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="info">
+
+    <h2>Quelle est la durée du préavis de démission ?</h2>
+
+    <p>
+      Il n'existe pas une durée légale unique de préavis applicable
+      à tous les salariés du secteur privé.
+    </p>
+
+    <p>
+      La durée peut notamment être déterminée par :
+    </p>
+
+    <ul>
+      <li>la convention collective applicable ;</li>
+      <li>le contrat de travail ;</li>
+      <li>les usages applicables à la profession ou à l'entreprise.</li>
+    </ul>
+
+    <p>
+      Il est donc essentiel de vérifier la source qui détermine votre
+      préavis avant d'utiliser le calculateur.
+    </p>
+
+    <h3>Exemple</h3>
+
+    <div class="example">
+
+      Vous notifiez votre démission le
+      <strong>10 octobre 2026</strong> et votre préavis applicable
+      est de <strong>1 mois</strong>.
+
+      <br><br>
+
+      Le calculateur ajoute la durée renseignée et fournit une
+      <strong>date de fin estimative</strong>.
+
+    </div>
+
+    <p>
+      Le résultat doit ensuite être confronté aux règles précises
+      applicables à votre contrat.
+    </p>
+
+  </section>
+
+  <section class="info">
+
+    <h2>Pourquoi la date de notification est importante ?</h2>
+
+    <p>
+      Pour calculer correctement un préavis, il faut déterminer à
+      quelle date la démission est considérée comme portée à la
+      connaissance de l'employeur.
+    </p>
+
+    <p>
+      Selon le mode de notification utilisé, cette date peut avoir
+      des conséquences sur le point de départ du préavis.
+    </p>
+
+    <p>
+      Le présent outil vous demande donc de renseigner directement
+      la date de notification que vous retenez pour votre calcul.
+    </p>
+
+    <h3>Préavis en mois, semaines ou jours</h3>
+
+    <p>
+      Le calculateur permet de saisir une durée en mois, en semaines
+      ou en jours calendaires. Lorsque la durée est exprimée en mois,
+      le calcul est effectué en conservant autant que possible le
+      même jour du mois.
+    </p>
+
+    <p>
+      <strong>Attention :</strong> ce calcul informatique ne remplace
+      pas l'interprétation des règles conventionnelles ou contractuelles
+      applicables à votre situation.
+    </p>
+
+    <p>
+      Pour vérifier les règles applicables, consultez notamment votre
+      convention collective et les informations officielles du
+      <a
+        href="https://www.service-public.fr/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Service-Public.fr
+      </a>.
+    </p>
+
+  </section>
+
+  <section class="info">
+
+    <h2>Questions fréquentes</h2>
+
+    <div class="faq-item">
+
+      <h3>Existe-t-il un préavis légal de 1 mois pour une démission ?</h3>
+
+      <p>
+        Non. Il n'existe pas de durée unique de 1 mois applicable
+        à tous les salariés. La durée dépend notamment de la
+        convention collective, du contrat ou des usages.
+      </p>
+
+    </div>
+
+    <div class="faq-item">
+
+      <h3>Mon employeur peut-il refuser ma démission ?</h3>
+
+      <p>
+        Une démission répondant aux conditions requises met fin au
+        contrat à l'issue du préavis applicable. L'employeur ne peut
+        pas simplement transformer une démission en demande
+        d'autorisation.
+      </p>
+
+    </div>
+
+    <div class="faq-item">
+
+      <h3>Puis-je quitter l'entreprise avant la fin du préavis ?</h3>
+
+      <p>
+        Une réduction ou une dispense de préavis peut être possible
+        selon les circonstances et l'accord des parties. Les
+        conséquences financières peuvent être différentes selon que
+        la dispense vient de l'employeur ou du salarié.
+      </p>
+
+    </div>
+
+    <div class="faq-item">
+
+      <h3>Le simulateur tient-il compte de ma convention collective ?</h3>
+
+      <p>
+        Non. Le simulateur ne connaît pas automatiquement votre
+        convention collective. Vous devez donc déterminer au préalable
+        la durée de préavis qui vous est applicable.
+      </p>
+
+    </div>
+
+  </section>
+
+  <section class="info">
+
+    <h2>Autres simulateurs SimuDroit</h2>
+
+    <div class="links-grid">
+
+      <a href="https://simudroit.netlify.app/simulateur-rupture-conventionnelle/">
+        Simulateur rupture conventionnelle
+      </a>
+
+      <a href="https://simudroit.netlify.app/simulateur-indemnite-licenciement/">
+        Simulateur indemnité de licenciement
+      </a>
+
+      <a href="https://simudroit.netlify.app/simulateur-chomage/">
+        Simulateur chômage
+      </a>
+
+      <a href="https://simudroit.netlify.app/simulateur-solde-tout-compte/">
+        Simulateur solde de tout compte
+      </a>
+
+      <a href="https://simudroit.netlify.app/simulateur-conges-payes/">
+        Simulateur congés payés
+      </a>
+
+      <a href="https://simudroit.netlify.app/">
+        Voir tous les simulateurs
+      </a>
+
+    </div>
+
+  </section>
 
 </main>
 
-<footer>© 2026 SimuDroit — Simulateurs gratuits de droit du travail et de salaire.</footer>
+<footer>
+
+  <p>
+    © 2026 SimuDroit — Simulateurs et informations pratiques en droit du travail.
+  </p>
+
+  <p>
+    Les résultats sont indicatifs et ne constituent pas un conseil juridique.
+  </p>
+
+</footer>
 
 <script>
-function calculer(){
 
-const valeurDate=document.getElementById("date").value;
-const duree=parseInt(document.getElementById("duree").value);
-const unite=document.getElementById("unite").value;
+  function formatDate(date) {
 
-if(!valeurDate||isNaN(duree)||duree<0){
-alert("Veuillez renseigner la date et la durée.");
-return;
-}
+    return date.toLocaleDateString("fr-FR", {
+      day:"2-digit",
+      month:"long",
+      year:"numeric"
+    });
 
-const date=new Date(valeurDate+"T12:00:00");
+  }
 
-if(unite==="mois"){
-date.setMonth(date.getMonth()+duree);
-}else{
-date.setDate(date.getDate()+duree);
-}
+  function ajouterMois(date, mois) {
 
-const resultat=date.toLocaleDateString("fr-FR",{
-weekday:"long",
-day:"numeric",
-month:"long",
-year:"numeric"
-});
+    const resultat = new Date(date);
 
-document.getElementById("montant").textContent=resultat;
-document.getElementById("details").textContent="Date indicative de fin du préavis.";
-document.getElementById("resultat").classList.add("show");
-}
+    const jourInitial = resultat.getDate();
+
+    resultat.setMonth(
+      resultat.getMonth() + mois
+    );
+
+    /*
+      Si le mois cible ne possède pas le même numéro de jour,
+      on revient au dernier jour du mois cible.
+    */
+
+    if (resultat.getDate() !== jourInitial) {
+
+      resultat.setDate(0);
+
+    }
+
+    return resultat;
+
+  }
+
+  function calculer() {
+
+    const dateValue =
+      document.getElementById("dateDemission").value;
+
+    const duree =
+      parseInt(document.getElementById("duree").value, 10);
+
+    const type =
+      document.getElementById("dureeType").value;
+
+    if (!dateValue || isNaN(duree) || duree <= 0) {
+
+      alert(
+        "Veuillez renseigner une date de notification et une durée de préavis valide."
+      );
+
+      return;
+    }
+
+    /*
+      Utilisation de midi pour éviter certains problèmes
+      liés aux changements d'heure.
+    */
+
+    const dateDepart =
+      new Date(dateValue + "T12:00:00");
+
+    let dateFin;
+
+    if (type === "jours") {
+
+      dateFin =
+        new Date(dateDepart);
+
+      dateFin.setDate(
+        dateFin.getDate() + duree
+      );
+
+    }
+
+    else if (type === "semaines") {
+
+      dateFin =
+        new Date(dateDepart);
+
+      dateFin.setDate(
+        dateFin.getDate() + (duree * 7)
+      );
+
+    }
+
+    else {
+
+      dateFin =
+        ajouterMois(
+          dateDepart,
+          duree
+        );
+
+    }
+
+    document.getElementById("dateFin").textContent =
+      formatDate(dateFin);
+
+    let unite;
+
+    if (type === "jours") {
+      unite = duree > 1 ? "jours" : "jour";
+    }
+
+    else if (type === "semaines") {
+      unite = duree > 1 ? "semaines" : "semaine";
+    }
+
+    else {
+      unite = duree > 1 ? "mois" : "mois";
+    }
+
+    document.getElementById("details").textContent =
+      "Calcul effectué à partir du " +
+      formatDate(dateDepart) +
+      " pour une durée de " +
+      duree +
+      " " +
+      unite +
+      ".";
+
+    document.getElementById("resultat").classList.add("show");
+
+  }
+
 </script>
 
 </body>
