@@ -1,163 +1,722 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Simulateur net brut 2026 – Calcul salaire net en brut | SimuDroit</title>
-<meta name="description" content="Convertissez votre salaire net en salaire brut grâce à notre simulateur net brut 2026 gratuit.">
-<link rel="canonical" href="https://simudroit.netlify.app/simulateur-net-brut/">
-<meta name="robots" content="index,follow">
-<meta name="google-site-verification" content="qNMbDYWbGBih5YLnZttvWh9FPoK4oHcpb1N-GobCzsg">
+  <title>Simulateur net brut 2026 | Calcul salaire net en brut | SimuDroit</title>
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Simulateur net brut 2026 | SimuDroit">
-<meta property="og:description" content="Estimez votre salaire brut à partir de votre salaire net.">
-<meta property="og:url" content="https://simudroit.netlify.app/simulateur-net-brut/">
+  <meta name="description" content="Calculez votre salaire brut à partir de votre salaire net avec notre simulateur net-brut 2026. Estimation rapide et gratuite.">
 
-<script type="application/ld+json">
-{
-"@context":"https://schema.org",
-"@graph":[
-{"@type":"WebSite","name":"SimuDroit","url":"https://simudroit.netlify.app/"},
-{"@type":"WebPage","name":"Simulateur net brut 2026","url":"https://simudroit.netlify.app/simulateur-net-brut/"},
-{"@type":"BreadcrumbList","itemListElement":[
-{"@type":"ListItem","position":1,"name":"SimuDroit","item":"https://simudroit.netlify.app/"},
-{"@type":"ListItem","position":2,"name":"Simulateur net brut","item":"https://simudroit.netlify.app/simulateur-net-brut/"}
-]}
-]
-}
-</script>
+  <meta name="robots" content="index, follow">
 
-<style>
-:root{--p:#0d5d7f;--s:#00a896;--d:#17324d;--t:#263746;--m:#687887;--bg:#f5f8fa;--b:#dce5ea}
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--t);line-height:1.6}
-header{background:linear-gradient(135deg,var(--p),#084763);color:white;padding:24px 18px}.head{max-width:1050px;margin:auto}.logo{font-size:1.55rem;font-weight:800}.logo span{color:#9df3e8}.crumb{font-size:.9rem;margin-top:6px}.crumb a{color:white}
-main{max-width:1050px;margin:auto;padding:35px 16px 60px}.hero{text-align:center;margin-bottom:30px}.hero h1{color:var(--d);font-size:clamp(2rem,5vw,3rem);line-height:1.15}.hero p{color:var(--m);font-size:1.08rem}
-.card{max-width:720px;margin:auto;background:white;border:1px solid var(--b);border-radius:18px;padding:28px;box-shadow:0 12px 35px rgba(23,50,77,.08)}
-.field{margin-bottom:18px}label{display:block;font-weight:bold;margin-bottom:7px}input,select{width:100%;padding:13px;border:1px solid #cbd7de;border-radius:10px;font-size:1rem}
-button{width:100%;padding:15px;border:0;border-radius:11px;background:var(--s);color:white;font-size:1.05rem;font-weight:bold}
-.result{display:none;margin-top:22px;padding:20px;background:#eefaf7;border:1px solid #b9e8df;border-radius:14px}.result.show{display:block}.amount{font-size:2.2rem;font-weight:900;color:var(--d)}
-.warning{margin-top:15px;padding:13px;background:#fff8e6;border:1px solid #f0d58a;border-radius:10px;color:#765300;font-size:.92rem}
-.content{max-width:820px;margin:45px auto}.content h2{color:var(--d);margin-top:38px}.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}.links a{background:white;border:1px solid var(--b);padding:13px;border-radius:10px;color:var(--p);font-weight:bold;text-decoration:none}
-footer{text-align:center;padding:28px;background:white;border-top:1px solid var(--b);color:var(--m)}
-</style>
+  <meta name="google-site-verification" content="qNMbDYWbGBih5YLnZttvWh9FPoK4oHcpb1N-GobCzsg">
+
+  <link rel="canonical" href="https://simudroit.netlify.app/simulateur-net-brut/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Simulateur net brut 2026 | SimuDroit">
+  <meta property="og:description" content="Convertissez votre salaire net en salaire brut grâce à notre simulateur gratuit.">
+  <meta property="og:url" content="https://simudroit.netlify.app/simulateur-net-brut/">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Simulateur net brut 2026 | SimuDroit">
+  <meta name="twitter:description" content="Estimez votre salaire brut à partir de votre salaire net.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#687887;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"SimuDroit",
+    "url":"https://simudroit.netlify.app/"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"Simulateur net brut 2026",
+    "url":"https://simudroit.netlify.app/simulateur-net-brut/",
+    "description":"Simulateur permettant d'estimer un salaire brut à partir d'un salaire net."
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {
+        "@type":"ListItem",
+        "position":1,
+        "name":"SimuDroit",
+        "item":"https://simudroit.netlify.app/"
+      },
+      {
+        "@type":"ListItem",
+        "position":2,
+        "name":"Simulateur net brut",
+        "item":"https://simudroit.netlify.app/simulateur-net-brut/"
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Comment calculer un salaire brut à partir du net ?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Le salaire brut peut être estimé à partir du salaire net en réintégrant les cotisations salariales. Le taux réel dépend toutefois de nombreux paramètres."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Existe-t-il un taux unique pour passer du net au brut ?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Non. Il n'existe pas un taux unique applicable à tous les salariés. Le résultat dépend notamment du statut, du contrat et des différents paramètres de paie."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Quelle différence entre net avant impôt et net après impôt ?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Le net avant impôt correspond au salaire après les cotisations salariales mais avant prélèvement à la source. Le net après impôt correspond au montant effectivement versé après application du prélèvement à la source."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
 
 <header>
-<div class="head">
-<div class="logo">Simu<span>Droit</span></div>
-<div class="crumb"><a href="https://simudroit.netlify.app/">Accueil</a> › Simulateur net brut</div>
-</div>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.netlify.app/">Simu<span>Droit</span></a>
+  </div>
 </header>
 
 <main>
 
-<section class="hero">
-<h1>Simulateur net → brut 2026</h1>
-<p>Estimez le salaire brut correspondant à votre salaire net mensuel.</p>
-</section>
+  <div class="breadcrumb">
+    <a href="https://simudroit.netlify.app/">Accueil</a>
+    &nbsp;›&nbsp;
+    Simulateur net brut
+  </div>
 
-<section class="card">
+  <section class="hero">
+    <h1>Simulateur net brut</h1>
+    <p>
+      Estimez votre salaire brut à partir de votre salaire net
+      grâce à notre simulateur 2026.
+    </p>
+  </section>
 
-<h2>Calculer votre salaire brut</h2>
+  <section class="calculator">
 
-<div class="field">
-<label for="net">Salaire mensuel net (€)</label>
-<input id="net" type="number" min="0" step="0.01" placeholder="2000">
-</div>
+    <h2>Calculer mon salaire brut</h2>
 
-<div class="field">
-<label for="statut">Statut</label>
-<select id="statut">
-<option value="noncadre">Non-cadre</option>
-<option value="cadre">Cadre</option>
-</select>
-</div>
+    <div class="intro-note">
+      <strong>À savoir :</strong> le calcul inverse du net vers le brut
+      reste une estimation. Le taux réel de cotisations dépend de nombreux
+      paramètres de paie.
+    </div>
 
-<button onclick="calculer()">Calculer mon salaire brut</button>
+    <div class="field">
+      <label for="net">Salaire net mensuel (€)</label>
 
-<div id="resultat" class="result">
-<div id="montant" class="amount"></div>
-<p id="details"></p>
-<div class="warning">
-Résultat indicatif. Le taux réel de cotisations dépend de nombreux paramètres de paie.
-</div>
-</div>
+      <input
+        type="number"
+        id="net"
+        min="0"
+        step="0.01"
+        placeholder="Ex. 2 000"
+      >
+    </div>
 
-</section>
+    <div class="field">
+      <label for="statut">Statut</label>
 
-<section class="content">
+      <select id="statut">
+        <option value="noncadre">Salarié non-cadre</option>
+        <option value="cadre">Salarié cadre</option>
+      </select>
 
-<h2>Comment passer du net au brut ?</h2>
+      <div class="field-help">
+        Ce choix applique un taux indicatif différent.
+      </div>
+    </div>
 
-<p>
-Pour retrouver un salaire brut à partir d'un salaire net, il faut reconstituer les cotisations
-salariales qui ont été déduites du salaire brut.
-</p>
+    <div class="field">
+      <label for="taux">Taux estimatif de cotisations salariales (%)</label>
 
-<p>
-Le résultat dépend notamment du statut du salarié et des différents éléments présents sur le bulletin de salaire.
-</p>
+      <input
+        type="number"
+        id="taux"
+        min="0"
+        max="50"
+        step="0.1"
+        value="22"
+      >
 
-<h2>Une estimation, pas une fiche de paie</h2>
+      <div class="field-help">
+        Vous pouvez modifier le taux pour obtenir une estimation personnalisée.
+      </div>
+    </div>
 
-<p>
-Ce simulateur utilise un taux simplifié afin de fournir rapidement un ordre de grandeur.
-Il ne remplace pas un calcul de paie détaillé.
-</p>
+    <button type="button" id="calculate">
+      Calculer mon salaire brut
+    </button>
 
-<h2>Questions fréquentes</h2>
+    <div class="result" id="result" aria-live="polite">
 
-<h3>Pourquoi mon salaire brut réel peut-il être différent ?</h3>
-<p>
-Les cotisations, la mutuelle, les avantages et différents paramètres de rémunération peuvent modifier le résultat.
-</p>
+      <div class="result-title">
+        Salaire brut estimé
+      </div>
 
-<h3>Le montant affiché est-il le salaire contractuel ?</h3>
-<p>
-Non. Il s'agit d'une estimation du brut correspondant au net renseigné.
-</p>
+      <div class="result-main" id="brut">
+        0,00 €
+      </div>
 
-<h2>Autres simulateurs</h2>
+      <div class="result-row">
+        <span>Salaire net saisi</span>
+        <strong id="resultNet">0,00 €</strong>
+      </div>
 
-<div class="links">
-<a href="../simulateur-brut-net/">Brut → Net</a>
-<a href="../simulateur-chomage/">Allocation chômage</a>
-<a href="../simulateur-prime-precarite/">Prime de précarité</a>
-<a href="../simulateur-solde-tout-compte/">Solde de tout compte</a>
-</div>
+      <div class="result-row">
+        <span>Cotisations salariales estimées</span>
+        <strong id="resultCotisations">0,00 €</strong>
+      </div>
 
-</section>
+      <div class="result-row">
+        <span>Taux utilisé</span>
+        <strong id="resultTaux">0 %</strong>
+      </div>
+
+      <div class="warning">
+        Cette estimation ne constitue pas un calcul de fiche de paie.
+        Le salaire brut réel peut différer selon votre contrat, votre statut,
+        les cotisations applicables, les exonérations et les différents
+        éléments de rémunération.
+      </div>
+
+      <a
+        class="official-link"
+        href="https://mon-entreprise.urssaf.fr/simulateurs/salaire-brut-net"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        → Vérifier avec le simulateur officiel de l'Urssaf
+      </a>
+
+    </div>
+
+  </section>
+
+  <section class="info-section">
+
+    <h2>Comment passer du salaire net au salaire brut ?</h2>
+
+    <p>
+      Le salaire brut correspond à la rémunération avant déduction des
+      cotisations salariales. Le salaire net correspond au montant restant
+      après ces déductions.
+    </p>
+
+    <p>
+      Pour effectuer une conversion inverse, il faut donc estimer le montant
+      des cotisations salariales puis les réintégrer au salaire net.
+    </p>
+
+    <p>
+      Il n'existe toutefois pas de taux universel permettant de convertir
+      précisément tous les salaires nets en bruts. Le simulateur officiel
+      de l'Urssaf permet d'affiner le calcul selon différents paramètres,
+      notamment le contrat, le statut cadre, le temps partiel ou les heures
+      supplémentaires. [oai_citation:1‡Mon Entreprise](https://mon-entreprise.urssaf.fr/simulateurs/salaire-brut-net/embed?utm_source=chatgpt.com)
+    </p>
+
+    <p>
+      Pour une estimation détaillée, consultez le
+      <a
+        href="https://mon-entreprise.urssaf.fr/simulateurs/salaire-brut-net"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        simulateur salaire brut-net de l'Urssaf
+      </a>.
+    </p>
+
+  </section>
+
+  <section class="info-section">
+
+    <h2>Net avant impôt ou net après impôt ?</h2>
+
+    <h3>Net avant impôt</h3>
+
+    <p>
+      Le net avant impôt correspond au salaire après déduction des cotisations
+      salariales mais avant l'application du prélèvement à la source.
+    </p>
+
+    <h3>Net après impôt</h3>
+
+    <p>
+      Le net après impôt correspond au montant effectivement versé après
+      application du prélèvement à la source de l'impôt sur le revenu.
+    </p>
+
+    <p>
+      Pour convertir un salaire net en brut, il est donc important de savoir
+      quel montant net est utilisé comme point de départ.
+    </p>
+
+  </section>
+
+  <section class="info-section">
+
+    <h2>Pourquoi deux salariés peuvent-ils avoir un brut différent pour un même net ?</h2>
+
+    <p>
+      Les cotisations et contributions applicables peuvent varier selon la
+      situation du salarié. Le statut, le contrat de travail, le temps de
+      travail et différents éléments de rémunération peuvent notamment
+      modifier le calcul.
+    </p>
+
+    <p>
+      C'est pourquoi une conversion automatique basée sur un taux fixe doit
+      être considérée comme une estimation et non comme une fiche de paie.
+    </p>
+
+    <p>
+      À titre d'exemple, même le simulateur officiel de l'Urssaf indique que
+      ses calculs sont indicatifs et qu'ils ne tiennent pas compte de
+      l'intégralité de chaque situation individuelle. [oai_citation:2‡Mon Entreprise](https://mon-entreprise.urssaf.fr/simulateurs/salaire-brut-net/embed?utm_source=chatgpt.com)
+    </p>
+
+  </section>
+
+  <section class="info-section">
+
+    <h2>Autres simulateurs SimuDroit</h2>
+
+    <div class="links-grid">
+
+      <a href="https://simudroit.netlify.app/simulateur-brut-net/">
+        Simulateur brut net
+      </a>
+
+      <a href="https://simudroit.netlify.app/simulateur-heures-supplementaires/">
+        Heures supplémentaires
+      </a>
+
+      <a href="https://simudroit.netlify.app/simulateur-temps-partiel/">
+        Temps partiel
+      </a>
+
+      <a href="https://simudroit.netlify.app/simulateur-solde-tout-compte/">
+        Solde de tout compte
+      </a>
+
+      <a href="https://simudroit.netlify.app/simulateur-chomage/">
+        Simulateur chômage
+      </a>
+
+      <a href="https://simudroit.netlify.app/">
+        Tous les simulateurs
+      </a>
+
+    </div>
+
+  </section>
 
 </main>
 
-<footer>© 2026 SimuDroit — Simulateurs gratuits de droit du travail et de salaire.</footer>
+<footer>
+  © 2026 SimuDroit — Simulateurs et informations pratiques en droit du travail.
+</footer>
 
 <script>
-function calculer(){
+  const netInput = document.getElementById("net");
+  const statutInput = document.getElementById("statut");
+  const tauxInput = document.getElementById("taux");
+  const calculateButton = document.getElementById("calculate");
 
-const net=parseFloat(document.getElementById("net").value);
-const statut=document.getElementById("statut").value;
+  function formatEuro(value) {
+    return new Intl.NumberFormat("fr-FR", {
+      style: "currency",
+      currency: "EUR"
+    }).format(value);
+  }
 
-if(!net || net<=0){
-alert("Veuillez indiquer un salaire net.");
-return;
-}
+  function getNumber(id) {
+    const value = parseFloat(document.getElementById(id).value);
+    return Number.isFinite(value) ? value : 0;
+  }
 
-const taux=statut==="cadre" ? 0.24 : 0.22;
-const brut=net/(1-taux);
+  statutInput.addEventListener("change", function () {
 
-document.getElementById("montant").textContent=
-brut.toLocaleString("fr-FR",{style:"currency",currency:"EUR"});
+    if (this.value === "cadre") {
+      tauxInput.value = "24";
+    } else {
+      tauxInput.value = "22";
+    }
 
-document.getElementById("details").textContent=
-"Estimation du salaire brut mensuel.";
+  });
 
-document.getElementById("resultat").classList.add("show");
-}
+  calculateButton.addEventListener("click", function () {
+
+    const net = getNumber("net");
+    let taux = getNumber("taux");
+
+    if (net <= 0) {
+      alert("Veuillez saisir un salaire net supérieur à 0 €.");
+      return;
+    }
+
+    if (taux < 0) {
+      taux = 0;
+    }
+
+    if (taux > 50) {
+      taux = 50;
+    }
+
+    /*
+      Si le net représente :
+      brut - cotisations = net
+
+      alors :
+      brut = net / (1 - taux)
+
+      Exemple avec 22 % :
+      2 000 / 0,78 = 2 564,10 €
+    */
+
+    const brut = net / (1 - taux / 100);
+    const cotisations = brut - net;
+
+    document.getElementById("resultNet").textContent =
+      formatEuro(net);
+
+    document.getElementById("resultCotisations").textContent =
+      formatEuro(cotisations);
+
+    document.getElementById("resultTaux").textContent =
+      taux.toLocaleString("fr-FR", {
+        minimumFractionDigits:1,
+        maximumFractionDigits:1
+      }) + " %";
+
+    document.getElementById("brut").textContent =
+      formatEuro(brut);
+
+    document.getElementById("result").classList.add("visible");
+  });
 </script>
 
 </body>
