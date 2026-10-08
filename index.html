@@ -163,68 +163,67 @@
       {
         "@type": "ListItem",
         "position": 1,
-        "name": "Simulateur de rupture conventionnelle",
         "url": "https://simudroit.netlify.app/simulateur-rupture-conventionnelle/"
       },
 
       {
         "@type": "ListItem",
         "position": 2,
-        "name": "Simulateur d'indemnité de licenciement"
+        "url": "https://simudroit.netlify.app/simulateur-indemnite-licenciement/"
       },
 
       {
         "@type": "ListItem",
         "position": 3,
-        "name": "Simulateur brut en net"
+        "url": "https://simudroit.netlify.app/simulateur-brut-net/"
       },
 
       {
         "@type": "ListItem",
         "position": 4,
-        "name": "Simulateur net en brut"
+        "url": "https://simudroit.netlify.app/simulateur-net-brut/"
       },
 
       {
         "@type": "ListItem",
         "position": 5,
-        "name": "Simulateur d'allocation chômage"
+        "url": "https://simudroit.netlify.app/simulateur-chomage/"
       },
 
       {
         "@type": "ListItem",
         "position": 6,
-        "name": "Simulateur de prime de précarité"
+        "url": "https://simudroit.netlify.app/simulateur-prime-precarite/"
       },
 
       {
         "@type": "ListItem",
         "position": 7,
-        "name": "Simulateur de congés payés"
+        "url": "https://simudroit.netlify.app/simulateur-conges-payes/"
       },
 
       {
         "@type": "ListItem",
         "position": 8,
-        "name": "Simulateur d'heures supplémentaires"
+        "url": "https://simudroit.netlify.app/simulateur-heures-supplementaires/"
       },
 
       {
         "@type": "ListItem",
         "position": 9,
-        "name": "Simulateur de temps partiel"
+        "url": "https://simudroit.netlify.app/simulateur-temps-partiel/"
       },
 
       {
         "@type": "ListItem",
         "position": 10,
-        "name": "Simulateur de préavis de démission"
+        "url": "https://simudroit.netlify.app/simulateur-preavis-demission/"
       },
 
       {
         "@type": "ListItem",
         "position": 11,
-        "name": "Simulateur de solde de tout compte"
+        "url": "https://simudroit.netlify.app/simulateur-solde-tout-compte/"
       }
 
     ]
@@ -2776,14 +2775,6 @@ document.addEventListener(
 ====================================================== */
 
 
-/*
-  La carte rupture conventionnelle est maintenant
-  un véritable lien vers sa page SEO dédiée.
-
-  Les autres cartes continuent d'utiliser les modales.
-*/
-
-
 document
   .querySelectorAll(".simulator-card")
   .forEach(card => {
@@ -2796,20 +2787,10 @@ document
           card.dataset.key;
 
 
-        /*
-          Ne pas ouvrir la modale pour la page
-          SEO de rupture conventionnelle.
-        */
-
         if (key === "rupture") {
           return;
         }
 
-
-        /*
-          Pour les autres simulateurs,
-          fonctionnement historique conservé.
-        */
 
         event.preventDefault();
 
@@ -3047,12 +3028,6 @@ function checkHash() {
       ""
     );
 
-
-  /*
-    Si l'ancien lien hash
-    #simulateur-rupture est utilisé,
-    on redirige vers la vraie page SEO.
-  */
 
   if (key === "rupture") {
 
