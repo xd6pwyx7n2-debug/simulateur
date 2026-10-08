@@ -2,152 +2,163 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Simulateur heures supplémentaires 2026 – Calcul majoration | SimuDroit</title>
-<meta name="description" content="Calculez le montant de vos heures supplémentaires en 2026 avec les majorations de 25 % et 50 %.">
-<meta name="robots" content="index,follow">
+<title>Simulateur heures supplémentaires 2026 – Majoration | SimuDroit</title>
+<meta name="description" content="Calculez le montant de vos heures supplémentaires majorées à 25 % et 50 % avec notre simulateur gratuit.">
 <link rel="canonical" href="https://simudroit.netlify.app/simulateur-heures-supplementaires/">
-<meta name="theme-color" content="#0d5d7f">
+<meta name="robots" content="index,follow">
+<meta name="google-site-verification" content="qNMbDYWbGBih5YLnZttvWh9FPoK4oHcpb1N-GobCzsg">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Simulateur heures supplémentaires 2026">
+<meta property="og:description" content="Calculez vos heures supplémentaires majorées.">
+<meta property="og:url" content="https://simudroit.netlify.app/simulateur-heures-supplementaires/">
 
 <style>
-:root{--b:#0d5d7f;--d:#083f57;--t:#00a896;--bg:#f7f8f7;--txt:#18323d;--m:#60747c;--bd:#dce5e8;--s:#eaf8f5}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font-family:"IBM Plex Sans",Arial;line-height:1.65}a{color:var(--b);text-decoration:none}.nav,.hero-inner,.main,.footer{max-width:1100px;margin:auto}.nav{padding:16px 20px;display:flex;justify-content:space-between;background:#fff}.logo{font-size:22px;font-weight:700;color:var(--b)}.logo span{color:var(--t)}header{background:white;border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:10}.hero{padding:65px 20px;background:linear-gradient(135deg,#eef7f8,#fff)}h1,h2{font-family:"Crimson Pro";color:var(--d)}h1{font-size:clamp(42px,7vw,68px);line-height:1;margin:0 0 20px}.hero p{font-size:19px}.main{padding:0 20px;margin-top:-30px;margin-bottom:80px}.card{background:#fff;border:1px solid var(--bd);border-radius:20px;padding:32px;max-width:800px;box-shadow:0 14px 40px rgba(13,93,127,.1)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.full{grid-column:1/-1}.field{display:flex;flex-direction:column;gap:7px}label{font-weight:600;color:var(--d)}input,select{padding:15px;border:1px solid #c9d7dc;border-radius:10px;font:inherit}button{width:100%;padding:16px;margin-top:24px;background:var(--b);color:#fff;border:0;border-radius:10px;font:inherit;font-weight:700;cursor:pointer}.result{display:none;margin-top:25px;padding:24px;background:var(--s);border-radius:14px}.result.show{display:block}.amount{font:700 48px "Crimson Pro";color:var(--b)}.content{max-width:800px}.content p,.content li{font-size:17px}.toc,.sources,.related{background:white;border:1px solid var(--bd);border-radius:14px;padding:22px;margin:35px 0}.faq{border-top:1px solid var(--bd);padding:20px 0}footer{background:var(--d);color:#fff;padding:40px 20px}@media(max-width:700px){.grid{grid-template-columns:1fr}.full{grid-column:auto}.hero{padding:48px 18px}.main{padding:0 15px}.card{padding:23px}}
+:root{--p:#0d5d7f;--s:#00a896;--d:#17324d;--t:#263746;--m:#687887;--bg:#f5f8fa;--b:#dce5ea}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--t);line-height:1.6}
+header{background:linear-gradient(135deg,var(--p),#084763);color:white;padding:24px 18px}.head{max-width:1050px;margin:auto}.logo{font-size:1.55rem;font-weight:800}.logo span{color:#9df3e8}.crumb{margin-top:6px;font-size:.9rem}.crumb a{color:white}
+main{max-width:1050px;margin:auto;padding:35px 16px 60px}.hero{text-align:center;margin-bottom:30px}.hero h1{color:var(--d);font-size:clamp(2rem,5vw,3rem)}.hero p{color:var(--m);font-size:1.08rem}
+.card{max-width:720px;margin:auto;background:#fff;border:1px solid var(--b);border-radius:18px;padding:28px;box-shadow:0 12px 35px rgba(23,50,77,.08)}
+.field{margin-bottom:18px}label{display:block;font-weight:bold;margin-bottom:7px}input{width:100%;padding:13px;border:1px solid #cbd7de;border-radius:10px;font-size:1rem}
+button{width:100%;padding:15px;border:0;border-radius:11px;background:var(--s);color:white;font-weight:bold;font-size:1.05rem}
+.result{display:none;margin-top:22px;padding:20px;background:#eefaf7;border:1px solid #b9e8df;border-radius:14px}.result.show{display:block}.amount{font-size:2.2rem;font-weight:900;color:var(--d)}
+.warning{margin-top:15px;padding:13px;background:#fff8e6;border:1px solid #f0d58a;border-radius:10px;color:#765300;font-size:.92rem}
+.content{max-width:820px;margin:45px auto}.content h2{color:var(--d);margin-top:38px}.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}.links a{background:#fff;border:1px solid var(--b);padding:13px;border-radius:10px;color:var(--p);font-weight:bold;text-decoration:none}
+footer{text-align:center;padding:28px;background:#fff;border-top:1px solid var(--b);color:var(--m)}
 </style>
 </head>
 
 <body>
-<header><nav class="nav"><a class="logo" href="/">Simu<span>Droit</span></a><a href="/">← Tous les simulateurs</a></nav></header>
 
-<section class="hero"><div class="hero-inner">
-<div><a href="/">Accueil</a> → Heures supplémentaires</div>
+<header>
+<div class="head">
+<div class="logo">Simu<span>Droit</span></div>
+<div class="crumb"><a href="https://simudroit.netlify.app/">Accueil</a> › Heures supplémentaires</div>
+</div>
+</header>
+
+<main>
+
+<section class="hero">
 <h1>Simulateur heures supplémentaires 2026</h1>
-<p>Calculez le montant brut de vos heures supplémentaires avec les majorations applicables.</p>
-</div></section>
-
-<main class="main">
+<p>Calculez le montant brut de vos heures supplémentaires selon leur taux de majoration.</p>
+</section>
 
 <section class="card">
-<h2>Calculer mes heures supplémentaires</h2>
 
-<div class="grid">
+<h2>Calculer vos heures supplémentaires</h2>
 
-<div class="field full">
-<label for="hourly">Taux horaire brut</label>
-<input id="hourly" type="number" min="0" step="0.10" placeholder="Ex. 15">
+<div class="field">
+<label for="taux">Taux horaire brut (€)</label>
+<input id="taux" type="number" min="0" step="0.01" placeholder="15">
 </div>
 
 <div class="field">
-<label for="hours25">Heures à +25 %</label>
-<input id="hours25" type="number" min="0" step="0.5" value="0">
+<label for="h25">Nombre d'heures majorées à 25 %</label>
+<input id="h25" type="number" min="0" step="0.1" placeholder="8">
 </div>
 
 <div class="field">
-<label for="hours50">Heures à +50 %</label>
-<input id="hours50" type="number" min="0" step="0.5" value="0">
+<label for="h50">Nombre d'heures majorées à 50 %</label>
+<input id="h50" type="number" min="0" step="0.1" placeholder="2">
 </div>
 
+<button onclick="calculer()">Calculer</button>
+
+<div id="resultat" class="result">
+<div id="montant" class="amount"></div>
+<p id="details"></p>
+<div class="warning">
+Le calcul applique les taux renseignés. Une convention collective ou un accord peut prévoir des règles différentes.
+</div>
 </div>
 
-<button onclick="calculate()">Calculer mes heures supplémentaires</button>
-
-<div id="result" class="result">
-<div>Rémunération brute estimée :</div>
-<div id="amount" class="amount">0 €</div>
-<div id="details"></div>
-</div>
 </section>
 
-<article class="content">
+<section class="content">
 
-<div class="toc">
-<strong>Sur cette page</strong><br>
-<a href="#calcul">Comment calculer une heure supplémentaire ?</a><br>
-<a href="#majoration">Taux de majoration</a><br>
-<a href="#faq">Questions fréquentes</a>
-</div>
-
-<h2 id="calcul">Comment calculer une heure supplémentaire ?</h2>
+<h2>Comment sont majorées les heures supplémentaires ?</h2>
 
 <p>
-Une heure supplémentaire correspond, dans le régime général, à une heure
-effectuée au-delà de la durée légale hebdomadaire de 35 heures, sous réserve
-des règles d'aménagement du temps de travail.
+Les heures supplémentaires correspondent aux heures effectuées au-delà de la durée légale
+ou de la durée considérée comme équivalente.
 </p>
 
 <p>
-Le montant dépend du taux horaire brut et du taux de majoration applicable.
+À défaut de dispositions conventionnelles différentes, les premières heures supplémentaires
+sont généralement majorées de 25 %, puis les suivantes de 50 %.
 </p>
 
-<h2 id="majoration">Quel est le taux de majoration ?</h2>
+<h2>Que calcule ce simulateur ?</h2>
 
 <p>
-À défaut de disposition conventionnelle différente, les 8 premières heures
-supplémentaires de la semaine sont majorées de <strong>25 %</strong>, puis
-les suivantes de <strong>50 %</strong>.
+Le résultat correspond au montant brut total des heures supplémentaires, c'est-à-dire
+leur rémunération de base additionnée à leur majoration.
 </p>
+
+<h2>Exemple</h2>
 
 <p>
-Une convention collective ou un accord peut prévoir d'autres taux, avec un
-minimum légal de 10 % lorsque des dispositions conventionnelles fixent la
-majoration.
+Avec un taux horaire brut de 15 €, 8 heures à 25 % représentent 150 € brut.
+Deux heures à 50 % représentent 45 € brut supplémentaires.
 </p>
 
-<h2 id="faq">Questions fréquentes</h2>
+<h2>Questions fréquentes</h2>
 
-<div class="faq">
-<h3>Les heures supplémentaires sont-elles exonérées d'impôt ?</h3>
-<p>Elles bénéficient de dispositifs fiscaux et sociaux spécifiques dans certaines limites. Le montant réellement perçu dépend donc du bulletin de paie.</p>
+<h3>Toutes les heures supplémentaires sont-elles majorées à 25 % ?</h3>
+<p>
+Non. Les taux dépendent du nombre d'heures et des éventuelles dispositions conventionnelles.
+</p>
+
+<h3>Le résultat correspond-il au net payé ?</h3>
+<p>
+Non. Le résultat est exprimé en brut avant les éventuelles retenues.
+</p>
+
+<h2>Autres simulateurs</h2>
+
+<div class="links">
+<a href="../simulateur-brut-net/">Brut → Net</a>
+<a href="../simulateur-temps-partiel/">Temps partiel</a>
+<a href="../simulateur-solde-tout-compte/">Solde de tout compte</a>
+<a href="../simulateur-conges-payes/">Congés payés</a>
 </div>
 
-<div class="faq">
-<h3>Une heure supplémentaire à 50 % signifie quoi ?</h3>
-<p>Une heure payée normalement 15 € brut est rémunérée 22,50 € brut avec une majoration de 50 %.</p>
-</div>
-
-<div class="faq">
-<h3>Les heures supplémentaires sont-elles les mêmes que les heures complémentaires ?</h3>
-<p>Non. Pour un salarié à temps partiel, les heures au-delà de la durée contractuelle sont généralement des heures complémentaires.</p>
-</div>
-
-<section class="sources">
-<h2>Sources officielles</h2>
-<ul>
-<li><a href="https://www.service-public.fr/particuliers/vosdroits/F2391" target="_blank">Service-Public – Heures supplémentaires</a></li>
-</ul>
 </section>
 
-<div class="related">
-<a href="/simulateur-temps-partiel/">Simulateur temps partiel</a> ·
-<a href="/simulateur-brut-net/">Simulateur brut → net</a> ·
-<a href="/simulateur-conges-payes/">Simulateur congés payés</a>
-</div>
-
-</article>
 </main>
 
-<footer><div class="footer">SimuDroit · Simulateurs juridiques et sociaux</div></footer>
+<footer>© 2026 SimuDroit — Simulateurs gratuits de droit du travail et de salaire.</footer>
 
 <script>
-function euro(v){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR"}).format(v)}
-function calculate(){
-const rate=Number(document.getElementById("hourly").value);
-const h25=Number(document.getElementById("hours25").value)||0;
-const h50=Number(document.getElementById("hours50").value)||0;
-if(!rate){alert("Veuillez saisir votre taux horaire brut.");return}
-const v25=rate*1.25*h25;
-const v50=rate*1.50*h50;
-const total=v25+v50;
-document.getElementById("amount").textContent=euro(total);
+function calculer(){
+
+const taux=parseFloat(document.getElementById("taux").value);
+const h25=parseFloat(document.getElementById("h25").value)||0;
+const h50=parseFloat(document.getElementById("h50").value)||0;
+
+if(isNaN(taux)||taux<0){
+alert("Veuillez indiquer le taux horaire.");
+return;
+}
+
+const total25=taux*1.25*h25;
+const total50=taux*1.50*h50;
+const total=total25+total50;
+
+document.getElementById("montant").textContent=
+total.toLocaleString("fr-FR",{style:"currency",currency:"EUR"});
+
 document.getElementById("details").innerHTML=
-h25+" h à +25 % : <strong>"+euro(v25)+"</strong><br>"+
-h50+" h à +50 % : <strong>"+euro(v50)+"</strong>";
-document.getElementById("result").classList.add("show");
+"Heures à 25 % : <strong>"+total25.toLocaleString("fr-FR",{style:"currency",currency:"EUR"})+
+"</strong><br>Heures à 50 % : <strong>"+
+total50.toLocaleString("fr-FR",{style:"currency",currency:"EUR"})+"</strong>";
+
+document.getElementById("resultat").classList.add("show");
 }
 </script>
+
 </body>
 </html>
