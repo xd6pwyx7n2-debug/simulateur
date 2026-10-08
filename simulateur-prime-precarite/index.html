@@ -1,171 +1,722 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8">
 
-<title>Simulateur prime de précarité CDD 2026 | SimuDroit</title>
-<meta name="description" content="Calculez votre prime de précarité à la fin d'un CDD grâce à notre simulateur gratuit 2026.">
-<link rel="canonical" href="https://simudroit.netlify.app/simulateur-prime-precarite/">
-<meta name="robots" content="index,follow">
-<meta name="google-site-verification" content="qNMbDYWbGBih5YLnZttvWh9FPoK4oHcpb1N-GobCzsg">
+  <title>Simulateur prime de précarité CDD 2026 | SimuDroit</title>
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Simulateur prime de précarité CDD 2026">
-<meta property="og:description" content="Estimez votre indemnité de fin de contrat CDD.">
-<meta property="og:url" content="https://simudroit.netlify.app/simulateur-prime-precarite/">
+  <meta name="description" content="Calculez gratuitement votre indemnité de fin de CDD (prime de précarité) en 2026. Estimation selon le taux de 10 %, 6 % ou un taux conventionnel.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script type="application/ld+json">
-{
-"@context":"https://schema.org",
-"@graph":[
-{"@type":"WebSite","name":"SimuDroit","url":"https://simudroit.netlify.app/"},
-{"@type":"WebPage","name":"Simulateur prime de précarité CDD 2026","url":"https://simudroit.netlify.app/simulateur-prime-precarite/"},
-{"@type":"BreadcrumbList","itemListElement":[
-{"@type":"ListItem","position":1,"name":"SimuDroit","item":"https://simudroit.netlify.app/"},
-{"@type":"ListItem","position":2,"name":"Prime de précarité","item":"https://simudroit.netlify.app/simulateur-prime-precarite/"}
-]}
-]
-}
-</script>
+  <meta name="robots" content="index, follow">
+  <meta name="google-site-verification" content="qNMbDYWbGBih5YLnZttvWh9FPoK4oHcpb1N-GobCzsg">
 
-<style>
-:root{--p:#0d5d7f;--s:#00a896;--d:#17324d;--t:#263746;--m:#687887;--bg:#f5f8fa;--b:#dce5ea}
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--t);line-height:1.6}
-header{background:linear-gradient(135deg,var(--p),#084763);color:#fff;padding:24px 18px}.head{max-width:1050px;margin:auto}.logo{font-size:1.55rem;font-weight:800}.logo span{color:#9df3e8}.crumb{margin-top:6px;font-size:.9rem}.crumb a{color:#fff}
-main{max-width:1050px;margin:auto;padding:35px 16px 60px}.hero{text-align:center;margin-bottom:30px}.hero h1{color:var(--d);font-size:clamp(2rem,5vw,3rem)}.hero p{color:var(--m);font-size:1.08rem}
-.card{max-width:720px;margin:auto;background:#fff;border:1px solid var(--b);border-radius:18px;padding:28px;box-shadow:0 12px 35px rgba(23,50,77,.08)}
-.field{margin-bottom:18px}label{display:block;font-weight:bold;margin-bottom:7px}input,select{width:100%;padding:13px;border:1px solid #cbd7de;border-radius:10px;font-size:1rem}
-button{width:100%;padding:15px;border:0;border-radius:11px;background:var(--s);color:#fff;font-weight:bold;font-size:1.05rem}
-.result{display:none;margin-top:22px;padding:20px;background:#eefaf7;border:1px solid #b9e8df;border-radius:14px}.result.show{display:block}.amount{font-size:2.2rem;font-weight:900;color:var(--d)}
-.warning{margin-top:15px;padding:13px;background:#fff8e6;border:1px solid #f0d58a;border-radius:10px;color:#765300;font-size:.92rem}
-.content{max-width:820px;margin:45px auto}.content h2{color:var(--d);margin-top:38px}.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}.links a{background:#fff;border:1px solid var(--b);padding:13px;border-radius:10px;color:var(--p);font-weight:bold;text-decoration:none}
-footer{text-align:center;padding:28px;background:#fff;border-top:1px solid var(--b);color:var(--m)}
-</style>
+  <link rel="canonical" href="https://simudroit.netlify.app/simulateur-prime-precarite/">
+
+  <meta property="og:title" content="Simulateur prime de précarité CDD 2026 | SimuDroit">
+  <meta property="og:description" content="Estimez votre indemnité de fin de CDD en quelques secondes.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://simudroit.netlify.app/simulateur-prime-precarite/">
+  <meta property="og:site_name" content="SimuDroit">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Simulateur prime de précarité CDD 2026">
+  <meta name="twitter:description" content="Calculez votre indemnité de fin de CDD avec SimuDroit.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#687887;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    html {
+      scroll-behavior:smooth;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      color:white;
+      text-decoration:none;
+      letter-spacing:-0.5px;
+    }
+
+    .logo span {
+      color:#7de0d2;
+    }
+
+    nav a {
+      color:white;
+      text-decoration:none;
+      font-size:.95rem;
+      opacity:.95;
+    }
+
+    nav a:hover {
+      text-decoration:underline;
+    }
+
+    .breadcrumb {
+      max-width:1050px;
+      margin:0 auto;
+      padding:14px 20px 0;
+      font-size:.88rem;
+      color:#d8e8ef;
+    }
+
+    .breadcrumb a {
+      color:#d8e8ef;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:35px 20px 60px;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:820px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      max-width:720px;
+      margin:0 auto 35px;
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 8px 30px rgba(23,50,77,.07);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+      font-size:1.35rem;
+    }
+
+    .field {
+      margin-bottom:20px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid #c9d6dd;
+      border-radius:10px;
+      font-size:1rem;
+      background:white;
+      color:var(--text);
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .help {
+      margin-top:6px;
+      color:var(--muted);
+      font-size:.88rem;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--secondary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    button:hover {
+      filter:brightness(.95);
+    }
+
+    .result {
+      display:none;
+      margin-top:24px;
+      padding:22px;
+      border-radius:14px;
+      background:#edf9f6;
+      border:1px solid #b8e8df;
+      text-align:center;
+    }
+
+    .result.show {
+      display:block;
+    }
+
+    .result-label {
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .amount {
+      color:var(--success);
+      font-size:2rem;
+      font-weight:800;
+      margin:5px 0 8px;
+    }
+
+    .result-details {
+      margin:0;
+      color:var(--text);
+    }
+
+    .warning {
+      margin-top:18px;
+      padding:15px;
+      border-radius:10px;
+      background:#fff8e6;
+      border:1px solid #f0d58a;
+      color:#624600;
+      font-size:.92rem;
+      text-align:left;
+    }
+
+    .info {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin:0 auto 25px;
+    }
+
+    .info h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .info h3 {
+      color:var(--primary);
+      margin-top:24px;
+    }
+
+    .info ul {
+      padding-left:22px;
+    }
+
+    .example {
+      background:#f0f7fa;
+      border-left:4px solid var(--primary);
+      padding:15px 18px;
+      border-radius:8px;
+      margin:18px 0;
+    }
+
+    .faq-item {
+      margin-bottom:20px;
+    }
+
+    .faq-item:last-child {
+      margin-bottom:0;
+    }
+
+    .faq-item h3 {
+      margin-bottom:6px;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:10px;
+      padding:14px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    .links-grid a:hover {
+      border-color:var(--secondary);
+      background:#f7fffd;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dbe7ee;
+      padding:30px 20px;
+      text-align:center;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9ee9df;
+    }
+
+    @media (max-width:700px) {
+      header {
+        padding:15px;
+      }
+
+      .header-inner {
+        align-items:flex-start;
+      }
+
+      nav {
+        display:none;
+      }
+
+      main {
+        padding:28px 15px 45px;
+      }
+
+      .calculator,
+      .info {
+        padding:21px;
+      }
+
+      .amount {
+        font-size:1.7rem;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"SimuDroit",
+    "url":"https://simudroit.netlify.app/"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"Simulateur prime de précarité CDD 2026",
+    "url":"https://simudroit.netlify.app/simulateur-prime-precarite/",
+    "description":"Simulateur gratuit d'indemnité de fin de CDD."
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {
+        "@type":"ListItem",
+        "position":1,
+        "name":"Accueil",
+        "item":"https://simudroit.netlify.app/"
+      },
+      {
+        "@type":"ListItem",
+        "position":2,
+        "name":"Simulateur prime de précarité",
+        "item":"https://simudroit.netlify.app/simulateur-prime-precarite/"
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Quel est le taux de la prime de précarité ?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Le taux de droit commun est de 10 % de la rémunération brute totale versée pendant le CDD. Un taux de 6 % peut s'appliquer dans certaines conditions prévues par une convention ou un accord collectif."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"La prime de précarité est-elle toujours due ?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Non. Plusieurs situations excluent ou peuvent exclure le versement de l'indemnité, notamment certains contrats saisonniers, certains contrats conclus avec des jeunes pendant leurs vacances, la poursuite du CDD par un CDI ou certaines ruptures anticipées."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"La prime de précarité est-elle calculée sur toute la rémunération du CDD ?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"L'indemnité est calculée à partir de la rémunération totale brute due au salarié pendant le contrat, selon les règles applicables à sa situation."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
 
 <header>
-<div class="head">
-<div class="logo">Simu<span>Droit</span></div>
-<div class="crumb"><a href="https://simudroit.netlify.app/">Accueil</a> › Prime de précarité</div>
-</div>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.netlify.app/">Simu<span>Droit</span></a>
+
+    <nav>
+      <a href="https://simudroit.netlify.app/">Tous les simulateurs</a>
+    </nav>
+  </div>
+
+  <div class="breadcrumb">
+    <a href="https://simudroit.netlify.app/">Accueil</a>
+    &nbsp;›&nbsp; Prime de précarité CDD
+  </div>
 </header>
 
 <main>
 
-<section class="hero">
-<h1>Simulateur prime de précarité CDD 2026</h1>
-<p>Estimez votre indemnité de fin de contrat à partir de votre rémunération brute.</p>
-</section>
+  <section class="hero">
+    <h1>Simulateur de prime de précarité CDD</h1>
+    <p>
+      Estimez gratuitement votre indemnité de fin de contrat à partir
+      de la rémunération brute totale perçue pendant votre CDD.
+    </p>
+  </section>
 
-<section class="card">
+  <section class="calculator" aria-label="Calculateur de prime de précarité">
 
-<h2>Calculer la prime de précarité</h2>
+    <h2>Calculez votre indemnité de fin de CDD</h2>
 
-<div class="field">
-<label for="remuneration">Rémunération brute totale du CDD (€)</label>
-<input id="remuneration" type="number" min="0" step="0.01" placeholder="12000">
-</div>
+    <div class="field">
+      <label for="remuneration">
+        Rémunération brute totale du CDD
+      </label>
 
-<div class="field">
-<label for="taux">Taux</label>
-<select id="taux">
-<option value="10">10 % — cas général</option>
-<option value="6">6 % — cas particulier prévu par accord/convention</option>
-</select>
-</div>
+      <input
+        id="remuneration"
+        type="number"
+        min="0"
+        step="0.01"
+        placeholder="Ex. 18 000"
+      >
 
-<button onclick="calculer()">Calculer ma prime</button>
+      <div class="help">
+        Indiquez la rémunération brute totale versée ou due pendant le CDD,
+        hors indemnité de précarité elle-même.
+      </div>
+    </div>
 
-<div id="resultat" class="result">
-<div id="montant" class="amount"></div>
-<p id="details"></p>
+    <div class="field">
+      <label for="taux">Taux de l'indemnité</label>
 
-<div class="warning">
-Attention : plusieurs situations peuvent exclure ou modifier l'indemnité de fin de contrat. Vérifiez votre type de CDD et votre convention collective.
-</div>
-</div>
+      <select id="taux">
+        <option value="10">10 % — taux de droit commun</option>
+        <option value="6">6 % — si les conditions conventionnelles sont remplies</option>
+        <option value="custom">Autre taux prévu par convention ou accord</option>
+      </select>
+    </div>
 
-</section>
+    <div class="field" id="customField" style="display:none;">
+      <label for="customRate">Taux conventionnel personnalisé (%)</label>
 
-<section class="content">
+      <input
+        id="customRate"
+        type="number"
+        min="0"
+        step="0.01"
+        placeholder="Ex. 12"
+      >
 
-<h2>Qu'est-ce que la prime de précarité ?</h2>
+      <div class="help">
+        Utilisez cette option uniquement si votre convention ou accord
+        collectif prévoit un taux différent.
+      </div>
+    </div>
 
-<p>
-La prime de précarité, également appelée indemnité de fin de contrat, peut être versée
-au salarié à l'issue de certains contrats à durée déterminée.
-</p>
+    <button type="button" onclick="calculer()">
+      Calculer ma prime de précarité
+    </button>
 
-<p>
-Dans le cas général, elle est calculée à partir de la rémunération brute versée pendant le contrat.
-Le taux applicable peut toutefois dépendre de la situation et des dispositions conventionnelles.
-</p>
+    <div id="resultat" class="result" aria-live="polite">
+      <div class="result-label">Indemnité de fin de contrat estimée</div>
 
-<h2>Pourquoi le taux peut-il être différent ?</h2>
+      <div id="montant" class="amount">0 €</div>
 
-<p>
-Certaines conventions ou accords peuvent prévoir un taux différent dans les conditions prévues par la loi.
-Des situations particulières peuvent également exclure le versement de l'indemnité.
-</p>
+      <p id="details" class="result-details"></p>
 
-<h2>Quand la prime n'est-elle pas forcément due ?</h2>
+      <div class="warning">
+        <strong>Attention :</strong>
+        cette estimation suppose que vous avez droit à l'indemnité de
+        précarité. Certaines situations entraînent son absence.
+        Vérifiez votre contrat et votre convention collective.
+      </div>
+    </div>
 
-<p>
-Il existe plusieurs exceptions, notamment selon le motif du CDD et les conditions de fin du contrat.
-Il est donc important de vérifier les règles applicables à votre contrat avant de considérer le résultat comme définitif.
-</p>
+  </section>
 
-<h2>Questions fréquentes</h2>
+  <section class="info">
 
-<h3>La prime de précarité est-elle toujours de 10 % ?</h3>
-<p>
-Non. 10 % correspond au taux de référence dans le cas général, mais certaines situations permettent un taux différent ou excluent l'indemnité.
-</p>
+    <h2>Qu'est-ce que la prime de précarité ?</h2>
 
-<h3>La prime est-elle calculée sur le salaire brut ?</h3>
-<p>
-Le calcul repose sur les rémunérations prises en compte par les règles applicables au contrat.
-</p>
+    <p>
+      La prime de précarité, officiellement appelée
+      <strong>indemnité de fin de contrat</strong>, est versée à la fin
+      de certains contrats à durée déterminée lorsque la relation de
+      travail ne se poursuit pas en CDI.
+    </p>
 
-<h2>Autres simulateurs</h2>
+    <p>
+      Le taux de droit commun est de <strong>10 %</strong> de la
+      rémunération brute totale versée pendant le CDD. Dans certaines
+      situations prévues par une convention ou un accord collectif,
+      le taux peut être limité à <strong>6 %</strong> avec des
+      contreparties en matière de formation. Un taux supérieur peut
+      également être prévu par les dispositions collectives applicables.
+    </p>
 
-<div class="links">
-<a href="../simulateur-solde-tout-compte/">Solde de tout compte</a>
-<a href="../simulateur-conges-payes/">Congés payés</a>
-<a href="../simulateur-chomage/">Allocation chômage</a>
-<a href="../simulateur-brut-net/">Brut → Net</a>
-</div>
+    <p>
+      Le calculateur fournit une estimation et ne remplace pas
+      l'examen du contrat de travail, de la convention collective
+      et des conditions de fin du CDD.
+    </p>
 
-</section>
+    <h3>Exemple de calcul</h3>
+
+    <div class="example">
+      <strong>Exemple :</strong> si la rémunération brute totale
+      versée pendant le CDD est de 18 000 € et que le taux applicable
+      est de 10 %, l'indemnité estimée est de
+      <strong>1 800 €</strong>.
+    </div>
+
+    <h3>Dans quels cas la prime peut-elle ne pas être due ?</h3>
+
+    <p>
+      L'indemnité de fin de contrat n'est notamment pas due dans
+      plusieurs situations particulières :
+    </p>
+
+    <ul>
+      <li>le CDD se poursuit par un CDI ;</li>
+      <li>certains contrats saisonniers ;</li>
+      <li>certains contrats conclus avec un jeune pendant ses vacances scolaires ou universitaires ;</li>
+      <li>certains contrats conclus dans le cadre de dispositifs spécifiques d'emploi ou de formation ;</li>
+      <li>lorsque le salarié refuse, dans certaines conditions, un CDI proposé par l'employeur pour le même emploi ou un emploi similaire avec une rémunération au moins équivalente ;</li>
+      <li>certaines situations de rupture anticipée du CDD.</li>
+    </ul>
+
+    <p>
+      Les règles peuvent également dépendre de la convention collective
+      applicable. Il est donc important de vérifier les dispositions
+      correspondant à votre secteur.
+    </p>
+
+    <p>
+      <strong>Source officielle :</strong>
+      <a
+        href="https://travail-emploi.gouv.fr/droit-du-travail/les-contrats-de-travail/article/le-contrat-a-duree-determinee-cdd"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Ministère du Travail — contrat à durée déterminée
+      </a>.
+    </p>
+
+  </section>
+
+  <section class="info">
+
+    <h2>Questions fréquentes</h2>
+
+    <div class="faq-item">
+      <h3>Quel est le taux normal de la prime de précarité ?</h3>
+      <p>
+        Le taux de droit commun est de 10 % de la rémunération brute
+        totale du CDD. Un taux de 6 % peut s'appliquer dans certaines
+        conditions prévues par un accord ou une convention collective.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>La prime est-elle calculée sur le salaire mensuel ?</h3>
+      <p>
+        Non. Le principe est de prendre en compte la rémunération
+        brute totale due au salarié pendant le contrat.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Est-elle due si mon CDD devient un CDI ?</h3>
+      <p>
+        En principe, non : lorsque le CDD se poursuit par un CDI,
+        l'indemnité de fin de contrat n'est pas due.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Le taux peut-il être supérieur à 10 % ?</h3>
+      <p>
+        Oui. Une convention ou un accord collectif applicable peut
+        prévoir un taux plus favorable au salarié.
+      </p>
+    </div>
+
+  </section>
+
+  <section class="info">
+
+    <h2>Autres simulateurs SimuDroit</h2>
+
+    <div class="links-grid">
+      <a href="https://simudroit.netlify.app/simulateur-brut-net/">
+        Simulateur brut → net
+      </a>
+
+      <a href="https://simudroit.netlify.app/simulateur-net-brut/">
+        Simulateur net → brut
+      </a>
+
+      <a href="https://simudroit.netlify.app/simulateur-chomage/">
+        Simulateur chômage
+      </a>
+
+      <a href="https://simudroit.netlify.app/simulateur-conges-payes/">
+        Simulateur congés payés
+      </a>
+
+      <a href="https://simudroit.netlify.app/simulateur-solde-tout-compte/">
+        Simulateur solde de tout compte
+      </a>
+
+      <a href="https://simudroit.netlify.app/">
+        Voir tous les simulateurs
+      </a>
+    </div>
+
+  </section>
 
 </main>
 
-<footer>© 2026 SimuDroit — Simulateurs gratuits de droit du travail et de salaire.</footer>
+<footer>
+  <p>
+    © 2026 SimuDroit — Simulateurs et informations pratiques en droit du travail.
+  </p>
+
+  <p>
+    Les résultats sont indicatifs et ne constituent pas un conseil juridique.
+  </p>
+</footer>
 
 <script>
-function calculer(){
+  const tauxSelect = document.getElementById("taux");
+  const customField = document.getElementById("customField");
 
-const remuneration=parseFloat(document.getElementById("remuneration").value);
-const taux=parseFloat(document.getElementById("taux").value);
+  tauxSelect.addEventListener("change", function () {
+    customField.style.display =
+      this.value === "custom" ? "block" : "none";
+  });
 
-if(isNaN(remuneration)||remuneration<0){
-alert("Veuillez indiquer la rémunération brute.");
-return;
-}
+  function calculer() {
+    const remuneration =
+      parseFloat(document.getElementById("remuneration").value);
 
-const prime=remuneration*taux/100;
+    if (isNaN(remuneration) || remuneration < 0) {
+      alert("Veuillez indiquer une rémunération brute totale valide.");
+      return;
+    }
 
-document.getElementById("montant").textContent=
-prime.toLocaleString("fr-FR",{style:"currency",currency:"EUR"});
+    let taux;
 
-document.getElementById("details").textContent=
-"Taux appliqué : "+taux+" %.";
+    if (tauxSelect.value === "custom") {
+      taux = parseFloat(document.getElementById("customRate").value);
 
-document.getElementById("resultat").classList.add("show");
-}
+      if (isNaN(taux) || taux < 0) {
+        alert("Veuillez indiquer un taux conventionnel valide.");
+        return;
+      }
+    } else {
+      taux = parseFloat(tauxSelect.value);
+    }
+
+    const prime = remuneration * taux / 100;
+
+    document.getElementById("montant").textContent =
+      prime.toLocaleString("fr-FR", {
+        style:"currency",
+        currency:"EUR"
+      });
+
+    document.getElementById("details").textContent =
+      "Calcul : " +
+      remuneration.toLocaleString("fr-FR", {
+        style:"currency",
+        currency:"EUR"
+      }) +
+      " × " +
+      taux +
+      " %.";
+
+    document.getElementById("resultat").classList.add("show");
+  }
 </script>
 
 </body>
