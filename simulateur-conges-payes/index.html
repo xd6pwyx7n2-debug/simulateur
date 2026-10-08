@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Simulateur congés payés 2026 – Calcul indemnité | SimuDroit</title>
+
+<meta name="description" content="Calculez votre indemnité de congés payés en 2026 avec les méthodes du 1/10e et du maintien de salaire. Estimation gratuite.">
+
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://simudroit.netlify.app/simulateur-conges-payes/">
+<meta name="theme-color" content="#0d5d7f">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--blue:#0d5d7f;
+--dark:#083f57;
+--turq:#00a896;
+--bg:#f7f8f7;
+--text:#18323d;
+--muted:#60747c;
+--border:#dce5e8;
+--success:#eaf8f5;
+--warning:#fff7e6;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"IBM Plex Sans",Arial,sans-serif;line-height:1.65}
+a{color:var(--blue);text-decoration:none}
+header{background:white;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10}
+.nav,.hero-inner,.main,.footer-inner{max-width:1100px;margin:auto}
+.nav{padding:16px 20px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:22px;font-weight:700;color:var(--blue)}
+.logo span{color:var(--turq)}
+.hero{padding:65px 20px 70px;background:linear-gradient(135deg,#eef7f8,#fff)}
+.breadcrumb{color:var(--muted);font-size:14px;margin-bottom:20px}
+h1,h2{font-family:"Crimson Pro",Georgia,serif;color:var(--dark)}
+h1{font-size:clamp(42px,7vw,68px);line-height:1;margin:0 0 20px}
+.hero p{font-size:19px;max-width:750px;color:#45616b}
+.main{padding:0 20px;margin-top:-30px;margin-bottom:80px}
+.card{background:white;border:1px solid var(--border);border-radius:20px;padding:32px;max-width:800px;box-shadow:0 14px 40px rgba(13,93,127,.1)}
+h2{font-size:36px}
+.card h2{font-family:"IBM Plex Sans";font-size:26px;margin-top:0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.field{display:flex;flex-direction:column;gap:7px}
+.full{grid-column:1/-1}
+label{font-weight:600;color:var(--dark)}
+input{padding:15px;border:1px solid #c9d7dc;border-radius:10px;font:inherit}
+button{width:100%;padding:16px;margin-top:24px;background:var(--blue);border:0;border-radius:10px;color:white;font:inherit;font-weight:700;cursor:pointer}
+button:hover{background:var(--dark)}
+.hint,.small{font-size:13px;color:var(--muted)}
+.result{display:none;margin-top:25px;padding:24px;background:var(--success);border:1px solid #bce5dc;border-radius:14px}
+.result.show{display:block}
+.amount{font:700 48px "Crimson Pro";color:var(--blue)}
+.warning{margin-top:18px;padding:14px;background:var(--warning);border-left:4px solid #e7a52a}
+.content{max-width:800px}
+.content p,.content li{font-size:17px}
+.toc,.sources,.related{background:white;border:1px solid var(--border);border-radius:14px;padding:22px;margin:35px 0}
+.faq{border-top:1px solid var(--border);padding:20px 0}
+.faq h3{margin-bottom:5px}
+footer{background:var(--dark);color:white;padding:40px 20px}
+@media(max-width:700px){.grid{grid-template-columns:1fr}.full{grid-column:auto}.card{padding:23px}.hero{padding:48px 18px}.main{padding:0 15px}.amount{font-size:40px}}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav class="nav">
+<a class="logo" href="/">Simu<span>Droit</span></a>
+<a href="/">← Tous les simulateurs</a>
+</nav>
+</header>
+
+<section class="hero">
+<div class="hero-inner">
+<div class="breadcrumb"><a href="/">Accueil</a> → Congés payés</div>
+<h1>Simulateur congés payés 2026</h1>
+<p>Estimez votre indemnité de congés payés selon les deux principales méthodes de calcul.</p>
+</div>
+</section>
+
+<main class="main">
+
+<section class="card">
+<h2>Calculer votre indemnité</h2>
+
+<div class="grid">
+
+<div class="field full">
+<label for="salary">Rémunération brute de la période de référence</label>
+<input id="salary" type="number" min="0" step="100" placeholder="Ex. 24 000">
+<span class="hint">Indiquez la rémunération brute prise en compte sur la période de référence.</span>
+</div>
+
+<div class="field">
+<label for="days">Nombre de jours de congés</label>
+<input id="days" type="number" min="0" step="1" placeholder="Ex. 10">
+<span class="hint">Saisissez les jours ouvrables concernés.</span>
+</div>
+
+<div class="field">
+<label for="monthly">Salaire brut mensuel actuel</label>
+<input id="monthly" type="number" min="0" step="50" placeholder="Ex. 2 000">
+<span class="hint">Utilisé pour une estimation du maintien de salaire.</span>
+</div>
+
+</div>
+
+<button onclick="calculate()">Calculer mon indemnité</button>
+
+<div id="result" class="result">
+<div>Estimation la plus favorable :</div>
+<div id="amount" class="amount">0 €</div>
+<div id="details"></div>
+<div class="warning">
+Le montant réel doit être calculé avec les données exactes de paie. L'employeur doit retenir la méthode la plus favorable au salarié.
+</div>
+</div>
+</section>
+
+<article class="content">
+
+<div class="toc">
+<strong>Sur cette page</strong><br>
+<a href="#calcul">Comment calculer les congés payés ?</a><br>
+<a href="#dix">Règle du 1/10e</a><br>
+<a href="#maintien">Maintien de salaire</a><br>
+<a href="#faq">Questions fréquentes</a>
+</div>
+
+<h2 id="calcul">Comment calculer l'indemnité de congés payés ?</h2>
+
+<p>
+L'indemnité de congés payés peut être calculée selon deux méthodes :
+la règle du <strong>1/10e</strong> et celle du <strong>maintien de salaire</strong>.
+Le salarié doit bénéficier du calcul le plus favorable.
+</p>
+
+<h2 id="dix">La règle du 1/10e</h2>
+
+<p>
+La première méthode consiste à prendre 10 % de la rémunération brute totale
+prise en compte pendant la période de référence, puis à appliquer la
+proportion correspondant aux congés pris.
+</p>
+
+<p>
+Exemple : 24 000 € de rémunération annuelle et 10 jours ouvrables de congés :
+24 000 × 10 % × 10 / 30 = 800 €.
+</p>
+
+<h2 id="maintien">Le maintien de salaire</h2>
+
+<p>
+La deuxième méthode consiste à estimer ce que le salarié aurait perçu s'il
+avait continué à travailler pendant ses congés.
+</p>
+
+<p>
+Le calcul exact dépend notamment de l'horaire réellement travaillé et de la
+période concernée.
+</p>
+
+<h2 id="faq">Questions fréquentes</h2>
+
+<div class="faq">
+<h3>Quelle méthode est la meilleure ?</h3>
+<p>L'employeur doit comparer les deux méthodes et appliquer la plus favorable au salarié.</p>
+</div>
+
+<div class="faq">
+<h3>Les heures supplémentaires sont-elles prises en compte ?</h3>
+<p>Certaines majorations de salaire peuvent entrer dans la rémunération servant au calcul.</p>
+</div>
+
+<div class="faq">
+<h3>Combien de jours de congés acquiert-on ?</h3>
+<p>En règle générale, un salarié acquiert 2,5 jours ouvrables par mois de travail effectif, soit 30 jours ouvrables sur une année complète.</p>
+</div>
+
+<section class="sources">
+<h2>Sources officielles</h2>
+<ul>
+<li><a href="https://www.service-public.fr/particuliers/vosdroits/F33359" target="_blank">Service-Public – Calcul de l'indemnité de congés payés</a></li>
+<li><a href="https://www.service-public.fr/particuliers/vosdroits/F24661" target="_blank">Service-Public – Indemnité compensatrice</a></li>
+</ul>
+</section>
+
+<div class="related">
+<strong>Autres simulateurs</strong>
+<p><a href="/simulateur-heures-supplementaires/">Heures supplémentaires</a> ·
+<a href="/simulateur-temps-partiel/">Temps partiel</a> ·
+<a href="/simulateur-solde-tout-compte/">Solde de tout compte</a></p>
+</div>
+
+</article>
+</main>
+
+<footer>
+<div class="footer-inner">SimuDroit · Simulateurs juridiques et sociaux</div>
+</footer>
+
+<script>
+function euro(v){
+return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR"}).format(v);
+}
+function calculate(){
+const salary=Number(document.getElementById("salary").value);
+const days=Number(document.getElementById("days").value);
+const monthly=Number(document.getElementById("monthly").value);
+
+if(!salary||!days||!monthly){
+alert("Veuillez renseigner les trois champs.");
+return;
+}
+
+const tenth=(salary*0.10)*(days/30);
+const maintenance=monthly*(days/26);
+const best=Math.max(tenth,maintenance);
+
+document.getElementById("amount").textContent=euro(best);
+document.getElementById("details").innerHTML=
+"<strong>1/10e :</strong> "+euro(tenth)+"<br>"+
+"<strong>Maintien de salaire estimé :</strong> "+euro(maintenance);
+
+document.getElementById("result").classList.add("show");
+}
+</script>
+
+</body>
+</html>
