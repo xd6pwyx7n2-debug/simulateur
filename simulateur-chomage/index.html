@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Simulateur chômage 2026 – Calcul allocation ARE | SimuDroit</title>
 
   <meta name="description"
         content="Estimez votre allocation chômage ARE en 2026 à partir de votre salaire brut et de votre durée de travail. Calcul indicatif selon les règles France Travail.">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta name="robots" content="index, follow">
 
@@ -17,403 +19,442 @@
   <meta name="google-site-verification"
         content="qNMbDYWbGBih5YLnZttvWh9FPoK4oHcpb1N-GobCzsg">
 
-  <meta property="og:type" content="website">
   <meta property="og:title"
         content="Simulateur chômage 2026 – Calcul ARE">
+
   <meta property="og:description"
         content="Estimez votre allocation chômage ARE à partir de votre salaire brut.">
+
+  <meta property="og:type"
+        content="website">
+
   <meta property="og:url"
         content="https://simudroit.netlify.app/simulateur-chomage/">
-  <meta property="og:site_name" content="SimuDroit">
 
-  <meta name="twitter:card" content="summary">
+  <meta property="og:site_name"
+        content="SimuDroit">
+
+  <meta name="twitter:card"
+        content="summary">
+
   <meta name="twitter:title"
-        content="Simulateur chômage 2026 – Calcul ARE">
+        content="Simulateur chômage 2026">
+
   <meta name="twitter:description"
         content="Estimez votre allocation chômage avec SimuDroit.">
 
+
   <style>
+
     :root {
-      --primary: #0d5d7f;
-      --primary-dark: #084763;
-      --secondary: #00a896;
-      --dark: #17324d;
-      --text: #263746;
-      --muted: #687887;
-      --background: #f5f8fa;
-      --white: #ffffff;
-      --border: #dce5ea;
-      --success: #087f5b;
-      --warning: #9a6700;
-      --shadow: 0 10px 35px rgba(23, 50, 77, 0.08);
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#687887;
+      --background:#f5f8fa;
+      --white:#ffffff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
     }
 
     * {
-      box-sizing: border-box;
+      box-sizing:border-box;
     }
 
     body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: var(--background);
-      line-height: 1.6;
-    }
-
-    a {
-      color: var(--primary);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      color:var(--text);
+      background:var(--background);
+      line-height:1.6;
     }
 
     header {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: white;
-      padding: 18px 20px;
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
     }
 
     .header-inner {
-      max-width: 1050px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
+      max-width:1050px;
+      margin:auto;
+      padding:18px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
     }
 
     .logo {
-      color: white;
-      font-size: 1.45rem;
-      font-weight: 800;
-      text-decoration: none;
+      color:white;
+      text-decoration:none;
+      font-size:1.45rem;
+      font-weight:800;
+      letter-spacing:-.4px;
     }
 
     .logo span {
-      color: #7ee7d8;
-    }
-
-    .header-link {
-      color: white;
-      font-size: 0.92rem;
-    }
-
-    main {
-      max-width: 1050px;
-      margin: auto;
-      padding: 22px 18px 60px;
+      color:#6ee7d8;
     }
 
     .breadcrumb {
-      font-size: 0.88rem;
-      color: var(--muted);
-      margin-bottom: 25px;
+      max-width:1050px;
+      margin:auto;
+      padding:14px 20px 0;
+      font-size:.88rem;
+      color:#d8e8ef;
+    }
+
+    .breadcrumb a {
+      color:#d8e8ef;
+      text-decoration:none;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:35px 20px 60px;
     }
 
     .hero {
-      max-width: 780px;
-      margin: 20px auto 30px;
-      text-align: center;
+      max-width:820px;
+      margin:0 auto 30px;
+      text-align:center;
     }
 
     .hero h1 {
-      margin: 0 0 12px;
-      color: var(--dark);
-      font-size: clamp(2rem, 5vw, 3rem);
-      line-height: 1.15;
-      letter-spacing: -1px;
+      color:var(--dark);
+      font-size:clamp(1.8rem,4vw,2.6rem);
+      line-height:1.15;
+      margin:0 0 14px;
+      letter-spacing:-.6px;
     }
 
     .hero p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 1.05rem;
+      color:var(--muted);
+      margin:0;
+      font-size:1.05rem;
     }
 
     .calculator {
-      max-width: 720px;
-      margin: 0 auto 35px;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      box-shadow: var(--shadow);
-      padding: 28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 8px 30px rgba(23,50,77,.07);
     }
 
     .calculator h2 {
-      margin-top: 0;
-      color: var(--dark);
+      margin-top:0;
+      color:var(--dark);
     }
 
     .field {
-      margin-bottom: 18px;
+      margin-bottom:18px;
     }
 
     label {
-      display: block;
-      margin-bottom: 7px;
-      font-weight: 700;
-      color: var(--dark);
-    }
-
-    .help {
-      display: block;
-      margin-top: 5px;
-      font-size: 0.84rem;
-      color: var(--muted);
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
     }
 
     input,
     select {
-      width: 100%;
-      padding: 13px 14px;
-      border: 1px solid #c8d4da;
-      border-radius: 10px;
-      font-size: 1rem;
-      background: white;
-      color: var(--text);
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:10px;
+      font-size:16px;
+      background:white;
+      color:var(--text);
     }
 
     input:focus,
     select:focus {
-      outline: 3px solid rgba(0, 168, 150, 0.16);
-      border-color: var(--secondary);
+      outline:3px solid rgba(0,168,150,.18);
+      border-color:var(--secondary);
+    }
+
+    .help {
+      display:block;
+      margin-top:5px;
+      color:var(--muted);
+      font-size:.88rem;
     }
 
     button {
-      width: 100%;
-      border: 0;
-      border-radius: 10px;
-      padding: 14px 18px;
-      background: var(--primary);
-      color: white;
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
     }
 
     button:hover {
-      background: var(--primary-dark);
+      background:#084763;
     }
 
     .result {
-      display: none;
-      margin-top: 22px;
-      padding: 22px;
-      border-radius: 14px;
-      background: #eefaf7;
-      border: 1px solid #bfe9df;
+      display:none;
+      margin-top:22px;
+      padding:22px;
+      border-radius:14px;
+      background:#eefaf7;
+      border:1px solid #ccece5;
     }
 
     .result.show {
-      display: block;
+      display:block;
     }
 
     .result-label {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-bottom: 5px;
+      color:var(--muted);
+      font-size:.9rem;
     }
 
     .amount {
-      font-size: clamp(2rem, 7vw, 2.8rem);
-      font-weight: 800;
-      color: var(--success);
-      line-height: 1.1;
-      margin-bottom: 14px;
-    }
-
-    .details {
-      margin: 0;
-      font-size: 0.95rem;
+      color:var(--success);
+      font-size:2rem;
+      font-weight:800;
+      margin:4px 0 12px;
     }
 
     .warning {
-      margin-top: 15px;
-      padding: 13px 15px;
-      border-radius: 10px;
-      background: #fff8e8;
-      border: 1px solid #efd58a;
-      color: #6e5000;
-      font-size: 0.9rem;
+      margin-top:15px;
+      padding:14px;
+      border-left:4px solid var(--warning);
+      background:#fff8e8;
+      border-radius:7px;
+      color:#624b12;
+      font-size:.92rem;
     }
 
     .info {
-      max-width: 900px;
-      margin: 0 auto 30px;
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 15px;
-      padding: 25px;
+      max-width:820px;
+      margin:0 auto 30px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
     }
 
     .info h2 {
-      color: var(--dark);
-      margin-top: 0;
+      color:var(--dark);
+      margin-top:0;
     }
 
     .info h3 {
-      color: var(--dark);
-      margin-bottom: 7px;
+      color:var(--dark);
+      margin-top:24px;
     }
 
-    .info li {
-      margin-bottom: 7px;
+    .info a {
+      color:var(--primary);
+      font-weight:600;
     }
 
     .links {
-      max-width: 900px;
-      margin: 0 auto 35px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 12px;
+      max-width:820px;
+      margin:0 auto 35px;
     }
 
-    .link-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 15px;
+    .links h2 {
+      color:var(--dark);
     }
 
-    .link-card strong {
-      display: block;
-      color: var(--dark);
-      margin-bottom: 4px;
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:10px;
+      padding:14px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
     }
 
     footer {
-      background: var(--dark);
-      color: white;
-      padding: 30px 20px;
-      text-align: center;
-      font-size: 0.9rem;
+      background:var(--dark);
+      color:#d8e2e8;
+      padding:30px 20px;
+      text-align:center;
+      font-size:.9rem;
     }
 
     footer a {
-      color: #a9e9df;
+      color:white;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width:600px) {
+
+      .header-inner {
+        padding:15px;
+      }
+
+      .breadcrumb {
+        padding-left:15px;
+        padding-right:15px;
+      }
+
+      main {
+        padding:28px 15px 45px;
+      }
+
       .calculator,
       .info {
-        padding: 20px;
+        padding:21px;
       }
+
+      .amount {
+        font-size:1.7rem;
+      }
+
     }
+
   </style>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "SimuDroit",
-    "url": "https://simudroit.netlify.app/"
-  }
-  </script>
 
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Simulateur chômage 2026",
-    "url": "https://simudroit.netlify.app/simulateur-chomage/",
-    "description": "Simulateur indicatif de calcul de l'allocation chômage ARE."
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"Simulateur chômage 2026 – Calcul allocation ARE",
+    "url":"https://simudroit.netlify.app/simulateur-chomage/",
+    "description":"Simulateur indicatif de calcul de l'allocation chômage ARE.",
+    "isPartOf":{
+      "@type":"WebSite",
+      "name":"SimuDroit",
+      "url":"https://simudroit.netlify.app/"
+    }
   }
   </script>
 
+
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
       {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "SimuDroit",
-        "item": "https://simudroit.netlify.app/"
+        "@type":"ListItem",
+        "position":1,
+        "name":"SimuDroit",
+        "item":"https://simudroit.netlify.app/"
       },
       {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Simulateur chômage",
-        "item": "https://simudroit.netlify.app/simulateur-chomage/"
+        "@type":"ListItem",
+        "position":2,
+        "name":"Simulateur chômage",
+        "item":"https://simudroit.netlify.app/simulateur-chomage/"
       }
     ]
   }
   </script>
 
+
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
       {
-        "@type": "Question",
-        "name": "Comment est calculée l'allocation chômage ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "France Travail calcule l'allocation ARE à partir du salaire journalier de référence. Deux formules sont comparées : 40,4 % du SJR plus une partie fixe, et 57 % du SJR. Le montant le plus favorable est retenu, sous réserve des planchers et plafonds applicables."
+        "@type":"Question",
+        "name":"Comment est calculée l'allocation chômage ARE ?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"France Travail calcule l'allocation journalière à partir du salaire journalier de référence. Deux formules sont comparées : 40,4 % du SJR plus 13,18 € par jour et 57 % du SJR. Le montant le plus favorable est retenu, dans les limites prévues par la réglementation."
         }
       },
       {
-        "@type": "Question",
-        "name": "Le montant affiché est-il le montant net reçu ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Non. Le résultat du simulateur correspond à une estimation brute. Des prélèvements sociaux et fiscaux peuvent ensuite s'appliquer selon la situation."
+        "@type":"Question",
+        "name":"Quel est le montant minimum de l'ARE ?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Le montant minimum indiqué par France Travail est de 32,13 € par jour, sous réserve notamment des règles applicables au temps partiel."
         }
       },
       {
-        "@type": "Question",
-        "name": "Faut-il avoir travaillé plusieurs mois pour avoir droit au chômage ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Dans le cas général, une durée minimale d'affiliation est nécessaire. Des règles particulières existent notamment pour certaines situations saisonnières ou les personnes n'ayant pas eu de droit ouvert depuis 20 ans."
+        "@type":"Question",
+        "name":"Le salaire brut suffit-il pour calculer précisément le chômage ?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Non. Le calcul réel dépend notamment du salaire de référence, du SJR, de la période de référence, de la durée d'affiliation, de l'âge et de la situation individuelle. Ce simulateur fournit donc uniquement une estimation."
         }
       }
     ]
   }
   </script>
+
 </head>
+
 
 <body>
 
 <header>
+
   <div class="header-inner">
-    <a class="logo" href="https://simudroit.netlify.app/">
+
+    <a class="logo"
+       href="https://simudroit.netlify.app/">
       Simu<span>Droit</span>
     </a>
 
-    <a class="header-link" href="https://simudroit.netlify.app/">
-      Tous les simulateurs
-    </a>
   </div>
+
 </header>
+
+
+<div class="breadcrumb">
+
+  <a href="https://simudroit.netlify.app/">
+    Accueil
+  </a>
+
+  &nbsp;›&nbsp;
+
+  Simulateur chômage
+
+</div>
+
 
 <main>
 
-  <div class="breadcrumb">
-    <a href="https://simudroit.netlify.app/">Accueil</a>
-    →
-    Simulateur chômage
-  </div>
-
   <section class="hero">
-    <h1>Simulateur chômage 2026</h1>
+
+    <h1>
+      Simulateur chômage 2026 – Calcul de l'allocation ARE
+    </h1>
 
     <p>
-      Estimez votre allocation chômage ARE à partir de votre
-      rémunération brute et de votre situation.
+      Estimez votre allocation chômage à partir de votre salaire brut mensuel.
+      Résultat indicatif, basé sur les principales règles de calcul de l'ARE.
     </p>
+
   </section>
+
 
   <section class="calculator">
 
-    <h2>Estimez votre allocation ARE</h2>
+    <h2>
+      Calculer votre allocation chômage
+    </h2>
 
     <div class="field">
+
       <label for="salaire">
         Salaire brut mensuel moyen
       </label>
@@ -421,48 +462,55 @@
       <input
         type="number"
         id="salaire"
-        min="0"
+        min="1"
         step="0.01"
-        inputmode="decimal"
         placeholder="Ex. 2 500"
-      >
+        inputmode="decimal">
 
       <span class="help">
-        Indiquez votre salaire brut mensuel moyen avant la perte d'emploi.
+        Indiquez une estimation de votre salaire brut mensuel moyen.
       </span>
+
     </div>
 
+
     <div class="field">
+
       <label for="duree">
-        Durée travaillée sur la période de référence
+        Durée travaillée
       </label>
 
       <select id="duree">
-        <option value="130">
-          Au moins 130 jours travaillés / 910 heures
+
+        <option value="12">
+          Environ 1 an
         </option>
 
-        <option value="108">
-          Entre 108 et 129 jours travaillés
+        <option value="24">
+          Environ 2 ans
         </option>
 
-        <option value="0">
-          Moins de 108 jours travaillés
+        <option value="36">
+          Environ 3 ans
         </option>
+
       </select>
 
       <span class="help">
-        Le choix sert uniquement à signaler la situation générale
-        d'affiliation. Le montant de l'ARE est calculé séparément.
+        Cette information sert uniquement à contextualiser l'estimation.
       </span>
+
     </div>
 
+
     <div class="field">
+
       <label for="age">
         Votre âge
       </label>
 
       <select id="age">
+
         <option value="moins55">
           Moins de 55 ans
         </option>
@@ -470,201 +518,308 @@
         <option value="55plus">
           55 ans ou plus
         </option>
+
       </select>
+
+      <span class="help">
+        L'âge peut notamment influencer la période de référence et la durée d'indemnisation.
+      </span>
+
     </div>
 
+
     <button type="button" onclick="calculer()">
-      Calculer mon allocation
+      Calculer mon estimation
     </button>
 
-    <div id="resultat" class="result" aria-live="polite">
+
+    <div
+      id="resultat"
+      class="result"
+      aria-live="polite">
 
       <div class="result-label">
         Estimation de l'allocation ARE brute mensuelle
       </div>
 
-      <div id="montant" class="amount">
-        0 €
+      <div
+        id="montant"
+        class="amount">
       </div>
 
-      <p id="details" class="details"></p>
+      <div id="details"></div>
 
-      <div id="avertissement" class="warning"></div>
+      <div
+        id="avertissement"
+        class="warning">
+      </div>
 
     </div>
 
   </section>
 
+
   <section class="info">
 
-    <h2>Comment fonctionne le calcul de l'ARE ?</h2>
-
-    <h3>1. Le salaire journalier de référence</h3>
+    <h2>
+      Comment fonctionne le calcul de l'ARE ?
+    </h2>
 
     <p>
-      France Travail détermine un salaire journalier de référence
-      à partir des rémunérations prises en compte dans la période
-      de référence applicable.
+      L'allocation d'aide au retour à l'emploi (ARE) est calculée par France Travail
+      à partir d'un salaire de référence. Le calcul réel tient compte notamment
+      des rémunérations et primes prises en compte pendant la période de référence,
+      puis permet de déterminer le salaire journalier de référence (SJR).
     </p>
 
     <p>
-      Notre simulateur utilise une approximation à partir du salaire
-      mensuel renseigné. Le calcul officiel peut donc produire un résultat
-      différent.
-    </p>
-
-    <h3>2. Les deux formules de calcul</h3>
-
-    <p>
-      France Travail compare notamment :
+      France Travail compare ensuite deux principales formules pour déterminer
+      l'allocation journalière brute :
     </p>
 
     <ul>
+
       <li>
         <strong>40,4 % du SJR + 13,18 €</strong> par jour ;
       </li>
+
       <li>
         <strong>57 % du SJR</strong>.
       </li>
+
     </ul>
 
     <p>
-      Le montant le plus favorable est retenu, dans les limites
-      prévues par la réglementation.
+      Le montant le plus favorable est retenu, sous réserve du plancher
+      et du plafond prévus par la réglementation. France Travail indique
+      actuellement un minimum de <strong>32,13 € par jour</strong> et un plafond
+      correspondant à <strong>75 % du SJR</strong>. [oai_citation:1‡France Travail](https://www.francetravail.fr/candidat/mes-droits-aux-aides-et-allocati/lessentiel-a-savoir-sur-lallocat/quelle-somme-vais-je-recevoir/comment-est-calcule-le-montant-d.html?utm_source=chatgpt.com)
     </p>
 
-    <h3>3. Minimum et plafond</h3>
+
+    <h3>
+      Combien de temps faut-il avoir travaillé ?
+    </h3>
 
     <p>
-      L'allocation journalière ne peut pas être inférieure à
-      <strong>32,13 €</strong> dans le cadre général présenté par
-      France Travail et ne peut pas dépasser <strong>75 % du SJR</strong>.
-    </p>
-
-    <h3>4. Versement mensuel</h3>
-
-    <p>
-      Depuis le 1er avril 2025, l'allocation ARE est mensualisée
-      sur une base de <strong>30 jours</strong>, quel que soit le
-      nombre réel de jours du mois.
-    </p>
-
-  </section>
-
-  <section class="info">
-
-    <h2>Conditions générales d'ouverture des droits</h2>
-
-    <p>
-      Dans le cas général, il faut notamment avoir travaillé au moins
-      <strong>130 jours ou 910 heures</strong> sur la période de référence
-      applicable.
+      Dans le cas général, l'accès à l'ARE nécessite notamment d'avoir travaillé
+      au moins <strong>130 jours ou 910 heures</strong> sur la période de référence.
+      Depuis le 1er avril 2026, une condition assouplie peut s'appliquer dans
+      certaines situations, notamment pour certaines personnes n'ayant pas eu
+      de droit ARE ouvert depuis au moins 20 ans ou n'en ayant jamais bénéficié.
+      Dans ce cas, le seuil peut être ramené à <strong>108 jours ou 758 heures</strong>.
     </p>
 
     <p>
-      Cette durée peut être abaissée à <strong>108 jours ou 758 heures</strong>
-      dans certaines situations, notamment pour certains travailleurs
-      saisonniers ou pour les personnes qui n'ont pas eu de droit ouvert
-      à l'assurance chômage au cours des 20 dernières années et dont la
-      fin de contrat intervient à compter du 1er avril 2026.
+      Ces conditions dépendent de la situation du demandeur et de la date de fin
+      du contrat. [oai_citation:2‡France Travail](https://www.francetravail.fr/candidat/mes-droits-aux-aides-et-allocati/lessentiel-a-savoir-sur-lallocat/que-se-passe-t-il-si-je-perds-un.html?utm_source=chatgpt.com)
+    </p>
+
+
+    <h3>
+      Le montant obtenu est-il exact ?
+    </h3>
+
+    <p>
+      Non. Ce simulateur fournit une <strong>estimation simplifiée</strong>.
+      Le calcul officiel peut notamment dépendre du salaire de référence,
+      du SJR, des périodes travaillées et non travaillées, de l'âge,
+      du temps partiel, des règles d'indemnisation applicables et de la situation
+      individuelle.
     </p>
 
     <p>
-      D'autres conditions sont nécessaires : inscription à France Travail,
-      perte involontaire d'emploi, recherche effective d'emploi et
-      respect des autres conditions applicables.
+      Pour connaître le montant réellement attribué, il faut se référer au calcul
+      effectué par France Travail. [oai_citation:3‡France Travail](https://www.francetravail.fr/candidat/mes-droits-aux-aides-et-allocati/lessentiel-a-savoir-sur-lallocat/quelle-somme-vais-je-recevoir/comment-est-calcule-le-montant-d.html?utm_source=chatgpt.com)
     </p>
 
-  </section>
 
-  <section class="info">
-
-    <h2>Un résultat indicatif</h2>
-
-    <p>
-      Ce simulateur ne remplace pas le calcul réalisé par France Travail.
-      Le montant réel dépend notamment de vos contrats successifs,
-      des rémunérations et primes retenues, des périodes travaillées,
-      de votre temps de travail et de certaines situations particulières.
-    </p>
+    <h3>
+      Source officielle
+    </h3>
 
     <p>
-      Des prélèvements sociaux et fiscaux peuvent également réduire
-      le montant effectivement versé.
-    </p>
-
-    <p>
-      Pour connaître vos droits avec précision, consultez
-      <a href="https://www.francetravail.fr/"
-         target="_blank"
-         rel="noopener">
-        France Travail
+      Les principales règles utilisées pour cette page sont consultables sur
+      <a
+        href="https://www.francetravail.fr/candidat/mes-droits-aux-aides-et-allocati/lessentiel-a-savoir-sur-lallocat/quelle-somme-vais-je-recevoir/comment-est-calcule-le-montant-d.html"
+        target="_blank"
+        rel="noopener noreferrer">
+        France Travail – Comment est calculé le montant de mon allocation ?
       </a>.
     </p>
 
   </section>
 
+
   <section class="links">
 
-    <a class="link-card"
-       href="https://simudroit.netlify.app/simulateur-indemnite-licenciement/">
-      <strong>Indemnité de licenciement</strong>
-      Estimez votre indemnité légale.
-    </a>
+    <h2>
+      Autres simulateurs SimuDroit
+    </h2>
 
-    <a class="link-card"
-       href="https://simudroit.netlify.app/simulateur-rupture-conventionnelle/">
-      <strong>Rupture conventionnelle</strong>
-      Estimez l'indemnité minimale.
-    </a>
+    <div class="links-grid">
 
-    <a class="link-card"
-       href="https://simudroit.netlify.app/simulateur-solde-tout-compte/">
-      <strong>Solde de tout compte</strong>
-      Estimez les principales sommes dues.
-    </a>
+      <a href="https://simudroit.netlify.app/simulateur-rupture-conventionnelle/">
+        Rupture conventionnelle
+      </a>
 
-    <a class="link-card"
-       href="https://simudroit.netlify.app/simulateur-brut-net/">
-      <strong>Brut → net</strong>
-      Convertissez votre salaire brut en net.
-    </a>
+      <a href="https://simudroit.netlify.app/simulateur-indemnite-licenciement/">
+        Indemnité de licenciement
+      </a>
+
+      <a href="https://simudroit.netlify.app/simulateur-solde-tout-compte/">
+        Solde de tout compte
+      </a>
+
+      <a href="https://simudroit.netlify.app/simulateur-preavis-demission/">
+        Préavis de démission
+      </a>
+
+      <a href="https://simudroit.netlify.app/simulateur-brut-net/">
+        Brut → net
+      </a>
+
+      <a href="https://simudroit.netlify.app/simulateur-net-brut/">
+        Net → brut
+      </a>
+
+    </div>
 
   </section>
 
 </main>
 
+
 <footer>
-  © 2026 SimuDroit ·
-  <a href="https://simudroit.netlify.app/">
-    Tous les simulateurs
-  </a>
+
+  <p>
+    © 2026 SimuDroit – Simulateurs et informations pratiques.
+  </p>
+
+  <p>
+    Les résultats proposés sont indicatifs et ne remplacent pas
+    une vérification auprès des organismes compétents.
+  </p>
+
 </footer>
+
 
 <script>
 
 function formatEuro(value) {
+
   return value.toLocaleString("fr-FR", {
-    style: "currency",
-    currency: "EUR"
+    style:"currency",
+    currency:"EUR"
   });
+
 }
+
 
 function calculer() {
 
   const salaireMensuel =
-    parseFloat(document.getElementById("salaire").value);
-
-  const duree =
-    parseInt(document.getElementById("duree").value, 10);
+    parseFloat(
+      document.getElementById("salaire").value
+    );
 
   if (
     !Number.isFinite(salaireMensuel) ||
     salaireMensuel <= 0
   ) {
-    alert("Veuillez renseigner un salaire brut mensuel valide.");
+
+    alert(
+      "Veuillez renseigner un salaire brut mensuel valide."
+    );
+
     return;
   }
+
+
+  /*
+   * ESTIMATION SIMPLIFIÉE
+   *
+   * Cette estimation utilise le salaire mensuel
+   * pour approcher le salaire journalier de référence.
+   *
+   * Elle ne reproduit pas le calcul complet effectué
+   * par France Travail.
+   */
+
+  const salaireAnnuel =
+    salaireMensuel * 12;
+
+
+  /*
+   * Approximation du SJR :
+   *
+   * salaire annuel / 365
+   *
+   * Le calcul officiel du SJR est différent et dépend
+   * notamment de la période de référence et des jours
+   * pris en compte.
+   */
+
+  const sjr =
+    salaireAnnuel / 365;
+
+
+  /*
+   * Deux formules ARE :
+   *
+   * 40,4 % du SJR + 13,18 €
+   * 57 % du SJR
+   */
+
+  const formule1 =
+    (sjr * 0.404) + 13.18;
+
+  const formule2 =
+    sjr * 0.57;
+
+
+  /*
+   * Le montant le plus favorable est retenu.
+   */
+
+  let allocationJour =
+    Math.max(
+      formule1,
+      formule2
+    );
+
+
+  /*
+   * Plancher indicatif actuel.
+   */
+
+  allocationJour =
+    Math.max(
+      allocationJour,
+      32.13
+    );
+
+
+  /*
+   * Plafond :
+   * 75 % du SJR.
+   */
+
+  allocationJour =
+    Math.min(
+      allocationJour,
+      sjr * 0.75
+    );
+
+
+  /*
+   * France Travail mensualise l'ARE
+   * sur une base de 30 jours.
+   */
+
+  const allocationMensuelle =
+    allocationJour * 30;
+
 
   const resultat =
     document.getElementById("resultat");
@@ -678,13 +833,33 @@ function calculer() {
   const avertissement =
     document.getElementById("avertissement");
 
+
+  montant.textContent =
+    formatEuro(allocationMensuelle);
+
+
+  details.innerHTML =
+    "Estimation de l'allocation journalière : <strong>" +
+    formatEuro(allocationJour) +
+    "</strong>.<br>" +
+    "Estimation mensuelle sur 30 jours : <strong>" +
+    formatEuro(allocationMensuelle) +
+    "</strong>.";
+
+
+  avertissement.textContent =
+    "Attention : ce résultat est une estimation simplifiée. " +
+    "Le calcul officiel de France Travail utilise notamment le salaire " +
+    "de référence et le SJR réels, ainsi que les périodes prises en compte. " +
+    "Le montant effectivement versé peut donc être différent.";
+
+
   resultat.classList.add("show");
 
-  /*
-   * Estimation simplifiée :
-   *
-   * salaire mensuel × 12
-   * ---------------------
-   *       365 jours
-   *
-   * Cette approximation
+}
+
+</script>
+
+
+</body>
+</html>
