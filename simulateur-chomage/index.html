@@ -9,7 +9,7 @@
 
   <meta
     name="description"
-    content="Estimez votre allocation chômage ARE en 2026 à partir de votre salaire brut. Calcul indicatif selon les principales règles France Travail."
+    content="Simulez votre allocation chômage ARE en 2026 à partir de votre salaire brut. Estimation indicative selon les règles France Travail."
   >
 
   <meta
@@ -190,8 +190,7 @@
       margin-bottom:7px;
     }
 
-    input,
-    select {
+    input {
       width:100%;
       padding:13px 14px;
       border:1px solid var(--border);
@@ -201,8 +200,7 @@
       color:var(--text);
     }
 
-    input:focus,
-    select:focus {
+    input:focus {
       outline:3px solid rgba(0,168,150,.18);
       border-color:var(--secondary);
     }
@@ -424,6 +422,14 @@
           "@type":"Answer",
           "text":"Non. Le calcul officiel dépend notamment du salaire de référence, du salaire journalier de référence, de la période de référence, de la durée d'affiliation, de l'âge et de la situation individuelle. Ce simulateur fournit donc uniquement une estimation."
         }
+      },
+      {
+        "@type":"Question",
+        "name":"Combien de jours sont indemnisés chaque mois ?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Depuis avril 2025, l'allocation chômage est mensualisée sur une base de 30 jours, quel que soit le nombre réel de jours du mois."
+        }
       }
     ]
   }
@@ -503,62 +509,7 @@
       >
 
       <span class="help">
-        Indiquez une estimation de votre salaire brut mensuel moyen.
-      </span>
-
-    </div>
-
-
-    <div class="field">
-
-      <label for="duree">
-        Durée travaillée
-      </label>
-
-      <select id="duree">
-
-        <option value="12">
-          Environ 1 an
-        </option>
-
-        <option value="24">
-          Environ 2 ans
-        </option>
-
-        <option value="36">
-          Environ 3 ans
-        </option>
-
-      </select>
-
-      <span class="help">
-        Cette information sert à contextualiser l'estimation.
-      </span>
-
-    </div>
-
-
-    <div class="field">
-
-      <label for="age">
-        Votre âge
-      </label>
-
-      <select id="age">
-
-        <option value="moins55">
-          Moins de 55 ans
-        </option>
-
-        <option value="55plus">
-          55 ans ou plus
-        </option>
-
-      </select>
-
-      <span class="help">
-        L'âge peut notamment influencer la période de référence
-        et la durée d'indemnisation.
+        Indiquez votre salaire brut mensuel moyen.
       </span>
 
     </div>
@@ -640,10 +591,10 @@
 
 
     <p>
-      Le montant le plus favorable est retenu dans les limites prévues
-      par la réglementation. France Travail indique actuellement un
-      minimum de <strong>32,13 € par jour</strong> et un plafond
-      correspondant à <strong>75 % du SJR</strong>.
+      Le montant le plus favorable est retenu. L'allocation est également
+      encadrée par un plancher et un plafond : France Travail indique
+      actuellement un minimum de <strong>32,13 € par jour</strong> et
+      un maximum correspondant à <strong>75 % du SJR</strong>.
     </p>
 
 
@@ -655,16 +606,16 @@
     <p>
       Dans le cas général, l'accès à l'ARE nécessite notamment d'avoir
       travaillé au moins <strong>130 jours ou 910 heures</strong> dans
-      la période de référence applicable.
+      les 24 derniers mois, ou dans les 36 derniers mois pour les
+      personnes concernées par les règles applicables aux 55 ans et plus.
     </p>
 
 
     <p>
-      Depuis le 1er avril 2026, une condition assouplie peut s'appliquer
-      à certaines personnes qui n'ont jamais bénéficié de l'ARE ou qui
-      n'ont pas eu de droit ARE ouvert depuis au moins 20 ans.
-      Dans cette situation particulière, le seuil peut être ramené à
-      <strong>108 jours ou 758 heures</strong>.
+      Certaines situations particulières bénéficient de règles différentes,
+      notamment certains travailleurs saisonniers et certaines personnes
+      ouvrant un droit dans des conditions spécifiques. Le présent
+      simulateur ne détermine donc pas l'éligibilité au chômage.
     </p>
 
 
@@ -675,7 +626,8 @@
 
     <p>
       Depuis avril 2025, l'allocation mensuelle est calculée sur une base
-      de <strong>30 jours</strong>, quel que soit le nombre de jours du mois.
+      de <strong>30 jours</strong>, quel que soit le nombre réel de jours
+      dans le mois.
     </p>
 
 
@@ -686,15 +638,28 @@
 
     <p>
       Non. Ce simulateur fournit une <strong>estimation simplifiée</strong>.
-      Il ne reproduit pas l'ensemble du calcul effectué par France Travail.
+      Il ne reproduit pas l'intégralité du calcul effectué par France Travail.
     </p>
 
 
     <p>
       Le montant réel peut notamment dépendre du salaire de référence,
-      des périodes travaillées et non travaillées, de la situation
-      professionnelle, de l'âge, du temps partiel, de la durée
-      d'indemnisation et des règles applicables à votre situation.
+      des rémunérations et primes prises en compte, des périodes travaillées
+      et non travaillées, du temps partiel, de la durée d'indemnisation,
+      de l'âge et de la situation individuelle.
+    </p>
+
+
+    <h3>
+      Pourquoi notre estimation peut-elle différer de France Travail ?
+    </h3>
+
+
+    <p>
+      Le calcul du SJR effectué par France Travail est plus complexe qu'une
+      simple division du salaire annuel par 365. Pour cette raison,
+      le résultat obtenu ici doit être considéré comme un ordre de grandeur
+      et non comme une notification de droits.
     </p>
 
 
@@ -748,6 +713,22 @@
 
       <a href="/simulateur-net-brut/">
         Net → brut
+      </a>
+
+      <a href="/simulateur-prime-precarite/">
+        Prime de précarité
+      </a>
+
+      <a href="/simulateur-conges-payes/">
+        Congés payés
+      </a>
+
+      <a href="/simulateur-heures-supplementaires/">
+        Heures supplémentaires
+      </a>
+
+      <a href="/simulateur-temps-partiel/">
+        Temps partiel
       </a>
 
     </div>
@@ -807,8 +788,13 @@ function calculer() {
   /*
    * ESTIMATION SIMPLIFIÉE
    *
-   * Le calcul officiel du SJR réalisé par France Travail
-   * est plus complexe que cette approximation.
+   * Le véritable SJR est calculé par France Travail
+   * à partir du salaire de référence et des jours
+   * pris en compte dans la période de référence.
+   *
+   * Ici, on utilise une approximation :
+   *
+   * salaire annuel / 365
    */
 
   const salaireAnnuel =
@@ -838,7 +824,7 @@ function calculer() {
 
 
   /*
-   * Montant le plus favorable.
+   * On retient la formule la plus favorable.
    */
 
   let allocationJour =
@@ -849,11 +835,8 @@ function calculer() {
 
 
   /*
-   * Plancher.
-   *
-   * Pour une estimation simplifiée,
-   * on applique le minimum actuellement
-   * indiqué par France Travail.
+   * Minimum actuellement indiqué
+   * par France Travail.
    */
 
   allocationJour =
@@ -865,11 +848,8 @@ function calculer() {
 
   /*
    * Plafond :
+   * l'allocation ne peut pas dépasser
    * 75 % du SJR.
-   *
-   * On protège également le résultat
-   * contre un SJR trop faible pour le
-   * plancher.
    */
 
   allocationJour =
@@ -909,19 +889,21 @@ function calculer() {
     "SJR estimé : <strong>" +
     formatEuro(sjr) +
     "</strong> par jour.<br>" +
+
     "Allocation journalière estimée : <strong>" +
     formatEuro(allocationJour) +
     "</strong>.<br>" +
+
     "Allocation mensuelle estimée sur 30 jours : <strong>" +
     formatEuro(allocationMensuelle) +
     "</strong>.";
 
 
   avertissement.textContent =
-    "Attention : cette estimation utilise un SJR simplifié " +
-    "à partir du salaire mensuel. Le calcul officiel de France Travail " +
-    "utilise le salaire de référence et les jours pris en compte dans " +
-    "la période de référence. Le montant réellement attribué peut donc être différent.";
+    "Cette estimation utilise un SJR simplifié à partir du salaire mensuel. " +
+    "Le calcul officiel de France Travail repose sur le salaire de référence " +
+    "et les jours pris en compte dans la période de référence. " +
+    "Le montant réellement attribué peut donc être différent.";
 
 
   resultat.classList.add("show");
