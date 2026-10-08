@@ -27,10 +27,13 @@
   <meta name="theme-color"
         content="#102a43">
 
+  <!-- FAVICON -->
 
-  <!-- =====================================================
-       OPEN GRAPH
-  ====================================================== -->
+  <link rel="icon"
+        type="image/svg+xml"
+        href="/favicon.svg">
+
+  <!-- OPEN GRAPH -->
 
   <meta property="og:type"
         content="website">
@@ -50,16 +53,10 @@
   <meta property="og:site_name"
         content="SimuDroit">
 
-  <meta property="og:image"
-        content="https://simudroit.netlify.app/og-image.jpg">
-
-
-  <!-- =====================================================
-       TWITTER / X
-  ====================================================== -->
+  <!-- TWITTER / X -->
 
   <meta name="twitter:card"
-        content="summary_large_image">
+        content="summary">
 
   <meta name="twitter:title"
         content="SimuDroit – Simulateurs gratuits">
@@ -67,21 +64,7 @@
   <meta name="twitter:description"
         content="Calculez simplement votre salaire, vos indemnités et vos droits.">
 
-  <meta name="twitter:image"
-        content="https://simudroit.netlify.app/og-image.jpg">
-
-
-  <!-- =====================================================
-       FAVICON
-  ====================================================== -->
-
-  <link rel="icon"
-        href="/favicon.ico">
-
-
-  <!-- =====================================================
-       POLICES
-  ====================================================== -->
+  <!-- POLICES -->
 
   <link rel="preconnect"
         href="https://fonts.googleapis.com">
@@ -94,9 +77,7 @@
         rel="stylesheet">
 
 
-  <!-- =====================================================
-       DONNÉES STRUCTURÉES — WEBSITE
-  ====================================================== -->
+  <!-- DONNÉES STRUCTURÉES — WEBSITE -->
 
   <script type="application/ld+json">
   {
@@ -111,9 +92,7 @@
   </script>
 
 
-  <!-- =====================================================
-       DONNÉES STRUCTURÉES — ORGANIZATION
-  ====================================================== -->
+  <!-- DONNÉES STRUCTURÉES — ORGANIZATION -->
 
   <script type="application/ld+json">
   {
@@ -126,9 +105,7 @@
   </script>
 
 
-  <!-- =====================================================
-       DONNÉES STRUCTURÉES — WEBPAGE
-  ====================================================== -->
+  <!-- DONNÉES STRUCTURÉES — WEBPAGE -->
 
   <script type="application/ld+json">
   {
@@ -148,9 +125,7 @@
   </script>
 
 
-  <!-- =====================================================
-       DONNÉES STRUCTURÉES — ITEM LIST
-  ====================================================== -->
+  <!-- DONNÉES STRUCTURÉES — ITEM LIST -->
 
   <script type="application/ld+json">
   {
@@ -231,111 +206,87 @@
   </script>
 
 
-  <!-- =====================================================
-       CSS
-  ====================================================== -->
-
   <style>
 
     :root {
-      --navy: #102a43;
-      --blue: #1769aa;
-      --blue-dark: #0e4f82;
-      --teal: #00a896;
-      --cream: #f7f5ef;
-      --white: #ffffff;
-      --text: #243447;
-      --muted: #64748b;
-      --border: #dbe3ea;
-      --shadow: 0 15px 45px rgba(16,42,67,.10);
-      --radius: 20px;
+      --navy:#102a43;
+      --blue:#1769aa;
+      --blue-dark:#0e4f82;
+      --teal:#00a896;
+      --cream:#f7f5ef;
+      --white:#ffffff;
+      --text:#243447;
+      --muted:#64748b;
+      --border:#dbe3ea;
+      --shadow:0 15px 45px rgba(16,42,67,.10);
+      --radius:20px;
     }
-
 
     * {
-      box-sizing: border-box;
+      box-sizing:border-box;
     }
-
 
     html {
-      scroll-behavior: smooth;
+      scroll-behavior:smooth;
     }
-
 
     body {
-      margin: 0;
-      color: var(--text);
-      background: var(--cream);
-      font-family: "IBM Plex Sans", sans-serif;
-      line-height: 1.6;
+      margin:0;
+      color:var(--text);
+      background:var(--cream);
+      font-family:"IBM Plex Sans",sans-serif;
+      line-height:1.6;
     }
-
 
     button,
     input,
     select {
-      font: inherit;
+      font:inherit;
     }
-
 
     a {
-      color: inherit;
-      text-decoration: none;
+      color:inherit;
+      text-decoration:none;
     }
-
 
     .container {
-      width: min(1180px, calc(100% - 36px));
-      margin: auto;
+      width:min(1180px,calc(100% - 36px));
+      margin:auto;
     }
-
-
-    /* =====================================================
-       HEADER
-    ====================================================== */
 
     header {
-      background: rgba(255,255,255,.96);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(14px);
+      background:rgba(255,255,255,.96);
+      border-bottom:1px solid var(--border);
+      position:sticky;
+      top:0;
+      z-index:100;
+      backdrop-filter:blur(14px);
     }
-
 
     .nav {
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
+      min-height:72px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
     }
-
 
     .logo {
-      font-family: "Crimson Pro", serif;
-      font-size: 31px;
-      font-weight: 700;
-      color: var(--navy);
-      letter-spacing: -.5px;
+      font-family:"Crimson Pro",serif;
+      font-size:31px;
+      font-weight:700;
+      color:var(--navy);
+      letter-spacing:-.5px;
     }
-
 
     .logo span {
-      color: var(--teal);
+      color:var(--teal);
     }
-
 
     .nav-note {
-      font-size: 14px;
-      color: var(--muted);
+      font-size:14px;
+      color:var(--muted);
     }
-
-
-    /* =====================================================
-       HERO
-    ====================================================== */
 
     .hero {
       background:
@@ -344,575 +295,484 @@
           rgba(16,42,67,.96),
           rgba(23,105,170,.88)
         );
-
-      color: white;
-      padding: 78px 0 64px;
+      color:white;
+      padding:78px 0 64px;
     }
-
 
     .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      align-items: center;
-      gap: 55px;
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      align-items:center;
+      gap:55px;
     }
-
 
     .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255,255,255,.12);
-      border: 1px solid rgba(255,255,255,.18);
-      border-radius: 999px;
-      padding: 7px 13px;
-      font-size: 13px;
-      margin-bottom: 20px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:999px;
+      padding:7px 13px;
+      font-size:13px;
+      margin-bottom:20px;
     }
-
 
     h1,
     h2,
     h3 {
-      font-family: "Crimson Pro", serif;
-      line-height: 1.1;
+      font-family:"Crimson Pro",serif;
+      line-height:1.1;
     }
-
 
     h1 {
-      font-size: clamp(45px, 6vw, 72px);
-      margin: 0 0 22px;
-      letter-spacing: -1.5px;
+      font-size:clamp(45px,6vw,72px);
+      margin:0 0 22px;
+      letter-spacing:-1.5px;
     }
-
 
     .hero p {
-      font-size: 19px;
-      max-width: 680px;
-      color: rgba(255,255,255,.88);
-      margin-bottom: 30px;
+      font-size:19px;
+      max-width:680px;
+      color:rgba(255,255,255,.88);
+      margin-bottom:30px;
     }
-
 
     .hero-card {
-      background: rgba(255,255,255,.1);
-      border: 1px solid rgba(255,255,255,.18);
-      border-radius: 26px;
-      padding: 28px;
+      background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:26px;
+      padding:28px;
     }
-
 
     .hero-card strong {
-      display: block;
-      font-size: 20px;
-      margin-bottom: 12px;
+      display:block;
+      font-size:20px;
+      margin-bottom:12px;
     }
-
 
     .hero-card div {
-      display: flex;
-      gap: 12px;
-      margin: 12px 0;
-      color: rgba(255,255,255,.88);
+      display:flex;
+      gap:12px;
+      margin:12px 0;
+      color:rgba(255,255,255,.88);
     }
-
-
-    /* =====================================================
-       SIMULATEURS
-    ====================================================== */
 
     .simulators-section {
-      padding: 70px 0;
+      padding:70px 0;
     }
-
 
     .section-heading {
-      text-align: center;
-      max-width: 760px;
-      margin: 0 auto 38px;
+      text-align:center;
+      max-width:760px;
+      margin:0 auto 38px;
     }
-
 
     .section-heading h2 {
-      font-size: 44px;
-      margin: 0 0 12px;
-      color: var(--navy);
+      font-size:44px;
+      margin:0 0 12px;
+      color:var(--navy);
     }
-
 
     .section-heading p {
-      color: var(--muted);
-      margin: 0;
+      color:var(--muted);
+      margin:0;
     }
-
 
     .tools {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 22px;
-      margin-bottom: 25px;
-      box-shadow: var(--shadow);
+      background:white;
+      border:1px solid var(--border);
+      border-radius:24px;
+      padding:22px;
+      margin-bottom:25px;
+      box-shadow:var(--shadow);
     }
-
 
     .search {
-      width: 100%;
-      padding: 15px 18px;
-      border: 1px solid var(--border);
-      border-radius: 13px;
-      outline: none;
-      transition: .2s;
+      width:100%;
+      padding:15px 18px;
+      border:1px solid var(--border);
+      border-radius:13px;
+      outline:none;
+      transition:.2s;
     }
-
 
     .search:focus {
-      border-color: var(--blue);
-      box-shadow: 0 0 0 4px rgba(23,105,170,.1);
+      border-color:var(--blue);
+      box-shadow:0 0 0 4px rgba(23,105,170,.1);
     }
-
 
     .filters {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 15px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:9px;
+      margin-top:15px;
     }
-
 
     .filter {
-      border: 1px solid var(--border);
-      background: white;
-      color: var(--text);
-      padding: 9px 15px;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: .2s;
+      border:1px solid var(--border);
+      background:white;
+      color:var(--text);
+      padding:9px 15px;
+      border-radius:999px;
+      cursor:pointer;
+      transition:.2s;
     }
-
 
     .filter:hover,
     .filter.active {
-      background: var(--navy);
-      border-color: var(--navy);
-      color: white;
+      background:var(--navy);
+      border-color:var(--navy);
+      color:white;
     }
-
 
     .simulator-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
     }
 
-
     .simulator-card {
-      display: block;
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 25px;
-      cursor: pointer;
+      display:block;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:25px;
+      cursor:pointer;
       transition:
         transform .2s,
         box-shadow .2s,
         border-color .2s;
-
-      box-shadow:
-        0 5px 20px rgba(16,42,67,.04);
+      box-shadow:0 5px 20px rgba(16,42,67,.04);
     }
-
 
     .simulator-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(23,105,170,.4);
-      box-shadow: var(--shadow);
+      transform:translateY(-4px);
+      border-color:rgba(23,105,170,.4);
+      box-shadow:var(--shadow);
     }
-
 
     .simulator-icon {
-      width: 48px;
-      height: 48px;
-      display: grid;
-      place-items: center;
-      background: #edf7f6;
-      border-radius: 14px;
-      font-size: 23px;
-      margin-bottom: 18px;
+      width:48px;
+      height:48px;
+      display:grid;
+      place-items:center;
+      background:#edf7f6;
+      border-radius:14px;
+      font-size:23px;
+      margin-bottom:18px;
     }
-
 
     .simulator-card h3 {
-      font-size: 25px;
-      color: var(--navy);
-      margin: 0 0 9px;
+      font-size:25px;
+      color:var(--navy);
+      margin:0 0 9px;
     }
-
 
     .simulator-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
     }
-
 
     .category {
-      margin-top: 16px;
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--blue);
+      margin-top:16px;
+      display:inline-block;
+      font-size:12px;
+      font-weight:600;
+      color:var(--blue);
     }
-
 
     .empty {
-      display: none;
-      text-align: center;
-      padding: 45px;
-      color: var(--muted);
+      display:none;
+      text-align:center;
+      padding:45px;
+      color:var(--muted);
     }
-
-
-    /* =====================================================
-       SEO CONTENT
-    ====================================================== */
 
     .content-section {
-      padding: 75px 0;
-      background: white;
+      padding:75px 0;
+      background:white;
     }
-
 
     .content {
-      max-width: 900px;
-      margin: auto;
+      max-width:900px;
+      margin:auto;
     }
-
 
     .content h2 {
-      color: var(--navy);
-      font-size: 40px;
-      margin-top: 0;
+      color:var(--navy);
+      font-size:40px;
+      margin-top:0;
     }
-
 
     .content h3 {
-      color: var(--navy);
-      font-size: 28px;
-      margin-top: 40px;
+      color:var(--navy);
+      font-size:28px;
+      margin-top:40px;
     }
 
-
-    .content p {
-      color: #475569;
+    .content p,
+    .content ul {
+      color:#475569;
     }
-
 
     .content ul {
-      color: #475569;
-      padding-left: 22px;
+      padding-left:22px;
     }
-
 
     .notice {
-      border-left: 4px solid var(--teal);
-      background: #eefaf8;
-      padding: 18px 20px;
-      border-radius: 10px;
-      margin: 25px 0;
-      color: #315b57;
+      border-left:4px solid var(--teal);
+      background:#eefaf8;
+      padding:18px 20px;
+      border-radius:10px;
+      margin:25px 0;
+      color:#315b57;
     }
-
-
-    /* =====================================================
-       FAQ
-    ====================================================== */
 
     .faq-section {
-      padding: 70px 0;
+      padding:70px 0;
     }
-
 
     .faq {
-      max-width: 900px;
-      margin: auto;
+      max-width:900px;
+      margin:auto;
     }
-
 
     details {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 15px;
-      padding: 20px 22px;
-      margin-bottom: 12px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:15px;
+      padding:20px 22px;
+      margin-bottom:12px;
     }
-
 
     summary {
-      cursor: pointer;
-      font-weight: 600;
-      color: var(--navy);
+      cursor:pointer;
+      font-weight:600;
+      color:var(--navy);
     }
-
 
     details p {
-      color: var(--muted);
-      margin-bottom: 0;
+      color:var(--muted);
+      margin-bottom:0;
     }
-
-
-    /* =====================================================
-       MODAL
-    ====================================================== */
 
     .modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(7,20,33,.72);
-      z-index: 500;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      overflow-y: auto;
+      position:fixed;
+      inset:0;
+      background:rgba(7,20,33,.72);
+      z-index:500;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      overflow-y:auto;
     }
-
 
     .modal.open {
-      display: flex;
+      display:flex;
     }
-
 
     .modal-box {
-      width: min(700px, 100%);
-      max-height: 92vh;
-      overflow-y: auto;
-      background: white;
-      border-radius: 25px;
-      box-shadow: 0 30px 90px rgba(0,0,0,.3);
-      padding: 32px;
-      position: relative;
+      width:min(700px,100%);
+      max-height:92vh;
+      overflow-y:auto;
+      background:white;
+      border-radius:25px;
+      box-shadow:0 30px 90px rgba(0,0,0,.3);
+      padding:32px;
+      position:relative;
     }
-
 
     .close {
-      position: absolute;
-      right: 18px;
-      top: 15px;
-      border: 0;
-      background: #f1f5f9;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 20px;
+      position:absolute;
+      right:18px;
+      top:15px;
+      border:0;
+      background:#f1f5f9;
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      cursor:pointer;
+      font-size:20px;
     }
-
 
     .modal-box h2 {
-      color: var(--navy);
-      font-size: 36px;
-      margin: 0 45px 8px 0;
+      color:var(--navy);
+      font-size:36px;
+      margin:0 45px 8px 0;
     }
-
 
     .modal-description {
-      color: var(--muted);
-      margin-bottom: 25px;
+      color:var(--muted);
+      margin-bottom:25px;
     }
-
 
     .form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 17px;
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:17px;
     }
-
 
     .field {
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
+      display:flex;
+      flex-direction:column;
+      gap:7px;
     }
-
 
     .field.full {
-      grid-column: 1 / -1;
+      grid-column:1 / -1;
     }
-
 
     .field label {
-      font-weight: 600;
-      font-size: 14px;
-      color: var(--navy);
+      font-weight:600;
+      font-size:14px;
+      color:var(--navy);
     }
-
 
     .field input,
     .field select {
-      width: 100%;
-      border: 1px solid var(--border);
-      border-radius: 11px;
-      padding: 13px;
-      outline: none;
-      background: white;
+      width:100%;
+      border:1px solid var(--border);
+      border-radius:11px;
+      padding:13px;
+      outline:none;
+      background:white;
     }
-
 
     .field input:focus,
     .field select:focus {
-      border-color: var(--blue);
-      box-shadow: 0 0 0 3px rgba(23,105,170,.1);
+      border-color:var(--blue);
+      box-shadow:0 0 0 3px rgba(23,105,170,.1);
     }
-
 
     .calculate {
-      width: 100%;
-      border: 0;
-      border-radius: 13px;
-      background: var(--teal);
-      color: white;
-      padding: 15px;
-      font-weight: 700;
-      cursor: pointer;
-      margin-top: 22px;
-      transition: .2s;
+      width:100%;
+      border:0;
+      border-radius:13px;
+      background:var(--teal);
+      color:white;
+      padding:15px;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:22px;
+      transition:.2s;
     }
-
 
     .calculate:hover {
-      background: #008f80;
+      background:#008f80;
     }
-
 
     .result {
-      display: none;
-      margin-top: 25px;
-      background: #f1f8f7;
-      border: 1px solid #c9ebe6;
-      border-radius: 16px;
-      padding: 22px;
+      display:none;
+      margin-top:25px;
+      background:#f1f8f7;
+      border:1px solid #c9ebe6;
+      border-radius:16px;
+      padding:22px;
     }
-
 
     .result.show {
-      display: block;
+      display:block;
     }
-
 
     .result-title {
-      color: var(--navy);
-      font-weight: 700;
-      margin-bottom: 5px;
+      color:var(--navy);
+      font-weight:700;
+      margin-bottom:5px;
     }
-
 
     .result-value {
-      color: var(--teal);
-      font-family: "Crimson Pro", serif;
-      font-size: 38px;
-      font-weight: 700;
+      color:var(--teal);
+      font-family:"Crimson Pro",serif;
+      font-size:38px;
+      font-weight:700;
     }
-
 
     .result-note {
-      font-size: 13px;
-      color: var(--muted);
-      margin-top: 8px;
+      font-size:13px;
+      color:var(--muted);
+      margin-top:8px;
     }
-
-
-    /* =====================================================
-       FOOTER
-    ====================================================== */
 
     footer {
-      background: var(--navy);
-      color: rgba(255,255,255,.75);
-      padding: 45px 0;
+      background:var(--navy);
+      color:rgba(255,255,255,.75);
+      padding:45px 0;
     }
-
 
     .footer-grid {
-      display: flex;
-      justify-content: space-between;
-      gap: 30px;
+      display:flex;
+      justify-content:space-between;
+      gap:30px;
     }
-
 
     footer strong {
-      color: white;
-      font-family: "Crimson Pro", serif;
-      font-size: 27px;
+      color:white;
+      font-family:"Crimson Pro",serif;
+      font-size:27px;
     }
-
 
     footer p {
-      max-width: 620px;
-      font-size: 14px;
+      max-width:620px;
+      font-size:14px;
     }
-
 
     .copyright {
-      font-size: 13px;
-      opacity: .7;
-      margin-top: 20px;
+      font-size:13px;
+      opacity:.7;
+      margin-top:20px;
     }
 
-
-    /* =====================================================
-       RESPONSIVE
-    ====================================================== */
-
-    @media (max-width: 900px) {
+    @media (max-width:900px) {
 
       .hero-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns:1fr;
       }
 
       .simulator-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:repeat(2,1fr);
       }
 
     }
 
-
-    @media (max-width: 650px) {
+    @media (max-width:650px) {
 
       .container {
-        width: min(100% - 24px, 1180px);
+        width:min(100% - 24px,1180px);
       }
 
       .nav-note {
-        display: none;
+        display:none;
       }
 
       .hero {
-        padding: 55px 0;
+        padding:55px 0;
       }
 
       h1 {
-        font-size: 46px;
+        font-size:46px;
       }
 
       .simulator-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns:1fr;
       }
 
       .form-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns:1fr;
       }
 
       .field.full {
-        grid-column: auto;
+        grid-column:auto;
       }
 
       .modal-box {
-        padding: 23px;
+        padding:23px;
       }
 
       .footer-grid {
-        flex-direction: column;
+        flex-direction:column;
       }
 
     }
@@ -924,10 +784,6 @@
 
 <body>
 
-
-<!-- =====================================================
-     HEADER
-====================================================== -->
 
 <header>
 
@@ -953,706 +809,619 @@
 <main>
 
 
-  <!-- =====================================================
-       HERO
-  ====================================================== -->
+<section class="hero">
 
-  <section class="hero">
+  <div class="container hero-grid">
 
-    <div class="container hero-grid">
+    <div>
+
+      <div class="eyebrow">
+        ✓ Gratuit · Simple · Rapide
+      </div>
+
+      <h1>
+        Calculez vos droits<br>
+        en quelques secondes.
+      </h1>
+
+      <p>
+        Salaire net, rupture conventionnelle, licenciement,
+        chômage, congés payés, heures supplémentaires…
+        SimuDroit vous aide à obtenir rapidement une estimation
+        claire et compréhensible.
+      </p>
+
+    </div>
+
+
+    <div class="hero-card">
+
+      <strong>
+        Comment ça marche ?
+      </strong>
 
       <div>
-
-        <div class="eyebrow">
-          ✓ Gratuit · Simple · Rapide
-        </div>
-
-        <h1>
-          Calculez vos droits<br>
-          en quelques secondes.
-        </h1>
-
-        <p>
-          Salaire net, rupture conventionnelle, licenciement,
-          chômage, congés payés, heures supplémentaires…
-          SimuDroit vous aide à obtenir rapidement une estimation
-          claire et compréhensible.
-        </p>
-
+        <span>①</span>
+        <span>Choisissez votre simulateur</span>
       </div>
 
+      <div>
+        <span>②</span>
+        <span>Renseignez quelques informations</span>
+      </div>
 
-      <div class="hero-card">
-
-        <strong>
-          Comment ça marche ?
-        </strong>
-
-        <div>
-          <span>①</span>
-          <span>Choisissez votre simulateur</span>
-        </div>
-
-        <div>
-          <span>②</span>
-          <span>Renseignez quelques informations</span>
-        </div>
-
-        <div>
-          <span>③</span>
-          <span>Obtenez immédiatement votre estimation</span>
-        </div>
-
+      <div>
+        <span>③</span>
+        <span>Obtenez immédiatement votre estimation</span>
       </div>
 
     </div>
 
-  </section>
+  </div>
 
+</section>
 
-  <!-- =====================================================
-       SIMULATEURS
-  ====================================================== -->
 
-  <section class="simulators-section"
-           id="simulateurs">
+<section class="simulators-section"
+         id="simulateurs">
 
-    <div class="container">
+  <div class="container">
 
-      <div class="section-heading">
-
-        <h2>
-          Que souhaitez-vous calculer ?
-        </h2>
-
-        <p>
-          Sélectionnez directement le simulateur qui correspond
-          à votre situation.
-        </p>
-
-      </div>
-
-
-      <div class="tools">
-
-        <input
-          id="search"
-          class="search"
-          type="search"
-          placeholder="Rechercher un simulateur…"
-          aria-label="Rechercher un simulateur"
-          autocomplete="off"
-        >
-
-
-        <div class="filters">
-
-          <button
-            class="filter active"
-            type="button"
-            data-category="all">
-
-            Tous
-
-          </button>
-
-
-          <button
-            class="filter"
-            type="button"
-            data-category="salaire">
-
-            Salaire
-
-          </button>
-
-
-          <button
-            class="filter"
-            type="button"
-            data-category="rupture">
-
-            Rupture & licenciement
-
-          </button>
-
-
-          <button
-            class="filter"
-            type="button"
-            data-category="chomage">
-
-            Chômage
-
-          </button>
-
-
-          <button
-            class="filter"
-            type="button"
-            data-category="conges">
-
-            Congés
-
-          </button>
-
-
-          <button
-            class="filter"
-            type="button"
-            data-category="temps">
-
-            Temps de travail
-
-          </button>
-
-        </div>
-
-      </div>
-
-
-      <div class="simulator-grid"
-           id="simulatorGrid">
-
-
-        <!-- =================================================
-             PAGE SEO DISPONIBLE
-        ================================================== -->
-
-        <a
-          class="simulator-card"
-          href="/simulateur-rupture-conventionnelle/"
-          data-key="rupture"
-          data-category="rupture"
-          data-search="rupture conventionnelle indemnité rupture salaire ancienneté"
-          aria-label="Ouvrir le simulateur de rupture conventionnelle">
-
-          <div class="simulator-icon">
-            🤝
-          </div>
-
-          <h3>
-            Rupture conventionnelle
-          </h3>
-
-          <p>
-            Estimez votre indemnité minimale de rupture
-            conventionnelle.
-          </p>
-
-          <span class="category">
-            Rupture & licenciement
-          </span>
-
-        </a>
-
-
-        <!-- =================================================
-             AUTRES SIMULATEURS
-        ================================================== -->
-
-        <article
-          class="simulator-card"
-          data-key="licenciement"
-          data-category="rupture"
-          data-search="licenciement indemnité licenciement ancienneté salaire">
-
-          <div class="simulator-icon">
-            📄
-          </div>
-
-          <h3>
-            Indemnité de licenciement
-          </h3>
-
-          <p>
-            Calculez l'indemnité légale de licenciement.
-          </p>
-
-          <span class="category">
-            Rupture & licenciement
-          </span>
-
-        </article>
-
-
-        <article
-          class="simulator-card"
-          data-key="brutnet"
-          data-category="salaire"
-          data-search="brut net salaire brut net">
-
-          <div class="simulator-icon">
-            💶
-          </div>
-
-          <h3>
-            Brut → Net
-          </h3>
-
-          <p>
-            Estimez votre salaire net à partir du salaire brut.
-          </p>
-
-          <span class="category">
-            Salaire
-          </span>
-
-        </article>
-
-
-        <article
-          class="simulator-card"
-          data-key="netbrut"
-          data-category="salaire"
-          data-search="net brut salaire net brut">
-
-          <div class="simulator-icon">
-            ↔️
-          </div>
-
-          <h3>
-            Net → Brut
-          </h3>
-
-          <p>
-            Retrouvez une estimation du salaire brut à partir du net.
-          </p>
-
-          <span class="category">
-            Salaire
-          </span>
-
-        </article>
-
-
-        <article
-          class="simulator-card"
-          data-key="chomage"
-          data-category="chomage"
-          data-search="chômage allocation ARE France Travail indemnité">
-
-          <div class="simulator-icon">
-            📊
-          </div>
-
-          <h3>
-            Allocation chômage
-          </h3>
-
-          <p>
-            Estimez votre allocation chômage journalière et mensuelle.
-          </p>
-
-          <span class="category">
-            Chômage
-          </span>
-
-        </article>
-
-
-        <article
-          class="simulator-card"
-          data-key="precarite"
-          data-category="rupture"
-          data-search="prime précarité CDD fin contrat">
-
-          <div class="simulator-icon">
-            📝
-          </div>
-
-          <h3>
-            Prime de précarité CDD
-          </h3>
-
-          <p>
-            Calculez l'indemnité de fin de contrat en CDD.
-          </p>
-
-          <span class="category">
-            Rupture & licenciement
-          </span>
-
-        </article>
-
-
-        <article
-          class="simulator-card"
-          data-key="conges"
-          data-category="conges"
-          data-search="congés payés indemnité salaire">
-
-          <div class="simulator-icon">
-            🏖️
-          </div>
-
-          <h3>
-            Congés payés
-          </h3>
-
-          <p>
-            Estimez votre indemnité compensatrice de congés payés.
-          </p>
-
-          <span class="category">
-            Congés
-          </span>
-
-        </article>
-
-
-        <article
-          class="simulator-card"
-          data-key="heures"
-          data-category="temps"
-          data-search="heures supplémentaires majoration salaire">
-
-          <div class="simulator-icon">
-            ⏱️
-          </div>
-
-          <h3>
-            Heures supplémentaires
-          </h3>
-
-          <p>
-            Calculez la rémunération de vos heures supplémentaires.
-          </p>
-
-          <span class="category">
-            Temps de travail
-          </span>
-
-        </article>
-
-
-        <article
-          class="simulator-card"
-          data-key="tempspartiel"
-          data-category="temps"
-          data-search="temps partiel salaire heures travail">
-
-          <div class="simulator-icon">
-            🕐
-          </div>
-
-          <h3>
-            Temps partiel
-          </h3>
-
-          <p>
-            Estimez votre salaire selon votre durée de travail.
-          </p>
-
-          <span class="category">
-            Temps de travail
-          </span>
-
-        </article>
-
-
-        <article
-          class="simulator-card"
-          data-key="preavis"
-          data-category="rupture"
-          data-search="préavis démission durée">
-
-          <div class="simulator-icon">
-            📅
-          </div>
-
-          <h3>
-            Préavis de démission
-          </h3>
-
-          <p>
-            Estimez la durée de votre préavis de démission.
-          </p>
-
-          <span class="category">
-            Rupture & licenciement
-          </span>
-
-        </article>
-
-
-        <article
-          class="simulator-card"
-          data-key="solde"
-          data-category="rupture"
-          data-search="solde tout compte salaire congés indemnité">
-
-          <div class="simulator-icon">
-            🧾
-          </div>
-
-          <h3>
-            Solde de tout compte
-          </h3>
-
-          <p>
-            Estimez les sommes susceptibles d'être versées à votre départ.
-          </p>
-
-          <span class="category">
-            Rupture & licenciement
-          </span>
-
-        </article>
-
-
-      </div>
-
-
-      <div
-        class="empty"
-        id="empty">
-
-        Aucun simulateur ne correspond à votre recherche.
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       CONTENU SEO
-  ====================================================== -->
-
-  <section class="content-section">
-
-    <div class="container content">
+    <div class="section-heading">
 
       <h2>
-        Des simulateurs pour mieux comprendre vos droits
+        Que souhaitez-vous calculer ?
       </h2>
 
       <p>
-        Les règles applicables au salaire, aux congés payés,
-        au chômage ou à la rupture du contrat de travail peuvent
-        rapidement devenir difficiles à comprendre.
-        SimuDroit propose des outils simples permettant d'obtenir
-        une première estimation en quelques secondes.
+        Sélectionnez directement le simulateur qui correspond
+        à votre situation.
       </p>
 
-
-      <h3>
-        Calculer son salaire brut et net
-      </h3>
-
-      <p>
-        Le montant indiqué sur une fiche de paie peut être exprimé
-        en salaire brut ou en salaire net. Le passage de l'un à l'autre
-        dépend notamment du statut du salarié et des cotisations
-        applicables.
-      </p>
+    </div>
 
 
-      <h3>
-        Estimer une indemnité de rupture
-      </h3>
+    <div class="tools">
 
-      <p>
-        Lorsqu'un contrat de travail prend fin, plusieurs sommes
-        peuvent être dues : indemnité de licenciement, indemnité
-        de rupture conventionnelle, indemnité compensatrice de
-        congés payés ou encore indemnité de préavis.
-      </p>
+      <input
+        id="search"
+        class="search"
+        type="search"
+        placeholder="Rechercher un simulateur…"
+        aria-label="Rechercher un simulateur"
+      >
 
+      <div class="filters">
 
-      <h3>
-        Comprendre le chômage
-      </h3>
+        <button
+          type="button"
+          class="filter active"
+          data-category="all">
+          Tous
+        </button>
 
-      <p>
-        Le montant de l'allocation d'aide au retour à l'emploi dépend
-        notamment des rémunérations prises en compte et de la situation
-        du demandeur d'emploi. Le résultat proposé par SimuDroit reste
-        une estimation et ne remplace pas le calcul réalisé par
-        France Travail.
-      </p>
+        <button
+          type="button"
+          class="filter"
+          data-category="salaire">
+          Salaire
+        </button>
 
+        <button
+          type="button"
+          class="filter"
+          data-category="emploi">
+          Emploi
+        </button>
 
-      <div class="notice">
+        <button
+          type="button"
+          class="filter"
+          data-category="indemnites">
+          Indemnités
+        </button>
 
-        <strong>
-          Important :
-        </strong>
-
-        les résultats fournis par les simulateurs sont des estimations
-        indicatives. Les conventions collectives, contrats de travail,
-        situations individuelles et évolutions réglementaires peuvent
-        modifier le résultat réel.
+        <button
+          type="button"
+          class="filter"
+          data-category="temps">
+          Temps de travail
+        </button>
 
       </div>
 
     </div>
 
-  </section>
+
+    <div class="simulator-grid">
 
 
-  <!-- =====================================================
-       FAQ
-  ====================================================== -->
+      <a
+        class="simulator-card"
+        data-category="indemnites"
+        data-search="rupture conventionnelle indemnité départ"
+        href="/simulateur-rupture-conventionnelle/">
 
-  <section class="faq-section">
+        <div class="simulator-icon">
+          🤝
+        </div>
 
-    <div class="container">
-
-      <div class="section-heading">
-
-        <h2>
-          Questions fréquentes
-        </h2>
+        <h3>
+          Rupture conventionnelle
+        </h3>
 
         <p>
-          Quelques réponses aux questions les plus courantes.
+          Estimez votre indemnité minimale de rupture conventionnelle.
         </p>
 
-      </div>
+        <span class="category">
+          Indemnités
+        </span>
+
+      </a>
 
 
-      <div class="faq">
+      <a
+        class="simulator-card"
+        data-category="indemnites"
+        data-search="licenciement indemnité licenciement"
+        href="/simulateur-indemnite-licenciement/">
+
+        <div class="simulator-icon">
+          📄
+        </div>
+
+        <h3>
+          Indemnité de licenciement
+        </h3>
+
+        <p>
+          Calculez une estimation de votre indemnité légale.
+        </p>
+
+        <span class="category">
+          Indemnités
+        </span>
+
+      </a>
 
 
-        <details>
+      <a
+        class="simulator-card"
+        data-category="salaire"
+        data-search="brut net salaire brut net"
+        href="/simulateur-brut-net/">
 
-          <summary>
-            Les simulateurs SimuDroit sont-ils gratuits ?
-          </summary>
+        <div class="simulator-icon">
+          💶
+        </div>
 
-          <p>
-            Oui. Les simulateurs sont accessibles gratuitement,
-            sans inscription obligatoire.
-          </p>
+        <h3>
+          Brut → net
+        </h3>
 
-        </details>
+        <p>
+          Estimez votre salaire net à partir du salaire brut.
+        </p>
 
+        <span class="category">
+          Salaire
+        </span>
 
-        <details>
-
-          <summary>
-            Les résultats sont-ils exacts ?
-          </summary>
-
-          <p>
-            Ils constituent une estimation. Le montant réellement
-            applicable peut dépendre de votre convention collective,
-            de votre contrat et de nombreux paramètres individuels.
-          </p>
-
-        </details>
+      </a>
 
 
-        <details>
+      <a
+        class="simulator-card"
+        data-category="salaire"
+        data-search="net brut salaire net brut"
+        href="/simulateur-net-brut/">
 
-          <summary>
-            Puis-je utiliser SimuDroit pour vérifier mon solde de tout compte ?
-          </summary>
+        <div class="simulator-icon">
+          🔄
+        </div>
 
-          <p>
-            Oui, le simulateur permet d'obtenir une première estimation
-            des principales sommes pouvant intervenir lors d'un départ.
-          </p>
+        <h3>
+          Net → brut
+        </h3>
 
-        </details>
+        <p>
+          Retrouvez le salaire brut correspondant à votre net.
+        </p>
 
+        <span class="category">
+          Salaire
+        </span>
 
-        <details>
-
-          <summary>
-            Le calcul du chômage remplace-t-il celui de France Travail ?
-          </summary>
-
-          <p>
-            Non. Le simulateur donne une estimation pédagogique.
-            Le montant officiel est déterminé par France Travail
-            selon les règles applicables à votre situation.
-          </p>
-
-        </details>
+      </a>
 
 
-        <details>
+      <a
+        class="simulator-card"
+        data-category="emploi"
+        data-search="chômage allocation ARE france travail"
+        href="/simulateur-chomage/">
 
-          <summary>
-            Pourquoi mon salaire net réel peut-il être différent ?
-          </summary>
+        <div class="simulator-icon">
+          🧾
+        </div>
 
-          <p>
-            Le salaire net dépend notamment des cotisations,
-            du statut, de la mutuelle, du prélèvement à la source
-            et d'autres éléments figurant sur la fiche de paie.
-          </p>
+        <h3>
+          Chômage
+        </h3>
 
-        </details>
+        <p>
+          Estimez votre allocation chômage ARE.
+        </p>
+
+        <span class="category">
+          Emploi
+        </span>
+
+      </a>
 
 
-      </div>
+      <a
+        class="simulator-card"
+        data-category="indemnites"
+        data-search="prime précarité CDD fin contrat"
+        href="/simulateur-prime-precarite/">
+
+        <div class="simulator-icon">
+          📈
+        </div>
+
+        <h3>
+          Prime de précarité
+        </h3>
+
+        <p>
+          Calculez votre indemnité de fin de CDD.
+        </p>
+
+        <span class="category">
+          Indemnités
+        </span>
+
+      </a>
+
+
+      <a
+        class="simulator-card"
+        data-category="indemnites"
+        data-search="congés payés indemnité congés"
+        href="/simulateur-conges-payes/">
+
+        <div class="simulator-icon">
+          🏖️
+        </div>
+
+        <h3>
+          Congés payés
+        </h3>
+
+        <p>
+          Estimez votre indemnité de congés payés.
+        </p>
+
+        <span class="category">
+          Indemnités
+        </span>
+
+      </a>
+
+
+      <a
+        class="simulator-card"
+        data-category="temps"
+        data-search="heures supplémentaires majoration heures sup"
+        href="/simulateur-heures-supplementaires/">
+
+        <div class="simulator-icon">
+          ⏱️
+        </div>
+
+        <h3>
+          Heures supplémentaires
+        </h3>
+
+        <p>
+          Estimez la rémunération de vos heures supplémentaires.
+        </p>
+
+        <span class="category">
+          Temps de travail
+        </span>
+
+      </a>
+
+
+      <a
+        class="simulator-card"
+        data-category="temps"
+        data-search="temps partiel salaire quotité"
+        href="/simulateur-temps-partiel/">
+
+        <div class="simulator-icon">
+          🕐
+        </div>
+
+        <h3>
+          Temps partiel
+        </h3>
+
+        <p>
+          Estimez votre salaire selon votre temps de travail.
+        </p>
+
+        <span class="category">
+          Temps de travail
+        </span>
+
+      </a>
+
+
+      <a
+        class="simulator-card"
+        data-category="emploi"
+        data-search="préavis démission durée préavis"
+        href="/simulateur-preavis-demission/">
+
+        <div class="simulator-icon">
+          🚪
+        </div>
+
+        <h3>
+          Préavis de démission
+        </h3>
+
+        <p>
+          Estimez la durée indicative de votre préavis.
+        </p>
+
+        <span class="category">
+          Emploi
+        </span>
+
+      </a>
+
+
+      <a
+        class="simulator-card"
+        data-category="indemnites"
+        data-search="solde tout compte départ salaire congés"
+        href="/simulateur-solde-tout-compte/">
+
+        <div class="simulator-icon">
+          🧮
+        </div>
+
+        <h3>
+          Solde de tout compte
+        </h3>
+
+        <p>
+          Estimez les principales sommes dues lors de votre départ.
+        </p>
+
+        <span class="category">
+          Indemnités
+        </span>
+
+      </a>
 
     </div>
 
-  </section>
+
+    <div
+      id="empty"
+      class="empty">
+
+      Aucun simulateur ne correspond à votre recherche.
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="content-section">
+
+  <div class="container content">
+
+    <h2>
+      Des simulateurs simples pour comprendre vos droits
+    </h2>
+
+    <p>
+      SimuDroit rassemble des outils gratuits permettant d'obtenir
+      rapidement des estimations sur différentes situations liées
+      au salaire, à l'emploi et aux indemnités.
+    </p>
+
+    <p>
+      L'objectif est de transformer des règles parfois complexes
+      en calculs simples et compréhensibles.
+    </p>
+
+
+    <div class="notice">
+
+      <strong>À retenir :</strong>
+      les résultats des simulateurs sont des estimations indicatives.
+      Ils ne remplacent pas un calcul officiel réalisé par votre employeur,
+      France Travail ou l'organisme compétent.
+
+    </div>
+
+
+    <h3>
+      Salaire et rémunération
+    </h3>
+
+    <p>
+      Les simulateurs brut-net et net-brut permettent d'obtenir
+      rapidement une première estimation de votre rémunération.
+      Le montant réellement perçu dépend notamment du statut,
+      des cotisations applicables et du prélèvement à la source.
+    </p>
+
+
+    <h3>
+      Départ de l'entreprise
+    </h3>
+
+    <p>
+      Une démission, une rupture conventionnelle ou un licenciement
+      peuvent entraîner plusieurs calculs différents : préavis,
+      indemnité de rupture, congés payés et solde de tout compte.
+    </p>
+
+
+    <h3>
+      Temps de travail
+    </h3>
+
+    <p>
+      Les heures supplémentaires et le temps partiel peuvent également
+      modifier directement la rémunération. SimuDroit permet d'obtenir
+      une première estimation à partir de quelques informations.
+    </p>
+
+  </div>
+
+</section>
+
+
+<section class="faq-section">
+
+  <div class="container faq">
+
+    <div class="section-heading">
+
+      <h2>
+        Questions fréquentes
+      </h2>
+
+      <p>
+        Quelques réponses avant d'utiliser nos simulateurs.
+      </p>
+
+    </div>
+
+
+    <details>
+
+      <summary>
+        Les simulateurs SimuDroit sont-ils gratuits ?
+      </summary>
+
+      <p>
+        Oui. Les simulateurs disponibles sur SimuDroit sont accessibles
+        gratuitement.
+      </p>
+
+    </details>
+
+
+    <details>
+
+      <summary>
+        Les résultats sont-ils officiels ?
+      </summary>
+
+      <p>
+        Non. Les résultats sont indicatifs. Les règles officielles
+        peuvent dépendre de votre situation individuelle, de votre
+        convention collective, de vos contrats et de données qui ne
+        sont pas toujours disponibles dans un simulateur simplifié.
+      </p>
+
+    </details>
+
+
+    <details>
+
+      <summary>
+        Pourquoi mon résultat peut-il être différent ?
+      </summary>
+
+      <p>
+        Les calculs officiels peuvent intégrer davantage d'informations
+        que celles demandées par nos simulateurs. Il est donc normal
+        qu'une estimation diffère du montant finalement calculé par
+        l'organisme compétent.
+      </p>
+
+    </details>
+
+
+    <details>
+
+      <summary>
+        Quel simulateur utiliser pour un départ d'entreprise ?
+      </summary>
+
+      <p>
+        Selon votre situation, vous pouvez utiliser le simulateur
+        de rupture conventionnelle, de licenciement, de préavis
+        de démission ou de solde de tout compte.
+      </p>
+
+    </details>
+
+  </div>
+
+</section>
 
 
 </main>
 
 
-<!-- =====================================================
-     FOOTER
-====================================================== -->
-
 <footer>
 
-  <div class="container">
+  <div class="container footer-grid">
 
-    <div class="footer-grid">
+    <div>
 
+      <strong>
+        SimuDroit
+      </strong>
 
-      <div>
-
-        <strong>
-          SimuDroit
-        </strong>
-
-        <p>
-          Des simulateurs simples pour vous aider à comprendre
-          votre salaire, vos indemnités et vos droits.
-        </p>
-
-        <div class="copyright">
-          © 2026 SimuDroit
-        </div>
-
-      </div>
-
-
-      <div>
-
-        <p>
-          Les informations proposées sont données à titre indicatif
-          et ne constituent pas un conseil juridique personnalisé.
-        </p>
-
-      </div>
-
+      <p>
+        Des simulateurs simples et gratuits pour mieux comprendre
+        votre salaire, vos indemnités et vos droits.
+      </p>
 
     </div>
+
+    <div>
+
+      <p>
+        Les résultats proposés sont indicatifs et ne constituent
+        pas un avis juridique ou une notification officielle de droits.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="container copyright">
+
+    © 2026 SimuDroit — Tous droits réservés.
 
   </div>
 
 </footer>
 
 
-<!-- =====================================================
-     MODAL
-====================================================== -->
+<!-- MODALE -->
 
 <div
-  class="modal"
   id="modal"
+  class="modal"
   aria-hidden="true">
 
   <div
@@ -1661,32 +1430,30 @@
     aria-modal="true"
     aria-labelledby="modalTitle">
 
-
     <button
+      type="button"
       class="close"
       id="closeModal"
-      type="button"
       aria-label="Fermer">
-
       ×
-
     </button>
 
 
-    <h2 id="modalTitle"></h2>
-
+    <h2 id="modalTitle">
+      Simulateur
+    </h2>
 
     <p
-      class="modal-description"
-      id="modalDescription">
+      id="modalDescription"
+      class="modal-description">
     </p>
 
 
     <form id="calculatorForm">
 
       <div
-        class="form-grid"
-        id="formFields">
+        id="formFields"
+        class="form-grid">
       </div>
 
 
@@ -1694,7 +1461,7 @@
         type="submit"
         class="calculate">
 
-        Calculer mon estimation
+        Calculer
 
       </button>
 
@@ -1702,80 +1469,32 @@
 
 
     <div
+      id="result"
       class="result"
-      id="result">
+      aria-live="polite">
 
-      <div
-        class="result-title"
-        id="resultTitle">
-
-        Résultat estimatif
-
+      <div class="result-title">
+        Résultat estimé
       </div>
 
-
       <div
-        class="result-value"
-        id="resultValue">
+        id="resultValue"
+        class="result-value">
       </div>
 
-
       <div
-        class="result-note"
-        id="resultNote">
+        id="resultNote"
+        class="result-note">
       </div>
 
     </div>
-
 
   </div>
 
 </div>
 
 
-<!-- =====================================================
-     JAVASCRIPT
-====================================================== -->
-
 <script>
-
-
-const SITE_URL =
-  "https://simudroit.netlify.app";
-
-
-/* =====================================================
-   OUTILS
-====================================================== */
-
-
-function money(value) {
-
-  return new Intl.NumberFormat("fr-FR", {
-    style: "currency",
-    currency: "EUR",
-    maximumFractionDigits: 2
-  }).format(value);
-
-}
-
-
-function number(value) {
-
-  const n =
-    parseFloat(value);
-
-  return Number.isFinite(n)
-    ? n
-    : 0;
-
-}
-
-
-/* =====================================================
-   CONFIGURATION DES SIMULATEURS
-====================================================== */
-
 
 const calculators = {
 
@@ -1786,52 +1505,50 @@ const calculators = {
       "Simulateur de rupture conventionnelle",
 
     description:
-      "Estimez l'indemnité minimale de rupture conventionnelle à partir de votre salaire et de votre ancienneté.",
+      "Estimez l'indemnité minimale de rupture conventionnelle.",
 
     fields: [
 
       {
-        id: "salary",
-        label: "Salaire mensuel brut de référence",
-        type: "number",
-        placeholder: "2500",
-        step: "0.01"
+        id:"salary",
+        label:"Salaire mensuel brut de référence",
+        type:"number",
+        placeholder:"2500",
+        step:"0.01"
       },
 
       {
-        id: "years",
-        label: "Ancienneté en années",
-        type: "number",
-        placeholder: "5",
-        step: "0.01"
+        id:"years",
+        label:"Ancienneté en années",
+        type:"number",
+        placeholder:"5",
+        step:"0.01"
       }
 
     ],
 
-    calculate: data => {
+    calculate:data => {
 
       const salary =
-        number(data.salary);
+        parseFloat(data.salary) || 0;
 
       const years =
-        number(data.years);
+        parseFloat(data.years) || 0;
 
       let indemnity = 0;
-
 
       if (years <= 10) {
 
         indemnity =
-          salary * 0.25 * years;
+          salary * .25 * years;
 
       } else {
 
         indemnity =
-          salary * 0.25 * 10 +
+          salary * .25 * 10 +
           salary * (years - 10) / 3;
 
       }
-
 
       return {
 
@@ -1854,52 +1571,50 @@ const calculators = {
       "Simulateur d'indemnité de licenciement",
 
     description:
-      "Estimez l'indemnité légale minimale de licenciement selon votre salaire et votre ancienneté.",
+      "Estimez l'indemnité légale minimale de licenciement.",
 
     fields: [
 
       {
-        id: "salary",
-        label: "Salaire mensuel brut de référence",
-        type: "number",
-        placeholder: "2500",
-        step: "0.01"
+        id:"salary",
+        label:"Salaire mensuel brut de référence",
+        type:"number",
+        placeholder:"2500",
+        step:"0.01"
       },
 
       {
-        id: "years",
-        label: "Ancienneté en années",
-        type: "number",
-        placeholder: "8",
-        step: "0.01"
+        id:"years",
+        label:"Ancienneté en années",
+        type:"number",
+        placeholder:"8",
+        step:"0.01"
       }
 
     ],
 
-    calculate: data => {
+    calculate:data => {
 
       const salary =
-        number(data.salary);
+        parseFloat(data.salary) || 0;
 
       const years =
-        number(data.years);
+        parseFloat(data.years) || 0;
 
       let indemnity = 0;
-
 
       if (years <= 10) {
 
         indemnity =
-          salary * 0.25 * years;
+          salary * .25 * years;
 
       } else {
 
         indemnity =
-          salary * 0.25 * 10 +
+          salary * .25 * 10 +
           salary * (years - 10) / 3;
 
       }
-
 
       return {
 
@@ -1922,39 +1637,38 @@ const calculators = {
       "Simulateur brut → net",
 
     description:
-      "Estimez votre salaire net à partir de votre salaire brut mensuel.",
+      "Estimez votre salaire net à partir de votre salaire brut.",
 
     fields: [
 
       {
-        id: "salary",
-        label: "Salaire brut mensuel",
-        type: "number",
-        placeholder: "2500",
-        step: "0.01"
+        id:"salary",
+        label:"Salaire brut mensuel",
+        type:"number",
+        placeholder:"2500",
+        step:"0.01"
       },
 
       {
-        id: "rate",
-        label: "Taux estimatif de cotisations",
-        type: "number",
-        placeholder: "22",
-        step: "0.1"
+        id:"rate",
+        label:"Taux estimatif de cotisations",
+        type:"number",
+        placeholder:"22",
+        step:"0.1"
       }
 
     ],
 
-    calculate: data => {
+    calculate:data => {
 
       const salary =
-        number(data.salary);
+        parseFloat(data.salary) || 0;
 
       const rate =
-        number(data.rate);
+        parseFloat(data.rate) || 0;
 
       const net =
         salary * (1 - rate / 100);
-
 
       return {
 
@@ -1962,7 +1676,7 @@ const calculators = {
           money(net),
 
         note:
-          "Estimation avant prélèvement à la source. Le taux réel dépend notamment du statut et de la situation du salarié."
+          "Estimation avant prélèvement à la source. Le résultat réel dépend du statut et de la situation du salarié."
 
       };
 
@@ -1982,34 +1696,49 @@ const calculators = {
     fields: [
 
       {
-        id: "salary",
-        label: "Salaire net mensuel souhaité",
-        type: "number",
-        placeholder: "1950",
-        step: "0.01"
+        id:"salary",
+        label:"Salaire net mensuel souhaité",
+        type:"number",
+        placeholder:"1950",
+        step:"0.01"
       },
 
       {
-        id: "rate",
-        label: "Taux estimatif de cotisations",
-        type: "number",
-        placeholder: "22",
-        step: "0.1"
+        id:"rate",
+        label:"Taux estimatif de cotisations",
+        type:"number",
+        placeholder:"22",
+        step:"0.1"
       }
 
     ],
 
-    calculate: data => {
+    calculate:data => {
 
       const salary =
-        number(data.salary);
+        parseFloat(data.salary) || 0;
 
       const rate =
-        number(data.rate);
+        parseFloat(data.rate) || 0;
+
+      const denominator =
+        1 - rate / 100;
+
+      if (denominator <= 0) {
+
+        return {
+
+          value:"Impossible",
+
+          note:
+            "Le taux de cotisations doit être inférieur à 100 %."
+
+        };
+
+      }
 
       const gross =
-        salary / (1 - rate / 100);
-
+        salary / denominator;
 
       return {
 
@@ -2017,7 +1746,7 @@ const calculators = {
           money(gross),
 
         note:
-          "Estimation du brut correspondant. Le résultat réel dépend du statut et des cotisations applicables."
+          "Estimation du salaire brut correspondant."
 
       };
 
@@ -2032,45 +1761,45 @@ const calculators = {
       "Simulateur d'allocation chômage",
 
     description:
-      "Obtenez une estimation indicative de votre allocation chômage à partir de votre salaire journalier de référence.",
+      "Obtenez une estimation indicative de votre allocation chômage.",
 
     fields: [
 
       {
-        id: "sjr",
-        label: "Salaire journalier de référence estimé",
-        type: "number",
-        placeholder: "100",
-        step: "0.01"
+        id:"sjr",
+        label:"Salaire journalier de référence estimé",
+        type:"number",
+        placeholder:"100",
+        step:"0.01"
       }
 
     ],
 
-    calculate: data => {
+    calculate:data => {
 
       const sjr =
-        number(data.sjr);
-
+        parseFloat(data.sjr) || 0;
 
       let daily =
         Math.max(
-          sjr * 0.404 + 13.18,
-          sjr * 0.57
+          sjr * .404 + 13.18,
+          sjr * .57
         );
 
+      daily =
+        Math.max(
+          daily,
+          32.13
+        );
 
-      const minimum =
-        32.13;
-
-
-      if (daily < minimum) {
-        daily = minimum;
-      }
-
+      daily =
+        Math.min(
+          daily,
+          sjr * .75
+        );
 
       const monthly =
         daily * 30;
-
 
       return {
 
@@ -2078,7 +1807,7 @@ const calculators = {
           money(monthly) + " / mois",
 
         note:
-          "Estimation indicative de l'ARE. Le calcul officiel est effectué par France Travail et dépend de votre situation."
+          "Estimation indicative de l'ARE. Le calcul officiel est effectué par France Travail."
 
       };
 
@@ -2090,7 +1819,7 @@ const calculators = {
   precarite: {
 
     title:
-      "Simulateur de prime de précarité CDD",
+      "Simulateur de prime de précarité",
 
     description:
       "Estimez l'indemnité de fin de contrat d'un CDD.",
@@ -2098,35 +1827,33 @@ const calculators = {
     fields: [
 
       {
-        id: "gross",
-        label: "Total des rémunérations brutes du CDD",
-        type: "number",
-        placeholder: "18000",
-        step: "0.01"
+        id:"gross",
+        label:"Total des rémunérations brutes du CDD",
+        type:"number",
+        placeholder:"18000",
+        step:"0.01"
       },
 
       {
-        id: "rate",
-        label: "Taux de prime de précarité",
-        type: "number",
-        placeholder: "10",
-        step: "0.1"
+        id:"rate",
+        label:"Taux de prime de précarité",
+        type:"number",
+        placeholder:"10",
+        step:"0.1"
       }
 
     ],
 
-    calculate: data => {
+    calculate:data => {
 
       const gross =
-        number(data.gross);
+        parseFloat(data.gross) || 0;
 
       const rate =
-        number(data.rate);
-
+        parseFloat(data.rate) || 0;
 
       const indemnity =
         gross * rate / 100;
-
 
       return {
 
@@ -2149,53 +1876,64 @@ const calculators = {
       "Simulateur de congés payés",
 
     description:
-      "Estimez votre indemnité compensatrice de congés payés selon la méthode du dixième.",
+      "Estimez votre indemnité compensatrice de congés payés.",
 
     fields: [
 
       {
-        id: "gross",
-        label: "Rémunération brute de référence",
-        type: "number",
-        placeholder: "24000",
-        step: "0.01"
+        id:"gross",
+        label:"Rémunération brute de référence",
+        type:"number",
+        placeholder:"24000",
+        step:"0.01"
       },
 
       {
-        id: "days",
-        label: "Nombre de jours de congés à indemniser",
-        type: "number",
-        placeholder: "10",
-        step: "0.5"
+        id:"days",
+        label:"Nombre de jours à indemniser",
+        type:"number",
+        placeholder:"10",
+        step:"0.5"
       },
 
       {
-        id: "totalDays",
-        label: "Nombre de jours acquis sur la période",
-        type: "number",
-        placeholder: "30",
-        step: "0.5"
+        id:"totalDays",
+        label:"Nombre de jours acquis",
+        type:"number",
+        placeholder:"30",
+        step:"0.5"
       }
 
     ],
 
-    calculate: data => {
+    calculate:data => {
 
       const gross =
-        number(data.gross);
+        parseFloat(data.gross) || 0;
 
       const days =
-        number(data.days);
+        parseFloat(data.days) || 0;
 
       const totalDays =
-        number(data.totalDays);
+        parseFloat(data.totalDays) || 0;
 
+      if (totalDays <= 0) {
+
+        return {
+
+          value:"Impossible",
+
+          note:
+            "Le nombre de jours acquis doit être supérieur à zéro."
+
+        };
+
+      }
 
       const indemnity =
         gross *
-        0.10 *
+        .10 *
         (days / totalDays);
-
 
       return {
 
@@ -2203,7 +1941,7 @@ const calculators = {
           money(indemnity),
 
         note:
-          "Estimation selon la règle du dixième. L'employeur doit comparer avec la méthode du maintien de salaire et retenir la plus favorable."
+          "Estimation selon la règle du dixième. Le maintien de salaire doit également être comparé."
 
       };
 
@@ -2218,44 +1956,41 @@ const calculators = {
       "Simulateur d'heures supplémentaires",
 
     description:
-      "Estimez la rémunération de vos heures supplémentaires avec majoration.",
+      "Estimez la rémunération de vos heures supplémentaires.",
 
     fields: [
 
       {
-        id: "hourly",
-        label: "Taux horaire brut",
-        type: "number",
-        placeholder: "15",
-        step: "0.01"
+        id:"hourly",
+        label:"Taux horaire brut",
+        type:"number",
+        placeholder:"15",
+        step:"0.01"
       },
 
       {
-        id: "hours",
-        label: "Nombre d'heures supplémentaires",
-        type: "number",
-        placeholder: "10",
-        step: "0.5"
+        id:"hours",
+        label:"Nombre d'heures supplémentaires",
+        type:"number",
+        placeholder:"10",
+        step:"0.5"
       }
 
     ],
 
-    calculate: data => {
+    calculate:data => {
 
       const hourly =
-        number(data.hourly);
+        parseFloat(data.hourly) || 0;
 
       const hours =
-        number(data.hours);
-
+        parseFloat(data.hours) || 0;
 
       const firstEight =
-        Math.min(hours, 8);
-
+        Math.min(hours,8);
 
       const remaining =
-        Math.max(hours - 8, 0);
-
+        Math.max(hours - 8,0);
 
       const amount =
         firstEight *
@@ -2266,14 +2001,13 @@ const calculators = {
         hourly *
         1.50;
 
-
       return {
 
         value:
           money(amount),
 
         note:
-          "Estimation selon une majoration de 25 % pour les 8 premières heures supplémentaires puis 50 %. Une convention collective peut prévoir d'autres dispositions."
+          "Estimation selon une majoration de 25 % pour les 8 premières heures puis 50 %. Une convention collective peut prévoir d'autres dispositions."
 
       };
 
@@ -2288,53 +2022,64 @@ const calculators = {
       "Simulateur de temps partiel",
 
     description:
-      "Estimez votre salaire brut mensuel selon votre quotité de travail.",
+      "Estimez votre salaire brut selon votre quotité de travail.",
 
     fields: [
 
       {
-        id: "fullSalary",
-        label: "Salaire brut mensuel à temps plein",
-        type: "number",
-        placeholder: "2000",
-        step: "0.01"
+        id:"fullSalary",
+        label:"Salaire brut mensuel à temps plein",
+        type:"number",
+        placeholder:"2000",
+        step:"0.01"
       },
 
       {
-        id: "hours",
-        label: "Durée hebdomadaire travaillée",
-        type: "number",
-        placeholder: "28",
-        step: "0.5"
+        id:"hours",
+        label:"Durée hebdomadaire travaillée",
+        type:"number",
+        placeholder:"28",
+        step:"0.5"
       },
 
       {
-        id: "fullHours",
-        label: "Durée hebdomadaire à temps plein",
-        type: "number",
-        placeholder: "35",
-        step: "0.5"
+        id:"fullHours",
+        label:"Durée hebdomadaire à temps plein",
+        type:"number",
+        placeholder:"35",
+        step:"0.5"
       }
 
     ],
 
-    calculate: data => {
+    calculate:data => {
 
       const fullSalary =
-        number(data.fullSalary);
+        parseFloat(data.fullSalary) || 0;
 
       const hours =
-        number(data.hours);
+        parseFloat(data.hours) || 0;
 
       const fullHours =
-        number(data.fullHours);
+        parseFloat(data.fullHours) || 0;
 
+      if (fullHours <= 0) {
+
+        return {
+
+          value:"Impossible",
+
+          note:
+            "La durée hebdomadaire à temps plein doit être supérieure à zéro."
+
+        };
+
+      }
 
       const salary =
         fullSalary *
         hours /
         fullHours;
-
 
       return {
 
@@ -2342,7 +2087,7 @@ const calculators = {
           money(salary),
 
         note:
-          "Estimation proportionnelle de la rémunération brute hors éléments variables."
+          "Estimation proportionnelle de la rémunération brute."
 
       };
 
@@ -2362,25 +2107,25 @@ const calculators = {
     fields: [
 
       {
-        id: "category",
-        label: "Votre situation",
-        type: "select",
+        id:"category",
+        label:"Votre situation",
+        type:"select",
 
-        options: [
+        options:[
 
           {
-            value: "employee",
-            label: "Employé / ouvrier"
+            value:"employee",
+            label:"Employé / ouvrier"
           },
 
           {
-            value: "technician",
-            label: "Technicien / agent de maîtrise"
+            value:"technician",
+            label:"Technicien / agent de maîtrise"
           },
 
           {
-            value: "cadre",
-            label: "Cadre"
+            value:"cadre",
+            label:"Cadre"
           }
 
         ]
@@ -2389,28 +2134,14 @@ const calculators = {
 
     ],
 
-    calculate: data => {
+    calculate:data => {
 
       let duration =
-        "Selon convention collective";
-
+        "Selon la convention collective";
 
       if (data.category === "cadre") {
         duration = "Souvent 3 mois";
       }
-
-
-      if (data.category === "technician") {
-        duration =
-          "Variable selon convention collective";
-      }
-
-
-      if (data.category === "employee") {
-        duration =
-          "Variable selon convention collective";
-      }
-
 
       return {
 
@@ -2418,7 +2149,7 @@ const calculators = {
           duration,
 
         note:
-          "La durée du préavis de démission dépend principalement de la convention collective, du contrat et de la catégorie professionnelle."
+          "La durée exacte dépend notamment de la convention collective, du contrat et de la catégorie professionnelle."
 
       };
 
@@ -2433,81 +2164,91 @@ const calculators = {
       "Simulateur de solde de tout compte",
 
     description:
-      "Obtenez une estimation simplifiée des principales sommes pouvant être dues lors de votre départ.",
+      "Estimez les principales sommes pouvant être dues lors de votre départ.",
 
-    fields: [
+    fields:[
 
       {
-        id: "salary",
-        label: "Salaire mensuel brut",
-        type: "number",
-        placeholder: "2500",
-        step: "0.01"
+        id:"salary",
+        label:"Salaire mensuel brut",
+        type:"number",
+        placeholder:"2500",
+        step:"0.01"
       },
 
       {
-        id: "workedDays",
-        label: "Jours travaillés dans le dernier mois",
-        type: "number",
-        placeholder: "15",
-        step: "1"
+        id:"workedDays",
+        label:"Jours travaillés dans le dernier mois",
+        type:"number",
+        placeholder:"15",
+        step:"1"
       },
 
       {
-        id: "monthDays",
-        label: "Base de jours du mois",
-        type: "number",
-        placeholder: "30",
-        step: "1"
+        id:"monthDays",
+        label:"Base de jours du mois",
+        type:"number",
+        placeholder:"30",
+        step:"1"
       },
 
       {
-        id: "leave",
-        label: "Indemnité de congés payés estimée",
-        type: "number",
-        placeholder: "800",
-        step: "0.01"
+        id:"leave",
+        label:"Indemnité de congés payés estimée",
+        type:"number",
+        placeholder:"800",
+        step:"0.01"
       },
 
       {
-        id: "other",
-        label: "Autres indemnités",
-        type: "number",
-        placeholder: "0",
-        step: "0.01"
+        id:"other",
+        label:"Autres indemnités",
+        type:"number",
+        placeholder:"0",
+        step:"0.01"
       }
 
     ],
 
-    calculate: data => {
+    calculate:data => {
 
       const salary =
-        number(data.salary);
+        parseFloat(data.salary) || 0;
 
       const workedDays =
-        number(data.workedDays);
+        parseFloat(data.workedDays) || 0;
 
       const monthDays =
-        number(data.monthDays);
+        parseFloat(data.monthDays) || 0;
 
       const leave =
-        number(data.leave);
+        parseFloat(data.leave) || 0;
 
       const other =
-        number(data.other);
+        parseFloat(data.other) || 0;
 
+      if (monthDays <= 0) {
+
+        return {
+
+          value:"Impossible",
+
+          note:
+            "La base de jours du mois doit être supérieure à zéro."
+
+        };
+
+      }
 
       const prorata =
         salary *
         workedDays /
         monthDays;
 
-
       const total =
         prorata +
         leave +
         other;
-
 
       return {
 
@@ -2515,7 +2256,7 @@ const calculators = {
           money(total),
 
         note:
-          "Estimation simplifiée comprenant le salaire proratisé, les congés payés renseignés et les autres indemnités indiquées."
+          "Estimation simplifiée comprenant le salaire proratisé, les congés payés et les autres indemnités renseignées."
 
       };
 
@@ -2526,54 +2267,49 @@ const calculators = {
 };
 
 
-/* =====================================================
-   ELEMENTS
-====================================================== */
+function money(value) {
+
+  return new Intl.NumberFormat(
+    "fr-FR",
+    {
+      style:"currency",
+      currency:"EUR",
+      maximumFractionDigits:2
+    }
+  ).format(value);
+
+}
 
 
 const modal =
   document.getElementById("modal");
 
-
 const modalTitle =
   document.getElementById("modalTitle");
-
 
 const modalDescription =
   document.getElementById("modalDescription");
 
-
 const formFields =
   document.getElementById("formFields");
-
 
 const calculatorForm =
   document.getElementById("calculatorForm");
 
-
 const result =
   document.getElementById("result");
-
 
 const resultValue =
   document.getElementById("resultValue");
 
-
 const resultNote =
   document.getElementById("resultNote");
-
 
 const closeModal =
   document.getElementById("closeModal");
 
-
 let currentCalculator =
   null;
-
-
-/* =====================================================
-   OUVERTURE SIMULATEUR
-====================================================== */
 
 
 function openCalculator(key) {
@@ -2581,156 +2317,140 @@ function openCalculator(key) {
   const calculator =
     calculators[key];
 
-
   if (!calculator) {
     return;
   }
 
-
   currentCalculator =
     key;
-
 
   modalTitle.textContent =
     calculator.title;
 
-
   modalDescription.textContent =
     calculator.description;
-
 
   formFields.innerHTML =
     "";
 
+  calculator.fields.forEach(
+    field => {
 
-  calculator.fields.forEach(field => {
+      const wrapper =
+        document.createElement("div");
 
-    const wrapper =
-      document.createElement("div");
-
-
-    wrapper.className =
-      "field";
+      wrapper.className =
+        "field";
 
 
-    if (field.type === "select") {
+      if (field.type === "select") {
 
-      wrapper.innerHTML = `
+        wrapper.innerHTML = `
 
-        <label for="${field.id}">
-          ${field.label}
-        </label>
+          <label for="${field.id}">
+            ${field.label}
+          </label>
 
-        <select
-          id="${field.id}"
-          name="${field.id}">
+          <select
+            id="${field.id}"
+            name="${field.id}"
+            required>
 
-          ${field.options.map(option => `
+            ${field.options.map(
+              option => `
 
-            <option value="${option.value}">
-              ${option.label}
-            </option>
+                <option value="${option.value}">
+                  ${option.label}
+                </option>
 
-          `).join("")}
+              `
+            ).join("")}
 
-        </select>
+          </select>
 
-      `;
+        `;
 
-    } else {
+      } else {
 
-      wrapper.innerHTML = `
+        wrapper.innerHTML = `
 
-        <label for="${field.id}">
-          ${field.label}
-        </label>
+          <label for="${field.id}">
+            ${field.label}
+          </label>
 
-        <input
-          id="${field.id}"
-          name="${field.id}"
-          type="${field.type}"
-          placeholder="${field.placeholder || ""}"
-          step="${field.step || "any"}"
-          min="0"
-          required
-        >
+          <input
+            id="${field.id}"
+            name="${field.id}"
+            type="${field.type}"
+            placeholder="${field.placeholder || ""}"
+            step="${field.step || "any"}"
+            min="0"
+            required>
 
-      `;
+        `;
+
+      }
+
+      formFields.appendChild(
+        wrapper
+      );
 
     }
+  );
 
 
-    formFields.appendChild(wrapper);
+  result.classList.remove(
+    "show"
+  );
 
-  });
-
-
-  result.classList.remove("show");
-
-
-  modal.classList.add("open");
-
+  modal.classList.add(
+    "open"
+  );
 
   modal.setAttribute(
     "aria-hidden",
     "false"
   );
 
-
   document.body.style.overflow =
     "hidden";
 
 
-  setTimeout(() => {
+  setTimeout(
+    () => {
 
-    const first =
-      formFields.querySelector(
-        "input, select"
-      );
+      const first =
+        formFields.querySelector(
+          "input, select"
+        );
 
+      if (first) {
+        first.focus();
+      }
 
-    if (first) {
-      first.focus();
-    }
-
-  }, 100);
+    },
+    100
+  );
 
 }
 
 
-/* =====================================================
-   FERMETURE
-====================================================== */
-
-
 function closeCalculator() {
 
-  modal.classList.remove("open");
-
+  modal.classList.remove(
+    "open"
+  );
 
   modal.setAttribute(
     "aria-hidden",
     "true"
   );
 
-
   document.body.style.overflow =
     "";
 
-
   currentCalculator =
     null;
-
-
-  if (location.hash) {
-
-    history.replaceState(
-      null,
-      "",
-      location.pathname
-    );
-
-  }
 
 }
 
@@ -2745,8 +2465,12 @@ modal.addEventListener(
   "click",
   event => {
 
-    if (event.target === modal) {
+    if (
+      event.target === modal
+    ) {
+
       closeCalculator();
+
     }
 
   }
@@ -2770,49 +2494,50 @@ document.addEventListener(
 );
 
 
-/* =====================================================
-   CARTES
-====================================================== */
-
-
 document
-  .querySelectorAll(".simulator-card")
-  .forEach(card => {
+  .querySelectorAll(
+    ".simulator-card"
+  )
+  .forEach(
+    card => {
 
-    card.addEventListener(
-      "click",
-      event => {
+      card.addEventListener(
+        "click",
+        event => {
 
-        const key =
-          card.dataset.key;
+          const href =
+            card.getAttribute(
+              "href"
+            );
 
+          /*
+           * Les cartes SEO doivent
+           * ouvrir leur vraie page.
+           */
 
-        if (key === "rupture") {
-          return;
+          if (
+            href &&
+            href !== "#"
+          ) {
+
+            return;
+
+          }
+
+          event.preventDefault();
+
+          const key =
+            card.dataset.key;
+
+          if (key) {
+            openCalculator(key);
+          }
+
         }
+      );
 
-
-        event.preventDefault();
-
-
-        openCalculator(key);
-
-
-        history.replaceState(
-          null,
-          "",
-          "#simulateur-" + key
-        );
-
-      }
-    );
-
-  });
-
-
-/* =====================================================
-   FORMULAIRE
-====================================================== */
+    }
+  );
 
 
 calculatorForm.addEventListener(
@@ -2821,67 +2546,57 @@ calculatorForm.addEventListener(
 
     event.preventDefault();
 
-
     if (!currentCalculator) {
       return;
     }
 
-
     const calculator =
-      calculators[currentCalculator];
-
+      calculators[
+        currentCalculator
+      ];
 
     const formData =
-      new FormData(calculatorForm);
-
+      new FormData(
+        calculatorForm
+      );
 
     const data =
       {};
 
-
     formData.forEach(
-      (value, key) => {
-
-        data[key] =
-          value;
-
+      (value,key) => {
+        data[key] = value;
       }
     );
 
-
     const output =
-      calculator.calculate(data);
-
+      calculator.calculate(
+        data
+      );
 
     resultValue.textContent =
       output.value;
 
-
     resultNote.textContent =
       output.note;
-
 
     result.classList.add(
       "show"
     );
 
-
     result.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest"
+      behavior:"smooth",
+      block:"nearest"
     });
 
   }
 );
 
 
-/* =====================================================
-   RECHERCHE + FILTRES
-====================================================== */
-
-
 const search =
-  document.getElementById("search");
+  document.getElementById(
+    "search"
+  );
 
 
 const cards =
@@ -2893,7 +2608,9 @@ const cards =
 
 
 const empty =
-  document.getElementById("empty");
+  document.getElementById(
+    "empty"
+  );
 
 
 let activeCategory =
@@ -2907,48 +2624,47 @@ function filterCards() {
       .toLowerCase()
       .trim();
 
-
   let visible =
     0;
 
 
-  cards.forEach(card => {
+  cards.forEach(
+    card => {
 
-    const text =
-      (
-        card.dataset.search +
-        " " +
-        card.textContent
-      ).toLowerCase();
-
-
-    const categoryMatch =
-      activeCategory === "all" ||
-      card.dataset.category ===
-        activeCategory;
+      const text =
+        (
+          card.dataset.search +
+          " " +
+          card.textContent
+        ).toLowerCase();
 
 
-    const searchMatch =
-      !query ||
-      text.includes(query);
+      const categoryMatch =
+        activeCategory === "all" ||
+        card.dataset.category ===
+          activeCategory;
 
 
-    const show =
-      categoryMatch &&
-      searchMatch;
+      const searchMatch =
+        !query ||
+        text.includes(query);
 
 
-    card.style.display =
-      show
-        ? ""
-        : "none";
+      const show =
+        categoryMatch &&
+        searchMatch;
 
 
-    if (show) {
-      visible++;
+      card.style.display =
+        show ? "" : "none";
+
+
+      if (show) {
+        visible++;
+      }
+
     }
-
-  });
+  );
 
 
   empty.style.display =
@@ -2966,93 +2682,41 @@ search.addEventListener(
 
 
 document
-  .querySelectorAll(".filter")
-  .forEach(button => {
+  .querySelectorAll(
+    ".filter"
+  )
+  .forEach(
+    button => {
 
-    button.addEventListener(
-      "click",
-      () => {
+      button.addEventListener(
+        "click",
+        () => {
 
-        document
-          .querySelectorAll(".filter")
-          .forEach(
-            b =>
-              b.classList.remove(
-                "active"
-              )
+          document
+            .querySelectorAll(
+              ".filter"
+            )
+            .forEach(
+              item =>
+                item.classList.remove(
+                  "active"
+                )
+            );
+
+          button.classList.add(
+            "active"
           );
 
+          activeCategory =
+            button.dataset.category;
 
-        button.classList.add(
-          "active"
-        );
+          filterCards();
 
+        }
+      );
 
-        activeCategory =
-          button.dataset.category;
-
-
-        filterCards();
-
-      }
-    );
-
-  });
-
-
-/* =====================================================
-   URL / HASH
-====================================================== */
-
-
-function checkHash() {
-
-  const hash =
-    location.hash;
-
-
-  if (
-    !hash.startsWith(
-      "#simulateur-"
-    )
-  ) {
-
-    return;
-
-  }
-
-
-  const key =
-    hash.replace(
-      "#simulateur-",
-      ""
-    );
-
-
-  if (key === "rupture") {
-
-    window.location.href =
-      "/simulateur-rupture-conventionnelle/";
-
-    return;
-
-  }
-
-
-  if (calculators[key]) {
-    openCalculator(key);
-  }
-
-}
-
-
-checkHash();
-
-
-window.addEventListener(
-  "hashchange",
-  checkHash
-);
+    }
+  );
 
 
 </script>
