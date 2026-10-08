@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="google-site-verification" content="qNMbDYWbGBih5YLnZttvWh9FPoK4oHcpb1N-GobCzsg" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Simulateur rupture conventionnelle 2026 – Calcul indemnité | SimuDroit</title>
+
+  <meta
+    name="description"
+    content="Calculez gratuitement votre indemnité minimale de rupture conventionnelle en 2026 selon votre salaire brut et votre ancienneté. Simulation simple, rapide et gratuite."
+  >
+
+  <meta
+    name="robots"
+    content="index, follow, max-image-preview:large"
+  >
+
+  <link
+    rel="canonical"
+    href="https://simudroit.netlify.app/simulateur-rupture-conventionnelle/"
+  >
+
+  <meta name="theme-color" content="#0d5d7f">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta
+    property="og:title"
+    content="Simulateur rupture conventionnelle 2026"
+  >
+  <meta
+    property="og:description"
+    content="Estimez gratuitement votre indemnité minimale de rupture conventionnelle."
+  >
+  <meta
+    property="og:url"
+    content="https://simudroit.netlify.app/simulateur-rupture-conventionnelle/"
+  >
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta
+    name="twitter:title"
+    content="Simulateur rupture conventionnelle 2026"
+  >
+  <meta
+    name="twitter:description"
+    content="Calculez gratuitement votre indemnité minimale de rupture conventionnelle."
+  >
+
+  <!-- Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Structured data : WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "SimuDroit",
+    "url": "https://simudroit.netlify.app/",
+    "inLanguage": "fr-FR"
+  }
+  </script>
+
+  <!-- Structured data : WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Simulateur rupture conventionnelle 2026",
+    "url": "https://simudroit.netlify.app/simulateur-rupture-conventionnelle/",
+    "description": "Simulateur gratuit permettant d'estimer l'indemnité minimale de rupture conventionnelle.",
+    "inLanguage": "fr-FR",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "SimuDroit",
+      "url": "https://simudroit.netlify.app/"
+    }
+  }
+  </script>
+
+  <!-- Structured data : Breadcrumb -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "SimuDroit",
+        "item": "https://simudroit.netlify.app/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Simulateur rupture conventionnelle",
+        "item": "https://simudroit.netlify.app/simulateur-rupture-conventionnelle/"
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --blue: #0d5d7f;
+      --blue-dark: #083f57;
+      --turquoise: #00a896;
+      --cream: #f7f8f6;
+      --white: #ffffff;
+      --text: #17252d;
+      --muted: #61717a;
+      --border: #dce5e8;
+      --success-bg: #edf9f6;
+      --shadow: 0 18px 50px rgba(13, 93, 127, .10);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--cream);
+      font-family: "IBM Plex Sans", Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.35rem;
+      color: var(--blue-dark);
+    }
+
+    .logo span {
+      color: var(--turquoise);
+    }
+
+    .nav-link {
+      font-weight: 600;
+      font-size: .95rem;
+    }
+
+    .hero {
+      background:
+        radial-gradient(circle at 85% 15%, rgba(0,168,150,.12), transparent 32%),
+        linear-gradient(135deg, #eef7f8, #ffffff);
+      padding: 58px 0 42px;
+    }
+
+    .breadcrumb {
+      font-size: .88rem;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    h1,
+    h2 {
+      font-family: "Crimson Pro", Georgia, serif;
+      color: var(--blue-dark);
+      line-height: 1.1;
+    }
+
+    h1 {
+      font-size: clamp(2.35rem, 5vw, 4.3rem);
+      margin: 0 0 20px;
+      letter-spacing: -.02em;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      margin: 0 0 18px;
+    }
+
+    h3 {
+      color: var(--blue-dark);
+      margin-top: 28px;
+    }
+
+    .lead {
+      font-size: 1.12rem;
+      color: #43545d;
+      max-width: 700px;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 24px;
+    }
+
+    .badge {
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      font-size: .85rem;
+      font-weight: 600;
+    }
+
+    .calculator {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    .calculator h2 {
+      font-size: 1.8rem;
+    }
+
+    .field {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 7px;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid #cbd7dc;
+      border-radius: 10px;
+      font: inherit;
+      font-size: 1rem;
+      background: #fff;
+    }
+
+    input:focus {
+      outline: 3px solid rgba(0,168,150,.16);
+      border-color: var(--turquoise);
+    }
+
+    .hint {
+      color: var(--muted);
+      font-size: .82rem;
+      margin-top: 5px;
+    }
+
+    .button {
+      width: 100%;
+      border: 0;
+      border-radius: 11px;
+      padding: 14px 18px;
+      background: var(--blue);
+      color: white;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .15s ease, background .15s ease;
+    }
+
+    .button:hover {
+      background: var(--blue-dark);
+      transform: translateY(-1px);
+    }
+
+    .result {
+      display: none;
+      margin-top: 22px;
+      padding: 20px;
+      border-radius: 14px;
+      background: var(--success-bg);
+      border: 1px solid #bfe7df;
+    }
+
+    .result.visible {
+      display: block;
+    }
+
+    .result-label {
+      font-size: .9rem;
+      color: var(--muted);
+    }
+
+    .result-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--blue-dark);
+      margin: 3px 0 10px;
+    }
+
+    .result-detail {
+      font-size: .9rem;
+      color: #42535a;
+    }
+
+    main {
+      padding: 55px 0;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 44px;
+      align-items: start;
+    }
+
+    .article {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 34px;
+    }
+
+    .toc {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      position: sticky;
+      top: 92px;
+    }
+
+    .toc strong {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--blue-dark);
+    }
+
+    .toc a {
+      display: block;
+      padding: 5px 0;
+      font-size: .93rem;
+    }
+
+    .formula {
+      padding: 18px;
+      background: #f0f7f8;
+      border-left: 4px solid var(--turquoise);
+      border-radius: 8px;
+      margin: 22px 0;
+      font-weight: 600;
+    }
+
+    .notice {
+      padding: 18px;
+      background: #fff8e9;
+      border: 1px solid #f0dca7;
+      border-radius: 10px;
+      margin: 22px 0;
+    }
+
+    .example {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+
+    .faq {
+      margin-top: 35px;
+    }
+
+    details {
+      border-top: 1px solid var(--border);
+      padding: 17px 0;
+    }
+
+    details:last-child {
+      border-bottom: 1px solid var(--border);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--blue-dark);
+    }
+
+    .related {
+      margin-top: 38px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .related a {
+      display: block;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      background: #fff;
+      font-weight: 600;
+    }
+
+    footer {
+      background: #092f40;
+      color: #dce9ed;
+      padding: 40px 0;
+      margin-top: 30px;
+    }
+
+    footer a {
+      color: white;
+    }
+
+    .footer-small {
+      font-size: .85rem;
+      color: #b8ccd3;
+      margin-top: 18px;
+    }
+
+    @media (max-width: 850px) {
+      .hero-grid,
+      .content {
+        grid-template-columns: 1fr;
+      }
+
+      .toc {
+        position: static;
+        order: -1;
+      }
+
+      .article {
+        padding: 24px;
+      }
+
+      .calculator {
+        padding: 22px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: min(100% - 22px, 1120px);
+      }
+
+      .hero {
+        padding: 35px 0 25px;
+      }
+
+      .hero-badges {
+        gap: 6px;
+      }
+
+      .related {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-link {
+        display: none;
+      }
+    }
+  </style>
+
+  <!-- FAQ structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Quel est le montant minimum d'une rupture conventionnelle ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "L'indemnité spécifique de rupture conventionnelle ne peut pas être inférieure au montant de l'indemnité légale de licenciement, et une indemnité conventionnelle plus favorable peut également devoir être respectée."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Comment calculer l'indemnité minimale de rupture conventionnelle ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Le minimum légal correspond à un quart de mois de salaire par année d'ancienneté jusqu'à 10 ans, puis à un tiers de mois par année au-delà de 10 ans."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quel salaire utiliser pour calculer l'indemnité ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Le salaire de référence correspond à la moyenne mensuelle la plus favorable entre les 12 derniers mois et les 3 derniers mois précédant la rupture, selon les règles applicables."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="https://simudroit.netlify.app/">
+      Simu<span>Droit</span>
+    </a>
+
+    <a class="nav-link" href="https://simudroit.netlify.app/">
+      Tous les simulateurs
+    </a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Fil d’Ariane">
+      <a href="https://simudroit.netlify.app/">Accueil</a>
+      <span aria-hidden="true"> › </span>
+      <span>Rupture conventionnelle</span>
+    </nav>
+
+    <div class="hero-grid">
+
+      <div>
+        <h1>Simulateur de rupture conventionnelle</h1>
+
+        <p class="lead">
+          Estimez gratuitement le montant minimal de votre indemnité de
+          rupture conventionnelle à partir de votre salaire brut et de votre
+          ancienneté.
+        </p>
+
+        <div class="hero-badges">
+          <span class="badge">✓ Gratuit</span>
+          <span class="badge">✓ Résultat immédiat</span>
+          <span class="badge">✓ Calcul 2026</span>
+          <span class="badge">✓ Sans inscription</span>
+        </div>
+      </div>
+
+      <div class="calculator" id="simulateur">
+
+        <h2>Calculer mon indemnité</h2>
+
+        <div class="field">
+          <label for="salary">
+            Salaire brut mensuel de référence
+          </label>
+
+          <input
+            id="salary"
+            type="number"
+            min="0"
+            step="0.01"
+            inputmode="decimal"
+            placeholder="Ex. 2500"
+            autocomplete="off"
+          >
+
+          <div class="hint">
+            Indiquez votre salaire brut mensuel de référence.
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="years">
+            Ancienneté en années
+          </label>
+
+          <input
+            id="years"
+            type="number"
+            min="0"
+            max="100"
+            step="1"
+            inputmode="numeric"
+            placeholder="Ex. 8"
+            autocomplete="off"
+          >
+        </div>
+
+        <div class="field">
+          <label for="months">
+            Mois supplémentaires
+          </label>
+
+          <input
+            id="months"
+            type="number"
+            min="0"
+            max="11"
+            step="1"
+            inputmode="numeric"
+            placeholder="Ex. 6"
+            autocomplete="off"
+          >
+
+          <div class="hint">
+            Exemple : 8 ans et 6 mois.
+          </div>
+        </div>
+
+        <button class="button" id="calculate" type="button">
+          Calculer mon indemnité
+        </button>
+
+        <div class="result" id="result" aria-live="polite">
+          <div class="result-label">
+            Indemnité minimale estimée
+          </div>
+
+          <div class="result-value" id="resultValue">
+            0 €
+          </div>
+
+          <div class="result-detail" id="resultDetail"></div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<main>
+  <div class="container content">
+
+    <article class="article">
+
+      <h2 id="definition">
+        Qu'est-ce qu'une rupture conventionnelle ?
+      </h2>
+
+      <p>
+        La rupture conventionnelle permet à un employeur et à un salarié en
+        CDI de convenir ensemble des conditions de la rupture du contrat de
+        travail.
+      </p>
+
+      <p>
+        Elle ouvre notamment droit, sous réserve de remplir les conditions
+        applicables, à l'assurance chômage. Le salarié perçoit également une
+        indemnité spécifique de rupture conventionnelle.
+      </p>
+
+      <p>
+        Le montant de cette indemnité est négocié entre les parties, mais il
+        ne peut pas être inférieur au montant de l'indemnité légale de
+        licenciement. Une disposition conventionnelle plus favorable peut
+        également s'appliquer.
+      </p>
+
+      <div class="formula">
+        Minimum légal : 1/4 de mois de salaire par année d'ancienneté jusqu'à
+        10 ans, puis 1/3 de mois par année au-delà de 10 ans.
+      </div>
+
+      <h2 id="calcul">
+        Comment calculer l'indemnité de rupture conventionnelle ?
+      </h2>
+
+      <p>
+        Le calcul de l'indemnité minimale dépend principalement du salaire de
+        référence et de l'ancienneté du salarié.
+      </p>
+
+      <h3>Jusqu'à 10 ans d'ancienneté</h3>
+
+      <p>
+        Le minimum correspond à un quart de mois de salaire par année
+        d'ancienneté.
+      </p>
+
+      <h3>Au-delà de 10 ans</h3>
+
+      <p>
+        Les dix premières années sont calculées à raison d'un quart de mois
+        par année. Les années supplémentaires sont calculées à raison d'un
+        tiers de mois par année.
+      </p>
+
+      <h3>Exemple de calcul</h3>
+
+      <div class="example">
+        <strong>Exemple :</strong>
+
+        <p>
+          Pour un salaire de référence de 2 500 € et 8 années d'ancienneté :
+        </p>
+
+        <p>
+          2 500 × 1/4 × 8 =
+          <strong>5 000 €</strong>
+        </p>
+
+        <p>
+          Le montant obtenu correspond au minimum légal estimé, sous réserve
+          des règles conventionnelles applicables.
+        </p>
+      </div>
+
+      <h2 id="salaire">
+        Quel salaire prendre en compte ?
+      </h2>
+
+      <p>
+        Le salaire de référence est déterminé selon les règles applicables à
+        l'indemnité légale de licenciement. Il convient notamment de comparer
+        la moyenne des rémunérations des douze derniers mois avec celle des
+        trois derniers mois afin de retenir la méthode la plus favorable au
+        salarié.
+      </p>
+
+      <p>
+        Les primes et gratifications doivent être prises en compte selon les
+        règles applicables à leur nature et à leur période de référence.
+      </p>
+
+      <div class="notice">
+        <strong>Attention :</strong>
+        ce simulateur fournit une estimation du minimum légal. Votre convention
+        collective ou votre contrat peut prévoir une indemnité plus favorable.
+        Le montant effectivement négocié lors d'une rupture conventionnelle
+        peut également être supérieur à ce minimum.
+      </div>
+
+      <h2 id="procedure">
+        Comment se déroule une rupture conventionnelle ?
+      </h2>
+
+      <p>
+        L'employeur et le salarié doivent parvenir à un accord sur le principe
+        et les conditions de la rupture. Plusieurs entretiens peuvent avoir
+        lieu avant la signature de la convention.
+      </p>
+
+      <p>
+        Après signature, les parties disposent d'un délai de rétractation de
+        15 jours calendaires. La convention doit ensuite faire l'objet de la
+        procédure d'homologation prévue par la réglementation.
+      </p>
+
+      <p>
+        La date de fin du contrat est fixée dans la convention, sous réserve
+        du respect des délais applicables.
+      </p>
+
+      <h2 id="faq">
+        Questions fréquentes sur la rupture conventionnelle
+      </h2>
+
+      <section class="faq">
+
+        <details>
+          <summary>
+            Quel est le minimum légal d'une rupture conventionnelle ?
+          </summary>
+
+          <p>
+            L'indemnité spécifique de rupture conventionnelle ne peut pas être
+            inférieure à l'indemnité légale de licenciement. Une indemnité
+            conventionnelle plus favorable peut également devoir être
+            respectée.
+          </p>
+        </details>
+
+        <details>
+          <summary>
+            Peut-on négocier une indemnité supérieure au minimum ?
+          </summary>
+
+          <p>
+            Oui. Le montant de l'indemnité spécifique est négocié entre le
+            salarié et l'employeur, sous réserve de respecter le minimum
+            applicable.
+          </p>
+        </details>
+
+        <details>
+          <summary>
+            La rupture conventionnelle donne-t-elle droit au chômage ?
+          </summary>
+
+          <p>
+            Une rupture conventionnelle peut ouvrir droit à l'assurance
+            chômage lorsque les conditions d'indemnisation sont remplies.
+          </p>
+        </details>
+
+        <details>
+          <summary>
+            Faut-il avoir une ancienneté minimale ?
+          </summary>
+
+          <p>
+            La rupture conventionnelle individuelle ne nécessite pas une
+            ancienneté minimale pour être conclue. Toutefois, les règles de
+            calcul du minimum lié à l'indemnité légale doivent être appliquées
+            en fonction de la situation du salarié.
+          </p>
+        </details>
+
+        <details>
+          <summary>
+            L'indemnité est-elle imposable ?
+          </summary>
+
+          <p>
+            Le régime fiscal et social de l'indemnité dépend notamment de la
+            situation du salarié et du montant versé. Il ne faut donc pas
+            assimiler automatiquement le montant brut de l'indemnité à un
+            montant net après prélèvements.
+          </p>
+        </details>
+
+      </section>
+
+      <h2 id="sources">
+        Sources officielles
+      </h2>
+
+      <p>
+        Informations réglementaires vérifiées à partir des ressources
+        institutionnelles disponibles au moment de la mise à jour de cette
+        page.
+      </p>
+
+      <ul>
+        <li>
+          <a
+            href="https://travail-emploi.gouv.fr/la-rupture-conventionnelle-du-contrat-de-travail-duree-indeterminee"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ministère du Travail – Rupture conventionnelle
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://www.service-public.fr/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Service-Public.fr
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://travail-emploi.gouv.fr/rupture-conventionnelle-du-contrat-de-travail-duree-indeterminee-services-en-ligne"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ministère du Travail – TéléRC et procédure
+          </a>
+        </li>
+      </ul>
+
+      <div class="related">
+        <a href="https://simudroit.netlify.app/">
+          ← Tous les simulateurs SimuDroit
+        </a>
+
+        <a href="https://simudroit.netlify.app/#simulateur-licenciement">
+          Simulateur d'indemnité de licenciement →
+        </a>
+
+        <a href="https://simudroit.netlify.app/#simulateur-chomage">
+          Simulateur chômage →
+        </a>
+
+        <a href="https://simudroit.netlify.app/#simulateur-solde">
+          Simulateur solde de tout compte →
+        </a>
+      </div>
+
+    </article>
+
+    <aside class="toc">
+      <strong>Sur cette page</strong>
+
+      <a href="#simulateur">Calculer mon indemnité</a>
+      <a href="#definition">Rupture conventionnelle</a>
+      <a href="#calcul">Calcul de l'indemnité</a>
+      <a href="#salaire">Salaire de référence</a>
+      <a href="#procedure">Procédure</a>
+      <a href="#faq">Questions fréquentes</a>
+      <a href="#sources">Sources officielles</a>
+    </aside>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+
+    <strong>SimuDroit</strong>
+
+    <p>
+      Des simulateurs gratuits pour mieux comprendre vos droits et vos
+      rémunérations.
+    </p>
+
+    <div class="footer-small">
+      Les résultats fournis sont des estimations indicatives et ne constituent
+      pas un conseil juridique personnalisé.
+    </div>
+
+  </div>
+</footer>
+
+<script>
+  (() => {
+    "use strict";
+
+    const salaryInput = document.getElementById("salary");
+    const yearsInput = document.getElementById("years");
+    const monthsInput = document.getElementById("months");
+    const calculateButton = document.getElementById("calculate");
+
+    const result = document.getElementById("result");
+    const resultValue = document.getElementById("resultValue");
+    const resultDetail = document.getElementById("resultDetail");
+
+    const euro = new Intl.NumberFormat("fr-FR", {
+      style: "currency",
+      currency: "EUR",
+      maximumFractionDigits: 2
+    });
+
+    function calculate() {
+      const salary = Number(salaryInput.value);
+      const years = Number(yearsInput.value);
+      const months = Number(monthsInput.value || 0);
+
+      if (!Number.isFinite(salary) || salary <= 0) {
+        alert("Veuillez indiquer un salaire brut mensuel valide.");
+        salaryInput.focus();
+        return;
+      }
+
+      if (!Number.isFinite(years) || years < 0) {
+        alert("Veuillez indiquer une ancienneté valide.");
+        yearsInput.focus();
+        return;
+      }
+
+      if (!Number.isFinite(months) || months < 0 || months > 11) {
+        alert("Le nombre de mois supplémentaires doit être compris entre 0 et 11.");
+        monthsInput.focus();
+        return;
+      }
+
+      const totalYears = years + (months / 12);
+
+      let indemnity;
+
+      if (totalYears <= 10) {
+        indemnity = salary * 0.25 * totalYears;
+      } else {
+        indemnity =
+          salary * 0.25 * 10 +
+          salary * (1 / 3) * (totalYears - 10);
+      }
+
+      resultValue.textContent = euro.format(indemnity);
+
+      const seniorityText =
+        `${years} an${years > 1 ? "s" : ""}` +
+        (months > 0
+          ? ` et ${months} mois`
+          : "");
+
+      resultDetail.textContent =
+        `Estimation du minimum légal pour ${seniorityText} d'ancienneté, ` +
+        `avec un salaire de référence de ${euro.format(salary)} brut par mois. ` +
+        `Une convention collective plus favorable peut prévoir davantage.`;
+
+      result.classList.add("visible");
+
+      result.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+      });
+    }
+
+    calculateButton.addEventListener("click", calculate);
+
+    [salaryInput, yearsInput, monthsInput].forEach((input) => {
+      input.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          calculate();
+        }
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
