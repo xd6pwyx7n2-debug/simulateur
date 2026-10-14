@@ -1,69 +1,64 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
   <url>
     <loc>https://xd6pwyx7n2-debug.github.io/simulateur/</loc>
     <priority>1.0</priority>
   </url>
-
   <url>
     <loc>https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-rupture-conventionnelle/</loc>
     <priority>0.9</priority>
   </url>
-
   <url>
     <loc>https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-indemnite-licenciement/</loc>
     <priority>0.9</priority>
   </url>
-
   <url>
     <loc>https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-brut-net/</loc>
     <priority>0.9</priority>
   </url>
-
   <url>
     <loc>https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-net-brut/</loc>
     <priority>0.9</priority>
   </url>
-
   <url>
     <loc>https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-chomage/</loc>
     <priority>0.9</priority>
   </url>
-
   <url>
     <loc>https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-prime-precarite/</loc>
     <priority>0.9</priority>
   </url>
-
   <url>
     <loc>https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-conges-payes/</loc>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-heures-supplementaires/</loc>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-temps-partiel/</loc>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-preavis-demission/</loc>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-solde-tout-compte/</loc>
     <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://xd6pwyx7n2-debug.github.io/simulateur/methode-et-sources/</loc>
-    <priority>0.5</priority>
+    <loc>https://xd6pwyx7n2-debug.github.io/simulateur/guides/calcul-indemnite-licenciement/</loc>
+    <priority>0.8</priority>
   </url>
-
+  <url>
+    <loc>https://xd6pwyx7n2-debug.github.io/simulateur/guides/prime-precarite-cdd/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xd6pwyx7n2-debug.github.io/simulateur/guides/calcul-indemnite-conges-payes/</loc>
+    <priority>0.8</priority>
+  </url>
 </urlset>
