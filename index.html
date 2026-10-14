@@ -6,12 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#201e48">
   <title>SimuDroit — Simulateurs gratuits de droits et salaire</title>
-  <meta name="description" content="Simulez gratuitement votre salaire brut/net, vos indemnités de licenciement, congés payés et autres droits au travail. Des outils simples pour y voir plus clair.">
+  <meta name="description" content="Simulez gratuitement votre salaire brut/net, vos indemnités de licenciement, congés payés et autres droits au travail. Découvrez nos guides pratiques pour mieux comprendre vos droits.">
   <meta name="google-site-verification" content="Hn6t-8Oe30MsOkncM43P7U_9UmynMyr9W_EoPbcagTY">
   <link rel="canonical" href="https://xd6pwyx7n2-debug.github.io/simulateur/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --ink:#201e48; --muted:#70708b; --bg:#faf9ff; --white:#fff;
@@ -19,7 +20,7 @@
       --line:#e9e6f5; --shadow:0 18px 55px #29235a14;
     }
     * { box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
+    html { scroll-behavior:smooth; scroll-padding-top:20px; }
     body { margin:0; color:var(--ink); background:var(--bg); font-family:"DM Sans",sans-serif; line-height:1.6; }
     a { color:inherit; text-decoration:none; }
     button,input { font:inherit; }
@@ -27,11 +28,11 @@
     .header { padding:20px 0; }
     .nav { display:flex; align-items:center; justify-content:space-between; gap:20px; }
     .brand { display:flex; align-items:center; gap:10px; font:800 22px Manrope,sans-serif; letter-spacing:-1px; }
-    .brand-mark { display:grid; place-items:center; width:40px; height:40px; border-radius:13px; background:linear-gradient(135deg,#6857e8,#a18bff); color:white; }
+    .brand-mark { display:grid; place-items:center; width:40px; height:40px; border-radius:13px; background:linear-gradient(135deg,#6857e8,#a18bff); color:white; flex-shrink:0; }
     .brand-mark svg { width:23px; }
     .brand em { color:var(--purple); font-style:normal; }
-    .nav-links { display:flex; gap:25px; color:#666580; font-size:14px; font-weight:700; }
-    .nav-links a:hover { color:var(--purple); }
+    .nav-links { display:flex; flex-wrap:wrap; gap:20px; color:#666580; font-size:13px; font-weight:700; }
+    .nav-links a:hover,.footer-links a:hover { color:var(--purple); }
     .nav-button,.button { display:inline-flex; justify-content:center; align-items:center; gap:9px; padding:13px 18px; border-radius:13px; background:var(--ink); color:white; font-size:14px; font-weight:700; transition:.2s; }
     .nav-button:hover,.button:hover { transform:translateY(-2px); }
     .hero { position:relative; overflow:hidden; padding:45px 0 75px; }
@@ -55,7 +56,7 @@
     .photo-label { position:absolute; z-index:1; top:22px; left:22px; padding:9px 13px; border-radius:99px; background:#ffffffdf; color:#363258; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.05em; }
     .photo-copy { position:absolute; z-index:1; bottom:27px; left:27px; right:25px; color:white; }
     .photo-copy small { color:#c7c0ff; font-size:11px; text-transform:uppercase; letter-spacing:.13em; font-weight:800; }
-    .photo-copy h2 { margin:8px 0; font-size:32px; line-height:1.13; letter-spacing:-1.1px; }
+    .photo-copy h2 { margin:8px 0; font-size:32px; line-height:1.13; letter-spacing:-1.1px; color:white; }
     .photo-copy p { margin:0; color:#e0def4; font-size:14px; }
     .float { position:absolute; z-index:2; display:flex; align-items:center; gap:11px; padding:13px 15px; border:1px solid #f0edf8; border-radius:17px; background:white; box-shadow:var(--shadow); }
     .float.one { left:-24px; bottom:35px; }
@@ -86,16 +87,15 @@
     .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:15px; }
     .card { --accent:#6857e8; --tint:#efedff; display:flex; flex-direction:column; min-height:220px; padding:21px; border:1px solid #eae7f5; border-radius:19px; background:white; transition:transform .2s,box-shadow .2s; }
     .card:hover { transform:translateY(-4px); box-shadow:0 16px 35px #29235a12; }
+    .card:focus-visible { outline:3px solid var(--purple); outline-offset:3px; }
     .card[hidden] { display:none; }
     .card-top { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:16px; }
     .icon { display:grid; place-items:center; width:47px; height:47px; border-radius:15px; background:var(--tint); color:var(--accent); }
     .icon svg { width:23px; height:23px; }
-    .tag { padding:5px 8px; border-radius:99px; background:var(--tint); color:var(--accent); font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:.05em; }
+    .tag { display:inline-block; align-self:flex-start; padding:5px 8px; border-radius:99px; background:var(--tint); color:var(--accent); font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:.05em; }
     .card h3 { margin:0 0 8px; font-size:17px; line-height:1.3; letter-spacing:-.4px; }
     .card p { margin:0 0 20px; color:#77778f; font-size:13px; line-height:1.55; }
     .card-link { display:flex; align-items:center; gap:8px; margin-top:auto; color:var(--accent); font-size:12px; font-weight:800; }
-    .card-link svg { width:16px; transition:transform .2s; }
-    .card:hover .card-link svg { transform:translateX(4px); }
     .empty { display:none; padding:24px; border:1px dashed #dcd8ef; border-radius:17px; color:var(--muted); text-align:center; }
     .empty.show { display:block; }
     .how-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:32px; }
@@ -109,28 +109,29 @@
     .notice strong { color:var(--ink); }
     .cta { padding:0 0 75px; }
     .cta-panel { display:flex; align-items:center; justify-content:space-between; gap:25px; padding:40px; border-radius:28px; background:#201e48; color:white; }
-    .cta-panel h2 { max-width:630px; margin:0 0 10px; font-size:clamp(27px,3.3vw,39px); line-height:1.15; letter-spacing:-1.3px; }
+    .cta-panel h2 { max-width:630px; margin:0 0 10px; font-size:clamp(27px,3.3vw,39px); line-height:1.15; letter-spacing:-1.3px; color:white; }
     .cta-panel p { margin:0; color:#d3d1e8; font-size:14px; }
     .cta-panel .button { flex-shrink:0; background:white; color:#302b6c; }
     footer { padding:25px 0 35px; border-top:1px solid #e9e7f4; color:#77778e; font-size:11px; }
     .footer-inner { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:18px; }
     .footer-links { display:flex; flex-wrap:wrap; gap:17px; }
-    .footer-links a:hover { color:var(--purple); }
     .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
-    @media(max-width:900px) {
+    @media(max-width:1000px) {
+      .nav-links { gap:12px; font-size:12px; }
+      .nav-button { padding:11px 13px; font-size:12px; }
       .hero-grid { gap:28px; }
       h1 { font-size:clamp(40px,5.7vw,56px); letter-spacing:-2.7px; }
       .hero-image { height:350px; }
-      .float.one { left:-10px; } .float.two { right:-7px; }
-      .grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .float.one { left:-10px; }
+      .float.two { right:-7px; }
       .section-head { align-items:flex-start; flex-direction:column; }
     }
-    @media(max-width:650px) {
+    @media(max-width:760px) {
       .wrap { width:calc(100% - 30px); }
       .header { padding:14px 0; }
-      .nav-links { display:none; }
-      .nav-button { padding:10px 12px; font-size:11px; }
-      .brand { font-size:19px; }
+      .nav { flex-wrap:wrap; }
+      .nav-links { order:3; width:100%; justify-content:flex-start; }
+      .nav-button { margin-left:auto; }
       .hero { padding:26px 0 52px; }
       .hero-grid { grid-template-columns:1fr; gap:36px; }
       h1 { font-size:clamp(42px,12vw,57px); letter-spacing:-2.8px; }
@@ -142,11 +143,12 @@
       .float.two { right:-4px; top:25px; }
       .float { padding:10px; gap:8px; }
       .float-icon { width:34px; height:34px; }
-      .float strong { font-size:10px; } .float small { font-size:9px; }
+      .float strong { font-size:10px; }
+      .float small { font-size:9px; }
       .stats { gap:9px; margin-top:28px; }
       .stat strong { font-size:18px; }
       .section { padding:52px 0; }
-      .grid,.how-grid { grid-template-columns:1fr; }
+      .grid,.how-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
       .card { min-height:0; padding:19px; }
       .card p { margin-bottom:16px; }
       .cta { padding-bottom:52px; }
@@ -154,23 +156,49 @@
       .cta-panel .button { margin-top:22px; }
       .footer-inner { align-items:flex-start; flex-direction:column; }
     }
+    @media(max-width:520px) {
+      .nav-links { gap:12px; font-size:11px; }
+      .nav-button { padding:10px 11px; font-size:11px; }
+      .brand { font-size:19px; }
+      .grid,.how-grid { grid-template-columns:1fr; }
+    }
     @media(prefers-reduced-motion:reduce) {
       html { scroll-behavior:auto; }
       *,*:before,*:after { transition:none!important; }
     }
   </style>
+
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebSite","name":"SimuDroit","url":"https://xd6pwyx7n2-debug.github.io/simulateur/","inLanguage":"fr-FR"}
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"SimuDroit",
+    "url":"https://xd6pwyx7n2-debug.github.io/simulateur/",
+    "inLanguage":"fr-FR"
+  }
   </script>
 </head>
+
 <body>
 <header class="header">
   <div class="wrap nav">
     <a class="brand" href="/simulateur/" aria-label="SimuDroit, accueil">
-      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 3.8h7l4 4V20H7a2 2 0 0 1-2-2V5.8a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 4v4h4M8.5 12h6.5M8.5 15.5h6.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M7 3.8h7l4 4V20H7a2 2 0 0 1-2-2V5.8a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M14 4v4h4M8.5 12h6.5M8.5 15.5h6.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </span>
       <span>Simu<em>Droit</em></span>
     </a>
-    <nav class="nav-links" aria-label="Navigation principale"><a href="#simulateurs">Simulateurs</a><a href="#fonctionnement">Comment ça marche</a><a href="#limites">À savoir</a></nav>
+
+    <nav class="nav-links" aria-label="Navigation principale">
+      <a href="#simulateurs">Simulateurs</a>
+      <a href="#guides">Guides pratiques</a>
+      <a href="#fonctionnement">Comment ça marche</a>
+      <a href="#limites">À savoir</a>
+    </nav>
+
     <a class="nav-button" href="#simulateurs">Trouver mon simulateur <span aria-hidden="true">↗</span></a>
   </div>
 </header>
@@ -182,72 +210,164 @@
       <div class="eyebrow"><span class="dot"></span> Le droit du travail, plus lisible</div>
       <h1>Vos droits.<br>Des réponses <span class="gradient">plus claires.</span></h1>
       <p class="intro">Salaire, indemnités, congés ou fin de contrat : utilisez des simulateurs simples pour y voir plus clair et préparer vos prochaines démarches.</p>
-      <div class="actions"><a class="button primary" href="#simulateurs">Explorer les simulateurs <span aria-hidden="true">→</span></a><a class="button secondary" href="#fonctionnement">Comment ça marche</a></div>
+      <div class="actions">
+        <a class="button primary" href="#simulateurs">Explorer les simulateurs <span aria-hidden="true">→</span></a>
+        <a class="button secondary" href="#guides">Lire nos guides pratiques</a>
+      </div>
       <div class="trust"><span><b>✓</b> Accès gratuit</span><span><b>✓</b> Utilisation simple</span><span><b>✓</b> Résultats indicatifs</span></div>
-      <div class="stats"><div class="stat"><strong>11</strong><span>simulateurs pratiques</span></div><div class="stat"><strong>Gratuit</strong><span>sans paiement</span></div><div class="stat"><strong>En ligne</strong><span>sans installation</span></div></div>
+      <div class="stats">
+        <div class="stat"><strong>11</strong><span>simulateurs pratiques</span></div>
+        <div class="stat"><strong>Gratuit</strong><span>sans paiement</span></div>
+        <div class="stat"><strong>En ligne</strong><span>sans installation</span></div>
+      </div>
     </div>
+
     <div class="hero-image">
       <div class="photo">
         <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=85" alt="Documents et calculs sur un bureau lumineux" fetchpriority="high">
         <div class="photo-label">Comprendre avant d’agir</div>
-        <div class="photo-copy"><small>Un outil pour avancer</small><h2>Moins de flou.<br>Plus de repères.</h2><p>Des estimations utiles pour mieux préparer vos démarches.</p></div>
+        <div class="photo-copy">
+          <small>Un outil pour avancer</small>
+          <h2>Moins de flou.<br>Plus de repères.</h2>
+          <p>Des estimations utiles pour mieux préparer vos démarches.</p>
+        </div>
       </div>
-      <div class="float one"><span class="float-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 19V5m0 14h17M8 15l3-4 3 2 5-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><strong>Des repères concrets</strong><small>Pour estimer et comparer</small></span></div>
-      <div class="float two"><span class="float-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v18M17 7.5c0-1.7-2-2.5-5-2.5S7 6 7 7.5 9 10 12 10s5 1 5 2.5S15 15 12 15s-5-.8-5-2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><span><strong>Calculs simplifiés</strong><small>Un premier ordre d’idée</small></span></div>
+      <div class="float one">
+        <span class="float-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 19V5m0 14h17M8 15l3-4 3 2 5-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span><strong>Des repères concrets</strong><small>Pour estimer et comparer</small></span>
+      </div>
+      <div class="float two">
+        <span class="float-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v18M17 7.5c0-1.7-2-2.5-5-2.5S7 6 7 7.5 9 10 12 10s5 1 5 2.5S15 15 12 15s-5-.8-5-2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        <span><strong>Calculs simplifiés</strong><small>Un premier ordre d’idée</small></span>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="section white" id="simulateurs">
   <div class="wrap">
-    <div class="section-head"><div><div class="kicker">La boîte à outils</div><h2 class="section-title">Quel calcul souhaitez-vous faire&nbsp;?</h2></div><p class="section-desc">Choisissez un sujet ou recherchez directement un simulateur. Revenez ici à tout moment.</p></div>
+    <div class="section-head">
+      <div><div class="kicker">La boîte à outils</div><h2 class="section-title">Quel calcul souhaitez-vous faire&nbsp;?</h2></div>
+      <p class="section-desc">Choisissez un sujet ou recherchez directement un simulateur. Revenez ici à tout moment.</p>
+    </div>
+
     <div class="controls">
-      <label class="search"><span class="sr-only">Rechercher un simulateur</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4.2 4.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><input id="search" type="search" placeholder="Ex. : salaire, licenciement, congés…" autocomplete="off"></label>
-      <div class="filters" role="group" aria-label="Filtrer les simulateurs"><button class="filter active" data-filter="all" aria-pressed="true" type="button">Tous les outils</button><button class="filter" data-filter="salaire" aria-pressed="false" type="button">Salaire</button><button class="filter" data-filter="contrat" aria-pressed="false" type="button">Fin de contrat</button><button class="filter" data-filter="temps" aria-pressed="false" type="button">Congés & temps</button></div>
+      <label class="search">
+        <span class="sr-only">Rechercher un simulateur</span>
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4.2 4.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <input id="search" type="search" placeholder="Ex. : salaire, licenciement, congés…" autocomplete="off">
+      </label>
+      <div class="filters" role="group" aria-label="Filtrer les simulateurs">
+        <button class="filter active" data-filter="all" aria-pressed="true" type="button">Tous les outils</button>
+        <button class="filter" data-filter="salaire" aria-pressed="false" type="button">Salaire</button>
+        <button class="filter" data-filter="contrat" aria-pressed="false" type="button">Fin de contrat</button>
+        <button class="filter" data-filter="temps" aria-pressed="false" type="button">Congés & temps</button>
+      </div>
     </div>
 
     <div class="grid" id="grid">
       <a class="card" style="--accent:#6555df;--tint:#efedff" href="/simulateur/simulateur-rupture-conventionnelle/" data-category="contrat" data-search="rupture conventionnelle indemnité départ accord employeur">
-        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M8 4h8M9 4v4l-4 8a3 3 0 0 0 2.7 4h8.6A3 3 0 0 0 19 16l-4-8V4M8 14h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tag">Contrat</span></div><h3>Rupture conventionnelle</h3><p>Estimez l’indemnité minimale liée à une rupture conventionnelle.</p><span class="card-link">Lancer le calcul <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M8 4h8M9 4v4l-4 8a3 3 0 0 0 2.7 4h8.6A3 3 0 0 0 19 16l-4-8V4M8 14h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tag">Contrat</span></div>
+        <h3>Rupture conventionnelle</h3><p>Estimez l’indemnité minimale liée à une rupture conventionnelle.</p><span class="card-link">Lancer le calcul →</span>
       </a>
+
       <a class="card" style="--accent:#df6b4f;--tint:#fff0e9" href="/simulateur/simulateur-indemnite-licenciement/" data-category="contrat" data-search="indemnité licenciement ancienneté salaire contrat">
-        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 7.5h14v12H5zM9 7.5V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2.5M8 12h8M8 15.5h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tag">Contrat</span></div><h3>Indemnité de licenciement</h3><p>Estimez le montant selon votre salaire et votre ancienneté.</p><span class="card-link">Lancer le calcul <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 7.5h14v12H5zM9 7.5V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2.5M8 12h8M8 15.5h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tag">Contrat</span></div>
+        <h3>Indemnité de licenciement</h3><p>Estimez le montant selon votre salaire et votre ancienneté.</p><span class="card-link">Lancer le calcul →</span>
       </a>
+
       <a class="card" style="--accent:#188b80;--tint:#e5f8f3" href="/simulateur/simulateur-brut-net/" data-category="salaire" data-search="salaire brut net convertir rémunération cotisations">
-        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 7h8M8 11h2m4 0h2M8 15h2m4 0h2M8 18h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><span class="tag">Salaire</span></div><h3>Salaire brut en net</h3><p>Convertissez un salaire brut en estimation de salaire net.</p><span class="card-link">Lancer le calcul <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 7h8M8 11h2m4 0h2M8 15h2m4 0h2M8 18h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><span class="tag">Salaire</span></div>
+        <h3>Salaire brut en net</h3><p>Convertissez un salaire brut en estimation de salaire net.</p><span class="card-link">Lancer le calcul →</span>
       </a>
+
       <a class="card" style="--accent:#377dc4;--tint:#eaf4ff" href="/simulateur/simulateur-net-brut/" data-category="salaire" data-search="salaire net brut convertir rémunération">
-        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16M6 3v6m12-6v6M5 12h14v8H5zM8 15h3m2 0h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tag">Salaire</span></div><h3>Salaire net en brut</h3><p>Estimez le salaire brut correspondant à un montant net.</p><span class="card-link">Lancer le calcul <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16M6 3v6m12-6v6M5 12h14v8H5zM8 15h3m2 0h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tag">Salaire</span></div>
+        <h3>Salaire net en brut</h3><p>Estimez le salaire brut correspondant à un montant net.</p><span class="card-link">Lancer le calcul →</span>
       </a>
+
       <a class="card" style="--accent:#a44ec5;--tint:#f8eefe" href="/simulateur/simulateur-chomage/" data-category="contrat" data-search="chômage allocation retour emploi ARE indemnisation">
-        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19V5m0 14h16M7 15l3-4 3 2 5-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tag">Droits</span></div><h3>Allocation chômage</h3><p>Obtenez un premier ordre d’idée de vos allocations chômage.</p><span class="card-link">Lancer le calcul <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19V5m0 14h16M7 15l3-4 3 2 5-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tag">Droits</span></div>
+        <h3>Allocation chômage</h3><p>Obtenez un premier ordre d’idée de vos allocations chômage.</p><span class="card-link">Lancer le calcul →</span>
       </a>
+
       <a class="card" style="--accent:#d58b24;--tint:#fff5df" href="/simulateur/simulateur-prime-precarite/" data-category="contrat" data-search="prime précarité CDD fin contrat indemnité">
-        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M15.5 8.5c-.6-.7-1.7-1-3.3-1-1.5 0-2.7.7-2.7 1.8 0 3 5.7 1.2 5.7 4.4 0 1.1-1.1 2-3 2-1.4 0-2.7-.4-3.5-1.2M12 5.5v13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="tag">Contrat</span></div><h3>Prime de précarité</h3><p>Estimez l’indemnité de fin de CDD selon les éléments saisis.</p><span class="card-link">Lancer le calcul <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M15.5 8.5c-.6-.7-1.7-1-3.3-1-1.5 0-2.7.7-2.7 1.8 0 3 5.7 1.2 5.7 4.4 0 1.1-1.1 2-3 2-1.4 0-2.7-.4-3.5-1.2M12 5.5v13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="tag">Contrat</span></div>
+        <h3>Prime de précarité</h3><p>Estimez l’indemnité de fin de CDD selon les éléments saisis.</p><span class="card-link">Lancer le calcul →</span>
       </a>
+
       <a class="card" style="--accent:#238b78;--tint:#e5f8f1" href="/simulateur/simulateur-conges-payes/" data-category="temps" data-search="congés payés indemnité jours acquis solde">
-        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 3v4m8-4v4M4 10h16m-11 4h2m3 0h2m-7 3h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><span class="tag">Congés & temps</span></div><h3>Congés payés</h3><p>Estimez vos droits ou l’indemnité de congés payés.</p><span class="card-link">Lancer le calcul <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 3v4m8-4v4M4 10h16m-11 4h2m3 0h2m-7 3h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><span class="tag">Congés & temps</span></div>
+        <h3>Congés payés</h3><p>Estimez vos droits ou l’indemnité de congés payés.</p><span class="card-link">Lancer le calcul →</span>
       </a>
+
       <a class="card" style="--accent:#d96d5b;--tint:#fff0eb" href="/simulateur/simulateur-heures-supplementaires/" data-category="temps" data-search="heures supplémentaires majoration rémunération travail">
-        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tag">Congés & temps</span></div><h3>Heures supplémentaires</h3><p>Estimez la rémunération des heures effectuées en plus.</p><span class="card-link">Lancer le calcul <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tag">Congés & temps</span></div>
+        <h3>Heures supplémentaires</h3><p>Estimez la rémunération des heures effectuées en plus.</p><span class="card-link">Lancer le calcul →</span>
       </a>
+
       <a class="card" style="--accent:#397bc0;--tint:#eaf3ff" href="/simulateur/simulateur-temps-partiel/" data-category="temps" data-search="temps partiel salaire durée travail quotité">
-        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 3v9h9M12 12l-6.4 6.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tag">Congés & temps</span></div><h3>Temps partiel</h3><p>Évaluez votre temps de travail à temps partiel et ses équivalences.</p><span class="card-link">Lancer le calcul <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 3v9h9M12 12l-6.4 6.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tag">Congés & temps</span></div>
+        <h3>Temps partiel</h3><p>Évaluez votre temps de travail à temps partiel et ses équivalences.</p><span class="card-link">Lancer le calcul →</span>
       </a>
+
       <a class="card" style="--accent:#9c5dc4;--tint:#f5eaff" href="/simulateur/simulateur-preavis-demission/" data-category="contrat" data-search="préavis démission délai départ convention collective">
-        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M6 3h9l4 4v14H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 3v5h5M8 12h8M8 16h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><span class="tag">Contrat</span></div><h3>Préavis de démission</h3><p>Repérez les éléments utiles pour estimer la durée de votre préavis.</p><span class="card-link">Lancer le calcul <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M6 3h9l4 4v14H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 3v5h5M8 12h8M8 16h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><span class="tag">Contrat</span></div>
+        <h3>Préavis de démission</h3><p>Repérez les éléments utiles pour estimer la durée de votre préavis.</p><span class="card-link">Lancer le calcul →</span>
       </a>
+
       <a class="card" style="--accent:#d66a8d;--tint:#fff0f5" href="/simulateur/simulateur-solde-tout-compte/" data-category="contrat" data-search="solde tout compte fin contrat indemnités congés salaire préavis">
-        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14v16H5zM8 8h8M8 12h8M8 16h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tag">Contrat</span></div><h3>Solde de tout compte</h3><p>Préparez une estimation des sommes à vérifier en fin de contrat.</p><span class="card-link">Lancer le calcul <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14v16H5zM8 8h8M8 12h8M8 16h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tag">Contrat</span></div>
+        <h3>Solde de tout compte</h3><p>Préparez une estimation des sommes à vérifier en fin de contrat.</p><span class="card-link">Lancer le calcul →</span>
       </a>
     </div>
+
     <p class="empty" id="empty" role="status">Aucun simulateur ne correspond à cette recherche. Essayez un autre mot-clé.</p>
   </div>
 </section>
 
-<section class="section" id="fonctionnement">
+<!-- NOUVELLE SECTION : GUIDES PRATIQUES -->
+<section class="section" id="guides">
   <div class="wrap">
-    <div class="section-head"><div><div class="kicker">Simple, en trois étapes</div><h2 class="section-title">Un premier repère, sans jargon.</h2></div><p class="section-desc">Les simulateurs vous aident à mieux comprendre une situation avant d’aller plus loin.</p></div>
+    <div class="section-head">
+      <div>
+        <div class="kicker">Nos conseils pratiques</div>
+        <h2 class="section-title">Comprendre vos droits avant d’agir.</h2>
+      </div>
+      <p class="section-desc">Des guides pour mieux comprendre les règles du droit du travail et préparer vos démarches.</p>
+    </div>
+
+    <div class="grid">
+      <a class="card" style="--accent:#6555df;--tint:#efedff" href="/simulateur/guides/calcul-indemnite-licenciement/">
+        <div class="card-top"><span class="tag">Fin de contrat</span></div>
+        <h3>Comment calculer son indemnité de licenciement ?</h3>
+        <p>Comprenez les principaux éléments à prendre en compte pour estimer votre indemnité.</p>
+        <span class="card-link">Lire le guide →</span>
+      </a>
+
+      <a class="card" style="--accent:#d58b24;--tint:#fff5df" href="/simulateur/guides/prime-precarite-cdd/">
+        <div class="card-top"><span class="tag">CDD</span></div>
+        <h3>Prime de précarité : calcul et conditions</h3>
+        <p>Découvrez le taux habituel, les conditions de versement et les principales exceptions.</p>
+        <span class="card-link">Lire le guide →</span>
+      </a>
+
+      <a class="card" style="--accent:#238b78;--tint:#e5f8f1" href="/simulateur/guides/calcul-indemnite-conges-payes/">
+        <div class="card-top"><span class="tag">Congés payés</span></div>
+        <h3>Comment calculer l’indemnité de congés payés ?</h3>
+        <p>Découvrez les deux méthodes de calcul et les éléments à vérifier en fin de contrat.</p>
+        <span class="card-link">Lire le guide →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section white" id="fonctionnement">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="kicker">Simple, en trois étapes</div><h2 class="section-title">Un premier repère, sans jargon.</h2></div>
+      <p class="section-desc">Les simulateurs vous aident à mieux comprendre une situation avant d’aller plus loin.</p>
+    </div>
     <div class="how-grid">
       <article class="how-card"><div class="number">01</div><h3>Choisissez un sujet</h3><p>Ouvrez l’outil correspondant à votre question : salaire, contrat, congés ou temps de travail.</p></article>
       <article class="how-card"><div class="number">02</div><h3>Renseignez les informations</h3><p>Complétez les champs demandés avec les éléments dont vous disposez.</p></article>
@@ -257,15 +377,39 @@
   </div>
 </section>
 
-<section class="cta"><div class="wrap"><div class="cta-panel"><div><div class="kicker" style="color:#bcb5ff">À vous de jouer</div><h2>Commencez par la question qui compte pour vous.</h2><p>Choisissez un simulateur et obtenez rapidement un premier repère.</p></div><a class="button" href="#simulateurs">Voir les simulateurs <span aria-hidden="true">→</span></a></div></div></section>
+<section class="cta">
+  <div class="wrap">
+    <div class="cta-panel">
+      <div><div class="kicker" style="color:#bcb5ff">À vous de jouer</div><h2>Commencez par la question qui compte pour vous.</h2><p>Choisissez un simulateur et obtenez rapidement un premier repère.</p></div>
+      <a class="button" href="#simulateurs">Voir les simulateurs <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
 </main>
 
-<footer><div class="wrap footer-inner"><a class="brand" href="/simulateur/" style="font-size:16px"><span class="brand-mark" style="width:30px;height:30px;border-radius:9px"><svg viewBox="0 0 24 24" fill="none"><path d="M7 3.8h7l4 4V20H7a2 2 0 0 1-2-2V5.8a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 4v4h4M8.5 12h6.5M8.5 15.5h6.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>Simu<em>Droit</em></a><span>© <span id="year">2026</span> SimuDroit · Des outils pratiques pour mieux comprendre vos droits.</span><nav class="footer-links" aria-label="Liens utiles"><a href="#simulateurs">Simulateurs</a><a href="#fonctionnement">Fonctionnement</a><a href="#limites">Limites des estimations</a><a href="/simulateur/methode-et-sources/">Méthode et sources</a></nav></div></footer>
+<footer>
+  <div class="wrap footer-inner">
+    <a class="brand" href="/simulateur/" style="font-size:16px">
+      <span class="brand-mark" style="width:30px;height:30px;border-radius:9px">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M7 3.8h7l4 4V20H7a2 2 0 0 1-2-2V5.8a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 4v4h4M8.5 12h6.5M8.5 15.5h6.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </span>
+      Simu<em>Droit</em>
+    </a>
+    <span>© <span id="year">2026</span> SimuDroit · Des outils pratiques pour mieux comprendre vos droits.</span>
+    <nav class="footer-links" aria-label="Liens utiles">
+      <a href="#simulateurs">Simulateurs</a>
+      <a href="#guides">Guides pratiques</a>
+      <a href="#fonctionnement">Fonctionnement</a>
+      <a href="#limites">Limites des estimations</a>
+      <a href="/simulateur/methode-et-sources/">Méthode et sources</a>
+    </nav>
+  </div>
+</footer>
 
 <script>
 (() => {
   const search = document.getElementById('search');
-  const cards = [...document.querySelectorAll('.card')];
+  const cards = [...document.querySelectorAll('#grid .card')];
   const filters = [...document.querySelectorAll('.filter')];
   const empty = document.getElementById('empty');
   let active = 'all';
@@ -273,6 +417,7 @@
   function update() {
     const query = search.value.trim().toLocaleLowerCase('fr');
     let count = 0;
+
     cards.forEach(card => {
       const text = (card.innerText + ' ' + card.dataset.search).toLocaleLowerCase('fr');
       const show = (!query || text.includes(query)) &&
@@ -280,19 +425,24 @@
       card.hidden = !show;
       if (show) count++;
     });
+
     empty.classList.toggle('show', count === 0);
   }
 
   search.addEventListener('input', update);
+
   filters.forEach(button => button.addEventListener('click', () => {
     active = button.dataset.filter;
+
     filters.forEach(item => {
       const selected = item === button;
       item.classList.toggle('active', selected);
       item.setAttribute('aria-pressed', String(selected));
     });
+
     update();
   }));
+
   document.getElementById('year').textContent = new Date().getFullYear();
 })();
 </script>
