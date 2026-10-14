@@ -686,9 +686,8 @@
 </main>
 
 <footer>
-  <div>
-    © 2026 SimuDroit — Simulateurs et informations pratiques en droit du travail.
-  </div>
+  <p>© 2026 SimuDroit · <a href="https://xd6pwyx7n2-debug.github.io/simulateur/">Tous les simulateurs</a> · <a href="https://xd6pwyx7n2-debug.github.io/simulateur/methode-et-sources/">Méthode et sources</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
 </footer>
 
 <script>
@@ -757,5 +756,37 @@
   });
 </script>
 
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
 </body>
 </html>
