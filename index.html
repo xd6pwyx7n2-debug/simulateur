@@ -1,702 +1,465 @@
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#201e48">
 
-  <title>Simulateur indemnité licenciement 2026 – Calcul légal | SimuDroit</title>
-  <meta name="description" content="Calculez gratuitement votre indemnité légale de licenciement selon votre salaire de référence et votre ancienneté. Obtenez une fiche de calcul imprimable.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-indemnite-licenciement/">
-
-  <meta name="google-site-verification" content="qNMbDYWbGBih5YLnZttvWh9FPoK4oHcpb1N-GobCzsg">
+  <title>SimuDroit : simulateurs gratuits de salaire et droits du travail</title>
+  <meta name="description" content="Calculez gratuitement votre salaire brut/net, vos indemnités de licenciement, votre prime de précarité, vos congés payés et vos droits au chômage. Consultez nos guides pratiques.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="google-site-verification" content="Hn6t-8Oe30MsOkncM43P7U_9UmynMyr9W_EoPbcagTY">
+  <link rel="canonical" href="https://xd6pwyx7n2-debug.github.io/simulateur/">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Simulateur indemnité licenciement 2026 | SimuDroit">
-  <meta property="og:description" content="Estimez votre indemnité légale de licenciement et préparez une fiche de calcul détaillée.">
-  <meta property="og:url" content="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-indemnite-licenciement/">
+  <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="SimuDroit">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Simulateur indemnité licenciement 2026 | SimuDroit">
-  <meta name="twitter:description" content="Calculez votre indemnité légale de licenciement gratuitement.">
+  <meta property="og:title" content="SimuDroit : simulateurs gratuits de salaire et droits du travail">
+  <meta property="og:description" content="Estimez votre salaire, vos indemnités et vos droits au travail grâce à nos simulateurs gratuits et nos guides pratiques.">
+  <meta property="og:url" content="https://xd6pwyx7n2-debug.github.io/simulateur/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&amp;fit=crop&amp;w=1200&amp;q=85">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SimuDroit : simulateurs gratuits de salaire et droits du travail">
+  <meta name="twitter:description" content="Simulateurs gratuits et guides pratiques pour mieux comprendre vos droits au travail.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&amp;fit=crop&amp;w=1200&amp;q=85">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --primary: #0d5d7f;
-      --primary-dark: #084763;
-      --secondary: #00a896;
-      --dark: #17324d;
-      --text: #263746;
-      --muted: #687887;
-      --background: #f5f8fa;
-      --white: #ffffff;
-      --border: #dce5ea;
-      --success: #087f5b;
-      --shadow: 0 10px 35px rgba(23, 50, 77, 0.08);
+      --ink:#201e48; --muted:#70708b; --bg:#faf9ff; --white:#fff;
+      --purple:#6857e8; --coral:#ff795f; --mint:#78dfc1;
+      --line:#e9e6f5; --shadow:0 18px 55px #29235a14;
     }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: var(--background);
-      line-height: 1.6;
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:20px; }
+    body { margin:0; color:var(--ink); background:var(--bg); font-family:"DM Sans",sans-serif; line-height:1.6; }
+    a { color:inherit; text-decoration:none; }
+    button,input { font:inherit; }
+    .wrap { width:min(1160px,calc(100% - 40px)); margin:auto; }
+    .header { padding:20px 0; }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:flex; align-items:center; gap:10px; font:800 22px Manrope,sans-serif; letter-spacing:-1px; }
+    .brand-mark { display:grid; place-items:center; width:40px; height:40px; border-radius:13px; background:linear-gradient(135deg,#6857e8,#a18bff); color:white; flex-shrink:0; }
+    .brand-mark svg { width:23px; }
+    .brand em { color:var(--purple); font-style:normal; }
+    .nav-links { display:flex; flex-wrap:wrap; gap:20px; color:#666580; font-size:13px; font-weight:700; }
+    .nav-links a:hover,.footer-links a:hover { color:var(--purple); }
+    .nav-button,.button { display:inline-flex; justify-content:center; align-items:center; gap:9px; padding:13px 18px; border-radius:13px; background:var(--ink); color:white; font-size:14px; font-weight:700; transition:.2s; }
+    .nav-button:hover,.button:hover { transform:translateY(-2px); }
+    .hero { position:relative; overflow:hidden; padding:45px 0 75px; }
+    .hero:before { content:""; position:absolute; width:480px; height:480px; border-radius:50%; background:#e9e4ff; right:-180px; top:-140px; }
+    .hero-grid { position:relative; display:grid; grid-template-columns:1.03fr .97fr; align-items:center; gap:48px; }
+    .eyebrow { display:inline-flex; align-items:center; gap:9px; padding:8px 12px; border-radius:99px; background:#efedff; color:#594bc8; font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+    .dot { width:7px; height:7px; border-radius:50%; background:var(--coral); }
+    h1,h2,h3 { font-family:Manrope,sans-serif; }
+    h1 { margin:22px 0 18px; max-width:620px; font-size:clamp(42px,5.3vw,68px); line-height:1.04; letter-spacing:-3.5px; font-weight:800; }
+    .gradient { color:var(--purple); background:linear-gradient(100deg,#6857e8,#a253d8 65%,#ef786a); background-clip:text; -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .intro { max-width:510px; color:#686883; font-size:17px; line-height:1.75; }
+    .actions { display:flex; flex-wrap:wrap; gap:11px; margin-top:25px; }
+    .button.primary { background:var(--purple); box-shadow:0 10px 25px #6857e82e; }
+    .button.secondary { background:white; border:1px solid var(--line); color:var(--ink); }
+    .trust { display:flex; flex-wrap:wrap; gap:17px; margin-top:24px; color:#77778f; font-size:12px; font-weight:700; }
+    .trust b { color:#20977a; }
+    .hero-image { position:relative; height:410px; border-radius:30px; overflow:visible; }
+    .photo { position:absolute; inset:0; overflow:hidden; border-radius:30px; background:#292650; box-shadow:0 25px 70px #29235a2b; }
+    .photo img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; filter:saturate(.86); }
+    .photo:after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,#211d4810 15%,#211d487d 63%,#211d48f2 100%); }
+    .photo-label { position:absolute; z-index:1; top:22px; left:22px; padding:9px 13px; border-radius:99px; background:#ffffffdf; color:#363258; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.05em; }
+    .photo-copy { position:absolute; z-index:1; bottom:27px; left:27px; right:25px; color:white; }
+    .photo-copy small { color:#c7c0ff; font-size:11px; text-transform:uppercase; letter-spacing:.13em; font-weight:800; }
+    .photo-copy h2 { margin:8px 0; font-size:32px; line-height:1.13; letter-spacing:-1.1px; color:white; }
+    .photo-copy p { margin:0; color:#e0def4; font-size:14px; }
+    .float { position:absolute; z-index:2; display:flex; align-items:center; gap:11px; padding:13px 15px; border:1px solid #f0edf8; border-radius:17px; background:white; box-shadow:var(--shadow); }
+    .float.one { left:-24px; bottom:35px; }
+    .float.two { right:-17px; top:47px; }
+    .float-icon { display:grid; place-items:center; width:40px; height:40px; border-radius:13px; background:#efedff; color:var(--purple); }
+    .float.two .float-icon { background:#fff0e9; color:#d96b50; }
+    .float-icon svg { width:21px; }
+    .float strong { display:block; font-size:12px; }
+    .float small { display:block; color:#7b7b91; font-size:10px; }
+    .stats { display:grid; grid-template-columns:repeat(3,1fr); gap:15px; margin-top:36px; }
+    .stat { border-top:1px solid #e6e3f1; padding-top:13px; }
+    .stat strong { font:800 21px Manrope,sans-serif; letter-spacing:-.6px; }
+    .stat span { display:block; color:#77778f; font-size:11px; }
+    .section { padding:72px 0; }
+    .section.white { background:white; border-block:1px solid #efedf7; }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:25px; margin-bottom:28px; }
+    .kicker { margin-bottom:9px; color:var(--purple); font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.14em; }
+    .section-title { margin:0; max-width:660px; font-size:clamp(30px,3.5vw,43px); line-height:1.15; letter-spacing:-1.8px; }
+    .section-desc { max-width:390px; margin:0; color:var(--muted); font-size:14px; }
+    .controls { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-bottom:22px; }
+    .search { position:relative; flex:1 1 260px; max-width:440px; }
+    .search svg { position:absolute; left:14px; top:50%; width:19px; transform:translateY(-50%); color:#85849e; pointer-events:none; }
+    .search input { width:100%; padding:14px 15px 14px 43px; border:1px solid #e5e2f2; border-radius:13px; background:#fbfaff; outline:none; }
+    .search input:focus { border-color:#9b91f3; box-shadow:0 0 0 4px #6757e817; }
+    .filters { display:flex; flex-wrap:wrap; gap:7px; }
+    .filter { padding:9px 13px; border:1px solid #e7e4f2; border-radius:99px; background:white; color:#686782; font-size:12px; font-weight:700; cursor:pointer; }
+    .filter.active,.filter:hover { border-color:#d7d0ff; background:#efedff; color:#594bc8; }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:15px; }
+    .card { --accent:#6857e8; --tint:#efedff; display:flex; flex-direction:column; min-height:220px; padding:21px; border:1px solid #eae7f5; border-radius:19px; background:white; transition:transform .2s,box-shadow .2s; }
+    .card:hover { transform:translateY(-4px); box-shadow:0 16px 35px #29235a12; }
+    .card:focus-visible { outline:3px solid var(--purple); outline-offset:3px; }
+    .card[hidden] { display:none; }
+    .card-top { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:16px; }
+    .icon { display:grid; place-items:center; width:47px; height:47px; border-radius:15px; background:var(--tint); color:var(--accent); }
+    .icon svg { width:23px; height:23px; }
+    .tag { display:inline-block; align-self:flex-start; padding:5px 8px; border-radius:99px; background:var(--tint); color:var(--accent); font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:.05em; }
+    .card h3 { margin:0 0 8px; font-size:17px; line-height:1.3; letter-spacing:-.4px; }
+    .card p { margin:0 0 20px; color:#77778f; font-size:13px; line-height:1.55; }
+    .card-link { display:flex; align-items:center; gap:8px; margin-top:auto; color:var(--accent); font-size:12px; font-weight:800; }
+    .empty { display:none; padding:24px; border:1px dashed #dcd8ef; border-radius:17px; color:var(--muted); text-align:center; }
+    .empty.show { display:block; }
+    .how-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:32px; }
+    .how-card { padding:24px; border:1px solid #ece9f5; border-radius:20px; background:white; }
+    .number { display:grid; place-items:center; width:39px; height:39px; margin-bottom:15px; border-radius:13px; background:#efedff; color:var(--purple); font:800 14px Manrope,sans-serif; }
+    .how-card:nth-child(2) .number { background:#fff0e9; color:#d96b50; }
+    .how-card:nth-child(3) .number { background:#e4f9f2; color:#218f76; }
+    .how-card h3 { margin:0 0 7px; font-size:17px; }
+    .how-card p { margin:0; color:var(--muted); font-size:13px; }
+    .notice { display:flex; gap:12px; margin-top:26px; padding:18px; border:1px solid #e3e0ff; border-radius:16px; background:#f0efff; color:#5c5b79; font-size:12px; }
+    .notice strong { color:var(--ink); }
+    .cta { padding:0 0 75px; }
+    .cta-panel { display:flex; align-items:center; justify-content:space-between; gap:25px; padding:40px; border-radius:28px; background:#201e48; color:white; }
+    .cta-panel h2 { max-width:630px; margin:0 0 10px; font-size:clamp(27px,3.3vw,39px); line-height:1.15; letter-spacing:-1.3px; color:white; }
+    .cta-panel p { margin:0; color:#d3d1e8; font-size:14px; }
+    .cta-panel .button { flex-shrink:0; background:white; color:#302b6c; }
+    footer { padding:25px 0 35px; border-top:1px solid #e9e7f4; color:#77778e; font-size:11px; }
+    .footer-inner { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:18px; }
+    .footer-links { display:flex; flex-wrap:wrap; gap:17px; }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+    @media(max-width:1000px) {
+      .nav-links { gap:12px; font-size:12px; }
+      .nav-button { padding:11px 13px; font-size:12px; }
+      .hero-grid { gap:28px; }
+      h1 { font-size:clamp(40px,5.7vw,56px); letter-spacing:-2.7px; }
+      .hero-image { height:350px; }
+      .float.one { left:-10px; }
+      .float.two { right:-7px; }
+      .section-head { align-items:flex-start; flex-direction:column; }
     }
-
-    a { color: var(--primary); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    header {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: white;
-      padding: 18px 20px;
+    @media(max-width:760px) {
+      .wrap { width:calc(100% - 30px); }
+      .header { padding:14px 0; }
+      .nav { flex-wrap:wrap; }
+      .nav-links { order:3; width:100%; justify-content:flex-start; }
+      .nav-button { margin-left:auto; }
+      .hero { padding:26px 0 52px; }
+      .hero-grid { grid-template-columns:1fr; gap:36px; }
+      h1 { font-size:clamp(42px,12vw,57px); letter-spacing:-2.8px; }
+      .intro { font-size:16px; }
+      .hero-image { height:335px; }
+      .photo-copy { left:20px; right:18px; bottom:21px; }
+      .photo-copy h2 { font-size:28px; }
+      .float.one { left:-5px; bottom:15px; }
+      .float.two { right:-4px; top:25px; }
+      .float { padding:10px; gap:8px; }
+      .float-icon { width:34px; height:34px; }
+      .float strong { font-size:10px; }
+      .float small { font-size:9px; }
+      .stats { gap:9px; margin-top:28px; }
+      .stat strong { font-size:18px; }
+      .section { padding:52px 0; }
+      .grid,.how-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .card { min-height:0; padding:19px; }
+      .card p { margin-bottom:16px; }
+      .cta { padding-bottom:52px; }
+      .cta-panel { display:block; padding:27px 22px; }
+      .cta-panel .button { margin-top:22px; }
+      .footer-inner { align-items:flex-start; flex-direction:column; }
     }
-
-    .header-inner {
-      max-width: 1050px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
+    @media(max-width:520px) {
+      .nav-links { gap:12px; font-size:11px; }
+      .nav-button { padding:10px 11px; font-size:11px; }
+      .brand { font-size:19px; }
+      .grid,.how-grid { grid-template-columns:1fr; }
     }
-
-    .logo {
-      color: white;
-      font-size: 1.45rem;
-      font-weight: 800;
-      letter-spacing: -0.4px;
-    }
-
-    .logo span { color: #7ee7d8; }
-
-    .header-link { color: white; font-size: 0.92rem; }
-
-    main {
-      max-width: 1050px;
-      margin: auto;
-      padding: 22px 18px 60px;
-    }
-
-    .breadcrumb {
-      font-size: 0.88rem;
-      color: var(--muted);
-      margin-bottom: 25px;
-    }
-
-    .hero {
-      text-align: center;
-      max-width: 780px;
-      margin: 20px auto 30px;
-    }
-
-    .hero h1 {
-      margin: 0 0 12px;
-      color: var(--dark);
-      font-size: clamp(2rem, 5vw, 3rem);
-      line-height: 1.15;
-      letter-spacing: -1px;
-    }
-
-    .hero p { margin: 0; color: var(--muted); font-size: 1.05rem; }
-
-    .calculator {
-      max-width: 720px;
-      margin: 0 auto 35px;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      box-shadow: var(--shadow);
-      padding: 28px;
-    }
-
-    .calculator h2 { margin-top: 0; color: var(--dark); font-size: 1.35rem; }
-    .field { margin-bottom: 18px; }
-
-    label {
-      display: block;
-      margin-bottom: 7px;
-      font-weight: 700;
-      color: var(--dark);
-    }
-
-    .help {
-      display: block;
-      margin-top: 5px;
-      font-size: 0.84rem;
-      color: var(--muted);
-    }
-
-    input {
-      width: 100%;
-      padding: 13px 14px;
-      border: 1px solid #c8d4da;
-      border-radius: 10px;
-      font-size: 1rem;
-      color: var(--text);
-      background: white;
-    }
-
-    input:focus {
-      outline: 3px solid rgba(0, 168, 150, 0.16);
-      border-color: var(--secondary);
-    }
-
-    button {
-      width: 100%;
-      border: 0;
-      border-radius: 10px;
-      padding: 14px 18px;
-      background: var(--primary);
-      color: white;
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: 0.2s ease;
-    }
-
-    button:hover { background: var(--primary-dark); }
-    button:focus-visible { outline: 3px solid var(--secondary); outline-offset: 3px; }
-
-    .result {
-      display: none;
-      margin-top: 22px;
-      padding: 22px;
-      border-radius: 14px;
-      background: #eefaf7;
-      border: 1px solid #bfe9df;
-    }
-
-    .result.show { display: block; }
-    .result-label { font-size: 0.9rem; color: var(--muted); margin-bottom: 5px; }
-
-    .amount {
-      font-size: clamp(2rem, 7vw, 2.8rem);
-      font-weight: 800;
-      color: var(--success);
-      line-height: 1.1;
-      margin-bottom: 12px;
-    }
-
-    .details { margin: 0; font-size: 0.95rem; }
-
-    .warning {
-      margin-top: 15px;
-      padding: 13px 15px;
-      border-radius: 10px;
-      background: #fff8e8;
-      border: 1px solid #efd58a;
-      color: #6e5000;
-      font-size: 0.9rem;
-    }
-
-    .pdf-button {
-      margin-top: 14px;
-      background: var(--success);
-    }
-
-    .pdf-button:hover { background: #066749; }
-
-    .info {
-      max-width: 900px;
-      margin: 0 auto 30px;
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 15px;
-      padding: 25px;
-    }
-
-    .info h2 { color: var(--dark); margin-top: 0; }
-    .info h3 { color: var(--dark); margin-bottom: 7px; }
-    .info ul { padding-left: 20px; }
-
-    .links {
-      max-width: 900px;
-      margin: 0 auto 35px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 12px;
-    }
-
-    .link-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 15px;
-    }
-
-    .link-card strong {
-      display: block;
-      color: var(--dark);
-      margin-bottom: 4px;
-    }
-
-    footer {
-      background: var(--dark);
-      color: white;
-      padding: 30px 20px;
-      text-align: center;
-      font-size: 0.9rem;
-    }
-
-    footer a { color: #a9e9df; }
-
-    .sd-error {
-      background: #fdecec;
-      border-left: 4px solid #c0392b;
-      color: #7a1c13;
-      padding: 12px 14px;
-      border-radius: 8px;
-      margin: 14px 0;
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 600px) {
-      .calculator, .info { padding: 20px; }
-      .header-inner { align-items: flex-start; }
-      .header-link { font-size: 0.8rem; }
+    @media(prefers-reduced-motion:reduce) {
+      html { scroll-behavior:auto; }
+      *,*:before,*:after { transition:none!important; }
     }
   </style>
 
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "SimuDroit",
-    "url": "https://xd6pwyx7n2-debug.github.io/simulateur/"
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Simulateur indemnité licenciement 2026",
-    "url": "https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-indemnite-licenciement/",
-    "description": "Simulateur d'estimation de l'indemnité légale de licenciement."
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "SimuDroit",
-        "item": "https://xd6pwyx7n2-debug.github.io/simulateur/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Indemnité de licenciement",
-        "item": "https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-indemnite-licenciement/"
-      }
-    ]
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Comment est calculée l'indemnité légale de licenciement ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "L'indemnité légale dépend notamment du salaire de référence et de l'ancienneté du salarié. Une convention collective peut prévoir des dispositions plus favorables."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Quel salaire utiliser pour calculer l'indemnité de licenciement ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Le salaire de référence est déterminé selon les règles applicables à la situation du salarié. Le calcul compare notamment les rémunérations des périodes de référence prévues par la réglementation."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Le simulateur donne-t-il le montant définitif ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Non. Il s'agit d'une estimation de l'indemnité légale. La convention collective, le contrat de travail et certaines situations particulières peuvent modifier le montant."
-        }
-      }
-    ]
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"SimuDroit",
+    "url":"https://xd6pwyx7n2-debug.github.io/simulateur/",
+    "inLanguage":"fr-FR",
+    "description":"Simulateurs gratuits de salaire et de droits du travail, accompagnés de guides pratiques."
   }
   </script>
 </head>
 
 <body>
-<header>
-  <div class="header-inner">
-    <a class="logo" href="https://xd6pwyx7n2-debug.github.io/simulateur/">Simu<span>Droit</span></a>
-    <a class="header-link" href="https://xd6pwyx7n2-debug.github.io/simulateur/">Tous les simulateurs</a>
+<header class="header">
+  <div class="wrap nav">
+    <a class="brand" href="/simulateur/" aria-label="SimuDroit, accueil">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M7 3.8h7l4 4V20H7a2 2 0 0 1-2-2V5.8a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M14 4v4h4M8.5 12h6.5M8.5 15.5h6.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span>Simu<em>Droit</em></span>
+    </a>
+
+    <nav class="nav-links" aria-label="Navigation principale">
+      <a href="#simulateurs">Simulateurs</a>
+      <a href="#guides">Guides pratiques</a>
+      <a href="#fonctionnement">Comment ça marche</a>
+      <a href="#limites">À savoir</a>
+    </nav>
+
+    <a class="nav-button" href="#simulateurs">Trouver mon simulateur <span aria-hidden="true">↗</span></a>
   </div>
 </header>
 
 <main>
-  <div class="breadcrumb">
-    <a href="https://xd6pwyx7n2-debug.github.io/simulateur/">Accueil</a>
-    → Indemnité de licenciement
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow"><span class="dot"></span> Le droit du travail, plus lisible</div>
+      <h1>Vos droits.<br>Des réponses <span class="gradient">plus claires.</span></h1>
+      <p class="intro">Salaire, indemnités, congés ou fin de contrat : utilisez des simulateurs simples pour y voir plus clair et préparer vos prochaines démarches.</p>
+      <div class="actions">
+        <a class="button primary" href="#simulateurs">Explorer les simulateurs <span aria-hidden="true">→</span></a>
+        <a class="button secondary" href="#guides">Lire nos guides pratiques</a>
+      </div>
+      <div class="trust"><span><b>✓</b> Accès gratuit</span><span><b>✓</b> Utilisation simple</span><span><b>✓</b> Résultats indicatifs</span></div>
+      <div class="stats">
+        <div class="stat"><strong>11</strong><span>simulateurs pratiques</span></div>
+        <div class="stat"><strong>Gratuit</strong><span>sans paiement</span></div>
+        <div class="stat"><strong>En ligne</strong><span>sans installation</span></div>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <div class="photo">
+        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=85" alt="Documents et calculs sur un bureau lumineux" fetchpriority="high">
+        <div class="photo-label">Comprendre avant d’agir</div>
+        <div class="photo-copy">
+          <small>Un outil pour avancer</small>
+          <h2>Moins de flou.<br>Plus de repères.</h2>
+          <p>Des estimations utiles pour mieux préparer vos démarches.</p>
+        </div>
+      </div>
+      <div class="float one">
+        <span class="float-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 19V5m0 14h17M8 15l3-4 3 2 5-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span><strong>Des repères concrets</strong><small>Pour estimer et comparer</small></span>
+      </div>
+      <div class="float two">
+        <span class="float-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v18M17 7.5c0-1.7-2-2.5-5-2.5S7 6 7 7.5 9 10 12 10s5 1 5 2.5S15 15 12 15s-5-.8-5-2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        <span><strong>Calculs simplifiés</strong><small>Un premier ordre d’idée</small></span>
+      </div>
+    </div>
   </div>
+</section>
 
-  <section class="hero">
-    <h1>Simulateur indemnité de licenciement 2026</h1>
-    <p>Estimez gratuitement votre indemnité légale de licenciement à partir de votre salaire de référence et de votre ancienneté.</p>
-  </section>
-
-  <section class="calculator" aria-label="Calculateur d'indemnité de licenciement">
-    <h2>Calculez votre indemnité</h2>
-
-    <div class="field">
-      <label for="remuneration12">Rémunération brute totale des 12 derniers mois</label>
-      <input type="number" id="remuneration12" min="0" step="0.01" inputmode="decimal" placeholder="Ex. 36 000">
-      <span class="help">Indiquez la rémunération brute totale perçue au cours des 12 derniers mois.</span>
+<section class="section white" id="simulateurs">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="kicker">La boîte à outils</div><h2 class="section-title">Quel calcul souhaitez-vous faire&nbsp;?</h2></div>
+      <p class="section-desc">Choisissez un sujet ou recherchez directement un simulateur. Revenez ici à tout moment.</p>
     </div>
 
-    <div class="field">
-      <label for="remuneration3">Rémunération brute totale des 3 derniers mois</label>
-      <input type="number" id="remuneration3" min="0" step="0.01" inputmode="decimal" placeholder="Ex. 9 000">
-      <span class="help">Indiquez la rémunération brute totale perçue au cours des 3 derniers mois.</span>
+    <div class="controls">
+      <label class="search">
+        <span class="sr-only">Rechercher un simulateur</span>
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4.2 4.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <input id="search" type="search" placeholder="Ex. : salaire, licenciement, congés…" autocomplete="off">
+      </label>
+      <div class="filters" role="group" aria-label="Filtrer les simulateurs">
+        <button class="filter active" data-filter="all" aria-pressed="true" type="button">Tous les outils</button>
+        <button class="filter" data-filter="salaire" aria-pressed="false" type="button">Salaire</button>
+        <button class="filter" data-filter="contrat" aria-pressed="false" type="button">Fin de contrat</button>
+        <button class="filter" data-filter="temps" aria-pressed="false" type="button">Congés & temps</button>
+      </div>
     </div>
 
-    <div class="field">
-      <label for="annees">Ancienneté en années</label>
-      <input type="number" id="annees" min="0" step="1" inputmode="numeric" placeholder="Ex. 8">
+    <div class="grid" id="grid">
+      <a class="card" style="--accent:#6555df;--tint:#efedff" href="/simulateur/simulateur-rupture-conventionnelle/" data-category="contrat" data-search="rupture conventionnelle indemnité départ accord employeur">
+        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M8 4h8M9 4v4l-4 8a3 3 0 0 0 2.7 4h8.6A3 3 0 0 0 19 16l-4-8V4M8 14h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tag">Contrat</span></div>
+        <h3>Rupture conventionnelle</h3><p>Estimez l’indemnité minimale liée à une rupture conventionnelle.</p><span class="card-link">Lancer le calcul →</span>
+      </a>
+
+      <a class="card" style="--accent:#df6b4f;--tint:#fff0e9" href="/simulateur/simulateur-indemnite-licenciement/" data-category="contrat" data-search="indemnité licenciement ancienneté salaire contrat">
+        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 7.5h14v12H5zM9 7.5V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2.5M8 12h8M8 15.5h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tag">Contrat</span></div>
+        <h3>Indemnité de licenciement</h3><p>Estimez le montant selon votre salaire et votre ancienneté.</p><span class="card-link">Lancer le calcul →</span>
+      </a>
+
+      <a class="card" style="--accent:#188b80;--tint:#e5f8f3" href="/simulateur/simulateur-brut-net/" data-category="salaire" data-search="salaire brut net convertir rémunération cotisations">
+        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 7h8M8 11h2m4 0h2M8 15h2m4 0h2M8 18h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><span class="tag">Salaire</span></div>
+        <h3>Salaire brut en net</h3><p>Convertissez un salaire brut en estimation de salaire net.</p><span class="card-link">Lancer le calcul →</span>
+      </a>
+
+      <a class="card" style="--accent:#377dc4;--tint:#eaf4ff" href="/simulateur/simulateur-net-brut/" data-category="salaire" data-search="salaire net brut convertir rémunération">
+        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16M6 3v6m12-6v6M5 12h14v8H5zM8 15h3m2 0h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tag">Salaire</span></div>
+        <h3>Salaire net en brut</h3><p>Estimez le salaire brut correspondant à un montant net.</p><span class="card-link">Lancer le calcul →</span>
+      </a>
+
+      <a class="card" style="--accent:#a44ec5;--tint:#f8eefe" href="/simulateur/simulateur-chomage/" data-category="contrat" data-search="chômage allocation retour emploi ARE indemnisation">
+        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19V5m0 14h16M7 15l3-4 3 2 5-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tag">Droits</span></div>
+        <h3>Allocation chômage</h3><p>Obtenez un premier ordre d’idée de vos allocations chômage.</p><span class="card-link">Lancer le calcul →</span>
+      </a>
+
+      <a class="card" style="--accent:#d58b24;--tint:#fff5df" href="/simulateur/simulateur-prime-precarite/" data-category="contrat" data-search="prime précarité CDD fin contrat indemnité">
+        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M15.5 8.5c-.6-.7-1.7-1-3.3-1-1.5 0-2.7.7-2.7 1.8 0 3 5.7 1.2 5.7 4.4 0 1.1-1.1 2-3 2-1.4 0-2.7-.4-3.5-1.2M12 5.5v13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="tag">Contrat</span></div>
+        <h3>Prime de précarité</h3><p>Estimez l’indemnité de fin de CDD selon les éléments saisis.</p><span class="card-link">Lancer le calcul →</span>
+      </a>
+
+      <a class="card" style="--accent:#238b78;--tint:#e5f8f1" href="/simulateur/simulateur-conges-payes/" data-category="temps" data-search="congés payés indemnité jours acquis solde">
+        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 3v4m8-4v4M4 10h16m-11 4h2m3 0h2m-7 3h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><span class="tag">Congés & temps</span></div>
+        <h3>Congés payés</h3><p>Estimez vos droits ou l’indemnité de congés payés.</p><span class="card-link">Lancer le calcul →</span>
+      </a>
+
+      <a class="card" style="--accent:#d96d5b;--tint:#fff0eb" href="/simulateur/simulateur-heures-supplementaires/" data-category="temps" data-search="heures supplémentaires majoration rémunération travail">
+        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tag">Congés & temps</span></div>
+        <h3>Heures supplémentaires</h3><p>Estimez la rémunération des heures effectuées en plus.</p><span class="card-link">Lancer le calcul →</span>
+      </a>
+
+      <a class="card" style="--accent:#397bc0;--tint:#eaf3ff" href="/simulateur/simulateur-temps-partiel/" data-category="temps" data-search="temps partiel salaire durée travail quotité">
+        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 3v9h9M12 12l-6.4 6.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tag">Congés & temps</span></div>
+        <h3>Temps partiel</h3><p>Évaluez votre temps de travail à temps partiel et ses équivalences.</p><span class="card-link">Lancer le calcul →</span>
+      </a>
+
+      <a class="card" style="--accent:#9c5dc4;--tint:#f5eaff" href="/simulateur/simulateur-preavis-demission/" data-category="contrat" data-search="préavis démission délai départ convention collective">
+        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M6 3h9l4 4v14H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 3v5h5M8 12h8M8 16h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><span class="tag">Contrat</span></div>
+        <h3>Préavis de démission</h3><p>Repérez les éléments utiles pour estimer la durée de votre préavis.</p><span class="card-link">Lancer le calcul →</span>
+      </a>
+
+      <a class="card" style="--accent:#d66a8d;--tint:#fff0f5" href="/simulateur/simulateur-solde-tout-compte/" data-category="contrat" data-search="solde tout compte fin contrat indemnités congés salaire préavis">
+        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14v16H5zM8 8h8M8 12h8M8 16h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tag">Contrat</span></div>
+        <h3>Solde de tout compte</h3><p>Préparez une estimation des sommes à vérifier en fin de contrat.</p><span class="card-link">Lancer le calcul →</span>
+      </a>
     </div>
 
-    <div class="field">
-      <label for="mois">Mois supplémentaires d'ancienneté</label>
-      <input type="number" id="mois" min="0" max="11" step="1" inputmode="numeric" placeholder="Ex. 6">
-      <span class="help">Exemple : 8 ans et 6 mois → indiquez 8 années et 6 mois.</span>
+    <p class="empty" id="empty" role="status">Aucun simulateur ne correspond à cette recherche. Essayez un autre mot-clé.</p>
+  </div>
+</section>
+
+<section class="section" id="guides">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="kicker">Nos conseils pratiques</div>
+        <h2 class="section-title">Comprendre vos droits avant d’agir.</h2>
+      </div>
+      <p class="section-desc">Des guides pour mieux comprendre les règles du droit du travail et préparer vos démarches.</p>
     </div>
 
-    <button type="button" onclick="calculer()">Calculer mon indemnité</button>
+    <div class="grid">
+      <a class="card" style="--accent:#6555df;--tint:#efedff" href="/simulateur/guides/calcul-indemnite-licenciement/">
+        <div class="card-top"><span class="tag">Fin de contrat</span></div>
+        <h3>Comment calculer son indemnité de licenciement ?</h3>
+        <p>Comprenez les principaux éléments à prendre en compte pour estimer votre indemnité.</p>
+        <span class="card-link">Lire le guide →</span>
+      </a>
 
-    <div id="resultat" class="result" aria-live="polite">
-      <div class="result-label">Estimation de l'indemnité légale minimale</div>
-      <div id="montant" class="amount">0 €</div>
-      <p id="details" class="details"></p>
-      <div id="avertissement" class="warning"></div>
+      <a class="card" style="--accent:#d58b24;--tint:#fff5df" href="/simulateur/guides/prime-precarite-cdd/">
+        <div class="card-top"><span class="tag">CDD</span></div>
+        <h3>Prime de précarité : calcul et conditions</h3>
+        <p>Découvrez le taux habituel, les conditions de versement et les principales exceptions.</p>
+        <span class="card-link">Lire le guide →</span>
+      </a>
 
-      <button id="pdfButton" type="button" class="pdf-button" onclick="imprimerRapport()" hidden>
-        Préparer ma fiche de calcul imprimable / PDF
-      </button>
-      <p class="help">La fiche reprend les données saisies, les étapes du calcul et les sources officielles. Vous pourrez l'imprimer ou l'enregistrer en PDF.</p>
+      <a class="card" style="--accent:#238b78;--tint:#e5f8f1" href="/simulateur/guides/calcul-indemnite-conges-payes/">
+        <div class="card-top"><span class="tag">Congés payés</span></div>
+        <h3>Comment calculer l’indemnité de congés payés ?</h3>
+        <p>Découvrez les deux méthodes de calcul et les éléments à vérifier en fin de contrat.</p>
+        <span class="card-link">Lire le guide →</span>
+      </a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="info">
-    <h2>Comment fonctionne le calcul ?</h2>
-    <p>L'indemnité légale de licenciement dépend principalement du <strong>salaire de référence</strong> et de l'<strong>ancienneté</strong> du salarié.</p>
+<section class="section white" id="fonctionnement">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="kicker">Simple, en trois étapes</div><h2 class="section-title">Un premier repère, sans jargon.</h2></div>
+      <p class="section-desc">Les simulateurs vous aident à mieux comprendre une situation avant d’aller plus loin.</p>
+    </div>
+    <div class="how-grid">
+      <article class="how-card"><div class="number">01</div><h3>Choisissez un sujet</h3><p>Ouvrez l’outil correspondant à votre question : salaire, contrat, congés ou temps de travail.</p></article>
+      <article class="how-card"><div class="number">02</div><h3>Renseignez les informations</h3><p>Complétez les champs demandés avec les éléments dont vous disposez.</p></article>
+      <article class="how-card"><div class="number">03</div><h3>Consultez l’estimation</h3><p>Utilisez le résultat comme point de départ et vérifiez les règles applicables à votre cas.</p></article>
+    </div>
+    <div class="notice" id="limites"><span aria-hidden="true">ⓘ</span><div><strong>À garder en tête :</strong> les résultats sont des estimations informatives et ne remplacent pas l’étude de votre situation, de votre convention collective ou des textes applicables. Les règles peuvent évoluer. En cas d’enjeu important, vérifiez les informations auprès d’une source officielle ou d’un professionnel compétent.</div></div>
+  </div>
+</section>
 
-    <h3>1. Le salaire de référence</h3>
-    <p>Le simulateur calcule deux moyennes :</p>
-    <ul>
-      <li>la rémunération brute totale des 12 derniers mois divisée par 12 ;</li>
-      <li>la rémunération brute totale des 3 derniers mois divisée par 3.</li>
-    </ul>
-    <p>Le montant le plus favorable est retenu pour cette estimation. En pratique, les règles relatives aux primes et aux périodes de référence peuvent nécessiter une analyse plus précise.</p>
-
-    <h3>2. L'ancienneté</h3>
-    <p>Le calcul prend en compte les années complètes ainsi que les mois supplémentaires renseignés.</p>
-
-    <h3>3. Une convention collective peut être plus favorable</h3>
-    <p>Le résultat affiché correspond à une estimation fondée sur l'indemnité légale. Votre convention collective ou votre contrat de travail peut prévoir une indemnité plus favorable.</p>
-    <p>Pour une situation particulière, notamment en cas de rémunération variable, d'arrêt de travail, de temps partiel ou de primes importantes, vérifiez les règles applicables à votre situation.</p>
-  </section>
-
-  <section class="info">
-    <h2>À retenir</h2>
-    <ul>
-      <li>Le résultat est une <strong>estimation</strong>, pas un montant juridiquement définitif.</li>
-      <li>La convention collective peut être plus favorable.</li>
-      <li>Les éléments de rémunération entrant dans le salaire de référence doivent être appréciés selon leur nature.</li>
-      <li>Le calcul peut différer dans certaines situations particulières.</li>
-    </ul>
-    <p>Pour vérifier votre situation, consultez les sources officielles :
-      <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F987" target="_blank" rel="noopener">Service-Public.fr</a>,
-      <a href="https://code.travail.gouv.fr/" target="_blank" rel="noopener">Code du travail numérique</a> et
-      <a href="https://www.legifrance.gouv.fr/" target="_blank" rel="noopener">Légifrance</a>.
-    </p>
-  </section>
-
-  <section class="links">
-    <a class="link-card" href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-rupture-conventionnelle/">
-      <strong>Rupture conventionnelle</strong>
-      Estimez l'indemnité minimale de rupture.
-    </a>
-    <a class="link-card" href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-preavis-demission/">
-      <strong>Préavis de démission</strong>
-      Estimez votre date de fin de contrat.
-    </a>
-    <a class="link-card" href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-solde-tout-compte/">
-      <strong>Solde de tout compte</strong>
-      Estimez les principales sommes dues à la fin du contrat.
-    </a>
-    <a class="link-card" href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-chomage/">
-      <strong>Simulateur chômage</strong>
-      Estimez votre allocation chômage.
-    </a>
-  </section>
+<section class="cta">
+  <div class="wrap">
+    <div class="cta-panel">
+      <div><div class="kicker" style="color:#bcb5ff">À vous de jouer</div><h2>Commencez par la question qui compte pour vous.</h2><p>Choisissez un simulateur et obtenez rapidement un premier repère.</p></div>
+      <a class="button" href="#simulateurs">Voir les simulateurs <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer>
-  <p>© 2026 SimuDroit · <a href="https://xd6pwyx7n2-debug.github.io/simulateur/">Tous les simulateurs</a> · <a href="https://xd6pwyx7n2-debug.github.io/simulateur/methode-et-sources/">Méthode et sources</a></p>
-  <p>Les fiches générées expliquent les données et la méthode utilisées ; elles ne constituent ni une attestation officielle ni une expertise et ne garantissent pas leur reconnaissance dans un litige.</p>
+  <div class="wrap footer-inner">
+    <a class="brand" href="/simulateur/" style="font-size:16px">
+      <span class="brand-mark" style="width:30px;height:30px;border-radius:9px">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M7 3.8h7l4 4V20H7a2 2 0 0 1-2-2V5.8a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 4v4h4M8.5 12h6.5M8.5 15.5h6.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </span>
+      Simu<em>Droit</em>
+    </a>
+    <span>© <span id="year">2026</span> SimuDroit · Des outils pratiques pour mieux comprendre vos droits.</span>
+    <nav class="footer-links" aria-label="Liens utiles">
+      <a href="#simulateurs">Simulateurs</a>
+      <a href="#guides">Guides pratiques</a>
+      <a href="#fonctionnement">Fonctionnement</a>
+      <a href="#limites">Limites des estimations</a>
+      <a href="/simulateur/methode-et-sources/">Méthode et sources</a>
+    </nav>
+  </div>
 </footer>
 
 <script>
-function formatEuro(value) {
-  return Number(value).toLocaleString("fr-FR", {
-    style: "currency",
-    currency: "EUR"
-  });
-}
+(() => {
+  const search = document.getElementById('search');
+  const cards = [...document.querySelectorAll('#grid .card')];
+  const filters = [...document.querySelectorAll('.filter')];
+  const empty = document.getElementById('empty');
+  let active = 'all';
 
-function calculer() {
-  const remuneration12 = parseFloat(document.getElementById("remuneration12").value);
-  const remuneration3 = parseFloat(document.getElementById("remuneration3").value);
-  const annees = Number(document.getElementById("annees").value);
-  const mois = Number(document.getElementById("mois").value || "0");
+  function update() {
+    const query = search.value.trim().toLocaleLowerCase('fr');
+    let count = 0;
 
-  if (!Number.isFinite(remuneration12) || remuneration12 <= 0) {
-    afficherErreur("Veuillez renseigner la rémunération brute des 12 derniers mois.");
-    return;
+    cards.forEach(card => {
+      const text = (card.innerText + ' ' + card.dataset.search).toLocaleLowerCase('fr');
+      const show = (!query || text.includes(query)) &&
+                   (active === 'all' || card.dataset.category === active);
+      card.hidden = !show;
+      if (show) count++;
+    });
+
+    empty.classList.toggle('show', count === 0);
   }
 
-  if (!Number.isFinite(remuneration3) || remuneration3 <= 0) {
-    afficherErreur("Veuillez renseigner la rémunération brute des 3 derniers mois.");
-    return;
-  }
+  search.addEventListener('input', update);
 
-  if (!Number.isInteger(annees) || annees < 0) {
-    afficherErreur("Veuillez renseigner correctement votre ancienneté.");
-    return;
-  }
+  filters.forEach(button => button.addEventListener('click', () => {
+    active = button.dataset.filter;
 
-  if (!Number.isInteger(mois) || mois < 0 || mois > 11) {
-    afficherErreur("Le nombre de mois supplémentaires doit être compris entre 0 et 11.");
-    return;
-  }
+    filters.forEach(item => {
+      const selected = item === button;
+      item.classList.toggle('active', selected);
+      item.setAttribute('aria-pressed', String(selected));
+    });
 
-  const ancienneteMois = (annees * 12) + mois;
-  const salaire12 = remuneration12 / 12;
-  const salaire3 = remuneration3 / 3;
-  const salaireReference = Math.max(salaire12, salaire3);
-  const totalAnciennete = ancienneteMois / 12;
+    update();
+  }));
 
-  const resultat = document.getElementById("resultat");
-  const montant = document.getElementById("montant");
-  const details = document.getElementById("details");
-  const avertissement = document.getElementById("avertissement");
-
-  resultat.classList.add("show");
-  effacerErreur();
-
-  let indemnite = 0;
-  const eligibility = ancienneteMois >= 8;
-
-  if (!eligibility) {
-    montant.textContent = formatEuro(0);
-    details.textContent = "Avec moins de 8 mois d'ancienneté, le simulateur ne calcule pas d'indemnité légale minimale.";
-    avertissement.textContent = "Une convention collective, un contrat ou une situation particulière peut prévoir des dispositions différentes.";
-  } else {
-    if (totalAnciennete <= 10) {
-      indemnite = salaireReference * 0.25 * totalAnciennete;
-    } else {
-      indemnite = (salaireReference * 0.25 * 10) +
-        (salaireReference * (1 / 3) * (totalAnciennete - 10));
-    }
-
-    montant.textContent = formatEuro(indemnite);
-    details.innerHTML =
-      "Salaire de référence retenu : <strong>" + formatEuro(salaireReference) +
-      "</strong>.<br>Ancienneté prise en compte : <strong>" +
-      totalAnciennete.toLocaleString("fr-FR", { maximumFractionDigits: 4 }) +
-      " ans</strong>.";
-
-    avertissement.textContent =
-      "Il s'agit d'une estimation de l'indemnité légale. Votre convention collective peut prévoir une indemnité plus favorable. Certaines primes ou situations particulières peuvent modifier le calcul.";
-  }
-
-  window.sdRapport = {
-    remuneration12,
-    remuneration3,
-    annees,
-    mois,
-    salaire12,
-    salaire3,
-    salaireReference,
-    totalAnciennete,
-    indemnite,
-    eligibility
-  };
-
-  document.getElementById("pdfButton").hidden = false;
-}
-
-function afficherErreur(message) {
-  effacerErreur();
-
-  const box = document.createElement("div");
-  box.id = "sd-error";
-  box.className = "sd-error";
-  box.setAttribute("role", "alert");
-  box.textContent = message;
-
-  const button = document.querySelector(".calculator > button");
-  button.parentNode.insertBefore(box, button);
-  box.scrollIntoView({ behavior: "smooth", block: "center" });
-}
-
-function effacerErreur() {
-  const old = document.getElementById("sd-error");
-  if (old) old.remove();
-}
-
-function imprimerRapport() {
-  const r = window.sdRapport;
-
-  if (!r) {
-    afficherErreur("Effectuez d'abord un calcul pour préparer la fiche.");
-    return;
-  }
-
-  const euro = value => formatEuro(value);
-  const date = new Date();
-  const dateTexte = date.toLocaleString("fr-FR");
-  const reference = "SD-LIC-" +
-    date.toISOString().slice(0, 10).replace(/-/g, "") +
-    "-" + Math.random().toString(36).slice(2, 8).toUpperCase();
-
-  const resultat = r.eligibility
-    ? euro(r.indemnite)
-    : "0,00 € — ancienneté minimale non atteinte selon les données saisies";
-
-  const formule = r.eligibility
-    ? (r.totalAnciennete <= 10
-      ? "Salaire de référence × 1/4 × ancienneté en années."
-      : "(Salaire de référence × 1/4 × 10) + (Salaire de référence × 1/3 × ancienneté au-delà de 10 ans).")
-    : "Aucune indemnité légale minimale n'est calculée par ce simulateur pour une ancienneté inférieure à 8 mois.";
-
-  const lignes = [
-    ["Rémunération brute totale des 12 derniers mois (déclarée)", euro(r.remuneration12)],
-    ["Moyenne mensuelle sur 12 mois", euro(r.salaire12)],
-    ["Rémunération brute totale des 3 derniers mois (déclarée)", euro(r.remuneration3)],
-    ["Moyenne mensuelle sur 3 mois", euro(r.salaire3)],
-    ["Salaire de référence retenu", euro(r.salaireReference)],
-    ["Ancienneté déclarée", r.annees + " année(s) et " + r.mois + " mois"],
-    ["Ancienneté convertie pour le calcul", r.totalAnciennete.toLocaleString("fr-FR", { maximumFractionDigits: 4 }) + " année(s)"]
-  ];
-
-  const echapper = value => String(value).replace(/[&<>"']/g, char => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;"
-  })[char]);
-
-  const lignesHTML = lignes.map(([label, value]) =>
-    "<tr><th>" + echapper(label) + "</th><td>" + echapper(value) + "</td></tr>"
-  ).join("");
-
-  const fenetre = window.open("", "_blank");
-
-  if (!fenetre) {
-    afficherErreur("La fenêtre d'impression a été bloquée. Autorisez les fenêtres surgissantes pour ce site, puis réessayez.");
-    return;
-  }
-
-  fenetre.document.open();
-  fenetre.document.write(`<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Fiche de calcul SimuDroit — ${reference}</title>
-<style>
-*{box-sizing:border-box}
-body{font:14px/1.55 Arial,Helvetica,sans-serif;color:#263746;max-width:850px;margin:30px auto;padding:0 24px}
-header{border-bottom:3px solid #0d5d7f;padding-bottom:15px;margin-bottom:22px}
-h1,h2{color:#0d5d7f}
-h1{font-size:24px;margin:0 0 8px}
-h2{font-size:17px;margin:22px 0 8px}
-.amount{font-size:27px;font-weight:bold;color:#087f5b;margin:8px 0 14px}
-table{width:100%;border-collapse:collapse;margin:10px 0}
-th,td{border:1px solid #dce5ea;padding:9px;text-align:left;vertical-align:top}
-th{background:#f5f8fa;width:58%}
-.notice{background:#fff8e8;border:1px solid #efd58a;padding:12px;margin:16px 0;border-radius:6px}
-.muted{font-size:12px;color:#687887}
-.actions{margin-bottom:18px}
-button{padding:10px 14px;background:#0d5d7f;color:white;border:0;border-radius:6px;font-weight:bold}
-footer{border-top:1px solid #dce5ea;padding-top:12px;margin-top:24px;font-size:11px;color:#687887}
-@media print{body{margin:0 auto;padding:0 8mm}.actions{display:none}a{color:inherit;text-decoration:none}}
-</style>
-</head>
-<body>
-<div class="actions">
-  <button onclick="window.print()">Imprimer / Enregistrer en PDF</button>
-  <span class="muted">Dans la fenêtre d'impression, choisissez « Enregistrer en PDF » si cette option est disponible.</span>
-</div>
-
-<header>
-  <h1>Fiche de calcul — indemnité légale de licenciement</h1>
-  <strong>SimuDroit</strong> · Rapport explicatif généré automatiquement<br>
-  <span class="muted">Référence : ${reference}<br>Date et heure de génération : ${dateTexte}</span>
-</header>
-
-<h2>Résultat de l'estimation</h2>
-<div class="amount">${echapper(resultat)}</div>
-<p>Cette estimation porte sur l'indemnité légale minimale selon les informations déclarées. Elle ne détermine pas à elle seule le montant définitif éventuellement dû.</p>
-
-<h2>Données déclarées et calcul intermédiaire</h2>
-<table><tbody>${lignesHTML}</tbody></table>
-
-<h2>Méthode de calcul appliquée</h2>
-<p>${echapper(formule)}</p>
-<p>Les mois d'ancienneté sont convertis en fraction d'année. Les montants sont arrondis pour leur présentation.</p>
-
-<h2>Références juridiques et sources officielles</h2>
-<ul>
-  <li>Code du travail, article R. 1234-2 : <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000035644692/">Légifrance</a>.</li>
-  <li>Service-Public.fr, indemnité de licenciement du salarié en CDI : <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F987">fiche officielle</a>.</li>
-  <li>Code du travail numérique : <a href="https://code.travail.gouv.fr/">site officiel</a>.</li>
-</ul>
-
-<div class="notice">
-  <strong>Limites et portée du document</strong><br>
-  Les rémunérations et l'ancienneté sont déclarées par l'utilisateur et ne sont pas vérifiées par SimuDroit. Ce rapport ne contrôle pas les bulletins de paie, le contrat de travail, la convention collective, les absences, les primes ou toutes les situations particulières. La méthode utilisée pour le salaire de référence peut nécessiter des ajustements selon les circonstances. Une convention collective ou un contrat peut prévoir une indemnité plus favorable. Faites vérifier le calcul et les pièces justificatives avant toute contestation.
-</div>
-
-<p><strong>Nature du document :</strong> rapport explicatif de calcul généré automatiquement. Il ne s'agit ni d'une attestation officielle, ni d'une expertise indépendante, ni d'un document signé par un tiers. Il peut être joint à une démarche ou présenté comme élément parmi d'autres, sans garantir sa valeur probante ni son acceptation par l'employeur ou le juge.</p>
-
-<footer>
-  SimuDroit · ${reference}<br>
-  Cette référence identifie l'impression mais ne constitue ni une signature électronique, ni un horodatage certifié, ni une garantie technique d'intégrité.
-</footer>
-
-<script>
-window.addEventListener("load", function() {
-  setTimeout(function() { window.print(); }, 300);
-});
-<\/script>
-</body>
-</html>`);
-  fenetre.document.close();
-}
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
 </script>
-
 </body>
 </html>
