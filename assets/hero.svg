@@ -10,6 +10,7 @@
   <rect width="1200" height="800" fill="url(#bg)"/>
   <circle cx="1020" cy="140" r="210" fill="#ffffff" opacity=".07"/>
   <circle cx="140" cy="720" r="260" fill="#ffffff" opacity=".06"/>
+  <g transform="translate(190 -20) scale(.62)">
   <g transform="rotate(-6 420 360)">
     <rect x="190" y="130" width="420" height="520" rx="26" fill="#ffffff"/>
     <rect x="230" y="180" width="200" height="22" rx="11" fill="#d8d4f7"/>
@@ -37,5 +38,6 @@
       <rect x="816" y="510" width="56" height="56" rx="14"/>
       <rect x="672" y="582" width="128" height="40" rx="14"/><rect x="816" y="582" width="56" height="40" rx="14"/>
     </g>
+  </g>
   </g>
 </svg>

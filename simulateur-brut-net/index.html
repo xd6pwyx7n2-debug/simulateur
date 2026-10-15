@@ -323,6 +323,10 @@
       }
     }
   </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/simulateur.css">
 
   <script type="application/ld+json">
   {
@@ -396,6 +400,9 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebApplication", "name": "Simulateur brut net", "url": "https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-brut-net/", "description": "Calculez votre salaire net à partir du salaire brut avec notre simulateur brut-net 2026. Estimation rapide et gratuite du salaire net avant impôt.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "browserRequirements": "Requires JavaScript", "inLanguage": "fr-FR", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "publisher": {"@type": "Organization", "name": "SimuDroit", "url": "https://xd6pwyx7n2-debug.github.io/simulateur/"}, "dateModified": "2026-10-15"}
+  </script>
 </head>
 
 <body>
@@ -403,6 +410,13 @@
 <header>
   <div class="header-inner">
     <a class="logo" href="https://xd6pwyx7n2-debug.github.io/simulateur/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/#simulateurs">Simulateurs</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/assistant/">Assistant</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/#guides">Guides</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/glossaire/">Glossaire</a>
+      <a class="cta-link" href="https://xd6pwyx7n2-debug.github.io/simulateur/">Tous les outils</a>
+    </nav>
   </div>
 </header>
 
@@ -420,6 +434,8 @@
       Convertissez rapidement votre salaire brut en salaire net
       grâce à notre estimation 2026.
     </p>
+      <div class="badges"><span class="badge">✓ Barèmes 2026 vérifiés le 15 octobre 2026</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Vos données restent dans votre navigateur</span></div>
+  
   </section>
 
   <section class="calculator">
@@ -521,6 +537,16 @@
     </div>
 
   </section>
+  <section class="info-section sd-know" id="a-savoir">
+    <h2>À savoir avant de vous fier au résultat</h2>
+    <div class="sd-know-grid">
+      <div class="sd-know-card"><h3>Un taux indicatif</h3><p>Le rapport entre brut et net dépend du statut, du niveau de salaire, de l&#x27;entreprise et de la mutuelle. Les taux de 22 % et 24 % sont des ordres de grandeur.</p></div>
+      <div class="sd-know-card"><h3>Ce qui change le net</h3><p>Mutuelle, titres-restaurant, primes, heures supplémentaires et prélèvement à la source modifient la somme réellement versée sur votre compte.</p></div>
+      <div class="sd-know-card"><h3>Erreurs fréquentes</h3><p>Confondre le net avant impôt (ce simulateur) avec le net à payer après prélèvement à la source.</p></div>
+    </div>
+      <p class="sd-guide" style="margin:18px 0 0"><strong>📖 Pour aller plus loin :</strong> <a href="https://xd6pwyx7n2-debug.github.io/simulateur/guides/brut-net-apres-impot-differences/">Brut, net avant impôt, net après impôt : les différences</a> · <a href="https://xd6pwyx7n2-debug.github.io/simulateur/glossaire/">Glossaire du droit du travail</a></p>
+  </section>
+
 
   <section class="info-section">
 
@@ -751,5 +777,6 @@
   }, true);
 })();
 </script>
+<script src="../assets/simulateur.js" defer></script>
 </body>
 </html>

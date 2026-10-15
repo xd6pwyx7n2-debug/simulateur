@@ -2,62 +2,77 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://xd6pwyx7n2-debug.github.io/simulateur/</loc>
+    <lastmod>2026-10-15</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-rupture-conventionnelle/</loc>
+    <lastmod>2026-10-15</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-indemnite-licenciement/</loc>
+    <lastmod>2026-10-15</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-brut-net/</loc>
+    <lastmod>2026-10-15</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-net-brut/</loc>
+    <lastmod>2026-10-15</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-chomage/</loc>
+    <lastmod>2026-10-15</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-prime-precarite/</loc>
+    <lastmod>2026-10-15</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-conges-payes/</loc>
+    <lastmod>2026-10-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-heures-supplementaires/</loc>
+    <lastmod>2026-10-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-temps-partiel/</loc>
+    <lastmod>2026-10-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-preavis-demission/</loc>
+    <lastmod>2026-10-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-solde-tout-compte/</loc>
+    <lastmod>2026-10-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://xd6pwyx7n2-debug.github.io/simulateur/guides/calcul-indemnite-licenciement/</loc>
+    <lastmod>2026-10-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://xd6pwyx7n2-debug.github.io/simulateur/guides/prime-precarite-cdd/</loc>
+    <lastmod>2026-10-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://xd6pwyx7n2-debug.github.io/simulateur/guides/calcul-indemnite-conges-payes/</loc>
+    <lastmod>2026-10-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -80,6 +95,30 @@
 
   <url>
     <loc>https://xd6pwyx7n2-debug.github.io/simulateur/methode-et-sources/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://xd6pwyx7n2-debug.github.io/simulateur/assistant/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://xd6pwyx7n2-debug.github.io/simulateur/glossaire/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://xd6pwyx7n2-debug.github.io/simulateur/guides/rupture-conventionnelle-demission-licenciement/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://xd6pwyx7n2-debug.github.io/simulateur/guides/brut-net-apres-impot-differences/</loc>
     <lastmod>2026-10-15</lastmod>
     <priority>0.8</priority>
   </url>
