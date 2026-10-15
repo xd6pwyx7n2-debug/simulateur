@@ -12,6 +12,21 @@
   var slug = location.pathname.replace(/index\.html$/, "").replace(/\/+$/, "").split("/").pop();
 
   var PRESETS = {
+    "simulateur-indemnites-journalieres-maladie": [
+      ["2 000 € · 15 jours", { s1: 2000, s2: 2000, s3: 2000, jours: 15 }],
+      ["SMIC · 30 jours", { s1: 1867.02, s2: 1867.02, s3: 1867.02, jours: 30 }],
+      ["3 500 € · 60 jours", { s1: 3500, s2: 3500, s3: 3500, jours: 60 }]
+    ],
+    "simulateur-conge-maternite": [
+      ["2 500 € · 1er enfant", { s1: 2500, s2: 2500, s3: 2500, charge: "0", naiss: "1" }],
+      ["2 000 € · 3e enfant", { s1: 2000, s2: 2000, s3: 2000, charge: "2", naiss: "1" }],
+      ["4 500 € · jumeaux", { s1: 4500, s2: 4500, s3: 4500, charge: "0", naiss: "2" }]
+    ],
+    "simulateur-conge-paternite": [
+      ["2 500 € · 1 enfant", { s1: 2500, s2: 2500, s3: 2500, naiss: "1" }],
+      ["3 800 € · 1 enfant", { s1: 3800, s2: 3800, s3: 3800, naiss: "1" }],
+      ["2 500 € · jumeaux", { s1: 2500, s2: 2500, s3: 2500, naiss: "2" }]
+    ],
     "simulateur-brut-net": [
       ["SMIC", { statut: "noncadre", brut: 1867.02 }],
       ["1 800 € brut", { statut: "noncadre", brut: 1800 }],
