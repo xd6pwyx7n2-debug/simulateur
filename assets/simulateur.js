@@ -190,15 +190,17 @@
 
     var div = document.createElement("div");
     div.id = "sd-print";
+    var titre = h1 ? h1.textContent.replace(/\s+/g, " ").trim() : "SimuDroit";
     div.innerHTML =
-      "<h1>Récapitulatif de simulation : " + esc(h1 ? h1.textContent : "SimuDroit") + "</h1>" +
-      '<div class="meta">Simulation réalisée le ' + esc(when) + " sur SimuDroit (" + esc(location.href.split("#")[0]) + ")</div>" +
-      "<h2>Données saisies</h2><table>" + rows + "</table>" +
-      "<h2>Résultat de l'estimation</h2><div class=\"print-result\">" + res.innerHTML + "</div>" +
-      '<div class="disclaimer"><strong>Important.</strong> Ce récapitulatif est une estimation indicative calculée à partir des règles générales du droit du travail (paramètres vérifiés en octobre 2026) et des seules informations saisies ci-dessus. ' +
+      '<div class="pr-band"><div class="pr-logo">Simu<span>Droit</span></div><div class="pr-tag">Récapitulatif de simulation</div></div>' +
+      '<h1>' + esc(titre) + '</h1>' +
+      '<div class="meta"><span class="pr-chip">' + esc(when) + '</span> Simulation réalisée sur SimuDroit</div>' +
+      '<h2>Données saisies</h2><table>' + rows + '</table>' +
+      '<h2>Résultat de l\'estimation</h2><div class="print-result">' + res.innerHTML + '</div>' +
+      '<div class="disclaimer"><strong>Important.</strong> Ce récapitulatif est une estimation indicative calculée à partir des règles générales du droit du travail (paramètres vérifiés en octobre 2026) et des seules données saisies. ' +
       "Il n'a pas de valeur juridique : ce n'est ni une attestation, ni un calcul officiel, ni un avis juridique. Votre convention collective, votre contrat, vos bulletins de paie et les textes applicables prévalent. " +
       "En cas de désaccord, rapprochez-vous de votre employeur, de l'inspection du travail, d'un syndicat ou d'un avocat.</div>" +
-      '<div class="foot">Formules et sources : https://xd6pwyx7n2-debug.github.io/simulateur/methode-et-sources/</div>';
+      '<div class="foot"><span>Formules et sources : https://xd6pwyx7n2-debug.github.io/simulateur/methode-et-sources/</span><span>Simulation : ' + esc(location.href.split("#")[0]) + '</span></div>';
     document.body.appendChild(div);
   }
 
@@ -215,8 +217,107 @@
       window.print();
     });
     actions.appendChild(pb);
+
+    function resultText() {
+      var rows = [];
+      Array.prototype.forEach.call(calc.querySelectorAll("input[id], select[id]"), function (el) {
+        var wrap = el.closest(".field");
+        if (wrap && wrap.offsetParent === null) return;
+        var v = displayValue(el);
+        if (v === "" || v === null) return;
+        rows.push(labelFor(el) + " : " + v);
+      });
+      var r = result.cloneNode(true);
+      Array.prototype.forEach.call(r.querySelectorAll(".sd-actions,.official-link,.details-toggle,script,button"), function (n) { n.remove(); });
+      var out = (r.textContent || "").replace(/[ \t]+/g, " ").replace(/\s*\n\s*/g, "\n").replace(/\n{2,}/g, "\n").trim();
+      var h = document.querySelector("h1");
+      return (h ? h.textContent.trim() : "Simulation") + " (SimuDroit)\n\n" + rows.join("\n") + "\n\nRésultat :\n" + out +
+        "\n\nEstimation indicative, sans valeur juridique.\n" + location.href.split("#")[0];
+    }
+
+    var cb = document.createElement("button");
+    cb.type = "button";
+    cb.className = "sd-secondary";
+    cb.textContent = "📋 Copier le résultat";
+    cb.addEventListener("click", function () {
+      var txt = resultText();
+      function done(ok) {
+        var old = "📋 Copier le résultat";
+        cb.textContent = ok ? "✅ Résultat copié" : "Copie impossible";
+        setTimeout(function () { cb.textContent = old; }, 2200);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(txt).then(function () { done(true); }, function () { done(false); });
+      } else {
+        try {
+          var ta = document.createElement("textarea");
+          ta.value = txt; ta.style.position = "fixed"; ta.style.opacity = "0";
+          document.body.appendChild(ta); ta.select();
+          var ok = document.execCommand("copy"); ta.remove(); done(ok);
+        } catch (e) { done(false); }
+      }
+    });
+    actions.appendChild(cb);
+
+    if (navigator.share) {
+      var sb = document.createElement("button");
+      sb.type = "button";
+      sb.className = "sd-secondary";
+      sb.textContent = "📤 Partager";
+      sb.addEventListener("click", function () {
+        navigator.share({ title: document.title, text: resultText(), url: location.href.split("#")[0] }).catch(function () {});
+      });
+      actions.appendChild(sb);
+    }
+
+    var rb = document.createElement("button");
+    rb.type = "button";
+    rb.className = "sd-secondary";
+    rb.textContent = "↺ Nouvelle simulation";
+    rb.addEventListener("click", function () {
+      Array.prototype.forEach.call(calc.querySelectorAll("input[id], select[id]"), function (el) {
+        if (el.tagName === "SELECT") {
+          var sel = 0;
+          Array.prototype.forEach.call(el.options, function (o, i) { if (o.defaultSelected) sel = i; });
+          el.selectedIndex = sel;
+        } else {
+          el.value = el.defaultValue;
+        }
+        fire(el, "input"); fire(el, "change");
+      });
+      result.classList.remove("visible", "show");
+      Array.prototype.forEach.call(document.querySelectorAll(".sd-chips button"), function (c) { c.setAttribute("aria-pressed", "false"); });
+      calc.scrollIntoView({ behavior: "smooth", block: "start" });
+      var first = calc.querySelector("input[id], select[id]");
+      if (first && first.focus) setTimeout(function () { first.focus({ preventScroll: true }); }, 350);
+    });
+    actions.appendChild(rb);
+
     result.appendChild(actions);
   }
+
+  /* Confort : touche Entrée, clavier numérique, défilement vers le résultat */
+  Array.prototype.forEach.call(calc.querySelectorAll('input[type="number"]'), function (el) {
+    if (!el.getAttribute("inputmode")) el.setAttribute("inputmode", "decimal");
+    el.setAttribute("enterkeyhint", "done");
+  });
+  calc.addEventListener("keydown", function (e) {
+    if (e.key !== "Enter" || !e.target || e.target.tagName !== "INPUT") return;
+    var go = submitButton();
+    if (go) { e.preventDefault(); go.click(); }
+  });
+  (function () {
+    var go = submitButton();
+    if (!go || !result) return;
+    go.addEventListener("click", function () {
+      setTimeout(function () {
+        if (result.offsetParent !== null && result.scrollIntoView) {
+          var r = result.getBoundingClientRect();
+          if (r.top > window.innerHeight * 0.7 || r.top < 0) result.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+      }, 150);
+    });
+  })();
 
   window.addEventListener("afterprint", function () {
     var p = document.getElementById("sd-print");

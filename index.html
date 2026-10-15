@@ -73,10 +73,10 @@
     .photo-label { position:absolute; z-index:1; top:22px; left:22px; padding:9px 13px; border-radius:99px; background:#ffffffdf; color:#363258; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.05em; }
     .photo-copy { position:absolute; z-index:1; bottom:27px; left:27px; right:25px; color:white; }
     .photo-copy small { color:#c7c0ff; font-size:11px; text-transform:uppercase; letter-spacing:.13em; font-weight:800; }
-    .photo-copy h2 { margin:8px 0; font-size:32px; line-height:1.13; letter-spacing:-1.1px; color:white; }
+    .photo-copy .photo-title { font:800 32px/1.13 Manrope,sans-serif; margin:8px 0; font-size:32px; line-height:1.13; letter-spacing:-1.1px; color:white; }
     .photo-copy p { margin:0; color:#e0def4; font-size:14px; }
     .float { position:absolute; z-index:2; display:flex; align-items:center; gap:11px; padding:13px 15px; border:1px solid #f0edf8; border-radius:17px; background:white; box-shadow:var(--shadow); }
-    .float.one { left:-24px; bottom:35px; }
+    .float.one { left:-24px; bottom:-52px; }
     .float.two { right:-17px; top:47px; }
     .float-icon { display:grid; place-items:center; width:40px; height:40px; border-radius:13px; background:#efedff; color:var(--purple); }
     .float.two .float-icon { background:#fff0e9; color:#d96b50; }
@@ -155,8 +155,8 @@
       .intro { font-size:16px; }
       .hero-image { height:335px; }
       .photo-copy { left:20px; right:18px; bottom:21px; }
-      .photo-copy h2 { font-size:28px; }
-      .float.one { left:-5px; bottom:15px; }
+      .photo-copy .photo-title { font-size:28px; }
+      .float.one { left:-5px; bottom:-44px; }
       .float.two { right:-4px; top:25px; }
       .float { padding:10px; gap:8px; }
       .float-icon { width:34px; height:34px; }
@@ -222,7 +222,7 @@
 
     <nav class="nav-links" aria-label="Navigation principale">
       <a href="#simulateurs">Simulateurs</a>
-      <a href="#guides">Guides pratiques</a>
+      <a href="/simulateur/guides/">Guides pratiques</a>
       <a href="/simulateur/assistant/">Assistant</a>
       <a href="/simulateur/glossaire/">Glossaire</a>
       <a href="/simulateur/faq/">FAQ</a>
@@ -247,7 +247,7 @@
       </div>
       <div class="trust"><span><b>✓</b> Accès gratuit</span><span><b>✓</b> Utilisation simple</span><span><b>✓</b> Résultats indicatifs</span></div>
       <div class="stats">
-        <div class="stat"><strong>14</strong><span>simulateurs pratiques</span></div>
+        <div class="stat"><strong id="simu-count">14</strong><span>simulateurs pratiques</span></div>
         <div class="stat"><strong>Gratuit</strong><span>sans paiement</span></div>
         <div class="stat"><strong>En ligne</strong><span>sans installation</span></div>
       </div>
@@ -259,7 +259,7 @@
         <div class="photo-label">Comprendre avant d’agir</div>
         <div class="photo-copy">
           <small>Un outil pour avancer</small>
-          <h2>Moins de flou.<br>Plus de repères.</h2>
+          <p class="photo-title">Moins de flou.<br>Plus de repères.</p>
           <p>Des estimations utiles pour mieux préparer vos démarches.</p>
         </div>
       </div>
@@ -352,13 +352,13 @@
         <h3>Solde de tout compte</h3><p>Préparez une estimation des sommes à vérifier en fin de contrat.</p><span class="card-link">Lancer le calcul →</span>
       </a>
       <a class="card" style="--accent:#0d8f6f;--tint:#e5f8f1" href="/simulateur/simulateur-smic/" data-category="salaire" data-search="smic 2026 salaire minimum horaire mensuel brut net">
-        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 18V9m5 9V6m5 12v-7m5 7V4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tag">Salaire</span></div><h3>SMIC 2026</h3><p>Montant horaire, mensuel et annuel selon votre durée de travail.</p><span class="card-link">Lancer le calcul <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 18V9m5 9V6m5 12v-7m5 7V4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tag">Salaire</span></div><h3>SMIC 2026</h3><p>Montant horaire, mensuel et annuel selon votre durée de travail.</p><span class="card-link">Lancer le calcul →</span>
       </a>
       <a class="card" style="--accent:#377dc4;--tint:#eaf4ff" href="/simulateur/simulateur-salaire-horaire-mensuel/" data-category="salaire" data-search="salaire horaire mensuel annuel convertir taux horaire">
-        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 7.5V12l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tag">Salaire</span></div><h3>Salaire horaire et mensuel</h3><p>Convertissez un taux horaire en salaire mensuel ou annuel.</p><span class="card-link">Lancer le calcul <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 7.5V12l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tag">Salaire</span></div><h3>Salaire horaire et mensuel</h3><p>Convertissez un taux horaire en salaire mensuel ou annuel.</p><span class="card-link">Lancer le calcul →</span>
       </a>
       <a class="card" style="--accent:#c0752a;--tint:#fff3e6" href="/simulateur/simulateur-indemnite-depart-retraite/" data-category="contrat" data-search="indemnité départ retraite mise à la retraite ancienneté">
-        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 20V10l7-6 7 6v10M9 20v-6h6v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tag">Contrat</span></div><h3>Départ à la retraite</h3><p>Estimez l'indemnité légale de départ ou de mise à la retraite.</p><span class="card-link">Lancer le calcul <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="card-top"><span class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 20V10l7-6 7 6v10M9 20v-6h6v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tag">Contrat</span></div><h3>Départ à la retraite</h3><p>Estimez l'indemnité légale de départ ou de mise à la retraite.</p><span class="card-link">Lancer le calcul →</span>
       </a>
     </div>
 
@@ -419,6 +419,7 @@
         <span class="card-link">Ouvrir le glossaire →</span>
       </a>
     </div>
+    <p style="margin-top:22px;font-weight:700"><a href="/simulateur/guides/" style="color:#4b3bd0">Voir tous les guides →</a> · <a href="/simulateur/faq/" style="color:#4b3bd0">Questions fréquentes →</a></p>
   </div>
 </section>
 
@@ -458,7 +459,7 @@
     <span>© <span id="year">2026</span> SimuDroit · Des outils pratiques pour mieux comprendre vos droits.</span>
     <nav class="footer-links" aria-label="Liens utiles">
       <a href="#simulateurs">Simulateurs</a>
-      <a href="#guides">Guides pratiques</a>
+      <a href="/simulateur/guides/">Guides pratiques</a>
       <a href="/simulateur/assistant/">Assistant de choix</a>
       <a href="/simulateur/glossaire/">Glossaire</a>
       <a href="#fonctionnement">Fonctionnement</a>
@@ -510,5 +511,6 @@
   document.getElementById('year').textContent = new Date().getFullYear();
 })();
 </script>
+<script>(function(){var n=document.querySelectorAll("#simulateurs .card[data-category]").length,e=document.getElementById("simu-count");if(e&&n)e.textContent=n;})();</script>
 </body>
 </html>

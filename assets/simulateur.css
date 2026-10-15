@@ -142,20 +142,35 @@ footer p{margin:4px 0!important}
 /* ---------- Impression : récapitulatif ---------- */
 #sd-print{display:none}
 @media print{
+  @page{size:A4;margin:14mm 14mm 16mm}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  html,body{background:#fff!important}
   body>*:not(#sd-print){display:none!important}
-  #sd-print{display:block!important;font:14px/1.5 Arial,Helvetica,sans-serif;color:#000;padding:0;margin:0}
-  #sd-print h1{font-size:20px;margin:0 0 4px}
-  #sd-print .meta{color:#444;font-size:12px;margin-bottom:16px}
-  #sd-print h2{font-size:14px;margin:18px 0 6px;border-bottom:1px solid #999;padding-bottom:3px}
-  #sd-print table{width:100%;border-collapse:collapse}
-  #sd-print td{padding:5px 6px;border-bottom:1px solid #ddd;vertical-align:top}
-  #sd-print td:first-child{width:55%}
-  #sd-print .result-box{border:2px solid #000;padding:10px 12px;font-size:16px;font-weight:700;margin:6px 0}
-  #sd-print .disclaimer{margin-top:18px;border:1px solid #999;padding:10px 12px;font-size:12px}
-  #sd-print .print-result,#sd-print .print-result *{color:#000!important;-webkit-text-fill-color:#000!important;background:none!important;box-shadow:none!important;border-color:#bbb!important;animation:none!important}
-  #sd-print .print-result .result-main,#sd-print .print-result .amount,#sd-print .print-result .result-total,#sd-print .print-result .date-result{font-size:22px!important;margin:4px 0 8px!important}
-  #sd-print .print-result .warning{border:1px solid #999!important;font-size:12px!important}
-  #sd-print .foot{margin-top:14px;font-size:11px;color:#555}
+  #sd-print{display:block!important;font:13.5px/1.55 "DM Sans",Arial,Helvetica,sans-serif;color:#201e48;padding:0;margin:0}
+  #sd-print .pr-band{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-radius:16px;background:linear-gradient(135deg,#201e48,#3a2f8f 70%,#6857e8);color:#fff;margin-bottom:22px}
+  #sd-print .pr-logo{font:800 22px Manrope,"DM Sans",Arial,sans-serif;letter-spacing:-.03em;color:#fff}
+  #sd-print .pr-logo span{color:#b9adff}
+  #sd-print .pr-tag{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#dcd8f6}
+  #sd-print h1{font:800 24px/1.15 Manrope,"DM Sans",Arial,sans-serif;letter-spacing:-.03em;margin:0 0 8px;color:#201e48}
+  #sd-print .meta{color:#5c5a80;font-size:12px;margin-bottom:10px}
+  #sd-print .pr-chip{display:inline-block;background:#efedff;color:#4b3bd0;font-weight:700;padding:3px 10px;border-radius:99px;margin-right:8px}
+  #sd-print h2{break-after:avoid;font:800 13px Manrope,"DM Sans",Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#6857e8;margin:22px 0 8px;padding:0 0 6px;border-bottom:2px solid #e3dffb}
+  #sd-print table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid #e3dffb;border-radius:12px;overflow:hidden}
+  #sd-print td{padding:8px 12px;border-bottom:1px solid #eeebfb;vertical-align:top}
+  #sd-print tr:nth-child(even) td{background:#faf9ff}
+  #sd-print tr:last-child td{border-bottom:0}
+  #sd-print td:first-child{width:58%;color:#5c5a80}
+  #sd-print td:last-child{color:#201e48}
+  #sd-print .print-result{background:#f4f2ff;border:1px solid #e3dffb;border-left:6px solid #6857e8;border-radius:14px;padding:14px 18px}
+  #sd-print .print-result,#sd-print .print-result *{color:#201e48!important;-webkit-text-fill-color:#201e48!important;background:none!important;box-shadow:none!important;border-color:#d9d4f7!important;animation:none!important;opacity:1!important;transform:none!important}
+  #sd-print .print-result strong,#sd-print .print-result .result-main,#sd-print .print-result .amount,#sd-print .print-result .result-total,#sd-print .print-result .date-result{color:#4b3bd0!important;-webkit-text-fill-color:#4b3bd0!important}
+  #sd-print .print-result .result-main,#sd-print .print-result .amount,#sd-print .print-result .result-total,#sd-print .print-result .date-result{font:800 26px/1.2 Manrope,"DM Sans",Arial,sans-serif!important;margin:4px 0 8px!important}
+  #sd-print .print-result .result-cards{display:grid!important;grid-template-columns:1fr 1fr;gap:8px}
+  #sd-print .print-result .result-card{border:1px solid #d9d4f7!important;border-radius:10px;padding:8px 10px}
+  #sd-print .print-result .details{display:block!important;margin-top:10px;border:0!important;padding:0!important}
+  #sd-print .print-result .warning{break-inside:avoid;border:1px solid #f1d9a6!important;border-left:4px solid #f5a524!important;background:#fff7e8!important;border-radius:10px;padding:8px 12px!important;font-size:12px!important}
+  #sd-print .disclaimer{margin-top:20px;border:1px solid #f1d9a6;border-left:5px solid #f5a524;background:#fff9ed;border-radius:12px;padding:11px 14px;font-size:11.5px;color:#5a4410;break-inside:avoid}
+  #sd-print .foot{margin-top:16px;padding-top:10px;border-top:1px solid #e3dffb;font-size:10.5px;color:#77759a;display:flex;flex-direction:column;gap:2px}
 }
 
 .result-card *{color:#fff!important}
@@ -210,3 +225,4 @@ dl.gloss dd a{font-weight:700}
 .skip-link:focus{top:10px;outline:3px solid #6857e8}
 main:focus{outline:none}
 a:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible,button:focus-visible{outline:3px solid #6857e8;outline-offset:2px}
+.links-grid a span{font-weight:400;font-size:.88rem;color:#5c5a80;margin-top:4px;line-height:1.45}
