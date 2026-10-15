@@ -60,4 +60,28 @@
     <loc>https://xd6pwyx7n2-debug.github.io/simulateur/guides/calcul-indemnite-conges-payes/</loc>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-smic/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-salaire-horaire-mensuel/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-indemnite-depart-retraite/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://xd6pwyx7n2-debug.github.io/simulateur/methode-et-sources/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>

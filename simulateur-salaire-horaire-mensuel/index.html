@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Salaire horaire en mensuel et annuel : convertisseur 2026 | SimuDroit</title>
+  <meta name="description" content="Convertissez un salaire horaire en salaire mensuel ou annuel (et inversement) selon votre durée de travail. Comparaison avec le SMIC 2026 et exemples chiffrés.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-salaire-horaire-mensuel/">
+  <link rel="icon" href="https://xd6pwyx7n2-debug.github.io/simulateur/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Salaire horaire en mensuel et annuel : convertisseur 2026 | SimuDroit">
+  <meta property="og:description" content="Passez du salaire horaire au mensuel ou à l'annuel, et comparez avec le SMIC 2026.">
+  <meta property="og:url" content="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-salaire-horaire-mensuel/">
+  <meta property="og:image" content="%sog-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://xd6pwyx7n2-debug.github.io/simulateur/og-image.png">
+  <meta name="twitter:title" content="Salaire horaire en mensuel et annuel : convertisseur 2026 | SimuDroit">
+  <meta name="twitter:description" content="Passez du salaire horaire au mensuel ou à l'annuel, et comparez avec le SMIC 2026.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#687887;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "SimuDroit",
+  "url": "https://xd6pwyx7n2-debug.github.io/simulateur/"
+}
+  </script>
+
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Salaire horaire en mensuel et annuel : convertisseur 2026",
+  "url": "https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-salaire-horaire-mensuel/",
+  "description": "Convertissez un salaire horaire en salaire mensuel ou annuel (et inversement) selon votre durée de travail. Comparaison avec le SMIC 2026 et exemples chiffrés.",
+  "inLanguage": "fr-FR",
+  "dateModified": "2026-10-14"
+}
+  </script>
+
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "SimuDroit",
+      "item": "https://xd6pwyx7n2-debug.github.io/simulateur/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Convertisseur salaire horaire, mensuel, annuel",
+      "item": "https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-salaire-horaire-mensuel/"
+    }
+  ]
+}
+  </script>
+
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Comment passer d'un salaire horaire à un salaire mensuel ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multipliez le taux horaire brut par le nombre d'heures mensuelles. Pour 35 heures par semaine, c'est 151,67 heures par mois : 15 € brut de l'heure donnent 2 275 € brut par mois."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Combien d'heures par mois pour un temps plein ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "151,67 heures, soit 35 heures par semaine multipliées par 52 semaines puis divisées par 12 mois."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment passer d'un salaire annuel à un taux horaire ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divisez le salaire annuel brut par le nombre de mensualités (en général 12) pour obtenir le mensuel, puis divisez par 151,67 pour un temps plein."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Le résultat est-il brut ou net ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Brut. Pour estimer le salaire net avant impôt, utilisez ensuite le simulateur brut net."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://xd6pwyx7n2-debug.github.io/simulateur/">Simu<span>Droit</span></a>
+  </div>
+</header>
+
+<main>
+
+  <div class="breadcrumb">
+    <a href="https://xd6pwyx7n2-debug.github.io/simulateur/">Accueil</a>
+    &nbsp;›&nbsp;
+    Convertisseur salaire horaire, mensuel, annuel
+  </div>
+
+  <section class="hero">
+    <h1>Convertisseur salaire horaire, mensuel, annuel</h1>
+    <p>Passez du taux horaire au salaire mensuel ou annuel brut, et inversement, selon votre durée de travail.</p>
+  </section>
+
+  <section class="calculator">
+
+    <h2>Convertir mon salaire</h2>
+
+    <div class="intro-note">
+      <strong>À savoir :</strong> la conversion se fait sur le salaire brut, sur 12 mensualités.
+    </div>
+
+
+    <div class="field">
+      <label for="mode">Je connais mon salaire…</label>
+      <select id="mode">
+        <option value="horaire">Horaire brut (€ par heure)</option>
+        <option value="mensuel">Mensuel brut (€ par mois)</option>
+        <option value="annuel">Annuel brut (€ par an)</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="valeur" id="valeurLabel">Salaire horaire brut (€)</label>
+      <input type="number" id="valeur" min="0" step="0.01" placeholder="Ex. 15">
+    </div>
+
+    <div class="field">
+      <label for="heures">Durée de travail hebdomadaire (heures)</label>
+      <input type="number" id="heures" min="1" max="48" step="0.5" value="35">
+      <div class="field-help">35 heures par semaine = 151,67 heures par mois.</div>
+    </div>
+
+    <button type="button" id="calculate">Convertir</button>
+
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">Salaire brut mensuel</div>
+      <div class="result-main" id="mensuel">0,00 €</div>
+      <div class="result-row"><span>Salaire horaire brut</span><strong id="horaire">0,00 €</strong></div>
+      <div class="result-row"><span>Salaire annuel brut (12 mois)</span><strong id="annuel">0,00 €</strong></div>
+      <div class="result-row"><span>Heures par mois</span><strong id="hmois">0 h</strong></div>
+      <div class="result-row"><span>Écart avec le SMIC horaire</span><strong id="ecartSmic"></strong></div>
+      <div class="warning">
+        Conversion sur 12 mois, sans prime de 13<sup>e</sup> mois ni majoration. Un salaire annuel avec primes
+        doit être converti avec prudence.
+      </div>
+    </div>
+
+  </section>
+
+
+  <section class="info-section">
+    <h2>Comment convertir un salaire horaire en salaire mensuel ?</h2>
+    <p>
+      Le salaire mensuel brut est égal au taux horaire multiplié par le nombre d'heures payées dans le mois.
+      Pour un temps plein de 35 heures par semaine, ce nombre est de 151,67 heures
+      (35 × 52 ÷ 12). Un salaire de 15 € brut de l'heure donne donc 15 × 151,67 = 2 275,00 € brut par mois,
+      soit 27 300 € brut par an.
+    </p>
+    <div class="table-wrap">
+    <table class="sd-table">
+      <thead><tr><th>Taux horaire brut</th><th>Mensuel brut (35 h)</th><th>Annuel brut</th></tr></thead>
+      <tbody>
+        <tr><td>12,31 € (SMIC)</td><td>1 867,02 €</td><td>22 404,20 €</td></tr>
+        <tr><td>13 €</td><td>1 971,67 €</td><td>23 660,00 €</td></tr>
+        <tr><td>15 €</td><td>2 275,00 €</td><td>27 300,00 €</td></tr>
+        <tr><td>18 €</td><td>2 730,00 €</td><td>32 760,00 €</td></tr>
+        <tr><td>20 €</td><td>3 033,33 €</td><td>36 400,00 €</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>Calcul sur 151,67 heures par mois et 12 mois. Valeurs arrondies au centime.</p>
+  </section>
+
+  <section class="info-section">
+    <h2>Et dans l'autre sens ?</h2>
+    <p>
+      Pour passer du mensuel à l'horaire, on divise le salaire mensuel brut par le nombre d'heures mensuelles.
+      Pour passer de l'annuel au mensuel, on divise par 12, sauf si votre rémunération est versée sur 13 mois ou plus :
+      dans ce cas, divisez par le nombre de mensualités prévu dans votre contrat.
+    </p>
+    <h3>Pourquoi 52 ÷ 12 plutôt que 4 semaines par mois ?</h3>
+    <p>
+      Une année compte 52 semaines et 12 mois, soit en moyenne 4,33 semaines par mois et non 4. Utiliser 4 semaines
+      sous-estimerait le salaire mensuel d'environ 8 %.
+    </p>
+  </section>
+
+  <section class="info-section">
+    <h2>Brut ou net ?</h2>
+    <p>
+      Ce simulateur travaille uniquement sur le salaire brut. Pour connaître le net avant impôt, utilisez ensuite le
+      simulateur brut net de SimuDroit.
+    </p>
+  </section>
+
+
+  <section class="info-section">
+    <h2>Questions fréquentes</h2>
+    <h3>Comment passer d'un salaire horaire à un salaire mensuel ?</h3>
+    <p>Multipliez le taux horaire brut par le nombre d'heures mensuelles. Pour 35 heures par semaine, c'est 151,67 heures par mois : 15 € brut de l'heure donnent 2 275 € brut par mois.</p>
+    <h3>Combien d'heures par mois pour un temps plein ?</h3>
+    <p>151,67 heures, soit 35 heures par semaine multipliées par 52 semaines puis divisées par 12 mois.</p>
+    <h3>Comment passer d'un salaire annuel à un taux horaire ?</h3>
+    <p>Divisez le salaire annuel brut par le nombre de mensualités (en général 12) pour obtenir le mensuel, puis divisez par 151,67 pour un temps plein.</p>
+    <h3>Le résultat est-il brut ou net ?</h3>
+    <p>Brut. Pour estimer le salaire net avant impôt, utilisez ensuite le simulateur brut net.</p>
+  </section>
+
+  <section class="info-section">
+    <h2>Autres simulateurs SimuDroit</h2>
+    <div class="links-grid">
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-smic/">Simulateur SMIC 2026</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-brut-net/">Simulateur brut net</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-net-brut/">Simulateur net brut</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-temps-partiel/">Temps partiel</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/">Tous les simulateurs</a>
+    </div>
+    <p style="margin-top:16px;font-size:.9rem;color:var(--muted)">
+      Paramètres vérifiés en octobre 2026. Voir la page
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/methode-et-sources/">Méthode et sources</a>.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 SimuDroit · <a href="https://xd6pwyx7n2-debug.github.io/simulateur/">Tous les simulateurs</a> · <a href="https://xd6pwyx7n2-debug.github.io/simulateur/methode-et-sources/">Méthode et sources</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+
+  function formatEuro(value) {
+    return new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR" }).format(value);
+  }
+  function num(id) {
+    var v = parseFloat(document.getElementById(id).value);
+    return Number.isFinite(v) ? v : NaN;
+  }
+  function setText(id, text) {
+    document.getElementById(id).textContent = text;
+  }
+
+  var SMIC_HORAIRE = 12.31;   // € brut, depuis le 1er juin 2026
+
+  var modeSelect = document.getElementById("mode");
+  var labels = {
+    horaire: "Salaire horaire brut (€)",
+    mensuel: "Salaire mensuel brut (€)",
+    annuel: "Salaire annuel brut (€)"
+  };
+  modeSelect.addEventListener("change", function () {
+    document.getElementById("valeurLabel").textContent = labels[this.value];
+  });
+
+  document.getElementById("calculate").addEventListener("click", function () {
+    var mode = modeSelect.value;
+    var valeur = num("valeur");
+    var heures = num("heures");
+
+    if (!Number.isFinite(valeur) || valeur <= 0) {
+      alert("Indiquez un salaire supérieur à 0 €.");
+      return;
+    }
+    if (!Number.isFinite(heures) || heures <= 0 || heures > 48) {
+      alert("Indiquez une durée de travail hebdomadaire comprise entre 1 et 48 heures.");
+      return;
+    }
+
+    var heuresMois = heures * 52 / 12;
+    var horaire, mensuel, annuel;
+
+    if (mode === "horaire") {
+      horaire = valeur;
+      mensuel = horaire * heuresMois;
+      annuel = mensuel * 12;
+    } else if (mode === "mensuel") {
+      mensuel = valeur;
+      horaire = mensuel / heuresMois;
+      annuel = mensuel * 12;
+    } else {
+      annuel = valeur;
+      mensuel = annuel / 12;
+      horaire = mensuel / heuresMois;
+    }
+
+    var r = function (x) { return Math.round(x * 100) / 100; };
+    setText("mensuel", formatEuro(r(mensuel)));
+    setText("horaire", formatEuro(r(horaire)));
+    setText("annuel", formatEuro(r(annuel)));
+    setText("hmois", heuresMois.toLocaleString("fr-FR", { maximumFractionDigits: 2 }) + " h");
+
+    var ecart = horaire - SMIC_HORAIRE;
+    var texte;
+    if (Math.abs(ecart) < 0.005) {
+      texte = "Égal au SMIC";
+    } else if (ecart > 0) {
+      texte = "+ " + formatEuro(ecart) + " au-dessus du SMIC";
+    } else {
+      texte = formatEuro(-ecart) + " sous le SMIC : à vérifier";
+    }
+    setText("ecartSmic", texte);
+    document.getElementById("result").classList.add("visible");
+  });
+
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+</body>
+</html>

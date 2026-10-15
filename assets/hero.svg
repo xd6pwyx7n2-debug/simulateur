@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Illustration de documents et d'un calcul">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2c2766"/><stop offset="1" stop-color="#6857e8"/>
+    </linearGradient>
+    <linearGradient id="mint" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#78dfc1"/><stop offset="1" stop-color="#3cb89a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <circle cx="1020" cy="140" r="210" fill="#ffffff" opacity=".07"/>
+  <circle cx="140" cy="720" r="260" fill="#ffffff" opacity=".06"/>
+  <g transform="rotate(-6 420 360)">
+    <rect x="190" y="130" width="420" height="520" rx="26" fill="#ffffff"/>
+    <rect x="230" y="180" width="200" height="22" rx="11" fill="#d8d4f7"/>
+    <rect x="230" y="230" width="340" height="14" rx="7" fill="#ebe8fb"/>
+    <rect x="230" y="262" width="300" height="14" rx="7" fill="#ebe8fb"/>
+    <rect x="230" y="294" width="320" height="14" rx="7" fill="#ebe8fb"/>
+    <rect x="230" y="360" width="340" height="2" fill="#e1def6"/>
+    <rect x="230" y="390" width="150" height="16" rx="8" fill="#d8d4f7"/>
+    <rect x="410" y="384" width="160" height="28" rx="14" fill="url(#mint)"/>
+    <rect x="230" y="440" width="150" height="16" rx="8" fill="#d8d4f7"/>
+    <rect x="410" y="434" width="160" height="28" rx="14" fill="#ffb4a3"/>
+    <rect x="230" y="520" width="340" height="86" rx="18" fill="#f3f1ff"/>
+    <text x="256" y="574" font-family="Arial,Helvetica,sans-serif" font-size="34" font-weight="700" fill="#2c2766">1 867,02 €</text>
+  </g>
+  <g transform="rotate(7 800 430)">
+    <rect x="640" y="210" width="330" height="440" rx="30" fill="#17133f"/>
+    <rect x="672" y="242" width="266" height="96" rx="16" fill="#2c2766"/>
+    <text x="900" y="312" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="46" font-weight="700" fill="#78dfc1">12,31</text>
+    <g fill="#3d3796">
+      <rect x="672" y="366" width="56" height="56" rx="14"/><rect x="744" y="366" width="56" height="56" rx="14"/>
+      <rect x="816" y="366" width="56" height="56" rx="14"/><rect x="888" y="366" width="50" height="56" rx="14" fill="#ff795f"/>
+      <rect x="672" y="438" width="56" height="56" rx="14"/><rect x="744" y="438" width="56" height="56" rx="14"/>
+      <rect x="816" y="438" width="56" height="56" rx="14"/><rect x="888" y="438" width="50" height="128" rx="14" fill="url(#mint)"/>
+      <rect x="672" y="510" width="56" height="56" rx="14"/><rect x="744" y="510" width="56" height="56" rx="14"/>
+      <rect x="816" y="510" width="56" height="56" rx="14"/>
+      <rect x="672" y="582" width="128" height="40" rx="14"/><rect x="816" y="582" width="56" height="40" rx="14"/>
+    </g>
+  </g>
+</svg>

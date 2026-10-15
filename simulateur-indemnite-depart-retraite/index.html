@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Indemnité de départ à la retraite 2026 : calcul | SimuDroit</title>
+  <meta name="description" content="Calculez votre indemnité légale de départ à la retraite en 2026 : départ volontaire (dès 10 ans d'ancienneté) ou mise à la retraite par l'employeur, avec barème et exemples.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-indemnite-depart-retraite/">
+  <link rel="icon" href="https://xd6pwyx7n2-debug.github.io/simulateur/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Indemnité de départ à la retraite 2026 : calcul | SimuDroit">
+  <meta property="og:description" content="Estimez le minimum légal de votre indemnité de départ ou de mise à la retraite.">
+  <meta property="og:url" content="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-indemnite-depart-retraite/">
+  <meta property="og:image" content="%sog-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://xd6pwyx7n2-debug.github.io/simulateur/og-image.png">
+  <meta name="twitter:title" content="Indemnité de départ à la retraite 2026 : calcul | SimuDroit">
+  <meta name="twitter:description" content="Estimez le minimum légal de votre indemnité de départ ou de mise à la retraite.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#687887;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "SimuDroit",
+  "url": "https://xd6pwyx7n2-debug.github.io/simulateur/"
+}
+  </script>
+
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Indemnité de départ à la retraite 2026 : calcul",
+  "url": "https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-indemnite-depart-retraite/",
+  "description": "Calculez votre indemnité légale de départ à la retraite en 2026 : départ volontaire (dès 10 ans d'ancienneté) ou mise à la retraite par l'employeur, avec barème et exemples.",
+  "inLanguage": "fr-FR",
+  "dateModified": "2026-10-14"
+}
+  </script>
+
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "SimuDroit",
+      "item": "https://xd6pwyx7n2-debug.github.io/simulateur/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Simulateur indemnité de départ à la retraite",
+      "item": "https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-indemnite-depart-retraite/"
+    }
+  ]
+}
+  </script>
+
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Quelle ancienneté faut-il pour toucher une indemnité de départ à la retraite ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pour un départ volontaire, la loi prévoit une indemnité minimale à partir de 10 ans d'ancienneté dans l'entreprise. Pour une mise à la retraite par l'employeur, le calcul suit celui de l'indemnité légale de licenciement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quel est le barème de l'indemnité légale de départ volontaire ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "0,5 mois de salaire de 10 à moins de 15 ans d'ancienneté, 1 mois de 15 à moins de 20 ans, 1,5 mois de 20 à moins de 30 ans et 2 mois à partir de 30 ans."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quelle différence entre départ volontaire et mise à la retraite ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le départ volontaire est décidé par le salarié, avec un barème par paliers. La mise à la retraite est décidée par l'employeur et donne droit à une indemnité calculée année par année, souvent plus élevée, avec un régime fiscal plus favorable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ma convention collective peut-elle prévoir plus que le minimum légal ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. Une convention collective, un accord d'entreprise ou le contrat de travail peuvent prévoir une indemnité plus favorable. Le montant le plus avantageux s'applique."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://xd6pwyx7n2-debug.github.io/simulateur/">Simu<span>Droit</span></a>
+  </div>
+</header>
+
+<main>
+
+  <div class="breadcrumb">
+    <a href="https://xd6pwyx7n2-debug.github.io/simulateur/">Accueil</a>
+    &nbsp;›&nbsp;
+    Simulateur indemnité de départ à la retraite
+  </div>
+
+  <section class="hero">
+    <h1>Simulateur indemnité de départ à la retraite</h1>
+    <p>Estimez le minimum légal de votre indemnité de départ volontaire ou de mise à la retraite, selon votre ancienneté et vos derniers salaires.</p>
+  </section>
+
+  <section class="calculator">
+
+    <h2>Calculer mon indemnité de retraite</h2>
+
+    <div class="intro-note">
+      <strong>À savoir :</strong> ce simulateur calcule le minimum légal. Votre convention collective peut prévoir mieux.
+    </div>
+
+
+    <div class="field">
+      <label for="type">Type de départ</label>
+      <select id="type">
+        <option value="volontaire">Départ volontaire à la retraite (à votre initiative)</option>
+        <option value="mise">Mise à la retraite (à l'initiative de l'employeur)</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="annees">Ancienneté dans l'entreprise — années</label>
+      <input type="number" id="annees" min="0" step="1" placeholder="Ex. 22">
+    </div>
+
+    <div class="field">
+      <label for="mois">Mois supplémentaires (0 à 11)</label>
+      <input type="number" id="mois" min="0" max="11" step="1" value="0">
+    </div>
+
+    <div class="field">
+      <label for="remun12">Total des salaires bruts des 12 derniers mois (€)</label>
+      <input type="number" id="remun12" min="0" step="0.01" placeholder="Ex. 36 000">
+    </div>
+
+    <div class="field">
+      <label for="remun3">Total des salaires bruts des 3 derniers mois (€)</label>
+      <input type="number" id="remun3" min="0" step="0.01" placeholder="Ex. 9 300">
+      <div class="field-help">Les primes annuelles ou exceptionnelles sont comptées au prorata. Le calcul retient la base la plus favorable.</div>
+    </div>
+
+    <button type="button" id="calculate">Calculer mon indemnité</button>
+
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">Indemnité légale minimale estimée</div>
+      <div class="result-main" id="montant">0,00 €</div>
+      <div class="result-row"><span>Salaire de référence mensuel</span><strong id="reference">0,00 €</strong></div>
+      <div class="result-row"><span>Ancienneté retenue</span><strong id="anciennete">0 an</strong></div>
+      <p id="details" class="details"></p>
+      <div class="warning">
+        Estimation du minimum légal. Votre convention collective, un accord d'entreprise ou votre contrat
+        peuvent prévoir une indemnité plus favorable : vérifiez-les avant de décider de votre départ.
+      </div>
+    </div>
+
+  </section>
+
+
+  <section class="info-section">
+    <h2>Deux situations, deux règles de calcul</h2>
+    <p>
+      L'indemnité de retraite n'est pas la même selon que vous quittez l'entreprise de votre propre initiative ou
+      que votre employeur vous met à la retraite.
+    </p>
+
+    <h3>Départ volontaire à la retraite</h3>
+    <p>
+      Il faut au moins 10 ans d'ancienneté dans l'entreprise. Le minimum légal est forfaitaire, par palier :
+    </p>
+    <div class="table-wrap">
+    <table class="sd-table">
+      <thead><tr><th>Ancienneté</th><th>Indemnité minimale</th></tr></thead>
+      <tbody>
+        <tr><td>10 ans à moins de 15 ans</td><td>0,5 mois de salaire</td></tr>
+        <tr><td>15 ans à moins de 20 ans</td><td>1 mois de salaire</td></tr>
+        <tr><td>20 ans à moins de 30 ans</td><td>1,5 mois de salaire</td></tr>
+        <tr><td>30 ans et plus</td><td>2 mois de salaire</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>Mise à la retraite par l'employeur</h3>
+    <p>
+      L'indemnité minimale est calculée comme l'indemnité légale de licenciement : un quart de mois de salaire par
+      année d'ancienneté pour les 10 premières années, puis un tiers de mois de salaire par année à partir de la
+      11<sup>e</sup>.
+    </p>
+  </section>
+
+  <section class="info-section">
+    <h2>Quel salaire de référence retenir ?</h2>
+    <p>
+      Le salaire de référence est la base la plus avantageuse pour vous entre le douzième de la rémunération brute
+      des 12 derniers mois et le tiers de la rémunération brute des 3 derniers mois. Pour la mise à la retraite, les
+      12 mois s'entendent avant l'envoi de la lettre de mise à la retraite. Le simulateur calcule les deux et retient
+      automatiquement le plus élevé.
+    </p>
+    <h3>Exemple chiffré</h3>
+    <p>
+      Un salarié ayant 22 ans d'ancienneté et un salaire de référence de 3 100 € part volontairement à la retraite.
+      Il se situe dans la tranche des 20 à moins de 30 ans, soit 1,5 mois : 3 100 € × 1,5 = 4 650 € bruts au minimum.
+    </p>
+  </section>
+
+  <section class="info-section">
+    <h2>Fiscalité et cotisations</h2>
+    <p>
+      En principe, l'indemnité de départ volontaire à la retraite est soumise aux cotisations sociales (sauf cas
+      particulier comme un plan de sauvegarde de l'emploi) et à l'impôt sur le revenu. L'indemnité de mise à la
+      retraite bénéficie d'un régime plus favorable, avec une exonération partielle d'impôt. Le traitement exact
+      dépend de votre situation : demandez le détail à votre employeur ou à un conseiller.
+    </p>
+  </section>
+
+
+  <section class="info-section">
+    <h2>Questions fréquentes</h2>
+    <h3>Quelle ancienneté faut-il pour toucher une indemnité de départ à la retraite ?</h3>
+    <p>Pour un départ volontaire, la loi prévoit une indemnité minimale à partir de 10 ans d'ancienneté dans l'entreprise. Pour une mise à la retraite par l'employeur, le calcul suit celui de l'indemnité légale de licenciement.</p>
+    <h3>Quel est le barème de l'indemnité légale de départ volontaire ?</h3>
+    <p>0,5 mois de salaire de 10 à moins de 15 ans d'ancienneté, 1 mois de 15 à moins de 20 ans, 1,5 mois de 20 à moins de 30 ans et 2 mois à partir de 30 ans.</p>
+    <h3>Quelle différence entre départ volontaire et mise à la retraite ?</h3>
+    <p>Le départ volontaire est décidé par le salarié, avec un barème par paliers. La mise à la retraite est décidée par l'employeur et donne droit à une indemnité calculée année par année, souvent plus élevée, avec un régime fiscal plus favorable.</p>
+    <h3>Ma convention collective peut-elle prévoir plus que le minimum légal ?</h3>
+    <p>Oui. Une convention collective, un accord d'entreprise ou le contrat de travail peuvent prévoir une indemnité plus favorable. Le montant le plus avantageux s'applique.</p>
+  </section>
+
+  <section class="info-section">
+    <h2>Autres simulateurs SimuDroit</h2>
+    <div class="links-grid">
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-indemnite-licenciement/">Indemnité de licenciement</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-rupture-conventionnelle/">Rupture conventionnelle</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-solde-tout-compte/">Solde de tout compte</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-preavis-demission/">Préavis de démission</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/">Tous les simulateurs</a>
+    </div>
+    <p style="margin-top:16px;font-size:.9rem;color:var(--muted)">
+      Paramètres vérifiés en octobre 2026. Voir la page
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/methode-et-sources/">Méthode et sources</a>.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 SimuDroit · <a href="https://xd6pwyx7n2-debug.github.io/simulateur/">Tous les simulateurs</a> · <a href="https://xd6pwyx7n2-debug.github.io/simulateur/methode-et-sources/">Méthode et sources</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+
+  function formatEuro(value) {
+    return new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR" }).format(value);
+  }
+  function num(id) {
+    var v = parseFloat(document.getElementById(id).value);
+    return Number.isFinite(v) ? v : NaN;
+  }
+  function setText(id, text) {
+    document.getElementById(id).textContent = text;
+  }
+
+  document.getElementById("calculate").addEventListener("click", function () {
+    var type = document.getElementById("type").value;
+    var annees = num("annees");
+    var mois = num("mois");
+    var r12 = num("remun12");
+    var r3 = num("remun3");
+
+    if (!Number.isFinite(mois)) mois = 0;
+
+    if (!Number.isInteger(annees) || annees < 0) {
+      alert("Indiquez votre ancienneté en années entières (0 ou plus).");
+      return;
+    }
+    if (!Number.isInteger(mois) || mois < 0 || mois > 11) {
+      alert("Le nombre de mois supplémentaires doit être compris entre 0 et 11.");
+      return;
+    }
+    if (!Number.isFinite(r12) || r12 <= 0 || !Number.isFinite(r3) || r3 <= 0) {
+      alert("Indiquez le total de vos salaires bruts sur les 12 et sur les 3 derniers mois.");
+      return;
+    }
+
+    var totalMois = annees * 12 + mois;
+    var anc = totalMois / 12;
+    var reference = Math.max(r12 / 12, r3 / 3);
+    var montant = 0;
+    var message = "";
+    var applicable = true;
+
+    if (type === "volontaire") {
+      var multiplicateur = 0;
+      if (anc >= 30) multiplicateur = 2;
+      else if (anc >= 20) multiplicateur = 1.5;
+      else if (anc >= 15) multiplicateur = 1;
+      else if (anc >= 10) multiplicateur = 0.5;
+
+      if (multiplicateur === 0) {
+        applicable = false;
+        message = "Le départ volontaire à la retraite ouvre droit à une indemnité légale à partir de 10 ans d'ancienneté. En dessous, seule une convention collective ou un accord peut en prévoir une.";
+      } else {
+        montant = reference * multiplicateur;
+        message = "Barème légal : " + String(multiplicateur).replace(".", ",") + " mois de salaire de référence pour votre tranche d'ancienneté.";
+      }
+    } else {
+      if (totalMois < 8) {
+        applicable = false;
+        message = "L'indemnité légale de mise à la retraite est alignée sur l'indemnité légale de licenciement, qui suppose au moins 8 mois d'ancienneté ininterrompue.";
+      } else if (anc <= 10) {
+        montant = reference * 0.25 * anc;
+        message = "Barème légal : 1/4 de mois de salaire par année d'ancienneté.";
+      } else {
+        montant = reference * 0.25 * 10 + reference * (1 / 3) * (anc - 10);
+        message = "Barème légal : 1/4 de mois de salaire par année jusqu'à 10 ans, puis 1/3 de mois par année au-delà.";
+      }
+    }
+
+    setText("montant", applicable ? formatEuro(Math.round(montant * 100) / 100) : "Non applicable");
+    setText("reference", formatEuro(Math.round(reference * 100) / 100));
+    setText("anciennete", anc.toLocaleString("fr-FR", { maximumFractionDigits: 2 }) + " ans");
+    setText("details", message);
+    document.getElementById("result").classList.add("visible");
+  });
+
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>SMIC 2026 : montant horaire, mensuel et annuel | SimuDroit</title>
+  <meta name="description" content="SMIC 2026 : 12,31 € brut de l'heure depuis le 1er juin 2026, soit 1 867,02 € brut par mois. Calculez le SMIC selon votre durée de travail et comparez-le à votre salaire.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-smic/">
+  <link rel="icon" href="https://xd6pwyx7n2-debug.github.io/simulateur/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SMIC 2026 : montant horaire, mensuel et annuel | SimuDroit">
+  <meta property="og:description" content="SMIC horaire, mensuel et annuel en 2026, avec calcul selon votre durée de travail.">
+  <meta property="og:url" content="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-smic/">
+  <meta property="og:image" content="%sog-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://xd6pwyx7n2-debug.github.io/simulateur/og-image.png">
+  <meta name="twitter:title" content="SMIC 2026 : montant horaire, mensuel et annuel | SimuDroit">
+  <meta name="twitter:description" content="SMIC horaire, mensuel et annuel en 2026, avec calcul selon votre durée de travail.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#687887;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "SimuDroit",
+  "url": "https://xd6pwyx7n2-debug.github.io/simulateur/"
+}
+  </script>
+
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "SMIC 2026 : montant horaire, mensuel et annuel",
+  "url": "https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-smic/",
+  "description": "SMIC 2026 : 12,31 € brut de l'heure depuis le 1er juin 2026, soit 1 867,02 € brut par mois. Calculez le SMIC selon votre durée de travail et comparez-le à votre salaire.",
+  "inLanguage": "fr-FR",
+  "dateModified": "2026-10-14"
+}
+  </script>
+
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "SimuDroit",
+      "item": "https://xd6pwyx7n2-debug.github.io/simulateur/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Simulateur SMIC 2026",
+      "item": "https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-smic/"
+    }
+  ]
+}
+  </script>
+
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Quel est le montant du SMIC en 2026 ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depuis le 1er juin 2026, le SMIC est de 12,31 € brut de l'heure, soit 1 867,02 € brut par mois pour 35 heures par semaine et environ 1 477,93 € net avant impôt. Il était de 12,02 € brut de l'heure du 1er janvier au 31 mai 2026."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Le SMIC est-il le même pour tous les salariés ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le taux horaire est le même, mais le montant mensuel dépend de la durée de travail. Certains cas particuliers (par exemple les jeunes salariés, les apprentis ou les contrats en alternance) font l'objet de règles spécifiques."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Un salaire peut-il être inférieur au SMIC ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En principe non : la rémunération ne peut pas être inférieure au SMIC correspondant à la durée de travail, sous réserve des dérogations prévues par la loi. Si votre salaire vous paraît inférieur, comparez-le avec le SMIC proratisé en tenant compte des éléments qui y entrent, puis interrogez votre employeur."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quand le SMIC est-il revalorisé ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Chaque 1er janvier, et en cours d'année lorsque les prix augmentent d'au moins 2 % depuis la dernière revalorisation, comme ce fut le cas au 1er juin 2026."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://xd6pwyx7n2-debug.github.io/simulateur/">Simu<span>Droit</span></a>
+  </div>
+</header>
+
+<main>
+
+  <div class="breadcrumb">
+    <a href="https://xd6pwyx7n2-debug.github.io/simulateur/">Accueil</a>
+    &nbsp;›&nbsp;
+    Simulateur SMIC 2026
+  </div>
+
+  <section class="hero">
+    <h1>Simulateur SMIC 2026</h1>
+    <p>Calculez le SMIC brut et net en vigueur depuis le 1er juin 2026, selon votre durée hebdomadaire de travail.</p>
+  </section>
+
+  <section class="calculator">
+
+    <h2>Calculer le SMIC selon ma durée de travail</h2>
+
+    <div class="intro-note">
+      <strong>À savoir :</strong> le calcul applique le SMIC horaire en vigueur au 1er juin 2026 à la durée de travail saisie.
+    </div>
+
+
+    <div class="field">
+      <label for="heures">Durée de travail hebdomadaire (heures)</label>
+      <input type="number" id="heures" min="1" max="48" step="0.5" value="35">
+      <div class="field-help">35 heures correspondent au temps plein légal (151,67 heures par mois).</div>
+    </div>
+
+    <div class="field">
+      <label for="brut">Votre salaire brut mensuel (€) — facultatif</label>
+      <input type="number" id="brut" min="0" step="0.01" placeholder="Ex. 1 900">
+      <div class="field-help">Renseignez-le pour comparer votre salaire au SMIC correspondant à votre durée de travail.</div>
+    </div>
+
+    <button type="button" id="calculate">Calculer le SMIC</button>
+
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">SMIC mensuel brut pour votre durée de travail</div>
+      <div class="result-main" id="mensuel">0,00 €</div>
+
+      <div class="result-row"><span>SMIC horaire brut</span><strong id="horaire">0,00 €</strong></div>
+      <div class="result-row"><span>SMIC annuel brut (12 mois)</span><strong id="annuel">0,00 €</strong></div>
+      <div class="result-row"><span>SMIC mensuel net estimé</span><strong id="net">0,00 €</strong></div>
+      <div class="result-row" id="rowComparaison" style="display:none"><span>Comparaison avec votre salaire</span><strong id="comparaison"></strong></div>
+
+      <div class="warning">
+        Le net est estimé en appliquant au SMIC brut le rapport entre le SMIC net et le SMIC brut publiés
+        pour un temps plein. Il ne remplace pas une fiche de paie.
+      </div>
+    </div>
+
+  </section>
+
+
+  <section class="info-section">
+    <h2>Le SMIC en 2026</h2>
+    <p>
+      Le SMIC (salaire minimum interprofessionnel de croissance) est le salaire horaire minimum
+      que doit percevoir un salarié en France. Depuis le <strong>1er juin 2026</strong>, il est fixé à
+      <strong>12,31 € brut de l'heure</strong>, contre 12,02 € du 1er janvier au 31 mai 2026.
+      Pour un temps plein de 35 heures par semaine (151,67 heures par mois), cela représente
+      <strong>1 867,02 € brut par mois</strong>, soit environ <strong>1 477,93 € net</strong> avant impôt sur le revenu.
+    </p>
+
+    <div class="table-wrap">
+    <table class="sd-table">
+      <thead><tr><th>Durée hebdomadaire</th><th>Heures par mois</th><th>SMIC mensuel brut</th></tr></thead>
+      <tbody>
+        <tr><td>35 h (temps plein)</td><td>151,67 h</td><td>1 867,02 €</td></tr>
+        <tr><td>32 h</td><td>138,67 h</td><td>1 706,99 €</td></tr>
+        <tr><td>28 h</td><td>121,33 h</td><td>1 493,61 €</td></tr>
+        <tr><td>24 h</td><td>104,00 h</td><td>1 280,24 €</td></tr>
+        <tr><td>17,5 h (mi-temps)</td><td>75,83 h</td><td>933,51 €</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>Montants calculés au taux horaire de 12,31 € brut, arrondis au centime.</p>
+  </section>
+
+  <section class="info-section">
+    <h2>Pourquoi le SMIC a-t-il été revalorisé en juin 2026 ?</h2>
+    <p>
+      Le SMIC est revalorisé chaque 1er janvier, mais aussi en cours d'année lorsque l'indice des prix à la
+      consommation augmente d'au moins 2 % depuis la dernière revalorisation. Ce seuil a été franchi le
+      13 mai 2026, ce qui a entraîné une hausse de 2,41 % au 1er juin 2026.
+    </p>
+  </section>
+
+  <section class="info-section">
+    <h2>Comment calculer le SMIC mensuel ?</h2>
+    <p>
+      On multiplie le taux horaire par le nombre d'heures travaillées dans le mois. Pour une durée hebdomadaire
+      donnée, le nombre d'heures mensuelles est égal aux heures par semaine multipliées par 52 puis divisées par 12.
+      À 35 heures, on obtient 151,67 heures : 12,31 € × 151,67 = 1 867,02 € brut.
+    </p>
+    <h3>Ce que le SMIC comprend (et ne comprend pas)</h3>
+    <p>
+      Le SMIC s'apprécie en tenant compte du salaire de base et de certains avantages en nature. Les primes qui
+      remboursent des frais ou qui ne rémunèrent pas le travail effectif, ainsi que les majorations pour heures
+      supplémentaires, n'entrent en principe pas dans la comparaison. En cas de doute sur votre bulletin de paie,
+      rapprochez-vous de votre employeur, des représentants du personnel ou de l'inspection du travail.
+    </p>
+  </section>
+
+
+  <section class="info-section">
+    <h2>Questions fréquentes</h2>
+    <h3>Quel est le montant du SMIC en 2026 ?</h3>
+    <p>Depuis le 1er juin 2026, le SMIC est de 12,31 € brut de l'heure, soit 1 867,02 € brut par mois pour 35 heures par semaine et environ 1 477,93 € net avant impôt. Il était de 12,02 € brut de l'heure du 1er janvier au 31 mai 2026.</p>
+    <h3>Le SMIC est-il le même pour tous les salariés ?</h3>
+    <p>Le taux horaire est le même, mais le montant mensuel dépend de la durée de travail. Certains cas particuliers (par exemple les jeunes salariés, les apprentis ou les contrats en alternance) font l'objet de règles spécifiques.</p>
+    <h3>Un salaire peut-il être inférieur au SMIC ?</h3>
+    <p>En principe non : la rémunération ne peut pas être inférieure au SMIC correspondant à la durée de travail, sous réserve des dérogations prévues par la loi. Si votre salaire vous paraît inférieur, comparez-le avec le SMIC proratisé en tenant compte des éléments qui y entrent, puis interrogez votre employeur.</p>
+    <h3>Quand le SMIC est-il revalorisé ?</h3>
+    <p>Chaque 1er janvier, et en cours d'année lorsque les prix augmentent d'au moins 2 % depuis la dernière revalorisation, comme ce fut le cas au 1er juin 2026.</p>
+  </section>
+
+  <section class="info-section">
+    <h2>Autres simulateurs SimuDroit</h2>
+    <div class="links-grid">
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-brut-net/">Simulateur brut net</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-salaire-horaire-mensuel/">Salaire horaire et mensuel</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-temps-partiel/">Temps partiel</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-heures-supplementaires/">Heures supplémentaires</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/">Tous les simulateurs</a>
+    </div>
+    <p style="margin-top:16px;font-size:.9rem;color:var(--muted)">
+      Paramètres vérifiés en octobre 2026. Voir la page
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/methode-et-sources/">Méthode et sources</a>.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 SimuDroit · <a href="https://xd6pwyx7n2-debug.github.io/simulateur/">Tous les simulateurs</a> · <a href="https://xd6pwyx7n2-debug.github.io/simulateur/methode-et-sources/">Méthode et sources</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+
+  function formatEuro(value) {
+    return new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR" }).format(value);
+  }
+  function num(id) {
+    var v = parseFloat(document.getElementById(id).value);
+    return Number.isFinite(v) ? v : NaN;
+  }
+  function setText(id, text) {
+    document.getElementById(id).textContent = text;
+  }
+
+  var SMIC_HORAIRE = 12.31;                 // € brut, depuis le 1er juin 2026
+  var NET_RATIO = 1477.93 / 1867.02;        // SMIC net / SMIC brut (35 h), source info.gouv.fr
+
+  document.getElementById("calculate").addEventListener("click", function () {
+    var heures = num("heures");
+    var brut = num("brut");
+
+    if (!Number.isFinite(heures) || heures <= 0 || heures > 48) {
+      alert("Indiquez une durée de travail hebdomadaire comprise entre 1 et 48 heures.");
+      return;
+    }
+
+    var mensuel = Math.round(SMIC_HORAIRE * heures * 52 / 12 * 100) / 100;
+    setText("mensuel", formatEuro(mensuel));
+    setText("horaire", formatEuro(SMIC_HORAIRE));
+    setText("annuel", formatEuro(Math.round(SMIC_HORAIRE * heures * 52 * 100) / 100));
+    setText("net", formatEuro(Math.round(mensuel * NET_RATIO * 100) / 100));
+
+    var row = document.getElementById("rowComparaison");
+    if (Number.isFinite(brut) && brut > 0) {
+      var ecart = brut - mensuel;
+      var pct = Math.abs(ecart) / mensuel * 100;
+      var texte;
+      if (Math.abs(ecart) < 0.005) {
+        texte = "Égal au SMIC";
+      } else if (ecart > 0) {
+        texte = "Supérieur de " + formatEuro(ecart) + " (" + pct.toFixed(1).replace(".", ",") + " %)";
+      } else {
+        texte = "Inférieur de " + formatEuro(-ecart) + " (" + pct.toFixed(1).replace(".", ",") + " %) : à vérifier";
+      }
+      setText("comparaison", texte);
+      row.style.display = "";
+    } else {
+      row.style.display = "none";
+    }
+
+    document.getElementById("result").classList.add("visible");
+  });
+
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+</body>
+</html>
