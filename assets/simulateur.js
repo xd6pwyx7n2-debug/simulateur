@@ -57,14 +57,14 @@
       ["30 000 € / an", { mode: "annuel", valeur: 30000, heures: 35 }]
     ],
     "simulateur-indemnite-depart-retraite": [
-      ["Volontaire · 22 ans", { type: "volontaire", annees: 22, mois: 0, remun12: 37200, remun3: 9300 }],
-      ["Volontaire · 32 ans", { type: "volontaire", annees: 32, mois: 0, remun12: 42000, remun3: 10500 }],
-      ["Mise à la retraite · 15 ans", { type: "mise", annees: 15, mois: 0, remun12: 36000, remun3: 9000 }]
+      ["Volontaire · 22 ans", { type: "volontaire", annees: 22, mois: 0, moy12: 3100, moy3: 3100 }],
+      ["Volontaire · 32 ans", { type: "volontaire", annees: 32, mois: 0, moy12: 3500, moy3: 3500 }],
+      ["Mise à la retraite · 15 ans", { type: "mise", annees: 15, mois: 0, moy12: 3000, moy3: 3000 }]
     ],
     "simulateur-indemnite-licenciement": [
-      ["5 ans · 2 500 €/mois", { remuneration12: 30000, remuneration3: 7500, annees: 5, mois: 0 }],
-      ["10 ans · 2 500 €/mois", { remuneration12: 30000, remuneration3: 7500, annees: 10, mois: 0 }],
-      ["15 ans · 3 000 €/mois", { remuneration12: 36000, remuneration3: 9000, annees: 15, mois: 0 }]
+      ["5 ans · 2 500 €/mois", { moy12: 2500, moy3: 2500, annees: 5, mois: 0 }],
+      ["10 ans · 2 500 €/mois", { moy12: 2500, moy3: 2500, annees: 10, mois: 0 }],
+      ["15 ans · 3 000 €/mois", { moy12: 3000, moy3: 3000, annees: 15, mois: 0 }]
     ],
     "simulateur-rupture-conventionnelle": [
       ["3 ans · 2 000 €", { salaire: 2000, annees: 3, mois: 0 }],
@@ -376,6 +376,39 @@
       var go = submitButton();
       if (go) setTimeout(function () { go.click(); }, 60);
     }
+  })();
+
+  /* ---------- Messages d'erreur en ligne (remplacent les boîtes alert()) ---------- */
+  (function () {
+    var box = null;
+    function clear() {
+      if (box && box.parentNode) box.parentNode.removeChild(box);
+      box = null;
+      Array.prototype.forEach.call(calc.querySelectorAll("[aria-invalid]"), function (el) { el.removeAttribute("aria-invalid"); });
+    }
+    window.alert = function (message) {
+      clear();
+      var go = submitButton();
+      box = document.createElement("div");
+      box.className = "sd-error";
+      box.setAttribute("role", "alert");
+      box.tabIndex = -1;
+      box.textContent = String(message);
+      if (go && go.parentNode) go.parentNode.insertBefore(box, go); else calc.appendChild(box);
+      var bad = null;
+      Array.prototype.forEach.call(calc.querySelectorAll("input[id], select[id]"), function (el) {
+        if (bad || el.type === "hidden" || el.disabled || el.offsetParent === null) return;
+        if (el.value === "" || (el.validity && !el.validity.valid)) bad = el;
+      });
+      if (bad) { bad.setAttribute("aria-invalid", "true"); try { bad.focus({ preventScroll: true }); } catch (e) {} }
+      else { try { box.focus({ preventScroll: true }); } catch (e) {} }
+      if (box.scrollIntoView) box.scrollIntoView({ behavior: "smooth", block: "center" });
+      if (result) result.classList.remove("visible", "show");
+    };
+    calc.addEventListener("input", clear);
+    calc.addEventListener("change", clear);
+    var go = submitButton();
+    if (go) go.addEventListener("click", clear, true);
   })();
 
   /* Confort : touche Entrée, clavier numérique, défilement vers le résultat */

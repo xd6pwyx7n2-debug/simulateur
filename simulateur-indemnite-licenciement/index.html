@@ -451,41 +451,15 @@
     <noscript><p class="intro-note"><strong>JavaScript requis :</strong> ce simulateur calcule directement dans votre navigateur. Activez JavaScript pour l'utiliser.</p></noscript>
 
     <div class="field">
-      <label for="remuneration12">
-        Rémunération brute totale des 12 derniers mois
-      </label>
-
-      <input
-        type="number"
-        id="remuneration12"
-        min="0"
-        step="0.01"
-        inputmode="decimal"
-        placeholder="Ex. 36 000"
-      >
-
-      <span class="help">
-        Indiquez la rémunération brute totale perçue au cours des 12 derniers mois précédant l'envoi de la lettre de licenciement, primes comprises.
-      </span>
+      <label for="moy12">Salaire brut mensuel moyen des 12 derniers mois (€)</label>
+      <input type="number" id="moy12" min="0" step="0.01" inputmode="decimal" placeholder="Ex. 3 000">
+      <span class="help">Moyenne mensuelle de votre rémunération brute sur les 12 mois précédant la notification du licenciement. Indiquez une moyenne par mois, pas un total : 36 000 € cumulés sur 12 mois donnent 3 000. Une prime annuelle ou exceptionnelle s’ajoute pour 1/12 de son montant.</span>
     </div>
 
     <div class="field">
-      <label for="remuneration3">
-        Rémunération brute totale des 3 derniers mois
-      </label>
-
-      <input
-        type="number"
-        id="remuneration3"
-        min="0"
-        step="0.01"
-        inputmode="decimal"
-        placeholder="Ex. 9 000"
-      >
-
-      <span class="help">
-        Indiquez la rémunération brute des 3 derniers mois. Si vous avez reçu une prime annuelle ou exceptionnelle (13e mois, bonus), n'en retenez qu'une part proportionnelle à ces 3 mois (3/12 de son montant).
-      </span>
+      <label for="moy3">Salaire brut mensuel moyen des 3 derniers mois (€)</label>
+      <input type="number" id="moy3" min="0" step="0.01" inputmode="decimal" placeholder="Ex. 3 100">
+      <span class="help">Moyenne mensuelle sur les 3 derniers mois, primes comprises. Une prime annuelle ou exceptionnelle n’est retenue qu’au prorata de la période : ajoutez 1/12 de son montant à votre salaire mensuel. Le calcul retient la moyenne la plus favorable.</span>
     </div>
 
     <div class="field">
@@ -674,6 +648,8 @@
     </a>
   </section>
 
+  
+  
   <section class="sd-see" aria-labelledby="sd-see-t">
     <h2 id="sd-see-t">Voir aussi</h2>
     <div class="sd-see-grid"><a href="/simulateur/simulateur-rupture-conventionnelle/">Rupture conventionnelle</a><a href="/simulateur/simulateur-chomage/">Allocation chômage</a><a href="/simulateur/simulateur-solde-tout-compte/">Solde de tout compte</a><a href="/simulateur/simulateur-preavis-demission/">Préavis de démission</a><a href="/simulateur/exemples-indemnite-licenciement/">Exemples chiffrés : licenciement</a><a href="/simulateur/guides/calcul-indemnite-licenciement/">Guide : calculer l’indemnité de licenciement</a><a href="/simulateur/modeles-de-lettres/">Modèles de lettres</a></div>
@@ -697,13 +673,8 @@ function formatEuro(value) {
 
 function calculer() {
 
-  const remuneration12 = parseFloat(
-    document.getElementById("remuneration12").value
-  );
-
-  const remuneration3 = parseFloat(
-    document.getElementById("remuneration3").value
-  );
+  const moy12 = parseFloat(document.getElementById("moy12").value);
+  const moy3 = parseFloat(document.getElementById("moy3").value);
 
   const annees = parseInt(
     document.getElementById("annees").value,
@@ -715,19 +686,18 @@ function calculer() {
     10
   );
 
-  if (
-    !Number.isFinite(remuneration12) ||
-    remuneration12 <= 0
-  ) {
-    alert("Veuillez renseigner la rémunération brute des 12 derniers mois.");
+  if (!Number.isFinite(moy12) || moy12 <= 0) {
+    alert("Indiquez votre salaire brut mensuel moyen des 12 derniers mois.");
     return;
   }
 
-  if (
-    !Number.isFinite(remuneration3) ||
-    remuneration3 <= 0
-  ) {
-    alert("Veuillez renseigner la rémunération brute des 3 derniers mois.");
+  if (!Number.isFinite(moy3) || moy3 <= 0) {
+    alert("Indiquez votre salaire brut mensuel moyen des 3 derniers mois.");
+    return;
+  }
+
+  if (moy12 > 40000 || moy3 > 40000) {
+    alert("Ce montant semble trop élevé pour un salaire mensuel. Indiquez une moyenne par mois, et non le total sur la période.");
     return;
   }
 
@@ -750,8 +720,8 @@ function calculer() {
 
   const ancienneteMois = (annees * 12) + mois;
 
-  const salaire12 = remuneration12 / 12;
-  const salaire3 = remuneration3 / 3;
+  const salaire12 = moy12;
+  const salaire3 = moy3;
 
   const salaireReference = Math.max(
     salaire12,
@@ -815,7 +785,8 @@ function calculer() {
     totalAnciennete.toLocaleString("fr-FR", {
       maximumFractionDigits: 2
     }) +
-    " ans</strong>.";
+    " ans</strong>." +
+    (salaireReference > 10000 ? "<br><strong>Vérifiez la saisie :</strong> un salaire de référence de plus de 10 000 € par mois est inhabituel. Les champs attendent une moyenne mensuelle, pas un total." : "");
 
   avertissement.textContent =
     "Il s'agit d'une estimation de l'indemnité légale. " +

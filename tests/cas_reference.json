@@ -1,0 +1,225 @@
+[
+ {
+  "page": "simulateur-smic",
+  "entrees": {
+   "heures": 35
+  },
+  "attendus": {
+   "#mensuel": "1 867,02 €",
+   "#horaire": "12,31 €"
+  }
+ },
+ {
+  "page": "simulateur-brut-net",
+  "entrees": {
+   "brut": 2500,
+   "statut": "noncadre"
+  },
+  "attendus": {
+   "#net": "1 950,00 €"
+  }
+ },
+ {
+  "page": "simulateur-brut-net",
+  "entrees": {
+   "brut": 3000,
+   "statut": "cadre"
+  },
+  "attendus": {
+   "#net": "2 280,00 €"
+  }
+ },
+ {
+  "page": "simulateur-net-brut",
+  "entrees": {
+   "net": 1950,
+   "statut": "noncadre"
+  },
+  "attendus": {
+   "#brut": "2 500,00 €"
+  }
+ },
+ {
+  "page": "simulateur-salaire-horaire-mensuel",
+  "entrees": {
+   "mode": "horaire",
+   "valeur": 15,
+   "heures": 35
+  },
+  "attendus": {
+   "#mensuel": "2 275,00 €",
+   "#annuel": "27 300,00 €"
+  }
+ },
+ {
+  "page": "simulateur-rupture-conventionnelle",
+  "entrees": {
+   "salaire": 2500,
+   "annees": 3,
+   "mois": 0
+  },
+  "attendus": {
+   "#montant": "1 875,00 €"
+  }
+ },
+ {
+  "page": "simulateur-prime-precarite",
+  "entrees": {
+   "remuneration": 12000,
+   "taux": 10
+  },
+  "attendus": {
+   "#montant": "1 200,00 €"
+  }
+ },
+ {
+  "page": "simulateur-chomage",
+  "entrees": {
+   "salaire": 2000,
+   "age": 40,
+   "duree": 24,
+   "conges": 0,
+   "supralegal": 0
+  },
+  "attendus": {
+   "#allocationJour": "39,74 €"
+  }
+ },
+ {
+  "page": "simulateur-chomage",
+  "entrees": {
+   "salaire": 30000,
+   "age": 40,
+   "duree": 24,
+   "conges": 0,
+   "supralegal": 0
+  },
+  "attendus": {
+   "#allocationJour": "300,21 €",
+   "#dureeEstimee": "18 mois"
+  }
+ },
+ {
+  "page": "simulateur-indemnites-journalieres-maladie",
+  "entrees": {
+   "s1": 2000,
+   "s2": 2000,
+   "s3": 2000,
+   "jours": 15
+  },
+  "attendus": {
+   "#total": "394,56 €"
+  }
+ },
+ {
+  "page": "simulateur-conge-maternite",
+  "entrees": {
+   "s1": 2500,
+   "s2": 2500,
+   "s3": 2500,
+   "charge": "0",
+   "naiss": "1"
+  },
+  "attendus": {
+   "#total": "7 272,16 €",
+   "#jours": "112"
+  }
+ },
+ {
+  "page": "simulateur-conge-paternite",
+  "entrees": {
+   "s1": 2500,
+   "s2": 2500,
+   "s3": 2500,
+   "naiss": "1"
+  },
+  "attendus": {
+   "#total": "1 623,25 €"
+  }
+ },
+ {
+  "page": "simulateur-accident-du-travail",
+  "entrees": {
+   "salaire": 2500,
+   "jours": 45,
+   "periode": "apres"
+  },
+  "attendus": {
+   "#result": "2 498,43 €"
+  }
+ },
+ {
+  "page": "simulateur-indemnite-licenciement",
+  "entrees": {
+   "moy12": 2000,
+   "moy3": 2000,
+   "annees": 0,
+   "mois": 7
+  },
+  "attendus": {
+   "#montant": "0,00 €"
+  }
+ },
+ {
+  "page": "simulateur-indemnite-licenciement",
+  "entrees": {
+   "moy12": 2000,
+   "moy3": 2000,
+   "annees": 0,
+   "mois": 8
+  },
+  "attendus": {
+   "#montant": "333,33 €"
+  }
+ },
+ {
+  "page": "simulateur-indemnite-licenciement",
+  "entrees": {
+   "moy12": 3000,
+   "moy3": 3000,
+   "annees": 12,
+   "mois": 0
+  },
+  "attendus": {
+   "#montant": "9 500,00 €"
+  }
+ },
+ {
+  "page": "simulateur-indemnite-licenciement",
+  "entrees": {
+   "moy12": 2500,
+   "moy3": 3400,
+   "annees": 10,
+   "mois": 6
+  },
+  "attendus": {
+   "#montant": "9 066,67 €"
+  }
+ },
+ {
+  "page": "simulateur-indemnite-depart-retraite",
+  "entrees": {
+   "type": "volontaire",
+   "annees": 22,
+   "mois": 0,
+   "moy12": 3100,
+   "moy3": 3100
+  },
+  "attendus": {
+   "#montant": "4 650,00 €"
+  }
+ },
+ {
+  "page": "simulateur-indemnite-depart-retraite",
+  "entrees": {
+   "type": "mise",
+   "annees": 15,
+   "mois": 0,
+   "moy12": 3000,
+   "moy3": 3000
+  },
+  "attendus": {
+   "#montant": "12 500,00 €"
+  }
+ }
+]

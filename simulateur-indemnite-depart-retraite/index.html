@@ -484,14 +484,15 @@
     </div>
 
     <div class="field">
-      <label for="remun12">Total des salaires bruts des 12 derniers mois (€)</label>
-      <input type="number" id="remun12" min="0" step="0.01" placeholder="Ex. 36 000">
+      <label for="moy12">Salaire brut mensuel moyen des 12 derniers mois (€)</label>
+      <input type="number" id="moy12" min="0" step="0.01" inputmode="decimal" placeholder="Ex. 3 000">
+      <div class="field-help">Indiquez une moyenne par mois, pas un total : 36 000 € cumulés sur 12 mois donnent 3 000. Une prime annuelle s’ajoute pour 1/12 de son montant.</div>
     </div>
 
     <div class="field">
-      <label for="remun3">Total des salaires bruts des 3 derniers mois (€)</label>
-      <input type="number" id="remun3" min="0" step="0.01" placeholder="Ex. 9 300">
-      <div class="field-help">Les primes annuelles ou exceptionnelles sont comptées au prorata. Le calcul retient la base la plus favorable.</div>
+      <label for="moy3">Salaire brut mensuel moyen des 3 derniers mois (€)</label>
+      <input type="number" id="moy3" min="0" step="0.01" inputmode="decimal" placeholder="Ex. 3 100">
+      <div class="field-help">Moyenne mensuelle sur les 3 derniers mois. Les primes annuelles ou exceptionnelles sont comptées au prorata (1/12 de leur montant). Le calcul retient la base la plus favorable.</div>
     </div>
 
     <button type="button" id="calculate">Calculer mon indemnité</button>
@@ -605,6 +606,8 @@
     </p>
   </section>
 
+  
+  
   <section class="sd-see" aria-labelledby="sd-see-t">
     <h2 id="sd-see-t">Voir aussi</h2>
     <div class="sd-see-grid"><a href="/simulateur/simulateur-solde-tout-compte/">Solde de tout compte</a><a href="/simulateur/simulateur-conges-payes/">Congés payés</a><a href="/simulateur/simulateur-preavis-demission/">Préavis de démission</a><a href="/simulateur/simulateur-indemnite-licenciement/">Indemnité de licenciement</a><a href="/simulateur/faq/">FAQ salaire et droit du travail</a></div>
@@ -635,8 +638,8 @@
     var type = document.getElementById("type").value;
     var annees = num("annees");
     var mois = num("mois");
-    var r12 = num("remun12");
-    var r3 = num("remun3");
+    var r12 = num("moy12");
+    var r3 = num("moy3");
 
     if (!Number.isFinite(mois)) mois = 0;
 
@@ -649,13 +652,17 @@
       return;
     }
     if (!Number.isFinite(r12) || r12 <= 0 || !Number.isFinite(r3) || r3 <= 0) {
-      alert("Indiquez le total de vos salaires bruts sur les 12 et sur les 3 derniers mois.");
+      alert("Indiquez votre salaire brut mensuel moyen sur les 12 et sur les 3 derniers mois.");
+      return;
+    }
+    if (r12 > 40000 || r3 > 40000) {
+      alert("Ce montant semble trop élevé pour un salaire mensuel. Indiquez une moyenne par mois, et non le total sur la période.");
       return;
     }
 
     var totalMois = annees * 12 + mois;
     var anc = totalMois / 12;
-    var reference = Math.max(r12 / 12, r3 / 3);
+    var reference = Math.max(r12, r3);
     var montant = 0;
     var message = "";
     var applicable = true;

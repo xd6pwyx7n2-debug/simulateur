@@ -183,6 +183,44 @@
       html { scroll-behavior:auto; }
       *,*:before,*:after { transition:none!important; }
     }
+
+    /* ===== Refonte visuelle : fonds dégradés, cartes teintées, en-tête vitré ===== */
+    :root { --bg:#f4f1ff; }
+    body { background:linear-gradient(180deg,#efeaff 0,#f7f5ff 620px,#f5f2ff 100%); }
+    @media(min-width:1001px) {
+      .header { position:sticky; top:0; z-index:50; background:rgba(244,241,255,.74); -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px); border-bottom:1px solid rgba(104,87,232,.09); }
+    }
+    .hero { background:
+      radial-gradient(620px 430px at 93% 6%,rgba(160,136,255,.40),transparent 70%),
+      radial-gradient(540px 400px at 3% 92%,rgba(255,158,128,.24),transparent 70%),
+      radial-gradient(440px 320px at 52% -4%,rgba(120,223,193,.26),transparent 70%); }
+    .hero:before { background:linear-gradient(135deg,#d9cfff,#ffd8cc); opacity:.5; }
+    .hero:after { content:""; position:absolute; inset:0; pointer-events:none; background-image:radial-gradient(rgba(104,87,232,.20) 1.2px,transparent 1.3px); background-size:24px 24px; -webkit-mask-image:linear-gradient(180deg,#000 0,transparent 78%); mask-image:linear-gradient(180deg,#000 0,transparent 78%); }
+    .hero-grid { z-index:1; }
+    .section.white { border-block:0; }
+    #simulateurs { background:
+      radial-gradient(700px 360px at 0% 0%,rgba(168,148,255,.20),transparent 70%),
+      radial-gradient(640px 360px at 100% 100%,rgba(255,168,140,.18),transparent 70%),
+      linear-gradient(180deg,#faf8ff,#f6f3ff); }
+    #guides { background:linear-gradient(180deg,#fff8f3 0,#f3fbf8 100%); }
+    #fonctionnement { background:
+      radial-gradient(600px 320px at 100% 0%,rgba(120,223,193,.22),transparent 70%),
+      linear-gradient(180deg,#f3f0ff,#e9e4ff); }
+    .card { background:linear-gradient(158deg,var(--tint) 0,#fff 46%); border-color:color-mix(in srgb,var(--accent) 17%,#fff); box-shadow:0 2px 6px rgba(41,35,90,.04); }
+    .card:hover { transform:translateY(-5px); box-shadow:0 20px 42px color-mix(in srgb,var(--accent) 24%,transparent); border-color:color-mix(in srgb,var(--accent) 38%,#fff); }
+    .icon { background:#fff; box-shadow:0 8px 18px color-mix(in srgb,var(--accent) 20%,transparent); }
+    .tag { background:#fff; }
+    .how-card { background:linear-gradient(160deg,#fff 0,#fbfaff 100%); box-shadow:0 10px 30px rgba(41,35,90,.07); border-color:#e6e2f7; }
+    .notice { background:rgba(255,255,255,.7); border-color:#dcd7ff; }
+    .search input { background:#fff; box-shadow:0 4px 14px rgba(41,35,90,.06); }
+    .filter { background:rgba(255,255,255,.85); }
+    .cta-panel { position:relative; overflow:hidden; background:
+      radial-gradient(520px 320px at 92% -10%,rgba(139,115,255,.55),transparent 70%),
+      radial-gradient(420px 280px at 0% 110%,rgba(255,121,95,.32),transparent 70%),
+      linear-gradient(135deg,#2c2768,#1c1a42); box-shadow:0 24px 60px rgba(41,35,90,.28); }
+    .cta-panel > * { position:relative; }
+    footer { background:rgba(255,255,255,.6); }
+    @media(max-width:760px) { .float.two { top:-24px; right:8px; } }
   </style>
 
   <script type="application/ld+json">
@@ -430,6 +468,24 @@
         <span class="card-link">Lire le guide →</span>
       </a>
 
+      <a class="card" style="--accent:#6857e8;--tint:#efedff" href="/simulateur/guides/indemnite-rupture-conventionnelle/">
+        <div class="card-top"><span class="tag">Rupture</span></div>
+        <h3>Indemnité de rupture conventionnelle : montant et délais</h3>
+        <p>Le minimum légal, des exemples chiffrés, la procédure et l’effet sur le chômage.</p>
+        <span class="card-link">Lire le guide →</span>
+      </a>
+      <a class="card" style="--accent:#a253d8;--tint:#f6edff" href="/simulateur/guides/allocation-chomage-calcul-duree/">
+        <div class="card-top"><span class="tag">Chômage</span></div>
+        <h3>Allocation chômage 2026 : calcul, durée et dégressivité</h3>
+        <p>SJR, formules, durée selon l’âge et délais avant le premier versement.</p>
+        <span class="card-link">Lire le guide →</span>
+      </a>
+      <a class="card" style="--accent:#d58b24;--tint:#fff5df" href="/simulateur/modeles-de-lettres/">
+        <div class="card-top"><span class="tag">Modèles</span></div>
+        <h3>Modèles de lettres : démission, solde de tout compte</h3>
+        <p>Six lettres prêtes à compléter, à copier ou à imprimer.</p>
+        <span class="card-link">Générer une lettre →</span>
+      </a>
       <a class="card" style="--accent:#c0752a;--tint:#fff3e6" href="/simulateur/glossaire/">
         <div class="card-top"><span class="tag">Glossaire</span></div>
         <h3>25 termes du droit du travail expliqués simplement</h3>

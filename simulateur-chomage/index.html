@@ -465,6 +465,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
 
 
   <script type="application/ld+json">
@@ -1048,9 +1049,11 @@
 
   </section>
 
+  
+  
   <section class="sd-see" aria-labelledby="sd-see-t">
     <h2 id="sd-see-t">Voir aussi</h2>
-    <div class="sd-see-grid"><a href="/simulateur/simulateur-rupture-conventionnelle/">Rupture conventionnelle</a><a href="/simulateur/simulateur-indemnite-licenciement/">Indemnité de licenciement</a><a href="/simulateur/simulateur-solde-tout-compte/">Solde de tout compte</a><a href="/simulateur/simulateur-prime-precarite/">Prime de précarité</a><a href="/simulateur/exemples-chomage/">Exemples chiffrés : chômage</a><a href="/simulateur/parcours/">Que faire quand le contrat prend fin ?</a><a href="/simulateur/modeles-de-lettres/">Modèles de lettres</a></div>
+    <div class="sd-see-grid"><a href="/simulateur/simulateur-rupture-conventionnelle/">Rupture conventionnelle</a><a href="/simulateur/simulateur-indemnite-licenciement/">Indemnité de licenciement</a><a href="/simulateur/simulateur-solde-tout-compte/">Solde de tout compte</a><a href="/simulateur/simulateur-prime-precarite/">Prime de précarité</a><a href="/simulateur/guides/allocation-chomage-calcul-duree/">Guide : calcul et durée du chômage</a><a href="/simulateur/exemples-chomage/">Exemples chiffrés : chômage</a><a href="/simulateur/parcours/">Que faire quand le contrat prend fin ?</a><a href="/simulateur/modeles-de-lettres/">Modèles de lettres</a></div>
     <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-10-17">17 octobre 2026</time>. Estimation indicative, sans valeur juridique. <a href="/simulateur/methode-et-sources/">Méthode et sources</a> · <a href="/simulateur/a-propos/">À propos</a></p>
   </section>
 
@@ -1146,11 +1149,11 @@ function calculer() {
    */
 
   const salaireAnnuel =
-    Math.min(salaireMensuel, 16020) * 12;
+    Math.min(salaireMensuel, SD_PARAMS.are.plafondSalaireMensuel) * 12;
 
 
   const sjr =
-    Math.min(salaireAnnuel / 365, 526.86);
+    Math.min(salaireAnnuel / 365, SD_PARAMS.are.plafondSjr);
 
 
   /*
@@ -1159,7 +1162,7 @@ function calculer() {
    */
 
   const formule1 =
-    sjr * 0.404 + 13.18;
+    sjr * SD_PARAMS.are.taux1 + SD_PARAMS.are.partFixe;
 
 
   /*
@@ -1168,7 +1171,7 @@ function calculer() {
    */
 
   const formule2 =
-    sjr * 0.57;
+    sjr * SD_PARAMS.are.taux2;
 
 
   /*
@@ -1189,7 +1192,7 @@ function calculer() {
   allocationJour =
     Math.max(
       allocationJour,
-      32.13
+      SD_PARAMS.are.minJour
     );
 
 
@@ -1201,7 +1204,7 @@ function calculer() {
   allocationJour =
     Math.min(
       allocationJour,
-      sjr * 0.75
+      sjr * SD_PARAMS.are.plafondTauxSjr
     );
 
 
@@ -1323,14 +1326,14 @@ function calculer() {
 
   let degressifTexte = "Aucune baisse prévue";
   let allocationApres6Mois = allocationJour;
-  if (age < 55 && sjr > 162.40 && dureeEstimee > 182 && allocationJour > 92.57) {
-    allocationApres6Mois = Math.max(allocationJour * 0.70, 92.57);
-    degressifTexte = formatEuro(allocationApres6Mois) + " par jour" + (allocationJour * 0.70 < 92.57 ? " (plancher)" : " (−30 %)");
+  if (age < SD_PARAMS.are.degressif.ageMax && sjr > SD_PARAMS.are.degressif.seuilSjr && dureeEstimee > SD_PARAMS.are.degressif.apresJours && allocationJour > SD_PARAMS.are.degressif.plancherJour) {
+    allocationApres6Mois = Math.max(allocationJour * SD_PARAMS.are.degressif.coef, SD_PARAMS.are.degressif.plancherJour);
+    degressifTexte = formatEuro(allocationApres6Mois) + " par jour" + (allocationJour * SD_PARAMS.are.degressif.coef < SD_PARAMS.are.degressif.plancherJour ? " (plancher)" : " (−30 %)");
   }
   document.getElementById("degressif").textContent = degressifTexte;
 
   const differeConges = Math.min(30, Math.ceil(congesPayes / sjr));
-  const differeSupra = Math.min(150, Math.ceil(supraLegal / 111.8));
+  const differeSupra = Math.min(SD_PARAMS.are.differeSupraMaxJours, Math.ceil(supraLegal / SD_PARAMS.are.differeSupraDiviseur));
   const delaiTotal = 7 + differeConges + differeSupra;
   document.getElementById("delai").textContent =
     delaiTotal + " jours environ";

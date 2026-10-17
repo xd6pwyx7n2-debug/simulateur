@@ -323,6 +323,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
   <style>
     table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
     table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
@@ -474,6 +475,8 @@
     <p style="margin-top:16px;font-size:.9rem;color:var(--muted)">Paramètres vérifiés en octobre 2026 auprès de l'Assurance Maladie (ameli.fr). Voir la page <a href="https://xd6pwyx7n2-debug.github.io/simulateur/methode-et-sources/">Méthode et sources</a>.</p>
   </section>
 
+  
+  
   <section class="sd-see" aria-labelledby="sd-see-t">
     <h2 id="sd-see-t">Voir aussi</h2>
     <div class="sd-see-grid"><a href="/simulateur/simulateur-conge-maternite/">Congé maternité</a><a href="/simulateur/simulateur-indemnites-journalieres-maladie/">Indemnités journalières maladie</a><a href="/simulateur/simulateur-brut-net/">Salaire brut en net</a><a href="/simulateur/faq/">FAQ salaire et droit du travail</a></div>
@@ -499,7 +502,7 @@
     return a;
   }
 
-  var PMSS=4005.0, IJMAX=104.02;
+  var PMSS=SD_PARAMS.pmss, IJMAX=SD_PARAMS.ijMaternite.maxJour;
   document.getElementById("calculate").addEventListener("click",function(){
     var s=salaires(); if(!s) return;
     var capped=false,sum=0;
