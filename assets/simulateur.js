@@ -294,6 +294,30 @@
       actions.appendChild(sb);
     }
 
+    /* Lien partageable : les valeurs saisies sont placées dans l'adresse, uniquement quand vous copiez le lien */
+    var lb = document.createElement("button");
+    lb.type = "button";
+    lb.className = "sd-secondary";
+    lb.textContent = "🔗 Copier le lien du calcul";
+    lb.addEventListener("click", function () {
+      var url = shareUrl();
+      function done(ok) {
+        lb.textContent = ok ? "✅ Lien copié" : "Copie impossible";
+        setTimeout(function () { lb.textContent = "🔗 Copier le lien du calcul"; }, 2200);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function () { done(true); }, function () { done(false); });
+      } else {
+        try {
+          var ta = document.createElement("textarea");
+          ta.value = url; ta.style.position = "fixed"; ta.style.opacity = "0";
+          document.body.appendChild(ta); ta.select();
+          var ok = document.execCommand("copy"); ta.remove(); done(ok);
+        } catch (e) { done(false); }
+      }
+    });
+    actions.appendChild(lb);
+
     var rb = document.createElement("button");
     rb.type = "button";
     rb.className = "sd-secondary";
@@ -319,6 +343,40 @@
 
     result.appendChild(actions);
   }
+
+  /* ---------- Calcul partageable par lien ---------- */
+  function shareUrl() {
+    var q = [];
+    Array.prototype.forEach.call(calc.querySelectorAll("input[id], select[id], textarea[id]"), function (el) {
+      if (el.type === "button" || el.type === "submit") return;
+      var v = (el.type === "checkbox" || el.type === "radio") ? (el.checked ? "1" : "") : el.value;
+      if (v !== "" && v !== el.defaultValue) q.push(encodeURIComponent(el.id) + "=" + encodeURIComponent(v));
+    });
+    return location.origin + location.pathname + (q.length ? "?" + q.join("&") : "");
+  }
+  (function applyShared() {
+    if (!location.search || location.search.length < 2) return;
+    var params = {}, any = false;
+    location.search.slice(1).split("&").forEach(function (kv) {
+      var i = kv.indexOf("="); if (i < 1) return;
+      try { params[decodeURIComponent(kv.slice(0, i))] = decodeURIComponent(kv.slice(i + 1).replace(/\+/g, " ")); } catch (e) {}
+    });
+    Object.keys(params).forEach(function (id) {
+      var el = document.getElementById(id);
+      if (!el || !calc.contains(el)) return;
+      if (el.type === "checkbox" || el.type === "radio") el.checked = params[id] === "1";
+      else if (el.tagName === "SELECT") {
+        var ok = Array.prototype.some.call(el.options, function (o) { return o.value === params[id]; });
+        if (!ok) return;
+        el.value = params[id];
+      } else el.value = params[id].slice(0, 40);
+      fire(el, "input"); fire(el, "change"); any = true;
+    });
+    if (any) {
+      var go = submitButton();
+      if (go) setTimeout(function () { go.click(); }, 60);
+    }
+  })();
 
   /* Confort : touche Entrée, clavier numérique, défilement vers le résultat */
   Array.prototype.forEach.call(calc.querySelectorAll('input[type="number"]'), function (el) {
