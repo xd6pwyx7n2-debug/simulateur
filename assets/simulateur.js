@@ -27,6 +27,11 @@
       ["3 800 € · 1 enfant", { s1: 3800, s2: 3800, s3: 3800, naiss: "1" }],
       ["2 500 € · jumeaux", { s1: 2500, s2: 2500, s3: 2500, naiss: "2" }]
     ],
+    "simulateur-accident-du-travail": [
+      ["2 500 € · 45 jours", { salaire: 2500, jours: 45 }],
+      ["1 867 € (SMIC) · 20 jours", { salaire: 1867.02, jours: 20 }],
+      ["3 500 € · 90 jours", { salaire: 3500, jours: 90 }]
+    ],
     "simulateur-brut-net": [
       ["SMIC", { statut: "noncadre", brut: 1867.02 }],
       ["1 800 € brut", { statut: "noncadre", brut: 1800 }],
@@ -205,11 +210,15 @@
 
     var div = document.createElement("div");
     div.id = "sd-print";
+    var sig = rows + (res.textContent || "") + location.pathname;
+    var hsh = 2166136261;
+    for (var k = 0; k < sig.length; k++) { hsh ^= sig.charCodeAt(k); hsh = Math.imul(hsh, 16777619) >>> 0; }
+    var ref = "SD-" + now.getFullYear() + String(now.getMonth() + 1).padStart(2, "0") + String(now.getDate()).padStart(2, "0") + "-" + hsh.toString(16).toUpperCase().padStart(8, "0").slice(0, 6);
     var titre = h1 ? h1.textContent.replace(/\s+/g, " ").trim() : "SimuDroit";
     div.innerHTML =
       '<div class="pr-band"><div class="pr-logo">Simu<span>Droit</span></div><div class="pr-tag">Récapitulatif de simulation</div></div>' +
       '<h1>' + esc(titre) + '</h1>' +
-      '<div class="meta"><span class="pr-chip">' + esc(when) + '</span> Simulation réalisée sur SimuDroit</div>' +
+      '<div class="meta"><span class="pr-chip">' + esc(when) + '</span> <span class="pr-chip">Réf. ' + esc(ref) + '</span> Simulation réalisée sur SimuDroit</div>' +
       '<h2>Données saisies</h2><table>' + rows + '</table>' +
       '<h2>Résultat de l\'estimation</h2><div class="print-result">' + res.innerHTML + '</div>' +
       '<div class="disclaimer"><strong>Important.</strong> Ce récapitulatif est une estimation indicative calculée à partir des règles générales du droit du travail (paramètres vérifiés en octobre 2026) et des seules données saisies. ' +
@@ -332,6 +341,55 @@
         }
       }, 150);
     });
+  })();
+
+  /* Compteur animé du montant principal et graphique brut/net */
+  (function () {
+    var main = calc.querySelector(".result-main, .amount");
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (main && !reduce && window.MutationObserver && window.requestAnimationFrame) {
+      var busy = false;
+      var re = /(\d[\d\s\u202f\u00a0]*(?:,\d+)?)/;
+      new MutationObserver(function () {
+        if (busy) return;
+        var txt = main.textContent || "";
+        var m = re.exec(txt);
+        if (!m || txt.length > 70) return;
+        var raw = m[1].replace(/[\s\u202f\u00a0]/g, "").replace(",", ".");
+        var val = parseFloat(raw);
+        if (!isFinite(val) || val <= 0) return;
+        var dec = m[1].indexOf(",") >= 0 ? m[1].split(",")[1].length : 0;
+        var before = txt.slice(0, m.index), after = txt.slice(m.index + m[1].length);
+        var start = null, dur = 650;
+        busy = true;
+        function frame(t) {
+          if (start === null) start = t;
+          var k = Math.min(1, (t - start) / dur), e = 1 - Math.pow(1 - k, 3);
+          main.textContent = before + (val * e).toLocaleString("fr-FR", { minimumFractionDigits: dec, maximumFractionDigits: dec }) + after;
+          if (k < 1) requestAnimationFrame(frame); else { main.textContent = txt; setTimeout(function () { busy = false; }, 0); }
+        }
+        requestAnimationFrame(frame);
+      }).observe(main, { childList: true, characterData: true, subtree: true });
+    }
+    var cot = document.getElementById("resultCotisations");
+    if (cot && (slug === "simulateur-brut-net" || slug === "simulateur-net-brut")) {
+      function parse(id) {
+        var e = document.getElementById(id); if (!e) return NaN;
+        return parseFloat((e.textContent || "").replace(/[^\d,]/g, "").replace(",", "."));
+      }
+      var bar = document.createElement("div");
+      bar.className = "sd-bar"; bar.setAttribute("role", "img");
+      var first = calc.querySelector(".result-row");
+      if (first) first.parentNode.insertBefore(bar, first);
+      new MutationObserver(function () {
+        var c = parse("resultCotisations");
+        var n = slug === "simulateur-net-brut" ? parse("resultNet") : parse("resultBrut") - c;
+        if (!isFinite(c) || !isFinite(n) || c + n <= 0) return;
+        var pc = Math.round(c / (c + n) * 1000) / 10, pn = Math.round((100 - pc) * 10) / 10;
+        bar.innerHTML = '<span class="sd-bar-net" style="width:' + pn + '%">Net ' + String(pn).replace(".", ",") + ' %</span><span class="sd-bar-cot" style="width:' + pc + '%">' + (pc >= 12 ? "Cotisations " : "") + String(pc).replace(".", ",") + ' %</span>';
+        bar.setAttribute("aria-label", "Répartition du brut : " + pn + " % de net et " + pc + " % de cotisations");
+      }).observe(cot, { childList: true, characterData: true, subtree: true });
+    }
   })();
 
   window.addEventListener("afterprint", function () {

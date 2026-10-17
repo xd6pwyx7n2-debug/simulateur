@@ -709,6 +709,27 @@
     </div>
 
 
+
+    <div class="field">
+      <label for="conges">
+        Indemnité de congés payés versée à la fin du contrat (€) — facultatif
+      </label>
+      <input type="number" id="conges" min="0" max="100000" step="0.01" placeholder="Ex. 1 200 €" inputmode="decimal">
+      <span class="help">
+        Elle retarde le premier versement (différé congés payés, 30 jours maximum).
+      </span>
+    </div>
+
+    <div class="field">
+      <label for="supralegal">
+        Indemnités de rupture supra-légales (€) — facultatif
+      </label>
+      <input type="number" id="supralegal" min="0" max="1000000" step="0.01" placeholder="Ex. 0 €" inputmode="decimal">
+      <span class="help">
+        Seule la part qui dépasse le minimum légal ou conventionnel retarde le versement (150 jours maximum). Laissez vide dans le cas général.
+      </span>
+    </div>
+
     <button
       type="button"
       onclick="calculer()"
@@ -768,6 +789,26 @@
             class="result-card-value"
           ></div>
 
+        </div>
+
+        <div class="result-card">
+          <div class="result-card-label">Net estimé par mois</div>
+          <div id="netMensuel" class="result-card-value"></div>
+        </div>
+
+        <div class="result-card">
+          <div class="result-card-label">Délai avant 1er versement</div>
+          <div id="delai" class="result-card-value"></div>
+        </div>
+
+        <div class="result-card">
+          <div class="result-card-label">À partir du 7e mois</div>
+          <div id="degressif" class="result-card-value"></div>
+        </div>
+
+        <div class="result-card">
+          <div class="result-card-label">Salaire journalier de référence</div>
+          <div id="sjrCard" class="result-card-value"></div>
         </div>
 
       </div>
@@ -1099,11 +1140,11 @@ function calculer() {
    */
 
   const salaireAnnuel =
-    salaireMensuel * 12;
+    Math.min(salaireMensuel, 16020) * 12;
 
 
   const sjr =
-    salaireAnnuel / 365;
+    Math.min(salaireAnnuel / 365, 526.86);
 
 
   /*
@@ -1259,6 +1300,38 @@ function calculer() {
   allocationJourElement.textContent =
     formatEuro(allocationJour);
 
+  /*
+   * Prélèvements, dégressivité et délai avant le premier versement
+   * (paramètres France Travail au 1er janvier 2026).
+   */
+  const congesPayes =
+    parseFloat(document.getElementById("conges").value) || 0;
+  const supraLegal =
+    parseFloat(document.getElementById("supralegal").value) || 0;
+
+  const retraiteComp = 0.03 * sjr;
+  const csgCrds = 0.067 * allocationJour;
+  const netJour = Math.max(0, allocationJour - retraiteComp - csgCrds);
+  document.getElementById("netMensuel").textContent =
+    formatEuro(netJour * 30);
+
+  let degressifTexte = "Aucune baisse prévue";
+  let allocationApres6Mois = allocationJour;
+  if (age < 55 && sjr > 162.40 && dureeEstimee > 182 && allocationJour > 92.57) {
+    allocationApres6Mois = Math.max(allocationJour * 0.70, 92.57);
+    degressifTexte = formatEuro(allocationApres6Mois) + " par jour" + (allocationJour * 0.70 < 92.57 ? " (plancher)" : " (−30 %)");
+  }
+  document.getElementById("degressif").textContent = degressifTexte;
+
+  const differeConges = Math.min(30, Math.ceil(congesPayes / sjr));
+  const differeSupra = Math.min(150, Math.ceil(supraLegal / 111.8));
+  const delaiTotal = 7 + differeConges + differeSupra;
+  document.getElementById("delai").textContent =
+    delaiTotal + " jours environ";
+  document.getElementById("sjrCard").textContent =
+    formatEuro(sjr);
+
+
 
   dureeEstimeeElement.textContent =
     Math.round(dureeMoisEstimee) +
@@ -1323,6 +1396,17 @@ function calculer() {
 
     '<p><strong>ARE mensuelle estimée :</strong> ' +
     formatEuro(allocationMensuelle) +
+    '</p>' +
+
+    '<p><strong>Net estimé :</strong> allocation brute moins 3 % du SJR ' +
+    '(retraite complémentaire) et 6,7 % de CSG/CRDS, hors exonérations ' +
+    'éventuelles pour les faibles allocations : ' +
+    formatEuro(netJour) +
+    ' par jour</p>' +
+
+    '<p><strong>Délai avant le premier versement :</strong> 7 jours d’attente' +
+    (differeConges ? ' + ' + differeConges + ' jour(s) de différé congés payés' : '') +
+    (differeSupra ? ' + ' + differeSupra + ' jour(s) de différé indemnités supra-légales' : '') +
     '</p>' +
 
     '<p><strong>Durée travaillée indiquée :</strong> ' +

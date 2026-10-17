@@ -226,3 +226,12 @@ dl.gloss dd a{font-weight:700}
 main:focus{outline:none}
 a:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible,button:focus-visible{outline:3px solid #6857e8;outline-offset:2px}
 .links-grid a span{font-weight:400;font-size:.88rem;color:#5c5a80;margin-top:4px;line-height:1.45}
+
+article input,article select,article textarea{box-sizing:border-box;max-width:100%;width:100%}
+article textarea{padding:14px 16px;border:1.5px solid #ddd9f3;border-radius:14px;background:#fbfaff;color:var(--ink);font:500 1rem "DM Sans",sans-serif}
+
+.sd-bar{display:flex;height:36px;border-radius:12px;overflow:hidden;margin:14px 0 6px;font:800 .78rem "DM Sans",sans-serif}
+.sd-bar:empty{display:none}
+.sd-bar span{display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden;transition:width .6s ease}
+.sd-bar-net{background:#4fd1a5;color:#0e3b2e}
+.sd-bar-cot{background:#ff9a82;color:#5a1d10}
