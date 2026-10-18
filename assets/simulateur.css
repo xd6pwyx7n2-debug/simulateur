@@ -276,3 +276,8 @@ header{background:rgba(244,241,255,.78)!important;-webkit-backdrop-filter:blur(1
 
 footer{background:rgba(255,255,255,.6)!important;color:#555474!important;border-top:1px solid rgba(104,87,232,.1)}
 footer a{color:var(--purple-dark)!important}
+
+/* Guides : en-tête aligné sur la largeur des simulateurs */
+header .nav{max-width:1100px!important;align-items:center}
+header .nav nav{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+header .nav nav a{margin:0!important}
