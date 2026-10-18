@@ -16,6 +16,15 @@ window.SD_PARAMS = {
     maxJour: 42.97,
     carenceJours: 3
   },
+  ijIndependant: {              // ameli.fr (artisan/commerçant, micro-entrepreneur), au 1er janvier 2026
+    depuis: "2026-01-01",
+    pass: 48060,                // plafond du revenu pris en compte (1 PASS)
+    maxJour: 65.84,             // 48 060 / 730
+    seuilRaam: 4582,            // 10 % du PASS moyen : en dessous, indemnité nulle (arrêts débutant en 2026)
+    carenceJours: 3,
+    affiliationMois: 12,
+    abattement: { vente: 0.71, prestations: 0.50, bnc: 0.34 }
+  },
   ijMaternite: {                // ameli.fr
     taux: 0.79,
     maxJour: 104.02

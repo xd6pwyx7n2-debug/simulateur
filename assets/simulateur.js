@@ -15,7 +15,9 @@
     "simulateur-indemnites-journalieres-maladie": [
       ["2 000 € · 15 jours", { s1: 2000, s2: 2000, s3: 2000, jours: 15 }],
       ["SMIC · 30 jours", { s1: 1867.02, s2: 1867.02, s3: 1867.02, jours: 30 }],
-      ["3 500 € · 60 jours", { s1: 3500, s2: 3500, s3: 3500, jours: 60 }]
+      ["3 500 € · 60 jours", { s1: 3500, s2: 3500, s3: 3500, jours: 60 }],
+      ["Auto-entrepreneur · 30 000 € BNC", { statut: "ae", activite: "bnc", ca: 30000, affil: 24, jours: 15 }],
+      ["Auto-entrepreneur · 20 000 € vente", { statut: "ae", activite: "vente", ca: 20000, affil: 36, jours: 30 }]
     ],
     "simulateur-conge-maternite": [
       ["2 500 € · 1er enfant", { s1: 2500, s2: 2500, s3: 2500, charge: "0", naiss: "1" }],

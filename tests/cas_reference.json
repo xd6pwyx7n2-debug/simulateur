@@ -221,5 +221,72 @@
   "attendus": {
    "#montant": "12 500,00 €"
   }
+ },
+ {
+  "page": "simulateur-indemnites-journalieres-maladie",
+  "entrees": {
+   "statut": "ae",
+   "activite": "bnc",
+   "ca": 30000,
+   "affil": 24,
+   "jours": 15
+  },
+  "attendus": {
+   "#total": "325,44 €",
+   "#ij": "27,12 € par jour"
+  }
+ },
+ {
+  "page": "simulateur-indemnites-journalieres-maladie",
+  "entrees": {
+   "statut": "ae",
+   "activite": "prestations",
+   "ca": 30000,
+   "affil": 24,
+   "jours": 15
+  },
+  "attendus": {
+   "#total": "246,60 €"
+  }
+ },
+ {
+  "page": "simulateur-indemnites-journalieres-maladie",
+  "entrees": {
+   "statut": "ae",
+   "activite": "bnc",
+   "ca": 200000,
+   "affil": 24,
+   "jours": 15
+  },
+  "attendus": {
+   "#total": "790,08 €",
+   "#ij": "65,84 € par jour"
+  }
+ },
+ {
+  "page": "simulateur-indemnites-journalieres-maladie",
+  "entrees": {
+   "statut": "ae",
+   "activite": "bnc",
+   "ca": 6000,
+   "affil": 24,
+   "jours": 15
+  },
+  "attendus": {
+   "#total": "Aucune indemnité : revenu annuel moyen inférieur à 4 582,00 €"
+  }
+ },
+ {
+  "page": "simulateur-indemnites-journalieres-maladie",
+  "entrees": {
+   "statut": "ae",
+   "activite": "bnc",
+   "ca": 30000,
+   "affil": 6,
+   "jours": 15
+  },
+  "attendus": {
+   "#total": "Droits non ouverts : moins de 12 mois d'affiliation (vérifiez un éventuel maintien de droits)"
+  }
  }
 ]
