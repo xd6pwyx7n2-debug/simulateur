@@ -38,13 +38,15 @@
       ["SMIC", { statut: "noncadre", brut: 1867.02 }],
       ["1 800 € brut", { statut: "noncadre", brut: 1800 }],
       ["2 500 € brut", { statut: "noncadre", brut: 2500 }],
-      ["Cadre · 4 000 €", { statut: "cadre", brut: 4000 }]
+      ["Cadre · 4 000 €", { statut: "cadre", brut: 4000 }],
+      ["Auto-entrepreneur · 3 000 € (BNC)", { statut: "ae", activite: "bnc", brut: 3000 }]
     ],
     "simulateur-net-brut": [
       ["SMIC net", { statut: "noncadre", net: 1477.93 }],
       ["1 800 € net", { statut: "noncadre", net: 1800 }],
       ["2 000 € net", { statut: "noncadre", net: 2000 }],
-      ["Cadre · 3 000 € net", { statut: "cadre", net: 3000 }]
+      ["Cadre · 3 000 € net", { statut: "cadre", net: 3000 }],
+      ["Auto-entrepreneur · 2 000 € net (BNC)", { statut: "ae", activite: "bnc", net: 2000 }]
     ],
     "simulateur-smic": [
       ["Temps plein · 35 h", { heures: 35, brut: "" }],

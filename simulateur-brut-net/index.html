@@ -6,7 +6,7 @@
 
   <title>Simulateur brut net 2026 : salaire brut en net | SimuDroit</title>
 
-  <meta name="description" content="Calculez votre salaire net à partir du salaire brut avec notre simulateur brut-net 2026. Estimation rapide et gratuite du salaire net avant impôt.">
+  <meta name="description" content="Convertissez un salaire brut en net, ou le chiffre d'affaires d'un auto-entrepreneur en revenu après cotisations 2026. Estimation gratuite.">
 
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
@@ -16,7 +16,7 @@
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Simulateur brut net 2026 : salaire brut en net | SimuDroit">
-  <meta property="og:description" content="Convertissez rapidement votre salaire brut en salaire net avec notre simulateur gratuit.">
+  <meta property="og:description" content="Convertissez un salaire brut en net, ou le chiffre d'affaires d'un auto-entrepreneur en revenu après cotisations 2026. Estimation gratuite.">
   <meta property="og:url" content="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-brut-net/">
   <meta property="og:image" content="https://xd6pwyx7n2-debug.github.io/simulateur/og-image.png">
   <meta property="og:image:width" content="1200">
@@ -27,7 +27,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://xd6pwyx7n2-debug.github.io/simulateur/og-image.png">
   <meta name="twitter:title" content="Simulateur brut net 2026 : salaire brut en net | SimuDroit">
-  <meta name="twitter:description" content="Estimez votre salaire net à partir de votre salaire brut.">
+  <meta name="twitter:description" content="Convertissez un salaire brut en net, ou le chiffre d'affaires d'un auto-entrepreneur en revenu après cotisations 2026. Estimation gratuite.">
 
   <style>
     :root {
@@ -327,6 +327,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
 
   <script type="application/ld+json">
   {
@@ -372,7 +373,7 @@
   {
     "@context":"https://schema.org",
     "@type":"FAQPage",
-    "mainEntity":[
+    "mainEntity":[{"@type": "Question", "name": "Comment calculer le revenu net d'un auto-entrepreneur ?", "acceptedAnswer": {"@type": "Answer", "text": "Les cotisations sociales sont un pourcentage du chiffre d'affaires : 12,3 % pour la vente de marchandises, 21,2 % pour les prestations commerciales et artisanales, 25,6 % pour les autres prestations de services (BNC) et 23,2 % pour les professions libérales Cipav, à compter du 1er janvier 2026. Le revenu avant impôt est le chiffre d'affaires moins ces cotisations."}}, 
       {
         "@type":"Question",
         "name":"Quelle différence entre salaire brut et salaire net ?",
@@ -458,7 +459,7 @@
     </div>
 
     <div class="field">
-      <label for="brut">Salaire brut mensuel (€)</label>
+      <label for="brut" id="lblMain">Salaire brut mensuel (€)</label>
       <input
         type="number"
         id="brut"
@@ -474,6 +475,7 @@
       <select id="statut">
         <option value="noncadre">Salarié non-cadre</option>
         <option value="cadre">Salarié cadre</option>
+        <option value="ae">Auto-entrepreneur (micro-entrepreneur)</option>
       </select>
 
       <div class="field-help">
@@ -481,7 +483,23 @@
       </div>
     </div>
 
-    <div class="field">
+    <div id="aeBlock" hidden>
+      <div class="field">
+        <label for="activite">Nature de votre activité</label>
+        <select id="activite">
+          <option value="vente">Vente de marchandises (BIC) · 12,3 %</option>
+          <option value="prestations">Prestations de services commerciales ou artisanales (BIC) · 21,2 %</option>
+          <option value="bnc" selected>Autres prestations de services, professions libérales non réglementées (BNC) · 25,6 %</option>
+          <option value="cipav">Professions libérales réglementées (Cipav) · 23,2 %</option>
+        </select>
+        <div class="field-help">Taux de cotisations sociales applicables au chiffre d'affaires en 2026, hors contribution à la formation professionnelle (0,1 à 0,3 % selon l'activité).</div>
+      </div>
+      <div class="field">
+        <label><input type="checkbox" id="vl" style="width:auto;margin-right:8px"> Option versement libératoire de l'impôt sur le revenu</label>
+        <div class="field-help">Sous conditions de revenus. L'impôt est alors payé en même temps que les cotisations (1 %, 1,7 % ou 2,2 % du chiffre d'affaires selon l'activité).</div>
+      </div>
+    </div>
+    <div class="field" id="fieldTaux">
       <label for="taux">Taux estimatif de cotisations salariales (%)</label>
 
       <input
@@ -504,7 +522,7 @@
 
     <div class="result" id="result" aria-live="polite">
 
-      <div class="result-title">
+      <div class="result-title" id="resTitle">
         Salaire net estimé avant impôt
       </div>
 
@@ -513,12 +531,12 @@
       </div>
 
       <div class="result-row">
-        <span>Salaire brut mensuel</span>
+        <span id="lblRow1">Salaire brut mensuel</span>
         <strong id="resultBrut">0,00 €</strong>
       </div>
 
       <div class="result-row">
-        <span>Cotisations salariales estimées</span>
+        <span id="lblRow2">Cotisations salariales estimées</span>
         <strong id="resultCotisations">0,00 €</strong>
       </div>
 
@@ -527,7 +545,9 @@
         <strong id="resultTaux">0 %</strong>
       </div>
 
-      <div class="warning">
+      <div class="result-row" id="rowDetailAE" style="display:none"><span>Dont</span><strong id="detailAE"></strong></div>
+
+      <div class="warning" id="avertissement">
         Cette estimation ne correspond pas nécessairement au montant exact
         figurant sur votre bulletin de paie. Elle ne tient notamment pas
         compte de l'ensemble des paramètres individuels, conventions collectives,
@@ -639,6 +659,21 @@
 
   </section>
 
+  <section class="info-section" id="auto-entrepreneur">
+    <h2>Auto-entrepreneur : du chiffre d'affaires au revenu net</h2>
+    <p>Un micro-entrepreneur ne reçoit pas de fiche de paie : ses cotisations sociales sont un pourcentage de son <strong>chiffre d'affaires</strong>, payé à l'Urssaf. Taux applicables à compter du 1er janvier 2026, selon le ministère de l'Économie :</p>
+    <div class="table-wrap"><table class="sd-table"><thead><tr><th scope="col">Activité</th><th scope="col">Cotisations sociales</th><th scope="col">Versement libératoire (option)</th></tr></thead><tbody>
+      <tr><td>Vente de marchandises (BIC)</td><td>12,3 %</td><td>1 %</td></tr>
+      <tr><td>Prestations de services commerciales et artisanales (BIC)</td><td>21,2 %</td><td>1,7 %</td></tr>
+      <tr><td>Autres prestations de services (BNC)</td><td>25,6 %</td><td>2,2 %</td></tr>
+      <tr><td>Professions libérales réglementées (Cipav)</td><td>23,2 %</td><td>2,2 %</td></tr>
+    </tbody></table></div>
+    <p><strong>Exemple :</strong> un consultant en BNC facture 3 000 € dans le mois. Cotisations : 3 000 × 25,6 % = 768 €. Il lui reste 2 232 € avant impôt sur le revenu.</p>
+    <h3>Ce que le calcul ne comprend pas</h3>
+    <p>Contribution à la formation professionnelle (0,1 à 0,3 % du chiffre d'affaires), cotisation foncière des entreprises, réduction ACRE de début d'activité, impôt sur le revenu hors versement libératoire, et frais professionnels. Vérifiez aussi que votre chiffre d'affaires reste sous les plafonds du régime micro-entrepreneur.</p>
+    <p>Sources : <a href="https://www.economie.gouv.fr/entreprises/gerer-sa-micro-entreprise/micro-entreprises-quel-est-le-montant-de-vos-cotisations-sociales" target="_blank" rel="noopener noreferrer">economie.gouv.fr, montant des cotisations sociales</a> (6 mars 2026) · <a href="https://www.economie.gouv.fr/entreprises/gerer-sa-micro-entreprise/micro-entreprise-comment-fonctionne-le-versement-liberatoire-de-limpot-sur-le-revenu" target="_blank" rel="noopener noreferrer">economie.gouv.fr, versement libératoire</a> (1er avril 2026).</p>
+  </section>
+
   <section class="info-section">
 
     <h2>Autres simulateurs SimuDroit</h2>
@@ -714,6 +749,35 @@
     return Number.isFinite(value) ? value : 0;
   }
 
+  const ME = SD_PARAMS.microEntrepreneur;
+  const r2 = x => Math.round((x + 1e-9) * 100) / 100;
+  const TXT = {
+    sal: {main: "Salaire brut mensuel (€)", title: "Salaire net estimé avant impôt", row1: "Salaire brut mensuel", row2: "Cotisations salariales estimées"},
+    ae:  {main: "Chiffre d'affaires mensuel (€)", title: "Revenu net estimé après cotisations", row1: "Chiffre d'affaires mensuel", row2: "Cotisations sociales et impôt (versement libératoire)", warn: "Estimation fondée sur les taux 2026 du régime micro-entrepreneur appliqués au chiffre d'affaires. Elle ne comprend ni la contribution à la formation professionnelle, ni la cotisation foncière des entreprises, ni l'ACRE, ni l'impôt sur le revenu si vous n'avez pas opté pour le versement libératoire."}
+  };
+  let warnSal = null;
+  function majMode() {
+    const ae = statutInput.value === "ae";
+    const t = ae ? TXT.ae : TXT.sal;
+    document.getElementById("aeBlock").hidden = !ae;
+    document.getElementById("fieldTaux").hidden = ae;
+    document.getElementById("lblMain").textContent = t.main;
+    document.getElementById("resTitle").textContent = t.title;
+    document.getElementById("lblRow1").textContent = t.row1;
+    document.getElementById("lblRow2").textContent = t.row2;
+    const w = document.getElementById("avertissement");
+    if (warnSal === null) warnSal = w.textContent;
+    w.textContent = ae ? t.warn : warnSal;
+    document.getElementById("rowDetailAE").style.display = "none";
+    document.getElementById("result").classList.remove("visible");
+  }
+  function detailAE(cot, imp, vl) {
+    const row = document.getElementById("rowDetailAE");
+    if (!vl) { row.style.display = "none"; return; }
+    document.getElementById("detailAE").textContent = "cotisations " + formatEuro(cot) + " · impôt " + formatEuro(imp);
+    row.style.display = "";
+  }
+  statutInput.addEventListener("change", majMode);
   statutInput.addEventListener("change", function () {
     if (this.value === "cadre") {
       tauxInput.value = "24";
@@ -723,6 +787,21 @@
   });
 
   calculateButton.addEventListener("click", function () {
+
+    if (statutInput.value === "ae") {
+      const ca = getNumber("brut");
+      if (ca <= 0) { alert("Veuillez saisir un chiffre d'affaires mensuel supérieur à 0 €."); return; }
+      const act = document.getElementById("activite").value, vl = document.getElementById("vl").checked;
+      const tc = ME.taux[act], tv = vl ? ME.vl[act] : 0;
+      const cot = r2(ca * tc), imp = r2(ca * tv);
+      document.getElementById("resultBrut").textContent = formatEuro(ca);
+      document.getElementById("resultCotisations").textContent = formatEuro(cot + imp);
+      document.getElementById("resultTaux").textContent = ((tc + tv) * 100).toLocaleString("fr-FR", {minimumFractionDigits:1, maximumFractionDigits:1}) + " %";
+      detailAE(cot, imp, vl);
+      document.getElementById("net").textContent = formatEuro(r2(ca - cot - imp));
+      document.getElementById("result").classList.add("visible");
+      return;
+    }
 
     const brut = getNumber("brut");
     let taux = getNumber("taux");

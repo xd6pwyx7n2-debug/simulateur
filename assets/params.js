@@ -25,6 +25,11 @@ window.SD_PARAMS = {
     affiliationMois: 12,
     abattement: { vente: 0.71, prestations: 0.50, bnc: 0.34 }
   },
+  microEntrepreneur: {         // economie.gouv.fr (pages du 06/03/2026 et du 01/04/2026), taux à compter du 1er janvier 2026
+    depuis: "2026-01-01",
+    taux: { vente: 0.123, prestations: 0.212, bnc: 0.256, cipav: 0.232 },   // cotisations sociales sur le chiffre d'affaires
+    vl:   { vente: 0.01,  prestations: 0.017, bnc: 0.022, cipav: 0.022 }    // versement libératoire de l'impôt sur le revenu
+  },
   ijMaternite: {                // ameli.fr
     taux: 0.79,
     maxJour: 104.02

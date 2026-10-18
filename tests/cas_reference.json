@@ -288,5 +288,51 @@
   "attendus": {
    "#total": "Droits non ouverts : moins de 12 mois d'affiliation (vérifiez un éventuel maintien de droits)"
   }
+ },
+ {
+  "page": "simulateur-brut-net",
+  "entrees": {
+   "statut": "ae",
+   "activite": "bnc",
+   "brut": 3000
+  },
+  "attendus": {
+   "#net": "2 232,00 €",
+   "#resultCotisations": "768,00 €"
+  }
+ },
+ {
+  "page": "simulateur-brut-net",
+  "entrees": {
+   "statut": "ae",
+   "activite": "vente",
+   "brut": 3000
+  },
+  "attendus": {
+   "#net": "2 631,00 €"
+  }
+ },
+ {
+  "page": "simulateur-brut-net",
+  "entrees": {
+   "statut": "ae",
+   "activite": "prestations",
+   "brut": 3000,
+   "vl": "on"
+  },
+  "attendus": {
+   "#net": "2 313,00 €"
+  }
+ },
+ {
+  "page": "simulateur-net-brut",
+  "entrees": {
+   "statut": "ae",
+   "activite": "bnc",
+   "net": 2000
+  },
+  "attendus": {
+   "#brut": "2 688,17 €"
+  }
  }
 ]

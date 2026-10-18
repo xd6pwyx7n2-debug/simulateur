@@ -107,7 +107,7 @@ with sync_playwright() as pw:
     for c in CASES:
         pg.goto(LOCAL + c["page"] + "/"); pg.wait_for_timeout(200)
         for k, v in c["entrees"].items():
-            pg.evaluate("([k,v])=>{var e=document.getElementById(k);e.value=v;e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))}", [k, str(v)])
+            pg.evaluate("([k,v])=>{var e=document.getElementById(k);if(e.type==='checkbox'){e.checked=true}else{e.value=v};e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))}", [k, str(v)])
         pg.evaluate("(document.getElementById('calculate')||document.querySelector('.calculator button:not(.sd-chip):not(.sd-secondary)')).click()")
         pg.wait_for_timeout(1100)
         for sel, attendu in c["attendus"].items():
