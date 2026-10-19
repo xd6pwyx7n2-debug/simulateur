@@ -45,6 +45,10 @@ window.SD_PARAMS = {
     mois1: { taux: 0.70, maxJour: 72.81 },
     mois2: { taux: 0.60, maxJour: 62.41 }
   },
+  ati: {                        // Allocation des travailleurs indépendants — francetravail.fr et unedic.org (page Unédic du 13/10/2026)
+    maxJour: 26.30, minJour: 19.73, jours: 182,
+    revenuMinAnnuel: 10000, moisActiviteMin: 24, moisCessationMax: 12
+  },
   ijMaternite: {                // ameli.fr
     taux: 0.79,
     maxJour: 104.02
