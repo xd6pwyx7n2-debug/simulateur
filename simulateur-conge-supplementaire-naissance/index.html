@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Congé supplémentaire de naissance 2026 : indemnités</title>
+  <meta name="description" content="Calculez l'indemnité du congé supplémentaire de naissance (1 ou 2 mois, 70 % puis 60 % du salaire net), en vigueur depuis le 1er juillet 2026.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-conge-supplementaire-naissance/">
+  <link rel="icon" href="https://xd6pwyx7n2-debug.github.io/simulateur/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Congé supplémentaire de naissance 2026 : indemnités | SimuDroit">
+  <meta property="og:description" content="Estimez l'indemnité du congé supplémentaire de naissance : 1 ou 2 mois, 70 % puis 60 % du salaire net, selon vos 3 derniers salaires.">
+  <meta property="og:url" content="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-conge-supplementaire-naissance/">
+  <meta property="og:image" content="https://xd6pwyx7n2-debug.github.io/simulateur/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://xd6pwyx7n2-debug.github.io/simulateur/og-image.png">
+  <meta name="twitter:title" content="Congé supplémentaire de naissance 2026 : indemnités | SimuDroit">
+  <meta name="twitter:description" content="Estimez l'indemnité du congé supplémentaire de naissance : 1 ou 2 mois, 70 % puis 60 % du salaire net, selon vos 3 derniers salaires.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#687887;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://xd6pwyx7n2-debug.github.io/simulateur/"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebPage", "name": "Congé supplémentaire de naissance 2026 : indemnités", "url": "https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-conge-supplementaire-naissance/", "description": "Calculez l'indemnité du congé supplémentaire de naissance (1 ou 2 mois, 70 % puis 60 % du salaire net), en vigueur depuis le 1er juillet 2026.", "inLanguage": "fr-FR", "isPartOf": {"@type": "WebSite", "name": "SimuDroit", "url": "https://xd6pwyx7n2-debug.github.io/simulateur/"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "SimuDroit", "item": "https://xd6pwyx7n2-debug.github.io/simulateur/"}, {"@type": "ListItem", "position": 2, "name": "Congé supplémentaire de naissance 2026", "item": "https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-conge-supplementaire-naissance/"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Qu'est-ce que le congé supplémentaire de naissance ?", "acceptedAnswer": {"@type": "Answer", "text": "Créé par la loi de financement de la Sécurité sociale pour 2026 et effectif depuis le 1er juillet 2026, il s'ajoute au congé maternité, paternité ou d'adoption. Il dure 1 ou 2 mois par parent, au choix, et peut être pris par les deux parents en même temps ou à tour de rôle."}}, {"@type": "Question", "name": "Combien est payé le congé supplémentaire de naissance ?", "acceptedAnswer": {"@type": "Answer", "text": "Pour un salarié, l'indemnité est de 70 % du salaire net le premier mois (72,81 € par jour maximum) et de 60 % le second mois (62,41 € par jour maximum), dans la limite du plafond mensuel de la Sécurité sociale de 4 005 €."}}, {"@type": "Question", "name": "Qui peut prendre le congé supplémentaire de naissance ?", "acceptedAnswer": {"@type": "Answer", "text": "Les salariés, les travailleurs indépendants, les artistes-auteurs et les demandeurs d'emploi, pour les enfants nés ou arrivés au foyer à partir du 1er janvier 2026. Un salarié doit avoir pris la totalité de son congé maternité, paternité ou d'adoption."}}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebApplication", "name": "Congé supplémentaire de naissance 2026", "url": "https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-conge-supplementaire-naissance/", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "description": "Calculez l'indemnité du congé supplémentaire de naissance (1 ou 2 mois, 70 % puis 60 % du salaire net), en vigueur depuis le 1er juillet 2026."}
+  </script>
+
+  <meta name="theme-color" content="#201e48">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="SimuDroit : simulateurs gratuits de salaire et de droits du travail">
+  <link rel="alternate" hreflang="fr" href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-conge-supplementaire-naissance/">
+  <link rel="alternate" hreflang="x-default" href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-conge-supplementaire-naissance/">
+</head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://xd6pwyx7n2-debug.github.io/simulateur/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/#simulateurs">Simulateurs</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/assistant/">Assistant</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/guides/">Guides</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/glossaire/">Glossaire</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/faq/">FAQ</a>
+      <a class="cta-link" href="https://xd6pwyx7n2-debug.github.io/simulateur/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://xd6pwyx7n2-debug.github.io/simulateur/">Accueil</a>
+    &nbsp;›&nbsp;
+    Congé supplémentaire de naissance 2026
+  </div>
+
+  <section class="hero">
+    <h1>Congé supplémentaire de naissance 2026</h1>
+    <p>Nouveau congé de 1 ou 2 mois après la naissance ou l'adoption, indemnisé depuis le 1er juillet 2026 : estimez votre indemnité par jour et le total.</p>
+      <div class="badges"><span class="badge">✓ Règles en vigueur vérifiées le 18 octobre 2026</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Vos données restent dans votre navigateur</span></div>
+  </section>
+
+  <section class="calculator">
+    <h2>Calculer mon congé supplémentaire de naissance</h2>
+    <noscript><p class="intro-note"><strong>JavaScript requis :</strong> ce simulateur calcule directement dans votre navigateur. Activez JavaScript pour l'utiliser.</p></noscript>
+    <div class="intro-note"><strong>À savoir :</strong> ce congé s'ajoute au congé maternité, paternité ou d'adoption, sans le remplacer. Le calcul concerne l'indemnité de base de la Sécurité sociale pour un salarié : votre employeur ou votre convention collective peut la compléter.</div>
+
+    <div class="field">
+      <label for="statut">Votre situation</label>
+      <select id="statut">
+        <option value="salarie">Salarié</option>
+        <option value="ind">Indépendant (artisan, commerçant, profession libérale, auto-entrepreneur)</option>
+      </select>
+    </div>
+
+    <div id="blocInd" hidden>
+      <div class="intro-note"><strong>Indépendants :</strong> le congé supplémentaire de naissance est ouvert aux travailleurs indépendants (artisans, commerçants, professions libérales, dirigeants, conjoints collaborateurs). L'Assurance Maladie indique une indemnité journalière forfaitaire, soumise à un abattement dans les mêmes proportions que pour les salariés, mais ne publie pas de montant précis. Ce simulateur ne l'estime donc pas, pour ne pas vous donner un chiffre inexact. Conditions : 6 mois d'affiliation à la date de début du congé, suspension de l'activité pendant toute la durée, et période minimale obligatoire déjà prise (7 jours pour la paternité ; 2 semaines avant et 6 semaines après l'accouchement pour la maternité). La demande se fait par le téléservice dédié de l'Assurance Maladie. <a href="https://www.ameli.fr/assure/droits-demarches/famille/maternite-paternite-adoption/conge-supplementaire-naissance" target="_blank" rel="noopener noreferrer">Source : ameli.fr</a></div>
+    </div>
+
+    <div id="blocSalarie">
+    <div class="field">
+      <label for="s1">Salaire brut du dernier mois avant le congé (€)</label>
+      <input type="number" id="s1" min="0" step="0.01" placeholder="Ex. 2 500">
+    </div>
+    <div class="field">
+      <label for="s2">Salaire brut de l'avant-dernier mois (€)</label>
+      <input type="number" id="s2" min="0" step="0.01" placeholder="Ex. 2 500">
+    </div>
+    <div class="field">
+      <label for="s3">Salaire brut du 3e mois précédent (€)</label>
+      <input type="number" id="s3" min="0" step="0.01" placeholder="Ex. 2 500">
+      <div class="field-help">Indiquez les 3 derniers salaires bruts (primes comprises) précédant le début du congé, tels qu'ils figurent sur vos bulletins de paie.</div>
+    </div>
+    <div class="field">
+      <label for="duree">Durée du congé</label>
+      <select id="duree">
+        <option value="1">1 mois</option>
+        <option value="2" selected>2 mois</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="debut">Date de début du congé — facultatif</label>
+      <input type="date" id="debut">
+      <div class="field-help">Le congé se calcule de date à date. Sans date, le simulateur compte 30 jours par mois.</div>
+    </div>
+    <div class="field" id="fieldDebut2">
+      <label for="debut2">Début du 2e mois, s'il est pris séparément — facultatif</label>
+      <input type="date" id="debut2">
+      <div class="field-help">Un congé de 2 mois peut être pris d'un seul bloc ou en deux périodes de 1 mois.</div>
+    </div>
+    <button type="button" id="calculate">Calculer</button>
+    </div>
+
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">Indemnité journalière du 1er mois</div>
+      <div class="result-main" id="ij">0,00 €</div>
+      <div class="result-row" id="rowIj2"><span>Indemnité journalière du 2e mois</span><strong id="ij2"></strong></div>
+      <div class="result-row"><span>Jours indemnisés</span><strong id="jours"></strong></div>
+      <div class="result-row"><span>Total estimé</span><strong id="total">0,00 €</strong></div>
+      <div class="result-row" id="rowPlafond" style="display:none"><span>Plafond appliqué</span><strong id="plafond"></strong></div>
+      <div class="warning" id="avertissement">Estimation de l'indemnité de base, avant d'éventuels prélèvements sociaux. Pour en bénéficier, vous devez avoir pris la totalité de votre congé maternité, paternité ou d'adoption, avoir 6 mois d'affiliation et justifier de 150 heures de travail sur les 3 mois civils précédents (ou d'un salaire d'au moins 1 015 fois le SMIC horaire sur les 6 mois précédents). Seule votre caisse d'assurance maladie fixe le montant définitif.</div>
+    </div>
+    <a class="official-link" href="https://www.ameli.fr/assure/droits-demarches/famille/maternite-paternite-adoption/conge-supplementaire-naissance" target="_blank" rel="noopener noreferrer">→ Consulter les règles officielles sur ameli.fr</a>
+  </section>
+
+  <section class="info-section sd-know" id="a-savoir">
+    <h2>À savoir avant de vous fier au résultat</h2>
+    <div class="sd-know-grid">
+      <div class="sd-know-card"><h3>Qui peut en bénéficier ?</h3><p>Les salariés, les travailleurs indépendants, les artistes-auteurs et les demandeurs d'emploi, pour les enfants nés ou arrivés au foyer à partir du 1er janvier 2026 (y compris les naissances prématurées dont le terme était prévu à partir de cette date). Les deux parents y ont droit, ainsi que le conjoint, le partenaire de Pacs ou le concubin.</p></div>
+      <div class="sd-know-card"><h3>Quand le prendre ?</h3><p>Il doit débuter dans les 9 mois suivant la naissance ou l'arrivée de l'enfant. Pour un enfant né entre le 1er janvier et le 30 juin 2026, ce délai court à partir du 1er juillet 2026. Il est allongé en cas de naissances multiples.</p></div>
+      <div class="sd-know-card"><h3>Condition préalable</h3><p>Un salarié doit avoir pris la totalité de son congé maternité, paternité ou d'adoption. Pour un père, cela signifie les 25 jours du congé de paternité.</p></div>
+    </div>
+  </section>
+
+  <section class="info-section">
+    <h2>Comment est calculée l'indemnité ?</h2>
+    <p>L'indemnité suit la méthode des indemnités de maternité et de paternité : salaire journalier de base (somme des 3 derniers salaires bruts, chacun limité à 4 005 €, divisée par 91,25), moins une déduction forfaitaire de 21 %. Elle est ensuite fixée à <strong>70 % le premier mois</strong> et <strong>60 % le second mois</strong>.</p>
+    <div class="table-wrap"><table class="sd-table"><thead><tr><th scope="col">Période</th><th scope="col">Taux</th><th scope="col">Maximum par jour</th></tr></thead><tbody>
+      <tr><td>1er mois</td><td>70 % du salaire net</td><td>72,81 €</td></tr>
+      <tr><td>2e mois</td><td>60 % du salaire net</td><td>62,41 €</td></tr>
+    </tbody></table></div>
+    <p>L'indemnité est versée à terme échu, c'est-à-dire après la fin de chaque période d'un mois, directement par la caisse ou par l'employeur en cas de subrogation.</p>
+  </section>
+
+  <section class="info-section">
+    <h2>Exemple chiffré</h2>
+    <p>Un salarié a gagné 2 500 € brut par mois sur les 3 derniers mois. Indemnité de maternité ou de paternité : 64,93 € par jour. Premier mois : 64,93 × 70 % = 45,45 € par jour. Second mois : 64,93 × 60 % = 38,96 € par jour. Pour un congé de 2 mois sur 30 jours chacun : 1 363,50 € + 1 168,80 €, soit <strong>2 532,30 €</strong>. Le nombre exact de jours varie selon les mois du calendrier.</p>
+  </section>
+
+  <section class="info-section">
+    <h2>Démarches</h2>
+    <p><strong>Salarié :</strong> prévenir l'employeur au plus tard 1 mois avant le début du congé (15 jours s'il suit immédiatement un congé de paternité ou d'adoption), par lettre recommandée avec accusé de réception ou remise contre récépissé, en précisant la date de début, la durée et, pour 2 mois, si le congé est pris en une ou deux fois. L'employeur ne peut pas refuser le congé lorsque les conditions sont remplies. L'employeur transmet la demande à la caisse.</p>
+    <p><strong>Indépendant :</strong> demande par le téléservice de l'Assurance Maladie, au plus tôt le premier jour du congé.</p>
+    <p><strong>Demandeur d'emploi :</strong> prévenir France Travail au moins 1 mois avant. Les allocations chômage sont suspendues pendant le congé.</p>
+  </section>
+
+  <section class="info-section">
+    <h2>Questions fréquentes</h2>
+    <h3>Qu'est-ce que le congé supplémentaire de naissance ?</h3>
+    <p>C'est un congé indemnisé créé par la loi de financement de la Sécurité sociale pour 2026 et effectif depuis le 1er juillet 2026. Il s'ajoute au congé maternité, paternité ou d'adoption. Il dure 1 ou 2 mois par parent, au choix, et peut être pris par les deux parents en même temps ou à tour de rôle.</p>
+    <h3>Combien est payé le congé supplémentaire de naissance ?</h3>
+    <p>Pour un salarié, 70 % du salaire net le premier mois (72,81 € par jour maximum) et 60 % le second mois (62,41 € par jour maximum), dans la limite du plafond mensuel de la Sécurité sociale de 4 005 €.</p>
+    <h3>Peut-on le prendre en deux fois ?</h3>
+    <p>Oui : un congé de 2 mois peut être pris d'un seul bloc ou en deux périodes de 1 mois. Dans les deux cas, il doit commencer dans les 9 mois suivant la naissance ou l'arrivée de l'enfant.</p>
+    <h3>L'employeur peut-il refuser ?</h3>
+    <p>Non, lorsque les conditions sont remplies, l'employeur ne peut ni refuser le congé ni exiger son report.</p>
+  </section>
+
+  <section class="info-section">
+    <h2>Autres simulateurs SimuDroit</h2>
+    <div class="links-grid">
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-conge-maternite/">Congé maternité</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-conge-paternite/">Congé paternité</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-brut-net/">Simulateur brut net</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-chomage/">Simulateur chômage</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/">Tous les simulateurs</a>
+    </div>
+    <p style="margin-top:16px;font-size:.9rem;color:var(--muted)">Règles vérifiées le 18 octobre 2026 sur <a href="https://www.ameli.fr/assure/droits-demarches/famille/maternite-paternite-adoption/conge-supplementaire-naissance" target="_blank" rel="noopener noreferrer">ameli.fr</a> (page assuré et page employeur). Voir la page <a href="https://xd6pwyx7n2-debug.github.io/simulateur/methode-et-sources/">Méthode et sources</a>.</p>
+  </section>
+
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/simulateur/simulateur-conge-paternite/">Congé paternité</a><a href="/simulateur/simulateur-conge-maternite/">Congé maternité</a><a href="/simulateur/simulateur-indemnites-journalieres-maladie/">Indemnités journalières maladie</a><a href="/simulateur/simulateur-brut-net/">Salaire brut en net</a><a href="/simulateur/faq/">FAQ</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-10-18">18 octobre 2026</time>. Estimation indicative, sans valeur juridique. <a href="/simulateur/methode-et-sources/">Méthode et sources</a> · <a href="/simulateur/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 SimuDroit · <a href="https://xd6pwyx7n2-debug.github.io/simulateur/">Tous les simulateurs</a> · <a href="https://xd6pwyx7n2-debug.github.io/simulateur/methode-et-sources/">Méthode et sources</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+  function formatEuro(v){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR"}).format(v);}
+  function num(id){var v=parseFloat(document.getElementById(id).value);return Number.isFinite(v)?v:NaN;}
+  function setText(id,t){document.getElementById(id).textContent=t;}
+  function r2(x){return Math.round((x+1e-9)*100)/100;}
+  function salaires(){
+    var a=[num("s1"),num("s2"),num("s3")];
+    for(var i=0;i<3;i++){ if(!Number.isFinite(a[i])||a[i]<0){alert("Renseignez vos trois derniers salaires bruts mensuels (0 si aucun).");return null;} }
+    if(a[0]+a[1]+a[2]<=0){alert("Renseignez vos trois derniers salaires bruts mensuels.");return null;}
+    return a;
+  }
+  var PMSS=SD_PARAMS.pmss, IJMAX=SD_PARAMS.ijMaternite.maxJour, CSN=SD_PARAMS.congeSupplementaireNaissance;
+  function parseDate(v){if(!v)return null;var p=v.split("-");return new Date(+p[0],+p[1]-1,+p[2]);}
+  function addMonths(d,n){
+    var t=new Date(d.getFullYear(),d.getMonth()+n,1), last=new Date(t.getFullYear(),t.getMonth()+1,0).getDate();
+    t.setDate(Math.min(d.getDate(),last)); return t;
+  }
+  function diffDays(a,b){return Math.round((b-a)/86400000);}
+  function majStatut(){
+    var ind=document.getElementById("statut").value==="ind";
+    document.getElementById("blocInd").hidden=!ind;
+    document.getElementById("blocSalarie").hidden=ind;
+    document.getElementById("result").classList.remove("visible");
+  }
+  function majDuree(){document.getElementById("fieldDebut2").hidden=document.getElementById("duree").value!=="2";document.getElementById("rowIj2").style.display=document.getElementById("duree").value==="2"?"":"none";}
+  document.getElementById("statut").addEventListener("change",majStatut);
+  document.getElementById("duree").addEventListener("change",majDuree);
+  majDuree();
+  document.getElementById("calculate").addEventListener("click",function(){
+    var s=salaires(); if(!s) return;
+    var capped=false,sum=0;
+    s.forEach(function(v){ if(v>PMSS){capped=true; sum+=PMSS;} else sum+=v; });
+    var base=r2(sum/91.25*0.79);
+    if(base>=IJMAX){base=IJMAX;capped=true;}
+    var ij1=Math.min(r2(base*CSN.mois1.taux),CSN.mois1.maxJour), ij2=Math.min(r2(base*CSN.mois2.taux),CSN.mois2.maxJour);
+    var nb=document.getElementById("duree").value==="2"?2:1;
+    var d1=parseDate(document.getElementById("debut").value), d2=parseDate(document.getElementById("debut2").value);
+    var j1=30, j2=30, exact=false;
+    if(d1){
+      exact=true; j1=diffDays(d1,addMonths(d1,1));
+      if(nb===2){ var s2=d2||addMonths(d1,1); j2=diffDays(s2,addMonths(s2,1)); }
+    } else if(nb===2&&d2){ j2=diffDays(d2,addMonths(d2,1)); }
+    var jours=nb===2?j1+j2:j1;
+    var total=r2(ij1*j1+(nb===2?ij2*j2:0));
+    setText("ij",formatEuro(ij1)+" par jour");
+    setText("ij2",formatEuro(ij2)+" par jour");
+    setText("jours",nb===2?(j1+" jours + "+j2+" jours = "+jours+(exact?"":" (30 jours par mois, estimation)")):(j1+" jours"+(exact?"":" (30 jours, estimation)")));
+    setText("total",formatEuro(total));
+    var row=document.getElementById("rowPlafond");
+    var pl=[];
+    if(capped) pl.push("Salaires limités au plafond mensuel de la Sécurité sociale ("+formatEuro(PMSS)+")");
+    if(ij1>=CSN.mois1.maxJour||ij2>=CSN.mois2.maxJour) pl.push("maximum de "+formatEuro(CSN.mois1.maxJour)+" (1er mois) et "+formatEuro(CSN.mois2.maxJour)+" (2e mois) par jour");
+    if(pl.length){setText("plafond",pl.join(" · "));row.style.display="";}else row.style.display="none";
+    document.getElementById("result").classList.add("visible");
+  });
+
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>

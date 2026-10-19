@@ -392,6 +392,15 @@
     <div class="intro-note"><strong>À savoir :</strong> le calcul estime l'indemnité de base de la Sécurité sociale. Votre employeur peut maintenir tout ou partie de votre salaire selon votre convention collective.</div>
 
     <div class="field">
+      <label for="statut">Votre situation</label>
+      <select id="statut">
+        <option value="salarie">Salarié</option>
+        <option value="ae">Indépendant ou auto-entrepreneur</option>
+      </select>
+      <div class="field-help">Un indépendant reçoit une indemnité forfaitaire et non un pourcentage de salaire.</div>
+    </div>
+    <div id="blocSalarie">
+    <div class="field">
       <label for="s1">Salaire brut du dernier mois avant le congé (€)</label>
       <input type="number" id="s1" min="0" step="0.01" placeholder="Ex. 2 500">
     </div>
@@ -403,6 +412,27 @@
       <label for="s3">Salaire brut du 3e mois précédent (€)</label>
       <input type="number" id="s3" min="0" step="0.01" placeholder="Ex. 2 500">
       <div class="field-help">Indiquez les 3 derniers salaires bruts (primes comprises) précédant le début du congé, tels qu'ils figurent sur vos bulletins de paie.</div>
+    </div>
+    </div>
+    <div id="blocAE" hidden>
+      <div class="field">
+        <label for="activite">Nature de votre activité</label>
+        <select id="activite">
+          <option value="bnc">Profession libérale non réglementée (BNC) · abattement 34 %</option>
+          <option value="prestations">Prestations de services commerciales ou artisanales (BIC) · abattement 50 %</option>
+          <option value="vente">Vente de marchandises (BIC) · abattement 71 %</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="ca">Chiffre d'affaires annuel moyen des 3 dernières années civiles (€)</label>
+        <input type="number" id="ca" min="0" step="1" placeholder="Ex. 30 000">
+        <div class="field-help">Il sert à vérifier le seuil de revenu : sous 4 582 € de revenu annuel moyen (après abattement), l'indemnité est réduite à 10 %.</div>
+      </div>
+      <div class="field">
+        <label for="affil">Ancienneté d'affiliation comme indépendant (en mois)</label>
+        <input type="number" id="affil" min="0" max="600" step="1" placeholder="Ex. 24">
+        <div class="field-help">Il faut au moins 6 mois d'affiliation à la date de début du congé.</div>
+      </div>
     </div>
     <div class="field">
       <label for="charge">Enfants que vous avez déjà (à charge ou nés avant cette naissance)</label>
@@ -433,8 +463,9 @@
       <div class="result-row"><span>Nombre de jours indemnisés</span><strong id="jours"></strong></div>
       <div class="result-row"><span>Total estimé sur la durée du congé</span><strong id="total">0,00 €</strong></div>
       <div class="result-row" id="rowPeriode" style="display:none"><span>Période indicative</span><strong id="periode"></strong></div>
+      <div class="result-row" id="rowAlloc" style="display:none"><span>Dont allocation forfaitaire de repos maternel</span><strong id="alloc"></strong></div>
       <div class="result-row" id="rowPlafond" style="display:none"><span>Plafond appliqué</span><strong id="plafond"></strong></div>
-      <div class="warning">Estimation de l'indemnité de base, avant d'éventuels prélèvements sociaux. Les dates sont indicatives : la date réelle d'accouchement, un report éventuel du congé prénatal ou une naissance prématurée modifient la période. Seule votre caisse fixe le montant définitif.</div>
+      <div class="warning" id="avertissement">Estimation de l'indemnité de base, avant d'éventuels prélèvements sociaux. Les dates sont indicatives : la date réelle d'accouchement, un report éventuel du congé prénatal ou une naissance prématurée modifient la période. Seule votre caisse fixe le montant définitif.</div>
     </div>
     <a class="official-link" href="https://www.ameli.fr/assure/remboursements/indemnites-journalieres-maladie-maternite-paternite/indemnites-journalieres-et-prestations-maternite-paternite-adoption/conge-maternite-salariee" target="_blank" rel="noopener noreferrer">→ Consulter les règles officielles sur ameli.fr</a>
   </section>
@@ -518,10 +549,46 @@
     return a;
   }
 
+  var CI=SD_PARAMS.congeIndependant;
+  var AVERT_SAL=document.getElementById("avertissement").textContent;
+  var AVERT_AE="Estimation fondée sur l'indemnité forfaitaire des indépendants (1/730e du plafond annuel de la Sécurité sociale). La caisse retient les revenus transmis par l'Urssaf. Seule votre caisse d'assurance maladie fixe le montant définitif.";
+  function majStatut(){
+    var ae=document.getElementById("statut").value==="ae";
+    document.getElementById("blocSalarie").hidden=ae;
+    document.getElementById("blocAE").hidden=!ae;
+    document.getElementById("avertissement").textContent=ae?AVERT_AE:AVERT_SAL;
+    document.getElementById("result").classList.remove("visible");
+  }
+  document.getElementById("statut").addEventListener("change",majStatut);
+  function aeIJ(){
+    var ca=num("ca"), aff=num("affil");
+    if(!Number.isFinite(ca)||ca<=0||ca>1000000){alert("Indiquez votre chiffre d'affaires annuel moyen (entre 1 et 1 000 000 €).");return null;}
+    if(!Number.isFinite(aff)||aff<0){alert("Indiquez votre ancienneté d'affiliation en mois (0 si vous débutez).");return null;}
+    var raam=ca*(1-CI.abattement[document.getElementById("activite").value]);
+    return {ouvert:aff>=CI.affiliationMois, bas:raam<CI.seuilRaam, ij:raam<CI.seuilRaam?CI.ijForfaitJour*CI.facteurBasRevenu:CI.ijForfaitJour};
+  }
   var PMSS=SD_PARAMS.pmss, IJMAX=SD_PARAMS.ijMaternite.maxJour;
   var DUR={"1_0":[6,10],"1_2":[8,18],"2_0":[12,22],"2_2":[12,22],"3_0":[24,22],"3_2":[24,22]};
   function fmtDate(d){return d.toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"});}
   document.getElementById("calculate").addEventListener("click",function(){
+    if(document.getElementById("statut").value==="ae"){
+      var a=aeIJ(); if(!a) return;
+      var dd=DUR[document.getElementById("naiss").value+"_"+document.getElementById("charge").value];
+      var sm=dd[0]+dd[1], jr=sm*7;
+      setText("ij",(a.ouvert?formatEuro(r2(a.ij)):formatEuro(0))+" par jour");
+      setText("duree",sm+" semaines ("+dd[0]+" avant + "+dd[1]+" après l'accouchement)");
+      setText("jours",String(jr));
+      var al=a.bas?CI.allocationReposBas:CI.allocationRepos;
+      setText("total",a.ouvert?formatEuro(r2(a.ij*jr+al)):"Droits non ouverts : moins de "+CI.affiliationMois+" mois d'affiliation");
+      var ra=document.getElementById("rowAlloc");
+      if(a.ouvert){setText("alloc",formatEuro(al));ra.style.display="";}else ra.style.display="none";
+      var dp=document.getElementById("dpa").value, rp0=document.getElementById("rowPeriode");
+      if(dp){var q=dp.split("-"), b0=new Date(+q[0],+q[1]-1,+q[2]); var d1=new Date(b0.getTime()); d1.setDate(d1.getDate()-dd[0]*7); var d2=new Date(b0.getTime()); d2.setDate(d2.getDate()+dd[1]*7-1); setText("periode","du "+fmtDate(d1)+" au "+fmtDate(d2)); rp0.style.display="";} else rp0.style.display="none";
+      var pl=document.getElementById("rowPlafond");
+      if(a.bas&&a.ouvert){setText("plafond","Indemnité réduite à 10 % : revenu annuel moyen inférieur à "+formatEuro(CI.seuilRaam));pl.style.display="";}else pl.style.display="none";
+      document.getElementById("result").classList.add("visible");
+      return;
+    }
     var s=salaires(); if(!s) return;
     var capped=false,sum=0;
     s.forEach(function(v){ if(v>PMSS){capped=true; sum+=PMSS;} else sum+=v; });
@@ -533,6 +600,7 @@
     setText("duree",sem+" semaines ("+d[0]+" avant + "+d[1]+" après l'accouchement)");
     setText("jours",String(jours));
     setText("total",formatEuro(r2(ij*jours)));
+    document.getElementById("rowAlloc").style.display="none";
     var dpa=document.getElementById("dpa").value, rp=document.getElementById("rowPeriode");
     if(dpa){
       var p=dpa.split("-"), base=new Date(+p[0],+p[1]-1,+p[2]);

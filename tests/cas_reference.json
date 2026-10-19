@@ -334,5 +334,126 @@
   "attendus": {
    "#brut": "2 688,17 €"
   }
+ },
+ {
+  "page": "simulateur-conge-maternite",
+  "entrees": {
+   "statut": "ae",
+   "activite": "bnc",
+   "ca": 30000,
+   "affil": 24,
+   "charge": "0",
+   "naiss": "1"
+  },
+  "attendus": {
+   "#total": "11 379,08 €",
+   "#jours": "112"
+  }
+ },
+ {
+  "page": "simulateur-conge-maternite",
+  "entrees": {
+   "statut": "ae",
+   "activite": "bnc",
+   "ca": 5000,
+   "affil": 24,
+   "charge": "0",
+   "naiss": "1"
+  },
+  "attendus": {
+   "#total": "1 137,91 €"
+  }
+ },
+ {
+  "page": "simulateur-conge-maternite",
+  "entrees": {
+   "statut": "ae",
+   "activite": "bnc",
+   "ca": 30000,
+   "affil": 3,
+   "charge": "0",
+   "naiss": "1"
+  },
+  "attendus": {
+   "#total": "Droits non ouverts : moins de 6 mois d'affiliation"
+  }
+ },
+ {
+  "page": "simulateur-conge-paternite",
+  "entrees": {
+   "statut": "ae",
+   "activite": "bnc",
+   "ca": 30000,
+   "affil": 24,
+   "naiss": "1"
+  },
+  "attendus": {
+   "#total": "1 646,00 €"
+  }
+ },
+ {
+  "page": "simulateur-conge-paternite",
+  "entrees": {
+   "statut": "ae",
+   "activite": "bnc",
+   "ca": 5000,
+   "affil": 24,
+   "naiss": "2"
+  },
+  "attendus": {
+   "#total": "210,69 €"
+  }
+ },
+ {
+  "page": "simulateur-conge-supplementaire-naissance",
+  "entrees": {
+   "s1": 2500,
+   "s2": 2500,
+   "s3": 2500,
+   "duree": "2"
+  },
+  "attendus": {
+   "#total": "2 532,30 €",
+   "#ij": "45,45 € par jour"
+  }
+ },
+ {
+  "page": "simulateur-conge-supplementaire-naissance",
+  "entrees": {
+   "s1": 2500,
+   "s2": 2500,
+   "s3": 2500,
+   "duree": "2",
+   "debut": "2026-11-01"
+  },
+  "attendus": {
+   "#total": "2 571,26 €"
+  }
+ },
+ {
+  "page": "simulateur-conge-supplementaire-naissance",
+  "entrees": {
+   "s1": 2500,
+   "s2": 2500,
+   "s3": 2500,
+   "duree": "1"
+  },
+  "attendus": {
+   "#total": "1 363,50 €"
+  }
+ },
+ {
+  "page": "simulateur-conge-supplementaire-naissance",
+  "entrees": {
+   "s1": 6000,
+   "s2": 6000,
+   "s3": 6000,
+   "duree": "2"
+  },
+  "attendus": {
+   "#ij": "72,81 € par jour",
+   "#ij2": "62,41 € par jour",
+   "#total": "4 056,60 €"
+  }
  }
 ]

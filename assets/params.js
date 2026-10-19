@@ -30,6 +30,21 @@ window.SD_PARAMS = {
     taux: { vente: 0.123, prestations: 0.212, bnc: 0.256, cipav: 0.232 },   // cotisations sociales sur le chiffre d'affaires
     vl:   { vente: 0.01,  prestations: 0.017, bnc: 0.022, cipav: 0.022 }    // versement libératoire de l'impôt sur le revenu
   },
+  congeIndependant: {          // ameli.fr, maternité et paternité des indépendants, au 1er janvier 2026
+    depuis: "2026-01-01",
+    ijForfaitJour: 65.84,       // 1/730 du PASS
+    facteurBasRevenu: 0.10,     // IJ réduite à 10 % si revenu annuel moyen < seuil
+    seuilRaam: 4582,
+    affiliationMois: 6,
+    allocationRepos: 4005,      // allocation forfaitaire de repos maternel
+    allocationReposBas: 400.50,
+    abattement: { vente: 0.71, prestations: 0.50, bnc: 0.34 }
+  },
+  congeSupplementaireNaissance: {  // ameli.fr, en vigueur au 1er juillet 2026 (salariés)
+    depuis: "2026-07-01",
+    mois1: { taux: 0.70, maxJour: 72.81 },
+    mois2: { taux: 0.60, maxJour: 62.41 }
+  },
   ijMaternite: {                // ameli.fr
     taux: 0.79,
     maxJour: 104.02

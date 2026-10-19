@@ -392,6 +392,15 @@
     <div class="intro-note"><strong>À savoir :</strong> le calcul estime l'indemnité de base de la Sécurité sociale pour le congé de paternité et d'accueil de l'enfant. Les 3 jours de congé de naissance sont payés par l'employeur et ne sont pas inclus.</div>
 
     <div class="field">
+      <label for="statut">Votre situation</label>
+      <select id="statut">
+        <option value="salarie">Salarié</option>
+        <option value="ae">Indépendant ou auto-entrepreneur</option>
+      </select>
+      <div class="field-help">Un indépendant reçoit une indemnité forfaitaire et non un pourcentage de salaire.</div>
+    </div>
+    <div id="blocSalarie">
+    <div class="field">
       <label for="s1">Salaire brut du dernier mois avant le congé (€)</label>
       <input type="number" id="s1" min="0" step="0.01" placeholder="Ex. 2 500">
     </div>
@@ -403,6 +412,27 @@
       <label for="s3">Salaire brut du 3e mois précédent (€)</label>
       <input type="number" id="s3" min="0" step="0.01" placeholder="Ex. 2 500">
       <div class="field-help">Indiquez les 3 derniers salaires bruts (primes comprises) précédant le début du congé, tels qu'ils figurent sur vos bulletins de paie.</div>
+    </div>
+    </div>
+    <div id="blocAE" hidden>
+      <div class="field">
+        <label for="activite">Nature de votre activité</label>
+        <select id="activite">
+          <option value="bnc">Profession libérale non réglementée (BNC) · abattement 34 %</option>
+          <option value="prestations">Prestations de services commerciales ou artisanales (BIC) · abattement 50 %</option>
+          <option value="vente">Vente de marchandises (BIC) · abattement 71 %</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="ca">Chiffre d'affaires annuel moyen des 3 dernières années civiles (€)</label>
+        <input type="number" id="ca" min="0" step="1" placeholder="Ex. 30 000">
+        <div class="field-help">Il sert à vérifier le seuil de revenu : sous 4 582 € de revenu annuel moyen (après abattement), l'indemnité est réduite à 10 %.</div>
+      </div>
+      <div class="field">
+        <label for="affil">Ancienneté d'affiliation comme indépendant (en mois)</label>
+        <input type="number" id="affil" min="0" max="600" step="1" placeholder="Ex. 24">
+        <div class="field-help">Il faut au moins 6 mois d'affiliation à la date de début du congé.</div>
+      </div>
     </div>
     <div class="field">
       <label for="naiss">Naissance</label>
@@ -418,8 +448,8 @@
       <div class="result-main" id="ij">0,00 €</div>
       <div class="result-row"><span>Durée du congé indemnisé</span><strong id="duree"></strong></div>
       <div class="result-row"><span>Total estimé</span><strong id="total">0,00 €</strong></div>
-      <div class="result-row" id="rowPlafond" style="display:none"><span>Plafond appliqué</span><strong id="plafond"></strong></div>
-      <div class="warning">Estimation de l'indemnité de base, avant d'éventuels prélèvements sociaux. Votre employeur peut maintenir votre salaire selon votre convention collective. Seule votre caisse fixe le montant définitif.</div>
+            <div class="result-row" id="rowPlafond" style="display:none"><span>Plafond appliqué</span><strong id="plafond"></strong></div>
+      <div class="warning" id="avertissement">Estimation de l'indemnité de base, avant d'éventuels prélèvements sociaux. Votre employeur peut maintenir votre salaire selon votre convention collective. Seule votre caisse fixe le montant définitif.</div>
     </div>
     <a class="official-link" href="https://www.ameli.fr/assure/remboursements/indemnites-journalieres-maladie-maternite-paternite/indemnites-journalieres-et-prestations-maternite-paternite-adoption/conge-paternite-accueil-enfant" target="_blank" rel="noopener noreferrer">→ Consulter les règles officielles sur ameli.fr</a>
   </section>
@@ -502,8 +532,37 @@
     return a;
   }
 
+  var CI=SD_PARAMS.congeIndependant;
+  var AVERT_SAL=document.getElementById("avertissement").textContent;
+  var AVERT_AE="Estimation fondée sur l'indemnité forfaitaire des indépendants (1/730e du plafond annuel de la Sécurité sociale). La caisse retient les revenus transmis par l'Urssaf. Seule votre caisse d'assurance maladie fixe le montant définitif.";
+  function majStatut(){
+    var ae=document.getElementById("statut").value==="ae";
+    document.getElementById("blocSalarie").hidden=ae;
+    document.getElementById("blocAE").hidden=!ae;
+    document.getElementById("avertissement").textContent=ae?AVERT_AE:AVERT_SAL;
+    document.getElementById("result").classList.remove("visible");
+  }
+  document.getElementById("statut").addEventListener("change",majStatut);
+  function aeIJ(){
+    var ca=num("ca"), aff=num("affil");
+    if(!Number.isFinite(ca)||ca<=0||ca>1000000){alert("Indiquez votre chiffre d'affaires annuel moyen (entre 1 et 1 000 000 €).");return null;}
+    if(!Number.isFinite(aff)||aff<0){alert("Indiquez votre ancienneté d'affiliation en mois (0 si vous débutez).");return null;}
+    var raam=ca*(1-CI.abattement[document.getElementById("activite").value]);
+    return {ouvert:aff>=CI.affiliationMois, bas:raam<CI.seuilRaam, ij:raam<CI.seuilRaam?CI.ijForfaitJour*CI.facteurBasRevenu:CI.ijForfaitJour};
+  }
   var PMSS=SD_PARAMS.pmss, IJMAX=SD_PARAMS.ijMaternite.maxJour;
   document.getElementById("calculate").addEventListener("click",function(){
+    if(document.getElementById("statut").value==="ae"){
+      var a=aeIJ(); if(!a) return;
+      var mu=document.getElementById("naiss").value==="2", jr=mu?32:25;
+      setText("ij",(a.ouvert?formatEuro(r2(a.ij)):formatEuro(0))+" par jour");
+      setText("duree",jr+" jours calendaires"+(mu?" (naissances multiples)":""));
+      setText("total",a.ouvert?formatEuro(r2(a.ij*jr)):"Droits non ouverts : moins de "+CI.affiliationMois+" mois d'affiliation");
+      var pl=document.getElementById("rowPlafond");
+      if(a.bas&&a.ouvert){setText("plafond","Indemnité réduite à 10 % : revenu annuel moyen inférieur à "+formatEuro(CI.seuilRaam));pl.style.display="";}else pl.style.display="none";
+      document.getElementById("result").classList.add("visible");
+      return;
+    }
     var s=salaires(); if(!s) return;
     var capped=false,sum=0;
     s.forEach(function(v){ if(v>PMSS){capped=true; sum+=PMSS;} else sum+=v; });

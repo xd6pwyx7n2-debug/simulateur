@@ -494,6 +494,8 @@
       <tr><td>5. Carence</td><td>3 jours non indemnisés</td></tr>
       <tr><td>6. Seuil</td><td>Aucune indemnité si le revenu annuel moyen est inférieur à 4 582 € (arrêts débutant en 2026)</td></tr>
     </tbody></table></div>
+    <h3>Quelle durée d'indemnisation ?</h3>
+    <p>Les sources officielles ne donnent pas la même limite selon la catégorie d'indépendant. La page de l'Assurance Maladie consacrée aux <a href="https://www.ameli.fr/assure/remboursements/indemnites-journalieres-maladie-maternite-paternite/indemnites-journalieres-pour-maladie/arret-maladie-profession-liberale" target="_blank" rel="noopener noreferrer">professions libérales</a> indique : « La durée totale de l'arrêt ne peut pas dépasser 90 jours ». Une <a href="https://forum-assures.ameli.fr/questions/3046382-ald-auto-entrepreneur-situation-90-jours-indemnites" target="_blank" rel="noopener noreferrer">réponse officielle de l'équipe ameli</a> (28 octobre 2022) précise que les indépendants peuvent percevoir jusqu'à 360 jours d'indemnités par période de 3 ans, et jusqu'à 3 ans pour un arrêt à temps plein en affection de longue durée, et rattache la limite de 90 jours aux professions libérales. La page ameli des <a href="https://www.ameli.fr/assure/remboursements/indemnites-journalieres-maladie-maternite-paternite/indemnites-journalieres-pour-maladie/arret-maladie-artisans-commercants" target="_blank" rel="noopener noreferrer">artisans et commerçants</a> ne mentionne pas de limite de 90 jours. Ce simulateur ne plafonne donc pas la durée : si votre arrêt dépasse 90 jours, vérifiez auprès de votre caisse.</p>
     <p><strong>Exemple :</strong> un consultant en BNC avec 30 000 € de chiffre d'affaires annuel moyen retient 30 000 × 66 % = 19 800 €. L'indemnité est de 19 800 ÷ 730 = 27,12 € par jour. Pour un arrêt de 15 jours, 12 jours sont indemnisés, soit 325,44 €.</p>
     <p>Le calcul ci-dessus est une estimation : la caisse utilise les revenus que l'Urssaf lui transmet. Pensez donc à tenir vos déclarations de chiffre d'affaires à jour.</p>
   </section>
@@ -555,6 +557,7 @@
   var CAP=SD_PARAMS.ijMaladie.plafondSalaire, MAXIJ=SD_PARAMS.ijMaladie.maxJour, IND=SD_PARAMS.ijIndependant;
   var AVERT_SAL="Estimation de l'indemnité de base, avant d'éventuels prélèvements sociaux. Elle ne comprend pas le complément que peut verser votre employeur. Seule votre caisse d'assurance maladie fixe le montant définitif.";
   var AVERT_AE="Estimation fondée sur le chiffre d'affaires déclaré, avant d'éventuels prélèvements sociaux. La caisse retient en réalité vos revenus transmis par l'Urssaf. Seule votre caisse d'assurance maladie fixe le montant définitif.";
+  var DUREE_AE="Durée : l'Assurance Maladie indique, pour les professions libérales, que la durée totale d'un même arrêt ne peut pas dépasser 90 jours. Pour les indépendants, une réponse officielle d'ameli mentionne jusqu'à 360 jours d'indemnités par période de 3 ans, et 3 ans en cas d'affection de longue durée. Selon votre activité, les indemnités peuvent donc cesser avant la fin de l'arrêt : renseignez-vous auprès de votre caisse.";
   function statut(){return document.getElementById("statut").value;}
   function majStatut(){
     var ae=statut()==="ae";
@@ -582,6 +585,7 @@
       if(!Number.isFinite(ca)||ca<=0||ca>1000000){alert("Indiquez votre chiffre d'affaires annuel moyen (entre 1 et 1 000 000 €).");return;}
       if(!Number.isFinite(aff)||aff<0){alert("Indiquez votre ancienneté d'affiliation en mois (0 si vous débutez).");return;}
       if(!Number.isFinite(jours)||jours<1||jours>1095){alert("Indiquez la durée de l'arrêt en jours (entre 1 et 1 095).");return;}
+      document.getElementById("avertissement").textContent=AVERT_AE+(jours>90?" "+DUREE_AE:"");
       var jind=Math.max(0,jours-IND.carenceJours);
       var raam=r2(ca*(1-IND.abattement[document.getElementById("activite").value]));
       var plaf=null;

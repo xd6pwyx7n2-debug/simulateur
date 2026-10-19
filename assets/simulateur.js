@@ -24,6 +24,11 @@
       ["2 000 € · 3e enfant", { s1: 2000, s2: 2000, s3: 2000, charge: "2", naiss: "1" }],
       ["4 500 € · jumeaux", { s1: 4500, s2: 4500, s3: 4500, charge: "0", naiss: "2" }]
     ],
+    "simulateur-conge-supplementaire-naissance": [
+      ["2 500 € · 2 mois", { s1: 2500, s2: 2500, s3: 2500, duree: "2" }],
+      ["2 500 € · 1 mois", { s1: 2500, s2: 2500, s3: 2500, duree: "1" }],
+      ["4 500 € · 2 mois", { s1: 4500, s2: 4500, s3: 4500, duree: "2" }]
+    ],
     "simulateur-conge-paternite": [
       ["2 500 € · 1 enfant", { s1: 2500, s2: 2500, s3: 2500, naiss: "1" }],
       ["3 800 € · 1 enfant", { s1: 3800, s2: 3800, s3: 3800, naiss: "1" }],
