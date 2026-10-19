@@ -221,6 +221,31 @@
     .cta-panel > * { position:relative; }
     footer { background:rgba(255,255,255,.6); }
     @media(max-width:760px) { .float.two { top:-24px; right:8px; } }
+
+    /* ===== Accessibilité, lisibilité et rapidité d'accès ===== */
+    .nav-links { font-size:15px; gap:6px; }
+    .nav-links a { display:inline-flex; align-items:center; min-height:44px; padding:0 12px; }
+    .brand { min-height:44px; }
+    .tag { font-size:11px; color:color-mix(in srgb,var(--accent) 58%,#15132f); }
+    .card-link { font-size:14px; color:color-mix(in srgb,var(--accent) 58%,#15132f); }
+    .card p { font-size:14.5px; color:#5a5978; }
+    .stat span, .stat { color:#5a5978; }
+    .nav-button { min-height:44px; }
+    .kicker { font-size:12px; }
+    .trust span, .trust { color:#595878; }
+    footer { font-size:14px; color:#595878; }
+    .footer-links a { display:inline-flex; align-items:center; min-height:44px; padding:0 4px; }
+    .filter { min-height:44px; font-size:14px; }
+    .search input { min-height:50px; font-size:16px; }
+    .eyebrow { font-size:12px; }
+    .quick { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:0 0 16px; }
+    .quick-title { font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:#595878; margin-right:4px; }
+    .quick a { display:inline-flex; align-items:center; min-height:44px; padding:0 16px; border-radius:99px; background:#fff; border:1.5px solid #ddd7fb; color:#2d2a66; font-size:14.5px; font-weight:700; transition:.18s; }
+    .quick a:hover, .quick a:focus-visible { background:var(--ink); color:#fff; border-color:var(--ink); transform:translateY(-1px); }
+    .search-hint { font-size:13px; color:#595878; margin:-6px 0 14px; }
+    .search-hint kbd { font:700 12px Manrope,sans-serif; padding:2px 7px; border:1px solid #cfc9f5; border-bottom-width:2px; border-radius:6px; background:#fff; }
+    @media(pointer:coarse) { .search-hint { display:none; } }
+    @media(max-width:760px) { .nav-links { gap:2px; } .quick a { padding:0 13px; } }
   </style>
 
   <script type="application/ld+json">
@@ -322,11 +347,21 @@
       <p class="section-desc">Choisissez un sujet ou recherchez directement un simulateur. Revenez ici à tout moment.</p>
     </div>
 
+    <nav class="quick" aria-label="Accès rapide">
+      <span class="quick-title">Accès rapide</span>
+      <a href="/simulateur/simulateur-indemnite-licenciement/">Indemnité de licenciement</a>
+      <a href="/simulateur/simulateur-chomage/">Allocation chômage</a>
+      <a href="/simulateur/simulateur-rupture-conventionnelle/">Rupture conventionnelle</a>
+      <a href="/simulateur/simulateur-brut-net/">Brut en net</a>
+      <a href="/simulateur/simulateur-smic/">SMIC 2026</a>
+      <a href="/simulateur/simulateur-indemnites-journalieres-maladie/">Arrêt maladie</a>
+    </nav>
+
     <div class="controls">
       <label class="search">
         <span class="sr-only">Rechercher un simulateur</span>
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4.2 4.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-        <input id="search" type="search" placeholder="Ex. : salaire, licenciement, congés…" autocomplete="off">
+        <input id="search" type="search" placeholder="Ex. : salaire, licenciement, congés…" autocomplete="off" enterkeyhint="go" aria-describedby="search-hint">
       </label>
       <div class="filters" role="group" aria-label="Filtrer les simulateurs">
         <button class="filter active" data-filter="all" aria-pressed="true" type="button">Tous les outils</button>
@@ -422,6 +457,8 @@
       </a>
     </div>
 
+    <p class="search-hint" id="search-hint">Astuce : appuyez sur <kbd>/</kbd> pour rechercher, puis sur <kbd>Entrée</kbd> pour ouvrir le premier résultat.</p>
+    <p class="sr-only" id="count" role="status" aria-live="polite"></p>
     <p class="empty" id="empty" role="status">Aucun simulateur ne correspond à cette recherche. Essayez un autre mot-clé.</p>
   </div>
 </section>
@@ -576,7 +613,20 @@
     });
 
     empty.classList.toggle('show', count === 0);
+    document.getElementById('count').textContent = count + (count > 1 ? ' simulateurs affichés' : ' simulateur affiché');
   }
+
+  search.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      const first = cards.find(c => !c.hidden);
+      if (first) { e.preventDefault(); location.href = first.getAttribute('href'); }
+    } else if (e.key === 'Escape') { search.value = ''; update(); }
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === '/' && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName)) {
+      e.preventDefault(); search.focus(); search.scrollIntoView({ block: 'center' });
+    }
+  });
 
   search.addEventListener('input', update);
 

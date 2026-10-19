@@ -396,6 +396,7 @@
       Array.prototype.forEach.call(calc.querySelectorAll("[aria-invalid]"), function (el) { el.removeAttribute("aria-invalid"); });
     }
     window.alert = function (message) {
+      if (window.__sdQuiet) { if (result) result.classList.add("sd-stale"); return; }
       clear();
       var go = submitButton();
       box = document.createElement("div");
@@ -440,6 +441,92 @@
           if (r.top > window.innerHeight * 0.7 || r.top < 0) result.scrollIntoView({ behavior: "smooth", block: "nearest" });
         }
       }, 150);
+    });
+  })();
+
+  /* Résultat en temps réel : recalcul après la première simulation */
+  (function () {
+    var go = submitButton();
+    if (!go || !result) return;
+    var timer = null;
+    function shown() { return result.classList.contains("visible") || result.classList.contains("show") || result.classList.contains("sd-stale"); }
+    function again(e) {
+      if (!shown()) return;
+      if (e.target && e.target.closest && e.target.closest(".result, .sd-presets")) return;
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        result.classList.remove("sd-stale");
+        window.__sdQuiet = true;
+        try { go.click(); } finally { window.__sdQuiet = false; }
+      }, 450);
+    }
+    calc.addEventListener("input", again);
+    calc.addEventListener("change", again);
+  })();
+
+  /* Lien vers le détail du calcul */
+  (function () {
+    var acts = calc.querySelector(".sd-actions");
+    if (!acts) return;
+    var target = null;
+    Array.prototype.forEach.call(document.querySelectorAll("main .info-section h2"), function (h) {
+      if (!target && /comment|calcul|fonctionne/i.test(h.textContent) && !/savoir|simulateurs|fr[ée]quentes/i.test(h.textContent)) target = h;
+    });
+    if (!target) return;
+    if (!target.id) target.id = "sd-detail-calcul";
+    target.tabIndex = -1;
+    var a = document.createElement("a");
+    a.className = "sd-howlink";
+    a.href = "#" + target.id;
+    a.textContent = "🧮 Comment c'est calculé ?";
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      try { target.focus({ preventScroll: true }); } catch (x) {}
+    });
+    acts.insertBefore(a, acts.firstChild);
+  })();
+
+  /* Infobulles accessibles pour les sigles courants (première occurrence dans le calculateur) */
+  (function () {
+    var DEFS = {
+      "ARE": "allocation d'aide au retour à l'emploi",
+      "SJR": "salaire journalier de référence",
+      "PASS": "plafond annuel de la Sécurité sociale",
+      "SMIC": "salaire minimum interprofessionnel de croissance",
+      "BNC": "bénéfices non commerciaux (professions libérales)",
+      "BIC": "bénéfices industriels et commerciaux",
+      "Cipav": "caisse interprofessionnelle de prévoyance et d'assurance vieillesse",
+      "ACRE": "aide à la création ou à la reprise d'une entreprise",
+      "CFP": "contribution à la formation professionnelle",
+      "CPAM": "caisse primaire d'assurance maladie"
+    };
+    var done = {};
+    var re = new RegExp("\\b(" + Object.keys(DEFS).join("|") + ")\\b");
+    var scopes = calc.querySelectorAll("label, .field-help, .intro-note, .eligibility, p");
+    Array.prototype.forEach.call(scopes, function (scope) {
+      if (scope.closest(".result, option, script, button")) return;
+      var walker = document.createTreeWalker(scope, NodeFilter.SHOW_TEXT, null);
+      var nodes = [], n;
+      while ((n = walker.nextNode())) nodes.push(n);
+      nodes.forEach(function (node) {
+        if (!node.parentNode || node.parentNode.closest("abbr, a, button, option, script, style")) return;
+        var m = re.exec(node.nodeValue);
+        if (!m || done[m[1]]) return;
+        done[m[1]] = true;
+        var before = node.nodeValue.slice(0, m.index), after = node.nodeValue.slice(m.index + m[1].length);
+        var ab = document.createElement("abbr");
+        ab.className = "sd-abbr"; ab.tabIndex = 0; ab.setAttribute("data-def", DEFS[m[1]]);
+        ab.textContent = m[1];
+        var sr = document.createElement("span");
+        sr.className = "sr-only"; sr.textContent = " (" + DEFS[m[1]] + ")";
+        ab.appendChild(sr);
+        var frag = document.createDocumentFragment();
+        if (before) frag.appendChild(document.createTextNode(before));
+        frag.appendChild(ab);
+        if (after) frag.appendChild(document.createTextNode(after));
+        node.parentNode.replaceChild(frag, node);
+      });
     });
   })();
 

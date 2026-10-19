@@ -119,6 +119,32 @@ with sync_playwright() as pw:
         slug = os.path.basename(os.path.dirname(f))
         pg.goto(LOCAL + slug + "/"); pg.wait_for_timeout(200)
         pg.evaluate("(document.getElementById('calculate')||document.querySelector('.calculator button:not(.sd-chip):not(.sd-secondary)')).click()"); pg.wait_for_timeout(250)
+    # accessibilité : champs nommés, cibles tactiles du menu, champs numériques
+    pg.set_viewport_size({"width": 390, "height": 844})
+    for f in pages:
+        rel = os.path.relpath(f, ROOT)
+        if rel == "404.html": continue
+        pg.goto(LOCAL + ("" if rel == "index.html" else rel.replace("index.html", ""))); pg.wait_for_timeout(120)
+        r = pg.evaluate("""()=>{const bad=[];
+          document.querySelectorAll('input:not([type=hidden]),select,textarea').forEach(e=>{
+            const ok=e.getAttribute('aria-label')||e.getAttribute('aria-labelledby')||(e.id&&document.querySelector('label[for="'+e.id+'"]'))||e.closest('label');
+            if(!ok)bad.push('champ sans nom : '+(e.id||e.type));});
+          document.querySelectorAll('header nav a, .nav-links a, .logo').forEach(e=>{const h=e.getBoundingClientRect().height;
+            if(h>0&&h<43.5)bad.push('cible trop petite ('+Math.round(h)+' px) : '+e.textContent.trim().slice(0,20));});
+          if(!document.querySelector('a.skip-link'))bad.push("lien d evitement absent");
+          if(document.documentElement.lang!=='fr')bad.push('attribut lang absent');
+          return bad}""")
+        for m in r: fail("accessibilité %s : %s" % (rel, m))
+    pg.set_viewport_size({"width": 1280, "height": 900})
+    # résultat en temps réel : modifier une valeur met à jour le résultat sans recliquer
+    pg.goto(LOCAL + "simulateur-brut-net/"); pg.wait_for_timeout(200)
+    pg.evaluate("()=>{var e=document.getElementById('brut');e.value='2500';e.dispatchEvent(new Event('input',{bubbles:true}));document.getElementById('calculate').click()}"); pg.wait_for_timeout(1100)
+    pg.evaluate("()=>{var e=document.getElementById('brut');e.value='3000';e.dispatchEvent(new Event('input',{bubbles:true}))}"); pg.wait_for_timeout(1600)
+    if norm("2 340,00 €") not in norm(pg.inner_text("#net")): fail("temps réel : le résultat ne s'est pas mis à jour (%s)" % pg.inner_text("#net"))
+    # accueil : Entrée dans la recherche ouvre le premier résultat
+    pg.goto(LOCAL); pg.wait_for_timeout(200)
+    pg.fill("#search", "smic"); pg.press("#search", "Enter"); pg.wait_for_timeout(500)
+    if "simulateur-smic" not in pg.url: fail("accueil : Entrée dans la recherche n'ouvre pas le simulateur (%s)" % pg.url)
     # erreurs JavaScript sur toutes les pages
     for f in pages:
         rel = os.path.relpath(f, ROOT)
