@@ -666,7 +666,7 @@
       <tr><td>Vente de marchandises (BIC)</td><td>12,3 %</td><td>1 %</td></tr>
       <tr><td>Prestations de services commerciales et artisanales (BIC)</td><td>21,2 %</td><td>1,7 %</td></tr>
       <tr><td>Autres prestations de services (BNC)</td><td>25,6 %</td><td>2,2 %</td></tr>
-      <tr><td>Professions libérales réglementées (Cipav)</td><td>23,2 %</td><td>2,2 %</td></tr>
+      <tr><td>Professions libérales réglementées (Cipav)</td><td>23,2 %</td><td>non calculé</td></tr>
     </tbody></table></div>
     <p><strong>Exemple :</strong> un consultant en BNC facture 3 000 € dans le mois. Cotisations : 3 000 × 25,6 % = 768 €. Il lui reste 2 232 € avant impôt sur le revenu.</p>
     <h3>Ce que le calcul ne comprend pas</h3>
@@ -794,6 +794,7 @@
       const net = getNumber("net");
       if (net <= 0) { alert("Veuillez saisir un revenu net mensuel supérieur à 0 €."); return; }
       const act = document.getElementById("activite").value, vl = document.getElementById("vl").checked;
+      if (vl && act === "cipav") { alert("Le versement libératoire n'est pas calculé pour les professions libérales réglementées (Cipav) : le taux n'est pas confirmé par les sources consultées."); return; }
       const tc = ME.taux[act], tv = vl ? ME.vl[act] : 0;
       const ca = r2(net / (1 - tc - tv));
       const cot = r2(ca * tc), imp = r2(ca * tv);

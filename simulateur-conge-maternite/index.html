@@ -578,14 +578,15 @@
       setText("ij",(a.ouvert?formatEuro(r2(a.ij)):formatEuro(0))+" par jour");
       setText("duree",sm+" semaines ("+dd[0]+" avant + "+dd[1]+" après l'accouchement)");
       setText("jours",String(jr));
-      var al=a.bas?CI.allocationReposBas:CI.allocationRepos;
-      setText("total",a.ouvert?formatEuro(r2(a.ij*jr+al)):"Droits non ouverts : moins de "+CI.affiliationMois+" mois d'affiliation");
+      var al=CI.allocationRepos;
+      setText("total",!a.ouvert?"Droits non ouverts : moins de "+CI.affiliationMois+" mois d'affiliation":(a.bas?"Non calculé : revenu annuel moyen inférieur à "+formatEuro(CI.seuilRaam)+", montant réduit à confirmer auprès de votre caisse":formatEuro(r2(a.ij*jr+al))));
+      if(a.bas&&a.ouvert){setText("ij","Montant réduit");}
       var ra=document.getElementById("rowAlloc");
-      if(a.ouvert){setText("alloc",formatEuro(al));ra.style.display="";}else ra.style.display="none";
+      if(a.ouvert&&!a.bas){setText("alloc",formatEuro(al));ra.style.display="";}else ra.style.display="none";
       var dp=document.getElementById("dpa").value, rp0=document.getElementById("rowPeriode");
       if(dp){var q=dp.split("-"), b0=new Date(+q[0],+q[1]-1,+q[2]); var d1=new Date(b0.getTime()); d1.setDate(d1.getDate()-dd[0]*7); var d2=new Date(b0.getTime()); d2.setDate(d2.getDate()+dd[1]*7-1); setText("periode","du "+fmtDate(d1)+" au "+fmtDate(d2)); rp0.style.display="";} else rp0.style.display="none";
       var pl=document.getElementById("rowPlafond");
-      if(a.bas&&a.ouvert){setText("plafond","Indemnité réduite à 10 % : revenu annuel moyen inférieur à "+formatEuro(CI.seuilRaam));pl.style.display="";}else pl.style.display="none";
+      pl.style.display="none";
       document.getElementById("result").classList.add("visible");
       return;
     }
