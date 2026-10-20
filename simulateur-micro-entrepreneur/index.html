@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Simulateur micro-entrepreneur 2026 : cotisations et revenu net | SimuDroit</title>
+  <meta name="description" content="Calculez vos cotisations et votre revenu net de micro-entrepreneur en 2026 (taux 12,3 %, 21,2 %, 25,6 %), avec ACRE et versement libératoire. Gratuit.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-micro-entrepreneur/">
+  <link rel="icon" href="https://xd6pwyx7n2-debug.github.io/simulateur/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Simulateur micro-entrepreneur 2026 : cotisations et revenu net | SimuDroit">
+  <meta property="og:description" content="Calculez vos cotisations et votre revenu net de micro-entrepreneur en 2026 (taux 12,3 %, 21,2 %, 25,6 %), avec ACRE et versement libératoire. Gratuit.">
+  <meta property="og:url" content="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-micro-entrepreneur/">
+  <meta property="og:image" content="https://xd6pwyx7n2-debug.github.io/simulateur/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://xd6pwyx7n2-debug.github.io/simulateur/og-image.png">
+  <meta name="twitter:title" content="Simulateur micro-entrepreneur 2026 : cotisations et revenu net | SimuDroit">
+  <meta name="twitter:description" content="Calculez vos cotisations et votre revenu net de micro-entrepreneur en 2026 (taux 12,3 %, 21,2 %, 25,6 %), avec ACRE et versement libératoire. Gratuit.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://xd6pwyx7n2-debug.github.io/simulateur/"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebPage", "name": "Simulateur micro-entrepreneur 2026 : cotisations et revenu net", "url": "https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-micro-entrepreneur/", "description": "Calculez vos cotisations et votre revenu net de micro-entrepreneur en 2026 (taux 12,3 %, 21,2 %, 25,6 %), avec ACRE et versement libératoire. Gratuit.", "inLanguage": "fr-FR", "dateModified": "2026-10-20"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://xd6pwyx7n2-debug.github.io/simulateur/"}, {"@type": "ListItem", "position": 2, "name": "Indépendants", "item": "https://xd6pwyx7n2-debug.github.io/simulateur/independants/"}, {"@type": "ListItem", "position": 3, "name": "Simulateur micro-entrepreneur 2026", "item": "https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-micro-entrepreneur/"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quel est le taux de cotisations d'un micro-entrepreneur en 2026 ?", "acceptedAnswer": {"@type": "Answer", "text": "Depuis le 1er janvier 2026 : 12,3 % du chiffre d'affaires pour la vente de marchandises, 21,2 % pour les prestations de services commerciales ou artisanales (BIC), 25,6 % pour les professions libérales non réglementées (BNC) et 23,2 % pour celles relevant de la Cipav (source : economie.gouv.fr)."}}, {"@type": "Question", "name": "Qu'est-ce que le versement libératoire de l'impôt sur le revenu ?", "acceptedAnswer": {"@type": "Answer", "text": "C'est une option qui permet de payer l'impôt en même temps que les cotisations, en pourcentage du chiffre d'affaires : 1 % (vente), 1,7 % (prestations BIC) ou 2,2 % (BNC). Elle est soumise à une condition de revenu du foyer fiscal, non vérifiée par ce simulateur (source : economie.gouv.fr)."}}, {"@type": "Question", "name": "Comment fonctionne l'ACRE pour un micro-entrepreneur ?", "acceptedAnswer": {"@type": "Answer", "text": "L'ACRE réduit les cotisations de 25 % (vous payez 75 % du taux normal) jusqu'à la fin du 3e trimestre civil suivant le début d'activité. Depuis 2026, elle n'est plus automatique : il faut la demander à l'Urssaf dans les 60 jours suivant le début d'activité (source : entreprendre.service-public.gouv.fr)."}}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebApplication", "name": "Simulateur micro-entrepreneur 2026", "url": "https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-micro-entrepreneur/", "description": "Calculez vos cotisations et votre revenu net de micro-entrepreneur en 2026 (taux 12,3 %, 21,2 %, 25,6 %), avec ACRE et versement libératoire. Gratuit.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}
+  </script>
+  <meta name="theme-color" content="#201e48">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="SimuDroit : simulateurs gratuits de salaire et de droits du travail">
+  <link rel="alternate" hreflang="fr" href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-micro-entrepreneur/">
+  <link rel="alternate" hreflang="x-default" href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-micro-entrepreneur/">
+</head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://xd6pwyx7n2-debug.github.io/simulateur/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/#simulateurs">Simulateurs</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/assistant/">Assistant</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/guides/">Guides</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/glossaire/">Glossaire</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/faq/">FAQ</a>
+      <a class="cta-link" href="https://xd6pwyx7n2-debug.github.io/simulateur/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://xd6pwyx7n2-debug.github.io/simulateur/">Accueil</a> &nbsp;›&nbsp; <a href="https://xd6pwyx7n2-debug.github.io/simulateur/independants/">Indépendants</a> &nbsp;›&nbsp; Micro-entrepreneur 2026
+  </div>
+
+  <section class="hero">
+    <h1>Simulateur micro-entrepreneur 2026</h1>
+    <p>Calculez vos cotisations sociales, le versement libératoire éventuel et ce qu'il vous reste, ou le chiffre d'affaires à facturer pour viser un net.</p>
+      <div class="badges"><span class="badge">✓ Règles 2026 vérifiées le 20 octobre 2026</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Vos données restent dans votre navigateur</span></div>
+  </section>
+
+<section class="info-section sd-know" id="a-savoir">
+    <h2>À savoir avant de vous fier au résultat</h2>
+    <div class="sd-know-grid">
+      <div class="sd-know-card"><h3>Ce que montre le résultat</h3><p>Votre revenu <strong>avant</strong> charges professionnelles (achats, matériel, déplacements) et avant impôt sur le revenu, sauf si vous avez opté pour le versement libératoire.</p></div>
+      <div class="sd-know-card"><h3>Taux appliqués</h3><p>Les taux de cotisations en vigueur au 1er janvier 2026, appliqués au chiffre d'affaires encaissé. Il n'y a pas de charges déductibles en micro-entreprise : le calcul est un simple pourcentage.</p></div>
+      <div class="sd-know-card"><h3>Non calculé ici</h3><p>La CFE, la contribution à la formation professionnelle, la taxe des chambres consulaires, l'impôt sur le revenu hors versement libératoire et la TVA ne sont pas inclus.</p></div>
+    </div>
+  </section>
+  <section class="calculator" id="calcul">
+    <h2>Combien me reste-t-il de mon chiffre d'affaires ?</h2>
+    <noscript><p class="intro-note"><strong>JavaScript requis :</strong> ce simulateur calcule directement dans votre navigateur.</p></noscript>
+    <div class="field">
+      <label for="mode">Que voulez-vous savoir ?</label>
+      <select id="mode">
+        <option value="ca">Mon net à partir de mon chiffre d'affaires</option>
+        <option value="net">Le chiffre d'affaires à facturer pour obtenir un net voulu</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="act">Votre activité</label>
+      <select id="act">
+        <option value="prestations">Prestations de services commerciales ou artisanales (BIC) : 21,2 %</option>
+        <option value="vente">Vente de marchandises : 12,3 %</option>
+        <option value="bnc">Professions libérales non réglementées (BNC) : 25,6 %</option>
+        <option value="cipav">Professions libérales relevant de la Cipav : 23,2 %</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="montant" id="lblMontant">Chiffre d'affaires encaissé sur la période (€)</label>
+      <input type="number" id="montant" min="0" max="10000000" step="0.01" inputmode="decimal" placeholder="Ex. 3 000">
+      <div class="field-help" id="helpMontant">Mois, trimestre ou année : le calcul est proportionnel.</div>
+    </div>
+    <div class="field">
+      <label style="display:flex;gap:12px;align-items:flex-start"><input type="checkbox" id="acre" style="width:24px;height:24px;flex:none;margin-top:2px"><span>Je bénéficie de l'ACRE (cotisations réduites de 25 %)</span></label>
+      <div class="field-help">Sur demande à l'Urssaf, pour une durée limitée après le début d'activité.</div>
+    </div>
+    <div class="field">
+      <label style="display:flex;gap:12px;align-items:flex-start"><input type="checkbox" id="vl" style="width:24px;height:24px;flex:none;margin-top:2px"><span>J'ai opté pour le versement libératoire de l'impôt</span></label>
+      <div class="field-help">Option soumise à une condition de revenu du foyer fiscal : non vérifiée ici.</div>
+    </div>
+    <button type="button" id="calculate">Calculer</button>
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title" id="resTitle">Votre net estimé</div>
+      <div class="result-main" id="net">0,00 €</div>
+      <div class="result-row"><span>Chiffre d'affaires</span><strong id="ca">0,00 €</strong></div>
+      <div class="result-row"><span>Cotisations sociales</span><strong id="cot">0,00 €</strong></div>
+      <div class="result-row"><span>Taux de cotisations appliqué</span><strong id="tauxCot">0 %</strong></div>
+      <div class="result-row"><span>Versement libératoire</span><strong id="imp">0,00 €</strong></div>
+      <div class="result-row"><span>Part du chiffre d'affaires conservée</span><strong id="part">0 %</strong></div>
+      <div class="result-row" id="rowAcre" style="display:none"><span>Économie grâce à l'ACRE</span><strong id="eco"></strong></div>
+      <div class="warning">Estimation avant charges professionnelles et avant impôt sur le revenu (hors versement libératoire). Les montants définitifs sont ceux de votre déclaration à l'Urssaf.</div>
+    </div>
+  </section>
+
+  <section class="info-section" id="taux">
+    <h2>Taux 2026 des micro-entrepreneurs</h2>
+    <div class="table-wrap"><table class="sd-table"><thead><tr><th>Activité</th><th>Cotisations</th><th>Avec ACRE (75 %)</th><th>Versement libératoire</th></tr></thead><tbody>
+    <tr><td>Vente de marchandises</td><td>12,3 %</td><td>9,225 %</td><td>1 %</td></tr>
+    <tr><td>Prestations BIC</td><td>21,2 %</td><td>15,9 %</td><td>1,7 %</td></tr>
+    <tr><td>Libérales non réglementées (BNC)</td><td>25,6 %</td><td>19,2 %</td><td>2,2 %</td></tr>
+    <tr><td>Libérales Cipav</td><td>23,2 %</td><td>non calculé</td><td>non calculé</td></tr>
+    </tbody></table></div>
+    <p class="field-help">Pour la Cipav, l'ACRE et le versement libératoire ne sont pas calculés par ce simulateur, faute de source officielle suffisante pour ce cas.</p>
+  </section>
+
+  <section class="info-section" id="faq-ind"><h2>Questions fréquentes</h2><h3>Quel est le taux de cotisations d'un micro-entrepreneur en 2026 ?</h3><p>Depuis le 1er janvier 2026 : 12,3 % du chiffre d'affaires pour la vente de marchandises, 21,2 % pour les prestations de services commerciales ou artisanales (BIC), 25,6 % pour les professions libérales non réglementées (BNC) et 23,2 % pour celles relevant de la Cipav (source : economie.gouv.fr).</p><h3>Qu'est-ce que le versement libératoire de l'impôt sur le revenu ?</h3><p>C'est une option qui permet de payer l'impôt en même temps que les cotisations, en pourcentage du chiffre d'affaires : 1 % (vente), 1,7 % (prestations BIC) ou 2,2 % (BNC). Elle est soumise à une condition de revenu du foyer fiscal, non vérifiée par ce simulateur (source : economie.gouv.fr).</p><h3>Comment fonctionne l'ACRE pour un micro-entrepreneur ?</h3><p>L'ACRE réduit les cotisations de 25 % (vous payez 75 % du taux normal) jusqu'à la fin du 3e trimestre civil suivant le début d'activité. Depuis 2026, elle n'est plus automatique : il faut la demander à l'Urssaf dans les 60 jours suivant le début d'activité (source : entreprendre.service-public.gouv.fr).</p></section><section class="info-section" id="sources"><h2>Sources officielles</h2><ul><li><a href="https://www.economie.gouv.fr/entreprises/gerer-sa-micro-entreprise/micro-entreprises-quel-est-le-montant-de-vos-cotisations-sociales" rel="noopener">economie.gouv.fr : montant des cotisations sociales des micro-entreprises</a></li><li><a href="https://entreprendre.service-public.gouv.fr/vosdroits/F11677" rel="noopener">entreprendre.service-public.gouv.fr : ACRE (mise à jour du 1er juillet 2026)</a></li></ul></section>
+
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/simulateur/independants/">Tous les outils indépendants</a><a href="/simulateur/simulateur-ati-independant/">Chômage des indépendants (ATI)</a><a href="/simulateur/simulateur-indemnites-journalieres-maladie/">Arrêt maladie (IJ)</a><a href="/simulateur/simulateur-brut-net/">Salaire brut en net</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-10-20">20 octobre 2026</time>. Estimation indicative, sans valeur juridique. <a href="/simulateur/methode-et-sources/">Méthode et sources</a> · <a href="/simulateur/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 SimuDroit · <a href="https://xd6pwyx7n2-debug.github.io/simulateur/">Tous les simulateurs</a> · <a href="https://xd6pwyx7n2-debug.github.io/simulateur/methode-et-sources/">Méthode et sources</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+  function eur(v){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR"}).format(v)}
+  function num(id){var v=parseFloat(document.getElementById(id).value);return Number.isFinite(v)?v:NaN}
+  function setText(id,t){document.getElementById(id).textContent=t}
+  function r2(x){return Math.round(x*100)/100}
+
+  var T=SD_PARAMS.microEntrepreneur;
+  function majMode(){
+    var m=document.getElementById("mode").value==="net";
+    document.getElementById("lblMontant").textContent=m?"Net souhaité sur la période (€)":"Chiffre d'affaires encaissé sur la période (€)";
+    setText("resTitle",m?"Chiffre d'affaires à facturer":"Votre net estimé");
+  }
+  document.getElementById("mode").addEventListener("change",majMode);
+  document.getElementById("calculate").addEventListener("click",function(){
+    var m=document.getElementById("mode").value,act=document.getElementById("act").value,
+        acre=document.getElementById("acre").checked,vl=document.getElementById("vl").checked,x=num("montant");
+    if(!Number.isFinite(x)||x<=0){alert("Indiquez un montant supérieur à 0.");return}
+    if(act==="cipav"&&(acre||vl)){alert("Pour les professions libérales relevant de la Cipav, l'ACRE et le versement libératoire ne sont pas calculés ici : décochez ces options.");return}
+    var base=T.taux[act],taux=acre?base*0.75:base,tvl=vl?T.vl[act]:0,ca,cot,imp,net;
+    if(m==="net"){ca=r2(x/(1-taux-tvl))}else{ca=x}
+    cot=r2(ca*taux);imp=r2(ca*tvl);net=r2(ca-cot-imp);
+    setText("net",eur(m==="net"?ca:net));
+    setText("ca",eur(ca));setText("cot",eur(cot));
+    setText("tauxCot",(Math.round(taux*10000)/100).toString().replace(".",",")+" %");
+    setText("imp",eur(imp));
+    setText("part",(Math.round(net/ca*1000)/10).toString().replace(".",",")+" %");
+    var row=document.getElementById("rowAcre");
+    if(acre){setText("eco",eur(r2(ca*base)-cot));row.style.display=""}else{row.style.display="none"}
+    document.getElementById("result").classList.add("visible");
+  });
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>

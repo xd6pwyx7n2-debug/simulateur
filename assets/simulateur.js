@@ -24,6 +24,15 @@
       ["2 000 € · 3e enfant", { s1: 2000, s2: 2000, s3: 2000, charge: "2", naiss: "1" }],
       ["4 500 € · jumeaux", { s1: 4500, s2: 4500, s3: 4500, charge: "0", naiss: "2" }]
     ],
+    "simulateur-micro-entrepreneur": [
+      ["3 000 € · prestations", { act: "prestations", montant: 3000 }],
+      ["3 000 € · avec ACRE", { act: "prestations", montant: 3000, acre: true }],
+      ["10 000 € · vente", { act: "vente", montant: 10000 }]
+    ],
+    "simulateur-plafonds-micro-tva": [
+      ["30 000 € · services", { caVente: "", caServ: 30000 }],
+      ["90 000 € · vente", { caVente: 90000, caServ: "" }]
+    ],
     "simulateur-conge-supplementaire-naissance": [
       ["2 500 € · 2 mois", { s1: 2500, s2: 2500, s3: 2500, duree: "2" }],
       ["2 500 € · 1 mois", { s1: 2500, s2: 2500, s3: 2500, duree: "1" }],

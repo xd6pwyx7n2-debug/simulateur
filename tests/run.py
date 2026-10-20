@@ -142,7 +142,7 @@ with sync_playwright() as pw:
     pg.evaluate("()=>{var e=document.getElementById('brut');e.value='3000';e.dispatchEvent(new Event('input',{bubbles:true}))}"); pg.wait_for_timeout(1600)
     if norm("2 340,00 €") not in norm(pg.inner_text("#net")): fail("temps réel : le résultat ne s'est pas mis à jour (%s)" % pg.inner_text("#net"))
     # chômage : bloc ATI des indépendants (26,30 € x 182 j = 4 786,60 €)
-    pg.goto(LOCAL + "simulateur-chomage/"); pg.wait_for_timeout(200)
+    pg.goto(LOCAL + "simulateur-ati-independant/"); pg.wait_for_timeout(200)
     pg.evaluate("()=>{const v={atiMois:'30',atiDepuis:'2',atiR1:'14000',atiR2:'11000'};for(const k in v)document.getElementById(k).value=v[k];document.getElementById('atiRes').checked=true;document.getElementById('atiGo').click()}"); pg.wait_for_timeout(200)
     o = norm(pg.inner_text("#atiOut"))
     if norm("26,30 €") not in o or norm("4 786,60 €") not in o: fail("ATI : montant maximal attendu absent (%s)" % o[:120])
@@ -150,6 +150,25 @@ with sync_playwright() as pw:
     if "non réunies" not in pg.inner_text("#atiOut"): fail("ATI : un motif non éligible doit être refusé")
     pg.evaluate("()=>{document.getElementById('atiCause').value='liq';document.getElementById('atiMois').value='18';document.getElementById('atiGo').click()}"); pg.wait_for_timeout(150)
     if "24 mois" not in pg.inner_text("#atiOut"): fail("ATI : moins de 24 mois d'activité doit être refusé")
+    # micro-entrepreneur : 3 000 € de prestations BIC -> cotisations 636,00 €, net 2 364,00 € ; avec ACRE 477,00 € / 2 523,00 € ; net voulu 2 364 -> CA 3 000
+    pg.goto(LOCAL + "simulateur-micro-entrepreneur/"); pg.wait_for_timeout(200)
+    def micro(mode, act, montant, acre=False, vl=False):
+        pg.evaluate("(a)=>{document.getElementById('mode').value=a[0];document.getElementById('act').value=a[1];document.getElementById('montant').value=a[2];document.getElementById('acre').checked=a[3];document.getElementById('vl').checked=a[4];document.getElementById('calculate').click()}", [mode, act, str(montant), acre, vl]); pg.wait_for_timeout(900)
+        return {k: norm(pg.inner_text("#"+k)) for k in ("net","ca","cot","imp")}
+    r = micro("ca", "prestations", 3000)
+    if r["cot"] != norm("636,00 €") or r["net"] != norm("2 364,00 €"): fail("micro : 3 000 € BIC attendu 636,00 € / 2 364,00 € (%s)" % r)
+    r = micro("ca", "prestations", 3000, True)
+    if r["cot"] != norm("477,00 €") or r["net"] != norm("2 523,00 €"): fail("micro : ACRE attendu 477,00 € / 2 523,00 € (%s)" % r)
+    r = micro("ca", "vente", 10000, False, True)
+    if r["cot"] != norm("1 230,00 €") or r["imp"] != norm("100,00 €") or r["net"] != norm("8 670,00 €"): fail("micro : vente 10 000 € + VL attendu 1 230 / 100 / 8 670 (%s)" % r)
+    r = micro("net", "prestations", 2364)
+    if r["ca"] != norm("3 000,00 €"): fail("micro : net voulu 2 364 € attendu CA 3 000 € (%s)" % r)
+    # plafonds micro et TVA
+    pg.goto(LOCAL + "simulateur-plafonds-micro-tva/"); pg.wait_for_timeout(200)
+    pg.evaluate("()=>{document.getElementById('caVente').value='';document.getElementById('caServ').value='40000';document.getElementById('calculate').click()}"); pg.wait_for_timeout(120)
+    if "Sous le plafond" not in pg.inner_text("#microVerdict") or "Entre le seuil" not in pg.inner_text("#tvaVerdict"): fail("plafonds : 40 000 € de services (sous 83 600 €, entre 37 500 et 41 250)")
+    pg.evaluate("()=>{document.getElementById('caServ').value='90000';document.getElementById('calculate').click()}"); pg.wait_for_timeout(120)
+    if "dépassé" not in pg.inner_text("#microVerdict") or "TVA due" not in pg.inner_text("#tvaVerdict"): fail("plafonds : 90 000 € de services doit dépasser micro et TVA")
     # accueil : Entrée dans la recherche ouvre le premier résultat
     pg.goto(LOCAL); pg.wait_for_timeout(200)
     pg.fill("#search", "smic"); pg.press("#search", "Enter"); pg.wait_for_timeout(500)

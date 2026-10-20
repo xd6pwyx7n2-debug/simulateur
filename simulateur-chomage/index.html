@@ -619,7 +619,7 @@
     <h2>
       Combien vais-je toucher au chômage ?
     </h2>
-    <p class="intro-note" id="reserve-salaries"><strong>Réservé aux salariés.</strong> Ce simulateur s'applique à un salarié lié par un contrat de travail. Auto-entrepreneur ou indépendant, vous relevez d'autres règles : consultez plutôt <a href="../simulateur-brut-net/">brut/net</a>, <a href="../simulateur-indemnites-journalieres-maladie/">indemnités maladie</a>, <a href="../simulateur-conge-maternite/">maternité</a> ou <a href="../simulateur-conge-paternite/">paternité</a>, qui traitent ce statut. L'allocation chômage (ARE) est réservée aux anciens salariés ; pour un indépendant qui cesse son activité, voir la <a href="#independants">allocation des travailleurs indépendants (ATI)</a> plus bas.</p>
+    <p class="intro-note" id="reserve-salaries"><strong>Réservé aux salariés.</strong> Ce simulateur s'applique à un salarié lié par un contrat de travail. Auto-entrepreneur ou indépendant, vous relevez d'autres règles : consultez plutôt <a href="../simulateur-brut-net/">brut/net</a>, <a href="../simulateur-indemnites-journalieres-maladie/">indemnités maladie</a>, <a href="../simulateur-conge-maternite/">maternité</a> ou <a href="../simulateur-conge-paternite/">paternité</a>, qui traitent ce statut. L'allocation chômage (ARE) est réservée aux anciens salariés ; pour un indépendant qui cesse son activité, voir le <a href="/simulateur/simulateur-ati-independant/">simulateur de l'allocation des travailleurs indépendants (ATI)</a>.</p>
     <noscript><p class="intro-note"><strong>JavaScript requis :</strong> ce simulateur calcule directement dans votre navigateur. Activez JavaScript pour l'utiliser.</p></noscript>
 
     <p class="intro">
@@ -842,43 +842,9 @@
     </div>
 
   </section>
-  <section class="calculator" id="independants" aria-labelledby="ati-t">
-    <h2 id="ati-t">Indépendant ou auto-entrepreneur : ai-je droit à l'ATI ?</h2>
-    <p class="intro-note">L'<strong>allocation des travailleurs indépendants (ATI)</strong> remplace l'ARE pour un indépendant qui perd son activité. Répondez aux questions : l'outil vérifie les conditions et donne le montant maximal. Les règles ci-dessous concernent les cessations d'activité à partir du 1er avril 2022.</p>
-    <div class="field">
-      <label for="atiCause">Pourquoi votre activité s'est-elle arrêtée ?</label>
-      <select id="atiCause">
-        <option value="liq">Liquidation judiciaire ou redressement judiciaire (dirigeant remplacé)</option>
-        <option value="nv">Cessation définitive car activité non viable (baisse d'au moins 30 % des revenus, attestée par un tiers de confiance)</option>
-        <option value="autre">Autre motif (choix personnel, retraite, reconversion…)</option>
-      </select>
-    </div>
-    <div class="field">
-      <label for="atiMois">Durée de l'activité non salariée, sans interruption (en mois)</label>
-      <input type="number" id="atiMois" min="0" max="600" step="1" inputmode="numeric" placeholder="Ex. 30">
-      <span class="help">Il en faut au moins 24, pour la même entreprise.</span>
-    </div>
-    <div class="field">
-      <label for="atiDepuis">Depuis combien de mois l'activité a-t-elle cessé ?</label>
-      <input type="number" id="atiDepuis" min="0" max="120" step="1" inputmode="numeric" placeholder="Ex. 2">
-      <span class="help">Il faut s'inscrire à France Travail dans les 12 mois suivant la cessation.</span>
-    </div>
-    <div class="field">
-      <label for="atiR1">Revenu de l'activité, avant-dernière année civile (€)</label>
-      <input type="number" id="atiR1" min="0" max="10000000" step="1" inputmode="decimal" placeholder="Ex. 14000">
-    </div>
-    <div class="field">
-      <label for="atiR2">Revenu de l'activité, dernière année civile (€)</label>
-      <input type="number" id="atiR2" min="0" max="10000000" step="1" inputmode="decimal" placeholder="Ex. 11000">
-      <span class="help">Revenus tels que déclarés (pour un micro-entrepreneur, après abattement forfaitaire).</span>
-    </div>
-    <div class="field">
-      <label style="display:flex;gap:12px;align-items:flex-start"><input type="checkbox" id="atiRes" style="width:24px;height:24px;flex:none;margin-top:2px"> Mes ressources personnelles (hors revenus de l'activité perdue et hors conjoint) sont inférieures au RSA</label>
-      <span class="help">Plafond : 646,52 € par mois selon France Travail et Unédic (RSA au 1er avril 2025). Il peut avoir été revalorisé depuis.</span>
-    </div>
-    <button type="button" id="atiGo">Vérifier mes droits à l'ATI</button>
-    <div id="atiOut" class="intro-note" aria-live="polite" role="status" style="margin-top:20px" hidden></div>
-    <p class="help" style="margin-top:14px"><strong>Sources officielles :</strong> <a href="https://www.unedic.org/la-reglementation/fiches-thematiques/allocation-des-travailleurs-independants-ati" rel="noopener">Unédic, fiche ATI</a> (page mise à jour le 13 octobre 2026) · <a href="https://www.francetravail.fr/candidat/mes-droits-aux-aides-et-allocati/aides-financieres-et-autres-allo/autres-allocations/lallocation-pour-les-travailleur.html" rel="noopener">France Travail, l'ATI</a> · test officiel : <a href="https://chomage-independant.francetravail.fr/" rel="noopener">chomage-independant.francetravail.fr</a>. Autres conditions : être apte à l'emploi, résider en France, ne pas percevoir de retraite à taux plein, une seule demande tous les 5 ans.</p>
+  <section class="info-section" id="independants">
+    <h2>Indépendant ou auto-entrepreneur : et le chômage ?</h2>
+    <p>L'ARE est réservée aux anciens salariés. Un indépendant qui perd son activité peut, sous conditions, prétendre à l'<strong>allocation des travailleurs indépendants (ATI)</strong> : 26,30 € par jour au maximum pendant 182 jours. <a href="/simulateur/simulateur-ati-independant/">Vérifier mes droits à l'ATI</a>.</p>
   </section>
 
   <section class="info-section sd-know" id="a-savoir">
@@ -1526,37 +1492,6 @@ function toggleDetails() {
 </script>
 
 
-<script>
-(function(){
-  var P=(window.SD_PARAMS&&window.SD_PARAMS.ati)||{maxJour:26.30,minJour:19.73,jours:182,revenuMinAnnuel:10000,moisActiviteMin:24,moisCessationMax:12};
-  var $=function(i){return document.getElementById(i)};
-  function eur(n){return n.toLocaleString("fr-FR",{minimumFractionDigits:2,maximumFractionDigits:2})+" €"}
-  $("atiGo").addEventListener("click",function(){
-    var cause=$("atiCause").value,mois=parseFloat($("atiMois").value),dep=parseFloat($("atiDepuis").value),
-        r1=parseFloat($("atiR1").value),r2=parseFloat($("atiR2").value),res=$("atiRes").checked,out=$("atiOut");
-    if(isNaN(mois)||isNaN(dep)||isNaN(r1)||isNaN(r2)||mois<0||dep<0||r1<0||r2<0){
-      out.innerHTML="Renseignez les quatre champs numériques pour vérifier vos droits.";out.hidden=false;return;}
-    var ko=[],ok=[],moy=(r1+r2)/2;
-    (cause==="autre")?ko.push("la cessation doit résulter d'une liquidation ou d'un redressement judiciaire, ou d'une cessation définitive pour activité non viable"):ok.push("motif de cessation éligible");
-    (mois<P.moisActiviteMin)?ko.push("il faut au moins "+P.moisActiviteMin+" mois d'activité sans interruption (vous : "+mois+")"):ok.push("durée d'activité suffisante");
-    (dep>P.moisCessationMax)?ko.push("l'activité doit avoir cessé dans les "+P.moisCessationMax+" mois précédant l'inscription à France Travail"):ok.push("délai depuis la cessation respecté");
-    (moy<P.revenuMinAnnuel)?ko.push("le revenu annuel moyen doit atteindre "+P.revenuMinAnnuel.toLocaleString("fr-FR")+" € (vous : "+eur(moy)+")"):ok.push("revenu annuel moyen de "+eur(moy)+" (seuil : "+P.revenuMinAnnuel.toLocaleString("fr-FR")+" €)");
-    (!res)?ko.push("vos ressources personnelles doivent être inférieures au RSA"):ok.push("ressources sous le plafond (déclaré)");
-    var h="";
-    if(ko.length){
-      h="<strong>Conditions non réunies d'après vos réponses :</strong><ul><li>"+ko.join("</li><li>")+"</li></ul>";
-      if(ok.length)h+="<p>Conditions réunies : "+ok.join(", ")+".</p>";
-      h+="<p>Vérifiez avec le test officiel de France Travail : un cas particulier peut changer le résultat.</p>";
-    }else{
-      var tot=Math.round(P.maxJour*P.jours*100)/100;
-      h="<strong>Les conditions chiffrables sont réunies.</strong> Montant maximal : <strong>"+eur(P.maxJour)+" par jour</strong> (environ 800 € par mois), pendant <strong>"+P.jours+" jours</strong> (6 mois, non renouvelable), soit au plus <strong>"+eur(tot)+"</strong> au total.";
-      if(moy/12<800)h+="<p>Votre revenu mensuel moyen est faible (environ "+eur(moy/12)+") : l'allocation peut être réduite à ce niveau, avec un plancher de "+eur(P.minJour)+" par jour. Le montant exact est calculé par France Travail et n'est pas estimé ici.</p>";
-      h+="<p>Les autres conditions (aptitude à l'emploi, résidence, retraite, demande unique tous les 5 ans) et l'attestation d'un tiers de confiance, le cas échéant, restent à justifier. L'ATI est soumise à la CSG, à la CRDS et à l'impôt sur le revenu.</p>";
-    }
-    out.innerHTML=h;out.hidden=false;
-  });
-})();
-</script>
 <script id="sd-inline-errors">
 (function () {
   var style = document.createElement("style");

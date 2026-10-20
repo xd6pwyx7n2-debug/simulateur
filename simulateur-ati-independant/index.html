@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Chômage des indépendants et auto-entrepreneurs (ATI) 2026 : ai-je droit ? | SimuDroit</title>
+  <meta name="description" content="Allocation des travailleurs indépendants (ATI) : conditions, 26,30 € par jour pendant 182 jours. Vérifiez si vous y avez droit après une cessation d&#x27;activité.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-ati-independant/">
+  <link rel="icon" href="https://xd6pwyx7n2-debug.github.io/simulateur/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Chômage des indépendants et auto-entrepreneurs (ATI) 2026 : ai-je droit ? | SimuDroit">
+  <meta property="og:description" content="Allocation des travailleurs indépendants (ATI) : conditions, 26,30 € par jour pendant 182 jours. Vérifiez si vous y avez droit après une cessation d&#x27;activité.">
+  <meta property="og:url" content="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-ati-independant/">
+  <meta property="og:image" content="https://xd6pwyx7n2-debug.github.io/simulateur/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://xd6pwyx7n2-debug.github.io/simulateur/og-image.png">
+  <meta name="twitter:title" content="Chômage des indépendants et auto-entrepreneurs (ATI) 2026 : ai-je droit ? | SimuDroit">
+  <meta name="twitter:description" content="Allocation des travailleurs indépendants (ATI) : conditions, 26,30 € par jour pendant 182 jours. Vérifiez si vous y avez droit après une cessation d&#x27;activité.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://xd6pwyx7n2-debug.github.io/simulateur/"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebPage", "name": "Chômage des indépendants et auto-entrepreneurs (ATI) 2026 : ai-je droit ?", "url": "https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-ati-independant/", "description": "Allocation des travailleurs indépendants (ATI) : conditions, 26,30 € par jour pendant 182 jours. Vérifiez si vous y avez droit après une cessation d'activité.", "inLanguage": "fr-FR", "dateModified": "2026-10-20"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://xd6pwyx7n2-debug.github.io/simulateur/"}, {"@type": "ListItem", "position": 2, "name": "Indépendants", "item": "https://xd6pwyx7n2-debug.github.io/simulateur/independants/"}, {"@type": "ListItem", "position": 3, "name": "Chômage des indépendants : simulateur ATI", "item": "https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-ati-independant/"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Un auto-entrepreneur a-t-il droit au chômage ?", "acceptedAnswer": {"@type": "Answer", "text": "Pas à l'ARE, mais éventuellement à l'allocation des travailleurs indépendants (ATI) : 26,30 € par jour au maximum pendant 182 jours, si l'activité a cessé après une liquidation ou un redressement judiciaire, ou une cessation définitive pour activité non viable, après au moins 2 ans d'activité et un revenu annuel moyen d'au moins 10 000 €, avec des ressources inférieures au RSA (sources : Unédic, France Travail)."}}, {"@type": "Question", "name": "Combien de temps dure l'ATI ?", "acceptedAnswer": {"@type": "Answer", "text": "6 mois (182 jours), sans différé ni délai d'attente, et non renouvelable. Une seule demande est possible tous les 5 ans (source : Unédic)."}}, {"@type": "Question", "name": "L'ATI est-elle imposable ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, elle est soumise à la CSG, à la CRDS et à l'impôt sur le revenu (source : Unédic)."}}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebApplication", "name": "Chômage des indépendants : simulateur ATI", "url": "https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-ati-independant/", "description": "Allocation des travailleurs indépendants (ATI) : conditions, 26,30 € par jour pendant 182 jours. Vérifiez si vous y avez droit après une cessation d'activité.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}
+  </script>
+  <meta name="theme-color" content="#201e48">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="SimuDroit : simulateurs gratuits de salaire et de droits du travail">
+  <link rel="alternate" hreflang="fr" href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-ati-independant/">
+  <link rel="alternate" hreflang="x-default" href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-ati-independant/">
+</head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://xd6pwyx7n2-debug.github.io/simulateur/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/#simulateurs">Simulateurs</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/assistant/">Assistant</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/guides/">Guides</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/glossaire/">Glossaire</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/faq/">FAQ</a>
+      <a class="cta-link" href="https://xd6pwyx7n2-debug.github.io/simulateur/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://xd6pwyx7n2-debug.github.io/simulateur/">Accueil</a> &nbsp;›&nbsp; <a href="https://xd6pwyx7n2-debug.github.io/simulateur/independants/">Indépendants</a> &nbsp;›&nbsp; Chômage des indépendants (ATI)
+  </div>
+
+  <section class="hero">
+    <h1>Chômage des indépendants : simulateur ATI</h1>
+    <p>Vérifiez si vous remplissez les conditions de l'allocation des travailleurs indépendants et découvrez son montant maximal.</p>
+      <div class="badges"><span class="badge">✓ Règles 2026 vérifiées le 20 octobre 2026</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Vos données restent dans votre navigateur</span></div>
+  </section>
+
+<section class="info-section sd-know" id="a-savoir">
+    <h2>À savoir avant de vous fier au résultat</h2>
+    <div class="sd-know-grid">
+      <div class="sd-know-card"><h3>Conditions cumulatives</h3><p>Cessation après liquidation ou redressement judiciaire, ou cessation définitive pour activité non viable (baisse d'au moins 30 % des revenus attestée par un tiers de confiance), 2 ans d'activité, revenu moyen d'au moins 10 000 €, ressources inférieures au RSA.</p></div>
+      <div class="sd-know-card"><h3>Ce qui n'est pas calculé</h3><p>Le montant réduit lorsque le revenu moyen est faible, et le plafond RSA exact (revalorisé chaque année). Le test officiel de France Travail reste la référence.</p></div>
+      <div class="sd-know-card"><h3>Démarche</h3><p>L'inscription à France Travail doit intervenir dans les 12 mois suivant la cessation d'activité.</p></div>
+    </div>
+  </section>
+  <section class="calculator" id="independants" aria-labelledby="ati-t">
+    <h2 id="ati-t">Ai-je droit à l'allocation des travailleurs indépendants ?</h2>
+    <p class="intro-note">L'<strong>allocation des travailleurs indépendants (ATI)</strong> remplace l'ARE pour un indépendant qui perd son activité. Répondez aux questions : l'outil vérifie les conditions et donne le montant maximal. Les règles ci-dessous concernent les cessations d'activité à partir du 1er avril 2022.</p>
+    <div class="field">
+      <label for="atiCause">Pourquoi votre activité s'est-elle arrêtée ?</label>
+      <select id="atiCause">
+        <option value="liq">Liquidation judiciaire ou redressement judiciaire (dirigeant remplacé)</option>
+        <option value="nv">Cessation définitive car activité non viable (baisse d'au moins 30 % des revenus, attestée par un tiers de confiance)</option>
+        <option value="autre">Autre motif (choix personnel, retraite, reconversion…)</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="atiMois">Durée de l'activité non salariée, sans interruption (en mois)</label>
+      <input type="number" id="atiMois" min="0" max="600" step="1" inputmode="numeric" placeholder="Ex. 30">
+      <span class="help">Il en faut au moins 24, pour la même entreprise.</span>
+    </div>
+    <div class="field">
+      <label for="atiDepuis">Depuis combien de mois l'activité a-t-elle cessé ?</label>
+      <input type="number" id="atiDepuis" min="0" max="120" step="1" inputmode="numeric" placeholder="Ex. 2">
+      <span class="help">Il faut s'inscrire à France Travail dans les 12 mois suivant la cessation.</span>
+    </div>
+    <div class="field">
+      <label for="atiR1">Revenu de l'activité, avant-dernière année civile (€)</label>
+      <input type="number" id="atiR1" min="0" max="10000000" step="1" inputmode="decimal" placeholder="Ex. 14000">
+    </div>
+    <div class="field">
+      <label for="atiR2">Revenu de l'activité, dernière année civile (€)</label>
+      <input type="number" id="atiR2" min="0" max="10000000" step="1" inputmode="decimal" placeholder="Ex. 11000">
+      <span class="help">Revenus tels que déclarés (pour un micro-entrepreneur, après abattement forfaitaire).</span>
+    </div>
+    <div class="field">
+      <label style="display:flex;gap:12px;align-items:flex-start"><input type="checkbox" id="atiRes" style="width:24px;height:24px;flex:none;margin-top:2px"><span>Mes ressources personnelles (hors revenus de l'activité perdue et hors conjoint) sont inférieures au RSA</span></label>
+      <span class="help">Plafond : 646,52 € par mois selon France Travail et Unédic (RSA au 1er avril 2025). Il peut avoir été revalorisé depuis.</span>
+    </div>
+    <button type="button" id="atiGo">Vérifier mes droits à l'ATI</button>
+    <div id="atiOut" class="intro-note" aria-live="polite" role="status" style="margin-top:20px" hidden></div>
+    <p class="help" style="margin-top:14px"><strong>Sources officielles :</strong> <a href="https://www.unedic.org/la-reglementation/fiches-thematiques/allocation-des-travailleurs-independants-ati" rel="noopener">Unédic, fiche ATI</a> (page mise à jour le 13 octobre 2026) · <a href="https://www.francetravail.fr/candidat/mes-droits-aux-aides-et-allocati/aides-financieres-et-autres-allo/autres-allocations/lallocation-pour-les-travailleur.html" rel="noopener">France Travail, l'ATI</a> · test officiel : <a href="https://chomage-independant.francetravail.fr/" rel="noopener">chomage-independant.francetravail.fr</a>. Autres conditions : être apte à l'emploi, résider en France, ne pas percevoir de retraite à taux plein, une seule demande tous les 5 ans.</p>
+  </section>
+
+<section class="info-section" id="faq-ind"><h2>Questions fréquentes</h2><h3>Un auto-entrepreneur a-t-il droit au chômage ?</h3><p>Pas à l'ARE, mais éventuellement à l'allocation des travailleurs indépendants (ATI) : 26,30 € par jour au maximum pendant 182 jours, si l'activité a cessé après une liquidation ou un redressement judiciaire, ou une cessation définitive pour activité non viable, après au moins 2 ans d'activité et un revenu annuel moyen d'au moins 10 000 €, avec des ressources inférieures au RSA (sources : Unédic, France Travail).</p><h3>Combien de temps dure l'ATI ?</h3><p>6 mois (182 jours), sans différé ni délai d'attente, et non renouvelable. Une seule demande est possible tous les 5 ans (source : Unédic).</p><h3>L'ATI est-elle imposable ?</h3><p>Oui, elle est soumise à la CSG, à la CRDS et à l'impôt sur le revenu (source : Unédic).</p></section><section class="info-section" id="sources"><h2>Sources officielles</h2><ul><li><a href="https://www.unedic.org/la-reglementation/fiches-thematiques/allocation-des-travailleurs-independants-ati" rel="noopener">Unédic : fiche ATI (page mise à jour le 13 octobre 2026)</a></li><li><a href="https://www.francetravail.fr/candidat/mes-droits-aux-aides-et-allocati/aides-financieres-et-autres-allo/autres-allocations/lallocation-pour-les-travailleur.html" rel="noopener">France Travail : l'allocation pour les travailleurs indépendants</a></li><li><a href="https://chomage-independant.francetravail.fr/" rel="noopener">Test officiel : chomage-independant.francetravail.fr</a></li></ul></section>
+
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/simulateur/independants/">Tous les outils indépendants</a><a href="/simulateur/simulateur-micro-entrepreneur/">Micro-entrepreneur : net et cotisations</a><a href="/simulateur/simulateur-plafonds-micro-tva/">Plafonds micro et franchise de TVA</a><a href="/simulateur/simulateur-indemnites-journalieres-maladie/">Arrêt maladie (IJ)</a><a href="/simulateur/simulateur-chomage/">Chômage des salariés (ARE)</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-10-20">20 octobre 2026</time>. Estimation indicative, sans valeur juridique. <a href="/simulateur/methode-et-sources/">Méthode et sources</a> · <a href="/simulateur/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 SimuDroit · <a href="https://xd6pwyx7n2-debug.github.io/simulateur/">Tous les simulateurs</a> · <a href="https://xd6pwyx7n2-debug.github.io/simulateur/methode-et-sources/">Méthode et sources</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+(function(){
+  var P=(window.SD_PARAMS&&window.SD_PARAMS.ati)||{maxJour:26.30,minJour:19.73,jours:182,revenuMinAnnuel:10000,moisActiviteMin:24,moisCessationMax:12};
+  var $=function(i){return document.getElementById(i)};
+  function eur(n){return n.toLocaleString("fr-FR",{minimumFractionDigits:2,maximumFractionDigits:2})+" €"}
+  $("atiGo").addEventListener("click",function(){
+    var cause=$("atiCause").value,mois=parseFloat($("atiMois").value),dep=parseFloat($("atiDepuis").value),
+        r1=parseFloat($("atiR1").value),r2=parseFloat($("atiR2").value),res=$("atiRes").checked,out=$("atiOut");
+    if(isNaN(mois)||isNaN(dep)||isNaN(r1)||isNaN(r2)||mois<0||dep<0||r1<0||r2<0){
+      out.innerHTML="Renseignez les quatre champs numériques pour vérifier vos droits.";out.hidden=false;return;}
+    var ko=[],ok=[],moy=(r1+r2)/2;
+    (cause==="autre")?ko.push("la cessation doit résulter d'une liquidation ou d'un redressement judiciaire, ou d'une cessation définitive pour activité non viable"):ok.push("motif de cessation éligible");
+    (mois<P.moisActiviteMin)?ko.push("il faut au moins "+P.moisActiviteMin+" mois d'activité sans interruption (vous : "+mois+")"):ok.push("durée d'activité suffisante");
+    (dep>P.moisCessationMax)?ko.push("l'activité doit avoir cessé dans les "+P.moisCessationMax+" mois précédant l'inscription à France Travail"):ok.push("délai depuis la cessation respecté");
+    (moy<P.revenuMinAnnuel)?ko.push("le revenu annuel moyen doit atteindre "+P.revenuMinAnnuel.toLocaleString("fr-FR")+" € (vous : "+eur(moy)+")"):ok.push("revenu annuel moyen de "+eur(moy)+" (seuil : "+P.revenuMinAnnuel.toLocaleString("fr-FR")+" €)");
+    (!res)?ko.push("vos ressources personnelles doivent être inférieures au RSA"):ok.push("ressources sous le plafond (déclaré)");
+    var h="";
+    if(ko.length){
+      h="<strong>Conditions non réunies d'après vos réponses :</strong><ul><li>"+ko.join("</li><li>")+"</li></ul>";
+      if(ok.length)h+="<p>Conditions réunies : "+ok.join(", ")+".</p>";
+      h+="<p>Vérifiez avec le test officiel de France Travail : un cas particulier peut changer le résultat.</p>";
+    }else{
+      var tot=Math.round(P.maxJour*P.jours*100)/100;
+      h="<strong>Les conditions chiffrables sont réunies.</strong> Montant maximal : <strong>"+eur(P.maxJour)+" par jour</strong> (environ 800 € par mois), pendant <strong>"+P.jours+" jours</strong> (6 mois, non renouvelable), soit au plus <strong>"+eur(tot)+"</strong> au total.";
+      if(moy/12<800)h+="<p>Votre revenu mensuel moyen est faible (environ "+eur(moy/12)+") : l'allocation peut être réduite à ce niveau, avec un plancher de "+eur(P.minJour)+" par jour. Le montant exact est calculé par France Travail et n'est pas estimé ici.</p>";
+      h+="<p>Les autres conditions (aptitude à l'emploi, résidence, retraite, demande unique tous les 5 ans) et l'attestation d'un tiers de confiance, le cas échéant, restent à justifier. L'ATI est soumise à la CSG, à la CRDS et à l'impôt sur le revenu.</p>";
+    }
+    out.innerHTML=h;out.hidden=false;
+  });
+})();
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>
