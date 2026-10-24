@@ -169,6 +169,15 @@ with sync_playwright() as pw:
     if "Sous le plafond" not in pg.inner_text("#microVerdict") or "Entre le seuil" not in pg.inner_text("#tvaVerdict"): fail("plafonds : 40 000 € de services (sous 83 600 €, entre 37 500 et 41 250)")
     pg.evaluate("()=>{document.getElementById('caServ').value='90000';document.getElementById('calculate').click()}"); pg.wait_for_timeout(120)
     if "dépassé" not in pg.inner_text("#microVerdict") or "TVA due" not in pg.inner_text("#tvaVerdict"): fail("plafonds : 90 000 € de services doit dépasser micro et TVA")
+    # TVA HT/TTC et TJM freelance
+    pg.goto(LOCAL + "simulateur-tva-ht-ttc/"); pg.wait_for_timeout(200)
+    pg.evaluate("()=>{document.getElementById('sens').value='ht';document.getElementById('taux').value='20';document.getElementById('montant').value='100';document.getElementById('calculate').click()}"); pg.wait_for_timeout(900)
+    if norm(pg.inner_text("#ttc")) != norm("120,00 €") or norm(pg.inner_text("#tva")) != norm("20,00 €"): fail("TVA : 100 € HT à 20 % attendu 120,00 € TTC")
+    pg.evaluate("()=>{document.getElementById('sens').value='ttc';document.getElementById('taux').value='5.5';document.getElementById('montant').value='105.5';document.getElementById('calculate').click()}"); pg.wait_for_timeout(900)
+    if norm(pg.inner_text("#ht")) != norm("100,00 €"): fail("TVA : 105,50 € TTC à 5,5 %% attendu 100,00 € HT (%s)" % pg.inner_text("#ht"))
+    pg.goto(LOCAL + "simulateur-tjm-freelance/"); pg.wait_for_timeout(200)
+    pg.evaluate("()=>{const v={act:'prestations',net:'2500',jours:'15',charges:'0'};for(const k in v)document.getElementById(k).value=v[k];document.getElementById('calculate').click()}"); pg.wait_for_timeout(900)
+    if norm(pg.inner_text("#caMois")) != norm("3 172,59 €") or norm(pg.inner_text("#tjm")) != norm("211,51 €"): fail("TJM : net 2 500 € BIC 15 jours attendu CA 3 172,59 € / TJM 211,51 € (%s / %s)" % (pg.inner_text("#caMois"), pg.inner_text("#tjm")))
     # accueil : Entrée dans la recherche ouvre le premier résultat
     pg.goto(LOCAL); pg.wait_for_timeout(200)
     pg.fill("#search", "smic"); pg.press("#search", "Enter"); pg.wait_for_timeout(500)

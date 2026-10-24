@@ -29,6 +29,14 @@
       ["3 000 € · avec ACRE", { act: "prestations", montant: 3000, acre: true }],
       ["10 000 € · vente", { act: "vente", montant: 10000 }]
     ],
+    "simulateur-tjm-freelance": [
+      ["2 500 € net · BIC", { act: "prestations", net: 2500, jours: 15, charges: 0 }],
+      ["3 000 € net · BNC", { act: "bnc", net: 3000, jours: 15, charges: 200 }]
+    ],
+    "simulateur-tva-ht-ttc": [
+      ["100 € HT · 20 %", { sens: "ht", taux: "20", montant: 100 }],
+      ["120 € TTC · 20 %", { sens: "ttc", taux: "20", montant: 120 }]
+    ],
     "simulateur-plafonds-micro-tva": [
       ["30 000 € · services", { caVente: "", caServ: 30000 }],
       ["90 000 € · vente", { caVente: 90000, caServ: "" }]
