@@ -29,6 +29,10 @@
       ["3 000 € · avec ACRE", { act: "prestations", montant: 3000, acre: true }],
       ["10 000 € · vente", { act: "vente", montant: 10000 }]
     ],
+    "simulateur-pension-invalidite": [
+      ["30 000 € · 2e catégorie", { statut: "sal", cat: "2", sam: 30000 }],
+      ["24 000 € · 1re catégorie", { statut: "sal", cat: "1", sam: 24000 }]
+    ],
     "simulateur-maintien-salaire-maladie": [
       ["2 500 € · 3 ans · 40 jours", { brut: 2500, anc: 3, jours: 40, prior: 0 }],
       ["3 200 € · 12 ans · 120 jours", { brut: 3200, anc: 12, jours: 120, prior: 0 }]

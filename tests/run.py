@@ -184,6 +184,14 @@ with sync_playwright() as pw:
     if norm(pg.inner_text("#emp")) != norm("1 060,35 €") or norm(pg.inner_text("#secu")) != norm("1 520,70 €") or pg.inner_text("#n90") != "30" or pg.inner_text("#n66") != "3": fail("maintien de salaire : attendu 1 060,35 € / 1 520,70 € / 30 / 3 (%s / %s / %s / %s)" % (pg.inner_text("#emp"), pg.inner_text("#secu"), pg.inner_text("#n90"), pg.inner_text("#n66")))
     pg.evaluate("()=>{document.getElementById('anc').value='0';document.getElementById('calculate').click()}"); pg.wait_for_timeout(900)
     if norm(pg.inner_text("#emp")) != norm("0,00 €") or "Moins d'un an" not in pg.inner_text("#notes"): fail("maintien de salaire : moins d'un an d'ancienneté doit donner 0 €")
+    # pension d'invalidité : 30 000 € cat. 2 = 1 250,00 ; cat. 1 revenu 10 000 = minimum 338,31 ; cat. 3 = 2 548,44 ; indépendant cat. 1 10 000 = 530,21
+    pg.goto(LOCAL + "simulateur-pension-invalidite/"); pg.wait_for_timeout(200)
+    def inv(st, cat, sam):
+        pg.evaluate("(a)=>{document.getElementById('statut').value=a[0];document.getElementById('cat').value=a[1];document.getElementById('sam').value=a[2];document.getElementById('calculate').click()}", [st, cat, str(sam)]); pg.wait_for_timeout(900)
+        return norm(pg.inner_text("#pension"))
+    for st, cat, sam, exp in [("sal","2",30000,"1 250,00 €"),("sal","1",10000,"338,31 €"),("sal","3",30000,"2 548,44 €"),("ind","1",10000,"530,21 €"),("sal","2",90000,"2 002,50 €")]:
+        r = inv(st, cat, sam)
+        if r != norm(exp): fail("pension d'invalidité %s cat %s %s € : attendu %s (%s)" % (st, cat, sam, exp, r))
     # accueil : Entrée dans la recherche ouvre le premier résultat
     pg.goto(LOCAL); pg.wait_for_timeout(200)
     pg.fill("#search", "smic"); pg.press("#search", "Enter"); pg.wait_for_timeout(500)

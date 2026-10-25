@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pension d&#x27;invalidité 2026 : calcul par catégorie (1, 2, 3) | SimuDroit</title>
+  <meta name="description" content="Estimez votre pension d&#x27;invalidité 2026 : taux de 30 % ou 50 %, 10 meilleures années, minimum et maximum, majoration tierce personne.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-pension-invalidite/">
+  <link rel="icon" href="https://xd6pwyx7n2-debug.github.io/simulateur/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pension d&#x27;invalidité 2026 : calcul par catégorie (1, 2, 3) | SimuDroit">
+  <meta property="og:description" content="Estimez votre pension d&#x27;invalidité 2026 : taux de 30 % ou 50 %, 10 meilleures années, minimum et maximum, majoration tierce personne.">
+  <meta property="og:url" content="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-pension-invalidite/">
+  <meta property="og:image" content="https://xd6pwyx7n2-debug.github.io/simulateur/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://xd6pwyx7n2-debug.github.io/simulateur/og-image.png">
+  <meta name="twitter:title" content="Pension d&#x27;invalidité 2026 : calcul par catégorie (1, 2, 3) | SimuDroit">
+  <meta name="twitter:description" content="Estimez votre pension d&#x27;invalidité 2026 : taux de 30 % ou 50 %, 10 meilleures années, minimum et maximum, majoration tierce personne.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://xd6pwyx7n2-debug.github.io/simulateur/"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebPage", "name": "Pension d'invalidité 2026 : calcul par catégorie (1, 2, 3)", "url": "https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-pension-invalidite/", "description": "Estimez votre pension d'invalidité 2026 : taux de 30 % ou 50 %, 10 meilleures années, minimum et maximum, majoration tierce personne.", "inLanguage": "fr-FR", "dateModified": "2026-10-25"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://xd6pwyx7n2-debug.github.io/simulateur/"}, {"@type": "ListItem", "position": 2, "name": "Pension d'invalidité : estimation du montant", "item": "https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-pension-invalidite/"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Comment est calculée la pension d'invalidité ?", "acceptedAnswer": {"@type": "Answer", "text": "L'Assurance Maladie retient le salaire annuel moyen des 10 meilleures années, dans la limite du plafond annuel de la Sécurité sociale (48 060 € en 2026), puis applique un taux selon la catégorie : 30 % en 1re catégorie, 50 % en 2e et 3e catégories. En 3e catégorie, une majoration pour tierce personne de 1 298,44 € par mois s'ajoute (source : ameli)."}}, {"@type": "Question", "name": "Quels sont les montants minimum et maximum ?", "acceptedAnswer": {"@type": "Answer", "text": "Pour un salarié au 1er janvier 2026 : minimum de 338,31 € par mois dans toutes les catégories ; maximum de 1 201,50 € en 1re catégorie et de 2 002,50 € en 2e et 3e catégories (source : ameli)."}}, {"@type": "Question", "name": "Qui décide de la catégorie d'invalidité ?", "acceptedAnswer": {"@type": "Answer", "text": "C'est le médecin conseil de l'Assurance Maladie, selon la capacité de travail restante : ce simulateur ne la détermine pas et vous laisse choisir la catégorie pour estimer la pension."}}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebApplication", "name": "Pension d'invalidité : estimation du montant", "url": "https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-pension-invalidite/", "description": "Estimez votre pension d'invalidité 2026 : taux de 30 % ou 50 %, 10 meilleures années, minimum et maximum, majoration tierce personne.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}
+  </script>
+  <meta name="theme-color" content="#201e48">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="SimuDroit : simulateurs gratuits de salaire et de droits du travail">
+  <link rel="alternate" hreflang="fr" href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-pension-invalidite/">
+  <link rel="alternate" hreflang="x-default" href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-pension-invalidite/">
+  <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
+  <script async src="https://plausible.io/js/pa-j8JdUomB9hqqp7em82xdB.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+</head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://xd6pwyx7n2-debug.github.io/simulateur/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/#simulateurs">Simulateurs</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/assistant/">Assistant</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/independants/">Indépendants</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/guides/">Guides</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/glossaire/">Glossaire</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/faq/">FAQ</a>
+      <a class="cta-link" href="https://xd6pwyx7n2-debug.github.io/simulateur/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://xd6pwyx7n2-debug.github.io/simulateur/">Accueil</a> &nbsp;›&nbsp; Pension d&#x27;invalidité
+  </div>
+
+  <section class="hero">
+    <h1>Pension d&#x27;invalidité : estimation du montant</h1>
+    <p>Estimez votre pension d'invalidité mensuelle selon la catégorie, avec le taux, les montants minimum et maximum et la majoration pour tierce personne.</p>
+      <div class="badges"><span class="badge">✓ Règles 2026 vérifiées le 25 octobre 2026</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Vos données restent dans votre navigateur</span></div>
+  </section>
+
+<section class="info-section sd-know" id="a-savoir">
+    <h2>À savoir avant de vous fier au résultat</h2>
+    <div class="sd-know-grid">
+      <div class="sd-know-card"><h3>Ce que calcule l'outil</h3><p>Une estimation de la pension mensuelle à partir du salaire annuel moyen de vos 10 meilleures années et de la catégorie d'invalidité.</p></div>
+      <div class="sd-know-card"><h3>Ce qui n'est pas calculé</h3><p>La catégorie (décidée par le médecin conseil), la reconstitution de votre salaire annuel moyen à partir de votre carrière, la réduction éventuelle selon vos ressources et l'allocation supplémentaire d'invalidité.</p></div>
+      <div class="sd-know-card"><h3>Salariés ou indépendants</h3><p>Les montants minimum diffèrent pour les artisans et commerçants : l'outil applique les montants publiés par l'Assurance Maladie pour chaque statut.</p></div>
+    </div>
+  </section>
+  <section class="calculator" id="calcul">
+    <h2>Quelle pension d'invalidité puis-je espérer ?</h2>
+    <noscript><p class="intro-note"><strong>JavaScript requis :</strong> ce simulateur calcule directement dans votre navigateur.</p></noscript>
+    <div class="field">
+      <label for="statut">Votre statut</label>
+      <select id="statut"><option value="sal">Salarié</option><option value="ind">Artisan ou commerçant (indépendant)</option></select>
+    </div>
+    <div class="field">
+      <label for="cat">Catégorie d'invalidité</label>
+      <select id="cat">
+        <option value="1">1re catégorie : capable d'exercer une activité rémunérée</option>
+        <option value="2">2e catégorie : absolument incapable d'exercer une profession quelconque</option>
+        <option value="3">3e catégorie : incapable d'exercer une profession et besoin d'une tierce personne pour les actes ordinaires de la vie</option>
+      </select>
+      <div class="field-help">La catégorie est attribuée par le médecin conseil de l'Assurance Maladie.</div>
+    </div>
+    <div class="field">
+      <label for="sam">Salaire ou revenu annuel moyen de vos 10 meilleures années (€)</label>
+      <input type="number" id="sam" min="0" max="10000000" step="1" inputmode="decimal" placeholder="Ex. 30 000">
+      <div class="field-help">Retenu dans la limite du plafond annuel de la Sécurité sociale (48 060 € en 2026).</div>
+    </div>
+    <button type="button" id="calculate">Estimer ma pension</button>
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">Pension d'invalidité mensuelle estimée</div>
+      <div class="result-main" id="pension">0,00 €</div>
+      <div class="result-row"><span>Taux appliqué</span><strong id="taux">—</strong></div>
+      <div class="result-row"><span>Base annuelle retenue</span><strong id="base">0,00 €</strong></div>
+      <div class="result-row"><span>Pension annuelle estimée</span><strong id="annuel">0,00 €</strong></div>
+      <div class="result-row" id="rowMaj" style="display:none"><span>Dont majoration pour tierce personne</span><strong id="maj"></strong></div>
+      <div class="warning" id="notes"></div>
+    </div>
+  </section>
+
+  <section class="info-section" id="conditions">
+    <h2>Conditions pour obtenir une pension d'invalidité</h2>
+    <p>Selon Service-Public.fr, l'invalidité doit résulter d'une maladie ou d'un accident d'origine non professionnelle, avec une capacité de travail ou de gain réduite d'au moins deux tiers. Il faut aussi au moins 12 mois d'affiliation à la Sécurité sociale, et soit des cotisations équivalant à 2 030 fois le Smic horaire sur les 12 mois précédents, soit au moins 600 heures travaillées sur cette période. Le médecin conseil de l'Assurance Maladie décide de la catégorie. À 62 ans, âge légal de départ en cas d'incapacité, la pension d'invalidité est remplacée par une pension de retraite, sous conditions.</p>
+  </section>
+
+  <section class="info-section" id="montants">
+    <h2>Montants au 1er janvier 2026</h2>
+    <div class="table-wrap"><table class="sd-table"><thead><tr><th>Catégorie</th><th>Taux</th><th>Minimum mensuel</th><th>Maximum mensuel</th></tr></thead><tbody>
+    <tr><td>Salariés : 1re catégorie</td><td>30 %</td><td>338,31 €</td><td>1 201,50 €</td></tr>
+    <tr><td>Salariés : 2e catégorie</td><td>50 %</td><td>338,31 €</td><td>2 002,50 €</td></tr>
+    <tr><td>Salariés : 3e catégorie</td><td>50 % + majoration</td><td>338,31 € + 1 298,44 €</td><td>2 002,50 € + 1 298,44 €</td></tr>
+    <tr><td>Artisans, commerçants : 1re catégorie</td><td>30 %</td><td>530,21 €</td><td>1 201,50 €</td></tr>
+    <tr><td>Artisans, commerçants : 2e catégorie</td><td>50 %</td><td>747,00 €</td><td>2 002,50 €</td></tr>
+    <tr><td>Artisans, commerçants : 3e catégorie</td><td>50 % + majoration</td><td>747,00 € + 1 298,44 €</td><td>2 002,50 € + 1 298,44 €</td></tr>
+    </tbody></table></div>
+  </section>
+
+  <section class="info-section" id="faq-ind"><h2>Questions fréquentes</h2><h3>Comment est calculée la pension d'invalidité ?</h3><p>L'Assurance Maladie retient le salaire annuel moyen des 10 meilleures années, dans la limite du plafond annuel de la Sécurité sociale (48 060 € en 2026), puis applique un taux selon la catégorie : 30 % en 1re catégorie, 50 % en 2e et 3e catégories. En 3e catégorie, une majoration pour tierce personne de 1 298,44 € par mois s'ajoute (source : ameli).</p><h3>Quels sont les montants minimum et maximum ?</h3><p>Pour un salarié au 1er janvier 2026 : minimum de 338,31 € par mois dans toutes les catégories ; maximum de 1 201,50 € en 1re catégorie et de 2 002,50 € en 2e et 3e catégories (source : ameli).</p><h3>Qui décide de la catégorie d'invalidité ?</h3><p>C'est le médecin conseil de l'Assurance Maladie, selon la capacité de travail restante : ce simulateur ne la détermine pas et vous laisse choisir la catégorie pour estimer la pension.</p></section><section class="info-section" id="sources"><h2>Sources officielles</h2><ul><li><a href="https://www.ameli.fr/assure/remboursements/pensions-allocations-rentes/invalidite" rel="noopener">ameli : le montant de votre pension d'invalidité (montants au 1er janvier 2026)</a></li><li><a href="https://www.ameli.fr/entreprise/vos-salaries/montants-reference/pension-invalidite" rel="noopener">ameli : pensions d'invalidité, catégories et montants</a></li><li><a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F672" rel="noopener">Service-Public.fr : pension d'invalidité de la Sécurité sociale</a></li></ul></section>
+
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/simulateur/simulateur-indemnites-journalieres-maladie/">Indemnités journalières maladie</a><a href="/simulateur/simulateur-maintien-salaire-maladie/">Maintien de salaire en arrêt maladie</a><a href="/simulateur/simulateur-accident-du-travail/">Accident du travail</a><a href="/simulateur/simulateur-brut-net/">Salaire brut en net</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-10-25">25 octobre 2026</time>. Estimation indicative, sans valeur juridique. <a href="/simulateur/methode-et-sources/">Méthode et sources</a> · <a href="/simulateur/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 SimuDroit · <a href="https://xd6pwyx7n2-debug.github.io/simulateur/">Tous les simulateurs</a> · <a href="https://xd6pwyx7n2-debug.github.io/simulateur/methode-et-sources/">Méthode et sources</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+  function eur(v){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR"}).format(v)}
+  function num(id){var v=parseFloat(document.getElementById(id).value);return Number.isFinite(v)?v:NaN}
+  function setText(id,t){document.getElementById(id).textContent=t}
+  function r2(x){return Math.round(x*100)/100}
+
+  var P={pass:48060,maj:1298.44,sal:{min:338.31},ind:{min1:530.21,min2:747.00},max:{1:1201.50,2:2002.50,3:2002.50}};
+  document.getElementById("calculate").addEventListener("click",function(){
+    var st=document.getElementById("statut").value,cat=parseInt(document.getElementById("cat").value,10),sam=num("sam"),notes=[];
+    if(!Number.isFinite(sam)||sam<=0){alert("Indiquez votre salaire annuel moyen (supérieur à 0).");return}
+    var base=Math.min(sam,P.pass),taux=cat===1?0.30:0.50,brut=taux*base/12;
+    var min=st==="sal"?P.sal.min:(cat===1?P.ind.min1:P.ind.min2),max=P.max[cat];
+    var pension=r2(Math.max(min,Math.min(max,brut))),maj=cat===3?P.maj:0;
+    setText("pension",eur(r2(pension+maj)));
+    setText("taux",(taux*100)+" %");setText("base",eur(base));setText("annuel",eur(r2((pension+maj)*12)));
+    var row=document.getElementById("rowMaj");
+    if(maj){setText("maj",eur(maj)+" par mois");row.style.display=""}else{row.style.display="none"}
+    if(sam>P.pass)notes.push("Votre salaire moyen dépasse le plafond annuel de la Sécurité sociale : il est retenu à "+eur(P.pass)+".");
+    if(brut<min)notes.push("Le calcul donne moins que le minimum : le minimum garanti de "+eur(min)+" s'applique.");
+    if(brut>max)notes.push("Le calcul dépasse le maximum : la pension est limitée à "+eur(max)+".");
+    notes.push("Estimation avec les montants au 1er janvier 2026. La pension peut être réduite selon vos ressources et la catégorie est décidée par le médecin conseil. Montants bruts avant prélèvements éventuels.");
+    document.getElementById("notes").innerHTML=notes.map(function(n){return "<p style=\"margin:0 0 8px\">"+n+"</p>"}).join("");
+    document.getElementById("result").classList.add("visible");
+  });
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>
