@@ -178,6 +178,12 @@ with sync_playwright() as pw:
     pg.goto(LOCAL + "simulateur-tjm-freelance/"); pg.wait_for_timeout(200)
     pg.evaluate("()=>{const v={act:'prestations',net:'2500',jours:'15',charges:'0'};for(const k in v)document.getElementById(k).value=v[k];document.getElementById('calculate').click()}"); pg.wait_for_timeout(900)
     if norm(pg.inner_text("#caMois")) != norm("3 172,59 €") or norm(pg.inner_text("#tjm")) != norm("211,51 €"): fail("TJM : net 2 500 € BIC 15 jours attendu CA 3 172,59 € / TJM 211,51 € (%s / %s)" % (pg.inner_text("#caMois"), pg.inner_text("#tjm")))
+    # maintien de salaire : 2 500 € brut, 3 ans, 40 jours -> IJ 41,10 x 37 = 1 520,70 ; employeur 30 x 33,90 + 3 x 14,45 = 1 060,35
+    pg.goto(LOCAL + "simulateur-maintien-salaire-maladie/"); pg.wait_for_timeout(200)
+    pg.evaluate("()=>{const v={brut:'2500',anc:'3',jours:'40',prior:'0'};for(const k in v)document.getElementById(k).value=v[k];document.getElementById('calculate').click()}"); pg.wait_for_timeout(900)
+    if norm(pg.inner_text("#emp")) != norm("1 060,35 €") or norm(pg.inner_text("#secu")) != norm("1 520,70 €") or pg.inner_text("#n90") != "30" or pg.inner_text("#n66") != "3": fail("maintien de salaire : attendu 1 060,35 € / 1 520,70 € / 30 / 3 (%s / %s / %s / %s)" % (pg.inner_text("#emp"), pg.inner_text("#secu"), pg.inner_text("#n90"), pg.inner_text("#n66")))
+    pg.evaluate("()=>{document.getElementById('anc').value='0';document.getElementById('calculate').click()}"); pg.wait_for_timeout(900)
+    if norm(pg.inner_text("#emp")) != norm("0,00 €") or "Moins d'un an" not in pg.inner_text("#notes"): fail("maintien de salaire : moins d'un an d'ancienneté doit donner 0 €")
     # accueil : Entrée dans la recherche ouvre le premier résultat
     pg.goto(LOCAL); pg.wait_for_timeout(200)
     pg.fill("#search", "smic"); pg.press("#search", "Enter"); pg.wait_for_timeout(500)

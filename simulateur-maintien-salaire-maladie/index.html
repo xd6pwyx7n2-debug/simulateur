@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Maintien de salaire en arrêt maladie 2026 : calcul du complément | SimuDroit</title>
+  <meta name="description" content="Calculez le complément légal de l&#x27;employeur en arrêt maladie : 90 % puis 66,66 % du salaire, carence de 7 jours, durée selon l&#x27;ancienneté.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-maintien-salaire-maladie/">
+  <link rel="icon" href="https://xd6pwyx7n2-debug.github.io/simulateur/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Maintien de salaire en arrêt maladie 2026 : calcul du complément | SimuDroit">
+  <meta property="og:description" content="Calculez le complément légal de l&#x27;employeur en arrêt maladie : 90 % puis 66,66 % du salaire, carence de 7 jours, durée selon l&#x27;ancienneté.">
+  <meta property="og:url" content="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-maintien-salaire-maladie/">
+  <meta property="og:image" content="https://xd6pwyx7n2-debug.github.io/simulateur/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://xd6pwyx7n2-debug.github.io/simulateur/og-image.png">
+  <meta name="twitter:title" content="Maintien de salaire en arrêt maladie 2026 : calcul du complément | SimuDroit">
+  <meta name="twitter:description" content="Calculez le complément légal de l&#x27;employeur en arrêt maladie : 90 % puis 66,66 % du salaire, carence de 7 jours, durée selon l&#x27;ancienneté.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://xd6pwyx7n2-debug.github.io/simulateur/"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebPage", "name": "Maintien de salaire en arrêt maladie 2026 : calcul du complément", "url": "https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-maintien-salaire-maladie/", "description": "Calculez le complément légal de l'employeur en arrêt maladie : 90 % puis 66,66 % du salaire, carence de 7 jours, durée selon l'ancienneté.", "inLanguage": "fr-FR", "dateModified": "2026-10-25"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://xd6pwyx7n2-debug.github.io/simulateur/"}, {"@type": "ListItem", "position": 2, "name": "Maintien de salaire en arrêt maladie : complément de l'employeur", "item": "https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-maintien-salaire-maladie/"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Mon employeur doit-il maintenir mon salaire en arrêt maladie ?", "acceptedAnswer": {"@type": "Answer", "text": "Sous conditions : au moins 1 an d'ancienneté, certificat médical transmis dans les 48 heures, affiliation à un régime de Sécurité sociale ouvrant droit aux indemnités journalières et soins en France ou dans l'EEE. Le complément commence au 8e jour d'arrêt (7 jours de carence) et couvre 90 % puis 66,66 % du salaire brut (source : Service-Public.fr)."}}, {"@type": "Question", "name": "Combien de jours le complément de l'employeur dure-t-il ?", "acceptedAnswer": {"@type": "Answer", "text": "De 60 jours (30 jours à 90 % puis 30 jours à 66,66 %) pour 1 à 5 ans d'ancienneté, jusqu'à 180 jours (90 + 90) à partir de 31 ans d'ancienneté. La durée augmente de 20 jours par tranche de 5 ans d'ancienneté. Les jours déjà indemnisés dans les 12 derniers mois sont déduits (source : Service-Public.fr)."}}, {"@type": "Question", "name": "La convention collective peut-elle être plus favorable ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Une convention collective ou un accord d'entreprise peut supprimer ou réduire le délai de carence ou maintenir le salaire à 100 %. Ce simulateur applique uniquement les règles légales."}}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebApplication", "name": "Maintien de salaire en arrêt maladie : complément de l'employeur", "url": "https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-maintien-salaire-maladie/", "description": "Calculez le complément légal de l'employeur en arrêt maladie : 90 % puis 66,66 % du salaire, carence de 7 jours, durée selon l'ancienneté.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}
+  </script>
+  <meta name="theme-color" content="#201e48">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="SimuDroit : simulateurs gratuits de salaire et de droits du travail">
+  <link rel="alternate" hreflang="fr" href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-maintien-salaire-maladie/">
+  <link rel="alternate" hreflang="x-default" href="https://xd6pwyx7n2-debug.github.io/simulateur/simulateur-maintien-salaire-maladie/">
+  <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
+  <script async src="https://plausible.io/js/pa-j8JdUomB9hqqp7em82xdB.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+</head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://xd6pwyx7n2-debug.github.io/simulateur/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/#simulateurs">Simulateurs</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/assistant/">Assistant</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/independants/">Indépendants</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/guides/">Guides</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/glossaire/">Glossaire</a>
+      <a href="https://xd6pwyx7n2-debug.github.io/simulateur/faq/">FAQ</a>
+      <a class="cta-link" href="https://xd6pwyx7n2-debug.github.io/simulateur/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://xd6pwyx7n2-debug.github.io/simulateur/">Accueil</a> &nbsp;›&nbsp; Maintien de salaire en arrêt maladie
+  </div>
+
+  <section class="hero">
+    <h1>Maintien de salaire en arrêt maladie : complément de l&#x27;employeur</h1>
+    <p>Estimez ce que votre employeur vous verse en plus des indemnités de la Sécurité sociale : carence de 7 jours, 90 % puis 66,66 % du salaire, durée selon l'ancienneté.</p>
+      <div class="badges"><span class="badge">✓ Règles 2026 vérifiées le 25 octobre 2026</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Vos données restent dans votre navigateur</span></div>
+  </section>
+
+<section class="info-section sd-know" id="a-savoir">
+    <h2>À savoir avant de vous fier au résultat</h2>
+    <div class="sd-know-grid">
+      <div class="sd-know-card"><h3>Ce que calcule l'outil</h3><p>Le complément légal versé par l'employeur, à partir du 8e jour d'arrêt, en plus des indemnités journalières de la Sécurité sociale. Le total approche, sans l'atteindre en général, votre salaire habituel.</p></div>
+      <div class="sd-know-card"><h3>Qui est exclu</h3><p>Le complément légal ne s'applique pas aux travailleurs à domicile, saisonniers, intermittents et temporaires, ni sous 1 an d'ancienneté.</p></div>
+      <div class="sd-know-card"><h3>Convention collective</h3><p>Beaucoup de conventions maintiennent le salaire plus longtemps ou à un meilleur taux. Vérifiez la vôtre : l'outil ne calcule que le minimum légal.</p></div>
+    </div>
+  </section>
+  <section class="calculator" id="calcul">
+    <h2>Combien mon employeur me verse-t-il en arrêt maladie ?</h2>
+    <p class="intro-note" id="reserve-salaries"><strong>Réservé aux salariés.</strong> Ce simulateur calcule le complément légal de l'employeur pour un arrêt maladie (hors accident du travail et maladie professionnelle).</p>
+    <noscript><p class="intro-note"><strong>JavaScript requis :</strong> ce simulateur calcule directement dans votre navigateur.</p></noscript>
+    <div class="field">
+      <label for="brut">Salaire brut mensuel (moyenne des 3 derniers mois, €)</label>
+      <input type="number" id="brut" min="0" max="1000000" step="0.01" inputmode="decimal" placeholder="Ex. 2 500">
+    </div>
+    <div class="field">
+      <label for="anc">Ancienneté dans l'entreprise (années)</label>
+      <input type="number" id="anc" min="0" max="60" step="1" inputmode="numeric" placeholder="Ex. 3">
+      <div class="field-help">Calculée à partir du premier jour de l'arrêt. Au moins 1 an est nécessaire.</div>
+    </div>
+    <div class="field">
+      <label for="jours">Durée de l'arrêt (jours)</label>
+      <input type="number" id="jours" min="1" max="1095" step="1" inputmode="numeric" placeholder="Ex. 40">
+    </div>
+    <div class="field">
+      <label for="prior">Jours déjà indemnisés par l'employeur sur les 12 derniers mois (facultatif)</label>
+      <input type="number" id="prior" min="0" max="365" step="1" value="0" inputmode="numeric">
+    </div>
+    <button type="button" id="calculate">Calculer le complément</button>
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">Complément de l'employeur (brut)</div>
+      <div class="result-main" id="emp">0,00 €</div>
+      <div class="result-row"><span>Jours indemnisés à 90 %</span><strong id="n90">0</strong></div>
+      <div class="result-row"><span>Jours indemnisés à 66,66 %</span><strong id="n66">0</strong></div>
+      <div class="result-row"><span>Indemnités de la Sécurité sociale (brut)</span><strong id="secu">0,00 €</strong></div>
+      <div class="result-row"><span>Total brut perçu</span><strong id="tot">0,00 €</strong></div>
+      <div class="result-row"><span>Salaire brut habituel sur la durée de l'arrêt</span><strong id="sal">0,00 €</strong></div>
+      <div class="warning" id="notes"></div>
+    </div>
+  </section>
+
+  <section class="info-section" id="regles">
+    <h2>Les règles légales</h2>
+    <p>Le complément est dû à partir du 8e jour d'arrêt (7 jours de carence). Il porte le total à 90 % du salaire brut pendant la première période, puis à 66,66 % pendant la seconde. L'employeur déduit les indemnités journalières versées par la Sécurité sociale.</p>
+    <div class="table-wrap"><table class="sd-table"><thead><tr><th>Ancienneté</th><th>Jours à 90 %</th><th>Jours à 66,66 %</th><th>Total</th></tr></thead><tbody>
+    <tr><td>1 à 5 ans</td><td>30</td><td>30</td><td>60</td></tr>
+    <tr><td>6 à 10 ans</td><td>40</td><td>40</td><td>80</td></tr>
+    <tr><td>11 à 15 ans</td><td>50</td><td>50</td><td>100</td></tr>
+    <tr><td>16 à 20 ans</td><td>60</td><td>60</td><td>120</td></tr>
+    <tr><td>21 à 25 ans</td><td>70</td><td>70</td><td>140</td></tr>
+    <tr><td>26 à 30 ans</td><td>80</td><td>80</td><td>160</td></tr>
+    <tr><td>31 ans et plus</td><td>90</td><td>90</td><td>180</td></tr>
+    </tbody></table></div>
+    <p class="field-help">Les jours déjà indemnisés par l'employeur au cours des 12 derniers mois sont déduits de ces durées. Pour un accident du travail ou une maladie professionnelle, il n'y a pas de délai de carence : ce cas n'est pas calculé ici.</p>
+  </section>
+
+  <section class="info-section" id="faq-ind"><h2>Questions fréquentes</h2><h3>Mon employeur doit-il maintenir mon salaire en arrêt maladie ?</h3><p>Sous conditions : au moins 1 an d'ancienneté, certificat médical transmis dans les 48 heures, affiliation à un régime de Sécurité sociale ouvrant droit aux indemnités journalières et soins en France ou dans l'EEE. Le complément commence au 8e jour d'arrêt (7 jours de carence) et couvre 90 % puis 66,66 % du salaire brut (source : Service-Public.fr).</p><h3>Combien de jours le complément de l'employeur dure-t-il ?</h3><p>De 60 jours (30 jours à 90 % puis 30 jours à 66,66 %) pour 1 à 5 ans d'ancienneté, jusqu'à 180 jours (90 + 90) à partir de 31 ans d'ancienneté. La durée augmente de 20 jours par tranche de 5 ans d'ancienneté. Les jours déjà indemnisés dans les 12 derniers mois sont déduits (source : Service-Public.fr).</p><h3>La convention collective peut-elle être plus favorable ?</h3><p>Oui. Une convention collective ou un accord d'entreprise peut supprimer ou réduire le délai de carence ou maintenir le salaire à 100 %. Ce simulateur applique uniquement les règles légales.</p></section><section class="info-section" id="sources"><h2>Sources officielles</h2><ul><li><a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F3053" rel="noopener">Service-Public.fr : arrêt maladie, complément de salaire de l'employeur (page vérifiée le 1er juin 2026)</a></li><li><a href="https://www.ameli.fr/assure/remboursements/indemnites-journalieres-maladie-maternite-paternite/arret-maladie-salarie" rel="noopener">ameli : indemnités journalières du salarié en arrêt maladie</a></li></ul></section>
+
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/simulateur/simulateur-indemnites-journalieres-maladie/">Indemnités journalières maladie</a><a href="/simulateur/simulateur-accident-du-travail/">Accident du travail</a><a href="/simulateur/simulateur-brut-net/">Salaire brut en net</a><a href="/simulateur/simulateur-conges-payes/">Congés payés</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-10-25">25 octobre 2026</time>. Estimation indicative, sans valeur juridique. <a href="/simulateur/methode-et-sources/">Méthode et sources</a> · <a href="/simulateur/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 SimuDroit · <a href="https://xd6pwyx7n2-debug.github.io/simulateur/">Tous les simulateurs</a> · <a href="https://xd6pwyx7n2-debug.github.io/simulateur/methode-et-sources/">Méthode et sources</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+  function eur(v){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR"}).format(v)}
+  function num(id){var v=parseFloat(document.getElementById(id).value);return Number.isFinite(v)?v:NaN}
+  function setText(id,t){document.getElementById(id).textContent=t}
+  function r2(x){return Math.round(x*100)/100}
+
+  var CAP=SD_PARAMS.ijMaladie.plafondSalaire;
+  document.getElementById("calculate").addEventListener("click",function(){
+    var brut=num("brut"),anc=Math.floor(num("anc")),D=num("jours"),prior=num("prior"),notes=[];
+    if(!Number.isFinite(prior)||prior<0)prior=0;
+    if(!Number.isFinite(brut)||brut<=0){alert("Indiquez votre salaire brut mensuel.");return}
+    if(!Number.isFinite(anc)||anc<0){alert("Indiquez votre ancienneté en années (0 si moins d'un an).");return}
+    if(!Number.isFinite(D)||D<1||D>1095){alert("Indiquez la durée de l'arrêt en jours (entre 1 et 1 095).");return}
+    var base=Math.min(brut,CAP)*3,ij=r2(base/91.25*0.5),G=brut/30;
+    var secuJ=Math.max(0,D-3),secu=r2(secuJ*ij),sal=r2(D*G);
+    function out(emp,n90,n66,msg){
+      setText("emp",eur(emp));setText("n90",String(n90));setText("n66",String(n66));
+      setText("secu",eur(secu));setText("tot",eur(r2(emp+secu)));setText("sal",eur(sal));
+      if(msg)notes.push(msg);
+      notes.push("Estimation avant cotisations : les indemnités de la Sécurité sociale sont soumises à CSG et CRDS. Salaire journalier estimé sur un mois de 30 jours. Votre convention collective, votre prévoyance ou votre contrat peuvent être plus favorables.");
+      document.getElementById("notes").innerHTML=notes.map(function(n){return "<p style=\"margin:0 0 8px\">"+n+"</p>"}).join("");
+      document.getElementById("result").classList.add("visible");
+    }
+    if(anc<1){out(0,0,0,"Moins d'un an d'ancienneté : le complément légal de l'employeur n'est pas dû (une convention collective peut en prévoir un).");return}
+    var k=Math.min(7,Math.floor((anc-1)/5)+1),d=20+10*k,r90,r66;
+    if(prior<=d){r90=d-prior;r66=d}else{r90=0;r66=Math.max(0,2*d-prior)}
+    var E=Math.max(0,D-7),n90=Math.min(E,r90),n66=Math.min(E-n90,r66);
+    var c90=Math.max(0,r2(0.9*G-ij)),c66=Math.max(0,r2(G*0.6666-ij)),emp=r2(n90*c90+n66*c66);
+    var msg=null;
+    if(E===0)msg="L'arrêt dure 7 jours ou moins : le complément de l'employeur commence au 8e jour.";
+    else if(r90+r66===0)msg="Vos droits au complément sont épuisés sur les 12 derniers mois.";
+    out(emp,n90,n66,msg);
+  });
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>
