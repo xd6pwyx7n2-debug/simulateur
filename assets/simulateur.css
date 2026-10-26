@@ -304,8 +304,8 @@ footer{font-size:.95rem!important}
 /* Infobulles pour les termes techniques */
 abbr.sd-abbr{position:relative;text-decoration:underline dotted;text-underline-offset:3px;cursor:help;white-space:nowrap}
 abbr.sd-abbr:focus{outline:3px solid #6857e866;outline-offset:2px;border-radius:4px}
-abbr.sd-abbr::after{content:attr(data-def);position:absolute;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);width:max-content;max-width:min(260px,80vw);white-space:normal;padding:9px 12px;border-radius:10px;background:#201e48;color:#fff;font:600 .82rem/1.4 "DM Sans",sans-serif;text-align:left;box-shadow:0 10px 26px rgba(32,30,72,.3);opacity:0;pointer-events:none;transition:opacity .15s;z-index:30}
-abbr.sd-abbr:hover::after,abbr.sd-abbr:focus::after{opacity:1}
+abbr.sd-abbr::after{display:none;content:attr(data-def);position:absolute;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);width:max-content;max-width:min(260px,80vw);white-space:normal;padding:9px 12px;border-radius:10px;background:#201e48;color:#fff;font:600 .82rem/1.4 "DM Sans",sans-serif;text-align:left;box-shadow:0 10px 26px rgba(32,30,72,.3);opacity:0;pointer-events:none;transition:opacity .15s;z-index:30}
+abbr.sd-abbr:hover::after,abbr.sd-abbr:focus::after{display:block;opacity:1}
 @media(max-width:640px){abbr.sd-abbr::after{left:0;transform:none}}
 
 /* Cibles tactiles et lisibilité (suite) */
@@ -315,3 +315,6 @@ abbr.sd-abbr:hover::after,abbr.sd-abbr:focus::after{opacity:1}
 .tag,.kicker{font-size:12px}
 .crumbs,article .crumbs{font-size:.92rem}
 .hero .badge{font-size:.84rem}
+
+/* Sécurité contre tout débordement horizontal sur mobile */
+html{overflow-x:clip}
