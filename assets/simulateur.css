@@ -1,1 +1,99 @@
-/* PLACEHOLDER - will be replaced */
+/* SimuDroit : habillage commun des simulateurs (aligné sur la page d'accueil) */
+:root{
+  --ink:#201e48; --muted:#70708b; --bg:#faf9ff; --white:#fff;
+  --purple:#6857e8; --purple-dark:#4b3fc2; --coral:#ff795f; --mint:#78dfc1; --mint-dark:#188b80;
+  --line:#e9e6f5; --shadow:0 18px 55px #29235a14; --shadow-lg:0 28px 80px #29235a22;
+  --primary:#6857e8; --secondary:#188b80; --dark:#201e48; --text:#2f2d52; --background:#faf9ff; --border:#e9e6f5;
+  --success:#188b80; --warning:#9a6700;
+}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif!important;background:var(--bg)!important;color:var(--text)!important;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.logo{font-family:Manrope,"DM Sans",system-ui,sans-serif!important}
+a{color:var(--purple)}
+
+/* ---------- En-tête ---------- */
+header{background:#fff!important;color:var(--ink)!important;padding:14px 20px!important;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;backdrop-filter:saturate(1.4) blur(10px)}
+.header-inner{max-width:1100px!important;display:flex!important;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.logo{display:inline-flex!important;align-items:center;gap:0;font-size:1.35rem!important;font-weight:800!important;letter-spacing:-.04em;color:var(--ink)!important;text-decoration:none!important}
+.logo::before{content:"";width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,#6857e8,#a18bff) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M7 3.8h7l4 4V20H7a2 2 0 0 1-2-2V5.8a2 2 0 0 1 2-2Z' stroke='white' stroke-width='1.8' stroke-linejoin='round'/%3E%3Cpath d='M14 4v4h4M8.5 12h6.5M8.5 15.5h6.5' stroke='white' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") center/20px no-repeat;flex-shrink:0;margin-right:10px}
+.logo span{color:var(--purple)!important}
+.header-nav{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.header-nav a,.header-link{display:inline-block;padding:8px 13px;border-radius:99px;font-size:.85rem;font-weight:700;color:#555474!important;text-decoration:none!important;transition:.2s}
+.header-nav a:hover,.header-link:hover{background:#efedff;color:var(--purple)!important}
+.header-nav a.cta-link{background:var(--ink);color:#fff!important}
+.header-nav a.cta-link:hover{background:var(--purple)}
+
+/* ---------- Page ---------- */
+main{max-width:1100px!important;padding:26px 20px 70px!important}
+.breadcrumb{font-size:.85rem!important;color:var(--muted)!important;margin-bottom:22px!important}
+.breadcrumb a{color:var(--purple)!important;font-weight:600}
+
+/* ---------- Héros ---------- */
+.hero{position:relative;max-width:none!important;text-align:left!important;padding:44px clamp(22px,5vw,56px)!important;margin:0 0 28px!important;border-radius:30px;color:#fff;overflow:hidden;
+  background:radial-gradient(900px 340px at 105% -20%,#8d7cff 0%,transparent 60%),radial-gradient(600px 300px at -10% 120%,#ff795f55 0%,transparent 60%),linear-gradient(135deg,#201e48 0%,#35307a 100%)!important;box-shadow:var(--shadow-lg)}
+.hero::after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;border-radius:50%;background:#ffffff10}
+.hero h1{color:#fff!important;font-size:clamp(2rem,5.2vw,3.2rem)!important;line-height:1.08!important;letter-spacing:-.045em;margin:0 0 14px!important;max-width:760px}
+.hero p,.hero .intro{color:#dcd8f6!important;font-size:1.08rem!important;margin:0!important;max-width:680px}
+.hero .badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.hero .badge{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:99px;background:#ffffff1c;color:#fff;font-size:.78rem;font-weight:700;border:1px solid #ffffff26}
+
+/* ---------- Mise en page : calculateur + aide ---------- */
+.calculator{max-width:760px!important;margin:0 auto 34px!important;background:#fff!important;border:1px solid var(--line)!important;border-radius:26px!important;padding:clamp(22px,4vw,38px)!important;box-shadow:var(--shadow)!important;position:relative}
+.calculator::before{content:"";position:absolute;left:30px;right:30px;top:-1px;height:4px;border-radius:0 0 6px 6px;background:linear-gradient(90deg,#6857e8,#ff795f,#78dfc1)}
+.calculator h2{font-size:1.45rem!important;letter-spacing:-.03em;color:var(--ink)!important;margin:6px 0 16px!important}
+
+.intro-note,.eligibility{background:#f4f2ff!important;border:1px solid #e3dffb!important;border-left:4px solid var(--purple)!important;border-radius:14px!important;color:#413e72!important;padding:13px 16px!important;font-size:.93rem}
+
+/* ---------- Scénarios rapides ---------- */
+.sd-presets{margin:6px 0 22px}
+.sd-presets-title{display:block;font-size:.74rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:9px}
+.sd-chips{display:flex;flex-wrap:wrap;gap:8px}
+.sd-chip{appearance:none;border:1.5px solid #dcd7f7;background:#fff;color:var(--ink);font:700 .85rem "DM Sans",sans-serif;min-height:40px;padding:8px 14px;border-radius:99px;cursor:pointer;transition:.18s;width:auto!important;margin:0!important;box-shadow:none!important}
+.sd-chip:hover{border-color:var(--purple);background:#f4f2ff;color:var(--purple-dark);transform:translateY(-1px)}
+.sd-chip[aria-pressed="true"]{background:var(--purple);border-color:var(--purple);color:#fff}
+
+/* ---------- Formulaires ---------- */
+.field{margin-bottom:18px!important}
+label{display:block;font-weight:700!important;font-size:.92rem;color:var(--ink)!important;margin-bottom:7px!important}
+input[type=number],input[type=text],input[type=date],select{width:100%;padding:14px 16px!important;border:1.5px solid #ddd9f3!important;border-radius:14px!important;background:#fbfaff!important;color:var(--ink)!important;font:500 1rem "DM Sans",sans-serif!important;transition:border-color .18s,box-shadow .18s,background .18s;appearance:auto}
+input:focus,select:focus{outline:none!important;border-color:var(--purple)!important;background:#fff!important;box-shadow:0 0 0 4px #6857e822!important}
+.field-help,.help{color:var(--muted)!important;font-size:.82rem!important;margin-top:6px!important}
+
+/* ---------- Bouton principal ---------- */
+.calculator button:not(.sd-chip):not(.sd-secondary):not(.sd-choice):not(.sd-back){width:100%;padding:16px 20px!important;border:0!important;border-radius:16px!important;color:#fff!important;font:800 1.02rem Manrope,"DM Sans",sans-serif!important;letter-spacing:-.01em;cursor:pointer;
+  background:linear-gradient(135deg,#6857e8,#8a6bff)!important;box-shadow:0 12px 28px #6857e84d!important;transition:transform .18s,box-shadow .18s,filter .18s;margin-top:6px}
+.calculator button:not(.sd-chip):not(.sd-secondary):not(.sd-choice):not(.sd-back):hover{transform:translateY(-2px);box-shadow:0 18px 36px #6857e866!important;filter:saturate(1.1)}
+.calculator button:not(.sd-chip):not(.sd-secondary):not(.sd-choice):not(.sd-back):active{transform:translateY(0)}
+.calculator button:focus-visible,.sd-chip:focus-visible{outline:3px solid #6857e866;outline-offset:3px}
+
+/* ---------- Résultat ---------- */
+.result{margin-top:26px!important;border:0!important;border-radius:22px!important;padding:clamp(20px,3.5vw,30px)!important;color:#fff!important;position:relative;overflow:hidden;
+  background:radial-gradient(420px 220px at 110% -30%,#8d7cff 0%,transparent 60%),linear-gradient(135deg,#201e48,#352f7c)!important;box-shadow:var(--shadow-lg)}
+.result.visible,.result.show{animation:sdPop .45s cubic-bezier(.2,.9,.3,1.2)}
+@keyframes sdPop{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+.result *{color:inherit}
+.result-title,.result-label,.result-subtitle,.result-card-label{color:#b9b3ec!important;font-size:.78rem!important;font-weight:800!important;letter-spacing:.09em;text-transform:uppercase}
+.result-main,.amount,.result-total,.date-result{font-family:Manrope,sans-serif!important;font-weight:800!important;color:#fff!important;font-size:clamp(2.2rem,7vw,3.4rem)!important;letter-spacing:-.05em;line-height:1.1;margin:6px 0 14px!important;
+  background:linear-gradient(90deg,#fff,#c9f7ea);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.result-row,.breakdown-row,.result-list>*{display:flex;justify-content:space-between;gap:14px;padding:11px 0!important;border-bottom:1px solid #ffffff1f!important;font-size:.95rem;color:#e2dffa!important}
+.result-row strong,.breakdown-row strong{color:#fff!important}
+.result-details,.details{color:#dcd8f6!important;font-size:.95rem}
+.result-cards{background:transparent!important;border:0!important;padding:0!important;box-shadow:none!important;margin:16px 0!important;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.result-card{background:#ffffff14!important;border:1px solid #ffffff22!important;border-radius:16px!important;padding:14px!important}
+.result-card-value{font:800 1.4rem Manrope,sans-serif;color:#fff!important}
+.warning{background:#fff7e8!important;border:0!important;border-left:4px solid #f5a524!important;color:#6b4a07!important;border-radius:14px!important;padding:13px 16px!important;margin-top:18px!important;font-size:.88rem!important}
+.warning *{color:inherit!important;-webkit-text-fill-color:currentColor}
+.official-link{display:block;margin-top:14px;padding:13px 16px;border-radius:14px;background:#ffffff14;border:1px solid #ffffff26;color:#fff!important;font-weight:700;text-decoration:none!important}
+.official-link:hover{background:#ffffff24}
+.details-toggle{background:#ffffff18!important;color:#fff!important;border:1px solid #ffffff30!important}
+
+/* ---------- Actions sous résultat ---------- */
+.sd-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.sd-secondary{appearance:none;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:11px 16px;border-radius:13px;border:1.5px solid #ffffff40;background:#ffffff14;color:#fff;font:700 .88rem "DM Sans",sans-serif;cursor:pointer;width:auto;margin:0;transition:.18s}
+.sd-secondary:hover{background:#ffffff26}
+.sd-secondary:focus-visible{outline:3px solid #c9bfff;outline-offset:3px}
+
+/* NOTE: le reste du fichier CSS (sections info, print, articles, a11y skip-link, etc.) a été tronqué par erreur dans une mise à jour précédente.
+ * Restauration complète à faire : récupérer la version avant le commit 85dced4 / 91eef5c depuis l'historique GitHub.
+ * Les améliorations a11y (min-height 44px / 40px + focus-visible) sont présentes ci-dessus.
+ */
