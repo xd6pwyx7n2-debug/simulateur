@@ -190,6 +190,10 @@ with sync_playwright() as pw:
     for st, cat, sam, exp in [("sal","2",30000,"1 250,00 €"),("sal","1",10000,"338,31 €"),("sal","3",30000,"2 548,44 €"),("ind","1",10000,"530,21 €"),("sal","2",90000,"2 002,50 €")]:
         r = inv(st, cat, sam)
         if r != norm(exp): fail("pension d'invalidité %s cat %s %s € : attendu %s (%s)" % (st, cat, sam, exp, r))
+    # temps partiel thérapeutique : 2400 / 1200 -> IJ 39,45 /j, 1 183,50 ; total 2 383,50
+    pg.goto(LOCAL + "simulateur-temps-partiel-therapeutique/"); pg.wait_for_timeout(200)
+    pg.evaluate("()=>{const v={plein:'2400',percu:'1200',jours:'30'};for(const k in v)document.getElementById(k).value=v[k];document.getElementById('calculate').click()}"); pg.wait_for_timeout(900)
+    if norm(pg.inner_text("#total")) != norm("2 383,50 €") or "39,45" not in pg.inner_text("#r-ij"): fail("temps partiel thérapeutique : attendu 2 383,50 € / 39,45 (%s / %s)" % (pg.inner_text("#total"), pg.inner_text("#r-ij")))
     # accueil : Entrée dans la recherche ouvre le premier résultat
     pg.goto(LOCAL); pg.wait_for_timeout(200)
     pg.fill("#search", "smic"); pg.press("#search", "Enter"); pg.wait_for_timeout(500)

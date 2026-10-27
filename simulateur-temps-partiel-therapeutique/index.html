@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Temps partiel thérapeutique : calcul des indemnités 2026 | SimuDroit</title>
+  <meta name="description" content="Estimez vos indemnités journalières en temps partiel thérapeutique : perte de salaire compensée, plafond de l&#x27;arrêt à temps complet.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://simudroit.fr/simulateur-smic/">
+  <link rel="icon" href="https://simudroit.fr/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Temps partiel thérapeutique : calcul des indemnités 2026 | SimuDroit">
+  <meta property="og:description" content="Estimez vos indemnités journalières en temps partiel thérapeutique : perte de salaire compensée, plafond de l&#x27;arrêt à temps complet.">
+  <meta property="og:url" content="https://simudroit.fr/simulateur-smic/">
+  <meta property="og:image" content="https://simudroit.fr/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://simudroit.fr/og-image.png">
+  <meta name="twitter:title" content="Temps partiel thérapeutique : calcul des indemnités 2026 | SimuDroit">
+  <meta name="twitter:description" content="Estimez vos indemnités journalières en temps partiel thérapeutique : perte de salaire compensée, plafond de l&#x27;arrêt à temps complet.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://simudroit.fr/"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebPage", "name": "Temps partiel thérapeutique : calcul des indemnités 2026", "url": "https://simudroit.fr/simulateur-temps-partiel-therapeutique/", "description": "Estimez vos indemnités journalières en temps partiel thérapeutique : perte de salaire compensée, plafond de l'arrêt à temps complet.", "inLanguage": "fr-FR", "dateModified": "2026-10-27"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://simudroit.fr/"}, {"@type": "ListItem", "position": 2, "name": "Temps partiel thérapeutique : estimation des indemnités", "item": "https://simudroit.fr/simulateur-temps-partiel-therapeutique/"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Comment sont calculées les indemnités en temps partiel thérapeutique ?", "acceptedAnswer": {"@type": "Answer", "text": "Selon un expert ameli, l'employeur envoie chaque mois une attestation de salaire à la caisse, et l'indemnité journalière est maintenue à hauteur de la perte de salaire, dans la limite de l'indemnité qui serait versée en arrêt à temps complet. Ce simulateur applique cette règle."}}, {"@type": "Question", "name": "Combien de temps peut durer un temps partiel thérapeutique ?", "acceptedAnswer": {"@type": "Answer", "text": "Les réponses d'experts ameli indiquent une durée maximale d'un an en général, avec une possibilité d'aller plus loin en affection de longue durée, sur accord du service médical. Le médecin conseil peut y mettre fin plus tôt. Confirmez votre situation auprès de votre caisse."}}, {"@type": "Question", "name": "Le résultat est-il garanti ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Il s'agit d'une estimation : le montant exact dépend de l'attestation de salaire de votre employeur, de votre gain journalier de base et de la décision du service médical."}}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebApplication", "name": "Temps partiel thérapeutique : estimation des indemnités", "url": "https://simudroit.fr/simulateur-temps-partiel-therapeutique/", "description": "Estimez vos indemnités journalières en temps partiel thérapeutique : perte de salaire compensée, plafond de l'arrêt à temps complet.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}
+  </script>
+  <meta name="theme-color" content="#201e48">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="SimuDroit : simulateurs gratuits de salaire et de droits du travail">
+  <link rel="alternate" hreflang="fr" href="https://simudroit.fr/simulateur-smic/">
+  <link rel="alternate" hreflang="x-default" href="https://simudroit.fr/simulateur-smic/">
+  <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
+  <script async src="https://plausible.io/js/pa-j8JdUomB9hqqp7em82xdB.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+</head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.fr/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://simudroit.fr/#simulateurs">Simulateurs</a>
+      <a href="https://simudroit.fr/assistant/">Assistant</a>
+      <a href="https://simudroit.fr/independants/">Indépendants</a>
+      <a href="https://simudroit.fr/guides/">Guides</a>
+      <a href="https://simudroit.fr/glossaire/">Glossaire</a>
+      <a href="https://simudroit.fr/faq/">FAQ</a>
+      <a class="cta-link" href="https://simudroit.fr/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://simudroit.fr/">Accueil</a> &nbsp;›&nbsp; Temps partiel thérapeutique
+  </div>
+
+  <section class="hero">
+    <h1>Temps partiel thérapeutique : estimation des indemnités</h1>
+    <p>Estimez ce que vous percevez en reprenant à temps partiel pour raison médicale : salaire, indemnités journalières et revenu total du mois.</p>
+      <div class="badges"><span class="badge">✓ Règles 2026 vérifiées le 27 octobre 2026</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Vos données restent dans votre navigateur</span></div>
+  </section>
+
+<section class="info-section sd-know" id="a-savoir">
+    <h2>À savoir avant de vous fier au résultat</h2>
+    <div class="sd-know-grid">
+      <div class="sd-know-card"><h3>Ce que calcule l'outil</h3><p>Une estimation de l'indemnité journalière versée pendant un temps partiel thérapeutique et de votre revenu mensuel total (salaire perçu + indemnités).</p></div>
+      <div class="sd-know-card"><h3>Ce qui n'est pas calculé</h3><p>Les cotisations et la CSG/CRDS sur les indemnités, un éventuel complément de l'employeur ou de la prévoyance, et la décision d'accorder ou non le temps partiel thérapeutique.</p></div>
+      <div class="sd-know-card"><h3>Salariés uniquement</h3><p>Les règles décrites concernent les salariés du régime général. Les fonctionnaires relèvent d'un régime différent.</p></div>
+    </div>
+  </section>
+  <section class="calculator" id="calcul">
+    <h2>Combien vais-je percevoir en temps partiel thérapeutique ?</h2>
+    <noscript><p class="intro-note"><strong>JavaScript requis :</strong> ce simulateur calcule directement dans votre navigateur.</p></noscript>
+    <div class="field"><label for="plein">Salaire mensuel brut à temps plein (€)</label>
+    <input type="number" id="plein" min="0" max="1000000" step="1" inputmode="decimal" placeholder="Ex. 2 400"></div>
+    <div class="field"><label for="percu">Salaire mensuel brut perçu pour le temps travaillé (€)</label>
+    <input type="number" id="percu" min="0" max="1000000" step="1" inputmode="decimal" placeholder="Ex. 1 200">
+    <div class="field-help">Montant que l'employeur vous verse pour les heures réellement travaillées.</div></div>
+    <div class="field"><label for="jours">Nombre de jours du mois pris en compte</label>
+    <input type="number" id="jours" min="1" max="31" step="1" inputmode="numeric" value="30">
+    <div class="field-help">La perte de salaire est répartie sur ces jours pour obtenir une indemnité journalière. Hypothèse retenue : 30 jours.</div></div>
+    <button type="button" id="calculate">Estimer mes indemnités</button>
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">Revenu mensuel estimé en temps partiel thérapeutique</div>
+      <div class="result-main" id="total">0,00 €</div>
+      <div class="result-row"><span>Salaire perçu</span><strong id="r-percu">0,00 €</strong></div>
+      <div class="result-row"><span>Perte de salaire du mois</span><strong id="r-perte">0,00 €</strong></div>
+      <div class="result-row"><span>Indemnité journalière à temps complet (plafond)</span><strong id="r-ijpl">0,00 €</strong></div>
+      <div class="result-row"><span>Indemnité journalière retenue</span><strong id="r-ij">0,00 €</strong></div>
+      <div class="result-row"><span>Indemnités du mois</span><strong id="r-ijm">0,00 €</strong></div>
+      <div class="warning" id="notes"></div>
+    </div>
+  </section>
+
+  <section class="info-section" id="regle">
+    <h2>La règle appliquée</h2>
+    <p>Selon une réponse certifiée par un expert ameli, l'employeur transmet à la caisse, à chaque mois échu, une attestation de salaire, et l'indemnité journalière est maintenue à hauteur de la perte de salaire, plafonnée au montant de l'indemnité qui serait versée pour un arrêt à temps complet. L'indemnité à temps complet est ici estimée comme 50 % du gain journalier de base, limitée à 42,97 € par jour (salaire pris en compte plafonné à 2 613,83 € par mois). La durée est en général limitée à un an, davantage en affection de longue durée sur accord du service médical.</p>
+    <p>Ces éléments proviennent de réponses d'experts du forum ameli et non d'une page de règles complète : pour votre dossier, demandez le calcul à votre caisse via votre compte ameli ou au 36 46.</p>
+  </section>
+
+  <section class="info-section" id="faq-ind"><h2>Questions fréquentes</h2><h3>Comment sont calculées les indemnités en temps partiel thérapeutique ?</h3><p>Selon un expert ameli, l'employeur envoie chaque mois une attestation de salaire à la caisse, et l'indemnité journalière est maintenue à hauteur de la perte de salaire, dans la limite de l'indemnité qui serait versée en arrêt à temps complet. Ce simulateur applique cette règle.</p><h3>Combien de temps peut durer un temps partiel thérapeutique ?</h3><p>Les réponses d'experts ameli indiquent une durée maximale d'un an en général, avec une possibilité d'aller plus loin en affection de longue durée, sur accord du service médical. Le médecin conseil peut y mettre fin plus tôt. Confirmez votre situation auprès de votre caisse.</p><h3>Le résultat est-il garanti ?</h3><p>Non. Il s'agit d'une estimation : le montant exact dépend de l'attestation de salaire de votre employeur, de votre gain journalier de base et de la décision du service médical.</p></section><section class="info-section" id="sources"><h2>Sources officielles</h2><ul><li><a href="https://forum-assures.ameli.fr/questions/1379653-calcul-paiement-indemnites-journalieres-mi-temps-therapeutique" rel="noopener">Forum ameli, réponse certifiée par un expert ameli (21 juin 2017) : calcul des indemnités journalières en temps partiel thérapeutique</a></li><li><a href="https://forum-assures.ameli.fr/questions/3676867-modalites-calcul-indemnites-temps-partiel-therapeutique" rel="noopener">Forum ameli, réponse d'un expert ameli (10 décembre 2025) : attestation de salaire mensuelle de l'employeur</a></li><li><a href="https://forum-assures.ameli.fr/questions/1425051-duree-temps-partiel-therapeutique" rel="noopener">Forum ameli : durée du temps partiel thérapeutique</a></li></ul></section>
+
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/simulateur-indemnites-journalieres-maladie/">Indemnités journalières maladie</a><a href="/simulateur-maintien-salaire-maladie/">Maintien de salaire en arrêt maladie</a><a href="/simulateur-pension-invalidite/">Pension d'invalidité</a><a href="/simulateur-temps-partiel/">Temps partiel</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-10-27">27 octobre 2026</time>. Estimation indicative, sans valeur juridique. <a href="/methode-et-sources/">Méthode et sources</a> · <a href="/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 SimuDroit · <a href="https://simudroit.fr/">Tous les simulateurs</a> · <a href="https://simudroit.fr/methode-et-sources/">Méthode et sources</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+  function eur(v){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR"}).format(v)}
+  function num(id){var v=parseFloat(document.getElementById(id).value);return Number.isFinite(v)?v:NaN}
+  function setText(id,t){document.getElementById(id).textContent=t}
+  function r2(x){return Math.round(x*100)/100}
+
+  var P={plafond:2613.83,maxJour:42.97};
+  document.getElementById("calculate").addEventListener("click",function(){
+    var plein=num("plein"),percu=num("percu"),jours=num("jours"),notes=[];
+    if(!Number.isFinite(plein)||plein<=0){alert("Indiquez votre salaire mensuel à temps plein.");return}
+    if(!Number.isFinite(percu)||percu<0)percu=0;
+    if(!Number.isFinite(jours)||jours<1)jours=30;
+    var gjb=Math.min(plein,P.plafond)*3/91.25,ijPlein=r2(Math.min(0.5*gjb,P.maxJour));
+    var perte=Math.max(0,plein-percu),ijPerte=perte/jours,ij=r2(Math.min(ijPlein,ijPerte)),mois=r2(ij*jours);
+    setText("total",eur(r2(percu+mois)));setText("r-percu",eur(percu));setText("r-perte",eur(perte));
+    setText("r-ijpl",eur(ijPlein)+" / jour");setText("r-ij",eur(ij)+" / jour");setText("r-ijm",eur(mois));
+    if(ijPerte>ijPlein)notes.push("La perte de salaire est supérieure à l'indemnité à temps complet : l'indemnité est limitée à "+eur(ijPlein)+" par jour.");
+    if(percu>=plein)notes.push("Votre salaire perçu atteint le salaire à temps plein : aucune perte à compenser.");
+    notes.push("Estimation brute, avant CSG/CRDS. Le montant réel dépend de l'attestation de salaire de l'employeur et de la caisse.");
+    document.getElementById("notes").innerHTML=notes.map(function(n){return "<p style=\"margin:0 0 8px\">"+n+"</p>"}).join("");
+    document.getElementById("result").classList.add("visible");
+  });
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>

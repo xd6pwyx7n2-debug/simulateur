@@ -29,6 +29,10 @@
       ["3 000 € · avec ACRE", { act: "prestations", montant: 3000, acre: true }],
       ["10 000 € · vente", { act: "vente", montant: 10000 }]
     ],
+    "simulateur-temps-partiel-therapeutique": [
+      ["2 400 € · mi-temps", { plein: 2400, percu: 1200, jours: 30 }],
+      ["3 000 € · 60 %", { plein: 3000, percu: 1800, jours: 30 }]
+    ],
     "simulateur-pension-invalidite": [
       ["30 000 € · 2e catégorie", { statut: "sal", cat: "2", sam: 30000 }],
       ["24 000 € · 1re catégorie", { statut: "sal", cat: "1", sam: 24000 }]
