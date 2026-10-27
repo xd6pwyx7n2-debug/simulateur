@@ -258,7 +258,7 @@
       '<div class="disclaimer"><strong>Important.</strong> Ce récapitulatif est une estimation indicative calculée à partir des règles générales du droit du travail (paramètres vérifiés en octobre 2026) et des seules données saisies. ' +
       "Il n'a pas de valeur juridique : ce n'est ni une attestation, ni un calcul officiel, ni un avis juridique. Votre convention collective, votre contrat, vos bulletins de paie et les textes applicables prévalent. " +
       "En cas de désaccord, rapprochez-vous de votre employeur, de l'inspection du travail, d'un syndicat ou d'un avocat.</div>" +
-      '<div class="foot"><span>Formules et sources : https://xd6pwyx7n2-debug.github.io/simulateur/methode-et-sources/</span><span>Simulation : ' + esc(location.href.split("#")[0]) + '</span></div>';
+      '<div class="foot"><span>Formules et sources : https://simudroit.fr/methode-et-sources/</span><span>Simulation : ' + esc(location.href.split("#")[0]) + '</span></div>';
     document.body.appendChild(div);
   }
 
