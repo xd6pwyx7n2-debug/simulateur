@@ -318,3 +318,8 @@ abbr.sd-abbr:hover::after,abbr.sd-abbr:focus::after{display:block;opacity:1}
 
 /* Sécurité contre tout débordement horizontal sur mobile */
 html{overflow-x:clip}
+
+/* Passe accessibilité : cibles tactiles et petits textes */
+.nav-links a,.header-nav a,.footer-links a{min-width:44px;display:inline-flex;align-items:center;justify-content:center}
+.tag,.kicker,.eyebrow,.photo-label,.nav-button,.sd-presets-title{font-size:12px}
+.result-title{font-size:13px}
