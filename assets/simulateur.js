@@ -33,6 +33,10 @@
       ["2 400 € · mi-temps", { plein: 2400, percu: 1200, jours: 30 }],
       ["3 000 € · 60 %", { plein: 3000, percu: 1800, jours: 30 }]
     ],
+    "simulateur-fin-contrat-fonction-publique": [
+      ["18 000 € · 12 mois", { total: 18000, mois: 12 }],
+      ["9 000 € · 6 mois", { total: 9000, mois: 6 }]
+    ],
     "simulateur-pension-invalidite": [
       ["30 000 € · 2e catégorie", { statut: "sal", cat: "2", sam: 30000 }],
       ["24 000 € · 1re catégorie", { statut: "sal", cat: "1", sam: 24000 }]

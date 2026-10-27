@@ -194,6 +194,11 @@ with sync_playwright() as pw:
     pg.goto(LOCAL + "simulateur-temps-partiel-therapeutique/"); pg.wait_for_timeout(200)
     pg.evaluate("()=>{const v={plein:'2400',percu:'1200',jours:'30'};for(const k in v)document.getElementById(k).value=v[k];document.getElementById('calculate').click()}"); pg.wait_for_timeout(900)
     if norm(pg.inner_text("#total")) != norm("2 383,50 €") or "39,45" not in pg.inner_text("#r-ij"): fail("temps partiel thérapeutique : attendu 2 383,50 € / 39,45 (%s / %s)" % (pg.inner_text("#total"), pg.inner_text("#r-ij")))
+    # fin de contrat fonction publique : 18 000 / 12 mois -> 1 800,00 ; 12 000 / 3 mois (4 000 > 2 Smic) -> 0 ; 13 mois -> 0
+    pg.goto(LOCAL + "simulateur-fin-contrat-fonction-publique/"); pg.wait_for_timeout(200)
+    for tot, mo, exp in [("18000","12","1 800,00 €"),("12000","3","0,00 €"),("20000","13","0,00 €")]:
+        pg.evaluate("(a)=>{document.getElementById('total').value=a[0];document.getElementById('mois').value=a[1];document.getElementById('calculate').click()}", [tot, mo]); pg.wait_for_timeout(900)
+        if norm(pg.inner_text("#indem")) != norm(exp): fail("fin de contrat fonction publique %s/%s : attendu %s (%s)" % (tot, mo, exp, pg.inner_text("#indem")))
     # accueil : Entrée dans la recherche ouvre le premier résultat
     pg.goto(LOCAL); pg.wait_for_timeout(200)
     pg.fill("#search", "smic"); pg.press("#search", "Enter"); pg.wait_for_timeout(500)

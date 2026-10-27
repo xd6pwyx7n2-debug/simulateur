@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Indemnité de fin de contrat fonction publique : calcul | SimuDroit</title>
+  <meta name="description" content="Calculez l&#x27;indemnité de fin de contrat des contractuels de la fonction publique : 10 % de la rémunération brute, durée maximale d&#x27;un an, plafond 2 Smic.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://simudroit.fr/simulateur-smic/">
+  <link rel="icon" href="https://simudroit.fr/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Indemnité de fin de contrat fonction publique : calcul | SimuDroit">
+  <meta property="og:description" content="Calculez l&#x27;indemnité de fin de contrat des contractuels de la fonction publique : 10 % de la rémunération brute, durée maximale d&#x27;un an, plafond 2 Smic.">
+  <meta property="og:url" content="https://simudroit.fr/simulateur-smic/">
+  <meta property="og:image" content="https://simudroit.fr/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://simudroit.fr/og-image.png">
+  <meta name="twitter:title" content="Indemnité de fin de contrat fonction publique : calcul | SimuDroit">
+  <meta name="twitter:description" content="Calculez l&#x27;indemnité de fin de contrat des contractuels de la fonction publique : 10 % de la rémunération brute, durée maximale d&#x27;un an, plafond 2 Smic.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://simudroit.fr/"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebPage", "name": "Indemnité de fin de contrat fonction publique : calcul", "url": "https://simudroit.fr/simulateur-fin-contrat-fonction-publique/", "description": "Calculez l'indemnité de fin de contrat des contractuels de la fonction publique : 10 % de la rémunération brute, durée maximale d'un an, plafond 2 Smic.", "inLanguage": "fr-FR", "dateModified": "2026-10-27"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://simudroit.fr/"}, {"@type": "ListItem", "position": 2, "name": "Indemnité de fin de contrat dans la fonction publique", "item": "https://simudroit.fr/simulateur-fin-contrat-fonction-publique/"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Qui a droit à l'indemnité de fin de contrat dans la fonction publique ?", "acceptedAnswer": {"@type": "Answer", "text": "Les agents contractuels dont le contrat a été conclu à partir du 1er janvier 2021 sur certains motifs (accroissement temporaire d'activité, remplacement, emploi vacant, etc.), pour une durée totale de 1 an maximum renouvellements inclus, avec une rémunération brute inférieure ou égale à 2 fois le Smic. Les contrats saisonniers et de projet sont exclus."}}, {"@type": "Question", "name": "Comment se calcule l'indemnité ?", "acceptedAnswer": {"@type": "Answer", "text": "Elle est égale à 10 % de la rémunération brute globale perçue au titre du contrat et de ses renouvellements. Elle est versée au plus tard un mois après la fin du contrat."}}, {"@type": "Question", "name": "Dans quels cas n'est-elle pas versée ?", "acceptedAnswer": {"@type": "Answer", "text": "Notamment si le contrat n'est pas mené à son terme (démission, licenciement), si vous êtes nommé stagiaire ou élève, si le contrat est renouvelé ou si un nouveau contrat dans la fonction publique vous est proposé, ou en cas de refus d'un CDI pour un emploi identique ou similaire avec une rémunération au moins équivalente."}}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebApplication", "name": "Indemnité de fin de contrat dans la fonction publique", "url": "https://simudroit.fr/simulateur-fin-contrat-fonction-publique/", "description": "Calculez l'indemnité de fin de contrat des contractuels de la fonction publique : 10 % de la rémunération brute, durée maximale d'un an, plafond 2 Smic.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}
+  </script>
+  <meta name="theme-color" content="#201e48">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="SimuDroit : simulateurs gratuits de salaire et de droits du travail">
+  <link rel="alternate" hreflang="fr" href="https://simudroit.fr/simulateur-smic/">
+  <link rel="alternate" hreflang="x-default" href="https://simudroit.fr/simulateur-smic/">
+  <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
+  <script async src="https://plausible.io/js/pa-j8JdUomB9hqqp7em82xdB.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+</head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.fr/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://simudroit.fr/#simulateurs">Simulateurs</a>
+      <a href="https://simudroit.fr/assistant/">Assistant</a>
+      <a href="https://simudroit.fr/independants/">Indépendants</a>
+      <a href="https://simudroit.fr/guides/">Guides</a>
+      <a href="https://simudroit.fr/glossaire/">Glossaire</a>
+      <a href="https://simudroit.fr/faq/">FAQ</a>
+      <a class="cta-link" href="https://simudroit.fr/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://simudroit.fr/">Accueil</a> &nbsp;›&nbsp; Fin de contrat fonction publique
+  </div>
+
+  <section class="hero">
+    <h1>Indemnité de fin de contrat dans la fonction publique</h1>
+    <p>Calculez l'indemnité de fin de contrat d'un agent contractuel : 10 % de la rémunération brute globale, avec vérification de la durée et du plafond.</p>
+      <div class="badges"><span class="badge">✓ Règles 2026 vérifiées le 27 octobre 2026</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Vos données restent dans votre navigateur</span></div>
+  </section>
+
+<section class="info-section sd-know" id="a-savoir">
+    <h2>À savoir avant de vous fier au résultat</h2>
+    <div class="sd-know-grid">
+      <div class="sd-know-card"><h3>Ce que calcule l'outil</h3><p>L'indemnité de fin de contrat des agents contractuels de la fonction publique : 10 % de la rémunération brute globale, après vérification de la durée et du plafond de 2 Smic.</p></div>
+      <div class="sd-know-card"><h3>Ce qui n'est pas calculé</h3><p>Les congés annuels non pris, les allocations chômage et les règles propres à votre employeur ou à votre statut particulier.</p></div>
+      <div class="sd-know-card"><h3>Fonction publique uniquement</h3><p>Pour un CDD du secteur privé, utilisez le simulateur de prime de précarité.</p></div>
+    </div>
+  </section>
+  <section class="calculator" id="calcul">
+    <h2>Quelle indemnité de fin de contrat dans la fonction publique ?</h2>
+    <noscript><p class="intro-note"><strong>JavaScript requis :</strong> ce simulateur calcule directement dans votre navigateur.</p></noscript>
+    <div class="field"><label for="total">Rémunération brute totale du contrat, renouvellements inclus (€)</label>
+    <input type="number" id="total" min="0" max="10000000" step="1" inputmode="decimal" placeholder="Ex. 18 000"></div>
+    <div class="field"><label for="mois">Durée totale du contrat, renouvellements inclus (mois)</label>
+    <input type="number" id="mois" min="1" max="120" step="1" inputmode="numeric" placeholder="Ex. 12"></div>
+    <div class="field"><label><input type="checkbox" id="exclu"> <span>Une exclusion s'applique (contrat non mené à son terme, renouvellement ou nouveau contrat proposé, nomination comme stagiaire, refus d'un CDI équivalent)</span></label></div>
+    <button type="button" id="calculate">Calculer mon indemnité</button>
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">Indemnité de fin de contrat estimée (brute)</div>
+      <div class="result-main" id="indem">0,00 €</div>
+      <div class="result-row"><span>Rémunération mensuelle moyenne</span><strong id="moy">0,00 €</strong></div>
+      <div class="result-row"><span>Plafond (2 fois le Smic mensuel brut)</span><strong id="plaf">0,00 €</strong></div>
+      <div class="warning" id="notes"></div>
+    </div>
+  </section>
+
+  <section class="info-section" id="regles">
+    <h2>Les règles du décret n° 2020-1296</h2>
+    <p>L'indemnité concerne les contrats conclus à partir du 1er janvier 2021 dont la durée totale, renouvellements inclus, ne dépasse pas un an, sur les motifs de recrutement listés par le décret (accroissement temporaire d'activité, remplacement, emploi vacant...). Elle est égale à 10 % de la rémunération brute globale du contrat et de ses renouvellements, et versée au plus tard un mois après son terme. Elle n'est pas due si la rémunération brute atteint ou dépasse le plafond de 2 fois le Smic. Ce simulateur compare votre rémunération mensuelle moyenne à 2 fois le Smic mensuel brut : confirmez la méthode avec votre service des ressources humaines.</p>
+  </section>
+
+  <section class="info-section" id="faq-ind"><h2>Questions fréquentes</h2><h3>Qui a droit à l'indemnité de fin de contrat dans la fonction publique ?</h3><p>Les agents contractuels dont le contrat a été conclu à partir du 1er janvier 2021 sur certains motifs (accroissement temporaire d'activité, remplacement, emploi vacant, etc.), pour une durée totale de 1 an maximum renouvellements inclus, avec une rémunération brute inférieure ou égale à 2 fois le Smic. Les contrats saisonniers et de projet sont exclus.</p><h3>Comment se calcule l'indemnité ?</h3><p>Elle est égale à 10 % de la rémunération brute globale perçue au titre du contrat et de ses renouvellements. Elle est versée au plus tard un mois après la fin du contrat.</p><h3>Dans quels cas n'est-elle pas versée ?</h3><p>Notamment si le contrat n'est pas mené à son terme (démission, licenciement), si vous êtes nommé stagiaire ou élève, si le contrat est renouvelé ou si un nouveau contrat dans la fonction publique vous est proposé, ou en cas de refus d'un CDI pour un emploi identique ou similaire avec une rémunération au moins équivalente.</p></section><section class="info-section" id="sources"><h2>Sources officielles</h2><ul><li><a href="https://www.cdg82.fr/fileadmin/02_Gerer_ma_collectivite/02_La_gestion_des_carrieres/13_Loi_de_transformation_de_la_Fonction_publique/2021-01-15_Flash_info_statut_indem_de_fin_de_contrat.pdf" rel="noopener">Centre de gestion du Tarn-et-Garonne : indemnité de fin de contrat, décret n° 2020-1296 (conditions, 10 %, délai de versement)</a></li><li><a href="https://www.snes.edu/wp-content/uploads/2024/11/prime-precarite-fin-de-contrat-maj-novembre-2024-.pdf" rel="noopener">SNES-FSU : prime de précarité en fin de contrat, mise à jour de novembre 2024</a></li><li><a href="https://rapportannuel2021.fhf.fr/sites/default/files/documents/D%C3%A9cret%20n%C2%B0%202020-1296%20du%2023%20octobre%202020.pdf" rel="noopener">Décret n° 2020-1296 du 23 octobre 2020 relatif à l'indemnité de fin de contrat dans la fonction publique</a></li></ul></section>
+
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/simulateur-prime-precarite/">Prime de précarité CDD</a><a href="/simulateur-chomage/">Allocation chômage</a><a href="/simulateur-conges-payes/">Congés payés</a><a href="/simulateur-solde-tout-compte/">Solde de tout compte</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-10-27">27 octobre 2026</time>. Estimation indicative, sans valeur juridique. <a href="/methode-et-sources/">Méthode et sources</a> · <a href="/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 SimuDroit · <a href="https://simudroit.fr/">Tous les simulateurs</a> · <a href="https://simudroit.fr/methode-et-sources/">Méthode et sources</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+  function eur(v){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR"}).format(v)}
+  function num(id){var v=parseFloat(document.getElementById(id).value);return Number.isFinite(v)?v:NaN}
+  function setText(id,t){document.getElementById(id).textContent=t}
+  function r2(x){return Math.round(x*100)/100}
+
+  document.getElementById("calculate").addEventListener("click",function(){
+    var total=num("total"),mois=num("mois"),notes=[],ex=document.getElementById("exclu").checked;
+    if(!Number.isFinite(total)||total<=0||!Number.isFinite(mois)||mois<=0){alert("Indiquez la rémunération totale et la durée du contrat.");return}
+    var smic=SD_PARAMS.smic.brutMensuel35h,plaf=2*smic,moy=total/mois,ind=0;
+    if(ex)notes.push("Une exclusion s'applique : l'indemnité n'est pas due.");
+    else if(mois>12)notes.push("La durée totale dépasse 1 an : l'indemnité n'est pas due.");
+    else if(moy>plaf)notes.push("La rémunération moyenne dépasse 2 fois le Smic : l'indemnité n'est pas due.");
+    else{ind=r2(total*0.10);notes.push("Indemnité de 10 % de la rémunération brute globale, versée au plus tard un mois après la fin du contrat.")}
+    setText("indem",eur(ind));setText("moy",eur(r2(moy)));setText("plaf",eur(r2(plaf)));
+    notes.push("Estimation brute, soumise aux cotisations sociales. Vérifiez le motif de votre contrat et votre situation auprès de votre employeur.");
+    document.getElementById("notes").innerHTML=notes.map(function(n){return "<p style=\"margin:0 0 8px\">"+n+"</p>"}).join("");
+    document.getElementById("result").classList.add("visible");
+  });
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>
