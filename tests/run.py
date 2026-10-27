@@ -8,7 +8,7 @@ from html.parser import HTMLParser
 from urllib.parse import urlparse, unquote
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-BASE = "https://xd6pwyx7n2-debug.github.io/simulateur/"
+BASE = "https://simudroit.fr/"
 PORT = 8791
 failures = []
 
@@ -16,19 +16,17 @@ def fail(msg):
     failures.append(msg)
     print("ECHEC :", msg)
 
-# ---------- Serveur local sous /simulateur/ ----------
+# ---------- Serveur local (racine du domaine) ----------
 class H(http.server.SimpleHTTPRequestHandler):
     def translate_path(self, path):
         p = unquote(urlparse(path).path)
-        if p.startswith("/simulateur"):
-            p = p[len("/simulateur"):] or "/"
         return os.path.join(ROOT, p.lstrip("/"))
     def log_message(self, *a): pass
 
 socketserver.TCPServer.allow_reuse_address = True
 httpd = socketserver.TCPServer(("127.0.0.1", PORT), H)
 threading.Thread(target=httpd.serve_forever, daemon=True).start()
-LOCAL = "http://127.0.0.1:%d/simulateur/" % PORT
+LOCAL = "http://127.0.0.1:%d/" % PORT
 
 # ---------- 1. Contrôles statiques ----------
 class P(HTMLParser):
@@ -53,7 +51,7 @@ def resolve(href, page_dir):
     href = href.split("#")[0].split("?")[0]
     if not href or href.startswith(("mailto:", "tel:", "data:", "javascript:")): return None
     if href.startswith(BASE): path = href[len(BASE):]
-    elif href.startswith("/simulateur/"): path = href[len("/simulateur/"):]
+    elif href.startswith("/"): path = href[len("/"):]
     elif href.startswith(("http://", "https://")): return None
     elif href.startswith("/"): path = href.lstrip("/")
     else: path = os.path.relpath(os.path.join(page_dir, href), ROOT)

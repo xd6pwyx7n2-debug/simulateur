@@ -2,7 +2,7 @@
 
 Simulateurs gratuits de droits et de salaire (brut/net, chômage, indemnités, congés payés, heures supplémentaires, etc.).
 
-Site statique (HTML/CSS/JS sans dépendance), publié avec GitHub Pages : https://xd6pwyx7n2-debug.github.io/simulateur/
+Site statique (HTML/CSS/JS sans dépendance), publié avec GitHub Pages : https://simudroit.fr/
 
 ## Structure
 

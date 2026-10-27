@@ -2,4 +2,4 @@ User-agent: *
 
 Allow: /
 
-Sitemap: https://xd6pwyx7n2-debug.github.io/simulateur/sitemap.xml
+Sitemap: https://simudroit.fr/sitemap.xml
