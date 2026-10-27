@@ -1,6 +1,12 @@
-/* SimuDroit : paramètres de calcul 2026 (source unique).
-   À modifier ici lors de chaque revalorisation, puis lancer les tests (tests/run.py).
-   Chaque bloc indique la date d'effet et la source officielle. */
+/* SimuDroit — paramètres de calcul 2026 (source unique).
+ *
+ * À modifier ICI uniquement lors de chaque revalorisation officielle,
+ * puis lancer les tests : python tests/run.py
+ *
+ * Chaque bloc indique la date d'effet et la source officielle.
+ * Après modification : mettre à jour aussi methode-et-sources/ si besoin
+ * et le champ « verifie » ci-dessous.
+ */
 window.SD_PARAMS = {
   verifie: "2026-10-17",
   smic: {                       // décret du SMIC, en vigueur depuis le 1er juin 2026
