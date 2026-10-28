@@ -648,3 +648,12 @@
   el.addEventListener("change", function () { set(el.value); });
   document.addEventListener("click", function (e) { if (e.target.closest && e.target.closest("#calculate, .calculator button")) set(el.value); });
 })();
+
+/* Mode intégration (?embed=1) : masque en-tête, pied de page et fil d'Ariane pour l'affichage dans une iframe. */
+(function () {
+  "use strict";
+  if (!/[?&]embed=1(&|$)/.test(location.search)) return;
+  var st = document.createElement("style");
+  st.textContent = "header,footer,.skip-link,.sd-theme,.crumbs,.breadcrumb{display:none!important}body{padding-top:0!important}";
+  document.head.appendChild(st);
+})();

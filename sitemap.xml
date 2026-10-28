@@ -9,6 +9,10 @@
     <lastmod>2026-10-15</lastmod>
   </url>
   <url>
+    <loc>https://simudroit.fr/integrer/</loc>
+    <lastmod>2026-10-15</lastmod>
+  </url>
+  <url>
     <loc>https://simudroit.fr/mentions-legales/</loc>
     <lastmod>2026-10-15</lastmod>
   </url>
@@ -258,6 +262,12 @@
   </url>
   <url>
     <loc>https://simudroit.fr/guides/demission-et-chomage-droits/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://simudroit.fr/guides/demission-rupture-conventionnelle-licenciement-comparatif/</loc>
     <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
