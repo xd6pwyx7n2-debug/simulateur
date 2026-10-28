@@ -36,6 +36,7 @@
     window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
     plausible.init()
   </script>
+<style>@media print{html,body{background:#fff!important;min-height:0!important;height:auto!important}#sd-print.letter{background:#fff!important;color:#111!important}}</style>
 </head>
 <body>
 <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -78,7 +79,7 @@
   <div id="lettre" role="region" aria-label="Lettre générée" aria-live="polite" style="white-space:pre-wrap;background:#fff;border:1.5px solid #ddd9f3;border-radius:16px;padding:22px;font-family:Georgia,'Times New Roman',serif;font-size:1rem;line-height:1.65;color:#201e48"></div>
   <div class="sd-actions">
     <button type="button" class="sd-secondary" id="copier" style="background:#efedff;color:#201e48;border-color:#dcd7f7">📋 Copier la lettre</button>
-    <button type="button" class="sd-secondary" id="imprimer" style="background:#efedff;color:#201e48;border-color:#dcd7f7">🖨️ Imprimer ou enregistrer en PDF</button>
+    <button type="button" class="sd-secondary" id="imprimer" style="background:#efedff;color:#201e48;border-color:#dcd7f7">📄 Télécharger en PDF ou imprimer</button>
   </div>
 </div>
 
@@ -97,9 +98,13 @@
     ["nom","Vos prénom et nom","text","Ex. Marie Durand"],
     ["adresse","Votre adresse complète","text","Ex. 12 rue des Lilas, 87000 Limoges"],
     ["employeur","Nom de l'employeur ou de l'entreprise","text","Ex. Société Exemple"],
+    ["dest","À l'attention de (facultatif)","text","Ex. Service des ressources humaines"],
     ["adrEmp","Adresse de l'employeur","text","Ex. 5 avenue de la Gare, 87000 Limoges"],
-    ["ville","Ville où vous écrivez","text","Ex. Limoges"]
+    ["ville","Ville où vous écrivez","text","Ex. Limoges"],
+    ["dateLettre","Date de la lettre","date",""],
+    ["envoi","Mode d'envoi","select",""]
   ];
+
   var TYPES={
     demission:{
       conseil:"Envoyez cette lettre en recommandé avec accusé de réception ou remettez-la en main propre contre décharge : la date fixe le début du préavis, dont la durée dépend de votre convention collective ou de votre contrat.",
@@ -138,21 +143,49 @@
   function field(f){
     var id="f_"+f[0], wrap=document.createElement("div"); wrap.className="field";
     var l=document.createElement("label"); l.setAttribute("for",id); l.textContent=f[1];
-    var i=f[2]==="textarea"?document.createElement("textarea"):document.createElement("input");
-    if(f[2]!=="textarea") i.type=f[2]; else i.rows=3;
-    i.id=id; i.placeholder=f[3]||""; i.value=vals[f[0]]||"";
+    var i;
+    if(f[2]==="select"){ i=document.createElement("select"); [["rar","Lettre recommandée avec accusé de réception"],["main","Remise en main propre contre décharge"],["none","Sans mention"]].forEach(function(o){var op=document.createElement("option"); op.value=o[0]; op.textContent=o[1]; i.appendChild(op);}); }
+    else if(f[2]==="textarea"){ i=document.createElement("textarea"); i.rows=3; }
+    else { i=document.createElement("input"); i.type=f[2]; }
+    if(f[0]==="dateLettre"&&!vals.dateLettre) vals.dateLettre=new Date().toISOString().slice(0,10);
+    if(f[0]==="envoi"&&!vals.envoi) vals.envoi="rar";
+    i.id=id; if(f[2]!=="select") i.placeholder=f[3]||""; i.value=vals[f[0]]||"";
+    i.addEventListener("change",function(){vals[f[0]]=i.value;render();});
     i.addEventListener("input",function(){vals[f[0]]=i.value;render();});
     wrap.appendChild(l); wrap.appendChild(i); return wrap;
   }
-  function header(v){
-    var d=new Date().toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"});
-    return (v.nom||"[Vos prénom et nom]")+"\n"+(v.adresse||"[Votre adresse]")+"\n\n"+(v.employeur||"[Employeur]")+"\n"+(v.adrEmp||"[Adresse de l'employeur]")+"\n\nFait à "+(v.ville||"[Ville]")+", le "+d+"\n\n";
-  }
-  function render(){
+  var ENVOI={rar:"Lettre recommandée avec accusé de réception",main:"Remise en main propre contre décharge",none:""};
+  function lines(x){ return (x||"").split("\n"); }
+  function parts(){
     var t=TYPES[sel.value], v={}; Object.keys(vals).forEach(function(k){v[k]=vals[k];});
-    ["fin","signe","debut","finc"].forEach(function(k){ if(v[k]) v[k]=fr(v[k]); });
-    out.textContent=header(v)+t.build(v)+"\n\n"+(v.nom||"[Votre prénom et nom]")+"\n(signature)";
+    ["fin","signe","debut","finc","dateLettre"].forEach(function(k){ if(v[k]) v[k]=fr(v[k]); });
+    var d=v.dateLettre||new Date().toLocaleDateString("fr-FR");
+    var body=t.build(v), m=body.match(/^Objet : ([^\n]*)\n\n([\s\S]*)$/);
+    return {
+      sender:[v.nom||"[Vos prénom et nom]", v.adresse||"[Votre adresse]"],
+      rec:[v.employeur||"[Employeur]"].concat(v.dest?[v.dest]:[]).concat([v.adrEmp||"[Adresse de l'employeur]"]),
+      place:"Fait à "+(v.ville||"[Ville]")+", le "+d,
+      envoi:ENVOI[v.envoi||"rar"],
+      objet:m?m[1]:"", text:m?m[2]:body,
+      sign:v.nom||"[Votre prénom et nom]"
+    };
   }
+  function plain(p){
+    return p.sender.join("\n")+"\n\n"+p.rec.join("\n")+"\n\n"+p.place+"\n\n"+(p.envoi?p.envoi+"\n\n":"")+"Objet : "+p.objet+"\n\n"+p.text+"\n\n"+p.sign+"\n(signature)";
+  }
+  function el(tag,css,txt){ var e=document.createElement(tag); if(css) e.style.cssText=css; if(txt!=null) e.textContent=txt; return e; }
+  function html(p){
+    var w=el("div","font-family:Georgia,'Times New Roman',serif;font-size:14px;line-height:1.6;color:#111");
+    var s=el("div","margin-bottom:28px"); p.sender.forEach(function(l,i){s.appendChild(el("div",i===0?"font-weight:bold":"",l));}); w.appendChild(s);
+    var r=el("div","margin:0 0 24px 45%"); p.rec.forEach(function(l,i){r.appendChild(el("div",i===0?"font-weight:bold":"",l));}); w.appendChild(r);
+    w.appendChild(el("div","margin:0 0 20px 45%",p.place));
+    if(p.envoi) w.appendChild(el("div","margin:0 0 14px;font-weight:bold",p.envoi));
+    w.appendChild(el("div","margin:0 0 18px;font-weight:bold","Objet : "+p.objet));
+    w.appendChild(el("div","white-space:pre-wrap;margin-bottom:34px",p.text));
+    var g=el("div","margin-left:55%"); g.appendChild(el("div","",p.sign)); g.appendChild(el("div","color:#555;font-size:12px;margin-top:36px","(signature)")); w.appendChild(g);
+    return w;
+  }
+  function render(){ var p=parts(); out.innerHTML=""; out.style.whiteSpace="normal"; out.appendChild(html(p)); out.setAttribute("data-plain",plain(p)); }
   function draw(){
     box.innerHTML=""; var t=TYPES[sel.value];
     COMMON.concat(t.fields).forEach(function(f){box.appendChild(field(f));});
@@ -160,14 +193,14 @@
   }
   sel.addEventListener("change",draw); draw();
   document.getElementById("copier").addEventListener("click",function(){
-    var b=this, txt=out.textContent;
+    var b=this, txt=out.getAttribute("data-plain")||out.textContent;
     function ok(r){b.textContent=r?"✅ Lettre copiée":"Copie impossible"; setTimeout(function(){b.textContent="📋 Copier la lettre";},2200);}
     if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(function(){ok(true);},function(){ok(false);});
     else { var ta=document.createElement("textarea"); ta.value=txt; document.body.appendChild(ta); ta.select(); var r=false; try{r=document.execCommand("copy");}catch(e){} ta.remove(); ok(r); }
   });
   document.getElementById("imprimer").addEventListener("click",function(){
     var old=document.getElementById("sd-print"); if(old) old.remove();
-    var d=document.createElement("div"); d.id="sd-print"; d.className="letter"; d.style.whiteSpace="pre-wrap"; d.style.fontFamily="Georgia,'Times New Roman',serif"; d.style.fontSize="14px"; d.style.lineHeight="1.7"; d.textContent=out.textContent;
+    var d=document.createElement("div"); d.id="sd-print"; d.className="letter"; d.appendChild(html(parts()));
     document.body.appendChild(d); window.print();
   });
   window.addEventListener("afterprint",function(){var p=document.getElementById("sd-print"); if(p) p.remove();});
