@@ -66,12 +66,12 @@ window.SD_PARAMS = {
   },
   are: {                        // règlement d'assurance chômage, France Travail, depuis le 1er janvier 2026
     depuis: "2026-01-01",
-    plafondSalaireMensuel: 16020,
+    plafondSalaireMensuel: 16020, // 4 PASS 2026 (4 x 4 005) ; = plafondSjr x 365 / 12 ; l'ancienne valeur 15 700 € date de 2025
     plafondSjr: 526.68,
     partFixe: 13.18,
     taux1: 0.404,
     taux2: 0.57,
-    minJour: 32.13,
+    minJour: 32.13,                // Unédic, inchangé au 1er juillet 2026 (pas de revalorisation)
     plafondTauxSjr: 0.75,
     degressif: { seuilSjr: 162.40, plancherJour: 92.57, coef: 0.70, ageMax: 55, apresJours: 182 },
     differeSupraDiviseur: 111.8,

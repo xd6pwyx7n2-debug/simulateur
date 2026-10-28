@@ -523,6 +523,12 @@
       </div>
     </div>
 
+    <div class="field" id="fieldPas">
+      <label for="pas">Mon net est après impôt : taux de prélèvement à la source (%), facultatif</label>
+      <input type="number" id="pas" min="0" max="45" step="0.1" inputmode="decimal" placeholder="Ex. 7,5">
+      <div class="field-help">À renseigner seulement si le net saisi est celui versé sur votre compte, après prélèvement à la source. Laissez vide si c'est un net avant impôt.</div>
+    </div>
+
     <button type="button" id="calculate">
       Calculer mon salaire brut
     </button>
@@ -551,6 +557,8 @@
         <span>Taux utilisé</span>
         <strong id="resultTaux">0 %</strong>
       </div>
+
+      <div class="result-row" id="rowAvant" style="display:none"><span>Net avant impôt correspondant</span><strong id="resultAvant">0,00 €</strong></div>
 
       <div class="result-row" id="rowDetailAE" style="display:none"><span>Dont</span><strong id="detailAE"></strong></div>
 
@@ -771,6 +779,8 @@
     const t = ae ? TXT.ae : TXT.sal;
     document.getElementById("aeBlock").hidden = !ae;
     document.getElementById("fieldTaux").hidden = ae;
+    document.getElementById("fieldPas").hidden = ae;
+    document.getElementById("rowAvant").style.display = "none";
     document.getElementById("lblMain").textContent = t.main;
     document.getElementById("resTitle").textContent = t.title;
     document.getElementById("lblRow1").textContent = t.row1;
@@ -844,8 +854,13 @@
       2 000 / 0,78 = 2 564,10 €
     */
 
-    const brut = net / (1 - taux / 100);
-    const cotisations = brut - net;
+    const pasRaw = document.getElementById("pas").value;
+    const pas = pasRaw === "" ? 0 : Math.min(Math.max(getNumber("pas"), 0), 45);
+    const netAvant = pas > 0 ? net / (1 - pas / 100) : net;
+    const brut = netAvant / (1 - taux / 100);
+    const cotisations = brut - netAvant;
+    document.getElementById("rowAvant").style.display = pas > 0 ? "" : "none";
+    if (pas > 0) document.getElementById("resultAvant").textContent = formatEuro(r2(netAvant));
 
     document.getElementById("resultNet").textContent =
       formatEuro(net);

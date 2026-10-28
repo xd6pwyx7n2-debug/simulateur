@@ -501,5 +501,59 @@
    "#resultPas": "195,00 €",
    "#resultApres": "1 755,00 €"
   }
+ },
+ {
+  "page": "simulateur-net-brut",
+  "entrees": {
+   "net": 1755,
+   "statut": "noncadre",
+   "pas": 10
+  },
+  "attendus": {
+   "#resultAvant": "1 950,00 €",
+   "#brut": "2 500,00 €"
+  }
+ },
+ {
+  "page": "simulateur-solde-tout-compte",
+  "entrees": {
+   "salaire": 2000,
+   "jours": 10
+  },
+  "attendus": {
+   "#total": "666,67 €"
+  }
+ },
+ {
+  "page": "simulateur-solde-tout-compte",
+  "entrees": {
+   "salaire": 3000,
+   "jours": 15,
+   "conges": 500,
+   "autres": 100
+  },
+  "attendus": {
+   "#total": "2 100,00 €"
+  }
+ },
+ {
+  "page": "simulateur-micro-entrepreneur",
+  "entrees": {
+   "montant": 3000,
+   "act": "bnc"
+  },
+  "attendus": {
+   "#net": "2 232,00 €"
+  }
+ },
+ {
+  "page": "simulateur-micro-entrepreneur",
+  "entrees": {
+   "montant": 3000,
+   "act": "vente"
+  },
+  "attendus": {
+   "#net": "2 631,00 €"
+  }
  }
 ]

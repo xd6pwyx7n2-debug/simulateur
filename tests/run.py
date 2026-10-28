@@ -99,6 +99,23 @@ for f in pages:
     if url not in locs: fail("sitemap : page absente %s" % url)
 print("Contrôles statiques :", len(pages), "pages,", len(locs), "URL de sitemap")
 
+# ---------- 1bis. Date « Barèmes vérifiés le … » sur chaque simulateur ----------
+import datetime
+MOIS = {"janvier":1,"février":2,"mars":3,"avril":4,"mai":5,"juin":6,"juillet":7,"août":8,"septembre":9,"octobre":10,"novembre":11,"décembre":12}
+_ver = re.search(r'verifie:\s*"(\d{4})-(\d{2})-(\d{2})"', open(os.path.join(ROOT, "assets", "params.js"), encoding="utf-8").read())
+_ref = datetime.date(*map(int, _ver.groups()))
+for f in sorted(glob.glob(os.path.join(ROOT, "simulateur-*/index.html"))):
+    t = open(f, encoding="utf-8").read()
+    rel = os.path.relpath(f, ROOT)
+    m = re.search(r'vérifié[es]* le (\d+)(?:er)? (\w+) (\d{4})', t)
+    m2 = re.search(r'Dernière vérification[^<]*<time datetime="(\d{4})-(\d{2})-(\d{2})"', t)
+    try:
+        if m: d = datetime.date(int(m.group(3)), MOIS[m.group(2)], int(m.group(1)))
+        elif m2: d = datetime.date(*map(int, m2.groups()))
+        else: fail("%s : pas de date de vérification des paramètres" % rel); continue
+    except Exception: fail("%s : date de vérification illisible" % rel); continue
+    if abs((_ref - d).days) > 30: fail("%s : date de vérification (%s) éloignée de params.js (%s)" % (rel, d, _ref))
+
 # ---------- 2. Cas de calcul de référence ----------
 CASES = json.load(open(os.path.join(ROOT, "tests", "cas_reference.json"), encoding="utf-8"))
 
