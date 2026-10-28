@@ -246,7 +246,26 @@
     .search-hint kbd { font:700 12px Manrope,sans-serif; padding:2px 7px; border:1px solid #cfc9f5; border-bottom-width:2px; border-radius:6px; background:#fff; }
     @media(pointer:coarse) { .search-hint { display:none; } }
     @media(max-width:760px) { .nav-links { gap:2px; } .quick a { padding:0 13px; } }
-  </style>
+  
+    @media (max-width:760px){
+      header .nav-links{flex-wrap:nowrap!important;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;white-space:nowrap;padding-bottom:2px}
+      header .nav-links::-webkit-scrollbar{display:none}
+      header .nav-links a{flex:0 0 auto}
+    }
+    /* Accueil : choix d'entrée en haut, allégé sur mobile */
+    .start{display:grid;gap:10px;margin:22px 0 4px;max-width:520px}
+    .start-title{margin:0;font-weight:800;color:var(--ink)}
+    .start-btn{display:block;padding:14px 18px;border-radius:16px;background:#fff;border:1.5px solid #ddd9f3;text-decoration:none;color:var(--ink);min-height:44px;box-shadow:0 6px 18px rgba(41,35,90,.06)}
+    .start-btn strong{display:block;font-size:1.05rem}
+    .start-btn span{display:block;color:#5c5a80;font-size:.9rem;margin-top:2px}
+    .start-btn:hover,.start-btn:focus-visible{border-color:#6857e8;background:#f4f2ff}
+    .start-link{display:inline-flex;align-items:center;min-height:44px;font-weight:700;color:#4b3bd0;text-decoration:none}
+    @media (max-width:760px){
+      .hero-image,.hero .trust,.hero .stats{display:none!important}
+      .hero .intro{display:none}
+      .hero{padding-bottom:12px}
+    }
+</style>
 
   <script type="application/ld+json">
   {
@@ -314,9 +333,12 @@
       <div class="eyebrow"><span class="dot"></span> Le droit du travail, plus lisible</div>
       <h1>Vos droits.<br>Des réponses <span class="gradient">plus claires.</span></h1>
       <p class="intro">Salaire, indemnités, congés ou fin de contrat : utilisez des simulateurs simples pour y voir plus clair et préparer vos prochaines démarches.</p>
-      <div class="actions">
-        <a class="button primary" href="#simulateurs">Explorer les simulateurs <span aria-hidden="true">→</span></a>
-        <a class="button secondary" href="/assistant/">Je ne sais pas par où commencer</a>
+      <div class="start" role="navigation" aria-label="Par où commencer">
+        <p class="start-title">Quelle est votre situation ?</p>
+        <a class="start-btn" href="/parcours/"><strong>Je quitte mon poste</strong><span>Licenciement, rupture, démission, fin de CDD</span></a>
+        <a class="start-btn" href="#simulateurs"><strong>Je suis salarié</strong><span>Salaire, congés, arrêt maladie, chômage</span></a>
+        <a class="start-btn" href="/independants/"><strong>Je suis indépendant</strong><span>Micro-entreprise, TVA, protection sociale</span></a>
+        <a class="start-link" href="/assistant/">Je ne sais pas par où commencer →</a>
       </div>
       <div class="trust"><span><b>✓</b> Accès gratuit</span><span><b>✓</b> Utilisation simple</span><span><b>✓</b> Résultats indicatifs</span></div>
       <div class="stats">
