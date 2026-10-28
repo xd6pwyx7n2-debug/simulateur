@@ -657,3 +657,19 @@
   st.textContent = "header,footer,.skip-link,.sd-theme,.crumbs,.breadcrumb{display:none!important}body{padding-top:0!important}";
   document.head.appendChild(st);
 })();
+
+/* Lien « Un chiffre vous semble faux ? » en bas de chaque simulateur */
+(function () {
+  "use strict";
+  var slug = location.pathname.replace(/index\.html$/, "").replace(/\/+$/, "").split("/").pop();
+  if (!/^simulateur-/.test(slug) || /[?&]embed=1/.test(location.search)) return;
+  var host = document.querySelector("main") || document.body;
+  var p = document.createElement("p");
+  p.className = "sd-report";
+  p.style.cssText = "margin:18px 0 0;font-size:14px";
+  var a = document.createElement("a");
+  a.href = "/contact/?page=" + encodeURIComponent(slug.replace(/-/g, " "));
+  a.textContent = "Un chiffre vous semble faux ? Signalez-le";
+  p.appendChild(a);
+  host.appendChild(p);
+})();
