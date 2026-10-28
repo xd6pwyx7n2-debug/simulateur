@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>17 modèles de lettres de travail gratuits, prêts à imprimer</title>
+  <title>23 modèles de lettres de travail gratuits, prêts à imprimer</title>
   <meta name="description" content="Lettres types à remplir : démission, rétractation de rupture conventionnelle, solde de tout compte, congés, augmentation. PDF prêt à imprimer, gratuit.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://simudroit.fr/modeles-de-lettres/">
@@ -82,6 +82,12 @@
       <option value="bulletins">Demande de duplicata de bulletins de paie</option>
       <option value="arret">Envoi d'un arrêt de travail à l'employeur</option>
       <option value="avertissement">Contestation d'un avertissement</option>
+      <option value="essai">Rupture de la période d'essai par le salarié</option>
+      <option value="paternite">Information de l'employeur : congé de paternité et d'accueil de l'enfant</option>
+      <option value="maternite">Information de l'employeur : congé de maternité</option>
+      <option value="attestation">Demande d'attestation employeur</option>
+      <option value="frais">Demande de remboursement de frais professionnels</option>
+      <option value="copiecontrat">Demande de copie du contrat de travail ou d'un avenant</option>
     </select>
   </div>
   <div id="champs"></div>
@@ -94,9 +100,9 @@
   </div>
 </div>
 
-<h2>Les 17 lettres disponibles</h2>
+<h2>Les 23 lettres disponibles</h2>
 <p>Remplissez le formulaire : la lettre se met en forme toute seule. Elle se télécharge en PDF ou s'imprime, sans création de compte, et vos informations restent dans votre navigateur.</p>
-<ul><li>Démission (CDI)</li><li>Demande de rupture conventionnelle</li><li>Rétractation d'une rupture conventionnelle</li><li>Demande de dispense de préavis</li><li>Demande des documents de fin de contrat</li><li>Contestation du solde de tout compte</li><li>Demande de paiement d'heures supplémentaires</li><li>Demande de congés payés</li><li>Demande de congé sans solde</li><li>Demande de passage à temps partiel</li><li>Demande de télétravail</li><li>Demande d'augmentation de salaire</li><li>Réclamation de salaire impayé</li><li>Réclamation d'une prime ou d'une commission</li><li>Duplicata de bulletins de paie</li><li>Envoi d'un arrêt de travail à l'employeur</li><li>Contestation d'un avertissement</li></ul>
+<ul><li>Démission (CDI)</li><li>Demande de rupture conventionnelle</li><li>Rétractation d'une rupture conventionnelle</li><li>Demande de dispense de préavis</li><li>Demande des documents de fin de contrat</li><li>Contestation du solde de tout compte</li><li>Demande de paiement d'heures supplémentaires</li><li>Demande de congés payés</li><li>Demande de congé sans solde</li><li>Demande de passage à temps partiel</li><li>Demande de télétravail</li><li>Demande d'augmentation de salaire</li><li>Réclamation de salaire impayé</li><li>Réclamation d'une prime ou d'une commission</li><li>Duplicata de bulletins de paie</li><li>Envoi d'un arrêt de travail à l'employeur</li><li>Contestation d'un avertissement</li><li>Rupture de la période d'essai par le salarié</li><li>Congé de paternité et d'accueil de l'enfant (information)</li><li>Congé de maternité (information)</li><li>Attestation employeur</li><li>Remboursement de frais professionnels</li><li>Copie du contrat de travail ou d'un avenant</li></ul>
 <p>Ces modèles sont des trames à adapter à votre situation. Vérifiez votre convention collective et votre contrat, qui peuvent prévoir des règles plus favorables.</p>
 
 <h2>Questions fréquentes</h2>
@@ -206,6 +212,36 @@
       conseil:"Décrivez les faits et vos arguments calmement, sans attaque. Joignez les pièces utiles (courriels, témoignages). Conservez le courrier de l'employeur et la preuve d'envoi de votre réponse.",
       fields:[["date", "Date de l'avertissement", "date", ""], ["motif", "Faits reprochés selon l'employeur", "textarea", "Ex. retard répété"], ["reponse", "Votre version des faits", "textarea", "Ex. changement d'horaires non communiqué"]],
       build:function(v){return "Objet : Contestation de l'avertissement du "+(v.date||"[date]")+"\n\nMadame, Monsieur,\n\nPar courrier du "+(v.date||"[date]")+", vous m'avez notifié un avertissement. Il m'est reproché : "+(v.motif||"[faits reprochés]")+"\n\nJe conteste cette sanction pour les raisons suivantes :\n"+(v.reponse||"[votre version des faits]")+"\n\nJe vous demande de bien vouloir réexaminer cette décision et d'en tirer les conséquences.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    essai:{
+      conseil:"Le délai de prévenance minimal est de 24 heures si vous avez moins de 8 jours de présence, et de 48 heures à partir de 8 jours de présence. Remettez la lettre en main propre contre décharge ou envoyez-la en recommandé, car la date compte.",
+      fields:[["poste", "Votre poste", "text", "Ex. Technicien"], ["embauche", "Date de début de contrat", "date", ""]],
+      build:function(v){return "Objet : Rupture de la période d'essai\n\nMadame, Monsieur,\n\nEmbauché(e) le "+(v.embauche||"[date d'embauche]")+" au poste de "+(v.poste||"[poste]")+", je vous informe de ma décision de mettre fin à ma période d'essai.\n\nJe respecterai le délai de prévenance applicable.\n\nJe vous remercie de me remettre mon certificat de travail, mon attestation destinée à France Travail et mon solde de tout compte.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    paternite:{
+      conseil:"Vérifiez les délais de prévenance et le fractionnement applicables dans notre guide et auprès de votre employeur, puis envoyez la lettre en recommandé ou contre décharge. Joignez un justificatif si on vous le demande.",
+      fields:[["naissance", "Date prévue ou date de naissance", "date", ""], ["debut", "Premier jour de congé souhaité", "date", ""], ["finc", "Dernier jour de congé souhaité", "date", ""]],
+      build:function(v){return "Objet : Congé de paternité et d'accueil de l'enfant\n\nMadame, Monsieur,\n\nJe vous informe de la naissance (ou de la naissance prévue) de mon enfant le "+(v.naissance||"[date]")+".\n\nJe souhaite prendre mon congé de paternité et d'accueil de l'enfant du "+(v.debut||"[date de début]")+" au "+(v.finc||"[date de fin]")+" inclus.\n\nJe reste à votre disposition pour tout justificatif et pour organiser mon absence.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    maternite:{
+      conseil:"Prévenez votre employeur par écrit en précisant la date prévue de l'accouchement et la date de début du congé. Conservez la preuve d'envoi. Le détail des durées et des indemnités est dans notre guide du congé maternité.",
+      fields:[["accouchement", "Date présumée de l'accouchement", "date", ""], ["debut", "Date de début de congé", "date", ""]],
+      build:function(v){return "Objet : Congé de maternité\n\nMadame, Monsieur,\n\nJe vous informe que la date présumée de mon accouchement est fixée au "+(v.accouchement||"[date]")+".\n\nJe souhaite débuter mon congé de maternité le "+(v.debut||"[date de début]")+". Je vous remettrai tout justificatif nécessaire.\n\nJe reste disponible pour organiser la transmission de mes dossiers avant mon départ.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    attestation:{
+      conseil:"Cette attestation sert pour un dossier de location, de prêt ou d'administration. Indiquez à quoi elle sert et les mentions voulues (poste, ancienneté, type de contrat).",
+      fields:[["poste", "Votre poste", "text", "Ex. Cuisinier"], ["mentions", "Mentions souhaitées", "text", "Ex. poste, date d'entrée, type de contrat, salaire"], ["usage", "Usage (facultatif)", "text", "Ex. dossier de location"]],
+      build:function(v){return "Objet : Demande d'attestation employeur\n\nMadame, Monsieur,\n\nJe vous prie de bien vouloir me remettre une attestation employeur indiquant : "+(v.mentions||"[mentions]")+""+(v.usage?", destinée à "+v.usage:"")+".\n\nJe vous remercie de me la transmettre dans les meilleurs délais.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    frais:{
+      conseil:"Joignez les justificatifs (factures, tickets, relevés kilométriques) et précisez le texte qui prévoit le remboursement : contrat, note de frais interne ou convention collective.",
+      fields:[["frais", "Nature des frais", "text", "Ex. déplacements chez des clients, mars à mai"], ["montant", "Montant total (€)", "text", "Ex. 215"]],
+      build:function(v){return "Objet : Demande de remboursement de frais professionnels\n\nMadame, Monsieur,\n\nDans le cadre de mes fonctions, j'ai engagé les frais suivants : "+(v.frais||"[nature des frais]")+", pour un montant total de "+(v.montant?v.montant+" euros":"[montant]")+".\n\nVous trouverez ci-joint les justificatifs. Je vous demande de bien vouloir procéder à leur remboursement.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    copiecontrat:{
+      conseil:"Utile si vous avez perdu votre contrat ou si on vous a promis une modification (salaire, horaires) qui n'a pas été formalisée.",
+      fields:[["document", "Document demandé", "text", "Ex. mon contrat de travail et ses avenants"]],
+      build:function(v){return "Objet : Demande de copie de document\n\nMadame, Monsieur,\n\nJe vous prie de bien vouloir me remettre une copie de "+(v.document||"[document]")+".\n\nJe vous remercie de me le transmettre par courrier ou par voie électronique.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
     }
   };
   function fr(d){ if(!d||d.indexOf("-")<0) return d; var p=d.split("-"); return p[2]+"/"+p[1]+"/"+p[0]; }
