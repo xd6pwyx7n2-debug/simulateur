@@ -488,5 +488,18 @@
   "attendus": {
    "#resultat": "192,00 €"
   }
+ },
+ {
+  "page": "simulateur-brut-net",
+  "entrees": {
+   "brut": 2500,
+   "statut": "noncadre",
+   "pas": 10
+  },
+  "attendus": {
+   "#net": "1 950,00 €",
+   "#resultPas": "195,00 €",
+   "#resultApres": "1 755,00 €"
+  }
  }
 ]

@@ -526,6 +526,12 @@
       </div>
     </div>
 
+    <div class="field" id="fieldPas">
+      <label for="pas">Taux de prélèvement à la source (%), facultatif</label>
+      <input type="number" id="pas" min="0" max="45" step="0.1" inputmode="decimal" placeholder="Ex. 7,5">
+      <div class="field-help">Indiqué sur votre bulletin de paie (« taux personnalisé » ou « taux neutre ») et sur impots.gouv.fr. Laissez vide pour ne voir que le net avant impôt.</div>
+    </div>
+
     <button type="button" id="calculate">
       Calculer mon salaire net
     </button>
@@ -555,6 +561,9 @@
         <strong id="resultTaux">0 %</strong>
       </div>
 
+      <div class="result-row" id="rowPas" style="display:none"><span>Prélèvement à la source estimé</span><strong id="resultPas">0,00 €</strong></div>
+      <div class="result-row" id="rowApres" style="display:none"><span>Net à payer après impôt</span><strong id="resultApres">0,00 €</strong></div>
+
       <div class="result-row" id="rowDetailAE" style="display:none"><span>Dont</span><strong id="detailAE"></strong></div>
 
       <div class="warning" id="avertissement">
@@ -581,7 +590,7 @@
     <div class="sd-know-grid">
       <div class="sd-know-card"><h3>Un taux indicatif</h3><p>Le rapport entre brut et net dépend du statut, du niveau de salaire, de l&#x27;entreprise et de la mutuelle. Les taux de 22 % et 24 % sont des ordres de grandeur.</p></div>
       <div class="sd-know-card"><h3>Ce qui change le net</h3><p>Mutuelle, titres-restaurant, primes, heures supplémentaires et prélèvement à la source modifient la somme réellement versée sur votre compte.</p></div>
-      <div class="sd-know-card"><h3>Erreurs fréquentes</h3><p>Confondre le net avant impôt (ce simulateur) avec le net à payer après prélèvement à la source.</p></div>
+      <div class="sd-know-card"><h3>Erreurs fréquentes</h3><p>Confondre le net avant impôt avec le net à payer : renseignez votre taux de prélèvement à la source pour obtenir le net après impôt.</p></div>
     </div>
       <p class="sd-guide" style="margin:18px 0 0"><strong>📖 Pour aller plus loin :</strong> <a href="https://simudroit.fr/guides/brut-net-apres-impot-differences/">Brut, net avant impôt, net après impôt : les différences</a> · <a href="https://simudroit.fr/glossaire/">Glossaire du droit du travail</a></p>
   </section>
@@ -771,6 +780,8 @@
     const t = ae ? TXT.ae : TXT.sal;
     document.getElementById("aeBlock").hidden = !ae;
     document.getElementById("fieldTaux").hidden = ae;
+    document.getElementById("fieldPas").hidden = ae;
+    document.getElementById("rowPas").style.display = "none"; document.getElementById("rowApres").style.display = "none";
     document.getElementById("lblMain").textContent = t.main;
     document.getElementById("resTitle").textContent = t.title;
     document.getElementById("lblRow1").textContent = t.row1;
@@ -847,6 +858,17 @@
 
     document.getElementById("net").textContent =
       formatEuro(net);
+
+    const pasRaw = document.getElementById("pas").value;
+    const showPas = pasRaw !== "";
+    if (showPas) {
+      const pas = Math.min(Math.max(getNumber("pas"), 0), 45);
+      const impot = r2(net * pas / 100);
+      document.getElementById("resultPas").textContent = formatEuro(impot);
+      document.getElementById("resultApres").textContent = formatEuro(r2(net - impot));
+    }
+    document.getElementById("rowPas").style.display = showPas ? "" : "none";
+    document.getElementById("rowApres").style.display = showPas ? "" : "none";
 
     document.getElementById("result").classList.add("visible");
   });
