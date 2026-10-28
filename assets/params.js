@@ -67,7 +67,7 @@ window.SD_PARAMS = {
   are: {                        // règlement d'assurance chômage, France Travail, depuis le 1er janvier 2026
     depuis: "2026-01-01",
     plafondSalaireMensuel: 16020,
-    plafondSjr: 526.86,
+    plafondSjr: 526.68,
     partFixe: 13.18,
     taux1: 0.404,
     taux2: 0.57,

@@ -747,6 +747,11 @@
       </span>
     </div>
 
+    <div class="field">
+      <label for="rc"><input type="checkbox" id="rc"> <span>Mon contrat se termine par une rupture conventionnelle individuelle, à partir du 1er septembre 2026</span></label>
+      <span class="help">Pour ces ruptures, la durée maximale d'indemnisation est de 15 mois avant 55 ans et de 20,5 mois à partir de 55 ans (avenant n° 2 à la convention d'assurance chômage, Unédic).</span>
+    </div>
+
     <button
       type="button"
       onclick="calculer()"
@@ -962,7 +967,10 @@
     <p>
       La durée maximale varie également selon l'âge. Par exemple, elle est
       de 548 jours environ 18 mois pour les moins de 55 ans dans le cas
-      général, avant éventuels compléments prévus par les règles.
+      général, avant éventuels compléments prévus par les règles. Pour une
+      rupture conventionnelle individuelle avec fin de contrat à partir du
+      1er septembre 2026, la durée maximale est de 15 mois avant 55 ans et de
+      20,5 mois à partir de 55 ans (Unédic, avenant n° 2).
       <a
         href="https://www.francetravail.fr/faq/candidat/mes-allocations---mes-aides/lallocation-chomage-lessentiel-a/duree-indemnisation-chomage.html"
         target="_blank"
@@ -1269,7 +1277,16 @@ function calculer() {
 
   let plafondJours;
 
-  if (age < 55) {
+  const rcApres = document.getElementById("rc") && document.getElementById("rc").checked;
+
+  if (rcApres) {
+
+    /* Rupture conventionnelle, fin de contrat à partir du 1er septembre 2026 :
+       15 mois avant 55 ans, 20,5 mois à partir de 55 ans (Unédic, avenant n° 2).
+       Conversion en jours : mois × 30,42. */
+    plafondJours = age < 55 ? 456 : 624;
+
+  } else if (age < 55) {
 
     plafondJours = 548;
 
