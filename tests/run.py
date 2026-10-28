@@ -76,6 +76,14 @@ for f in pages:
     t = p.title.strip()
     if t in titles and rel != "404.html": fail("%s : titre identique à %s" % (rel, titles[t]))
     titles[t] = rel
+    if rel != "404.html":
+        exp = BASE + ("" if rel == "index.html" else rel[:-len("index.html")])
+        cm = re.search(r'<link\s+rel="canonical"\s+href="([^"]*)"', s)
+        if not cm or cm.group(1) != exp: fail("%s : canonical attendue %s (%s)" % (rel, exp, cm.group(1) if cm else "absente"))
+        om = re.search(r'property="og:url"\s+content="([^"]*)"', s)
+        if om and om.group(1) != exp: fail("%s : og:url attendue %s (%s)" % (rel, exp, om.group(1)))
+        for hl in re.findall(r'hreflang="[^"]*"\s+href="([^"]*)"', s):
+            if hl != exp: fail("%s : hreflang attendu %s (%s)" % (rel, exp, hl))
     for l in p.links:
         r = resolve(l, os.path.dirname(f))
         if r and not os.path.exists(r): fail("%s : lien cassé %s" % (rel, l))
