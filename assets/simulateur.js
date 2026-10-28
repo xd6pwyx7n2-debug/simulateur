@@ -617,3 +617,34 @@
     if (p) p.remove();
   });
 })();
+
+/* Report du salaire d'un simulateur à l'autre : mémorisé le temps de l'onglet seulement (sessionStorage), jamais envoyé. */
+(function () {
+  "use strict";
+  var slug = location.pathname.replace(/index\.html$/, "").replace(/\/+$/, "").split("/").pop();
+  var MAP = {
+    "simulateur-accident-du-travail": "salaire",
+    "simulateur-solde-tout-compte": "salaire",
+    "simulateur-maintien-salaire-maladie": "brut",
+    "simulateur-indemnite-licenciement": "moy12",
+    "simulateur-indemnite-depart-retraite": "moy12"
+  };
+  var id = MAP[slug], KEY = "sd-salaire";
+  if (!id) return;
+  var el = document.getElementById(id);
+  if (!el) return;
+  function get() { try { return sessionStorage.getItem(KEY); } catch (e) { return null; } }
+  function set(v) { try { if (v) sessionStorage.setItem(KEY, v); } catch (e) {} }
+  var prev = get();
+  if (prev && !el.value && !/[?&]/.test(location.search)) {
+    el.value = prev;
+    var note = document.createElement("p");
+    note.className = "hint";
+    note.style.cssText = "font-size:13px;margin:4px 0 0;opacity:.8";
+    note.textContent = "Repris de votre précédent calcul (valeur modifiable, conservée uniquement le temps de cet onglet).";
+    el.insertAdjacentElement("afterend", note);
+    el.addEventListener("input", function () { note.remove(); }, { once: true });
+  }
+  el.addEventListener("change", function () { set(el.value); });
+  document.addEventListener("click", function (e) { if (e.target.closest && e.target.closest("#calculate, .calculator button")) set(el.value); });
+})();
