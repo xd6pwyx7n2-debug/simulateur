@@ -204,7 +204,7 @@ with sync_playwright() as pw:
     pg.evaluate("()=>{const v={salaire:'30000',age:'40',duree:'24',conges:'0',supralegal:'0'};for(const k in v)document.getElementById(k).value=v[k];document.getElementById('rc').checked=true;calculer()}"); pg.wait_for_timeout(900)
     if "15 mois" not in pg.inner_text("#dureeEstimee"): fail("chômage rupture conventionnelle : attendu 15 mois (%s)" % pg.inner_text("#dureeEstimee"))
     # accueil : Entrée dans la recherche ouvre le premier résultat
-    pg.goto(LOCAL); pg.wait_for_timeout(200)
+    pg.goto(LOCAL + "simulateurs/"); pg.wait_for_timeout(200)
     pg.fill("#search", "smic"); pg.press("#search", "Enter"); pg.wait_for_timeout(500)
     if "simulateur-smic" not in pg.url: fail("accueil : Entrée dans la recherche n'ouvre pas le simulateur (%s)" % pg.url)
     # erreurs JavaScript sur toutes les pages
