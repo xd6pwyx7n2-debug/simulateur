@@ -323,3 +323,6 @@ html{overflow-x:clip}
 .nav-links a,.header-nav a,.footer-links a{min-width:44px;display:inline-flex;align-items:center;justify-content:center}
 .tag,.kicker,.eyebrow,.photo-label,.nav-button,.sd-presets-title{font-size:12px}
 .result-title{font-size:13px}
+
+/* Tableaux : défilement horizontal interne plutôt que débordement de la page (écrans de 320 px) */
+main table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
