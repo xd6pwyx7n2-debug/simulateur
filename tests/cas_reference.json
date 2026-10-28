@@ -455,5 +455,38 @@
    "#ij2": "62,41 € par jour",
    "#total": "4 056,60 €"
   }
+ },
+ {
+  "page": "simulateur-tva-ht-ttc",
+  "entrees": {
+   "sens": "ht",
+   "taux": "20",
+   "montant": 100
+  },
+  "attendus": {
+   "#result": "120,00 €"
+  }
+ },
+ {
+  "page": "simulateur-tva-ht-ttc",
+  "entrees": {
+   "sens": "ttc",
+   "taux": "5.5",
+   "montant": 105.5
+  },
+  "attendus": {
+   "#result": "100,00 €"
+  }
+ },
+ {
+  "page": "simulateur-heures-supplementaires",
+  "entrees": {
+   "tauxHoraire": 12,
+   "heures25": 8,
+   "heures50": 4
+  },
+  "attendus": {
+   "#resultat": "192,00 €"
+  }
  }
 ]
