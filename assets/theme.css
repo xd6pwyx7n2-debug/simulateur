@@ -1,10 +1,16 @@
+@font-face{font-family:Inter;font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fonts/inter-400.woff2) format("woff2")}
+@font-face{font-family:Inter;font-style:normal;font-weight:500;font-display:swap;src:url(/assets/fonts/inter-500.woff2) format("woff2")}
+@font-face{font-family:Inter;font-style:normal;font-weight:600;font-display:swap;src:url(/assets/fonts/inter-600.woff2) format("woff2")}
+@font-face{font-family:Inter;font-style:normal;font-weight:700;font-display:swap;src:url(/assets/fonts/inter-700.woff2) format("woff2")}
+@font-face{font-family:Inter;font-style:normal;font-weight:800;font-display:swap;src:url(/assets/fonts/inter-800.woff2) format("woff2")}
+.result-main,.amount,.result-total,.result-row strong,table td,table th,.result-card-value{font-variant-numeric:tabular-nums}
 /* Mode sombre : inversion douce des couleurs, images et illustrations conservées. */
 html[data-theme="dark"]{background:#fff;filter:invert(.92) hue-rotate(180deg)}
 html[data-theme="dark"] img,html[data-theme="dark"] video,html[data-theme="dark"] picture,html[data-theme="dark"] .no-invert{filter:invert(1) hue-rotate(180deg)}
 @media print{html[data-theme="dark"]{filter:none!important;background:#fff!important}html[data-theme="dark"] img{filter:none!important}.sd-theme{display:none!important}}
 
 /* Bouton de bascule clair / sombre : pastille flottante + bouton dans l'en-tête */
-.sd-theme{width:auto!important;max-width:none!important;margin-top:0;flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 18px;border-radius:999px;border:2px solid #fff;background:#4b3bd0;color:#fff;font:700 15px "DM Sans",Arial,sans-serif;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;box-shadow:0 10px 28px rgba(41,35,90,.35)}
+.sd-theme{width:auto!important;max-width:none!important;margin-top:0;flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 18px;border-radius:999px;border:2px solid #fff;background:#4b3bd0;color:#fff;font:700 15px Inter,Arial,sans-serif;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;box-shadow:0 10px 28px rgba(41,35,90,.35)}
 .sd-theme .ic{font-size:20px;line-height:1}
 .sd-theme:hover{background:#3b2ec0}
 .sd-theme:focus-visible{outline:3px solid #ffb703;outline-offset:3px}
