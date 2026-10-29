@@ -137,6 +137,15 @@ with sync_playwright() as pw:
             got = norm(pg.inner_text(sel))
             if norm(attendu) not in got:
                 fail("%s %s : attendu « %s », obtenu « %s »" % (c["page"], c["entrees"], attendu, got[:120]))
+    # modèles de lettres : chaque type du sélecteur génère une lettre complète, sans erreur
+    pg.goto(LOCAL + "modeles-de-lettres/"); pg.wait_for_timeout(300)
+    for k in pg.eval_on_selector_all("#type option", "els=>els.map(e=>e.value)"):
+        pg.select_option("#type", k); pg.wait_for_timeout(60)
+        t = pg.inner_text("#lettre")
+        if len(t) < 250 or "undefined" in t or "Madame, Monsieur" not in t:
+            fail("lettre %s : contenu incomplet" % k)
+        if pg.locator('.lt-card[data-type="%s"]' % k).count() != 1:
+            fail("lettre %s : carte manquante dans le sélecteur" % k)
     # saisie vide : un message en ligne, jamais une boîte alert()
     for f in sorted(glob.glob(os.path.join(ROOT, "simulateur-*/index.html"))):
         slug = os.path.basename(os.path.dirname(f))
