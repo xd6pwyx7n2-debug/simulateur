@@ -1,5 +1,5 @@
 /* SimuDroit : service worker minimal. Réseau d'abord, copie locale en secours hors ligne. */
-var CACHE = "simudroit-v1";
+var CACHE = "simudroit-v2";
 self.addEventListener("install", function () { self.skipWaiting(); });
 self.addEventListener("activate", function (e) {
   e.waitUntil(caches.keys().then(function (ks) {

@@ -1,3 +1,5 @@
+/* Anciennes adresses (Netlify, github.io) : renvoi vers le domaine officiel */
+(function(){try{var h=location.hostname;if(/\.netlify\.app$/.test(h)||/\.github\.io$/.test(h)){var path=location.pathname.replace(/^\/simulateur(?=\/|$)/,"")||"/";location.replace("https://simudroit.fr"+path+location.search+location.hash);}}catch(e){}})();
 (function(){
   var KEY="sd-theme",root=document.documentElement,t=null;
   try{t=localStorage.getItem(KEY)}catch(e){}
