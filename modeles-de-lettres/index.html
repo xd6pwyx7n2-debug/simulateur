@@ -36,7 +36,23 @@
     window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
     plausible.init()
   </script>
-<style>@media print{html,body{background:#fff!important;min-height:0!important;height:auto!important}#sd-print.letter{background:#fff!important;color:#111!important}}</style>
+<style>@media print{html,body{background:#fff!important;min-height:0!important;height:auto!important}#sd-print.letter{background:#fff!important;color:#111!important}}
+main>article{max-width:1100px}
+.lt-pick{display:grid;gap:14px;margin:12px 0 8px}
+.lt-grp-t{margin:0 0 8px;font-size:.74rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:#5b43d6}
+.lt-btns{display:flex;flex-wrap:wrap;gap:8px}
+.lt-btn{appearance:none;cursor:pointer;min-height:44px;padding:9px 15px;border:1.5px solid #dcd7f7;border-radius:12px;background:#fff;color:#201e48;font:600 .9rem/1.25 Inter,sans-serif;text-align:left;transition:.15s}
+.lt-btn:hover,.lt-btn:focus-visible{border-color:#6857e8;background:#f4f2ff}
+.lt-btn[aria-pressed="true"]{background:#201e48;border-color:#201e48;color:#fff}
+.lt-grid{display:grid;gap:28px;margin-top:8px}
+.lt-h2{margin-top:30px!important}
+#lettres-app .lt-form>.field:first-of-type{margin-bottom:12px!important}
+#champs{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+#champs .field:has(textarea){grid-column:1/-1}
+.lt-note{color:#5a5978;font-size:.92rem;margin-top:26px}
+@media(min-width:980px){.lt-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);align-items:start}.lt-preview{position:sticky;top:14px}#lettre{max-height:calc(100vh - 170px);overflow:auto}}
+@media(max-width:560px){#champs{grid-template-columns:1fr}.lt-btn{flex:1 1 100%}}
+</style>
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
@@ -66,7 +82,18 @@
 <p class="intro">Choisissez votre situation, remplissez les champs et obtenez une lettre prête à envoyer. Tout est généré dans votre navigateur : rien n'est envoyé ni enregistré.</p>
 <p class="note"><strong>À retenir :</strong> ces modèles sont des points de départ généraux, sans valeur de conseil juridique. Adaptez-les à votre contrat et à votre convention collective, et envoyez de préférence vos courriers importants en recommandé avec accusé de réception ou remettez-les en main propre contre décharge.</p>
 
-<div id="lettres-app">
+<h2 id="lt-pick-t">Choisissez votre lettre</h2>
+<div class="lt-pick" role="group" aria-labelledby="lt-pick-t">
+<div class="lt-grp"><p class="lt-grp-t">Quitter son emploi</p><div class="lt-btns"><button type="button" class="lt-btn" data-type="demission" aria-pressed="false">Démission (CDI)</button><button type="button" class="lt-btn" data-type="rupco" aria-pressed="false">Demande de rupture conventionnelle</button><button type="button" class="lt-btn" data-type="retractation" aria-pressed="false">Rétractation d'une rupture conventionnelle</button><button type="button" class="lt-btn" data-type="preavis" aria-pressed="false">Demande de dispense de préavis</button><button type="button" class="lt-btn" data-type="essai" aria-pressed="false">Rupture de la période d'essai par le salarié</button></div></div>
+<div class="lt-grp"><p class="lt-grp-t">Fin de contrat</p><div class="lt-btns"><button type="button" class="lt-btn" data-type="documents" aria-pressed="false">Demande des documents de fin de contrat</button><button type="button" class="lt-btn" data-type="solde" aria-pressed="false">Contestation du solde de tout compte</button><button type="button" class="lt-btn" data-type="attestation" aria-pressed="false">Demande d'attestation employeur</button><button type="button" class="lt-btn" data-type="bulletins" aria-pressed="false">Demande de duplicata de bulletins de paie</button><button type="button" class="lt-btn" data-type="copiecontrat" aria-pressed="false">Demande de copie du contrat de travail ou d'un avenant</button></div></div>
+<div class="lt-grp"><p class="lt-grp-t">Salaire et primes</p><div class="lt-btns"><button type="button" class="lt-btn" data-type="hs" aria-pressed="false">Demande de paiement d'heures supplémentaires</button><button type="button" class="lt-btn" data-type="impaye" aria-pressed="false">Réclamation de salaire impayé</button><button type="button" class="lt-btn" data-type="prime" aria-pressed="false">Réclamation d'une prime ou d'une commission non versée</button><button type="button" class="lt-btn" data-type="augmentation" aria-pressed="false">Demande d'augmentation de salaire</button><button type="button" class="lt-btn" data-type="frais" aria-pressed="false">Demande de remboursement de frais professionnels</button></div></div>
+<div class="lt-grp"><p class="lt-grp-t">Congés et absences</p><div class="lt-btns"><button type="button" class="lt-btn" data-type="conges" aria-pressed="false">Demande de congés payés</button><button type="button" class="lt-btn" data-type="sanssolde" aria-pressed="false">Demande de congé sans solde</button><button type="button" class="lt-btn" data-type="arret" aria-pressed="false">Envoi d'un arrêt de travail à l'employeur</button><button type="button" class="lt-btn" data-type="maternite" aria-pressed="false">Information de l'employeur : congé de maternité</button><button type="button" class="lt-btn" data-type="paternite" aria-pressed="false">Information de l'employeur : congé de paternité et d'accueil de l'enfant</button></div></div>
+<div class="lt-grp"><p class="lt-grp-t">Organisation du travail</p><div class="lt-btns"><button type="button" class="lt-btn" data-type="tpartiel" aria-pressed="false">Demande de passage à temps partiel</button><button type="button" class="lt-btn" data-type="teletravail" aria-pressed="false">Demande de télétravail</button><button type="button" class="lt-btn" data-type="avertissement" aria-pressed="false">Contestation d'un avertissement</button></div></div>
+</div>
+
+<div id="lettres-app" class="lt-grid">
+<div class="lt-form">
+<h2 class="lt-h2">Vos informations</h2>
   <div class="field">
     <label for="type">Type de lettre</label>
     <select id="type">
@@ -97,17 +124,18 @@
   </div>
   <div id="champs"></div>
   <p id="conseil" class="note"></p>
-  <h2>Votre lettre</h2>
+  </div>
+  <div class="lt-preview">
+  <h2 class="lt-h2">Votre lettre</h2>
   <div id="lettre" role="region" aria-label="Lettre générée" aria-live="polite" style="white-space:pre-wrap;background:#fff;border:1.5px solid #ddd9f3;border-radius:16px;padding:22px;font-family:Georgia,'Times New Roman',serif;font-size:1rem;line-height:1.65;color:#201e48"></div>
   <div class="sd-actions">
-    <button type="button" class="sd-secondary" id="copier" style="background:#efedff;color:#201e48;border-color:#dcd7f7">📋 Copier la lettre</button>
-    <button type="button" class="sd-secondary" id="imprimer" style="background:#efedff;color:#201e48;border-color:#dcd7f7">📄 Télécharger en PDF ou imprimer</button>
+    <button type="button" class="sd-secondary" id="copier" style="background:#efedff;color:#201e48;border-color:#dcd7f7">Copier la lettre</button>
+    <button type="button" class="sd-secondary" id="imprimer" style="background:#efedff;color:#201e48;border-color:#dcd7f7">Télécharger en PDF ou imprimer</button>
+  </div>
   </div>
 </div>
 
-<h2>Les 23 lettres disponibles</h2>
-<p>Remplissez le formulaire : la lettre se met en forme toute seule. Elle se télécharge en PDF ou s'imprime, sans création de compte, et vos informations restent dans votre navigateur.</p>
-<ul><li>Démission (CDI)</li><li>Demande de rupture conventionnelle</li><li>Rétractation d'une rupture conventionnelle</li><li>Demande de dispense de préavis</li><li>Demande des documents de fin de contrat</li><li>Contestation du solde de tout compte</li><li>Demande de paiement d'heures supplémentaires</li><li>Demande de congés payés</li><li>Demande de congé sans solde</li><li>Demande de passage à temps partiel</li><li>Demande de télétravail</li><li>Demande d'augmentation de salaire</li><li>Réclamation de salaire impayé</li><li>Réclamation d'une prime ou d'une commission</li><li>Duplicata de bulletins de paie</li><li>Envoi d'un arrêt de travail à l'employeur</li><li>Contestation d'un avertissement</li><li>Rupture de la période d'essai par le salarié</li><li>Congé de paternité et d'accueil de l'enfant (information)</li><li>Congé de maternité (information)</li><li>Attestation employeur</li><li>Remboursement de frais professionnels</li><li>Copie du contrat de travail ou d'un avenant</li></ul>
+<p class="lt-note">Les 23 modèles se remplissent dans le navigateur : rien n'est envoyé ni enregistré. Chaque lettre se copie, se télécharge en PDF ou s'imprime, sans création de compte.</p>
 <p>Ces modèles sont des trames à adapter à votre situation. Vérifiez votre convention collective et votre contrat, qui peuvent prévoir des règles plus favorables.</p>
 
 <h2>Questions fréquentes</h2>
@@ -305,9 +333,14 @@
   }
   try{var qt=(new URLSearchParams(location.search).get("type")||"").replace(/[^a-z]/g,"");if(qt&&sel.querySelector('option[value="'+qt+'"]'))sel.value=qt;}catch(e){}
   sel.addEventListener("change",draw); draw();
+  var btns=[].slice.call(document.querySelectorAll(".lt-btn"));
+  function sync(){btns.forEach(function(b){b.setAttribute("aria-pressed",b.getAttribute("data-type")===sel.value?"true":"false")});}
+  btns.forEach(function(b){b.addEventListener("click",function(){sel.value=b.getAttribute("data-type");sel.dispatchEvent(new Event("change",{bubbles:true}));var f=document.getElementById("lettres-app");if(f&&window.matchMedia("(max-width:979px)").matches)f.scrollIntoView({behavior:"smooth",block:"start"});});});
+  sel.addEventListener("change",sync); sync();
+
   document.getElementById("copier").addEventListener("click",function(){
     var b=this, txt=out.getAttribute("data-plain")||out.textContent;
-    function ok(r){b.textContent=r?"✅ Lettre copiée":"Copie impossible"; setTimeout(function(){b.textContent="📋 Copier la lettre";},2200);}
+    function ok(r){b.textContent=r?"Lettre copiée":"Copie impossible"; setTimeout(function(){b.textContent="Copier la lettre";},2200);}
     if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(function(){ok(true);},function(){ok(false);});
     else { var ta=document.createElement("textarea"); ta.value=txt; document.body.appendChild(ta); ta.select(); var r=false; try{r=document.execCommand("copy");}catch(e){} ta.remove(); ok(r); }
   });
