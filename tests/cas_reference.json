@@ -612,5 +612,114 @@
    "#acquis": "13 jours",
    "#solde": "10 jours"
   }
+ },
+ {
+  "page": "simulateur-pension-invalidite",
+  "entrees": {
+   "statut": "sal",
+   "cat": "1",
+   "sam": 30000
+  },
+  "attendus": {
+   "#pension": "750,00 €",
+   "#taux": "30 %"
+  }
+ },
+ {
+  "page": "simulateur-pension-invalidite",
+  "entrees": {
+   "statut": "sal",
+   "cat": "2",
+   "sam": 60000
+  },
+  "attendus": {
+   "#pension": "2 002,50 €",
+   "#base": "48 060,00 €"
+  }
+ },
+ {
+  "page": "simulateur-pension-invalidite",
+  "entrees": {
+   "statut": "sal",
+   "cat": "3",
+   "sam": 30000
+  },
+  "attendus": {
+   "#pension": "2 548,44 €"
+  }
+ },
+ {
+  "page": "simulateur-pension-invalidite",
+  "entrees": {
+   "statut": "sal",
+   "cat": "1",
+   "sam": 10000
+  },
+  "attendus": {
+   "#pension": "338,31 €"
+  }
+ },
+ {
+  "page": "simulateur-plafonds-micro-tva",
+  "entrees": {
+   "caServ": 30000
+  },
+  "attendus": {
+   "#microVerdict": "Sous le plafond",
+   "#microPlafond": "83 600,00 €",
+   "#microMarge": "53 600,00 €",
+   "#tvaVerdict": "Franchise applicable",
+   "#tvaMarge": "7 500,00 €"
+  }
+ },
+ {
+  "page": "simulateur-plafonds-micro-tva",
+  "entrees": {
+   "caServ": 40000
+  },
+  "attendus": {
+   "#tvaVerdict": "Entre le seuil et le seuil majoré",
+   "#tvaMarge": "dépassement de 2 500,00 €"
+  }
+ },
+ {
+  "page": "simulateur-plafonds-micro-tva",
+  "entrees": {
+   "caVente": 100000
+  },
+  "attendus": {
+   "#microMarge": "103 100,00 €",
+   "#tvaVerdict": "Seuil majoré dépassé : TVA due",
+   "#tvaMarge": "dépassement de 15 000,00 €"
+  }
+ },
+ {
+  "page": "simulateur-maintien-salaire-maladie",
+  "entrees": {
+   "brut": 3000,
+   "anc": 3,
+   "jours": 40,
+   "prior": 0
+  },
+  "attendus": {
+   "#emp": "1 481,97 €",
+   "#n90": "30",
+   "#n66": "3",
+   "#secu": "1 589,89 €",
+   "#tot": "3 071,86 €",
+   "#sal": "4 000,00 €"
+  }
+ },
+ {
+  "page": "simulateur-maintien-salaire-maladie",
+  "entrees": {
+   "brut": 3000,
+   "anc": 0,
+   "jours": 20,
+   "prior": 0
+  },
+  "attendus": {
+   "#emp": "0,00 €"
+  }
  }
 ]
