@@ -52,3 +52,12 @@
   }
   if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init);else init();
 })();
+
+/* Exclure ses propres visites des statistiques : ouvrir une page avec ?exclure-mes-visites=1 (annuler avec =0). Valable pour le navigateur utilisé. */
+(function(){
+  try{
+    var m=location.search.match(/[?&]exclure-mes-visites=([01])/);
+    if(!m)return;
+    if(m[1]==="1")localStorage.setItem("plausible_ignore","true");else localStorage.removeItem("plausible_ignore");
+  }catch(e){}
+})();
