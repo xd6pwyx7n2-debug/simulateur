@@ -64,6 +64,7 @@ titles = {}
 for f in pages:
     rel = os.path.relpath(f, ROOT)
     s = open(f, encoding="utf-8").read()
+    if rel == "simulateur/index.html": continue  # redirection noindex (ancien chemin)
     p = P(); p.feed(s)
     if p.h1 != 1 and rel != "404.html": fail("%s : %d balises h1" % (rel, p.h1))
     if "%s" in s or "undefined" in re.sub(r"<script[\s\S]*?</script>", "", s): fail("%s : texte résiduel (%%s ou undefined)" % rel)
@@ -94,7 +95,7 @@ for l in locs:
     if not r or not os.path.exists(r): fail("sitemap : URL sans page %s" % l)
 for f in pages:
     rel = os.path.relpath(f, ROOT)
-    if rel in ("404.html",): continue
+    if rel in ("404.html", "simulateur/index.html"): continue
     url = BASE + (rel[:-len("index.html")] if rel.endswith("index.html") else rel)
     if url not in locs: fail("sitemap : page absente %s" % url)
 print("Contrôles statiques :", len(pages), "pages,", len(locs), "URL de sitemap")
