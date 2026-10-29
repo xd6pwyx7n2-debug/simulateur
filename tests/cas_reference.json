@@ -721,5 +721,49 @@
   "attendus": {
    "#emp": "0,00 €"
   }
+ },
+ {
+  "page": "simulateur-preavis-demission",
+  "entrees": {
+   "dateDemission": "2026-03-02",
+   "dureeType": "mois",
+   "duree": 1
+  },
+  "attendus": {
+   "#dateFin": "2 avril 2026"
+  }
+ },
+ {
+  "page": "simulateur-preavis-demission",
+  "entrees": {
+   "dateDemission": "2026-01-31",
+   "dureeType": "mois",
+   "duree": 1
+  },
+  "attendus": {
+   "#dateFin": "28 février 2026"
+  }
+ },
+ {
+  "page": "simulateur-preavis-demission",
+  "entrees": {
+   "dateDemission": "2026-03-02",
+   "dureeType": "jours",
+   "duree": 30
+  },
+  "attendus": {
+   "#dateFin": "1 avril 2026"
+  }
+ },
+ {
+  "page": "simulateur-preavis-demission",
+  "entrees": {
+   "dateDemission": "2026-03-02",
+   "dureeType": "semaines",
+   "duree": 2
+  },
+  "attendus": {
+   "#dateFin": "16 mars 2026"
+  }
  }
 ]
