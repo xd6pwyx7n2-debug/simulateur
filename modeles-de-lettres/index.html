@@ -19,6 +19,9 @@
   <meta name="twitter:description" content="Lettres types à remplir : démission, rétractation de rupture conventionnelle, solde de tout compte, congés, augmentation. PDF prêt à imprimer, gratuit.">
   <meta name="twitter:image" content="https://simudroit.fr/og-image.png">
   <link rel="icon" href="https://simudroit.fr/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="https://simudroit.fr/favicon.ico" sizes="48x48">
+  <link rel="icon" href="https://simudroit.fr/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="https://simudroit.fr/apple-touch-icon.png">
   <link rel="stylesheet" href="../assets/simulateur.css">
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Modèles de lettres : démission, solde de tout compte | SimuDroit", "url": "https://simudroit.fr/modeles-de-lettres/", "description": "Générez gratuitement une lettre de démission, de demande de rupture conventionnelle, de contestation de solde de tout compte ou de paiement d'heures supplémentaires.", "inLanguage": "fr-FR", "isPartOf": {"@type": "WebSite", "name": "SimuDroit", "url": "https://simudroit.fr/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "SimuDroit", "item": "https://simudroit.fr/"}, {"@type": "ListItem", "position": 2, "name": "Modèles de lettres", "item": "https://simudroit.fr/modeles-de-lettres/"}]}</script>
@@ -300,6 +303,7 @@
     COMMON.concat(t.fields).forEach(function(f){box.appendChild(field(f));});
     tip.innerHTML="<strong>Conseil :</strong> "+t.conseil; render();
   }
+  try{var qt=(new URLSearchParams(location.search).get("type")||"").replace(/[^a-z]/g,"");if(qt&&sel.querySelector('option[value="'+qt+'"]'))sel.value=qt;}catch(e){}
   sel.addEventListener("change",draw); draw();
   document.getElementById("copier").addEventListener("click",function(){
     var b=this, txt=out.getAttribute("data-plain")||out.textContent;
