@@ -21,3 +21,22 @@ html[data-theme="dark"] .sd-theme{border-color:#201e48}
 input,select,textarea{font-size:16px}
 button,a,select,summary{touch-action:manipulation}
 html{-webkit-text-size-adjust:100%;scroll-padding-top:72px}
+
+/* Menu mobile déroulant */
+.sd-burger{display:none}
+@media(max-width:760px){
+  header.sd-menu-on{position:relative!important;z-index:70}
+  .sd-menu-on .sd-burger{display:inline-flex!important;width:auto!important;flex:0 0 auto!important;margin-top:0!important;align-items:center;gap:10px;margin-left:auto;min-height:46px;padding:0 16px;border-radius:14px;border:1.5px solid #ddd9f3;background:#fff;color:#201e48;font:800 .95rem Inter,sans-serif;cursor:pointer;box-shadow:0 6px 16px rgba(52,40,140,.08)}
+  .sd-menu-on .sd-burger.on{background:#201e48;border-color:#201e48;color:#fff}
+  .sd-burger-i{position:relative;display:block;width:18px;height:2px;border-radius:2px;background:currentColor;box-shadow:0 -6px 0 currentColor,0 6px 0 currentColor;transition:.2s}
+  .sd-burger.on .sd-burger-i{background:transparent;box-shadow:none}
+  .sd-burger.on .sd-burger-i::before,.sd-burger.on .sd-burger-i::after{content:"";position:absolute;left:0;top:0;width:18px;height:2px;border-radius:2px;background:currentColor}
+  .sd-burger.on .sd-burger-i::before{transform:rotate(45deg)}
+  .sd-burger.on .sd-burger-i::after{transform:rotate(-45deg)}
+  .sd-menu-on nav{display:none!important}
+  .sd-menu-on nav.sd-open{display:flex!important;flex-direction:column;align-items:stretch!important;flex-wrap:nowrap!important;gap:2px;position:absolute;left:12px;right:12px;top:calc(100% - 6px);z-index:80;width:auto!important;padding:10px;border-radius:22px;background:#fff;border:1px solid #e6e2fa;box-shadow:0 28px 70px rgba(41,35,90,.28);overflow:visible!important;white-space:normal!important;animation:sdMenu .16s ease-out}
+  .sd-menu-on nav.sd-open a{display:flex!important;align-items:center;justify-content:flex-start!important;text-align:left!important;min-height:50px;margin:0!important;padding:0 16px!important;border-radius:14px;color:#201e48!important;font-size:1.02rem!important;font-weight:700;text-decoration:none}
+  .sd-menu-on nav.sd-open a:hover,.sd-menu-on nav.sd-open a:focus-visible{background:#f4f2ff}
+  .sd-menu-on nav.sd-open a.cta-link{justify-content:center!important;margin-top:6px!important;background:#201e48;color:#fff!important}
+  @keyframes sdMenu{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+}

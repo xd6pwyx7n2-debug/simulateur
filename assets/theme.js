@@ -33,3 +33,22 @@
 
 /* Installation en application et lecture hors ligne */
 (function () { try { if ("serviceWorker" in navigator && location.protocol === "https:") navigator.serviceWorker.register("/sw.js"); } catch (e) {} })();
+
+/* Menu mobile : les liens de l'en-tête passent dans un panneau déroulant sous le logo */
+(function(){
+  function init(){
+    var h=document.querySelector("header");if(!h||h.querySelector(".sd-burger"))return;
+    var nav=h.querySelector("nav");if(!nav)return;
+    if(!nav.id)nav.id="sd-nav";
+    var b=document.createElement("button");b.type="button";b.className="sd-burger";b.setAttribute("aria-expanded","false");b.setAttribute("aria-controls",nav.id);
+    b.innerHTML='<span class="sd-burger-i" aria-hidden="true"></span><span>Menu</span>';
+    nav.parentNode.insertBefore(b,nav);h.classList.add("sd-menu-on");
+    function set(open){nav.classList.toggle("sd-open",open);b.setAttribute("aria-expanded",open?"true":"false");b.classList.toggle("on",open);}
+    b.addEventListener("click",function(e){e.stopPropagation();set(!nav.classList.contains("sd-open"));});
+    nav.addEventListener("click",function(e){if(e.target.closest("a"))set(false);});
+    document.addEventListener("click",function(e){if(!h.contains(e.target))set(false);});
+    document.addEventListener("keydown",function(e){if(e.key==="Escape"&&nav.classList.contains("sd-open")){set(false);b.focus();}});
+    if(window.matchMedia)matchMedia("(min-width:761px)").addEventListener("change",function(m){if(m.matches)set(false);});
+  }
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init);else init();
+})();
