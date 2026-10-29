@@ -13,11 +13,11 @@
   <meta property="og:url" content="https://simudroit.fr/modeles-de-lettres/">
   <meta property="og:site_name" content="SimuDroit">
   <meta property="og:locale" content="fr_FR">
-  <meta property="og:image" content="https://simudroit.fr/og-image.png">
+  <meta property="og:image" content="https://simudroit.fr/assets/og/modeles-de-lettres.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Modèles de lettres : démission, solde de tout compte">
   <meta name="twitter:description" content="Lettres types à remplir : démission, rétractation de rupture conventionnelle, solde de tout compte, congés, augmentation. PDF prêt à imprimer, gratuit.">
-  <meta name="twitter:image" content="https://simudroit.fr/og-image.png">
+  <meta name="twitter:image" content="https://simudroit.fr/assets/og/modeles-de-lettres.jpg">
   <link rel="icon" href="https://simudroit.fr/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="https://simudroit.fr/favicon.ico" sizes="48x48">
   <link rel="icon" href="https://simudroit.fr/favicon-48.png" type="image/png" sizes="48x48">
@@ -27,7 +27,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "SimuDroit", "item": "https://simudroit.fr/"}, {"@type": "ListItem", "position": 2, "name": "Modèles de lettres", "item": "https://simudroit.fr/modeles-de-lettres/"}]}</script>
 <meta name="theme-color" content="#201e48">
   <meta name="author" content="SimuDroit">
-  <meta property="og:image:alt" content="SimuDroit : simulateurs gratuits de salaire et de droits du travail">
+  <meta property="og:image:alt" content="Modèles de lettres : démission, solde de tout compte | SimuDroit">
   <link rel="alternate" hreflang="fr" href="https://simudroit.fr/modeles-de-lettres/">
   <link rel="alternate" hreflang="x-default" href="https://simudroit.fr/modeles-de-lettres/">
   <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
@@ -38,20 +38,30 @@
   </script>
 <style>@media print{html,body{background:#fff!important;min-height:0!important;height:auto!important}#sd-print.letter{background:#fff!important;color:#111!important}}
 main>article{max-width:1100px}
-.lt-pick{display:grid;gap:14px;margin:12px 0 8px}
-.lt-grp-t{margin:0 0 8px;font-size:.74rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:#5b43d6}
-.lt-btns{display:flex;flex-wrap:wrap;gap:8px}
-.lt-btn{appearance:none;cursor:pointer;min-height:44px;padding:9px 15px;border:1.5px solid #dcd7f7;border-radius:12px;background:#fff;color:#201e48;font:600 .9rem/1.25 Inter,sans-serif;text-align:left;transition:.15s}
-.lt-btn:hover,.lt-btn:focus-visible{border-color:#6857e8;background:#f4f2ff}
-.lt-btn[aria-pressed="true"]{background:#201e48;border-color:#201e48;color:#fff}
+.lt-hero{display:block;width:100%;height:auto;aspect-ratio:960/190;border-radius:18px;margin:6px 0 18px}
+.lt-pick{display:grid;gap:22px;margin:14px 0 8px}
+.lt-grp-t{margin:0 0 10px;font-size:.74rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#5b43d6}
+.lt-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+.lt-card{appearance:none;display:flex;align-items:center;gap:13px;width:100%;padding:10px 14px 10px 10px;border:1.5px solid #e3dffa;border-radius:16px;background:#fff;color:#201e48;text-align:left;cursor:pointer;box-shadow:0 4px 12px rgba(52,40,140,.05);transition:transform .15s,box-shadow .15s,border-color .15s;font-family:Inter,sans-serif}
+.lt-card img{flex:none;width:52px;height:52px;border-radius:14px}
+.lt-card-t{display:grid;gap:2px;min-width:0}
+.lt-card strong{font-size:.9rem;line-height:1.25}
+.lt-card small{font-size:.78rem;line-height:1.3;color:#5a5978}
+.lt-card:hover,.lt-card:focus-visible{transform:translateY(-2px);border-color:#a99cf5;box-shadow:0 10px 22px rgba(52,40,140,.13)}
+.lt-card[aria-pressed="true"]{border-color:#6857e8;background:linear-gradient(135deg,#f1eeff,#fff);box-shadow:0 0 0 3px #6857e833,0 10px 22px rgba(52,40,140,.13)}
 .lt-grid{display:grid;gap:28px;margin-top:8px}
 .lt-h2{margin-top:30px!important}
-#lettres-app .lt-form>.field:first-of-type{margin-bottom:12px!important}
+.lt-form{padding:20px 22px 6px;border:1.5px solid #e6e2fa;border-radius:22px;background:linear-gradient(180deg,#fbfaff,#fff)}
+.lt-form .lt-h2{margin-top:0!important}
+.lt-preview{padding:20px 22px;border-radius:22px;background:linear-gradient(160deg,#ece8ff,#f7f5ff)}
+.lt-preview .lt-h2{margin-top:0!important}
+#lettre{box-shadow:0 18px 40px rgba(52,40,140,.16)}
 #champs{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
 #champs .field:has(textarea){grid-column:1/-1}
 .lt-note{color:#5a5978;font-size:.92rem;margin-top:26px}
-@media(min-width:980px){.lt-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);align-items:start}.lt-preview{position:sticky;top:14px}#lettre{max-height:calc(100vh - 170px);overflow:auto}}
-@media(max-width:560px){#champs{grid-template-columns:1fr}.lt-btn{padding:8px 12px;font-size:.84rem;min-height:40px}.lt-btns{gap:6px}}
+@media(min-width:980px){.lt-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);align-items:start}.lt-preview{position:sticky;top:14px}#lettre{max-height:calc(100vh - 190px);overflow:auto}}
+@media(max-width:560px){#champs{grid-template-columns:1fr}.lt-cards{grid-template-columns:1fr}.lt-form,.lt-preview{padding:16px 14px 4px}}
+
 </style>
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -80,16 +90,17 @@ main>article{max-width:1100px}
 <article>
 <p class="crumbs"><a href="https://simudroit.fr/">Accueil</a> › Modèles de lettres</p>
 <h1>Modèles de lettres de travail : démission, rupture, solde de tout compte, congés</h1>
+<img class="lt-hero" src="/assets/lettres/hero.svg" alt="" width="960" height="190" decoding="async">
 <p class="intro">Choisissez votre situation, remplissez les champs et obtenez une lettre prête à envoyer. Tout est généré dans votre navigateur : rien n'est envoyé ni enregistré.</p>
 <p class="note"><strong>À retenir :</strong> ces modèles sont des points de départ généraux, sans valeur de conseil juridique. Adaptez-les à votre contrat et à votre convention collective, et envoyez de préférence vos courriers importants en recommandé avec accusé de réception ou remettez-les en main propre contre décharge.</p>
 
 <h2 id="lt-pick-t">Choisissez votre lettre</h2>
 <div class="lt-pick" role="group" aria-labelledby="lt-pick-t">
-<div class="lt-grp"><p class="lt-grp-t">Quitter son emploi</p><div class="lt-btns"><button type="button" class="lt-btn" data-type="demission" aria-pressed="false">Démission (CDI)</button><button type="button" class="lt-btn" data-type="rupco" aria-pressed="false">Demande de rupture conventionnelle</button><button type="button" class="lt-btn" data-type="retractation" aria-pressed="false">Rétractation d'une rupture conventionnelle</button><button type="button" class="lt-btn" data-type="preavis" aria-pressed="false">Demande de dispense de préavis</button><button type="button" class="lt-btn" data-type="essai" aria-pressed="false">Rupture de la période d'essai par le salarié</button></div></div>
-<div class="lt-grp"><p class="lt-grp-t">Fin de contrat</p><div class="lt-btns"><button type="button" class="lt-btn" data-type="documents" aria-pressed="false">Demande des documents de fin de contrat</button><button type="button" class="lt-btn" data-type="solde" aria-pressed="false">Contestation du solde de tout compte</button><button type="button" class="lt-btn" data-type="attestation" aria-pressed="false">Demande d'attestation employeur</button><button type="button" class="lt-btn" data-type="bulletins" aria-pressed="false">Demande de duplicata de bulletins de paie</button><button type="button" class="lt-btn" data-type="copiecontrat" aria-pressed="false">Demande de copie du contrat de travail ou d'un avenant</button></div></div>
-<div class="lt-grp"><p class="lt-grp-t">Salaire et primes</p><div class="lt-btns"><button type="button" class="lt-btn" data-type="hs" aria-pressed="false">Demande de paiement d'heures supplémentaires</button><button type="button" class="lt-btn" data-type="impaye" aria-pressed="false">Réclamation de salaire impayé</button><button type="button" class="lt-btn" data-type="prime" aria-pressed="false">Réclamation d'une prime ou d'une commission non versée</button><button type="button" class="lt-btn" data-type="augmentation" aria-pressed="false">Demande d'augmentation de salaire</button><button type="button" class="lt-btn" data-type="frais" aria-pressed="false">Demande de remboursement de frais professionnels</button></div></div>
-<div class="lt-grp"><p class="lt-grp-t">Congés et absences</p><div class="lt-btns"><button type="button" class="lt-btn" data-type="conges" aria-pressed="false">Demande de congés payés</button><button type="button" class="lt-btn" data-type="sanssolde" aria-pressed="false">Demande de congé sans solde</button><button type="button" class="lt-btn" data-type="arret" aria-pressed="false">Envoi d'un arrêt de travail à l'employeur</button><button type="button" class="lt-btn" data-type="maternite" aria-pressed="false">Information de l'employeur : congé de maternité</button><button type="button" class="lt-btn" data-type="paternite" aria-pressed="false">Information de l'employeur : congé de paternité et d'accueil de l'enfant</button></div></div>
-<div class="lt-grp"><p class="lt-grp-t">Organisation du travail</p><div class="lt-btns"><button type="button" class="lt-btn" data-type="tpartiel" aria-pressed="false">Demande de passage à temps partiel</button><button type="button" class="lt-btn" data-type="teletravail" aria-pressed="false">Demande de télétravail</button><button type="button" class="lt-btn" data-type="avertissement" aria-pressed="false">Contestation d'un avertissement</button></div></div>
+<div class="lt-grp"><p class="lt-grp-t">Quitter son emploi</p><div class="lt-cards"><button type="button" class="lt-card" data-type="demission" aria-pressed="false"><img src="/assets/lettres/demission.svg" alt="" width="52" height="52" loading="lazy" decoding="async"><span class="lt-card-t"><strong>Démission (CDI)</strong><small>Quitter un CDI avec préavis</small></span></button><button type="button" class="lt-card" data-type="rupco" aria-pressed="false"><img src="/assets/lettres/rupco.svg" alt="" width="52" height="52" loading="lazy" decoding="async"><span class="lt-card-t"><strong>Demande de rupture conventionnelle</strong><small>Proposer une rupture d'un commun accord</small></span></button><button type="button" class="lt-card" data-type="retractation" aria-pressed="false"><img src="/assets/lettres/retractation.svg" alt="" width="52" height="52" loading="lazy" decoding="async"><span class="lt-card-t"><strong>Rétractation d'une rupture conventionnelle</strong><small>Annuler dans les 15 jours</small></span></button><button type="button" class="lt-card" data-type="preavis" aria-pressed="false"><img src="/assets/lettres/preavis.svg" alt="" width="52" height="52" loading="lazy" decoding="async"><span class="lt-card-t"><strong>Demande de dispense de préavis</strong><small>Demander à être dispensé</small></span></button><button type="button" class="lt-card" data-type="essai" aria-pressed="false"><img src="/assets/lettres/essai.svg" alt="" width="52" height="52" loading="lazy" decoding="async"><span class="lt-card-t"><strong>Rupture de la période d'essai par le salarié</strong><small>Mettre fin à sa période d'essai</small></span></button></div></div>
+<div class="lt-grp"><p class="lt-grp-t">Fin de contrat</p><div class="lt-cards"><button type="button" class="lt-card" data-type="documents" aria-pressed="false"><img src="/assets/lettres/documents.svg" alt="" width="52" height="52" loading="lazy" decoding="async"><span class="lt-card-t"><strong>Demande des documents de fin de contrat</strong><small>Certificat, attestation, solde</small></span></button><button type="button" class="lt-card" data-type="solde" aria-pressed="false"><img src="/assets/lettres/solde.svg" alt="" width="52" height="52" loading="lazy" decoding="async"><span class="lt-card-t"><strong>Contestation du solde de tout compte</strong><small>Contester un solde incomplet</small></span></button><button type="button" class="lt-card" data-type="attestation" aria-pressed="false"><img src="/assets/lettres/attestation.svg" alt="" width="52" height="52" loading="lazy" decoding="async"><span class="lt-card-t"><strong>Demande d'attestation employeur</strong><small>Obtenir l'attestation employeur</small></span></button><button type="button" class="lt-card" data-type="bulletins" aria-pressed="false"><img src="/assets/lettres/bulletins.svg" alt="" width="52" height="52" loading="lazy" decoding="async"><span class="lt-card-t"><strong>Demande de duplicata de bulletins de paie</strong><small>Récupérer des fiches de paie</small></span></button><button type="button" class="lt-card" data-type="copiecontrat" aria-pressed="false"><img src="/assets/lettres/copiecontrat.svg" alt="" width="52" height="52" loading="lazy" decoding="async"><span class="lt-card-t"><strong>Demande de copie du contrat de travail ou d'un avenant</strong><small>Contrat de travail ou avenant</small></span></button></div></div>
+<div class="lt-grp"><p class="lt-grp-t">Salaire et primes</p><div class="lt-cards"><button type="button" class="lt-card" data-type="hs" aria-pressed="false"><img src="/assets/lettres/hs.svg" alt="" width="52" height="52" loading="lazy" decoding="async"><span class="lt-card-t"><strong>Demande de paiement d'heures supplémentaires</strong><small>Heures supplémentaires non payées</small></span></button><button type="button" class="lt-card" data-type="impaye" aria-pressed="false"><img src="/assets/lettres/impaye.svg" alt="" width="52" height="52" loading="lazy" decoding="async"><span class="lt-card-t"><strong>Réclamation de salaire impayé</strong><small>Salaire non versé</small></span></button><button type="button" class="lt-card" data-type="prime" aria-pressed="false"><img src="/assets/lettres/prime.svg" alt="" width="52" height="52" loading="lazy" decoding="async"><span class="lt-card-t"><strong>Réclamation d'une prime ou d'une commission non versée</strong><small>Prime ou commission due</small></span></button><button type="button" class="lt-card" data-type="augmentation" aria-pressed="false"><img src="/assets/lettres/augmentation.svg" alt="" width="52" height="52" loading="lazy" decoding="async"><span class="lt-card-t"><strong>Demande d'augmentation de salaire</strong><small>Demander une revalorisation</small></span></button><button type="button" class="lt-card" data-type="frais" aria-pressed="false"><img src="/assets/lettres/frais.svg" alt="" width="52" height="52" loading="lazy" decoding="async"><span class="lt-card-t"><strong>Demande de remboursement de frais professionnels</strong><small>Frais professionnels à rembourser</small></span></button></div></div>
+<div class="lt-grp"><p class="lt-grp-t">Congés et absences</p><div class="lt-cards"><button type="button" class="lt-card" data-type="conges" aria-pressed="false"><img src="/assets/lettres/conges.svg" alt="" width="52" height="52" loading="lazy" decoding="async"><span class="lt-card-t"><strong>Demande de congés payés</strong><small>Poser ou confirmer des congés</small></span></button><button type="button" class="lt-card" data-type="sanssolde" aria-pressed="false"><img src="/assets/lettres/sanssolde.svg" alt="" width="52" height="52" loading="lazy" decoding="async"><span class="lt-card-t"><strong>Demande de congé sans solde</strong><small>Demander un congé sans solde</small></span></button><button type="button" class="lt-card" data-type="arret" aria-pressed="false"><img src="/assets/lettres/arret.svg" alt="" width="52" height="52" loading="lazy" decoding="async"><span class="lt-card-t"><strong>Envoi d'un arrêt de travail à l'employeur</strong><small>Prévenir l'employeur d'un arrêt</small></span></button><button type="button" class="lt-card" data-type="maternite" aria-pressed="false"><img src="/assets/lettres/maternite.svg" alt="" width="52" height="52" loading="lazy" decoding="async"><span class="lt-card-t"><strong>Information de l'employeur : congé de maternité</strong><small>Informer d'un congé de maternité</small></span></button><button type="button" class="lt-card" data-type="paternite" aria-pressed="false"><img src="/assets/lettres/paternite.svg" alt="" width="52" height="52" loading="lazy" decoding="async"><span class="lt-card-t"><strong>Information de l'employeur : congé de paternité et d'accueil de l'enfant</strong><small>Informer d'un congé de paternité</small></span></button></div></div>
+<div class="lt-grp"><p class="lt-grp-t">Organisation du travail</p><div class="lt-cards"><button type="button" class="lt-card" data-type="tpartiel" aria-pressed="false"><img src="/assets/lettres/tpartiel.svg" alt="" width="52" height="52" loading="lazy" decoding="async"><span class="lt-card-t"><strong>Demande de passage à temps partiel</strong><small>Passer à temps partiel</small></span></button><button type="button" class="lt-card" data-type="teletravail" aria-pressed="false"><img src="/assets/lettres/teletravail.svg" alt="" width="52" height="52" loading="lazy" decoding="async"><span class="lt-card-t"><strong>Demande de télétravail</strong><small>Demander le télétravail</small></span></button><button type="button" class="lt-card" data-type="avertissement" aria-pressed="false"><img src="/assets/lettres/avertissement.svg" alt="" width="52" height="52" loading="lazy" decoding="async"><span class="lt-card-t"><strong>Contestation d'un avertissement</strong><small>Contester un avertissement</small></span></button></div></div>
 </div>
 
 <div id="lettres-app" class="lt-grid">
@@ -334,7 +345,7 @@ main>article{max-width:1100px}
   }
   try{var qt=(new URLSearchParams(location.search).get("type")||"").replace(/[^a-z]/g,"");if(qt&&sel.querySelector('option[value="'+qt+'"]'))sel.value=qt;}catch(e){}
   sel.addEventListener("change",draw); draw();
-  var btns=[].slice.call(document.querySelectorAll(".lt-btn"));
+  var btns=[].slice.call(document.querySelectorAll(".lt-card"));
   function sync(){btns.forEach(function(b){b.setAttribute("aria-pressed",b.getAttribute("data-type")===sel.value?"true":"false")});}
   btns.forEach(function(b){b.addEventListener("click",function(){sel.value=b.getAttribute("data-type");sel.dispatchEvent(new Event("change",{bubbles:true}));var f=document.getElementById("lettres-app");if(f&&window.matchMedia("(max-width:979px)").matches)f.scrollIntoView({behavior:"smooth",block:"start"});});});
   sel.addEventListener("change",sync); sync();
