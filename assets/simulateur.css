@@ -208,3 +208,12 @@ html{overflow-x:clip}
 .tag,.kicker,.eyebrow,.photo-label,.nav-button,.sd-presets-title{font-size:12px}
 .result-title{font-size:13px}
 main table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+.sd-lettre{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin:22px auto;max-width:860px;padding:20px 22px;border-radius:20px;background:linear-gradient(135deg,#2a2660,#4a3bb8);color:#fff;box-shadow:0 14px 32px rgba(52,40,140,.22)}
+.sd-lettre h2{margin:0 0 4px!important;font-size:1.2rem!important;color:#fff!important}
+.sd-lettre p{margin:0;color:#e7e3ff;font-size:.95rem;max-width:480px}
+.sd-lettre-btns{display:flex;flex-wrap:wrap;gap:8px}
+.sd-lettre-btns a{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:12px;background:#fff;color:#201e48!important;font-weight:700;font-size:.92rem;text-decoration:none!important}
+.sd-lettre-btns a:hover,.sd-lettre-btns a:focus-visible{background:#efedff}
+.sd-lettre-btns .sd-lettre-all{background:transparent;color:#fff!important;border:1.5px solid #ffffff66}
+@media(max-width:560px){.sd-lettre-btns a{flex:1 1 100%;justify-content:center}}
