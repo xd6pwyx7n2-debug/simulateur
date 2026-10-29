@@ -220,3 +220,19 @@ main table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolli
 
 .logo span{background:linear-gradient(100deg,#6857e8,#a253d8);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent!important}
 @media(max-width:640px){.logo{font-size:1.6rem!important}.logo::before{width:42px;height:42px;background-size:24px,auto}}
+
+/* ===== Typographie v2 : titres mis en valeur, rendu plus moderne ===== */
+body{font-feature-settings:"cv11","ss03";-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+h1,h2,h3{text-wrap:balance}
+article p,.info p,.info-section p,.hero p{text-wrap:pretty}
+h1::before{content:var(--sd-eyebrow,none);display:block;width:fit-content;margin:0 0 16px;padding:7px 13px;border-radius:99px;background:#efedff;border:1px solid #ddd6ff;color:#5b43d6;-webkit-text-fill-color:#5b43d6;font:800 .72rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase}
+.hero h1,article h1{font-size:clamp(2.1rem,5.6vw,3.4rem)!important;line-height:1.03!important;letter-spacing:-.04em!important;font-weight:800!important;background:linear-gradient(100deg,#201e48 0%,#3b2fa8 58%,#7a4be0 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent!important;padding-bottom:.08em}
+.hero p,.hero .intro,article .intro{font-size:clamp(1.05rem,2.2vw,1.2rem)!important;line-height:1.65!important}
+article>h2,.info>h2,.info-section>h2{font-size:clamp(1.5rem,3.4vw,2.05rem)!important;line-height:1.14!important;letter-spacing:-.045em!important;font-weight:800}
+article>h2::before,.info>h2::before,.info-section>h2::before{content:"";display:block;width:42px;height:5px;margin:0 0 14px;border-radius:5px;background:linear-gradient(90deg,#6857e8,#ff795f)}
+article h3,.info h3{font-size:1.18rem!important;letter-spacing:-.025em;font-weight:700}
+article p,.info p,.info-section p,article li,.info li{font-size:1.04rem;line-height:1.75}
+article a,.info a{text-underline-offset:3px;text-decoration-thickness:1.5px}
+@media(max-width:640px){.hero h1,article h1{font-size:clamp(1.95rem,9vw,2.5rem)!important}article>h2,.info>h2,.info-section>h2{font-size:1.5rem!important}}
+.header-nav a{margin-right:0!important}
+main>article{padding:clamp(22px,4.5vw,44px)}

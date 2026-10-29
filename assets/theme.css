@@ -24,7 +24,7 @@ html{-webkit-text-size-adjust:100%;scroll-padding-top:72px}
 
 /* Menu mobile déroulant */
 .sd-burger{display:none}
-@media(max-width:760px){
+@media(max-width:1060px){
   header.sd-menu-on{position:relative!important;z-index:70}
   .sd-menu-on .sd-burger{display:inline-flex!important;width:auto!important;flex:0 0 auto!important;margin-top:0!important;align-items:center;gap:10px;margin-left:auto;min-height:46px;padding:0 16px;border-radius:14px;border:1.5px solid #ddd9f3;background:#fff;color:#201e48;font:800 .95rem Inter,sans-serif;cursor:pointer;box-shadow:0 6px 16px rgba(52,40,140,.08)}
   .sd-menu-on .sd-burger.on{background:#201e48;border-color:#201e48;color:#fff}
@@ -40,3 +40,4 @@ html{-webkit-text-size-adjust:100%;scroll-padding-top:72px}
   .sd-menu-on nav.sd-open a.cta-link{justify-content:center!important;margin-top:6px!important;background:#201e48;color:#fff!important}
   @keyframes sdMenu{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
 }
+.sd-theme .ic{display:inline-flex;align-items:center}
