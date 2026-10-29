@@ -567,9 +567,9 @@
   (function () {
     var main = calc.querySelector(".result-main, .amount");
     var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (main && !reduce && window.MutationObserver && window.requestAnimationFrame) {
+    if (main && !main.hasAttribute("data-noanim") && !reduce && window.MutationObserver && window.requestAnimationFrame) {
       var busy = false;
-      var re = /(\d[\d\s\u202f\u00a0]*(?:,\d+)?)/;
+      var re = /(\d(?:[\d\s\u202f\u00a0]*\d)?(?:,\d+)?)/;
       new MutationObserver(function () {
         if (busy) return;
         var txt = main.textContent || "";

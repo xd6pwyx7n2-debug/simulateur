@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Congés payés acquis : calcul des jours et du solde | SimuDroit</title>
+  <meta name="description" content="Calculez vos jours de congés payés ouvrables acquis (2,5 par mois) sur la période en cours et votre solde après les jours déjà pris.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://simudroit.fr/simulateur-conges-acquis/">
+  <link rel="icon" href="https://simudroit.fr/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Congés payés acquis : calcul des jours et du solde | SimuDroit">
+  <meta property="og:description" content="Calculez vos jours de congés payés ouvrables acquis (2,5 par mois) sur la période en cours et votre solde après les jours déjà pris.">
+  <meta property="og:url" content="https://simudroit.fr/simulateur-conges-acquis/">
+  <meta property="og:image" content="https://simudroit.fr/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://simudroit.fr/og-image.png">
+  <meta name="twitter:title" content="Congés payés acquis : calcul des jours et du solde | SimuDroit">
+  <meta name="twitter:description" content="Calculez vos jours de congés payés ouvrables acquis (2,5 par mois) sur la période en cours et votre solde après les jours déjà pris.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://simudroit.fr/"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebPage", "name": "Congés payés acquis : combien de jours avez-vous ?", "url": "https://simudroit.fr/simulateur-conges-acquis/", "description": "Calculez vos jours de congés payés ouvrables acquis (2,5 par mois) sur la période en cours et votre solde après les jours déjà pris.", "inLanguage": "fr-FR", "dateModified": "2026-10-29"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://simudroit.fr/"}, {"@type": "ListItem", "position": 2, "name": "Congés payés acquis", "item": "https://simudroit.fr/simulateur-conges-acquis/"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Combien de jours de congés payés acquiert-on par mois ?", "acceptedAnswer": {"@type": "Answer", "text": "2,5 jours ouvrables par mois de travail effectif, soit 30 jours ouvrables pour une année complète. Les fractions sont arrondies au jour supérieur."}}, {"@type": "Question", "name": "Quelle est la période de référence des congés payés ?", "acceptedAnswer": {"@type": "Answer", "text": "Du 1er juin de l'année précédente au 31 mai de l'année en cours, sauf accord prévoyant d'autres dates."}}, {"@type": "Question", "name": "Les congés s'acquièrent-ils pendant un arrêt maladie ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, pour un arrêt non professionnel, dans la limite de 2 jours ouvrables par mois, soit 24 jours par an."}}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebApplication", "name": "Congés payés acquis", "url": "https://simudroit.fr/simulateur-conges-acquis/", "description": "Calculez vos jours de congés payés ouvrables acquis (2,5 par mois) sur la période en cours et votre solde après les jours déjà pris.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}
+  </script>
+  <meta name="theme-color" content="#201e48">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="SimuDroit : simulateurs gratuits de salaire et de droits du travail">
+  <link rel="alternate" hreflang="fr" href="https://simudroit.fr/simulateur-conges-acquis/">
+  <link rel="alternate" hreflang="x-default" href="https://simudroit.fr/simulateur-conges-acquis/">
+  <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
+  <script async src="https://plausible.io/js/pa-j8JdUomB9hqqp7em82xdB.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+</head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.fr/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://simudroit.fr/simulateurs/">Simulateurs</a>
+      <a href="https://simudroit.fr/assistant/">Assistant</a>
+      <a href="https://simudroit.fr/independants/">Indépendants</a>
+      <a href="https://simudroit.fr/guides/">Guides</a>
+      <a href="https://simudroit.fr/glossaire/">Glossaire</a>
+      <a href="https://simudroit.fr/faq/">FAQ</a>
+      <a class="cta-link" href="https://simudroit.fr/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://simudroit.fr/">Accueil</a> &nbsp;›&nbsp; Congés payés acquis
+  </div>
+
+  <section class="hero">
+    <h1>Calcul des congés payés acquis</h1>
+    <p>Indiquez votre date de calcul et les jours déjà pris : obtenez vos jours de congés payés ouvrables acquis et votre solde.</p>
+      <div class="badges"><span class="badge">✓ Règles 2026 vérifiées le 28 octobre 2026</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Vos données restent dans votre navigateur</span></div>
+  </section>
+
+<section class="info-section sd-know" id="a-savoir">
+    <h2>À savoir avant de vous fier au résultat</h2>
+    <div class="sd-know-grid"><div class="sd-know-card"><h3>Ce que calcule l'outil</h3><p>Le nombre de jours de congés payés ouvrables acquis sur la période de référence en cours (du 1er juin au 31 mai), et le solde après les jours déjà pris : 2,5 jours ouvrables par mois de travail effectif, arrondis au jour supérieur.</p></div><div class="sd-know-card"><h3>Ce qui n'est pas calculé</h3><p>Les jours ouvrés, les absences qui comptent ou non comme travail effectif (maladie, accident du travail...), les jours de fractionnement, les congés supplémentaires de la convention collective et le report.</p></div><div class="sd-know-card"><h3>Période de référence</h3><p>Du 1er juin au 31 mai par défaut. Votre convention ou un accord peut fixer d'autres dates, par exemple du 1er avril au 31 mars dans certains secteurs.</p></div></div>
+  </section>
+  <section class="calculator" id="calcul">
+    <h2>Combien de jours de congés avez-vous acquis ?</h2>
+    <noscript><p class="intro-note"><strong>JavaScript requis :</strong> ce simulateur calcule directement dans votre navigateur.</p></noscript>
+    <div class="field"><label for="dcalc">Date de calcul</label><input type="date" id="dcalc"></div>
+    <div class="field"><label for="entree">Date d'entrée dans l'entreprise (facultatif)</label><input type="date" id="entree"><div class="field-help">À renseigner si vous êtes entré après le 1er juin de la période en cours.</div></div>
+    <div class="field"><label for="pris">Jours ouvrables déjà pris sur la période</label><input type="number" id="pris" min="0" max="60" step="0.5" inputmode="decimal" placeholder="Ex. 5"></div>
+    <div class="field"><label for="mois">Mois de travail effectif (facultatif)</label><input type="number" id="mois" min="0" max="12" step="0.5" inputmode="decimal" placeholder="Laissez vide pour un calcul automatique"><div class="field-help">À renseigner si vous avez eu des absences non assimilées à du travail effectif.</div></div>
+    <button type="button" id="calculate">Calculer mes congés acquis</button>
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">Jours de congés ouvrables acquis</div>
+      <div class="result-main" data-noanim id="acquis">–</div>
+      <div class="result-row"><span>Mois de travail effectif retenus</span><strong id="moisret">–</strong></div>
+      <div class="result-row"><span>Jours déjà pris</span><strong id="prisret">–</strong></div>
+      <div class="result-row"><span>Solde de jours restants</span><strong id="solde">–</strong></div>
+      <div class="warning" id="notes"></div>
+    </div>
+  </section>
+
+  <section class="info-section" id="regles">
+    <h2>Comment les congés payés s'acquièrent</h2>
+    <p>Chaque mois de travail effectif ouvre droit à 2,5 jours ouvrables de congés, soit 30 jours ouvrables (5 semaines) pour une année complète. La période de référence va du 1er juin de l'année précédente au 31 mai de l'année en cours, sauf accord prévoyant d'autres dates (du 1er avril au 31 mars dans certains secteurs affiliés à une caisse de congés payés).</p>
+    <p>Les fractions de jour sont arrondies au jour supérieur : 12,5 jours deviennent 13 jours. En cas d'arrêt maladie non professionnel, les congés continuent de s'acquérir dans la limite de 2 jours ouvrables par mois, soit 24 jours par an. Le simulateur n'applique pas ce plafond : indiquez vous-même les mois de travail effectif si vous avez eu des absences.</p>
+    <p>Sources : <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F2258" target="_blank" rel="noopener noreferrer">Service-Public : congés payés dans le secteur privé</a> · <a href="https://code.travail.gouv.fr/fiche-service-public/conges-payes" target="_blank" rel="noopener noreferrer">Code du travail numérique : congés payés</a>.</p>
+  </section>
+
+  <section class="info-section" id="faq-ind"><h2>Questions fréquentes</h2><h3>Combien de jours de congés payés acquiert-on par mois ?</h3><p>2,5 jours ouvrables par mois de travail effectif, soit 30 jours ouvrables pour une année complète. Les fractions sont arrondies au jour supérieur.</p><h3>Quelle est la période de référence des congés payés ?</h3><p>Du 1er juin de l&#x27;année précédente au 31 mai de l&#x27;année en cours, sauf accord prévoyant d&#x27;autres dates.</p><h3>Les congés s&#x27;acquièrent-ils pendant un arrêt maladie ?</h3><p>Oui, pour un arrêt non professionnel, dans la limite de 2 jours ouvrables par mois, soit 24 jours par an.</p></section>
+
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/simulateur-conges-payes/">Indemnité de congés payés</a><a href="/simulateur-solde-tout-compte/">Solde de tout compte</a><a href="/simulateur-maintien-salaire-maladie/">Maintien de salaire maladie</a><a href="/simulateur-anciennete/">Calcul de l'ancienneté</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-10-29">28 octobre 2026</time>. Estimation indicative, sans valeur juridique. <a href="/methode-et-sources/">Méthode et sources</a> · <a href="/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 SimuDroit · <a href="https://simudroit.fr/">Tous les simulateurs</a> · <a href="https://simudroit.fr/methode-et-sources/">Méthode et sources</a> · <a href="https://simudroit.fr/contact/">Contact</a> · <a href="https://simudroit.fr/mentions-legales/">Mentions légales</a> · <a href="https://simudroit.fr/confidentialite/">Confidentialité</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+  var $=function(id){return document.getElementById(id)};
+  function setText(id,t){$(id).textContent=t}
+  function parse(v){var p=v.split("-");return new Date(+p[0],+p[1]-1,+p[2])}
+  function nb(x){return (Math.round(x*100)/100).toLocaleString("fr-FR")}
+  $("calculate").addEventListener("click",function(){
+    if(!$("dcalc").value){alert("Indiquez la date de calcul.");return}
+    var c=parse($("dcalc").value),ry=c.getMonth()>=5?c.getFullYear():c.getFullYear()-1,ref=new Date(ry,5,1),start=ref;
+    if($("entree").value){var en=parse($("entree").value);if(en>start)start=en}
+    var e=new Date(c.getFullYear(),c.getMonth(),c.getDate()+1);
+    if(!(e>start)){alert("La date de calcul doit être postérieure au début de la période.");return}
+    var m=(e.getFullYear()-start.getFullYear())*12+e.getMonth()-start.getMonth();
+    if(e.getDate()<start.getDate())m--;
+    var ov=parseFloat($("mois").value);if(Number.isFinite(ov))m=ov;
+    m=Math.max(0,Math.min(12,m));
+    var acq=Math.min(30,Math.ceil(m*2.5-1e-9)),pris=parseFloat($("pris").value)||0;
+    setText("acquis",acq+" jour"+(acq>1?"s":"")+" ouvrables");
+    setText("moisret",nb(m)+" mois (période du "+ref.toLocaleDateString("fr-FR")+" au "+new Date(ry+1,4,31).toLocaleDateString("fr-FR")+")");
+    setText("prisret",nb(pris)+" jour"+(pris>1?"s":""));
+    setText("solde",nb(acq-pris)+" jour"+(Math.abs(acq-pris)>1?"s":""));
+    $("notes").innerHTML="<p style=\"margin:0 0 8px\">2,5 jours ouvrables par mois de travail effectif, arrondis au jour supérieur, 30 jours au maximum par période.</p><p style=\"margin:0\">Estimation : votre convention collective ou votre contrat peut accorder davantage de jours, et certaines absences modifient l'acquisition.</p>";
+    $("result").classList.add("visible");
+  });
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>

@@ -555,5 +555,62 @@
   "attendus": {
    "#net": "2 631,00 €"
   }
+ },
+ {
+  "page": "simulateur-periode-essai",
+  "entrees": {
+   "type": "cdi",
+   "cat": "cadre",
+   "debut": "2026-01-15"
+  },
+  "attendus": {
+   "#dateFin": "14 mai 2026"
+  }
+ },
+ {
+  "page": "simulateur-periode-essai",
+  "entrees": {
+   "type": "cdi",
+   "cat": "cadre",
+   "debut": "2026-01-15",
+   "renouv": "on"
+  },
+  "attendus": {
+   "#dateRenouv": "14 septembre 2026"
+  }
+ },
+ {
+  "page": "simulateur-periode-essai",
+  "entrees": {
+   "type": "cdd",
+   "cddDuree": "court",
+   "sem": 8,
+   "debut": "2026-03-02"
+  },
+  "attendus": {
+   "#dateFin": "9 mars 2026"
+  }
+ },
+ {
+  "page": "simulateur-anciennete",
+  "entrees": {
+   "entree": "2019-03-15",
+   "fin": "2026-12-14"
+  },
+  "attendus": {
+   "#duree": "7 ans, 9 mois",
+   "#annees": "7,75"
+  }
+ },
+ {
+  "page": "simulateur-conges-acquis",
+  "entrees": {
+   "dcalc": "2026-10-31",
+   "pris": 3
+  },
+  "attendus": {
+   "#acquis": "13 jours",
+   "#solde": "10 jours"
+  }
  }
 ]

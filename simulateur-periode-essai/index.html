@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Fin de période d&#x27;essai : date, durée et préavis | SimuDroit</title>
+  <meta name="description" content="Calculez la date de fin de votre période d&#x27;essai en CDI ou CDD, sa durée maximale légale, le renouvellement et les délais de prévenance.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://simudroit.fr/simulateur-periode-essai/">
+  <link rel="icon" href="https://simudroit.fr/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Fin de période d&#x27;essai : date, durée et préavis | SimuDroit">
+  <meta property="og:description" content="Calculez la date de fin de votre période d&#x27;essai en CDI ou CDD, sa durée maximale légale, le renouvellement et les délais de prévenance.">
+  <meta property="og:url" content="https://simudroit.fr/simulateur-periode-essai/">
+  <meta property="og:image" content="https://simudroit.fr/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://simudroit.fr/og-image.png">
+  <meta name="twitter:title" content="Fin de période d&#x27;essai : date, durée et préavis | SimuDroit">
+  <meta name="twitter:description" content="Calculez la date de fin de votre période d&#x27;essai en CDI ou CDD, sa durée maximale légale, le renouvellement et les délais de prévenance.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://simudroit.fr/"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebPage", "name": "Fin de période d'essai : calcul de la date et de la durée", "url": "https://simudroit.fr/simulateur-periode-essai/", "description": "Calculez la date de fin de votre période d'essai en CDI ou CDD, sa durée maximale légale, le renouvellement et les délais de prévenance.", "inLanguage": "fr-FR", "dateModified": "2026-10-29"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://simudroit.fr/"}, {"@type": "ListItem", "position": 2, "name": "Fin de période d'essai", "item": "https://simudroit.fr/simulateur-periode-essai/"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quelle est la durée maximale d'une période d'essai en CDI ?", "acceptedAnswer": {"@type": "Answer", "text": "2 mois pour les ouvriers et employés, 3 mois pour les agents de maîtrise et techniciens, 4 mois pour les cadres. Avec un renouvellement autorisé, 4, 6 ou 8 mois au maximum."}}, {"@type": "Question", "name": "Quel délai de prévenance l'employeur doit-il respecter ?", "acceptedAnswer": {"@type": "Answer", "text": "24 heures sous 8 jours de présence, 48 heures de 8 jours à un mois, 2 semaines après un mois et un mois après trois mois. Le délai ne prolonge pas la période d'essai."}}, {"@type": "Question", "name": "Le salarié doit-il respecter un préavis pendant la période d'essai ?", "acceptedAnswer": {"@type": "Answer", "text": "Il peut rompre librement, sans procédure particulière, en respectant un délai de prévenance de 24 heures avant 8 jours de présence et de 48 heures ensuite."}}, {"@type": "Question", "name": "Une période d'essai est-elle obligatoire ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Elle n'existe que si le contrat de travail ou la lettre d'engagement la prévoit."}}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebApplication", "name": "Fin de période d'essai", "url": "https://simudroit.fr/simulateur-periode-essai/", "description": "Calculez la date de fin de votre période d'essai en CDI ou CDD, sa durée maximale légale, le renouvellement et les délais de prévenance.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}
+  </script>
+  <meta name="theme-color" content="#201e48">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="SimuDroit : simulateurs gratuits de salaire et de droits du travail">
+  <link rel="alternate" hreflang="fr" href="https://simudroit.fr/simulateur-periode-essai/">
+  <link rel="alternate" hreflang="x-default" href="https://simudroit.fr/simulateur-periode-essai/">
+  <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
+  <script async src="https://plausible.io/js/pa-j8JdUomB9hqqp7em82xdB.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+</head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.fr/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://simudroit.fr/simulateurs/">Simulateurs</a>
+      <a href="https://simudroit.fr/assistant/">Assistant</a>
+      <a href="https://simudroit.fr/independants/">Indépendants</a>
+      <a href="https://simudroit.fr/guides/">Guides</a>
+      <a href="https://simudroit.fr/glossaire/">Glossaire</a>
+      <a href="https://simudroit.fr/faq/">FAQ</a>
+      <a class="cta-link" href="https://simudroit.fr/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://simudroit.fr/">Accueil</a> &nbsp;›&nbsp; Fin de période d&#x27;essai
+  </div>
+
+  <section class="hero">
+    <h1>Calcul de la fin de période d'essai</h1>
+    <p>Indiquez le type de contrat, la catégorie et le premier jour de travail : obtenez la date de fin, la durée maximale et les délais de prévenance.</p>
+      <div class="badges"><span class="badge">✓ Règles 2026 vérifiées le 28 octobre 2026</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Vos données restent dans votre navigateur</span></div>
+  </section>
+
+<section class="info-section sd-know" id="a-savoir">
+    <h2>À savoir avant de vous fier au résultat</h2>
+    <div class="sd-know-grid"><div class="sd-know-card"><h3>Ce que calcule l'outil</h3><p>La date de fin de votre période d'essai (CDI ou CDD), sa durée maximale légale, une éventuelle date de fin avec renouvellement, et les délais de prévenance à respecter pour y mettre fin.</p></div><div class="sd-know-card"><h3>Ce qui n'est pas calculé</h3><p>Les durées plus courtes prévues par votre contrat ou votre convention collective, les périodes de suspension et les cas particuliers (intérim, contrats spécifiques).</p></div><div class="sd-know-card"><h3>La période d'essai n'est jamais automatique</h3><p>Elle n'existe que si le contrat de travail ou la lettre d'engagement la prévoit expressément.</p></div></div>
+  </section>
+  <section class="calculator" id="calcul">
+    <h2>Quelle est la date de fin de votre période d'essai ?</h2>
+    <noscript><p class="intro-note"><strong>JavaScript requis :</strong> ce simulateur calcule directement dans votre navigateur.</p></noscript>
+    <div class="field"><label for="type">Type de contrat</label><select id="type"><option value="cdi">CDI</option><option value="cdd">CDD</option></select></div>
+    <div class="field" id="g-cat"><label for="cat">Catégorie professionnelle</label><select id="cat"><option value="ouvrier">Ouvrier ou employé</option><option value="tam">Agent de maîtrise ou technicien</option><option value="cadre">Cadre</option></select></div>
+    <div class="field" id="g-cdd" hidden><label for="cddDuree">Durée initialement prévue du CDD</label><select id="cddDuree"><option value="court">6 mois ou moins</option><option value="long">Plus de 6 mois</option></select></div>
+    <div class="field" id="g-sem" hidden><label for="sem">Durée prévue du CDD (en semaines)</label><input type="number" id="sem" min="1" max="27" step="1" inputmode="numeric" placeholder="Ex. 12"><div class="field-help">Une période d'essai d'un jour par semaine de contrat, dans la limite de 2 semaines.</div></div>
+    <div class="field"><label for="debut">Premier jour de travail</label><input type="date" id="debut"></div>
+    <div class="field" id="g-renouv"><label><input type="checkbox" id="renouv"> <span>Un renouvellement est prévu (accord de branche étendu, clause dans le contrat et accord exprès du salarié)</span></label></div>
+    <button type="button" id="calculate">Calculer la fin de ma période d'essai</button>
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">Fin de la période d'essai (dernier jour)</div>
+      <div class="result-main" data-noanim id="dateFin">–</div>
+      <div class="result-row"><span>Durée maximale</span><strong id="dureeMax">–</strong></div>
+      <div class="result-row" id="rowRenouv" style="display:none"><span>Fin maximale avec renouvellement</span><strong id="dateRenouv">–</strong></div>
+      <div class="warning" id="notes"></div>
+    </div>
+  </section>
+
+  <section class="info-section" id="regles">
+    <h2>Les règles de la période d'essai</h2>
+    <p><strong>CDI :</strong> 2 mois pour les ouvriers et employés, 3 mois pour les agents de maîtrise et techniciens, 4 mois pour les cadres. Un renouvellement unique est possible si un accord de branche étendu le prévoit, si le contrat le mentionne et si le salarié y consent pendant la période initiale ; la durée totale ne dépasse alors pas 4, 6 ou 8 mois.</p>
+    <p><strong>CDD :</strong> un jour par semaine de contrat, dans la limite de 2 semaines pour un contrat de 6 mois au plus, et d'un mois au-delà. Le renouvellement n'est pas possible.</p>
+    <p><strong>Délais de prévenance de l'employeur</strong> (période d'essai d'au moins une semaine) : 24 heures en dessous de 8 jours de présence, 48 heures de 8 jours à un mois, 2 semaines après un mois, un mois après trois mois. <strong>Du côté du salarié</strong> : 24 heures en dessous de 8 jours de présence, 48 heures à partir de 8 jours. Le délai de prévenance ne prolonge pas la période d'essai.</p>
+    <p>La durée est comptée de date à date à partir du premier jour de travail effectif, qui ne peut pas être déplacé. Le simulateur donne le dernier jour de la période d'essai.</p>
+    <p>Sources : <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F1643" target="_blank" rel="noopener noreferrer">Service-Public : période d'essai</a> · <a href="https://code.travail.gouv.fr/code-du-travail/l1221-25" target="_blank" rel="noopener noreferrer">Code du travail, article L1221-25</a>.</p>
+  </section>
+
+  <section class="info-section" id="faq-ind"><h2>Questions fréquentes</h2><h3>Quelle est la durée maximale d&#x27;une période d&#x27;essai en CDI ?</h3><p>2 mois pour les ouvriers et employés, 3 mois pour les agents de maîtrise et techniciens, 4 mois pour les cadres. Avec un renouvellement autorisé, 4, 6 ou 8 mois au maximum.</p><h3>Quel délai de prévenance l&#x27;employeur doit-il respecter ?</h3><p>24 heures sous 8 jours de présence, 48 heures de 8 jours à un mois, 2 semaines après un mois et un mois après trois mois. Le délai ne prolonge pas la période d&#x27;essai.</p><h3>Le salarié doit-il respecter un préavis pendant la période d&#x27;essai ?</h3><p>Il peut rompre librement, sans procédure particulière, en respectant un délai de prévenance de 24 heures avant 8 jours de présence et de 48 heures ensuite.</p><h3>Une période d&#x27;essai est-elle obligatoire ?</h3><p>Non. Elle n&#x27;existe que si le contrat de travail ou la lettre d&#x27;engagement la prévoit.</p></section>
+
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/simulateur-preavis-demission/">Préavis de démission</a><a href="/simulateur-anciennete/">Calcul de l'ancienneté</a><a href="/simulateur-prime-precarite/">Prime de précarité CDD</a><a href="/modeles-de-lettres/">Modèles de lettres</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-10-29">28 octobre 2026</time>. Estimation indicative, sans valeur juridique. <a href="/methode-et-sources/">Méthode et sources</a> · <a href="/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 SimuDroit · <a href="https://simudroit.fr/">Tous les simulateurs</a> · <a href="https://simudroit.fr/methode-et-sources/">Méthode et sources</a> · <a href="https://simudroit.fr/contact/">Contact</a> · <a href="https://simudroit.fr/mentions-legales/">Mentions légales</a> · <a href="https://simudroit.fr/confidentialite/">Confidentialité</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+  function setText(id,t){document.getElementById(id).textContent=t}
+  var $=function(id){return document.getElementById(id)};
+  function fmt(d){return d.toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"})}
+  function addMonths(d,n){var y=d.getFullYear(),m=d.getMonth()+n,last=new Date(y,m+1,0).getDate();return new Date(y,m,Math.min(d.getDate(),last))}
+  function addDays(d,n){return new Date(d.getFullYear(),d.getMonth(),d.getDate()+n)}
+  function sync(){var cdd=$("type").value==="cdd";$("g-cat").hidden=cdd;$("g-renouv").hidden=cdd;$("g-cdd").hidden=!cdd;$("g-sem").hidden=!cdd||$("cddDuree").value!=="court";$("result").classList.remove("visible")}
+  $("type").addEventListener("change",sync);$("cddDuree").addEventListener("change",sync);sync();
+  $("calculate").addEventListener("click",function(){
+    var v=$("debut").value;if(!v){alert("Indiquez le premier jour de travail.");return}
+    var p=v.split("-"),start=new Date(+p[0],+p[1]-1,+p[2]),notes=[];
+    if($("type").value==="cdi"){
+      var n={ouvrier:2,tam:3,cadre:4}[$("cat").value],end=addDays(addMonths(start,n),-1);
+      setText("dateFin",fmt(end));setText("dureeMax",n+" mois");
+      var ren=$("renouv").checked;$("rowRenouv").style.display=ren?"":"none";
+      if(ren){setText("dateRenouv",fmt(addDays(addMonths(start,2*n),-1))+" ("+(2*n)+" mois)");notes.push("Le renouvellement n'est valable que si l'accord de branche étendu le permet, si le contrat le prévoit et si le salarié l'accepte avant la fin de la période initiale.")}
+    }else{
+      $("rowRenouv").style.display="none";
+      if($("cddDuree").value==="long"){setText("dateFin",fmt(addDays(addMonths(start,1),-1)));setText("dureeMax","1 mois")}
+      else{var s=parseInt($("sem").value,10);if(!(s>0)){alert("Indiquez la durée prévue du CDD en semaines.");return}
+        var d=Math.min(s,14);setText("dateFin",fmt(addDays(start,d-1)));setText("dureeMax",d+" jour"+(d>1?"s":"")+" ("+(s>=14?"plafonné à 2 semaines":"1 jour par semaine de contrat")+")")}
+      notes.push("Le renouvellement de la période d'essai n'est pas possible en CDD.")}
+    notes.push("Délais de prévenance si l'employeur met fin à l'essai : 24 h (moins de 8 jours de présence), 48 h (8 jours à 1 mois), 2 semaines (1 à 3 mois), 1 mois (plus de 3 mois). Si le salarié y met fin : 24 h (moins de 8 jours), 48 h ensuite.");
+    notes.push("Estimation de date à date à partir du premier jour de travail ; votre contrat ou votre convention collective peut prévoir une durée plus courte.");
+    $("notes").innerHTML=notes.map(function(n){return "<p style=\"margin:0 0 8px\">"+n+"</p>"}).join("");
+    $("result").classList.add("visible");
+  });
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>

@@ -235,6 +235,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://simudroit.fr/simulateur-periode-essai/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://simudroit.fr/simulateur-anciennete/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://simudroit.fr/simulateur-conges-acquis/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://simudroit.fr/simulateur-fin-contrat-fonction-publique/</loc>
     <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>

@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Calcul de l&#x27;ancienneté en entreprise : années, mois, jours | SimuDroit</title>
+  <meta name="description" content="Calculez votre ancienneté entre deux dates en années, mois et jours, et l&#x27;ancienneté retenue pour l&#x27;indemnité légale de licenciement.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://simudroit.fr/simulateur-anciennete/">
+  <link rel="icon" href="https://simudroit.fr/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Calcul de l&#x27;ancienneté en entreprise : années, mois, jours | SimuDroit">
+  <meta property="og:description" content="Calculez votre ancienneté entre deux dates en années, mois et jours, et l&#x27;ancienneté retenue pour l&#x27;indemnité légale de licenciement.">
+  <meta property="og:url" content="https://simudroit.fr/simulateur-anciennete/">
+  <meta property="og:image" content="https://simudroit.fr/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://simudroit.fr/og-image.png">
+  <meta name="twitter:title" content="Calcul de l&#x27;ancienneté en entreprise : années, mois, jours | SimuDroit">
+  <meta name="twitter:description" content="Calculez votre ancienneté entre deux dates en années, mois et jours, et l&#x27;ancienneté retenue pour l&#x27;indemnité légale de licenciement.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://simudroit.fr/"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebPage", "name": "Calcul de l'ancienneté : années, mois et jours", "url": "https://simudroit.fr/simulateur-anciennete/", "description": "Calculez votre ancienneté entre deux dates en années, mois et jours, et l'ancienneté retenue pour l'indemnité légale de licenciement.", "inLanguage": "fr-FR", "dateModified": "2026-10-29"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://simudroit.fr/"}, {"@type": "ListItem", "position": 2, "name": "Calcul de l'ancienneté", "item": "https://simudroit.fr/simulateur-anciennete/"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Comment calculer l'ancienneté pour l'indemnité de licenciement ?", "acceptedAnswer": {"@type": "Answer", "text": "On compte les années complètes et, pour l'année incomplète, les mois complets au prorata (par exemple 12 ans et 9 mois comptent pour 12,75 années). L'indemnité légale demande au moins 8 mois d'ancienneté."}}, {"@type": "Question", "name": "À quelle date s'apprécie l'ancienneté ?", "acceptedAnswer": {"@type": "Answer", "text": "Pour l'indemnité légale de licenciement, elle s'apprécie à la date d'envoi de la lettre de licenciement."}}, {"@type": "Question", "name": "Le dernier jour est-il compté ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui : le simulateur compte le jour de fin inclus, comme pour un salarié qui part à la fin d'un mois."}}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebApplication", "name": "Calcul de l'ancienneté", "url": "https://simudroit.fr/simulateur-anciennete/", "description": "Calculez votre ancienneté entre deux dates en années, mois et jours, et l'ancienneté retenue pour l'indemnité légale de licenciement.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}
+  </script>
+  <meta name="theme-color" content="#201e48">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="SimuDroit : simulateurs gratuits de salaire et de droits du travail">
+  <link rel="alternate" hreflang="fr" href="https://simudroit.fr/simulateur-anciennete/">
+  <link rel="alternate" hreflang="x-default" href="https://simudroit.fr/simulateur-anciennete/">
+  <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
+  <script async src="https://plausible.io/js/pa-j8JdUomB9hqqp7em82xdB.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+</head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.fr/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://simudroit.fr/simulateurs/">Simulateurs</a>
+      <a href="https://simudroit.fr/assistant/">Assistant</a>
+      <a href="https://simudroit.fr/independants/">Indépendants</a>
+      <a href="https://simudroit.fr/guides/">Guides</a>
+      <a href="https://simudroit.fr/glossaire/">Glossaire</a>
+      <a href="https://simudroit.fr/faq/">FAQ</a>
+      <a class="cta-link" href="https://simudroit.fr/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://simudroit.fr/">Accueil</a> &nbsp;›&nbsp; Calcul de l&#x27;ancienneté
+  </div>
+
+  <section class="hero">
+    <h1>Calcul de l'ancienneté dans l'entreprise</h1>
+    <p>Saisissez votre date d'entrée et votre date de fin : obtenez votre ancienneté en années, mois et jours, et celle retenue pour l'indemnité de licenciement.</p>
+      <div class="badges"><span class="badge">✓ Règles 2026 vérifiées le 28 octobre 2026</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Vos données restent dans votre navigateur</span></div>
+  </section>
+
+<section class="info-section sd-know" id="a-savoir">
+    <h2>À savoir avant de vous fier au résultat</h2>
+    <div class="sd-know-grid"><div class="sd-know-card"><h3>Ce que calcule l'outil</h3><p>Votre ancienneté entre votre date d'entrée et la date de fin de contrat, en années, mois et jours, et l'ancienneté retenue pour l'indemnité légale de licenciement (années complètes plus mois complets).</p></div><div class="sd-know-card"><h3>Ce qui n'est pas calculé</h3><p>Les règles propres à votre convention collective, et le traitement précis des périodes de suspension du contrat. Le simulateur déduit simplement le nombre de jours que vous indiquez.</p></div><div class="sd-know-card"><h3>À quelle date l'ancienneté s'apprécie-t-elle ?</h3><p>Pour l'indemnité de licenciement, à la date d'envoi de la lettre de licenciement. Vérifiez la date à retenir pour votre cas.</p></div></div>
+  </section>
+  <section class="calculator" id="calcul">
+    <h2>Quelle est votre ancienneté ?</h2>
+    <noscript><p class="intro-note"><strong>JavaScript requis :</strong> ce simulateur calcule directement dans votre navigateur.</p></noscript>
+    <div class="field"><label for="entree">Date d'entrée dans l'entreprise</label><input type="date" id="entree"></div>
+    <div class="field"><label for="fin">Date de fin (dernier jour compris)</label><input type="date" id="fin"></div>
+    <div class="field"><label for="deduire">Jours de suspension à déduire (facultatif)</label><input type="number" id="deduire" min="0" max="20000" step="1" inputmode="numeric" placeholder="Ex. 0"><div class="field-help">Par exemple une période non comptée dans l'ancienneté selon votre contrat ou votre convention.</div></div>
+    <button type="button" id="calculate">Calculer mon ancienneté</button>
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">Ancienneté</div>
+      <div class="result-main" data-noanim id="duree">–</div>
+      <div class="result-row"><span>En mois complets</span><strong id="mois">–</strong></div>
+      <div class="result-row"><span>Retenue pour l'indemnité légale de licenciement</span><strong id="annees">–</strong></div>
+      <div class="result-row"><span>Seuil de 8 mois d'ancienneté atteint</span><strong id="seuil">–</strong></div>
+      <div class="warning" id="notes"></div>
+    </div>
+  </section>
+
+  <section class="info-section" id="regles">
+    <h2>Comment l'ancienneté est calculée</h2>
+    <p>L'ancienneté se compte de la date d'entrée dans l'entreprise jusqu'à la date de fin retenue, en années, mois et jours. Le simulateur compte le dernier jour inclus : un salarié entré le 1er janvier qui part le 31 décembre a une ancienneté de 12 mois.</p>
+    <p>Pour l'indemnité légale de licenciement, on retient les années d'ancienneté et, pour l'année incomplète, un prorata au nombre de mois complets : 12 ans et 9 mois comptent pour 12,75 années. L'indemnité légale exige au moins 8 mois d'ancienneté ininterrompue chez le même employeur, appréciée à la date d'envoi de la lettre de licenciement.</p>
+    <p>Source : <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F987" target="_blank" rel="noopener noreferrer">Service-Public : indemnité de licenciement (CDI)</a>.</p>
+  </section>
+
+  <section class="info-section" id="faq-ind"><h2>Questions fréquentes</h2><h3>Comment calculer l&#x27;ancienneté pour l&#x27;indemnité de licenciement ?</h3><p>On compte les années complètes et, pour l&#x27;année incomplète, les mois complets au prorata (par exemple 12 ans et 9 mois comptent pour 12,75 années). L&#x27;indemnité légale demande au moins 8 mois d&#x27;ancienneté.</p><h3>À quelle date s&#x27;apprécie l&#x27;ancienneté ?</h3><p>Pour l&#x27;indemnité légale de licenciement, elle s&#x27;apprécie à la date d&#x27;envoi de la lettre de licenciement.</p><h3>Le dernier jour est-il compté ?</h3><p>Oui : le simulateur compte le jour de fin inclus, comme pour un salarié qui part à la fin d&#x27;un mois.</p></section>
+
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/simulateur-indemnite-licenciement/">Indemnité de licenciement</a><a href="/simulateur-rupture-conventionnelle/">Rupture conventionnelle</a><a href="/simulateur-preavis-demission/">Préavis de démission</a><a href="/simulateur-solde-tout-compte/">Solde de tout compte</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-10-29">28 octobre 2026</time>. Estimation indicative, sans valeur juridique. <a href="/methode-et-sources/">Méthode et sources</a> · <a href="/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 SimuDroit · <a href="https://simudroit.fr/">Tous les simulateurs</a> · <a href="https://simudroit.fr/methode-et-sources/">Méthode et sources</a> · <a href="https://simudroit.fr/contact/">Contact</a> · <a href="https://simudroit.fr/mentions-legales/">Mentions légales</a> · <a href="https://simudroit.fr/confidentialite/">Confidentialité</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+  var $=function(id){return document.getElementById(id)};
+  function setText(id,t){$(id).textContent=t}
+  function parse(v){var p=v.split("-");return new Date(+p[0],+p[1]-1,+p[2])}
+  function plural(n,s){return n+" "+s+(n>1&&s!=="mois"?"s":"")}
+  $("calculate").addEventListener("click",function(){
+    if(!$("entree").value||!$("fin").value){alert("Indiquez la date d'entrée et la date de fin.");return}
+    var a=parse($("entree").value),b=parse($("fin").value);
+    var ded=parseInt($("deduire").value,10)||0;
+    var e=new Date(b.getFullYear(),b.getMonth(),b.getDate()+1-ded);
+    if(!(e>a)){alert("La date de fin doit être postérieure à la date d'entrée.");return}
+    var y=e.getFullYear()-a.getFullYear(),m=e.getMonth()-a.getMonth(),d=e.getDate()-a.getDate();
+    if(d<0){m--;d+=new Date(e.getFullYear(),e.getMonth(),0).getDate()}
+    if(m<0){y--;m+=12}
+    setText("duree",plural(y,"an")+", "+m+" mois et "+plural(d,"jour"));
+    var tot=y*12+m;setText("mois",tot+" mois");
+    var an=y+m/12;setText("annees",y+" an"+(y>1?"s":"")+" et "+m+" mois = "+(Math.round(an*100)/100).toLocaleString("fr-FR",{minimumFractionDigits:2,maximumFractionDigits:2})+" années");
+    setText("seuil",tot>=8?"Oui":"Non (moins de 8 mois)");
+    $("notes").innerHTML="<p style=\"margin:0\">Estimation : l'ancienneté retenue peut dépendre de votre convention collective, des périodes de suspension et de la date à laquelle elle s'apprécie (envoi de la lettre de licenciement, fin du préavis...).</p>";
+    $("result").classList.add("visible");
+  });
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>
