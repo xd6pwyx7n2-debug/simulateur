@@ -325,6 +325,7 @@
   </style>
   <link rel="stylesheet" href="../assets/simulateur.css">
   <script src="../assets/params.js"></script>
+  <script src="../assets/paie.js"></script>
 
   <script type="application/ld+json">
   {
@@ -521,11 +522,12 @@
         min="0"
         max="50"
         step="0.1"
-        value="22"
+        value=""
+        placeholder="Calcul détaillé 2026"
       >
 
       <div class="field-help">
-        Vous pouvez modifier ce taux pour adapter l'estimation à votre situation.
+        Laissez vide pour un calcul détaillé des cotisations 2026 (non-cadre), ou saisissez votre propre taux.
       </div>
     </div>
 
@@ -591,7 +593,7 @@
   <section class="info-section sd-know" id="a-savoir">
     <h2>À savoir avant de vous fier au résultat</h2>
     <div class="sd-know-grid">
-      <div class="sd-know-card"><h3>Un taux indicatif</h3><p>Le rapport entre brut et net dépend du statut, du niveau de salaire, de l&#x27;entreprise et de la mutuelle. Les taux de 22 % et 24 % sont des ordres de grandeur.</p></div>
+      <div class="sd-know-card"><h3>Un taux indicatif</h3><p>Le rapport entre brut et net dépend du statut, du niveau de salaire, de l&#x27;entreprise et de la mutuelle. Pour un non-cadre, les cotisations 2026 sont recalculées ligne par ligne ; le taux de 24 % pour un cadre reste un ordre de grandeur.</p></div>
       <div class="sd-know-card"><h3>Ce qui change le net</h3><p>Mutuelle, titres-restaurant, primes, heures supplémentaires et prélèvement à la source modifient la somme réellement versée sur votre compte.</p></div>
       <div class="sd-know-card"><h3>Erreurs fréquentes</h3><p>Confondre le net avant impôt avec le net à payer : renseignez votre taux de prélèvement à la source pour obtenir le net après impôt.</p></div>
     </div>
@@ -804,7 +806,7 @@
     if (this.value === "cadre") {
       tauxInput.value = "24";
     } else {
-      tauxInput.value = "22";
+      tauxInput.value = "";
     }
   });
 
@@ -842,8 +844,10 @@
       taux = 50;
     }
 
-    const cotisations = brut * (taux / 100);
-    const net = brut - cotisations;
+    const detail = (statutInput.value !== "cadre" && document.getElementById("taux").value === "") ? window.SD_PAIE.lignes(brut) : null;
+    if (detail) { taux = detail.total / brut * 100; }
+    const cotisations = detail ? detail.total : brut * (taux / 100);
+    const net = detail ? detail.netAvantImpot : brut - cotisations;
 
     document.getElementById("resultBrut").textContent =
       formatEuro(brut);
@@ -864,7 +868,7 @@
     const showPas = pasRaw !== "";
     if (showPas) {
       const pas = Math.min(Math.max(getNumber("pas"), 0), 45);
-      const impot = r2(net * pas / 100);
+      const impot = r2((detail ? detail.netImposable : net) * pas / 100);
       document.getElementById("resultPas").textContent = formatEuro(impot);
       document.getElementById("resultApres").textContent = formatEuro(r2(net - impot));
     }

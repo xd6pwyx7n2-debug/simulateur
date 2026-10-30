@@ -16,7 +16,7 @@
       "statut": "noncadre"
     },
     "attendus": {
-      "#net": "1 950,00 €"
+      "#net": "1 978,99 €"
     }
   },
   {
@@ -32,7 +32,7 @@
   {
     "page": "simulateur-net-brut",
     "entrees": {
-      "net": 1950,
+      "net": 1978.99,
       "statut": "noncadre"
     },
     "attendus": {
@@ -497,20 +497,20 @@
       "pas": 10
     },
     "attendus": {
-      "#net": "1 950,00 €",
-      "#resultPas": "195,00 €",
-      "#resultApres": "1 755,00 €"
+      "#net": "1 978,99 €",
+      "#resultPas": "205,02 €",
+      "#resultApres": "1 773,97 €"
     }
   },
   {
     "page": "simulateur-net-brut",
     "entrees": {
-      "net": 1755,
+      "net": 1773.97,
       "statut": "noncadre",
       "pas": 10
     },
     "attendus": {
-      "#resultAvant": "1 950,00 €",
+      "#resultAvant": "1 978,99 €",
       "#brut": "2 500,00 €"
     }
   },

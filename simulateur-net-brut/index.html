@@ -321,6 +321,7 @@
   </style>
   <link rel="stylesheet" href="../assets/simulateur.css">
   <script src="../assets/params.js"></script>
+  <script src="../assets/paie.js"></script>
 
   <script type="application/ld+json">
   {
@@ -518,11 +519,12 @@
         min="0"
         max="50"
         step="0.1"
-        value="22"
+        value=""
+        placeholder="Calcul détaillé 2026"
       >
 
       <div class="field-help">
-        Vous pouvez modifier le taux pour obtenir une estimation personnalisée.
+        Laissez vide pour un calcul détaillé des cotisations 2026 (non-cadre), ou saisissez votre propre taux.
       </div>
     </div>
 
@@ -804,7 +806,7 @@
     if (this.value === "cadre") {
       tauxInput.value = "24";
     } else {
-      tauxInput.value = "22";
+      tauxInput.value = "";
     }
 
   });
@@ -857,9 +859,25 @@
 
     const pasRaw = document.getElementById("pas").value;
     const pas = pasRaw === "" ? 0 : Math.min(Math.max(getNumber("pas"), 0), 45);
-    const netAvant = pas > 0 ? net / (1 - pas / 100) : net;
-    const brut = netAvant / (1 - taux / 100);
-    const cotisations = brut - netAvant;
+    const detailMode = (statutInput.value !== "cadre" && document.getElementById("taux").value === "");
+    let netAvant, brut, cotisations;
+    if (detailMode) {
+      /* Recherche du brut dont le net (après prélèvement à la source sur le net imposable) vaut le net saisi. */
+      const P = window.SD_PAIE, f = function (b) { const l = P.lignes(b); return l.netAvantImpot - P.r2(l.netImposable * pas / 100); };
+      let lo = net, hi = net * 3;
+      for (let i = 0; i < 80; i++) { const mid = (lo + hi) / 2; if (f(mid) < net) lo = mid; else hi = mid; }
+      brut = P.r2((lo + hi) / 2);
+      let best = null;
+      for (let k = -4; k <= 4; k++) { const c = P.r2(brut + k / 100); if (Math.abs(f(c) - net) < 0.005) { const sc = Math.abs(c - Math.round(c)); if (best === null || sc < best.sc - 1e-9) best = { c: c, sc: sc }; } }
+      if (best) brut = best.c;
+      const l = P.lignes(brut);
+      netAvant = l.netAvantImpot; cotisations = l.total;
+      taux = cotisations / brut * 100;
+    } else {
+      netAvant = pas > 0 ? net / (1 - pas / 100) : net;
+      brut = netAvant / (1 - taux / 100);
+      cotisations = brut - netAvant;
+    }
     document.getElementById("rowAvant").style.display = pas > 0 ? "" : "none";
     if (pas > 0) document.getElementById("resultAvant").textContent = formatEuro(r2(netAvant));
 

@@ -177,7 +177,7 @@ with sync_playwright() as pw:
     pg.goto(LOCAL + "simulateur-brut-net/"); pg.wait_for_timeout(200)
     pg.evaluate("()=>{var e=document.getElementById('brut');e.value='2500';e.dispatchEvent(new Event('input',{bubbles:true}));document.getElementById('calculate').click()}"); pg.wait_for_timeout(1100)
     pg.evaluate("()=>{var e=document.getElementById('brut');e.value='3000';e.dispatchEvent(new Event('input',{bubbles:true}))}"); pg.wait_for_timeout(1600)
-    if norm("2 340,00 €") not in norm(pg.inner_text("#net")): fail("temps réel : le résultat ne s'est pas mis à jour (%s)" % pg.inner_text("#net"))
+    if norm("2 374,79 €") not in norm(pg.inner_text("#net")): fail("temps réel : le résultat ne s'est pas mis à jour (%s)" % pg.inner_text("#net"))
     # chômage : bloc ATI des indépendants (26,30 € x 182 j = 4 786,60 €)
     pg.goto(LOCAL + "simulateur-ati-independant/"); pg.wait_for_timeout(200)
     pg.evaluate("()=>{const v={atiMois:'30',atiDepuis:'2',atiR1:'14000',atiR2:'11000'};for(const k in v)document.getElementById(k).value=v[k];document.getElementById('atiRes').checked=true;document.getElementById('atiGo').click()}"); pg.wait_for_timeout(200)
