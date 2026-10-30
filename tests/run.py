@@ -251,6 +251,16 @@ with sync_playwright() as pw:
         for a_ in attendus:
             if a_ not in txt: fail("%s : « %s » absent de la lettre" % (slug, a_))
         if "[Adresse]" not in txt: fail("%s : champ vide non signalé" % slug)
+    pg.goto(LOCAL + "modele-lettre-motivation-domaine/"); pg.wait_for_timeout(200)
+    pg.fill("#ent", "Boulangerie Durand"); pg.select_option("#domaine", "restauration"); pg.select_option("#objectif", "stage3")
+    txt = pg.inner_text("#lettre")
+    for a_ in ["Boulangerie Durand", "restauration et l'hôtellerie", "demande de stage de 3e"]:
+        if a_ not in txt: fail("lettre de motivation par domaine : « %s » absent" % a_)
+    pg.click("#vider"); txt = pg.inner_text("#lettre")
+    if "[Entreprise]" not in txt: fail("lettre de motivation par domaine : « Tout effacer » ne réinitialise pas")
+    for slug_ in ["modele-lettre-stage-observation", "modele-lettre-stage-3eme"]:
+        pg.goto(LOCAL + slug_ + "/"); pg.wait_for_timeout(200); pg.fill("#ent", "Cabinet Dupont")
+        if "Cabinet Dupont" not in pg.inner_text("#lettre"): fail("%s : entreprise absente de la lettre" % slug_)
     # accueil : Entrée dans la recherche ouvre le premier résultat
     pg.goto(LOCAL + "simulateurs/"); pg.wait_for_timeout(200)
     pg.fill("#search", "smic"); pg.press("#search", "Enter"); pg.wait_for_timeout(500)
