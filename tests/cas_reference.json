@@ -2307,5 +2307,80 @@
       "#impota": "0 €",
       "#taux": "0,0 %"
     }
+  },
+  {
+    "page": "simulateur-prorata-salaire",
+    "entrees": {
+      "brut": 2500,
+      "debut": "2026-11-10",
+      "fin": "",
+      "methode": "cal"
+    },
+    "attendus": {
+      "#montant": "1 750,00 €",
+      "#presence": "21 jours",
+      "#moisj": "30 jours",
+      "#part": "70,0 %"
+    }
+  },
+  {
+    "page": "simulateur-prorata-salaire",
+    "entrees": {
+      "brut": 2500,
+      "debut": "2026-11-10",
+      "fin": "",
+      "methode": "ouv"
+    },
+    "attendus": {
+      "#montant": "1 800,00 €",
+      "#presence": "18 jours",
+      "#moisj": "25 jours",
+      "#part": "72,0 %"
+    }
+  },
+  {
+    "page": "simulateur-prorata-salaire",
+    "entrees": {
+      "brut": 2500,
+      "debut": "2026-11-10",
+      "fin": "",
+      "methode": "ouvre"
+    },
+    "attendus": {
+      "#montant": "1 785,71 €",
+      "#presence": "15 jours",
+      "#moisj": "21 jours",
+      "#part": "71,4 %"
+    }
+  },
+  {
+    "page": "simulateur-prorata-salaire",
+    "entrees": {
+      "brut": 3000,
+      "debut": "2026-12-01",
+      "fin": "2026-12-17",
+      "methode": "ouvre"
+    },
+    "attendus": {
+      "#montant": "1 695,65 €",
+      "#presence": "13 jours",
+      "#moisj": "23 jours",
+      "#part": "56,5 %"
+    }
+  },
+  {
+    "page": "simulateur-prorata-salaire",
+    "entrees": {
+      "brut": 1900,
+      "debut": "2027-02-15",
+      "fin": "",
+      "methode": "cal"
+    },
+    "attendus": {
+      "#montant": "950,00 €",
+      "#presence": "14 jours",
+      "#moisj": "28 jours",
+      "#part": "50,0 %"
+    }
   }
 ]
