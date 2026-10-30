@@ -1854,5 +1854,96 @@
       "#elig": "Conditions d'ancienneté remplies",
       "#delai": "60 jours avant le début"
     }
+  },
+  {
+    "page": "simulateur-retraite-progressive",
+    "entrees": {
+      "age": 62,
+      "trim": 160,
+      "quotite": 60,
+      "pension": 1500
+    },
+    "attendus": {
+      "#verdict": "Conditions remplies",
+      "#part": "40 %",
+      "#montant": "600,00 €"
+    }
+  },
+  {
+    "page": "simulateur-retraite-progressive",
+    "entrees": {
+      "age": 59,
+      "trim": 160,
+      "quotite": 60
+    },
+    "attendus": {
+      "#verdict": "Conditions non remplies"
+    }
+  },
+  {
+    "page": "simulateur-retraite-progressive",
+    "entrees": {
+      "age": 63,
+      "trim": 140,
+      "quotite": 50
+    },
+    "attendus": {
+      "#verdict": "Conditions non remplies"
+    }
+  },
+  {
+    "page": "simulateur-retraite-progressive",
+    "entrees": {
+      "age": 63,
+      "trim": 170,
+      "quotite": 90
+    },
+    "attendus": {
+      "#verdict": "Conditions non remplies"
+    }
+  },
+  {
+    "page": "simulateur-cumul-emploi-retraite",
+    "entrees": {
+      "integral": "oui",
+      "base": 1200,
+      "totale": 1900,
+      "activite": 1500,
+      "dernier": 2800
+    },
+    "attendus": {
+      "#verse": "1 200,00 €",
+      "#plafond": "Aucun"
+    }
+  },
+  {
+    "page": "simulateur-cumul-emploi-retraite",
+    "entrees": {
+      "integral": "non",
+      "base": 1200,
+      "totale": 1900,
+      "activite": 1500,
+      "dernier": 2800
+    },
+    "attendus": {
+      "#verse": "743,10 €",
+      "#plafond": "2 916,85 €",
+      "#depasse": "456,90 €"
+    }
+  },
+  {
+    "page": "simulateur-cumul-emploi-retraite",
+    "entrees": {
+      "integral": "non",
+      "base": 1200,
+      "totale": 1900,
+      "activite": 1500,
+      "dernier": 4000
+    },
+    "attendus": {
+      "#verse": "1 200,00 €",
+      "#plafond": "4 000,00 €",
+      "#depasse": "Aucun"
+    }
   }
 ]

@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Retraite progressive : conditions et pension, simulateur</title>
+  <meta name="description" content="Retraite progressive : vérifiez les conditions (60 ans, 150 trimestres, 40 à 80 % d&#x27;activité) et calculez la fraction de pension versée.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://simudroit.fr/simulateur-retraite-progressive/">
+  <link rel="icon" href="https://simudroit.fr/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="https://simudroit.fr/favicon.ico" sizes="48x48">
+  <link rel="icon" href="https://simudroit.fr/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="https://simudroit.fr/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Retraite progressive : conditions et pension, simulateur">
+  <meta property="og:description" content="Retraite progressive : vérifiez les conditions (60 ans, 150 trimestres, 40 à 80 % d&#x27;activité) et calculez la fraction de pension versée.">
+  <meta property="og:url" content="https://simudroit.fr/simulateur-retraite-progressive/">
+  <meta property="og:image" content="https://simudroit.fr/assets/og/simulateur-retraite-progressive.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://simudroit.fr/assets/og/simulateur-retraite-progressive.jpg">
+  <meta name="twitter:title" content="Retraite progressive : conditions et pension, simulateur">
+  <meta name="twitter:description" content="Retraite progressive : vérifiez les conditions (60 ans, 150 trimestres, 40 à 80 % d&#x27;activité) et calculez la fraction de pension versée.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://simudroit.fr/"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebPage", "name": "Retraite progressive : conditions et pension versée", "url": "https://simudroit.fr/simulateur-retraite-progressive/", "description": "Retraite progressive : vérifiez les conditions (60 ans, 150 trimestres, 40 à 80 % d'activité) et calculez la fraction de pension versée.", "inLanguage": "fr-FR", "dateModified": "2026-10-30"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://simudroit.fr/"}, {"@type": "ListItem", "position": 2, "name": "Retraite progressive", "item": "https://simudroit.fr/simulateur-retraite-progressive/"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "À quel âge peut-on demander la retraite progressive ?", "acceptedAnswer": {"@type": "Answer", "text": "À partir de 60 ans, avec 150 trimestres au moins dans un régime de base et une activité entre 40 % et 80 % d'un temps plein."}}, {"@type": "Question", "name": "Combien touche-t-on en retraite progressive ?", "acceptedAnswer": {"@type": "Answer", "text": "Une fraction de la pension provisoire, égale au complément de votre temps de travail : à 60 %, vous touchez 40 %."}}, {"@type": "Question", "name": "L'employeur peut-il refuser la retraite progressive ?", "acceptedAnswer": {"@type": "Answer", "text": "Il doit répondre sous 2 mois. Sans réponse écrite et motivée, la demande est acceptée ; un refus doit être justifié par l'incompatibilité avec l'activité économique de l'entreprise."}}, {"@type": "Question", "name": "Continue-t-on à cotiser pendant la retraite progressive ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, et la pension définitive est recalculée à la fin de l'activité, sans pouvoir être inférieure au montant provisoire."}}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebApplication", "name": "Retraite progressive", "url": "https://simudroit.fr/simulateur-retraite-progressive/", "description": "Retraite progressive : vérifiez les conditions (60 ans, 150 trimestres, 40 à 80 % d'activité) et calculez la fraction de pension versée.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}
+  </script>
+  <meta name="theme-color" content="#201e48">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="Retraite progressive : conditions et pension, simulateur | SimuDroit">
+  <link rel="alternate" hreflang="fr" href="https://simudroit.fr/simulateur-retraite-progressive/">
+  <link rel="alternate" hreflang="x-default" href="https://simudroit.fr/simulateur-retraite-progressive/">
+  <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
+  <script async src="https://plausible.io/js/pa-j8JdUomB9hqqp7em82xdB.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+</head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.fr/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://simudroit.fr/simulateurs/">Simulateurs</a>
+      <a href="https://simudroit.fr/assistant/">Assistant</a>
+      <a href="https://simudroit.fr/independants/">Indépendants</a>
+      <a href="https://simudroit.fr/guides/">Guides</a>
+      <a href="https://simudroit.fr/modeles-de-lettres/">Lettres</a>
+      <a href="https://simudroit.fr/glossaire/">Glossaire</a>
+      <a href="https://simudroit.fr/faq/">FAQ</a>
+      <a class="cta-link" href="https://simudroit.fr/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://simudroit.fr/">Accueil</a> &nbsp;›&nbsp; Retraite progressive
+  </div>
+
+  <section class="hero">
+    <h1>Retraite progressive</h1>
+    <p>Vérifiez vos conditions et la part de pension perçue selon votre temps de travail.</p>
+      <div class="badges"><span class="badge">✓ Règles 2026 vérifiées le 30 octobre 2026</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Vos données restent dans votre navigateur</span></div>
+  </section>
+<nav class="sd-line" aria-label="Parcours : Départ à la retraite"><p class="sd-line-lab">Votre parcours : <strong>Départ à la retraite</strong></p><div class="sd-line-scroll"><ol style="--n:6"><li class="done" style="--i:0"><a href="/simulateur-age-depart-retraite/" title="Quand puis-je partir ? : Âge légal, trimestres et date de départ."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Âge de départ</span></a></li><li class="done" style="--i:1"><a href="/simulateur-indemnite-depart-retraite/" title="Indemnité de départ à la retraite : Le montant légal selon l&#x27;ancienneté."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Indemnité de départ</span></a></li><li class="cur" style="--i:2" aria-current="step"><span class="sd-line-tag">Vous êtes ici</span><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Retraite progressive</span></li><li class="next" style="--i:3"><a href="/simulateur-cumul-emploi-retraite/" title="Cumul emploi-retraite : Plafond et pension de base versée."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Cumul emploi-retraite</span></a></li><li class="next" style="--i:4"><a href="/simulateur-preavis-demission/" title="Préavis de démission : Date de fin et dispense éventuelle."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Préavis</span></a></li><li class="next" style="--i:5"><a href="/simulateur-solde-tout-compte/" title="Solde de tout compte : Les sommes à vérifier à la remise du dernier document."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Solde de tout compte</span></a></li></ol></div></nav>
+
+
+<section class="info-section sd-know" id="a-savoir">
+    <h2>À savoir avant de vous fier au résultat</h2>
+    <div class="sd-know-grid"><div class="sd-know-card"><h3>Ce que calcule l'outil</h3><p>Si vous remplissez les trois conditions de la retraite progressive (60 ans, 150 trimestres, activité entre 40 % et 80 %) et la fraction de pension que vous percevriez.</p></div><div class="sd-know-card"><h3>Un calcul provisoire</h3><p>La pension versée pendant la retraite progressive est une fraction de la pension provisoire calculée à la date de départ. À la fin de votre activité, la retraite définitive est recalculée et ne peut pas être inférieure au montant provisoire.</p></div><div class="sd-know-card"><h3>À vérifier</h3><p>Certaines situations excluent la retraite progressive (retraite anticipée, certaines activités exclusives, indemnité de départ servant à maintenir le salaire). Vérifiez avec votre caisse.</p></div></div>
+  </section>
+  <section class="calculator" id="calcul">
+    <h2>Puis-je passer en retraite progressive ?</h2><noscript><p class="intro-note"><strong>JavaScript requis :</strong> ce simulateur calcule directement dans votre navigateur.</p></noscript><div class="field"><label for="age">Votre âge</label><input type="number" id="age" min="0" step="1" inputmode="decimal" placeholder="Ex. 62"></div><div class="field"><label for="trim">Trimestres validés dans au moins un régime de base</label><input type="number" id="trim" min="0" step="1" inputmode="decimal" placeholder="Ex. 160"></div><div class="field"><label for="quotite">Votre temps de travail (% d'un temps plein)</label><input type="number" id="quotite" min="0" max="100" step="1" inputmode="decimal" placeholder="Ex. 60"></div><div class="field"><label for="pension">Pension provisoire estimée par mois, brute (€, facultatif)</label><input type="number" id="pension" min="0" step="0.01" inputmode="decimal" placeholder="Ex. 1500"></div>
+    <button type="button" id="calculate">Vérifier et calculer</button>
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">Conditions de la retraite progressive</div>
+      <div class="result-main" data-noanim id="verdict">–</div>
+      <div class="result-row"><span>Part de la pension versée</span><strong id="part">–</strong></div>
+      <div class="result-row"><span>Pension versée par mois (brute)</span><strong id="montant">–</strong></div>
+      <div class="warning" id="notes"></div>
+    </div>
+  </section>
+
+  <section class="info-section" id="regles">
+    <h2>La retraite progressive en bref</h2>
+    <p>La retraite progressive permet de travailler à temps partiel en fin de carrière tout en percevant une fraction de ses pensions de base et complémentaires. Trois conditions cumulatives : avoir au moins 60 ans, justifier de 150 trimestres auprès d'au moins un régime de base, et exercer une activité à temps partiel ou réduit comprise entre 40 % et 80 % d'un temps plein. Vous continuez à cotiser et votre pension définitive est recalculée à la fin de l'activité.</p>
+    <p>La fraction versée est le complément de votre quotité : à 60 % de temps de travail, vous touchez 40 % de la pension provisoire. Si vous sortez de la fourchette 40-80 %, le versement est suspendu ; un retour à temps plein l'arrête définitivement.</p>
+    <p>La demande se fait d'abord auprès de l'employeur (lettre recommandée au moins 2 mois avant la date souhaitée, réponse sous 2 mois, silence valant accord), puis auprès des caisses sur Info Retraite, au plus tôt 5 mois avant la date visée. Modèle : <a href="/modele-lettre-retraite-progressive/">lettre de demande de retraite progressive</a>.</p>
+    <p>Sources : <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F12842" target="_blank" rel="noopener noreferrer">Service-Public.fr, retraite progressive du salarié</a> · <a href="https://www.lassuranceretraite.fr/portail-info/home/actif/je-souhaite-partir-plus-tot/retraite-progressive.html" target="_blank" rel="noopener noreferrer">L'Assurance retraite</a>.</p>
+  </section>
+
+  <section class="info-section" id="faq-ind"><h2>Questions fréquentes</h2><h3>À quel âge peut-on demander la retraite progressive ?</h3><p>À partir de 60 ans, avec 150 trimestres au moins dans un régime de base et une activité entre 40 % et 80 % d&#x27;un temps plein.</p><h3>Combien touche-t-on en retraite progressive ?</h3><p>Une fraction de la pension provisoire, égale au complément de votre temps de travail : à 60 %, vous touchez 40 %.</p><h3>L&#x27;employeur peut-il refuser la retraite progressive ?</h3><p>Il doit répondre sous 2 mois. Sans réponse écrite et motivée, la demande est acceptée ; un refus doit être justifié par l&#x27;incompatibilité avec l&#x27;activité économique de l&#x27;entreprise.</p><h3>Continue-t-on à cotiser pendant la retraite progressive ?</h3><p>Oui, et la pension définitive est recalculée à la fin de l&#x27;activité, sans pouvoir être inférieure au montant provisoire.</p></section>
+
+  <section class="sd-next" aria-labelledby="sd-next-t"><h2 id="sd-next-t">Et ensuite ?</h2><p class="sd-next-sub">Situation : <strong>Départ à la retraite</strong>. Les étapes qui reviennent le plus souvent :</p><ol class="sd-next-list"><li><a href="/simulateur-age-depart-retraite/"><span class="sd-next-n">1</span><span class="sd-next-t"><strong>Quand puis-je partir ?</strong><small>Âge légal, trimestres et date de départ.</small></span></a></li><li><a href="/simulateur-indemnite-depart-retraite/"><span class="sd-next-n">2</span><span class="sd-next-t"><strong>Indemnité de départ à la retraite</strong><small>Le montant légal selon l&#x27;ancienneté.</small></span></a></li><li class="here" aria-current="page"><span class="sd-next-n">3</span><span class="sd-next-t"><strong>Retraite progressive</strong><small>Vous êtes ici</small></span></li><li><a href="/simulateur-cumul-emploi-retraite/"><span class="sd-next-n">4</span><span class="sd-next-t"><strong>Cumul emploi-retraite</strong><small>Plafond et pension de base versée.</small></span></a></li><li><a href="/simulateur-preavis-demission/"><span class="sd-next-n">5</span><span class="sd-next-t"><strong>Préavis de démission</strong><small>Date de fin et dispense éventuelle.</small></span></a></li><li><a href="/simulateur-solde-tout-compte/"><span class="sd-next-n">6</span><span class="sd-next-t"><strong>Solde de tout compte</strong><small>Les sommes à vérifier à la remise du dernier document.</small></span></a></li></ol></section>
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/retraite/">Retraite : par où commencer ?</a><a href="/simulateur-age-depart-retraite/">Quand puis-je partir ?</a><a href="/simulateur-cumul-emploi-retraite/">Cumul emploi-retraite</a><a href="/modele-lettre-retraite-progressive/">Lettre de retraite progressive</a><a href="/guides/indemnite-depart-retraite-calcul-2026/">Guide : Indemnité de départ à la retraite 2026 : calcul et barème</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-10-30">30 octobre 2026</time>. Estimation indicative, sans valeur juridique. <a href="/methode-et-sources/">Méthode et sources</a> · <a href="/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<footer><nav class="foot-top" aria-label="Les plus consultés"><strong>Les plus consultés</strong><a href="https://simudroit.fr/simulateur-brut-net/">Salaire brut en net</a><a href="https://simudroit.fr/simulateur-indemnite-licenciement/">Indemnité de licenciement</a><a href="https://simudroit.fr/simulateur-rupture-conventionnelle/">Rupture conventionnelle</a><a href="https://simudroit.fr/simulateur-chomage/">Allocation chômage</a><a href="https://simudroit.fr/simulateur-preavis-demission/">Préavis de démission</a><a href="https://simudroit.fr/simulateur-preavis-licenciement/">Préavis de licenciement</a><a href="https://simudroit.fr/simulateur-conges-payes/">Congés payés</a><a href="https://simudroit.fr/simulateur-fiche-de-paie/">Vérifier ma fiche de paie</a><a href="https://simudroit.fr/simulateur-solde-tout-compte/">Solde de tout compte</a><a href="https://simudroit.fr/simulateur-smic/">SMIC 2026</a><a href="https://simudroit.fr/salaire-brut-net/">Brut en net par montant</a><a href="https://simudroit.fr/metiers/">Mon métier : infirmier libéral, assistante maternelle, intérimaire</a><a href="https://simudroit.fr/retraite/">Retraite : par où commencer ?</a><a href="https://simudroit.fr/reconversion/">Reconversion : par où commencer ?</a></nav>
+  <p>© 2026 SimuDroit · <a href="https://simudroit.fr/">Tous les simulateurs</a> · <a href="https://simudroit.fr/methode-et-sources/">Méthode et sources</a> · <a href="https://simudroit.fr/contact/">Contact</a> · <a href="https://simudroit.fr/mentions-legales/">Mentions légales</a> · <a href="https://simudroit.fr/confidentialite/">Confidentialité</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+  var $=function(id){return document.getElementById(id)};
+  function setText(id,t){$(id).textContent=t}
+  function eur(v){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR"}).format(v)}
+  function r2(x){return Math.round((x+1e-9)*100)/100}
+  function notes(a){$("notes").innerHTML=a.map(function(n){return "<p style=\"margin:0 0 8px\">"+n+"</p>"}).join("")}
+  $("calculate").addEventListener("click",function(){
+    var a=parseInt($("age").value,10),t=parseInt($("trim").value,10),q=parseFloat($("quotite").value),p=parseFloat($("pension").value);
+    if(!(a>=0)||!(t>=0)||!(q>0)){notes(["Renseignez votre âge, vos trimestres et votre temps de travail."]);$("result").classList.add("visible");return}
+    var c1=a>=60,c2=t>=150,c3=q>=40&&q<=80,ok=c1&&c2&&c3,n=[];
+    n.push((c1?"✓":"✗")+" Au moins 60 ans.");n.push((c2?"✓":"✗")+" 150 trimestres dans au moins un régime de base.");n.push((c3?"✓":"✗")+" Activité comprise entre 40 % et 80 % d'un temps plein.");
+    setText("verdict",ok?"Conditions remplies":"Conditions non remplies");
+    if(ok){var part=100-q;setText("part",part+" %");setText("montant",p>0?eur(r2(p*part/100)):"–")}else{setText("part","–");setText("montant","–")}
+    n.push("Exclusions possibles : retraite anticipée, certaines activités exclusives, indemnité de départ utilisée pour maintenir le salaire.");
+    n.push("Estimation indicative : la caisse de retraite calcule la pension provisoire.");
+    notes(n);$("result").classList.add("visible");
+  });
+
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>

@@ -261,7 +261,7 @@ with sync_playwright() as pw:
     for slug_ in ["modele-lettre-stage-observation", "modele-lettre-stage-3eme"]:
         pg.goto(LOCAL + slug_ + "/"); pg.wait_for_timeout(200); pg.fill("#ent", "Cabinet Dupont")
         if "Cabinet Dupont" not in pg.inner_text("#lettre"): fail("%s : entreprise absente de la lettre" % slug_)
-    for slug_ in ["modele-lettre-demission", "modele-lettre-rupture-conventionnelle", "modele-lettre-conge-transition-professionnelle", "modele-lettre-conge-vae", "modele-lettre-bilan-de-competences"]:
+    for slug_ in ["modele-lettre-demission", "modele-lettre-rupture-conventionnelle", "modele-lettre-conge-transition-professionnelle", "modele-lettre-conge-vae", "modele-lettre-bilan-de-competences", "modele-lettre-retraite-progressive"]:
         pg.goto(LOCAL + slug_ + "/"); pg.wait_for_timeout(200); pg.fill("#ent", "SARL Dupont"); pg.fill("#nom", "Camille Martin")
         tx_ = pg.inner_text("#lettre")
         if "SARL Dupont" not in tx_ or "Camille Martin" not in tx_: fail("%s : champs absents de la lettre" % slug_)
