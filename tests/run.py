@@ -242,6 +242,15 @@ with sync_playwright() as pw:
     pg.goto(LOCAL + "simulateur-chomage/"); pg.wait_for_timeout(200)
     pg.evaluate("()=>{const v={salaire:'30000',age:'40',duree:'24',conges:'0',supralegal:'0'};for(const k in v)document.getElementById(k).value=v[k];document.getElementById('rc').checked=true;calculer()}"); pg.wait_for_timeout(900)
     if "15 mois" not in pg.inner_text("#dureeEstimee"): fail("chômage rupture conventionnelle : attendu 15 mois (%s)" % pg.inner_text("#dureeEstimee"))
+    # modèles de lettre : les champs alimentent la lettre
+    for slug, flds, attendus in [("modele-lettre-demande-de-stage", {"nom":"Camille Martin","ent":"Cabinet Dupont","duree":"6 semaines"}, ["Camille Martin","Cabinet Dupont","demande de stage de 6 semaines"]),
+                                 ("modele-lettre-demande-apprentissage", {"nom":"Camille Martin","diplome":"BTS SAM","cfa":"CFA de Limoges"}, ["Camille Martin","BTS SAM","CFA de Limoges"])]:
+        pg.goto(LOCAL + slug + "/"); pg.wait_for_timeout(200)
+        for k_, v_ in flds.items(): pg.fill("#" + k_, v_)
+        txt = pg.inner_text("#lettre")
+        for a_ in attendus:
+            if a_ not in txt: fail("%s : « %s » absent de la lettre" % (slug, a_))
+        if "[Adresse]" not in txt: fail("%s : champ vide non signalé" % slug)
     # accueil : Entrée dans la recherche ouvre le premier résultat
     pg.goto(LOCAL + "simulateurs/"); pg.wait_for_timeout(200)
     pg.fill("#search", "smic"); pg.press("#search", "Enter"); pg.wait_for_timeout(500)
