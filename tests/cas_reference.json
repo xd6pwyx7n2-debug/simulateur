@@ -1553,5 +1553,109 @@
     "attendus": {
       "#ifm": "0,00 €"
     }
+  },
+  {
+    "page": "simulateur-salaire-apprenti",
+    "entrees": {
+      "age": 17,
+      "annee": 1
+    },
+    "attendus": {
+      "#brut": "504,10 €",
+      "#pct": "27 %",
+      "#net": "504,10 €"
+    }
+  },
+  {
+    "page": "simulateur-salaire-apprenti",
+    "entrees": {
+      "age": 19,
+      "annee": 2
+    },
+    "attendus": {
+      "#brut": "952,18 €",
+      "#pct": "51 %",
+      "#net": "948,29 €"
+    }
+  },
+  {
+    "page": "simulateur-salaire-apprenti",
+    "entrees": {
+      "age": 23,
+      "annee": 3
+    },
+    "attendus": {
+      "#brut": "1 456,28 €",
+      "#pct": "78 %",
+      "#net": "1 347,35 €"
+    }
+  },
+  {
+    "page": "simulateur-salaire-apprenti",
+    "entrees": {
+      "age": 26,
+      "annee": 1
+    },
+    "attendus": {
+      "#brut": "1 867,02 €",
+      "#pct": "100 %",
+      "#net": "1 672,48 €"
+    }
+  },
+  {
+    "page": "simulateur-salaire-apprenti",
+    "entrees": {
+      "age": 21,
+      "annee": 1
+    },
+    "attendus": {
+      "#brut": "989,52 €",
+      "#pct": "53 %",
+      "#net": "977,85 €"
+    }
+  },
+  {
+    "page": "simulateur-salaire-apprenti",
+    "entrees": {
+      "age": 18,
+      "annee": 1
+    },
+    "attendus": {
+      "#brut": "802,82 €",
+      "#pct": "43 %",
+      "#net": "802,82 €"
+    }
+  },
+  {
+    "page": "simulateur-gratification-stage",
+    "entrees": {
+      "heures": 600,
+      "mois": 4
+    },
+    "attendus": {
+      "#total": "2 700,00 €",
+      "#oblig": "Oui (plus de 308 heures)",
+      "#taux": "4,50 €",
+      "#mensuel": "675,00 €"
+    }
+  },
+  {
+    "page": "simulateur-gratification-stage",
+    "entrees": {
+      "heures": 308
+    },
+    "attendus": {
+      "#total": "0,00 €",
+      "#oblig": "Non (308 heures ou moins)"
+    }
+  },
+  {
+    "page": "simulateur-gratification-stage",
+    "entrees": {
+      "heures": 309
+    },
+    "attendus": {
+      "#total": "1 390,50 €"
+    }
   }
 ]
