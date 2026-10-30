@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mon salaire net comparé aux salaires en France 2025</title>
+  <meta name="description" content="Comparez votre salaire net aux salariés du privé en 2025 : rang, médiane de 2 238 € et moyenne de 2 797 € (Insee). Gratuit, sans inscription.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://simudroit.fr/simulateur-comparer-mon-salaire/">
+  <link rel="icon" href="https://simudroit.fr/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="https://simudroit.fr/favicon.ico" sizes="48x48">
+  <link rel="icon" href="https://simudroit.fr/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="https://simudroit.fr/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mon salaire net comparé aux salaires en France 2025">
+  <meta property="og:description" content="Comparez votre salaire net aux salariés du privé en 2025 : rang, médiane de 2 238 € et moyenne de 2 797 € (Insee). Gratuit, sans inscription.">
+  <meta property="og:url" content="https://simudroit.fr/simulateur-comparer-mon-salaire/">
+  <meta property="og:image" content="https://simudroit.fr/assets/og/simulateur-comparer-mon-salaire.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://simudroit.fr/assets/og/simulateur-comparer-mon-salaire.jpg">
+  <meta name="twitter:title" content="Mon salaire net comparé aux salaires en France 2025">
+  <meta name="twitter:description" content="Comparez votre salaire net aux salariés du privé en 2025 : rang, médiane de 2 238 € et moyenne de 2 797 € (Insee). Gratuit, sans inscription.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://simudroit.fr/"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebPage", "name": "Mon salaire est-il élevé ? Comparer au salaire médian", "url": "https://simudroit.fr/simulateur-comparer-mon-salaire/", "description": "Comparez votre salaire net aux salariés du privé en 2025 : rang, médiane de 2 238 € et moyenne de 2 797 € (Insee). Gratuit, sans inscription.", "inLanguage": "fr-FR", "dateModified": "2026-10-30"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://simudroit.fr/"}, {"@type": "ListItem", "position": 2, "name": "Comparer mon salaire", "item": "https://simudroit.fr/simulateur-comparer-mon-salaire/"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quel est le salaire médian en France en 2025 ?", "acceptedAnswer": {"@type": "Answer", "text": "2 238 € net par mois en équivalent temps plein dans le secteur privé : la moitié des salariés gagne moins, l'autre moitié plus."}}, {"@type": "Question", "name": "Quel salaire faut-il pour être parmi les 10 % les mieux payés ?", "acceptedAnswer": {"@type": "Answer", "text": "Plus de 4 442 € net par mois en équivalent temps plein en 2025 (9e décile)."}}, {"@type": "Question", "name": "Quelle différence entre salaire moyen et salaire médian ?", "acceptedAnswer": {"@type": "Answer", "text": "Le salaire moyen (2 797 € net) est tiré vers le haut par les très hauts salaires ; la médiane (2 238 €) partage les salariés en deux moitiés égales."}}, {"@type": "Question", "name": "Ce comparateur concerne-t-il les fonctionnaires ?", "acceptedAnswer": {"@type": "Answer", "text": "Non : la base de l'Insee porte sur les salariés du secteur privé. Pour le public, voir le simulateur du point d'indice."}}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebApplication", "name": "Comparer mon salaire", "url": "https://simudroit.fr/simulateur-comparer-mon-salaire/", "description": "Comparez votre salaire net aux salariés du privé en 2025 : rang, médiane de 2 238 € et moyenne de 2 797 € (Insee). Gratuit, sans inscription.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}
+  </script>
+  <meta name="theme-color" content="#201e48">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="Mon salaire net comparé aux salaires en France 2025 | SimuDroit">
+  <link rel="alternate" hreflang="fr" href="https://simudroit.fr/simulateur-comparer-mon-salaire/">
+  <link rel="alternate" hreflang="x-default" href="https://simudroit.fr/simulateur-comparer-mon-salaire/">
+  <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
+  <script async src="https://plausible.io/js/pa-j8JdUomB9hqqp7em82xdB.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+</head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.fr/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://simudroit.fr/simulateurs/">Simulateurs</a>
+      <a href="https://simudroit.fr/assistant/">Assistant</a>
+      <a href="https://simudroit.fr/independants/">Indépendants</a>
+      <a href="https://simudroit.fr/guides/">Guides</a>
+      <a href="https://simudroit.fr/modeles-de-lettres/">Lettres</a>
+      <a href="https://simudroit.fr/glossaire/">Glossaire</a>
+      <a href="https://simudroit.fr/faq/">FAQ</a>
+      <a class="cta-link" href="https://simudroit.fr/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://simudroit.fr/">Accueil</a> &nbsp;›&nbsp; Comparer mon salaire
+  </div>
+
+  <section class="hero">
+    <h1>Mon salaire est-il élevé ?</h1>
+    <p>Votre salaire net comparé à la distribution des salaires du privé en 2025, d'après l'Insee.</p>
+      <div class="badges"><span class="badge">✓ Règles 2026 vérifiées le 30 octobre 2026</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Vos données restent dans votre navigateur</span></div>
+  </section>
+<nav class="sd-line" aria-label="Parcours : Salaire et fiche de paie"><p class="sd-line-lab">Votre parcours : <strong>Salaire et fiche de paie</strong></p><div class="sd-line-scroll"><ol style="--n:8"><li class="done" style="--i:0"><a href="/simulateur-smic/" title="SMIC 2026 : Horaire, mensuel et annuel."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">SMIC</span></a></li><li class="done" style="--i:1"><a href="/simulateur-salaire-horaire-mensuel/" title="Salaire horaire et mensuel : Convertir un taux horaire en mensuel ou annuel."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Horaire et mensuel</span></a></li><li class="done" style="--i:2"><a href="/simulateur-brut-net/" title="Salaire brut en net : Cotisations 2026 recalculées ligne par ligne."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Brut en net</span></a></li><li class="done" style="--i:3"><a href="/simulateur-net-brut/" title="Salaire net en brut : Le brut nécessaire pour un net voulu."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Net en brut</span></a></li><li class="cur" style="--i:4" aria-current="step"><span class="sd-line-tag">Vous êtes ici</span><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Comparer mon salaire</span></li><li class="next" style="--i:5"><a href="/simulateur-fiche-de-paie/" title="Vérifier ma fiche de paie : Comparez votre fiche au calcul 2026."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Fiche de paie</span></a></li><li class="next" style="--i:6"><a href="/simulateur-heures-supplementaires/" title="Heures supplémentaires : Majorations et montant dû."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Heures sup.</span></a></li><li class="next" style="--i:7"><a href="/simulateur-temps-partiel/" title="Temps partiel : Équivalences et heures complémentaires."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Temps partiel</span></a></li></ol></div></nav>
+
+
+<section class="info-section sd-know" id="a-savoir">
+    <h2>À savoir avant de vous fier au résultat</h2>
+    <div class="sd-know-grid"><div class="sd-know-card"><h3>Ce que fait l'outil</h3><p>Il compare votre salaire net mensuel à la distribution des salaires des salariés du privé en 2025 : votre rang, l'écart à la médiane et à la moyenne.</p></div><div class="sd-know-card"><h3>Le bon chiffre à saisir</h3><p>Votre salaire net mensuel avant impôt, ramené à un temps plein (équivalent temps plein). Primes mensualisées comprises. Pour un temps partiel, ramenez à 100 %.</p></div><div class="sd-know-card"><h3>Ce que cela ne dit pas</h3><p>Les salaires dépendent de l'âge, du métier, du diplôme et de la région. Ce rang est une photo de la distribution, pas un jugement sur votre rémunération. Les agents publics ne sont pas dans cette base.</p></div></div>
+  </section>
+  <section class="calculator" id="calcul">
+    <h2>Où se situe mon salaire par rapport aux autres ?</h2><noscript><p class="intro-note"><strong>JavaScript requis :</strong> ce simulateur calcule directement dans votre navigateur.</p></noscript><div class="field"><label for="net">Votre salaire net mensuel avant impôt, en équivalent temps plein (€)</label><input type="number" id="net" min="0" step="1" inputmode="decimal" placeholder="Ex. 2400"></div><div class="field"><label for="sexe">Comparer à</label><select id="sexe"><option value="ens">Ensemble des salariés</option><option value="f">Les femmes</option><option value="h">Les hommes</option></select></div>
+    <button type="button" id="calculate">Comparer</button>
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">Votre rang parmi les salariés du privé</div>
+      <div class="result-main" data-noanim id="rang">–</div>
+      <div class="result-row"><span>Salaire médian du groupe de comparaison</span><strong id="mediane">–</strong></div>
+      <div class="result-row"><span>Écart à cette médiane</span><strong id="ecart">–</strong></div>
+      <div class="result-row"><span>Salaire net moyen (ensemble)</span><strong id="moyenne">–</strong></div>
+      <div class="warning" id="notes"></div>
+    </div>
+  </section>
+
+  <section class="info-section" id="regles">
+    <h2>Les chiffres de référence en 2025</h2>
+    <p>En 2025, le salaire net mensuel moyen en équivalent temps plein est de 2 797 € dans le secteur privé, et le salaire médian de 2 238 € : la moitié des salariés gagne moins. Un salarié sur dix gagne moins de 1 519 € net, un sur dix plus de 4 442 €. La médiane est de 2 128 € pour les femmes et de 2 328 € pour les hommes.</p>
+    <p>Le détail par catégorie (cadres, professions intermédiaires, employés, ouvriers), par sexe et par secteur est dans la page <a href="/salaire-moyen-median-france-2025/">salaire moyen et médian en France en 2025</a>. Pour passer du brut au net, voir le <a href="/simulateur-brut-net/">simulateur brut en net</a>.</p><p>Source : <a href="https://www.insee.fr/fr/statistiques/9087193" target="_blank" rel="noopener noreferrer">Insee Première n° 2132, « Les salaires dans le secteur privé en 2025 »</a> (base Tous salariés 2025, France, salariés du privé en équivalent temps plein, hors agriculture et particuliers employeurs).</p>
+  </section>
+
+  <section class="info-section" id="faq-ind"><h2>Questions fréquentes</h2><h3>Quel est le salaire médian en France en 2025 ?</h3><p>2 238 € net par mois en équivalent temps plein dans le secteur privé : la moitié des salariés gagne moins, l&#x27;autre moitié plus.</p><h3>Quel salaire faut-il pour être parmi les 10 % les mieux payés ?</h3><p>Plus de 4 442 € net par mois en équivalent temps plein en 2025 (9e décile).</p><h3>Quelle différence entre salaire moyen et salaire médian ?</h3><p>Le salaire moyen (2 797 € net) est tiré vers le haut par les très hauts salaires ; la médiane (2 238 €) partage les salariés en deux moitiés égales.</p><h3>Ce comparateur concerne-t-il les fonctionnaires ?</h3><p>Non : la base de l&#x27;Insee porte sur les salariés du secteur privé. Pour le public, voir le simulateur du point d&#x27;indice.</p></section>
+
+  <section class="sd-next" aria-labelledby="sd-next-t"><h2 id="sd-next-t">Et ensuite ?</h2><p class="sd-next-sub">Situation : <strong>Salaire et fiche de paie</strong>. Les étapes qui reviennent le plus souvent :</p><ol class="sd-next-list"><li><a href="/simulateur-smic/"><span class="sd-next-n">1</span><span class="sd-next-t"><strong>SMIC 2026</strong><small>Horaire, mensuel et annuel.</small></span></a></li><li><a href="/simulateur-salaire-horaire-mensuel/"><span class="sd-next-n">2</span><span class="sd-next-t"><strong>Salaire horaire et mensuel</strong><small>Convertir un taux horaire en mensuel ou annuel.</small></span></a></li><li><a href="/simulateur-brut-net/"><span class="sd-next-n">3</span><span class="sd-next-t"><strong>Salaire brut en net</strong><small>Cotisations 2026 recalculées ligne par ligne.</small></span></a></li><li><a href="/simulateur-net-brut/"><span class="sd-next-n">4</span><span class="sd-next-t"><strong>Salaire net en brut</strong><small>Le brut nécessaire pour un net voulu.</small></span></a></li><li class="here" aria-current="page"><span class="sd-next-n">5</span><span class="sd-next-t"><strong>Comparer mon salaire</strong><small>Vous êtes ici</small></span></li><li><a href="/simulateur-fiche-de-paie/"><span class="sd-next-n">6</span><span class="sd-next-t"><strong>Vérifier ma fiche de paie</strong><small>Comparez votre fiche au calcul 2026.</small></span></a></li><li><a href="/simulateur-heures-supplementaires/"><span class="sd-next-n">7</span><span class="sd-next-t"><strong>Heures supplémentaires</strong><small>Majorations et montant dû.</small></span></a></li><li><a href="/simulateur-temps-partiel/"><span class="sd-next-n">8</span><span class="sd-next-t"><strong>Temps partiel</strong><small>Équivalences et heures complémentaires.</small></span></a></li></ol></section>
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/salaire-moyen-median-france-2025/">Salaire moyen et médian en France</a><a href="/simulateur-brut-net/">Salaire brut en net</a><a href="/simulateur-point-indice/">Point d'indice des fonctionnaires</a><a href="/simulateur-smic/">SMIC 2026</a><a href="/guides/brut-net-apres-impot-differences/">Guide : Brut, net avant et après impôt : les différences</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-10-30">30 octobre 2026</time>. Estimation indicative, sans valeur juridique. <a href="/methode-et-sources/">Méthode et sources</a> · <a href="/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<footer><nav class="foot-top" aria-label="Les plus consultés"><strong>Les plus consultés</strong><a href="https://simudroit.fr/simulateur-brut-net/">Salaire brut en net</a><a href="https://simudroit.fr/simulateur-indemnite-licenciement/">Indemnité de licenciement</a><a href="https://simudroit.fr/simulateur-rupture-conventionnelle/">Rupture conventionnelle</a><a href="https://simudroit.fr/simulateur-chomage/">Allocation chômage</a><a href="https://simudroit.fr/simulateur-preavis-demission/">Préavis de démission</a><a href="https://simudroit.fr/simulateur-preavis-licenciement/">Préavis de licenciement</a><a href="https://simudroit.fr/simulateur-conges-payes/">Congés payés</a><a href="https://simudroit.fr/simulateur-fiche-de-paie/">Vérifier ma fiche de paie</a><a href="https://simudroit.fr/simulateur-solde-tout-compte/">Solde de tout compte</a><a href="https://simudroit.fr/simulateur-smic/">SMIC 2026</a><a href="https://simudroit.fr/salaire-brut-net/">Brut en net par montant</a><a href="https://simudroit.fr/metiers/">Mon métier : infirmier libéral, assistante maternelle, intérimaire</a><a href="https://simudroit.fr/retraite/">Retraite : par où commencer ?</a><a href="https://simudroit.fr/reconversion/">Reconversion : par où commencer ?</a><a href="https://simudroit.fr/jours-feries-2026-2027/">Jours fériés 2026 et 2027</a></nav>
+  <p>© 2026 SimuDroit · <a href="https://simudroit.fr/">Tous les simulateurs</a> · <a href="https://simudroit.fr/methode-et-sources/">Méthode et sources</a> · <a href="https://simudroit.fr/contact/">Contact</a> · <a href="https://simudroit.fr/mentions-legales/">Mentions légales</a> · <a href="https://simudroit.fr/confidentialite/">Confidentialité</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+  var $=function(id){return document.getElementById(id)};
+  function setText(id,t){$(id).textContent=t}
+  function eur(v){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR"}).format(v)}
+  function r2(x){return Math.round((x+1e-9)*100)/100}
+  function notes(a){$("notes").innerHTML=a.map(function(n){return "<p style=\"margin:0 0 8px\">"+n+"</p>"}).join("")}
+  var C={"5": 1390, "6": 1426, "7": 1444, "8": 1472, "9": 1497, "10": 1519, "11": 1541, "12": 1561, "13": 1579, "14": 1597, "15": 1615, "16": 1633, "17": 1651, "18": 1668, "19": 1686, "20": 1702, "21": 1718, "22": 1734, "23": 1750, "24": 1766, "25": 1781, "26": 1797, "27": 1813, "28": 1829, "29": 1845, "30": 1861, "31": 1878, "32": 1894, "33": 1911, "34": 1928, "35": 1945, "36": 1963, "37": 1980, "38": 1998, "39": 2016, "40": 2034, "41": 2053, "42": 2072, "43": 2091, "44": 2111, "45": 2131, "46": 2152, "47": 2172, "48": 2194, "49": 2216, "50": 2238, "51": 2261, "52": 2285, "53": 2309, "54": 2333, "55": 2359, "56": 2385, "57": 2412, "58": 2439, "59": 2468, "60": 2497, "61": 2527, "62": 2558, "63": 2591, "64": 2624, "65": 2658, "66": 2694, "67": 2731, "68": 2769, "69": 2809, "70": 2851, "71": 2894, "72": 2939, "73": 2986, "74": 3035, "75": 3086, "76": 3139, "77": 3196, "78": 3255, "79": 3319, "80": 3387, "81": 3459, "82": 3536, "83": 3618, "84": 3707, "85": 3803, "86": 3907, "87": 4020, "88": 4146, "89": 4285, "90": 4442, "91": 4620, "92": 4825, "93": 5067, "94": 5361, "95": 5730, "96": 6221, "97": 6926, "98": 8074, "99": 10553},MED={ens:2238,f:2128,h:2328},LAB={ens:"des salariés",f:"des femmes",h:"des hommes"};
+  $("calculate").addEventListener("click",function(){
+    var s=parseFloat($("net").value);
+    if(!(s>0)){notes(["Indiquez votre salaire net mensuel en équivalent temps plein."]);$("result").classList.add("visible");return}
+    var k=0;for(var i=5;i<=99;i++){if(C[i]<=s)k=i}
+    var r,g=$("sexe").value,m=MED[g],e=r2((s/m-1)*100),n=[];
+    if(k===0)r="Parmi les 5 % les moins rémunérés";
+    else if(k===99&&s>C[99])r="Parmi les 1 % les mieux rémunérés";
+    else r="Plus que "+k+" % des salariés";
+    setText("rang",r);setText("mediane",eur(m)+" ("+LAB[g]+")");
+    setText("ecart",(e>0?"+":(e<0?"−":""))+Math.abs(e).toLocaleString("fr-FR",{minimumFractionDigits:1,maximumFractionDigits:1})+" %");
+    setText("moyenne",eur(2797));
+    n.push("Rang calculé sur la distribution de l'ensemble des salariés du privé en 2025 (centiles de l'Insee, du 5e au 99e).");
+    if(s<1867.02*0.79)n.push("Ce salaire est inférieur au SMIC net : vérifiez que vous avez ramené votre salaire à un temps plein.");
+    n.push("Photo de la distribution, pas un jugement : l'âge, le métier, le diplôme et la région expliquent une grande partie des écarts.");
+    notes(n);$("result").classList.add("visible");
+  });
+
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>

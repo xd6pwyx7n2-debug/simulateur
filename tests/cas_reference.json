@@ -2010,5 +2010,96 @@
       "#net": "1 953,60 €",
       "#sft": "2,29 €"
     }
+  },
+  {
+    "page": "simulateur-comparer-mon-salaire",
+    "entrees": {
+      "net": 2400,
+      "sexe": "ens"
+    },
+    "attendus": {
+      "#rang": "Plus que 56 % des salariés",
+      "#mediane": "2 238,00 € (des salariés)",
+      "#ecart": "+7,2 %",
+      "#moyenne": "2 797,00 €"
+    }
+  },
+  {
+    "page": "simulateur-comparer-mon-salaire",
+    "entrees": {
+      "net": 1400,
+      "sexe": "ens"
+    },
+    "attendus": {
+      "#rang": "Plus que 5 % des salariés",
+      "#mediane": "2 238,00 € (des salariés)",
+      "#ecart": "−37,4 %",
+      "#moyenne": "2 797,00 €"
+    }
+  },
+  {
+    "page": "simulateur-comparer-mon-salaire",
+    "entrees": {
+      "net": 2000,
+      "sexe": "f"
+    },
+    "attendus": {
+      "#rang": "Plus que 38 % des salariés",
+      "#mediane": "2 128,00 € (des femmes)",
+      "#ecart": "−6,0 %",
+      "#moyenne": "2 797,00 €"
+    }
+  },
+  {
+    "page": "simulateur-comparer-mon-salaire",
+    "entrees": {
+      "net": 6000,
+      "sexe": "h"
+    },
+    "attendus": {
+      "#rang": "Plus que 95 % des salariés",
+      "#mediane": "2 328,00 € (des hommes)",
+      "#ecart": "+157,7 %",
+      "#moyenne": "2 797,00 €"
+    }
+  },
+  {
+    "page": "simulateur-comparer-mon-salaire",
+    "entrees": {
+      "net": 12000,
+      "sexe": "ens"
+    },
+    "attendus": {
+      "#rang": "Parmi les 1 % les mieux rémunérés",
+      "#mediane": "2 238,00 € (des salariés)",
+      "#ecart": "+436,2 %",
+      "#moyenne": "2 797,00 €"
+    }
+  },
+  {
+    "page": "simulateur-comparer-mon-salaire",
+    "entrees": {
+      "net": 2238,
+      "sexe": "ens"
+    },
+    "attendus": {
+      "#rang": "Plus que 50 % des salariés",
+      "#mediane": "2 238,00 € (des salariés)",
+      "#ecart": "0,0 %",
+      "#moyenne": "2 797,00 €"
+    }
+  },
+  {
+    "page": "simulateur-comparer-mon-salaire",
+    "entrees": {
+      "net": 1000,
+      "sexe": "ens"
+    },
+    "attendus": {
+      "#rang": "Parmi les 5 % les moins rémunérés",
+      "#mediane": "2 238,00 € (des salariés)",
+      "#ecart": "−55,3 %",
+      "#moyenne": "2 797,00 €"
+    }
   }
 ]
