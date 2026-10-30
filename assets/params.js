@@ -15,6 +15,11 @@ window.SD_PARAMS = {
     brutMensuel35h: 1867.02,
     netMensuel35h: 1477.93      // info.gouv.fr
   },
+  fonctionPublique: {          // point d'indice inchangé depuis le 1er juillet 2023 (CDG 33, juin 2026)
+    depuis: "2023-07-01",
+    pointAnnuel: 59.0734,       // valeur annuelle du point ; mensuel = IM x 59,0734 / 12
+    imPlancher: 366             // minimum de traitement (depuis le 1er janvier 2024)
+  },
   pmss: 4005,                   // plafond mensuel de la Sécurité sociale 2026
   ijMaladie: {                  // ameli.fr, depuis le 1er juillet 2026
     depuis: "2026-07-01",

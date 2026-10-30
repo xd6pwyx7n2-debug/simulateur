@@ -1945,5 +1945,70 @@
       "#plafond": "4 000,00 €",
       "#depasse": "Aucun"
     }
+  },
+  {
+    "page": "simulateur-point-indice",
+    "entrees": {
+      "im": 380,
+      "enfants": 0
+    },
+    "attendus": {
+      "#mensuel": "1 870,66 €",
+      "#annuel": "22 447,92 €",
+      "#net": "1 484,74 €",
+      "#sft": "–"
+    }
+  },
+  {
+    "page": "simulateur-point-indice",
+    "entrees": {
+      "im": 366,
+      "enfants": 0
+    },
+    "attendus": {
+      "#mensuel": "1 801,74 €",
+      "#annuel": "21 620,88 €",
+      "#net": "1 430,04 €",
+      "#sft": "–"
+    }
+  },
+  {
+    "page": "simulateur-point-indice",
+    "entrees": {
+      "im": 454,
+      "enfants": 2
+    },
+    "attendus": {
+      "#mensuel": "2 234,94 €",
+      "#annuel": "26 819,28 €",
+      "#net": "1 773,86 €",
+      "#sft": "77,72 €"
+    }
+  },
+  {
+    "page": "simulateur-point-indice",
+    "entrees": {
+      "im": 600,
+      "enfants": 3
+    },
+    "attendus": {
+      "#mensuel": "2 953,67 €",
+      "#annuel": "35 444,04 €",
+      "#net": "2 344,32 €",
+      "#sft": "251,53 €"
+    }
+  },
+  {
+    "page": "simulateur-point-indice",
+    "entrees": {
+      "im": 500,
+      "enfants": 1
+    },
+    "attendus": {
+      "#mensuel": "2 461,39 €",
+      "#annuel": "29 536,68 €",
+      "#net": "1 953,60 €",
+      "#sft": "2,29 €"
+    }
   }
 ]

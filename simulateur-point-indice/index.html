@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Point d&#x27;indice 2026 : calcul du traitement et du net</title>
+  <meta name="description" content="Calculez le traitement d&#x27;un fonctionnaire à partir de son indice majoré : valeur du point d&#x27;indice, brut, net estimé, supplément familial.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://simudroit.fr/simulateur-point-indice/">
+  <link rel="icon" href="https://simudroit.fr/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="https://simudroit.fr/favicon.ico" sizes="48x48">
+  <link rel="icon" href="https://simudroit.fr/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="https://simudroit.fr/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Point d&#x27;indice 2026 : calcul du traitement et du net">
+  <meta property="og:description" content="Calculez le traitement d&#x27;un fonctionnaire à partir de son indice majoré : valeur du point d&#x27;indice, brut, net estimé, supplément familial.">
+  <meta property="og:url" content="https://simudroit.fr/simulateur-point-indice/">
+  <meta property="og:image" content="https://simudroit.fr/assets/og/simulateur-point-indice.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://simudroit.fr/assets/og/simulateur-point-indice.jpg">
+  <meta name="twitter:title" content="Point d&#x27;indice 2026 : calcul du traitement et du net">
+  <meta name="twitter:description" content="Calculez le traitement d&#x27;un fonctionnaire à partir de son indice majoré : valeur du point d&#x27;indice, brut, net estimé, supplément familial.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://simudroit.fr/"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebPage", "name": "Point d'indice : traitement d'un fonctionnaire selon l'indice majoré", "url": "https://simudroit.fr/simulateur-point-indice/", "description": "Calculez le traitement d'un fonctionnaire à partir de son indice majoré : valeur du point d'indice, brut, net estimé, supplément familial.", "inLanguage": "fr-FR", "dateModified": "2026-10-30"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://simudroit.fr/"}, {"@type": "ListItem", "position": 2, "name": "Point d'indice", "item": "https://simudroit.fr/simulateur-point-indice/"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quelle est la valeur du point d'indice ?", "acceptedAnswer": {"@type": "Answer", "text": "59,0734 € par an, soit 4,9228 € par mois et par point, depuis le 1er juillet 2023."}}, {"@type": "Question", "name": "Comment calculer le traitement d'un fonctionnaire ?", "acceptedAnswer": {"@type": "Answer", "text": "Indice majoré multiplié par 59,0734, divisé par 12. L'indice majoré 380 donne 1 870,66 € brut par mois."}}, {"@type": "Question", "name": "Quel est le traitement minimum d'un fonctionnaire ?", "acceptedAnswer": {"@type": "Answer", "text": "L'indice majoré 366, soit 1 801,74 € brut par mois depuis le 1er janvier 2024. Une indemnité différentielle complète jusqu'au SMIC pour les indices 366 à 379."}}, {"@type": "Question", "name": "Le net calculé comprend-il les primes ?", "acceptedAnswer": {"@type": "Answer", "text": "Non : l'outil calcule sur le traitement indiciaire seul. Les primes, l'indemnité de résidence et la NBI se rajoutent et sont soumises à d'autres cotisations."}}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebApplication", "name": "Point d'indice", "url": "https://simudroit.fr/simulateur-point-indice/", "description": "Calculez le traitement d'un fonctionnaire à partir de son indice majoré : valeur du point d'indice, brut, net estimé, supplément familial.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}
+  </script>
+  <meta name="theme-color" content="#201e48">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="Point d&#x27;indice 2026 : calcul du traitement et du net | SimuDroit">
+  <link rel="alternate" hreflang="fr" href="https://simudroit.fr/simulateur-point-indice/">
+  <link rel="alternate" hreflang="x-default" href="https://simudroit.fr/simulateur-point-indice/">
+  <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
+  <script async src="https://plausible.io/js/pa-j8JdUomB9hqqp7em82xdB.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+</head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.fr/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://simudroit.fr/simulateurs/">Simulateurs</a>
+      <a href="https://simudroit.fr/assistant/">Assistant</a>
+      <a href="https://simudroit.fr/independants/">Indépendants</a>
+      <a href="https://simudroit.fr/guides/">Guides</a>
+      <a href="https://simudroit.fr/modeles-de-lettres/">Lettres</a>
+      <a href="https://simudroit.fr/glossaire/">Glossaire</a>
+      <a href="https://simudroit.fr/faq/">FAQ</a>
+      <a class="cta-link" href="https://simudroit.fr/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://simudroit.fr/">Accueil</a> &nbsp;›&nbsp; Point d&#x27;indice
+  </div>
+
+  <section class="hero">
+    <h1>Point d'indice et traitement d'un fonctionnaire</h1>
+    <p>Du point d'indice au traitement brut et au net estimé, avec le supplément familial de traitement.</p>
+      <div class="badges"><span class="badge">✓ Règles 2026 vérifiées le 30 octobre 2026</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Vos données restent dans votre navigateur</span></div>
+  </section>
+<nav class="sd-line" aria-label="Parcours : Agent public"><p class="sd-line-lab">Votre parcours : <strong>Agent public</strong></p><div class="sd-line-scroll"><ol style="--n:4"><li class="cur" style="--i:0" aria-current="step"><span class="sd-line-tag">Vous êtes ici</span><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Point d&#x27;indice</span></li><li class="next" style="--i:1"><a href="/simulateur-fin-contrat-fonction-publique/" title="Fin de contrat, fonction publique : Indemnités et droits en fin de contrat public."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Fin de contrat</span></a></li><li class="next" style="--i:2"><a href="/simulateur-chomage/" title="Allocation chômage : Montant et durée estimés après la fin du contrat."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Chômage</span></a></li><li class="next" style="--i:3"><a href="/simulateur-solde-tout-compte/" title="Solde de tout compte : Les sommes à vérifier à la remise du dernier document."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Solde de tout compte</span></a></li></ol></div></nav>
+
+
+<section class="info-section sd-know" id="a-savoir">
+    <h2>À savoir avant de vous fier au résultat</h2>
+    <div class="sd-know-grid"><div class="sd-know-card"><h3>Ce que calcule l'outil</h3><p>Le traitement indiciaire brut mensuel et annuel d'un agent public à partir de son indice majoré, une estimation du net avant impôt, le supplément familial de traitement et l'indemnité différentielle pour les indices proches du SMIC.</p></div><div class="sd-know-card"><h3>Où trouver votre indice majoré</h3><p>Sur votre bulletin de paie, à la ligne du traitement indiciaire (« indice majoré » ou « IM »). Les primes, l'indemnité de résidence et la NBI ne sont pas comprises dans ce calcul.</p></div><div class="sd-know-card"><h3>Limites du net</h3><p>Le net est une estimation sur le traitement seul : pension de base 11,10 %, CSG 9,2 % et CRDS 0,5 % sur 98,25 %. La contribution exceptionnelle de solidarité et le RAFP sur les primes ne sont pas pris en compte.</p></div></div>
+  </section>
+  <section class="calculator" id="calcul">
+    <h2>Combien gagne un fonctionnaire selon son indice majoré ?</h2><noscript><p class="intro-note"><strong>JavaScript requis :</strong> ce simulateur calcule directement dans votre navigateur.</p></noscript><div class="field"><label for="im">Indice majoré (IM)</label><input type="number" id="im" min="1" step="1" inputmode="decimal" placeholder="Ex. 380"></div><div class="field"><label for="enfants">Nombre d'enfants à charge (pour le supplément familial)</label><input type="number" id="enfants" min="0" step="1" inputmode="decimal" placeholder="Ex. 2"></div>
+    <button type="button" id="calculate">Calculer le traitement</button>
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">Traitement indiciaire brut mensuel</div>
+      <div class="result-main" data-noanim id="mensuel">–</div>
+      <div class="result-row"><span>Traitement brut annuel</span><strong id="annuel">–</strong></div>
+      <div class="result-row"><span>Net estimé avant impôt (sur le traitement seul)</span><strong id="net">–</strong></div>
+      <div class="result-row"><span>Supplément familial de traitement</span><strong id="sft">–</strong></div>
+      <div class="warning" id="notes"></div>
+    </div>
+  </section>
+
+  <section class="info-section" id="regles">
+    <h2>Le point d'indice et le traitement des fonctionnaires</h2>
+    <p>Le traitement indiciaire brut mensuel est égal à l'indice majoré multiplié par la valeur du point d'indice. La valeur annuelle du point est de 59,0734 €, soit 4,9228 € par mois : elle est en vigueur depuis le 1er juillet 2023. À l'indice majoré 380, par exemple, le traitement est de 1 870,66 € brut par mois.</p>
+    <p>Le minimum de traitement correspond à l'indice majoré 366, soit 1 801,74 € brut par mois depuis le 1er janvier 2024. Les agents dont l'indice est compris entre 366 et 379 perçoivent une indemnité différentielle pour atteindre le SMIC : le SMIC est dépassé à partir de l'indice majoré 380.</p>
+    <p>Du brut au net : la retenue pour pension de base est de 11,10 % du traitement indiciaire et de la nouvelle bonification indiciaire. La CSG de 9,2 % et la CRDS de 0,5 % s'appliquent sur 98,25 % de l'ensemble de la rémunération. Le RAFP de 5 % porte sur les primes, l'indemnité de résidence et le supplément familial, dans la limite de 20 % du traitement.</p>
+    <p>Le supplément familial de traitement dépend du nombre d'enfants et du traitement, borné entre l'indice majoré 454 et l'indice majoré 722. Pour comparer avec le privé, voir le <a href="/simulateur-brut-net/">simulateur brut en net</a>.</p>
+    <p>Sources : <a href="https://www.cdg33.fr/wp-content/uploads/ressources/20260605_NIF_chiffresremuneration2026.pdf" target="_blank" rel="noopener noreferrer">Centre de gestion de la Gironde, chiffres de la rémunération 2026</a> · <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F468" target="_blank" rel="noopener noreferrer">Service-Public.fr, cotisations salariales du fonctionnaire</a>.</p>
+  </section>
+
+  <section class="info-section" id="faq-ind"><h2>Questions fréquentes</h2><h3>Quelle est la valeur du point d&#x27;indice ?</h3><p>59,0734 € par an, soit 4,9228 € par mois et par point, depuis le 1er juillet 2023.</p><h3>Comment calculer le traitement d&#x27;un fonctionnaire ?</h3><p>Indice majoré multiplié par 59,0734, divisé par 12. L&#x27;indice majoré 380 donne 1 870,66 € brut par mois.</p><h3>Quel est le traitement minimum d&#x27;un fonctionnaire ?</h3><p>L&#x27;indice majoré 366, soit 1 801,74 € brut par mois depuis le 1er janvier 2024. Une indemnité différentielle complète jusqu&#x27;au SMIC pour les indices 366 à 379.</p><h3>Le net calculé comprend-il les primes ?</h3><p>Non : l&#x27;outil calcule sur le traitement indiciaire seul. Les primes, l&#x27;indemnité de résidence et la NBI se rajoutent et sont soumises à d&#x27;autres cotisations.</p></section>
+
+  <section class="sd-next" aria-labelledby="sd-next-t"><h2 id="sd-next-t">Et ensuite ?</h2><p class="sd-next-sub">Situation : <strong>Agent public</strong>. Les étapes qui reviennent le plus souvent :</p><ol class="sd-next-list"><li class="here" aria-current="page"><span class="sd-next-n">1</span><span class="sd-next-t"><strong>Point d&#x27;indice</strong><small>Vous êtes ici</small></span></li><li><a href="/simulateur-fin-contrat-fonction-publique/"><span class="sd-next-n">2</span><span class="sd-next-t"><strong>Fin de contrat, fonction publique</strong><small>Indemnités et droits en fin de contrat public.</small></span></a></li><li><a href="/simulateur-chomage/"><span class="sd-next-n">3</span><span class="sd-next-t"><strong>Allocation chômage</strong><small>Montant et durée estimés après la fin du contrat.</small></span></a></li><li><a href="/simulateur-solde-tout-compte/"><span class="sd-next-n">4</span><span class="sd-next-t"><strong>Solde de tout compte</strong><small>Les sommes à vérifier à la remise du dernier document.</small></span></a></li></ol></section>
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/simulateur-brut-net/">Salaire brut en net (privé)</a><a href="/simulateur-smic/">SMIC 2026</a><a href="/simulateur-fin-contrat-fonction-publique/">Fin de contrat dans la fonction publique</a><a href="/simulateur-fiche-de-paie/">Vérifier ma fiche de paie</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-10-30">30 octobre 2026</time>. Estimation indicative, sans valeur juridique. <a href="/methode-et-sources/">Méthode et sources</a> · <a href="/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<footer><nav class="foot-top" aria-label="Les plus consultés"><strong>Les plus consultés</strong><a href="https://simudroit.fr/simulateur-brut-net/">Salaire brut en net</a><a href="https://simudroit.fr/simulateur-indemnite-licenciement/">Indemnité de licenciement</a><a href="https://simudroit.fr/simulateur-rupture-conventionnelle/">Rupture conventionnelle</a><a href="https://simudroit.fr/simulateur-chomage/">Allocation chômage</a><a href="https://simudroit.fr/simulateur-preavis-demission/">Préavis de démission</a><a href="https://simudroit.fr/simulateur-preavis-licenciement/">Préavis de licenciement</a><a href="https://simudroit.fr/simulateur-conges-payes/">Congés payés</a><a href="https://simudroit.fr/simulateur-fiche-de-paie/">Vérifier ma fiche de paie</a><a href="https://simudroit.fr/simulateur-solde-tout-compte/">Solde de tout compte</a><a href="https://simudroit.fr/simulateur-smic/">SMIC 2026</a><a href="https://simudroit.fr/salaire-brut-net/">Brut en net par montant</a><a href="https://simudroit.fr/metiers/">Mon métier : infirmier libéral, assistante maternelle, intérimaire</a><a href="https://simudroit.fr/retraite/">Retraite : par où commencer ?</a><a href="https://simudroit.fr/reconversion/">Reconversion : par où commencer ?</a><a href="https://simudroit.fr/jours-feries-2026-2027/">Jours fériés 2026 et 2027</a></nav>
+  <p>© 2026 SimuDroit · <a href="https://simudroit.fr/">Tous les simulateurs</a> · <a href="https://simudroit.fr/methode-et-sources/">Méthode et sources</a> · <a href="https://simudroit.fr/contact/">Contact</a> · <a href="https://simudroit.fr/mentions-legales/">Mentions légales</a> · <a href="https://simudroit.fr/confidentialite/">Confidentialité</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+  var $=function(id){return document.getElementById(id)};
+  function setText(id,t){$(id).textContent=t}
+  function eur(v){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR"}).format(v)}
+  function r2(x){return Math.round((x+1e-9)*100)/100}
+  function notes(a){$("notes").innerHTML=a.map(function(n){return "<p style=\"margin:0 0 8px\">"+n+"</p>"}).join("")}
+  var PT=window.SD_PARAMS.fonctionPublique.pointAnnuel/12;
+  $("calculate").addEventListener("click",function(){
+    var im=parseInt($("im").value,10),c=parseInt($("enfants").value,10)||0,n=[];
+    if(!(im>=1)){notes(["Indiquez votre indice majoré (visible sur votre bulletin de paie)."]);$("result").classList.add("visible");return}
+    var T=r2(im*PT),smic=window.SD_PARAMS.smic.brutMensuel35h;
+    var pen=r2(T*0.111),csg=r2(T*0.9825*0.092),crds=r2(T*0.9825*0.005),net=r2(T-pen-csg-crds);
+    setText("mensuel",eur(T));setText("annuel",eur(r2(T*12)));setText("net",eur(net));
+    var base=Math.min(Math.max(T,r2(454*PT)),r2(722*PT)),sft=0;
+    if(c===1)sft=2.29;else if(c===2)sft=10.67+0.03*base;else if(c>=3)sft=15.24+0.08*base+(c-3)*(4.57+0.06*base);
+    setText("sft",c>=1?eur(r2(sft)):"–");
+    if(im<window.SD_PARAMS.fonctionPublique.imPlancher)n.push("Cet indice est inférieur au minimum de traitement (indice majoré "+window.SD_PARAMS.fonctionPublique.imPlancher+").");
+    if(T<smic)n.push("Ce traitement est inférieur au SMIC ("+eur(smic)+") : une indemnité différentielle d'environ "+eur(r2(smic-T))+" est versée pour atteindre le SMIC.");
+    n.push("Net estimé sur le traitement seul : pension 11,10 %, CSG 9,2 % et CRDS 0,5 % sur 98,25 %. La contribution exceptionnelle de solidarité, les primes et l'indemnité de résidence ne sont pas pris en compte.");
+    n.push("Le supplément familial est calculé avec la table 2026 ; il peut différer d'un centime. Estimation indicative : seul le bulletin de paie fait foi.");
+    notes(n);$("result").classList.add("visible");
+  });
+
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>
