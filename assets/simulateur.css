@@ -307,3 +307,5 @@ article .sd-line{max-width:none;margin:18px 0}
 .foot-top{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center;justify-content:center;max-width:960px;margin:0 auto 14px;padding:0 20px;font-size:.88rem}
 .foot-top strong{flex-basis:100%;text-align:center;color:inherit}
 .foot-top a{color:inherit;opacity:.9;text-decoration:underline;padding:6px 0;min-height:32px;display:inline-flex;align-items:center}
+.sd-see-grid a br{display:none}
+.sd-see-grid a span{display:block;margin-top:3px;color:#5a5f78;font-size:.9em;font-weight:400}

@@ -41,3 +41,4 @@ html{-webkit-text-size-adjust:100%;scroll-padding-top:72px}
   @keyframes sdMenu{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
 }
 .sd-theme .ic{display:inline-flex;align-items:center}
+@media(max-width:700px){.sd-theme-float .tx{display:none}.sd-theme-float{width:46px!important;min-height:46px;padding:0;gap:0;bottom:12px;right:12px;opacity:.94}}
