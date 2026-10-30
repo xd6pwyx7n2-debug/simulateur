@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Impôt sur le revenu 2026</title>
+  <meta name="description" content="Calculez votre impôt sur le revenu 2026 : barème, quotient familial, plafonnement et décote. Revenus 2025, gratuit, sans inscription.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://simudroit.fr/simulateur-impot-revenu/">
+  <link rel="icon" href="https://simudroit.fr/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="https://simudroit.fr/favicon.ico" sizes="48x48">
+  <link rel="icon" href="https://simudroit.fr/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="https://simudroit.fr/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Impôt sur le revenu 2026">
+  <meta property="og:description" content="Calculez votre impôt sur le revenu 2026 : barème, quotient familial, plafonnement et décote. Revenus 2025, gratuit, sans inscription.">
+  <meta property="og:url" content="https://simudroit.fr/simulateur-impot-revenu/">
+  <meta property="og:image" content="https://simudroit.fr/assets/og/simulateur-impot-revenu.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://simudroit.fr/assets/og/simulateur-impot-revenu.jpg">
+  <meta name="twitter:title" content="Impôt sur le revenu 2026">
+  <meta name="twitter:description" content="Calculez votre impôt sur le revenu 2026 : barème, quotient familial, plafonnement et décote. Revenus 2025, gratuit, sans inscription.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://simudroit.fr/"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebPage", "name": "Simulateur impôt sur le revenu 2026 (revenus 2025)", "url": "https://simudroit.fr/simulateur-impot-revenu/", "description": "Calculez votre impôt sur le revenu 2026 : barème, quotient familial, plafonnement et décote. Revenus 2025, gratuit, sans inscription.", "inLanguage": "fr-FR", "dateModified": "2026-10-30"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://simudroit.fr/"}, {"@type": "ListItem", "position": 2, "name": "Impôt sur le revenu", "item": "https://simudroit.fr/simulateur-impot-revenu/"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quel est le barème de l'impôt sur le revenu 2026 ?", "acceptedAnswer": {"@type": "Answer", "text": "Pour les revenus 2025 : 0 % jusqu'à 11 600 € par part, 11 % jusqu'à 29 579 €, 30 % jusqu'à 84 577 €, 41 % jusqu'à 181 917 €, 45 % au-delà."}}, {"@type": "Question", "name": "Comment fonctionne le quotient familial ?", "acceptedAnswer": {"@type": "Answer", "text": "Le revenu imposable est divisé par le nombre de parts (1 pour une personne seule, 2 pour un couple, plus 0,5 par enfant pour les deux premiers et 1 à partir du troisième), le barème est appliqué puis le résultat est multiplié par le nombre de parts. L'avantage est plafonné par demi-part."}}, {"@type": "Question", "name": "Qu'est-ce que la décote ?", "acceptedAnswer": {"@type": "Answer", "text": "Une réduction qui s'applique quand l'impôt est faible : 897 € moins 45,25 % de l'impôt pour une personne seule, 1 483 € moins 45,25 % pour un couple."}}, {"@type": "Question", "name": "Pourquoi mon résultat diffère-t-il de mon avis d'impôt ?", "acceptedAnswer": {"@type": "Answer", "text": "L'outil ignore les réductions et crédits d'impôt, les revenus du capital, la résidence alternée et d'autres cas particuliers. Il donne une estimation à quelques euros près pour une situation simple."}}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebApplication", "name": "Impôt sur le revenu", "url": "https://simudroit.fr/simulateur-impot-revenu/", "description": "Calculez votre impôt sur le revenu 2026 : barème, quotient familial, plafonnement et décote. Revenus 2025, gratuit, sans inscription.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}
+  </script>
+  <meta name="theme-color" content="#201e48">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="Impôt sur le revenu 2026 | SimuDroit">
+  <link rel="alternate" hreflang="fr" href="https://simudroit.fr/simulateur-impot-revenu/">
+  <link rel="alternate" hreflang="x-default" href="https://simudroit.fr/simulateur-impot-revenu/">
+  <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
+  <script async src="https://plausible.io/js/pa-j8JdUomB9hqqp7em82xdB.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+</head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.fr/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://simudroit.fr/simulateurs/">Simulateurs</a>
+      <a href="https://simudroit.fr/assistant/">Assistant</a>
+      <a href="https://simudroit.fr/independants/">Indépendants</a>
+      <a href="https://simudroit.fr/guides/">Guides</a>
+      <a href="https://simudroit.fr/modeles-de-lettres/">Lettres</a>
+      <a href="https://simudroit.fr/glossaire/">Glossaire</a>
+      <a href="https://simudroit.fr/faq/">FAQ</a>
+      <a class="cta-link" href="https://simudroit.fr/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://simudroit.fr/">Accueil</a> &nbsp;›&nbsp; Impôt sur le revenu
+  </div>
+
+  <section class="hero">
+    <h1>Simulateur d'impôt sur le revenu 2026</h1>
+    <p>Estimez l'impôt sur le revenu de votre foyer avec le barème 2026, le quotient familial et la décote.</p>
+      <div class="badges"><span class="badge">✓ Règles 2026 vérifiées le 30 octobre 2026</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Vos données restent dans votre navigateur</span></div>
+  </section>
+<nav class="sd-line" aria-label="Parcours : Salaire et fiche de paie"><p class="sd-line-lab">Votre parcours : <strong>Salaire et fiche de paie</strong></p><div class="sd-line-scroll"><ol style="--n:9"><li class="done" style="--i:0"><a href="/simulateur-smic/" title="SMIC 2026 : Horaire, mensuel et annuel."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">SMIC</span></a></li><li class="done" style="--i:1"><a href="/simulateur-salaire-horaire-mensuel/" title="Salaire horaire et mensuel : Convertir un taux horaire en mensuel ou annuel."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Horaire et mensuel</span></a></li><li class="done" style="--i:2"><a href="/simulateur-brut-net/" title="Salaire brut en net : Cotisations 2026 recalculées ligne par ligne."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Brut en net</span></a></li><li class="done" style="--i:3"><a href="/simulateur-net-brut/" title="Salaire net en brut : Le brut nécessaire pour un net voulu."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Net en brut</span></a></li><li class="done" style="--i:4"><a href="/simulateur-comparer-mon-salaire/" title="Comparer mon salaire : Votre rang parmi les salaires du privé en 2025."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Comparer mon salaire</span></a></li><li class="cur" style="--i:5" aria-current="step"><span class="sd-line-tag">Vous êtes ici</span><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Impôt sur le revenu</span></li><li class="next" style="--i:6"><a href="/simulateur-fiche-de-paie/" title="Vérifier ma fiche de paie : Comparez votre fiche au calcul 2026."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Fiche de paie</span></a></li><li class="next" style="--i:7"><a href="/simulateur-heures-supplementaires/" title="Heures supplémentaires : Majorations et montant dû."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Heures sup.</span></a></li><li class="next" style="--i:8"><a href="/simulateur-temps-partiel/" title="Temps partiel : Équivalences et heures complémentaires."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Temps partiel</span></a></li></ol></div></nav>
+
+
+<section class="info-section sd-know" id="a-savoir">
+    <h2>À savoir avant de vous fier au résultat</h2>
+    <div class="sd-know-grid"><div class="sd-know-card"><h3>Ce que calcule l'outil</h3><p>L'impôt sur le revenu 2026 (revenus 2025) avec le quotient familial, le plafonnement par demi-part et la décote, avant réductions et crédits d'impôt.</p></div><div class="sd-know-card"><h3>Le bon montant à saisir</h3><p>Soit vos salaires nets imposables de l'année (l'outil applique l'abattement de 10 %), soit directement le revenu net imposable si vous l'avez déjà (case « revenu net imposable » de l'avis d'impôt).</p></div><div class="sd-know-card"><h3>Ce que cela ne couvre pas</h3><p>Les réductions et crédits d'impôt (dons, emploi à domicile, garde d'enfants…), les revenus du capital, les enfants en résidence alternée, la contribution sur les hauts revenus. Le montant à payer peut être différent de celui prélevé à la source.</p></div></div>
+  </section>
+  <section class="calculator" id="calcul">
+    <h2>Calculer mon impôt sur le revenu 2026</h2><noscript><p class="intro-note"><strong>JavaScript requis :</strong> ce simulateur calcule directement dans votre navigateur.</p></noscript><div class="field"><label for="revenu">Montant annuel du foyer (€)</label><input type="number" id="revenu" min="0" step="1" inputmode="decimal" placeholder="Ex. 36000"></div><div class="field"><label for="type">Ce montant est</label><select id="type"><option value="sal">Des salaires nets imposables (abattement 10 % appliqué)</option><option value="rni">Un revenu net imposable (déjà après abattement)</option></select></div><div class="field"><label for="statut">Situation du foyer</label><select id="statut"><option value="seul">Célibataire, divorcé ou veuf</option><option value="couple">Marié ou pacsé</option><option value="isole">Parent isolé</option></select></div><div class="field"><label for="enfants">Enfants à charge</label><input type="number" id="enfants" min="0" max="9" step="1" inputmode="decimal" placeholder="0"></div>
+    <button type="button" id="calculate">Calculer l'impôt</button>
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">Impôt sur le revenu estimé</div>
+      <div class="result-main" data-noanim id="impot">–</div>
+      <div class="result-row"><span>Revenu net imposable</span><strong id="imposable">–</strong></div>
+      <div class="result-row"><span>Nombre de parts</span><strong id="parts">–</strong></div>
+      <div class="result-row"><span>Impôt avant décote</span><strong id="brut">–</strong></div>
+      <div class="result-row"><span>Décote</span><strong id="decote">–</strong></div>
+      <div class="result-row"><span>Taux moyen (sur le revenu imposable)</span><strong id="taux">–</strong></div>
+      <div class="result-row"><span>Tranche marginale</span><strong id="tmi">–</strong></div>
+      <div class="warning" id="notes"></div>
+    </div>
+  </section>
+
+  <section class="info-section" id="regles">
+    <h2>Le barème 2026 (revenus 2025)</h2>
+    <p>Le barème s'applique par part de quotient familial : 0 % jusqu'à 11 600 €, 11 % de 11 600 à 29 579 €, 30 % de 29 579 à 84 577 €, 41 % de 84 577 à 181 917 € et 45 % au-delà. L'avantage du quotient familial est plafonné à 1 807 € par demi-part supplémentaire (4 262 € pour la part du premier enfant d'un parent isolé). La décote réduit l'impôt des foyers modestes : 897 € moins 45,25 % de l'impôt pour une personne seule (si l'impôt est inférieur à 1 982 €), 1 483 € moins 45,25 % de l'impôt pour un couple (seuil 3 277 €). L'abattement de 10 % sur les salaires est compris entre 509 € et 14 555 €.</p>
+    <p>Pour passer du brut au net avant impôt : <a href="/simulateur-brut-net/">simulateur brut en net</a>. Voir aussi le guide <a href="/guides/brut-net-apres-impot-differences/">brut, net et net après impôt</a>.</p>
+    <p>Sources : <a href="https://www.impots.gouv.fr/www2/fichiers/documentation/brochure/ir_2026/pdf_som/aide_memoire.pdf" target="_blank" rel="noopener noreferrer">impots.gouv.fr, aide-mémoire de l'impôt sur le revenu</a> (plafonnement, décote, abattement) ; <a href="https://www.legifiscal.fr/actualites-fiscales/4474-ir-bareme-2026-quotient-familial-decote.html" target="_blank" rel="noopener noreferrer">Legifiscal, barème 2026</a> d'après le BOFiP (tranches). Estimation hors réductions et crédits d'impôt.</p>
+  </section>
+
+  <section class="info-section" id="faq-ind"><h2>Questions fréquentes</h2><h3>Quel est le barème de l&#x27;impôt sur le revenu 2026 ?</h3><p>Pour les revenus 2025 : 0 % jusqu&#x27;à 11 600 € par part, 11 % jusqu&#x27;à 29 579 €, 30 % jusqu&#x27;à 84 577 €, 41 % jusqu&#x27;à 181 917 €, 45 % au-delà.</p><h3>Comment fonctionne le quotient familial ?</h3><p>Le revenu imposable est divisé par le nombre de parts (1 pour une personne seule, 2 pour un couple, plus 0,5 par enfant pour les deux premiers et 1 à partir du troisième), le barème est appliqué puis le résultat est multiplié par le nombre de parts. L&#x27;avantage est plafonné par demi-part.</p><h3>Qu&#x27;est-ce que la décote ?</h3><p>Une réduction qui s&#x27;applique quand l&#x27;impôt est faible : 897 € moins 45,25 % de l&#x27;impôt pour une personne seule, 1 483 € moins 45,25 % pour un couple.</p><h3>Pourquoi mon résultat diffère-t-il de mon avis d&#x27;impôt ?</h3><p>L&#x27;outil ignore les réductions et crédits d&#x27;impôt, les revenus du capital, la résidence alternée et d&#x27;autres cas particuliers. Il donne une estimation à quelques euros près pour une situation simple.</p></section>
+
+  <section class="sd-next" aria-labelledby="sd-next-t"><h2 id="sd-next-t">Et ensuite ?</h2><p class="sd-next-sub">Situation : <strong>Salaire et fiche de paie</strong>. Les étapes qui reviennent le plus souvent :</p><ol class="sd-next-list"><li><a href="/simulateur-smic/"><span class="sd-next-n">1</span><span class="sd-next-t"><strong>SMIC 2026</strong><small>Horaire, mensuel et annuel.</small></span></a></li><li><a href="/simulateur-salaire-horaire-mensuel/"><span class="sd-next-n">2</span><span class="sd-next-t"><strong>Salaire horaire et mensuel</strong><small>Convertir un taux horaire en mensuel ou annuel.</small></span></a></li><li><a href="/simulateur-brut-net/"><span class="sd-next-n">3</span><span class="sd-next-t"><strong>Salaire brut en net</strong><small>Cotisations 2026 recalculées ligne par ligne.</small></span></a></li><li><a href="/simulateur-net-brut/"><span class="sd-next-n">4</span><span class="sd-next-t"><strong>Salaire net en brut</strong><small>Le brut nécessaire pour un net voulu.</small></span></a></li><li><a href="/simulateur-comparer-mon-salaire/"><span class="sd-next-n">5</span><span class="sd-next-t"><strong>Comparer mon salaire</strong><small>Votre rang parmi les salaires du privé en 2025.</small></span></a></li><li class="here" aria-current="page"><span class="sd-next-n">6</span><span class="sd-next-t"><strong>Impôt sur le revenu</strong><small>Vous êtes ici</small></span></li><li><a href="/simulateur-fiche-de-paie/"><span class="sd-next-n">7</span><span class="sd-next-t"><strong>Vérifier ma fiche de paie</strong><small>Comparez votre fiche au calcul 2026.</small></span></a></li><li><a href="/simulateur-heures-supplementaires/"><span class="sd-next-n">8</span><span class="sd-next-t"><strong>Heures supplémentaires</strong><small>Majorations et montant dû.</small></span></a></li><li><a href="/simulateur-temps-partiel/"><span class="sd-next-n">9</span><span class="sd-next-t"><strong>Temps partiel</strong><small>Équivalences et heures complémentaires.</small></span></a></li></ol></section>
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/simulateur-brut-net/">Salaire brut en net</a><a href="/simulateur-comparer-mon-salaire/">Comparer mon salaire</a><a href="/salaires/">Tous les outils salaire</a><a href="/simulateur-fiche-de-paie/">Vérifier ma fiche de paie</a><a href="/guides/brut-net-apres-impot-differences/">Guide : Brut, net avant et après impôt : les différences</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-10-30">30 octobre 2026</time>. Estimation indicative, sans valeur juridique. <a href="/methode-et-sources/">Méthode et sources</a> · <a href="/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<footer><nav class="foot-top" aria-label="Les plus consultés"><strong>Les plus consultés</strong><a href="https://simudroit.fr/simulateur-brut-net/">Salaire brut en net</a><a href="https://simudroit.fr/simulateur-indemnite-licenciement/">Indemnité de licenciement</a><a href="https://simudroit.fr/simulateur-rupture-conventionnelle/">Rupture conventionnelle</a><a href="https://simudroit.fr/simulateur-chomage/">Allocation chômage</a><a href="https://simudroit.fr/simulateur-preavis-demission/">Préavis de démission</a><a href="https://simudroit.fr/simulateur-preavis-licenciement/">Préavis de licenciement</a><a href="https://simudroit.fr/simulateur-conges-payes/">Congés payés</a><a href="https://simudroit.fr/simulateur-fiche-de-paie/">Vérifier ma fiche de paie</a><a href="https://simudroit.fr/simulateur-solde-tout-compte/">Solde de tout compte</a><a href="https://simudroit.fr/simulateur-smic/">SMIC 2026</a><a href="https://simudroit.fr/salaire-brut-net/">Brut en net par montant</a><a href="https://simudroit.fr/metiers/">Mon métier : infirmier libéral, assistante maternelle, intérimaire</a><a href="https://simudroit.fr/retraite/">Retraite : par où commencer ?</a><a href="https://simudroit.fr/reconversion/">Reconversion : par où commencer ?</a><a href="https://simudroit.fr/jours-feries-2026-2027/">Jours fériés 2026 et 2027</a></nav>
+  <p>© 2026 SimuDroit · <a href="https://simudroit.fr/">Tous les simulateurs</a> · <a href="https://simudroit.fr/methode-et-sources/">Méthode et sources</a> · <a href="https://simudroit.fr/contact/">Contact</a> · <a href="https://simudroit.fr/mentions-legales/">Mentions légales</a> · <a href="https://simudroit.fr/confidentialite/">Confidentialité</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+  var $=function(id){return document.getElementById(id)};
+  function setText(id,t){$(id).textContent=t}
+  function eur(v){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR"}).format(v)}
+  function r2(x){return Math.round((x+1e-9)*100)/100}
+  function notes(a){$("notes").innerHTML=a.map(function(n){return "<p style=\"margin:0 0 8px\">"+n+"</p>"}).join("")}
+  function fmt0(v){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(v)}
+  var T=[[11600,0],[29579,.11],[84577,.30],[181917,.41],[Infinity,.45]];
+  function bareme(q){var s=0,p=0;for(var i=0;i<T.length;i++){if(q>p){s+=(Math.min(q,T[i][0])-p)*T[i][1]}p=T[i][0]}return s}
+  function tmi(q){var p=0;for(var i=0;i<T.length;i++){if(q<=T[i][0])return T[i][1];p=T[i][0]}return .45}
+  $("calculate").addEventListener("click",function(){
+    var v=parseFloat($("revenu").value),n=parseInt($("enfants").value||"0",10),st=$("statut").value,tp=$("type").value,k=[];
+    if(!(v>=0)){notes(["Indiquez le montant annuel du foyer."]);$("result").classList.add("visible");return}
+    if(!(n>=0))n=0;
+    if(st==="isole"&&n===0){st="seul";k.push("Sans enfant à charge, la situation de parent isolé n'a pas d'effet : calcul en célibataire.")}
+    var R=v;
+    if(tp==="sal"){var ab=Math.min(Math.max(v*0.10,509),14555);ab=Math.min(ab,v);R=v-ab}
+    R=Math.floor(R);
+    var base=st==="couple"?2:1,parts=base,i;
+    for(i=1;i<=n;i++){parts+=(i<=2?0.5:1)}
+    if(st==="isole")parts+=0.5;
+    var Ip=parts*bareme(R/parts),I0=base*bareme(R/base),extra=(parts-base)*2,plaf;
+    if(st==="isole")plaf=4262+(extra-2)*1807;else plaf=extra*1807;
+    var I=Math.max(Ip,I0-plaf);
+    var seuil=st==="couple"?3277:1982,fixe=st==="couple"?1483:897,d=0;
+    if(I<seuil){d=Math.max(0,Math.round(fixe-0.4525*I));d=Math.min(d,Math.round(I))}
+    var net=Math.max(0,Math.round(I)-d);
+    setText("impot",fmt0(net));setText("imposable",fmt0(R));setText("parts",String(parts).replace(".",","));
+    setText("brut",fmt0(Math.round(I)));setText("decote",d>0?"− "+fmt0(d):fmt0(0));
+    setText("taux",R>0?(net/R*100).toLocaleString("fr-FR",{minimumFractionDigits:1,maximumFractionDigits:1})+" %":"–");
+    setText("tmi",Math.round(tmi(R/parts)*100)+" %");
+    if(I0-plaf>Ip)k.push("Le plafonnement de l'avantage du quotient familial s'applique à votre situation.");
+    if(net===0)k.push("Votre impôt est nul après décote ou barème.");
+    k.push("Estimation avant réductions et crédits d'impôt, hors revenus du capital et résidence alternée. Votre avis d'impôt fait foi.");
+    notes(k);$("result").classList.add("visible");
+  });
+
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>

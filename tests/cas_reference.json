@@ -2101,5 +2101,131 @@
       "#ecart": "−55,3 %",
       "#moyenne": "2 797,00 €"
     }
+  },
+  {
+    "page": "simulateur-impot-revenu",
+    "entrees": {
+      "revenu": 36000,
+      "type": "sal",
+      "statut": "seul",
+      "enfants": 0
+    },
+    "attendus": {
+      "#impot": "2 824 €",
+      "#imposable": "32 400 €",
+      "#parts": "1",
+      "#brut": "2 824 €",
+      "#decote": "0 €",
+      "#taux": "8,7 %",
+      "#tmi": "30 %"
+    }
+  },
+  {
+    "page": "simulateur-impot-revenu",
+    "entrees": {
+      "revenu": 60000,
+      "type": "sal",
+      "statut": "couple",
+      "enfants": 2
+    },
+    "attendus": {
+      "#impot": "1 585 €",
+      "#imposable": "54 000 €",
+      "#parts": "3",
+      "#brut": "2 112 €",
+      "#decote": "− 527 €",
+      "#taux": "2,9 %",
+      "#tmi": "11 %"
+    }
+  },
+  {
+    "page": "simulateur-impot-revenu",
+    "entrees": {
+      "revenu": 28000,
+      "type": "rni",
+      "statut": "isole",
+      "enfants": 1
+    },
+    "attendus": {
+      "#impot": "0 €",
+      "#imposable": "28 000 €",
+      "#parts": "2",
+      "#brut": "528 €",
+      "#decote": "− 528 €",
+      "#taux": "0,0 %",
+      "#tmi": "11 %"
+    }
+  },
+  {
+    "page": "simulateur-impot-revenu",
+    "entrees": {
+      "revenu": 90000,
+      "type": "sal",
+      "statut": "seul",
+      "enfants": 0
+    },
+    "attendus": {
+      "#impot": "17 404 €",
+      "#imposable": "81 000 €",
+      "#parts": "1",
+      "#brut": "17 404 €",
+      "#decote": "0 €",
+      "#taux": "21,5 %",
+      "#tmi": "30 %"
+    }
+  },
+  {
+    "page": "simulateur-impot-revenu",
+    "entrees": {
+      "revenu": 150000,
+      "type": "sal",
+      "statut": "seul",
+      "enfants": 0
+    },
+    "attendus": {
+      "#impot": "39 333 €",
+      "#imposable": "135 445 €",
+      "#parts": "1",
+      "#brut": "39 333 €",
+      "#decote": "0 €",
+      "#taux": "29,0 %",
+      "#tmi": "41 %"
+    }
+  },
+  {
+    "page": "simulateur-impot-revenu",
+    "entrees": {
+      "revenu": 45000,
+      "type": "sal",
+      "statut": "couple",
+      "enfants": 3
+    },
+    "attendus": {
+      "#impot": "0 €",
+      "#imposable": "40 500 €",
+      "#parts": "4",
+      "#brut": "0 €",
+      "#decote": "0 €",
+      "#taux": "0,0 %",
+      "#tmi": "0 %"
+    }
+  },
+  {
+    "page": "simulateur-impot-revenu",
+    "entrees": {
+      "revenu": 20000,
+      "type": "rni",
+      "statut": "seul",
+      "enfants": 0
+    },
+    "attendus": {
+      "#impot": "445 €",
+      "#imposable": "20 000 €",
+      "#parts": "1",
+      "#brut": "924 €",
+      "#decote": "− 479 €",
+      "#taux": "2,2 %",
+      "#tmi": "11 %"
+    }
   }
 ]
