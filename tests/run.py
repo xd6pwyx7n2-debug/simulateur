@@ -265,6 +265,15 @@ with sync_playwright() as pw:
         pg.goto(LOCAL + slug_ + "/"); pg.wait_for_timeout(200); pg.fill("#ent", "SARL Dupont"); pg.fill("#nom", "Camille Martin")
         tx_ = pg.inner_text("#lettre")
         if "SARL Dupont" not in tx_ or "Camille Martin" not in tx_: fail("%s : champs absents de la lettre" % slug_)
+    # fiches de révision : export PDF (zone d'impression) et partage (lien copié)
+    for slug_ in ["contrat-de-travail", "smic-salaire-minimum", "rupture-du-cdi", "allocation-chomage", "du-brut-au-net"]:
+        pg.goto(LOCAL + "fiches-revision/" + slug_ + "/"); pg.wait_for_timeout(200)
+        pg.evaluate("window.print=function(){window.__pr=true}; navigator.share=undefined")
+        pg.click(".fiche-pdf"); pg.wait_for_timeout(300)
+        if not pg.evaluate("window.__pr===true && !!document.querySelector('#sd-print h1') && document.querySelectorAll('#sd-print details[open]').length>0"): fail("fiche %s : export PDF non préparé" % slug_)
+        pg.evaluate("document.getElementById('sd-print')&&document.getElementById('sd-print').remove()")
+        pg.click(".fiche-share"); pg.wait_for_timeout(250)
+        if "fiches-revision/%s" % slug_ not in pg.inner_text(".fiche-msg") and "Lien copié" not in pg.inner_text(".fiche-msg"): fail("fiche %s : partage sans retour" % slug_)
     # accueil : Entrée dans la recherche ouvre le premier résultat
     pg.goto(LOCAL + "simulateurs/"); pg.wait_for_timeout(200)
     pg.fill("#search", "smic"); pg.press("#search", "Enter"); pg.wait_for_timeout(500)

@@ -320,3 +320,12 @@ article .crumbs a:hover{text-decoration:underline!important}
 .sd-bars .row.med .bar i{background:#0d8f6f}
 .sd-bars .val{font-weight:700;text-align:right;color:#201e48}
 @media(max-width:480px){.sd-bars .row{grid-template-columns:78px 1fr 56px;gap:8px;font-size:.84rem}}
+.fiche-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:14px 0 4px}
+.fiche-actions button{font:700 .95rem Inter,Arial,sans-serif;padding:11px 16px;border-radius:999px;border:2px solid #4b3bd0;background:#4b3bd0;color:#fff;cursor:pointer}
+.fiche-actions button.sec{background:#fff;color:#4b3bd0}
+.fiche-actions button:focus-visible{outline:3px solid #ffb703;outline-offset:2px}
+.fiche-msg{font-size:.88rem;color:#5a5f78}
+#sd-print details{border:0}
+@media print{.fiche-actions{display:none!important}#sd-print .note{background:#f4f2ff;border-left:5px solid #6857e8;border-radius:10px;padding:10px 14px;margin:10px 0}#sd-print summary{font-weight:700}#sd-print .table-wrap{overflow:visible}}
+@media print{#sd-print .table-wrap td:first-child,#sd-print .table-wrap th:first-child{width:auto}#sd-print .table-wrap td{font-size:12px}}
+@media print{html,body{background-image:none!important;background:#fff!important}}
