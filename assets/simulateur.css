@@ -276,3 +276,30 @@ article .sd-next{max-width:none;margin:32px 0 0}
 .sd-next-t strong{color:#2a2660;font-size:.98rem}
 .sd-next-t small{color:#585776;font-size:.85rem}
 .sd-next-list li.here small{color:#4b3bd0;font-weight:700}
+
+/* Ligne de parcours « Vous êtes ici » */
+.sd-line{max-width:900px;margin:18px auto 0;padding:14px 18px 10px;background:#fff;border:1px solid #e0dcff;border-radius:18px;box-shadow:0 2px 6px rgba(41,35,90,.04)}
+article .sd-line{max-width:none;margin:18px 0}
+.sd-line-lab{margin:0 0 4px;font-size:.88rem;color:#585776}
+.sd-line-lab strong{color:#2a2660}
+.sd-line-scroll{overflow-x:auto;padding:30px 0 6px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+.sd-line ol{list-style:none;margin:0;padding:0;display:flex;min-width:calc(var(--n) * 104px)}
+.sd-line li{position:relative;flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;text-align:center;margin:0;padding:0}
+.sd-line li::before{content:"";position:absolute;top:11px;right:50%;width:100%;height:5px;border-radius:3px;background:#e4e0fa;transform-origin:left center;animation:sdLine .5s ease-out both;animation-delay:calc(var(--i) * .1s)}
+.sd-line li:first-child::before{display:none}
+.sd-line li.done::before,.sd-line li.cur::before{background:linear-gradient(90deg,#5b43d6,#8b6cf0)}
+.sd-line a{display:flex;flex-direction:column;align-items:center;color:inherit;text-decoration:none;width:100%;position:relative}
+.sd-line-dot{position:relative;z-index:1;width:27px;height:27px;border-radius:50%;box-sizing:border-box;background:#fff;border:4px solid #c9c2f5;animation:sdPop .4s cubic-bezier(.3,1.5,.5,1) both;animation-delay:calc(var(--i) * .1s + .15s);transition:transform .15s,border-color .15s}
+.sd-line li.done .sd-line-dot{background:#5b43d6;border-color:#5b43d6}
+.sd-line li.cur .sd-line-dot{width:31px;height:31px;margin:-2px 0;border:5px solid #5b43d6;background:#fff;box-shadow:0 0 0 0 rgba(91,67,214,.45);animation:sdPop .4s cubic-bezier(.3,1.5,.5,1) both,sdPulse 2.2s ease-out 1s infinite;animation-delay:calc(var(--i) * .1s + .15s),1s}
+.sd-line li.next a:hover .sd-line-dot,.sd-line li.done a:hover .sd-line-dot,.sd-line a:focus-visible .sd-line-dot{transform:scale(1.18);border-color:#5b43d6}
+.sd-line-name{margin-top:8px;padding:0 4px;font-size:.82rem;line-height:1.25;color:#585776;font-weight:600}
+.sd-line li.cur .sd-line-name{color:#2a2660;font-weight:800}
+.sd-line a:hover .sd-line-name{color:#4b3bd0;text-decoration:underline}
+.sd-line-tag{position:absolute;top:-30px;left:50%;transform:translateX(-50%);white-space:nowrap;background:#5b43d6;color:#fff;font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px;animation:sdBob 2.4s ease-in-out infinite}
+.sd-line-tag::after{content:"";position:absolute;left:50%;bottom:-4px;width:8px;height:8px;background:#5b43d6;transform:translateX(-50%) rotate(45deg)}
+@keyframes sdLine{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes sdPop{from{transform:scale(0)}to{transform:scale(1)}}
+@keyframes sdPulse{0%{box-shadow:0 0 0 0 rgba(91,67,214,.45)}70%,100%{box-shadow:0 0 0 12px rgba(91,67,214,0)}}
+@keyframes sdBob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-3px)}}
+@media (prefers-reduced-motion:reduce){.sd-line *,.sd-line li::before{animation:none!important}}

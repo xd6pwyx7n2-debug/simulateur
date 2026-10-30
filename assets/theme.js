@@ -147,3 +147,7 @@
   });
 }
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init);else init()})();
+
+/* Ligne de parcours : centre l'étape courante sur mobile */
+(function(){function c(){var l=document.querySelector(".sd-line .cur"),s=document.querySelector(".sd-line-scroll");if(!l||!s||s.scrollWidth<=s.clientWidth)return;s.scrollLeft=l.offsetLeft-(s.clientWidth-l.offsetWidth)/2}
+if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",c);else c()})();
