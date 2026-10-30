@@ -231,6 +231,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://simudroit.fr/guides/choisir-statut-micro-ei-eurl-sasu/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://simudroit.fr/guides/auto-entrepreneur-arret-maladie-chomage-droits/</loc>
     <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
@@ -488,6 +494,10 @@
   </url>
   <url>
     <loc>https://simudroit.fr/metiers/infirmier-liberal/</loc>
+    <lastmod>2026-10-30</lastmod>
+  </url>
+  <url>
+    <loc>https://simudroit.fr/metiers/infirmier-liberal-societe/</loc>
     <lastmod>2026-10-30</lastmod>
   </url>
   <url>
