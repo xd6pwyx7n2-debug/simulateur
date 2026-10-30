@@ -114,3 +114,36 @@
   }
   if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",add);else add();
 }catch(e){}})();
+
+/* Export agenda (.ics) de la date de fin affichée par les simulateurs de préavis et de période d'essai */
+(function(){function init(){
+  var out=document.getElementById("dateFin");if(!out||!(document.getElementById("result")||document.getElementById("resultat")))return;
+  var MOIS=["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
+  var box=document.createElement("p");box.className="sd-ics";box.hidden=true;
+  var btn=document.createElement("button");btn.type="button";btn.className="sd-ics-btn";btn.textContent="Ajouter l'échéance à mon agenda (.ics)";
+  var help=document.createElement("span");help.className="sd-ics-help";help.textContent=" Rappels 7 jours et 1 jour avant. Fichier créé sur votre appareil, rien n'est envoyé.";
+  box.appendChild(btn);box.appendChild(help);
+  var res=document.getElementById("result")||document.getElementById("resultat");if(!res)return;res.appendChild(box);
+  var cur=null;
+  function parse(){
+    var t=(out.textContent||"").toLowerCase().replace(/\s+/g," "),m=t.match(/(\d{1,2})(?:er)? ([a-zéûà]+) (\d{4})/);
+    if(!m)return null;var i=MOIS.indexOf(m[2]);if(i<0)return null;return {y:+m[3],m:i+1,d:+m[1]};
+  }
+  function upd(){cur=parse();box.hidden=!cur}
+  new MutationObserver(upd).observe(out,{childList:true,characterData:true,subtree:true});upd();
+  function p2(n){return (n<10?"0":"")+n}
+  btn.addEventListener("click",function(){
+    if(!cur)return;
+    var d=new Date(cur.y,cur.m-1,cur.d),n=new Date(cur.y,cur.m-1,cur.d+1);
+    var f=function(x){return x.getFullYear()+p2(x.getMonth()+1)+p2(x.getDate())};
+    var h1=(document.querySelector("h1")||{}).textContent||"Échéance";
+    var title="Fin : "+h1.replace(/\s+/g," ").trim();
+    var now=new Date(),st=now.getUTCFullYear()+p2(now.getUTCMonth()+1)+p2(now.getUTCDate())+"T"+p2(now.getUTCHours())+p2(now.getUTCMinutes())+p2(now.getUTCSeconds())+"Z";
+    var L=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//SimuDroit//FR","CALSCALE:GREGORIAN","BEGIN:VEVENT","UID:"+f(d)+"-"+Math.random().toString(36).slice(2)+"@simudroit.fr","DTSTAMP:"+st,"DTSTART;VALUE=DATE:"+f(d),"DTEND;VALUE=DATE:"+f(n),"SUMMARY:"+title,"DESCRIPTION:Date estimée avec SimuDroit (https://simudroit.fr). À vérifier avec votre contrat ou votre convention collective.",
+      "BEGIN:VALARM","TRIGGER:-P7D","ACTION:DISPLAY","DESCRIPTION:Dans 7 jours","END:VALARM","BEGIN:VALARM","TRIGGER:-P1D","ACTION:DISPLAY","DESCRIPTION:Demain","END:VALARM","END:VEVENT","END:VCALENDAR"];
+    var blob=new Blob([L.join("\r\n")+"\r\n"],{type:"text/calendar;charset=utf-8"}),a=document.createElement("a");
+    a.href=URL.createObjectURL(blob);a.download="echeance-simudroit.ics";document.body.appendChild(a);a.click();
+    setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},500);
+  });
+}
+if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init);else init()})();
