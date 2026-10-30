@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Calcul des jours ouvrables, ouvrés et calendaires | SimuDroit</title>
+  <meta name="description" content="Comptez les jours ouvrables, ouvrés et calendaires entre deux dates, jours fériés déduits (Pâques, Ascension, Pentecôte calculés), option Alsace-Moselle.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://simudroit.fr/simulateur-jours-ouvrables/">
+  <link rel="icon" href="https://simudroit.fr/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="https://simudroit.fr/favicon.ico" sizes="48x48">
+  <link rel="icon" href="https://simudroit.fr/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="https://simudroit.fr/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Calcul des jours ouvrables, ouvrés et calendaires | SimuDroit">
+  <meta property="og:description" content="Comptez les jours ouvrables, ouvrés et calendaires entre deux dates, jours fériés déduits (Pâques, Ascension, Pentecôte calculés), option Alsace-Moselle.">
+  <meta property="og:url" content="https://simudroit.fr/simulateur-jours-ouvrables/">
+  <meta property="og:image" content="https://simudroit.fr/assets/og/simulateur-jours-ouvrables.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://simudroit.fr/assets/og/simulateur-jours-ouvrables.jpg">
+  <meta name="twitter:title" content="Calcul des jours ouvrables, ouvrés et calendaires | SimuDroit">
+  <meta name="twitter:description" content="Comptez les jours ouvrables, ouvrés et calendaires entre deux dates, jours fériés déduits (Pâques, Ascension, Pentecôte calculés), option Alsace-Moselle.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://simudroit.fr/"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebPage", "name": "Jours ouvrables, ouvrés et calendaires entre deux dates", "url": "https://simudroit.fr/simulateur-jours-ouvrables/", "description": "Comptez les jours ouvrables, ouvrés et calendaires entre deux dates, jours fériés déduits (Pâques, Ascension, Pentecôte calculés), option Alsace-Moselle.", "inLanguage": "fr-FR", "dateModified": "2026-10-30"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://simudroit.fr/"}, {"@type": "ListItem", "position": 2, "name": "Jours ouvrables, ouvrés et calendaires", "item": "https://simudroit.fr/simulateur-jours-ouvrables/"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quelle différence entre jours ouvrables et jours ouvrés ?", "acceptedAnswer": {"@type": "Answer", "text": "Les jours ouvrables vont du lundi au samedi (hors jours fériés), les jours ouvrés du lundi au vendredi. Un congé de cinq semaines représente 30 jours ouvrables ou 25 jours ouvrés."}}, {"@type": "Question", "name": "Un jour férié compte-t-il comme jour ouvrable ?", "acceptedAnswer": {"@type": "Answer", "text": "Non, un jour férié chômé n'est pas un jour ouvrable. Ce simulateur retire tous les jours fériés légaux, sauf si vous ne cochez pas la prise en compte de l'Alsace-Moselle pour les jours spécifiques à cette région."}}, {"@type": "Question", "name": "Le jour de début est-il compté ?", "acceptedAnswer": {"@type": "Answer", "text": "Cela dépend de la règle applicable : pour les congés, le premier jour d'absence est en général compté. Les options de l'outil permettent de choisir de compter ou non les jours de début et de fin."}}, {"@type": "Question", "name": "Comment sont calculés Pâques, l'Ascension et la Pentecôte ?", "acceptedAnswer": {"@type": "Answer", "text": "Ces jours fériés dépendent de la date de Pâques, qui change chaque année. L'outil la calcule : le lundi de Pâques le lendemain, l'Ascension 39 jours après et le lundi de Pentecôte 50 jours après."}}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebApplication", "name": "Jours ouvrables, ouvrés et calendaires", "url": "https://simudroit.fr/simulateur-jours-ouvrables/", "description": "Comptez les jours ouvrables, ouvrés et calendaires entre deux dates, jours fériés déduits (Pâques, Ascension, Pentecôte calculés), option Alsace-Moselle.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}
+  </script>
+  <meta name="theme-color" content="#201e48">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="Calcul des jours ouvrables, ouvrés et calendaires | SimuDroit">
+  <link rel="alternate" hreflang="fr" href="https://simudroit.fr/simulateur-jours-ouvrables/">
+  <link rel="alternate" hreflang="x-default" href="https://simudroit.fr/simulateur-jours-ouvrables/">
+  <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
+  <script async src="https://plausible.io/js/pa-j8JdUomB9hqqp7em82xdB.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+</head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.fr/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://simudroit.fr/simulateurs/">Simulateurs</a>
+      <a href="https://simudroit.fr/assistant/">Assistant</a>
+      <a href="https://simudroit.fr/independants/">Indépendants</a>
+      <a href="https://simudroit.fr/guides/">Guides</a>
+      <a href="https://simudroit.fr/modeles-de-lettres/">Lettres</a>
+      <a href="https://simudroit.fr/glossaire/">Glossaire</a>
+      <a href="https://simudroit.fr/faq/">FAQ</a>
+      <a class="cta-link" href="https://simudroit.fr/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://simudroit.fr/">Accueil</a> &nbsp;›&nbsp; Jours ouvrables, ouvrés et calendaires
+  </div>
+
+  <section class="hero">
+    <h1>Calcul des jours ouvrables, ouvrés et calendaires</h1>
+    <p>Entre deux dates, obtenez le nombre de jours calendaires, ouvrables (lundi au samedi) et ouvrés (lundi au vendredi), jours fériés déduits.</p>
+      <div class="badges"><span class="badge">✓ Règles 2026 vérifiées le 30 octobre 2026</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Vos données restent dans votre navigateur</span></div>
+  </section>
+
+<section class="info-section sd-know" id="a-savoir">
+    <h2>À savoir avant de vous fier au résultat</h2>
+    <div class="sd-know-grid"><div class="sd-know-card"><h3>Ce que calcule l'outil</h3><p>Le nombre de jours calendaires, ouvrables (du lundi au samedi) et ouvrés (du lundi au vendredi) entre deux dates, en retirant les jours fériés, et la liste des jours fériés rencontrés.</p></div><div class="sd-know-card"><h3>Quand l'utiliser</h3><p>Congés payés comptés en jours ouvrables, délais de procédure (convocation, rétractation, homologation), préavis exprimés en jours, ou simple décompte d'un arrêt de travail.</p></div><div class="sd-know-card"><h3>Ce qui n'est pas calculé</h3><p>Les jours de repos propres à votre entreprise (ponts, jours de réduction du temps de travail), ni les jours fériés spécifiques à une commune. L'option Alsace-Moselle ajoute le Vendredi saint et le 26 décembre.</p></div></div>
+  </section>
+  <section class="calculator" id="calcul">
+    <h2>Combien de jours entre deux dates ?</h2>
+    <noscript><p class="intro-note"><strong>JavaScript requis :</strong> ce simulateur calcule directement dans votre navigateur.</p></noscript>
+    <div class="field"><label for="debut">Date de début</label><input type="date" id="debut"></div>
+    <div class="field"><label for="fin">Date de fin</label><input type="date" id="fin"></div>
+    <div class="field"><label><input type="checkbox" id="incDebut" checked> <span>Compter le jour de début</span></label></div>
+    <div class="field"><label><input type="checkbox" id="incFin" checked> <span>Compter le jour de fin</span></label></div>
+    <div class="field"><label><input type="checkbox" id="alsace"> <span>Alsace-Moselle (ajoute le Vendredi saint et le 26 décembre)</span></label></div>
+    <button type="button" id="calculate">Compter les jours</button>
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">Jours ouvrables (lundi au samedi, hors jours fériés)</div>
+      <div class="result-main" id="ouvrables">–</div>
+      <div class="result-row"><span>Jours calendaires</span><strong id="cal">–</strong></div>
+      <div class="result-row"><span>Jours ouvrés (lundi au vendredi, hors jours fériés)</span><strong id="ouvres">–</strong></div>
+      <div class="result-row"><span>Dimanches</span><strong id="dim">–</strong></div>
+      <div class="result-row"><span>Jours fériés rencontrés</span><strong id="nferies">–</strong></div>
+      <div class="warning" id="notes"></div>
+    </div>
+  </section>
+
+  <section class="info-section" id="regles">
+    <h2>Jours calendaires, ouvrables et ouvrés</h2>
+    <ul>
+      <li><strong>Jours calendaires :</strong> tous les jours, y compris dimanches et jours fériés.</li>
+      <li><strong>Jours ouvrables :</strong> tous les jours de la semaine sauf le dimanche et les jours fériés chômés. Les congés payés se comptent en jours ouvrables : 30 jours ouvrables correspondent à cinq semaines.</li>
+      <li><strong>Jours ouvrés :</strong> les jours où l'entreprise travaille habituellement, en général du lundi au vendredi, hors jours fériés.</li>
+    </ul>
+    <p>Les jours fériés légaux sont le 1er janvier, le lundi de Pâques, le 1er mai, le 8 mai, l'Ascension, le lundi de Pentecôte, le 14 juillet, le 15 août, le 1er novembre, le 11 novembre et le 25 décembre. Ce simulateur les retire tous du décompte. Les dates de Pâques, de l'Ascension et de la Pentecôte sont calculées pour chaque année.</p>
+    <p>Sources : <a href="https://code.travail.gouv.fr/" target="_blank" rel="noopener noreferrer">Code du travail numérique</a> · <a href="https://www.service-public.fr/" target="_blank" rel="noopener noreferrer">Service-Public.fr</a>.</p>
+  </section>
+
+  <section class="info-section" id="faq-ind"><h2>Questions fréquentes</h2><h3>Quelle différence entre jours ouvrables et jours ouvrés ?</h3><p>Les jours ouvrables vont du lundi au samedi (hors jours fériés), les jours ouvrés du lundi au vendredi. Un congé de cinq semaines représente 30 jours ouvrables ou 25 jours ouvrés.</p><h3>Un jour férié compte-t-il comme jour ouvrable ?</h3><p>Non, un jour férié chômé n&#x27;est pas un jour ouvrable. Ce simulateur retire tous les jours fériés légaux, sauf si vous ne cochez pas la prise en compte de l&#x27;Alsace-Moselle pour les jours spécifiques à cette région.</p><h3>Le jour de début est-il compté ?</h3><p>Cela dépend de la règle applicable : pour les congés, le premier jour d&#x27;absence est en général compté. Les options de l&#x27;outil permettent de choisir de compter ou non les jours de début et de fin.</p><h3>Comment sont calculés Pâques, l&#x27;Ascension et la Pentecôte ?</h3><p>Ces jours fériés dépendent de la date de Pâques, qui change chaque année. L&#x27;outil la calcule : le lundi de Pâques le lendemain, l&#x27;Ascension 39 jours après et le lundi de Pentecôte 50 jours après.</p></section>
+
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/simulateur-conges-payes/">Indemnité de congés payés</a><a href="/simulateur-conges-acquis/">Congés payés acquis</a><a href="/simulateur-preavis-demission/">Préavis de démission</a><a href="/simulateur-anciennete/">Calcul de l'ancienneté</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-10-30">30 octobre 2026</time>. Estimation indicative, sans valeur juridique. <a href="/methode-et-sources/">Méthode et sources</a> · <a href="/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 SimuDroit · <a href="https://simudroit.fr/">Tous les simulateurs</a> · <a href="https://simudroit.fr/methode-et-sources/">Méthode et sources</a> · <a href="https://simudroit.fr/contact/">Contact</a> · <a href="https://simudroit.fr/mentions-legales/">Mentions légales</a> · <a href="https://simudroit.fr/confidentialite/">Confidentialité</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+  var $=function(id){return document.getElementById(id)};
+  function setText(id,t){$(id).textContent=t}
+  function parse(v){var p=v.split("-");return new Date(+p[0],+p[1]-1,+p[2])}
+  function eur(v){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR"}).format(v)}
+  function r2(x){return Math.round(x*100)/100}
+  function fmt(d){return d.toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long",year:"numeric"})}
+  function easter(y){var a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),mo=Math.floor((h+l-7*m+114)/31),da=((h+l-7*m+114)%31)+1;return new Date(y,mo-1,da)}
+  function plus(d,n){return new Date(d.getFullYear(),d.getMonth(),d.getDate()+n)}
+  function key(d){return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate()}
+  function holidays(y,alsace){var e=easter(y),L=[[new Date(y,0,1),"1er janvier"],[plus(e,1),"Lundi de Pâques"],[new Date(y,4,1),"1er mai"],[new Date(y,4,8),"8 mai"],[plus(e,39),"Ascension"],[plus(e,50),"Lundi de Pentecôte"],[new Date(y,6,14),"14 juillet"],[new Date(y,7,15),"15 août"],[new Date(y,10,1),"1er novembre"],[new Date(y,10,11),"11 novembre"],[new Date(y,11,25),"25 décembre"]];
+    if(alsace){L.push([plus(e,-2),"Vendredi saint"]);L.push([new Date(y,11,26),"26 décembre"])}return L}
+  $("calculate").addEventListener("click",function(){
+    if(!$("debut").value||!$("fin").value){alert("Indiquez la date de début et la date de fin.");return}
+    var d1=parse($("debut").value),d2=parse($("fin").value);
+    if(d2<d1){alert("La date de fin doit être postérieure ou égale à la date de début.");return}
+    if((d2-d1)/864e5>3660){alert("Choisissez une période de moins de dix ans.");return}
+    var fer={},list=[];
+    for(var y=d1.getFullYear();y<=d2.getFullYear();y++)holidays(y,$("alsace").checked).forEach(function(h){fer[key(h[0])]=h[1]});
+    var cal=0,ouv=0,oue=0,dim=0,ferNb=0;
+    for(var d=new Date(d1);d<=d2;d=plus(d,1)){
+      var first=(d.getTime()===d1.getTime()),last=(d.getTime()===d2.getTime());
+      if(first&&!$("incDebut").checked)continue;
+      if(last&&!$("incFin").checked)continue;
+      cal++;var w=d.getDay(),isF=!!fer[key(d)];
+      if(w===0)dim++;
+      if(isF){ferNb++;list.push(fmt(d).replace(/^./,function(c){return c.toUpperCase()})+" : "+fer[key(d)])}
+      if(w!==0&&!isF)ouv++;
+      if(w!==0&&w!==6&&!isF)oue++;
+    }
+    setText("ouvrables",ouv.toLocaleString("fr-FR"));setText("cal",cal.toLocaleString("fr-FR"));setText("ouvres",oue.toLocaleString("fr-FR"));setText("dim",dim.toLocaleString("fr-FR"));setText("nferies",ferNb.toLocaleString("fr-FR"));
+    var n=[];
+    if(list.length)n.push("Jours fériés pris en compte : "+list.join(" ; ")+".");
+    n.push("Un jour férié qui tombe un dimanche n'est compté qu'une fois (comme dimanche). Estimation indicative : vérifiez la règle de décompte applicable à votre situation.");
+    $("notes").innerHTML=n.map(function(t){return "<p style=\"margin:0 0 8px\">"+t+"</p>"}).join("");
+    $("result").classList.add("visible");
+  });
+
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>

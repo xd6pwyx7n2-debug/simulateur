@@ -142,6 +142,13 @@
       ["1 mois", { dateDemission: today(), dureeType: "mois", duree: 1 }],
       ["3 mois", { dateDemission: today(), dureeType: "mois", duree: 3 }]
     ],
+    "simulateur-preavis-licenciement": [
+      ["3 ans · 2 800 €", { annees: 3, mois: 0, salaire: 2800 }],
+      ["8 mois", { annees: 0, mois: 8, salaire: 2200 }]
+    ],
+    "simulateur-jours-ouvrables": [
+      ["Semaine de 5 jours", { debut: "2026-12-14", fin: "2026-12-27" }]
+    ],
     "simulateur-solde-tout-compte": [
       ["Démission", { salaire: 2500, jours: 10, conges: 1800, licenciement: 0, preavis: 0, precarite: 0, autres: 0 }],
       ["Fin de CDD", { salaire: 2000, jours: 8, conges: 600, licenciement: 0, preavis: 0, precarite: 1500, autres: 0 }],

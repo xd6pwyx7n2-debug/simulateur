@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Simulateur préavis de licenciement 2026 : durée et indemnité</title>
+  <meta name="description" content="Calculez la durée de votre préavis de licenciement selon l&#x27;ancienneté, sa date de fin et l&#x27;indemnité compensatrice si l&#x27;employeur vous en dispense.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://simudroit.fr/simulateur-preavis-licenciement/">
+  <link rel="icon" href="https://simudroit.fr/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="https://simudroit.fr/favicon.ico" sizes="48x48">
+  <link rel="icon" href="https://simudroit.fr/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="https://simudroit.fr/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Simulateur préavis de licenciement 2026 : durée et indemnité">
+  <meta property="og:description" content="Calculez la durée de votre préavis de licenciement selon l&#x27;ancienneté, sa date de fin et l&#x27;indemnité compensatrice si l&#x27;employeur vous en dispense.">
+  <meta property="og:url" content="https://simudroit.fr/simulateur-preavis-licenciement/">
+  <meta property="og:image" content="https://simudroit.fr/assets/og/simulateur-preavis-licenciement.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://simudroit.fr/assets/og/simulateur-preavis-licenciement.jpg">
+  <meta name="twitter:title" content="Simulateur préavis de licenciement 2026 : durée et indemnité">
+  <meta name="twitter:description" content="Calculez la durée de votre préavis de licenciement selon l&#x27;ancienneté, sa date de fin et l&#x27;indemnité compensatrice si l&#x27;employeur vous en dispense.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://simudroit.fr/"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebPage", "name": "Préavis de licenciement : durée, date de fin et indemnité", "url": "https://simudroit.fr/simulateur-preavis-licenciement/", "description": "Calculez la durée de votre préavis de licenciement selon l'ancienneté, sa date de fin et l'indemnité compensatrice si l'employeur vous en dispense.", "inLanguage": "fr-FR", "dateModified": "2026-10-30"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://simudroit.fr/"}, {"@type": "ListItem", "position": 2, "name": "Préavis de licenciement", "item": "https://simudroit.fr/simulateur-preavis-licenciement/"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quelle est la durée du préavis de licenciement ?", "acceptedAnswer": {"@type": "Answer", "text": "Au minimum 1 mois entre 6 mois et 2 ans d'ancienneté, et 2 mois à partir de 2 ans. Avec moins de 6 mois, elle dépend de la loi, de la convention ou des usages. Une convention collective plus favorable s'applique à la place."}}, {"@type": "Question", "name": "Le préavis est-il dû en cas de faute grave ou lourde ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Le licenciement pour faute grave ou lourde est immédiat : ni préavis ni indemnité compensatrice de préavis ne sont dus."}}, {"@type": "Question", "name": "Que reçoit-on si l'employeur dispense de préavis ?", "acceptedAnswer": {"@type": "Answer", "text": "Une indemnité compensatrice équivalente au salaire que vous auriez perçu pendant le préavis, avec les congés payés afférents (10 % de cette indemnité en pratique)."}}, {"@type": "Question", "name": "Le préavis de licenciement est-il le même que celui d'une démission ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Pour une démission, il n'existe pas de durée légale unique : elle dépend de la convention collective, du contrat ou des usages."}}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebApplication", "name": "Préavis de licenciement", "url": "https://simudroit.fr/simulateur-preavis-licenciement/", "description": "Calculez la durée de votre préavis de licenciement selon l'ancienneté, sa date de fin et l'indemnité compensatrice si l'employeur vous en dispense.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}
+  </script>
+  <meta name="theme-color" content="#201e48">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="Simulateur préavis de licenciement 2026 : durée et indemnité | SimuDroit">
+  <link rel="alternate" hreflang="fr" href="https://simudroit.fr/simulateur-preavis-licenciement/">
+  <link rel="alternate" hreflang="x-default" href="https://simudroit.fr/simulateur-preavis-licenciement/">
+  <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
+  <script async src="https://plausible.io/js/pa-j8JdUomB9hqqp7em82xdB.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+</head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.fr/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://simudroit.fr/simulateurs/">Simulateurs</a>
+      <a href="https://simudroit.fr/assistant/">Assistant</a>
+      <a href="https://simudroit.fr/independants/">Indépendants</a>
+      <a href="https://simudroit.fr/guides/">Guides</a>
+      <a href="https://simudroit.fr/modeles-de-lettres/">Lettres</a>
+      <a href="https://simudroit.fr/glossaire/">Glossaire</a>
+      <a href="https://simudroit.fr/faq/">FAQ</a>
+      <a class="cta-link" href="https://simudroit.fr/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://simudroit.fr/">Accueil</a> &nbsp;›&nbsp; Préavis de licenciement
+  </div>
+
+  <section class="hero">
+    <h1>Simulateur de préavis de licenciement</h1>
+    <p>Durée minimale légale, date de fin estimée et indemnité compensatrice en cas de dispense, à partir de votre ancienneté et de la date de notification.</p>
+      <div class="badges"><span class="badge">✓ Règles 2026 vérifiées le 30 octobre 2026</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Vos données restent dans votre navigateur</span></div>
+  </section>
+
+<section class="info-section sd-know" id="a-savoir">
+    <h2>À savoir avant de vous fier au résultat</h2>
+    <div class="sd-know-grid"><div class="sd-know-card"><h3>Ce que calcule l'outil</h3><p>La durée minimale légale du préavis selon votre ancienneté, la date de fin estimée et, si l'employeur vous dispense de l'effectuer, l'indemnité compensatrice avec les congés payés afférents.</p></div><div class="sd-know-card"><h3>Ce qui n'est pas calculé</h3><p>Les durées propres à votre convention collective (saisissez-la si vous la connaissez : la plus favorable est retenue), les salariés protégés, les travailleurs handicapés dont la durée est en principe doublée dans la limite de trois mois, et les licenciements économiques avec congé de reclassement.</p></div><div class="sd-know-card"><h3>Faute grave ou lourde</h3><p>Aucun préavis n'est dû et l'indemnité compensatrice non plus. Cochez la case correspondante pour le vérifier.</p></div></div>
+  </section>
+  <section class="calculator" id="calcul">
+    <h2>Quel est votre préavis de licenciement ?</h2>
+    <noscript><p class="intro-note"><strong>JavaScript requis :</strong> ce simulateur calcule directement dans votre navigateur.</p></noscript>
+    <div class="field"><label for="notif">Date de notification du licenciement</label><input type="date" id="notif"><div class="field-help">Date de première présentation de la lettre recommandée, ou de sa remise en main propre.</div></div>
+    <div class="field"><label for="annees">Ancienneté : années complètes</label><input type="number" id="annees" min="0" max="60" step="1" inputmode="numeric" placeholder="Ex. 3"></div>
+    <div class="field"><label for="mois">Ancienneté : mois en plus</label><input type="number" id="mois" min="0" max="11" step="1" inputmode="numeric" placeholder="Ex. 4"></div>
+    <div class="field"><label><input type="checkbox" id="faute"> <span>Le licenciement est prononcé pour faute grave ou lourde</span></label></div>
+    <div class="field"><label for="conv">Durée prévue par votre convention ou votre contrat (facultatif)</label><input type="number" id="conv" min="0" max="36" step="1" inputmode="numeric" placeholder="Ex. 3"><div class="field-help">Si elle est plus favorable que le minimum légal, c'est elle qui s'applique.</div></div>
+    <div class="field"><label for="convType">Unité de cette durée</label><select id="convType"><option value="mois">Mois</option><option value="semaines">Semaines</option><option value="jours">Jours calendaires</option></select></div>
+    <div class="field"><label for="salaire">Salaire brut mensuel (facultatif)</label><input type="number" id="salaire" min="0" max="100000" step="1" inputmode="decimal" placeholder="Ex. 2 800"></div>
+    <div class="field"><label><input type="checkbox" id="dispense"> <span>L'employeur me dispense d'effectuer le préavis</span></label></div>
+    <button type="button" id="calculate">Calculer mon préavis</button>
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">Date de fin estimée du préavis</div>
+      <div class="result-main" id="dateFin">–</div>
+      <div class="result-row"><span>Durée retenue</span><strong id="duree">–</strong></div>
+      <div class="result-row"><span>Indemnité compensatrice (brute)</span><strong id="indem">–</strong></div>
+      <div class="result-row"><span>Congés payés afférents (10 %)</span><strong id="cp">–</strong></div>
+      <div class="result-row"><span>Total brut si dispense</span><strong id="total">–</strong></div>
+      <div class="warning" id="notes"></div>
+    </div>
+  </section>
+
+  <section class="info-section" id="regles">
+    <h2>Les règles du préavis de licenciement</h2>
+    <p>Sauf faute grave ou lourde, le salarié licencié a droit à un préavis. Le Code du travail (article L1234-1) fixe un minimum : avec moins de 6 mois d'ancienneté, la durée est déterminée par la loi, la convention ou les usages ; entre 6 mois et moins de 2 ans, au moins 1 mois ; à partir de 2 ans, au moins 2 mois. Une convention collective, un contrat ou un usage ne s'applique que s'il est plus favorable au salarié.</p>
+    <p>Si l'employeur vous dispense d'effectuer le préavis, il vous verse une indemnité compensatrice (article L1234-5), équivalente à la rémunération que vous auriez perçue, avec les congés payés afférents. Ce simulateur calcule cette indemnité à partir du salaire brut mensuel saisi, sans tenir compte des primes variables ni des avantages en nature : ajoutez-les à votre salaire pour une estimation plus fidèle. La date de fin est estimée en ajoutant la durée à la date de notification, comme pour le <a href="/simulateur-preavis-demission/">préavis de démission</a>.</p>
+    <p>Sources : <a href="https://code.travail.gouv.fr/" target="_blank" rel="noopener noreferrer">Code du travail numérique</a> · <a href="https://www.legifrance.gouv.fr/" target="_blank" rel="noopener noreferrer">Légifrance</a>.</p>
+  </section>
+
+  <section class="info-section" id="faq-ind"><h2>Questions fréquentes</h2><h3>Quelle est la durée du préavis de licenciement ?</h3><p>Au minimum 1 mois entre 6 mois et 2 ans d&#x27;ancienneté, et 2 mois à partir de 2 ans. Avec moins de 6 mois, elle dépend de la loi, de la convention ou des usages. Une convention collective plus favorable s&#x27;applique à la place.</p><h3>Le préavis est-il dû en cas de faute grave ou lourde ?</h3><p>Non. Le licenciement pour faute grave ou lourde est immédiat : ni préavis ni indemnité compensatrice de préavis ne sont dus.</p><h3>Que reçoit-on si l&#x27;employeur dispense de préavis ?</h3><p>Une indemnité compensatrice équivalente au salaire que vous auriez perçu pendant le préavis, avec les congés payés afférents (10 % de cette indemnité en pratique).</p><h3>Le préavis de licenciement est-il le même que celui d&#x27;une démission ?</h3><p>Non. Pour une démission, il n&#x27;existe pas de durée légale unique : elle dépend de la convention collective, du contrat ou des usages.</p></section>
+
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/simulateur-preavis-demission/">Préavis de démission</a><a href="/simulateur-indemnite-licenciement/">Indemnité de licenciement</a><a href="/simulateur-solde-tout-compte/">Solde de tout compte</a><a href="/simulateur-chomage/">Allocation chômage</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-10-30">30 octobre 2026</time>. Estimation indicative, sans valeur juridique. <a href="/methode-et-sources/">Méthode et sources</a> · <a href="/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 SimuDroit · <a href="https://simudroit.fr/">Tous les simulateurs</a> · <a href="https://simudroit.fr/methode-et-sources/">Méthode et sources</a> · <a href="https://simudroit.fr/contact/">Contact</a> · <a href="https://simudroit.fr/mentions-legales/">Mentions légales</a> · <a href="https://simudroit.fr/confidentialite/">Confidentialité</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+  var $=function(id){return document.getElementById(id)};
+  function setText(id,t){$(id).textContent=t}
+  function parse(v){var p=v.split("-");return new Date(+p[0],+p[1]-1,+p[2])}
+  function eur(v){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR"}).format(v)}
+  function r2(x){return Math.round(x*100)/100}
+  function fmt(d){return d.toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long",year:"numeric"})}
+  function addMonths(d,n){var r=new Date(d.getFullYear(),d.getMonth()+n,1),last=new Date(r.getFullYear(),r.getMonth()+1,0).getDate();r.setDate(Math.min(d.getDate(),last));return r}
+  function addDur(d,n,u){if(u==="mois")return addMonths(d,n);var x=new Date(d.getFullYear(),d.getMonth(),d.getDate()+(u==="semaines"?7*n:n));return x}
+  function moisEq(n,u){return u==="mois"?n:u==="semaines"?n*12/52:n*12/365}
+  function label(n,u){return n+" "+(u==="mois"?"mois":u==="semaines"?(n>1?"semaines":"semaine"):(n>1?"jours":"jour"))}
+  $("calculate").addEventListener("click",function(){
+    var v=$("notif").value,a=parseInt($("annees").value,10),m=parseInt($("mois").value||"0",10),notes=[];
+    if(!v){alert("Indiquez la date de notification du licenciement.");return}
+    if(!Number.isInteger(a)||a<0||!Number.isInteger(m)||m<0||m>11){alert("Renseignez votre ancienneté : des années complètes et de 0 à 11 mois.");return}
+    ["dateFin","duree","indem","cp","total"].forEach(function(id){setText(id,"–")});
+    if($("faute").checked){
+      setText("dateFin","Aucun préavis");setText("duree","Faute grave ou lourde");setText("indem",eur(0));setText("cp",eur(0));setText("total",eur(0));
+      notes.push("En cas de faute grave ou lourde, le licenciement prend effet sans préavis et aucune indemnité compensatrice n'est due. Vérifiez la qualification retenue par l'employeur : elle peut être contestée.");
+    } else {
+      var anc=a*12+m,d0=parse(v),cands=[];
+      if(anc>=24)cands.push({n:2,u:"mois",src:"minimum légal"});
+      else if(anc>=6)cands.push({n:1,u:"mois",src:"minimum légal"});
+      var c=parseInt($("conv").value,10);
+      if(Number.isFinite(c)&&c>0)cands.push({n:c,u:$("convType").value,src:"durée saisie"});
+      if(!cands.length){
+        setText("dateFin","Durée à vérifier");setText("duree","Moins de 6 mois d'ancienneté");
+        notes.push("Avec moins de 6 mois d'ancienneté, la loi ne fixe pas de durée minimale : elle dépend de votre convention collective, de votre contrat ou des usages. Saisissez cette durée pour obtenir une date de fin.");
+      } else {
+        cands.forEach(function(x){x.fin=addDur(d0,x.n,x.u)});
+        var best=cands.reduce(function(p,q){return q.fin>p.fin?q:p});
+        setText("dateFin",fmt(best.fin));setText("duree",label(best.n,best.u)+" ("+best.src+")");
+        if(cands.length>1&&best.src==="minimum légal")notes.push("La durée saisie est inférieure au minimum légal : seul un texte plus favorable au salarié peut déroger au minimum, c'est donc le minimum légal qui est retenu.");
+        var s=parseFloat($("salaire").value);
+        if($("dispense").checked){
+          if(!Number.isFinite(s)||s<=0){notes.push("Indiquez votre salaire brut mensuel pour estimer l'indemnité compensatrice.")}
+          else{var ind=r2(s*moisEq(best.n,best.u)),cp=r2(ind*0.10);setText("indem",eur(ind));setText("cp",eur(cp));setText("total",eur(r2(ind+cp)));
+            notes.push("Estimation brute, hors primes variables et avantages en nature, soumise aux cotisations sociales.")}
+        }
+      }
+    }
+    notes.push("Estimation indicative : la date exacte dépend de la date de présentation de la lettre et de votre convention collective.");
+    $("notes").innerHTML=notes.map(function(n){return "<p style=\"margin:0 0 8px\">"+n+"</p>"}).join("");
+    $("result").classList.add("visible");
+  });
+
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>

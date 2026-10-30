@@ -1,1073 +1,1232 @@
 [
- {
-  "page": "simulateur-smic",
-  "entrees": {
-   "heures": 35
-  },
-  "attendus": {
-   "#mensuel": "1 867,02 €",
-   "#horaire": "12,31 €"
+  {
+    "page": "simulateur-smic",
+    "entrees": {
+      "heures": 35
+    },
+    "attendus": {
+      "#mensuel": "1 867,02 €",
+      "#horaire": "12,31 €"
+    }
+  },
+  {
+    "page": "simulateur-brut-net",
+    "entrees": {
+      "brut": 2500,
+      "statut": "noncadre"
+    },
+    "attendus": {
+      "#net": "1 950,00 €"
+    }
+  },
+  {
+    "page": "simulateur-brut-net",
+    "entrees": {
+      "brut": 3000,
+      "statut": "cadre"
+    },
+    "attendus": {
+      "#net": "2 280,00 €"
+    }
+  },
+  {
+    "page": "simulateur-net-brut",
+    "entrees": {
+      "net": 1950,
+      "statut": "noncadre"
+    },
+    "attendus": {
+      "#brut": "2 500,00 €"
+    }
+  },
+  {
+    "page": "simulateur-salaire-horaire-mensuel",
+    "entrees": {
+      "mode": "horaire",
+      "valeur": 15,
+      "heures": 35
+    },
+    "attendus": {
+      "#mensuel": "2 275,00 €",
+      "#annuel": "27 300,00 €"
+    }
+  },
+  {
+    "page": "simulateur-rupture-conventionnelle",
+    "entrees": {
+      "salaire": 2500,
+      "annees": 3,
+      "mois": 0
+    },
+    "attendus": {
+      "#montant": "1 875,00 €"
+    }
+  },
+  {
+    "page": "simulateur-prime-precarite",
+    "entrees": {
+      "remuneration": 12000,
+      "taux": 10
+    },
+    "attendus": {
+      "#montant": "1 200,00 €"
+    }
+  },
+  {
+    "page": "simulateur-chomage",
+    "entrees": {
+      "salaire": 2000,
+      "age": 40,
+      "duree": 24,
+      "conges": 0,
+      "supralegal": 0
+    },
+    "attendus": {
+      "#allocationJour": "39,74 €"
+    }
+  },
+  {
+    "page": "simulateur-chomage",
+    "entrees": {
+      "salaire": 30000,
+      "age": 40,
+      "duree": 24,
+      "conges": 0,
+      "supralegal": 0
+    },
+    "attendus": {
+      "#allocationJour": "300,21 €",
+      "#dureeEstimee": "18 mois"
+    }
+  },
+  {
+    "page": "simulateur-indemnites-journalieres-maladie",
+    "entrees": {
+      "s1": 2000,
+      "s2": 2000,
+      "s3": 2000,
+      "jours": 15
+    },
+    "attendus": {
+      "#total": "394,56 €"
+    }
+  },
+  {
+    "page": "simulateur-conge-maternite",
+    "entrees": {
+      "s1": 2500,
+      "s2": 2500,
+      "s3": 2500,
+      "charge": "0",
+      "naiss": "1"
+    },
+    "attendus": {
+      "#total": "7 272,16 €",
+      "#jours": "112"
+    }
+  },
+  {
+    "page": "simulateur-conge-paternite",
+    "entrees": {
+      "s1": 2500,
+      "s2": 2500,
+      "s3": 2500,
+      "naiss": "1"
+    },
+    "attendus": {
+      "#total": "1 623,25 €"
+    }
+  },
+  {
+    "page": "simulateur-accident-du-travail",
+    "entrees": {
+      "salaire": 2500,
+      "jours": 45,
+      "periode": "apres"
+    },
+    "attendus": {
+      "#result": "2 498,43 €"
+    }
+  },
+  {
+    "page": "simulateur-indemnite-licenciement",
+    "entrees": {
+      "moy12": 2000,
+      "moy3": 2000,
+      "annees": 0,
+      "mois": 7
+    },
+    "attendus": {
+      "#montant": "0,00 €"
+    }
+  },
+  {
+    "page": "simulateur-indemnite-licenciement",
+    "entrees": {
+      "moy12": 2000,
+      "moy3": 2000,
+      "annees": 0,
+      "mois": 8
+    },
+    "attendus": {
+      "#montant": "333,33 €"
+    }
+  },
+  {
+    "page": "simulateur-indemnite-licenciement",
+    "entrees": {
+      "moy12": 3000,
+      "moy3": 3000,
+      "annees": 12,
+      "mois": 0
+    },
+    "attendus": {
+      "#montant": "9 500,00 €"
+    }
+  },
+  {
+    "page": "simulateur-indemnite-licenciement",
+    "entrees": {
+      "moy12": 2500,
+      "moy3": 3400,
+      "annees": 10,
+      "mois": 6
+    },
+    "attendus": {
+      "#montant": "9 066,67 €"
+    }
+  },
+  {
+    "page": "simulateur-indemnite-depart-retraite",
+    "entrees": {
+      "type": "volontaire",
+      "annees": 22,
+      "mois": 0,
+      "moy12": 3100,
+      "moy3": 3100
+    },
+    "attendus": {
+      "#montant": "4 650,00 €"
+    }
+  },
+  {
+    "page": "simulateur-indemnite-depart-retraite",
+    "entrees": {
+      "type": "mise",
+      "annees": 15,
+      "mois": 0,
+      "moy12": 3000,
+      "moy3": 3000
+    },
+    "attendus": {
+      "#montant": "12 500,00 €"
+    }
+  },
+  {
+    "page": "simulateur-indemnites-journalieres-maladie",
+    "entrees": {
+      "statut": "ae",
+      "activite": "bnc",
+      "ca": 30000,
+      "affil": 24,
+      "jours": 15
+    },
+    "attendus": {
+      "#total": "325,44 €",
+      "#ij": "27,12 € par jour"
+    }
+  },
+  {
+    "page": "simulateur-indemnites-journalieres-maladie",
+    "entrees": {
+      "statut": "ae",
+      "activite": "prestations",
+      "ca": 30000,
+      "affil": 24,
+      "jours": 15
+    },
+    "attendus": {
+      "#total": "246,60 €"
+    }
+  },
+  {
+    "page": "simulateur-indemnites-journalieres-maladie",
+    "entrees": {
+      "statut": "ae",
+      "activite": "bnc",
+      "ca": 200000,
+      "affil": 24,
+      "jours": 15
+    },
+    "attendus": {
+      "#total": "790,08 €",
+      "#ij": "65,84 € par jour"
+    }
+  },
+  {
+    "page": "simulateur-indemnites-journalieres-maladie",
+    "entrees": {
+      "statut": "ae",
+      "activite": "bnc",
+      "ca": 6000,
+      "affil": 24,
+      "jours": 15
+    },
+    "attendus": {
+      "#total": "Aucune indemnité : revenu annuel moyen inférieur à 4 582,00 €"
+    }
+  },
+  {
+    "page": "simulateur-indemnites-journalieres-maladie",
+    "entrees": {
+      "statut": "ae",
+      "activite": "bnc",
+      "ca": 30000,
+      "affil": 6,
+      "jours": 15
+    },
+    "attendus": {
+      "#total": "Droits non ouverts : moins de 12 mois d'affiliation (vérifiez un éventuel maintien de droits)"
+    }
+  },
+  {
+    "page": "simulateur-brut-net",
+    "entrees": {
+      "statut": "ae",
+      "activite": "bnc",
+      "brut": 3000
+    },
+    "attendus": {
+      "#net": "2 232,00 €",
+      "#resultCotisations": "768,00 €"
+    }
+  },
+  {
+    "page": "simulateur-brut-net",
+    "entrees": {
+      "statut": "ae",
+      "activite": "vente",
+      "brut": 3000
+    },
+    "attendus": {
+      "#net": "2 631,00 €"
+    }
+  },
+  {
+    "page": "simulateur-brut-net",
+    "entrees": {
+      "statut": "ae",
+      "activite": "prestations",
+      "brut": 3000,
+      "vl": "on"
+    },
+    "attendus": {
+      "#net": "2 313,00 €"
+    }
+  },
+  {
+    "page": "simulateur-net-brut",
+    "entrees": {
+      "statut": "ae",
+      "activite": "bnc",
+      "net": 2000
+    },
+    "attendus": {
+      "#brut": "2 688,17 €"
+    }
+  },
+  {
+    "page": "simulateur-conge-maternite",
+    "entrees": {
+      "statut": "ae",
+      "activite": "bnc",
+      "ca": 30000,
+      "affil": 24,
+      "charge": "0",
+      "naiss": "1"
+    },
+    "attendus": {
+      "#total": "11 379,08 €",
+      "#jours": "112"
+    }
+  },
+  {
+    "page": "simulateur-conge-maternite",
+    "entrees": {
+      "statut": "ae",
+      "activite": "bnc",
+      "ca": 5000,
+      "affil": 24,
+      "charge": "0",
+      "naiss": "1"
+    },
+    "attendus": {
+      "#total": "Non calculé : revenu annuel moyen inférieur à 4 582,00 €, montant réduit à confirmer auprès de votre caisse"
+    }
+  },
+  {
+    "page": "simulateur-conge-maternite",
+    "entrees": {
+      "statut": "ae",
+      "activite": "bnc",
+      "ca": 30000,
+      "affil": 3,
+      "charge": "0",
+      "naiss": "1"
+    },
+    "attendus": {
+      "#total": "Droits non ouverts : moins de 6 mois d'affiliation"
+    }
+  },
+  {
+    "page": "simulateur-conge-paternite",
+    "entrees": {
+      "statut": "ae",
+      "activite": "bnc",
+      "ca": 30000,
+      "affil": 24,
+      "naiss": "1"
+    },
+    "attendus": {
+      "#total": "1 646,00 €"
+    }
+  },
+  {
+    "page": "simulateur-conge-paternite",
+    "entrees": {
+      "statut": "ae",
+      "activite": "bnc",
+      "ca": 5000,
+      "affil": 24,
+      "naiss": "2"
+    },
+    "attendus": {
+      "#total": "210,69 €"
+    }
+  },
+  {
+    "page": "simulateur-conge-supplementaire-naissance",
+    "entrees": {
+      "s1": 2500,
+      "s2": 2500,
+      "s3": 2500,
+      "duree": "2"
+    },
+    "attendus": {
+      "#total": "2 532,30 €",
+      "#ij": "45,45 € par jour"
+    }
+  },
+  {
+    "page": "simulateur-conge-supplementaire-naissance",
+    "entrees": {
+      "s1": 2500,
+      "s2": 2500,
+      "s3": 2500,
+      "duree": "2",
+      "debut": "2026-11-01"
+    },
+    "attendus": {
+      "#total": "2 571,26 €"
+    }
+  },
+  {
+    "page": "simulateur-conge-supplementaire-naissance",
+    "entrees": {
+      "s1": 2500,
+      "s2": 2500,
+      "s3": 2500,
+      "duree": "1"
+    },
+    "attendus": {
+      "#total": "1 363,50 €"
+    }
+  },
+  {
+    "page": "simulateur-conge-supplementaire-naissance",
+    "entrees": {
+      "s1": 6000,
+      "s2": 6000,
+      "s3": 6000,
+      "duree": "2"
+    },
+    "attendus": {
+      "#ij": "72,81 € par jour",
+      "#ij2": "62,41 € par jour",
+      "#total": "4 056,60 €"
+    }
+  },
+  {
+    "page": "simulateur-tva-ht-ttc",
+    "entrees": {
+      "sens": "ht",
+      "taux": "20",
+      "montant": 100
+    },
+    "attendus": {
+      "#result": "120,00 €"
+    }
+  },
+  {
+    "page": "simulateur-tva-ht-ttc",
+    "entrees": {
+      "sens": "ttc",
+      "taux": "5.5",
+      "montant": 105.5
+    },
+    "attendus": {
+      "#result": "100,00 €"
+    }
+  },
+  {
+    "page": "simulateur-heures-supplementaires",
+    "entrees": {
+      "tauxHoraire": 12,
+      "heures25": 8,
+      "heures50": 4
+    },
+    "attendus": {
+      "#resultat": "192,00 €"
+    }
+  },
+  {
+    "page": "simulateur-brut-net",
+    "entrees": {
+      "brut": 2500,
+      "statut": "noncadre",
+      "pas": 10
+    },
+    "attendus": {
+      "#net": "1 950,00 €",
+      "#resultPas": "195,00 €",
+      "#resultApres": "1 755,00 €"
+    }
+  },
+  {
+    "page": "simulateur-net-brut",
+    "entrees": {
+      "net": 1755,
+      "statut": "noncadre",
+      "pas": 10
+    },
+    "attendus": {
+      "#resultAvant": "1 950,00 €",
+      "#brut": "2 500,00 €"
+    }
+  },
+  {
+    "page": "simulateur-solde-tout-compte",
+    "entrees": {
+      "salaire": 2000,
+      "jours": 10
+    },
+    "attendus": {
+      "#total": "666,67 €"
+    }
+  },
+  {
+    "page": "simulateur-solde-tout-compte",
+    "entrees": {
+      "salaire": 3000,
+      "jours": 15,
+      "conges": 500,
+      "autres": 100
+    },
+    "attendus": {
+      "#total": "2 100,00 €"
+    }
+  },
+  {
+    "page": "simulateur-micro-entrepreneur",
+    "entrees": {
+      "montant": 3000,
+      "act": "bnc"
+    },
+    "attendus": {
+      "#net": "2 232,00 €"
+    }
+  },
+  {
+    "page": "simulateur-micro-entrepreneur",
+    "entrees": {
+      "montant": 3000,
+      "act": "vente"
+    },
+    "attendus": {
+      "#net": "2 631,00 €"
+    }
+  },
+  {
+    "page": "simulateur-periode-essai",
+    "entrees": {
+      "type": "cdi",
+      "cat": "cadre",
+      "debut": "2026-01-15"
+    },
+    "attendus": {
+      "#dateFin": "14 mai 2026"
+    }
+  },
+  {
+    "page": "simulateur-periode-essai",
+    "entrees": {
+      "type": "cdi",
+      "cat": "cadre",
+      "debut": "2026-01-15",
+      "renouv": "on"
+    },
+    "attendus": {
+      "#dateRenouv": "14 septembre 2026"
+    }
+  },
+  {
+    "page": "simulateur-periode-essai",
+    "entrees": {
+      "type": "cdd",
+      "cddDuree": "court",
+      "sem": 8,
+      "debut": "2026-03-02"
+    },
+    "attendus": {
+      "#dateFin": "9 mars 2026"
+    }
+  },
+  {
+    "page": "simulateur-anciennete",
+    "entrees": {
+      "entree": "2019-03-15",
+      "fin": "2026-12-14"
+    },
+    "attendus": {
+      "#duree": "7 ans, 9 mois",
+      "#annees": "7,75"
+    }
+  },
+  {
+    "page": "simulateur-conges-acquis",
+    "entrees": {
+      "dcalc": "2026-10-31",
+      "pris": 3
+    },
+    "attendus": {
+      "#acquis": "13 jours",
+      "#solde": "10 jours"
+    }
+  },
+  {
+    "page": "simulateur-pension-invalidite",
+    "entrees": {
+      "statut": "sal",
+      "cat": "1",
+      "sam": 30000
+    },
+    "attendus": {
+      "#pension": "750,00 €",
+      "#taux": "30 %"
+    }
+  },
+  {
+    "page": "simulateur-pension-invalidite",
+    "entrees": {
+      "statut": "sal",
+      "cat": "2",
+      "sam": 60000
+    },
+    "attendus": {
+      "#pension": "2 002,50 €",
+      "#base": "48 060,00 €"
+    }
+  },
+  {
+    "page": "simulateur-pension-invalidite",
+    "entrees": {
+      "statut": "sal",
+      "cat": "3",
+      "sam": 30000
+    },
+    "attendus": {
+      "#pension": "2 548,44 €"
+    }
+  },
+  {
+    "page": "simulateur-pension-invalidite",
+    "entrees": {
+      "statut": "sal",
+      "cat": "1",
+      "sam": 10000
+    },
+    "attendus": {
+      "#pension": "338,31 €"
+    }
+  },
+  {
+    "page": "simulateur-plafonds-micro-tva",
+    "entrees": {
+      "caServ": 30000
+    },
+    "attendus": {
+      "#microVerdict": "Sous le plafond",
+      "#microPlafond": "83 600,00 €",
+      "#microMarge": "53 600,00 €",
+      "#tvaVerdict": "Franchise applicable",
+      "#tvaMarge": "7 500,00 €"
+    }
+  },
+  {
+    "page": "simulateur-plafonds-micro-tva",
+    "entrees": {
+      "caServ": 40000
+    },
+    "attendus": {
+      "#tvaVerdict": "Entre le seuil et le seuil majoré",
+      "#tvaMarge": "dépassement de 2 500,00 €"
+    }
+  },
+  {
+    "page": "simulateur-plafonds-micro-tva",
+    "entrees": {
+      "caVente": 100000
+    },
+    "attendus": {
+      "#microMarge": "103 100,00 €",
+      "#tvaVerdict": "Seuil majoré dépassé : TVA due",
+      "#tvaMarge": "dépassement de 15 000,00 €"
+    }
+  },
+  {
+    "page": "simulateur-maintien-salaire-maladie",
+    "entrees": {
+      "brut": 3000,
+      "anc": 3,
+      "jours": 40,
+      "prior": 0
+    },
+    "attendus": {
+      "#emp": "1 481,97 €",
+      "#n90": "30",
+      "#n66": "3",
+      "#secu": "1 589,89 €",
+      "#tot": "3 071,86 €",
+      "#sal": "4 000,00 €"
+    }
+  },
+  {
+    "page": "simulateur-maintien-salaire-maladie",
+    "entrees": {
+      "brut": 3000,
+      "anc": 0,
+      "jours": 20,
+      "prior": 0
+    },
+    "attendus": {
+      "#emp": "0,00 €"
+    }
+  },
+  {
+    "page": "simulateur-preavis-demission",
+    "entrees": {
+      "dateDemission": "2026-03-02",
+      "dureeType": "mois",
+      "duree": 1
+    },
+    "attendus": {
+      "#dateFin": "2 avril 2026"
+    }
+  },
+  {
+    "page": "simulateur-preavis-demission",
+    "entrees": {
+      "dateDemission": "2026-01-31",
+      "dureeType": "mois",
+      "duree": 1
+    },
+    "attendus": {
+      "#dateFin": "28 février 2026"
+    }
+  },
+  {
+    "page": "simulateur-preavis-demission",
+    "entrees": {
+      "dateDemission": "2026-03-02",
+      "dureeType": "jours",
+      "duree": 30
+    },
+    "attendus": {
+      "#dateFin": "1 avril 2026"
+    }
+  },
+  {
+    "page": "simulateur-preavis-demission",
+    "entrees": {
+      "dateDemission": "2026-03-02",
+      "dureeType": "semaines",
+      "duree": 2
+    },
+    "attendus": {
+      "#dateFin": "16 mars 2026"
+    }
+  },
+  {
+    "page": "simulateur-indemnite-licenciement",
+    "entrees": {
+      "moy12": 1801.8,
+      "moy3": 1801.8,
+      "annees": 0,
+      "mois": 0
+    },
+    "attendus": {
+      "#montant": "0,00 €"
+    }
+  },
+  {
+    "page": "simulateur-indemnite-licenciement",
+    "entrees": {
+      "moy12": 2345.67,
+      "moy3": 2000,
+      "annees": 0,
+      "mois": 8
+    },
+    "attendus": {
+      "#montant": "390,95 €"
+    }
+  },
+  {
+    "page": "simulateur-indemnite-licenciement",
+    "entrees": {
+      "moy12": 2000,
+      "moy3": 2345.67,
+      "annees": 0,
+      "mois": 11
+    },
+    "attendus": {
+      "#montant": "537,55 €"
+    }
+  },
+  {
+    "page": "simulateur-indemnite-licenciement",
+    "entrees": {
+      "moy12": 4999.99,
+      "moy3": 5200.01,
+      "annees": 1,
+      "mois": 0
+    },
+    "attendus": {
+      "#montant": "1 300,00 €"
+    }
+  },
+  {
+    "page": "simulateur-indemnite-licenciement",
+    "entrees": {
+      "moy12": 8750,
+      "moy3": 8750,
+      "annees": 1,
+      "mois": 7
+    },
+    "attendus": {
+      "#montant": "3 463,54 €"
+    }
+  },
+  {
+    "page": "simulateur-indemnite-licenciement",
+    "entrees": {
+      "moy12": 1801.8,
+      "moy3": 1801.8,
+      "annees": 4,
+      "mois": 5
+    },
+    "attendus": {
+      "#montant": "1 989,49 €"
+    }
+  },
+  {
+    "page": "simulateur-indemnite-licenciement",
+    "entrees": {
+      "moy12": 2345.67,
+      "moy3": 2000,
+      "annees": 7,
+      "mois": 11
+    },
+    "attendus": {
+      "#montant": "4 642,47 €"
+    }
+  },
+  {
+    "page": "simulateur-indemnite-licenciement",
+    "entrees": {
+      "moy12": 2000,
+      "moy3": 2345.67,
+      "annees": 9,
+      "mois": 11
+    },
+    "attendus": {
+      "#montant": "5 815,31 €"
+    }
+  },
+  {
+    "page": "simulateur-indemnite-licenciement",
+    "entrees": {
+      "moy12": 4999.99,
+      "moy3": 5200.01,
+      "annees": 10,
+      "mois": 0
+    },
+    "attendus": {
+      "#montant": "13 000,03 €"
+    }
+  },
+  {
+    "page": "simulateur-indemnite-licenciement",
+    "entrees": {
+      "moy12": 8750,
+      "moy3": 8750,
+      "annees": 10,
+      "mois": 1
+    },
+    "attendus": {
+      "#montant": "22 118,06 €"
+    }
+  },
+  {
+    "page": "simulateur-indemnite-licenciement",
+    "entrees": {
+      "moy12": 1801.8,
+      "moy3": 1801.8,
+      "annees": 10,
+      "mois": 11
+    },
+    "attendus": {
+      "#montant": "5 055,05 €"
+    }
+  },
+  {
+    "page": "simulateur-indemnite-licenciement",
+    "entrees": {
+      "moy12": 2345.67,
+      "moy3": 2000,
+      "annees": 11,
+      "mois": 0
+    },
+    "attendus": {
+      "#montant": "6 646,07 €"
+    }
+  },
+  {
+    "page": "simulateur-indemnite-licenciement",
+    "entrees": {
+      "moy12": 2000,
+      "moy3": 2345.67,
+      "annees": 12,
+      "mois": 6
+    },
+    "attendus": {
+      "#montant": "7 818,90 €"
+    }
+  },
+  {
+    "page": "simulateur-indemnite-licenciement",
+    "entrees": {
+      "moy12": 4999.99,
+      "moy3": 5200.01,
+      "annees": 15,
+      "mois": 3
+    },
+    "attendus": {
+      "#montant": "22 100,04 €"
+    }
+  },
+  {
+    "page": "simulateur-indemnite-licenciement",
+    "entrees": {
+      "moy12": 8750,
+      "moy3": 8750,
+      "annees": 20,
+      "mois": 0
+    },
+    "attendus": {
+      "#montant": "51 041,67 €"
+    }
+  },
+  {
+    "page": "simulateur-indemnite-licenciement",
+    "entrees": {
+      "moy12": 1801.8,
+      "moy3": 1801.8,
+      "annees": 25,
+      "mois": 9
+    },
+    "attendus": {
+      "#montant": "13 963,95 €"
+    }
+  },
+  {
+    "page": "simulateur-indemnite-licenciement",
+    "entrees": {
+      "moy12": 2345.67,
+      "moy3": 2000,
+      "annees": 30,
+      "mois": 0
+    },
+    "attendus": {
+      "#montant": "21 501,98 €"
+    }
+  },
+  {
+    "page": "simulateur-indemnite-licenciement",
+    "entrees": {
+      "moy12": 2000,
+      "moy3": 2345.67,
+      "annees": 41,
+      "mois": 11
+    },
+    "attendus": {
+      "#montant": "30 819,50 €"
+    }
+  },
+  {
+    "page": "simulateur-rupture-conventionnelle",
+    "entrees": {
+      "salaire": 1801.8,
+      "annees": 0,
+      "mois": 7
+    },
+    "attendus": {
+      "#montant": "Non applicable"
+    }
+  },
+  {
+    "page": "simulateur-rupture-conventionnelle",
+    "entrees": {
+      "salaire": 2345.67,
+      "annees": 0,
+      "mois": 8
+    },
+    "attendus": {
+      "#montant": "390,95 €"
+    }
+  },
+  {
+    "page": "simulateur-rupture-conventionnelle",
+    "entrees": {
+      "salaire": 3100,
+      "annees": 2,
+      "mois": 5
+    },
+    "attendus": {
+      "#montant": "1 872,92 €"
+    }
+  },
+  {
+    "page": "simulateur-rupture-conventionnelle",
+    "entrees": {
+      "salaire": 5000.5,
+      "annees": 9,
+      "mois": 11
+    },
+    "attendus": {
+      "#montant": "12 397,07 €"
+    }
+  },
+  {
+    "page": "simulateur-rupture-conventionnelle",
+    "entrees": {
+      "salaire": 1801.8,
+      "annees": 10,
+      "mois": 0
+    },
+    "attendus": {
+      "#montant": "4 504,50 €"
+    }
+  },
+  {
+    "page": "simulateur-rupture-conventionnelle",
+    "entrees": {
+      "salaire": 2345.67,
+      "annees": 10,
+      "mois": 7
+    },
+    "attendus": {
+      "#montant": "6 320,28 €"
+    }
+  },
+  {
+    "page": "simulateur-rupture-conventionnelle",
+    "entrees": {
+      "salaire": 3100,
+      "annees": 18,
+      "mois": 2
+    },
+    "attendus": {
+      "#montant": "16 188,89 €"
+    }
+  },
+  {
+    "page": "simulateur-rupture-conventionnelle",
+    "entrees": {
+      "salaire": 5000.5,
+      "annees": 33,
+      "mois": 0
+    },
+    "attendus": {
+      "#montant": "50 838,42 €"
+    }
+  },
+  {
+    "page": "simulateur-preavis-licenciement",
+    "entrees": {
+      "notif": "2026-03-02",
+      "annees": 3,
+      "mois": 0
+    },
+    "attendus": {
+      "#dateFin": "samedi 2 mai 2026",
+      "#duree": "2 mois (minimum légal)"
+    }
+  },
+  {
+    "page": "simulateur-preavis-licenciement",
+    "entrees": {
+      "notif": "2026-01-31",
+      "annees": 0,
+      "mois": 8
+    },
+    "attendus": {
+      "#dateFin": "samedi 28 février 2026",
+      "#duree": "1 mois (minimum légal)"
+    }
+  },
+  {
+    "page": "simulateur-preavis-licenciement",
+    "entrees": {
+      "notif": "2026-03-02",
+      "annees": 5,
+      "mois": 0,
+      "faute": true,
+      "salaire": 3000,
+      "dispense": true
+    },
+    "attendus": {
+      "#dateFin": "Aucun préavis",
+      "#indem": "0,00 €"
+    }
+  },
+  {
+    "page": "simulateur-preavis-licenciement",
+    "entrees": {
+      "notif": "2026-03-02",
+      "annees": 3,
+      "mois": 0,
+      "conv": 3,
+      "convType": "mois",
+      "salaire": 2800,
+      "dispense": true
+    },
+    "attendus": {
+      "#dateFin": "mardi 2 juin 2026",
+      "#duree": "3 mois (durée saisie)",
+      "#indem": "8 400,00 €",
+      "#cp": "840,00 €",
+      "#total": "9 240,00 €"
+    }
+  },
+  {
+    "page": "simulateur-preavis-licenciement",
+    "entrees": {
+      "notif": "2026-03-02",
+      "annees": 1,
+      "mois": 0,
+      "conv": 6,
+      "convType": "semaines",
+      "salaire": 2600,
+      "dispense": true
+    },
+    "attendus": {
+      "#dateFin": "lundi 13 avril 2026",
+      "#duree": "6 semaines (durée saisie)",
+      "#indem": "3 600,00 €",
+      "#cp": "360,00 €",
+      "#total": "3 960,00 €"
+    }
+  },
+  {
+    "page": "simulateur-preavis-licenciement",
+    "entrees": {
+      "notif": "2026-03-02",
+      "annees": 0,
+      "mois": 3
+    },
+    "attendus": {
+      "#dateFin": "Durée à vérifier"
+    }
+  },
+  {
+    "page": "simulateur-preavis-licenciement",
+    "entrees": {
+      "notif": "2026-03-02",
+      "annees": 3,
+      "mois": 0,
+      "conv": 15,
+      "convType": "jours"
+    },
+    "attendus": {
+      "#duree": "2 mois (minimum légal)",
+      "#dateFin": "samedi 2 mai 2026"
+    }
+  },
+  {
+    "page": "simulateur-jours-ouvrables",
+    "entrees": {
+      "debut": "2026-05-01",
+      "fin": "2026-05-31"
+    },
+    "attendus": {
+      "#ouvrables": "22",
+      "#cal": "31",
+      "#ouvres": "17",
+      "#dim": "5",
+      "#nferies": "4"
+    }
+  },
+  {
+    "page": "simulateur-jours-ouvrables",
+    "entrees": {
+      "debut": "2026-12-14",
+      "fin": "2026-12-27",
+      "alsace": true
+    },
+    "attendus": {
+      "#ouvrables": "10",
+      "#cal": "14",
+      "#ouvres": "9",
+      "#dim": "2",
+      "#nferies": "2"
+    }
+  },
+  {
+    "page": "simulateur-jours-ouvrables",
+    "entrees": {
+      "debut": "2026-04-01",
+      "fin": "2027-04-30"
+    },
+    "attendus": {
+      "#ouvrables": "328",
+      "#cal": "395",
+      "#ouvres": "273",
+      "#dim": "56",
+      "#nferies": "12"
+    }
+  },
+  {
+    "page": "simulateur-jours-ouvrables",
+    "entrees": {
+      "debut": "2028-12-01",
+      "fin": "2029-01-05"
+    },
+    "attendus": {
+      "#ouvrables": "29",
+      "#cal": "36",
+      "#ouvres": "24",
+      "#dim": "5",
+      "#nferies": "2"
+    }
   }
- },
- {
-  "page": "simulateur-brut-net",
-  "entrees": {
-   "brut": 2500,
-   "statut": "noncadre"
-  },
-  "attendus": {
-   "#net": "1 950,00 €"
-  }
- },
- {
-  "page": "simulateur-brut-net",
-  "entrees": {
-   "brut": 3000,
-   "statut": "cadre"
-  },
-  "attendus": {
-   "#net": "2 280,00 €"
-  }
- },
- {
-  "page": "simulateur-net-brut",
-  "entrees": {
-   "net": 1950,
-   "statut": "noncadre"
-  },
-  "attendus": {
-   "#brut": "2 500,00 €"
-  }
- },
- {
-  "page": "simulateur-salaire-horaire-mensuel",
-  "entrees": {
-   "mode": "horaire",
-   "valeur": 15,
-   "heures": 35
-  },
-  "attendus": {
-   "#mensuel": "2 275,00 €",
-   "#annuel": "27 300,00 €"
-  }
- },
- {
-  "page": "simulateur-rupture-conventionnelle",
-  "entrees": {
-   "salaire": 2500,
-   "annees": 3,
-   "mois": 0
-  },
-  "attendus": {
-   "#montant": "1 875,00 €"
-  }
- },
- {
-  "page": "simulateur-prime-precarite",
-  "entrees": {
-   "remuneration": 12000,
-   "taux": 10
-  },
-  "attendus": {
-   "#montant": "1 200,00 €"
-  }
- },
- {
-  "page": "simulateur-chomage",
-  "entrees": {
-   "salaire": 2000,
-   "age": 40,
-   "duree": 24,
-   "conges": 0,
-   "supralegal": 0
-  },
-  "attendus": {
-   "#allocationJour": "39,74 €"
-  }
- },
- {
-  "page": "simulateur-chomage",
-  "entrees": {
-   "salaire": 30000,
-   "age": 40,
-   "duree": 24,
-   "conges": 0,
-   "supralegal": 0
-  },
-  "attendus": {
-   "#allocationJour": "300,21 €",
-   "#dureeEstimee": "18 mois"
-  }
- },
- {
-  "page": "simulateur-indemnites-journalieres-maladie",
-  "entrees": {
-   "s1": 2000,
-   "s2": 2000,
-   "s3": 2000,
-   "jours": 15
-  },
-  "attendus": {
-   "#total": "394,56 €"
-  }
- },
- {
-  "page": "simulateur-conge-maternite",
-  "entrees": {
-   "s1": 2500,
-   "s2": 2500,
-   "s3": 2500,
-   "charge": "0",
-   "naiss": "1"
-  },
-  "attendus": {
-   "#total": "7 272,16 €",
-   "#jours": "112"
-  }
- },
- {
-  "page": "simulateur-conge-paternite",
-  "entrees": {
-   "s1": 2500,
-   "s2": 2500,
-   "s3": 2500,
-   "naiss": "1"
-  },
-  "attendus": {
-   "#total": "1 623,25 €"
-  }
- },
- {
-  "page": "simulateur-accident-du-travail",
-  "entrees": {
-   "salaire": 2500,
-   "jours": 45,
-   "periode": "apres"
-  },
-  "attendus": {
-   "#result": "2 498,43 €"
-  }
- },
- {
-  "page": "simulateur-indemnite-licenciement",
-  "entrees": {
-   "moy12": 2000,
-   "moy3": 2000,
-   "annees": 0,
-   "mois": 7
-  },
-  "attendus": {
-   "#montant": "0,00 €"
-  }
- },
- {
-  "page": "simulateur-indemnite-licenciement",
-  "entrees": {
-   "moy12": 2000,
-   "moy3": 2000,
-   "annees": 0,
-   "mois": 8
-  },
-  "attendus": {
-   "#montant": "333,33 €"
-  }
- },
- {
-  "page": "simulateur-indemnite-licenciement",
-  "entrees": {
-   "moy12": 3000,
-   "moy3": 3000,
-   "annees": 12,
-   "mois": 0
-  },
-  "attendus": {
-   "#montant": "9 500,00 €"
-  }
- },
- {
-  "page": "simulateur-indemnite-licenciement",
-  "entrees": {
-   "moy12": 2500,
-   "moy3": 3400,
-   "annees": 10,
-   "mois": 6
-  },
-  "attendus": {
-   "#montant": "9 066,67 €"
-  }
- },
- {
-  "page": "simulateur-indemnite-depart-retraite",
-  "entrees": {
-   "type": "volontaire",
-   "annees": 22,
-   "mois": 0,
-   "moy12": 3100,
-   "moy3": 3100
-  },
-  "attendus": {
-   "#montant": "4 650,00 €"
-  }
- },
- {
-  "page": "simulateur-indemnite-depart-retraite",
-  "entrees": {
-   "type": "mise",
-   "annees": 15,
-   "mois": 0,
-   "moy12": 3000,
-   "moy3": 3000
-  },
-  "attendus": {
-   "#montant": "12 500,00 €"
-  }
- },
- {
-  "page": "simulateur-indemnites-journalieres-maladie",
-  "entrees": {
-   "statut": "ae",
-   "activite": "bnc",
-   "ca": 30000,
-   "affil": 24,
-   "jours": 15
-  },
-  "attendus": {
-   "#total": "325,44 €",
-   "#ij": "27,12 € par jour"
-  }
- },
- {
-  "page": "simulateur-indemnites-journalieres-maladie",
-  "entrees": {
-   "statut": "ae",
-   "activite": "prestations",
-   "ca": 30000,
-   "affil": 24,
-   "jours": 15
-  },
-  "attendus": {
-   "#total": "246,60 €"
-  }
- },
- {
-  "page": "simulateur-indemnites-journalieres-maladie",
-  "entrees": {
-   "statut": "ae",
-   "activite": "bnc",
-   "ca": 200000,
-   "affil": 24,
-   "jours": 15
-  },
-  "attendus": {
-   "#total": "790,08 €",
-   "#ij": "65,84 € par jour"
-  }
- },
- {
-  "page": "simulateur-indemnites-journalieres-maladie",
-  "entrees": {
-   "statut": "ae",
-   "activite": "bnc",
-   "ca": 6000,
-   "affil": 24,
-   "jours": 15
-  },
-  "attendus": {
-   "#total": "Aucune indemnité : revenu annuel moyen inférieur à 4 582,00 €"
-  }
- },
- {
-  "page": "simulateur-indemnites-journalieres-maladie",
-  "entrees": {
-   "statut": "ae",
-   "activite": "bnc",
-   "ca": 30000,
-   "affil": 6,
-   "jours": 15
-  },
-  "attendus": {
-   "#total": "Droits non ouverts : moins de 12 mois d'affiliation (vérifiez un éventuel maintien de droits)"
-  }
- },
- {
-  "page": "simulateur-brut-net",
-  "entrees": {
-   "statut": "ae",
-   "activite": "bnc",
-   "brut": 3000
-  },
-  "attendus": {
-   "#net": "2 232,00 €",
-   "#resultCotisations": "768,00 €"
-  }
- },
- {
-  "page": "simulateur-brut-net",
-  "entrees": {
-   "statut": "ae",
-   "activite": "vente",
-   "brut": 3000
-  },
-  "attendus": {
-   "#net": "2 631,00 €"
-  }
- },
- {
-  "page": "simulateur-brut-net",
-  "entrees": {
-   "statut": "ae",
-   "activite": "prestations",
-   "brut": 3000,
-   "vl": "on"
-  },
-  "attendus": {
-   "#net": "2 313,00 €"
-  }
- },
- {
-  "page": "simulateur-net-brut",
-  "entrees": {
-   "statut": "ae",
-   "activite": "bnc",
-   "net": 2000
-  },
-  "attendus": {
-   "#brut": "2 688,17 €"
-  }
- },
- {
-  "page": "simulateur-conge-maternite",
-  "entrees": {
-   "statut": "ae",
-   "activite": "bnc",
-   "ca": 30000,
-   "affil": 24,
-   "charge": "0",
-   "naiss": "1"
-  },
-  "attendus": {
-   "#total": "11 379,08 €",
-   "#jours": "112"
-  }
- },
- {
-  "page": "simulateur-conge-maternite",
-  "entrees": {
-   "statut": "ae",
-   "activite": "bnc",
-   "ca": 5000,
-   "affil": 24,
-   "charge": "0",
-   "naiss": "1"
-  },
-  "attendus": {
-   "#total": "Non calculé : revenu annuel moyen inférieur à 4 582,00 €, montant réduit à confirmer auprès de votre caisse"
-  }
- },
- {
-  "page": "simulateur-conge-maternite",
-  "entrees": {
-   "statut": "ae",
-   "activite": "bnc",
-   "ca": 30000,
-   "affil": 3,
-   "charge": "0",
-   "naiss": "1"
-  },
-  "attendus": {
-   "#total": "Droits non ouverts : moins de 6 mois d'affiliation"
-  }
- },
- {
-  "page": "simulateur-conge-paternite",
-  "entrees": {
-   "statut": "ae",
-   "activite": "bnc",
-   "ca": 30000,
-   "affil": 24,
-   "naiss": "1"
-  },
-  "attendus": {
-   "#total": "1 646,00 €"
-  }
- },
- {
-  "page": "simulateur-conge-paternite",
-  "entrees": {
-   "statut": "ae",
-   "activite": "bnc",
-   "ca": 5000,
-   "affil": 24,
-   "naiss": "2"
-  },
-  "attendus": {
-   "#total": "210,69 €"
-  }
- },
- {
-  "page": "simulateur-conge-supplementaire-naissance",
-  "entrees": {
-   "s1": 2500,
-   "s2": 2500,
-   "s3": 2500,
-   "duree": "2"
-  },
-  "attendus": {
-   "#total": "2 532,30 €",
-   "#ij": "45,45 € par jour"
-  }
- },
- {
-  "page": "simulateur-conge-supplementaire-naissance",
-  "entrees": {
-   "s1": 2500,
-   "s2": 2500,
-   "s3": 2500,
-   "duree": "2",
-   "debut": "2026-11-01"
-  },
-  "attendus": {
-   "#total": "2 571,26 €"
-  }
- },
- {
-  "page": "simulateur-conge-supplementaire-naissance",
-  "entrees": {
-   "s1": 2500,
-   "s2": 2500,
-   "s3": 2500,
-   "duree": "1"
-  },
-  "attendus": {
-   "#total": "1 363,50 €"
-  }
- },
- {
-  "page": "simulateur-conge-supplementaire-naissance",
-  "entrees": {
-   "s1": 6000,
-   "s2": 6000,
-   "s3": 6000,
-   "duree": "2"
-  },
-  "attendus": {
-   "#ij": "72,81 € par jour",
-   "#ij2": "62,41 € par jour",
-   "#total": "4 056,60 €"
-  }
- },
- {
-  "page": "simulateur-tva-ht-ttc",
-  "entrees": {
-   "sens": "ht",
-   "taux": "20",
-   "montant": 100
-  },
-  "attendus": {
-   "#result": "120,00 €"
-  }
- },
- {
-  "page": "simulateur-tva-ht-ttc",
-  "entrees": {
-   "sens": "ttc",
-   "taux": "5.5",
-   "montant": 105.5
-  },
-  "attendus": {
-   "#result": "100,00 €"
-  }
- },
- {
-  "page": "simulateur-heures-supplementaires",
-  "entrees": {
-   "tauxHoraire": 12,
-   "heures25": 8,
-   "heures50": 4
-  },
-  "attendus": {
-   "#resultat": "192,00 €"
-  }
- },
- {
-  "page": "simulateur-brut-net",
-  "entrees": {
-   "brut": 2500,
-   "statut": "noncadre",
-   "pas": 10
-  },
-  "attendus": {
-   "#net": "1 950,00 €",
-   "#resultPas": "195,00 €",
-   "#resultApres": "1 755,00 €"
-  }
- },
- {
-  "page": "simulateur-net-brut",
-  "entrees": {
-   "net": 1755,
-   "statut": "noncadre",
-   "pas": 10
-  },
-  "attendus": {
-   "#resultAvant": "1 950,00 €",
-   "#brut": "2 500,00 €"
-  }
- },
- {
-  "page": "simulateur-solde-tout-compte",
-  "entrees": {
-   "salaire": 2000,
-   "jours": 10
-  },
-  "attendus": {
-   "#total": "666,67 €"
-  }
- },
- {
-  "page": "simulateur-solde-tout-compte",
-  "entrees": {
-   "salaire": 3000,
-   "jours": 15,
-   "conges": 500,
-   "autres": 100
-  },
-  "attendus": {
-   "#total": "2 100,00 €"
-  }
- },
- {
-  "page": "simulateur-micro-entrepreneur",
-  "entrees": {
-   "montant": 3000,
-   "act": "bnc"
-  },
-  "attendus": {
-   "#net": "2 232,00 €"
-  }
- },
- {
-  "page": "simulateur-micro-entrepreneur",
-  "entrees": {
-   "montant": 3000,
-   "act": "vente"
-  },
-  "attendus": {
-   "#net": "2 631,00 €"
-  }
- },
- {
-  "page": "simulateur-periode-essai",
-  "entrees": {
-   "type": "cdi",
-   "cat": "cadre",
-   "debut": "2026-01-15"
-  },
-  "attendus": {
-   "#dateFin": "14 mai 2026"
-  }
- },
- {
-  "page": "simulateur-periode-essai",
-  "entrees": {
-   "type": "cdi",
-   "cat": "cadre",
-   "debut": "2026-01-15",
-   "renouv": "on"
-  },
-  "attendus": {
-   "#dateRenouv": "14 septembre 2026"
-  }
- },
- {
-  "page": "simulateur-periode-essai",
-  "entrees": {
-   "type": "cdd",
-   "cddDuree": "court",
-   "sem": 8,
-   "debut": "2026-03-02"
-  },
-  "attendus": {
-   "#dateFin": "9 mars 2026"
-  }
- },
- {
-  "page": "simulateur-anciennete",
-  "entrees": {
-   "entree": "2019-03-15",
-   "fin": "2026-12-14"
-  },
-  "attendus": {
-   "#duree": "7 ans, 9 mois",
-   "#annees": "7,75"
-  }
- },
- {
-  "page": "simulateur-conges-acquis",
-  "entrees": {
-   "dcalc": "2026-10-31",
-   "pris": 3
-  },
-  "attendus": {
-   "#acquis": "13 jours",
-   "#solde": "10 jours"
-  }
- },
- {
-  "page": "simulateur-pension-invalidite",
-  "entrees": {
-   "statut": "sal",
-   "cat": "1",
-   "sam": 30000
-  },
-  "attendus": {
-   "#pension": "750,00 €",
-   "#taux": "30 %"
-  }
- },
- {
-  "page": "simulateur-pension-invalidite",
-  "entrees": {
-   "statut": "sal",
-   "cat": "2",
-   "sam": 60000
-  },
-  "attendus": {
-   "#pension": "2 002,50 €",
-   "#base": "48 060,00 €"
-  }
- },
- {
-  "page": "simulateur-pension-invalidite",
-  "entrees": {
-   "statut": "sal",
-   "cat": "3",
-   "sam": 30000
-  },
-  "attendus": {
-   "#pension": "2 548,44 €"
-  }
- },
- {
-  "page": "simulateur-pension-invalidite",
-  "entrees": {
-   "statut": "sal",
-   "cat": "1",
-   "sam": 10000
-  },
-  "attendus": {
-   "#pension": "338,31 €"
-  }
- },
- {
-  "page": "simulateur-plafonds-micro-tva",
-  "entrees": {
-   "caServ": 30000
-  },
-  "attendus": {
-   "#microVerdict": "Sous le plafond",
-   "#microPlafond": "83 600,00 €",
-   "#microMarge": "53 600,00 €",
-   "#tvaVerdict": "Franchise applicable",
-   "#tvaMarge": "7 500,00 €"
-  }
- },
- {
-  "page": "simulateur-plafonds-micro-tva",
-  "entrees": {
-   "caServ": 40000
-  },
-  "attendus": {
-   "#tvaVerdict": "Entre le seuil et le seuil majoré",
-   "#tvaMarge": "dépassement de 2 500,00 €"
-  }
- },
- {
-  "page": "simulateur-plafonds-micro-tva",
-  "entrees": {
-   "caVente": 100000
-  },
-  "attendus": {
-   "#microMarge": "103 100,00 €",
-   "#tvaVerdict": "Seuil majoré dépassé : TVA due",
-   "#tvaMarge": "dépassement de 15 000,00 €"
-  }
- },
- {
-  "page": "simulateur-maintien-salaire-maladie",
-  "entrees": {
-   "brut": 3000,
-   "anc": 3,
-   "jours": 40,
-   "prior": 0
-  },
-  "attendus": {
-   "#emp": "1 481,97 €",
-   "#n90": "30",
-   "#n66": "3",
-   "#secu": "1 589,89 €",
-   "#tot": "3 071,86 €",
-   "#sal": "4 000,00 €"
-  }
- },
- {
-  "page": "simulateur-maintien-salaire-maladie",
-  "entrees": {
-   "brut": 3000,
-   "anc": 0,
-   "jours": 20,
-   "prior": 0
-  },
-  "attendus": {
-   "#emp": "0,00 €"
-  }
- },
- {
-  "page": "simulateur-preavis-demission",
-  "entrees": {
-   "dateDemission": "2026-03-02",
-   "dureeType": "mois",
-   "duree": 1
-  },
-  "attendus": {
-   "#dateFin": "2 avril 2026"
-  }
- },
- {
-  "page": "simulateur-preavis-demission",
-  "entrees": {
-   "dateDemission": "2026-01-31",
-   "dureeType": "mois",
-   "duree": 1
-  },
-  "attendus": {
-   "#dateFin": "28 février 2026"
-  }
- },
- {
-  "page": "simulateur-preavis-demission",
-  "entrees": {
-   "dateDemission": "2026-03-02",
-   "dureeType": "jours",
-   "duree": 30
-  },
-  "attendus": {
-   "#dateFin": "1 avril 2026"
-  }
- },
- {
-  "page": "simulateur-preavis-demission",
-  "entrees": {
-   "dateDemission": "2026-03-02",
-   "dureeType": "semaines",
-   "duree": 2
-  },
-  "attendus": {
-   "#dateFin": "16 mars 2026"
-  }
- },
- {
-  "page": "simulateur-indemnite-licenciement",
-  "entrees": {
-   "moy12": 1801.8,
-   "moy3": 1801.8,
-   "annees": 0,
-   "mois": 0
-  },
-  "attendus": {
-   "#montant": "0,00 €"
-  }
- },
- {
-  "page": "simulateur-indemnite-licenciement",
-  "entrees": {
-   "moy12": 2345.67,
-   "moy3": 2000,
-   "annees": 0,
-   "mois": 8
-  },
-  "attendus": {
-   "#montant": "390,95 €"
-  }
- },
- {
-  "page": "simulateur-indemnite-licenciement",
-  "entrees": {
-   "moy12": 2000,
-   "moy3": 2345.67,
-   "annees": 0,
-   "mois": 11
-  },
-  "attendus": {
-   "#montant": "537,55 €"
-  }
- },
- {
-  "page": "simulateur-indemnite-licenciement",
-  "entrees": {
-   "moy12": 4999.99,
-   "moy3": 5200.01,
-   "annees": 1,
-   "mois": 0
-  },
-  "attendus": {
-   "#montant": "1 300,00 €"
-  }
- },
- {
-  "page": "simulateur-indemnite-licenciement",
-  "entrees": {
-   "moy12": 8750,
-   "moy3": 8750,
-   "annees": 1,
-   "mois": 7
-  },
-  "attendus": {
-   "#montant": "3 463,54 €"
-  }
- },
- {
-  "page": "simulateur-indemnite-licenciement",
-  "entrees": {
-   "moy12": 1801.8,
-   "moy3": 1801.8,
-   "annees": 4,
-   "mois": 5
-  },
-  "attendus": {
-   "#montant": "1 989,49 €"
-  }
- },
- {
-  "page": "simulateur-indemnite-licenciement",
-  "entrees": {
-   "moy12": 2345.67,
-   "moy3": 2000,
-   "annees": 7,
-   "mois": 11
-  },
-  "attendus": {
-   "#montant": "4 642,47 €"
-  }
- },
- {
-  "page": "simulateur-indemnite-licenciement",
-  "entrees": {
-   "moy12": 2000,
-   "moy3": 2345.67,
-   "annees": 9,
-   "mois": 11
-  },
-  "attendus": {
-   "#montant": "5 815,31 €"
-  }
- },
- {
-  "page": "simulateur-indemnite-licenciement",
-  "entrees": {
-   "moy12": 4999.99,
-   "moy3": 5200.01,
-   "annees": 10,
-   "mois": 0
-  },
-  "attendus": {
-   "#montant": "13 000,03 €"
-  }
- },
- {
-  "page": "simulateur-indemnite-licenciement",
-  "entrees": {
-   "moy12": 8750,
-   "moy3": 8750,
-   "annees": 10,
-   "mois": 1
-  },
-  "attendus": {
-   "#montant": "22 118,06 €"
-  }
- },
- {
-  "page": "simulateur-indemnite-licenciement",
-  "entrees": {
-   "moy12": 1801.8,
-   "moy3": 1801.8,
-   "annees": 10,
-   "mois": 11
-  },
-  "attendus": {
-   "#montant": "5 055,05 €"
-  }
- },
- {
-  "page": "simulateur-indemnite-licenciement",
-  "entrees": {
-   "moy12": 2345.67,
-   "moy3": 2000,
-   "annees": 11,
-   "mois": 0
-  },
-  "attendus": {
-   "#montant": "6 646,07 €"
-  }
- },
- {
-  "page": "simulateur-indemnite-licenciement",
-  "entrees": {
-   "moy12": 2000,
-   "moy3": 2345.67,
-   "annees": 12,
-   "mois": 6
-  },
-  "attendus": {
-   "#montant": "7 818,90 €"
-  }
- },
- {
-  "page": "simulateur-indemnite-licenciement",
-  "entrees": {
-   "moy12": 4999.99,
-   "moy3": 5200.01,
-   "annees": 15,
-   "mois": 3
-  },
-  "attendus": {
-   "#montant": "22 100,04 €"
-  }
- },
- {
-  "page": "simulateur-indemnite-licenciement",
-  "entrees": {
-   "moy12": 8750,
-   "moy3": 8750,
-   "annees": 20,
-   "mois": 0
-  },
-  "attendus": {
-   "#montant": "51 041,67 €"
-  }
- },
- {
-  "page": "simulateur-indemnite-licenciement",
-  "entrees": {
-   "moy12": 1801.8,
-   "moy3": 1801.8,
-   "annees": 25,
-   "mois": 9
-  },
-  "attendus": {
-   "#montant": "13 963,95 €"
-  }
- },
- {
-  "page": "simulateur-indemnite-licenciement",
-  "entrees": {
-   "moy12": 2345.67,
-   "moy3": 2000,
-   "annees": 30,
-   "mois": 0
-  },
-  "attendus": {
-   "#montant": "21 501,98 €"
-  }
- },
- {
-  "page": "simulateur-indemnite-licenciement",
-  "entrees": {
-   "moy12": 2000,
-   "moy3": 2345.67,
-   "annees": 41,
-   "mois": 11
-  },
-  "attendus": {
-   "#montant": "30 819,50 €"
-  }
- },
- {
-  "page": "simulateur-rupture-conventionnelle",
-  "entrees": {
-   "salaire": 1801.8,
-   "annees": 0,
-   "mois": 7
-  },
-  "attendus": {
-   "#montant": "Non applicable"
-  }
- },
- {
-  "page": "simulateur-rupture-conventionnelle",
-  "entrees": {
-   "salaire": 2345.67,
-   "annees": 0,
-   "mois": 8
-  },
-  "attendus": {
-   "#montant": "390,95 €"
-  }
- },
- {
-  "page": "simulateur-rupture-conventionnelle",
-  "entrees": {
-   "salaire": 3100,
-   "annees": 2,
-   "mois": 5
-  },
-  "attendus": {
-   "#montant": "1 872,92 €"
-  }
- },
- {
-  "page": "simulateur-rupture-conventionnelle",
-  "entrees": {
-   "salaire": 5000.5,
-   "annees": 9,
-   "mois": 11
-  },
-  "attendus": {
-   "#montant": "12 397,07 €"
-  }
- },
- {
-  "page": "simulateur-rupture-conventionnelle",
-  "entrees": {
-   "salaire": 1801.8,
-   "annees": 10,
-   "mois": 0
-  },
-  "attendus": {
-   "#montant": "4 504,50 €"
-  }
- },
- {
-  "page": "simulateur-rupture-conventionnelle",
-  "entrees": {
-   "salaire": 2345.67,
-   "annees": 10,
-   "mois": 7
-  },
-  "attendus": {
-   "#montant": "6 320,28 €"
-  }
- },
- {
-  "page": "simulateur-rupture-conventionnelle",
-  "entrees": {
-   "salaire": 3100,
-   "annees": 18,
-   "mois": 2
-  },
-  "attendus": {
-   "#montant": "16 188,89 €"
-  }
- },
- {
-  "page": "simulateur-rupture-conventionnelle",
-  "entrees": {
-   "salaire": 5000.5,
-   "annees": 33,
-   "mois": 0
-  },
-  "attendus": {
-   "#montant": "50 838,42 €"
-  }
- }
 ]
