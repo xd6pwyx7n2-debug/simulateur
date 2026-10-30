@@ -1283,5 +1283,141 @@
       "#totCalc": "1 828,79 €",
       "#netImp": "7 427,64 €"
     }
+  },
+  {
+    "page": "simulateur-rupture-assistante-maternelle",
+    "entrees": {
+      "notif": "2026-03-02",
+      "mois": 24,
+      "brut": 36000
+    },
+    "attendus": {
+      "#dateFin": "jeudi 2 avril 2026",
+      "#duree": "1 mois",
+      "#indem": "450,00 €"
+    }
+  },
+  {
+    "page": "simulateur-rupture-assistante-maternelle",
+    "entrees": {
+      "notif": "2026-03-02",
+      "mois": 6,
+      "brut": 9000
+    },
+    "attendus": {
+      "#dateFin": "mardi 17 mars 2026",
+      "#duree": "15 jours calendaires",
+      "#indem": "0,00 €"
+    }
+  },
+  {
+    "page": "simulateur-rupture-assistante-maternelle",
+    "entrees": {
+      "notif": "2026-03-02",
+      "mois": 2,
+      "brut": 2000
+    },
+    "attendus": {
+      "#dateFin": "mardi 10 mars 2026",
+      "#duree": "8 jours calendaires"
+    }
+  },
+  {
+    "page": "simulateur-rupture-assistante-maternelle",
+    "entrees": {
+      "notif": "2026-03-02",
+      "mois": 12,
+      "brut": 18000
+    },
+    "attendus": {
+      "#dateFin": "jeudi 2 avril 2026",
+      "#indem": "225,00 €"
+    }
+  },
+  {
+    "page": "simulateur-rupture-assistante-maternelle",
+    "entrees": {
+      "notif": "2026-03-02",
+      "mois": 30,
+      "brut": 50000,
+      "agrement": true
+    },
+    "attendus": {
+      "#dateFin": "Aucun préavis",
+      "#indem": "0,00 €"
+    }
+  },
+  {
+    "page": "simulateur-rupture-assistante-maternelle",
+    "entrees": {
+      "notif": "2026-03-02",
+      "mois": 30,
+      "brut": 50000,
+      "faute": true
+    },
+    "attendus": {
+      "#dateFin": "Aucun préavis",
+      "#indem": "0,00 €"
+    }
+  },
+  {
+    "page": "simulateur-arret-maladie-infirmier-liberal",
+    "entrees": {
+      "rev": 36000,
+      "jours": 120
+    },
+    "attendus": {
+      "#ij": "49,32 €",
+      "#jcpam": "87 jours",
+      "#tcpam": "4 290,84 €",
+      "#jcarp": "30 jours",
+      "#tcarp": "1 663,20 €",
+      "#total": "5 954,04 €"
+    }
+  },
+  {
+    "page": "simulateur-arret-maladie-infirmier-liberal",
+    "entrees": {
+      "rev": 150000,
+      "jours": 50
+    },
+    "attendus": {
+      "#ij": "197,51 €",
+      "#jcpam": "47 jours",
+      "#tcpam": "9 282,97 €",
+      "#jcarp": "0 jours",
+      "#tcarp": "0,00 €",
+      "#total": "9 282,97 €"
+    }
+  },
+  {
+    "page": "simulateur-arret-maladie-infirmier-liberal",
+    "entrees": {
+      "rev": 10000,
+      "jours": 10
+    },
+    "attendus": {
+      "#ij": "26,33 €",
+      "#jcpam": "7 jours",
+      "#tcpam": "184,31 €",
+      "#jcarp": "0 jours",
+      "#tcarp": "0,00 €",
+      "#total": "184,31 €"
+    }
+  },
+  {
+    "page": "simulateur-arret-maladie-infirmier-liberal",
+    "entrees": {
+      "rev": 48000,
+      "jours": 1200
+    },
+    "attendus": {
+      "#ij": "65,75 €",
+      "#jcpam": "87 jours",
+      "#tcpam": "5 720,25 €",
+      "#jcarp": "1005 jours",
+      "#tcarp": "55 717,20 €",
+      "#total": "61 437,45 €"
+    }
   }
 ]
