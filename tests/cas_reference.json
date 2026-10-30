@@ -1228,5 +1228,60 @@
       "#dim": "5",
       "#nferies": "2"
     }
+  },
+  {
+    "page": "simulateur-fiche-de-paie",
+    "entrees": {
+      "brut": "1867.02"
+    },
+    "attendus": {
+      "#netCalc": "1 477,93 €",
+      "#totCalc": "389,09 €",
+      "#netImp": "1 531,12 €"
+    }
+  },
+  {
+    "page": "simulateur-fiche-de-paie",
+    "entrees": {
+      "brut": "2500"
+    },
+    "attendus": {
+      "#netCalc": "1 978,99 €",
+      "#totCalc": "521,01 €",
+      "#netImp": "2 050,22 €"
+    }
+  },
+  {
+    "page": "simulateur-fiche-de-paie",
+    "entrees": {
+      "brut": "3999.99"
+    },
+    "attendus": {
+      "#netCalc": "3 166,38 €",
+      "#totCalc": "833,61 €",
+      "#netImp": "3 280,35 €"
+    }
+  },
+  {
+    "page": "simulateur-fiche-de-paie",
+    "entrees": {
+      "brut": "5000"
+    },
+    "attendus": {
+      "#netCalc": "3 962,82 €",
+      "#totCalc": "1 037,18 €",
+      "#netImp": "4 105,28 €"
+    }
+  },
+  {
+    "page": "simulateur-fiche-de-paie",
+    "entrees": {
+      "brut": "9000"
+    },
+    "attendus": {
+      "#netCalc": "7 171,21 €",
+      "#totCalc": "1 828,79 €",
+      "#netImp": "7 427,64 €"
+    }
   }
 ]

@@ -511,6 +511,11 @@
       </span>
     </div>
 
+    <div class="field">
+      <label><input type="checkbox" id="inapt"> <span>Licenciement pour inaptitude d'origine professionnelle (accident du travail ou maladie professionnelle)</span></label>
+      <span class="help">Dans ce cas, l'indemnité spéciale est en principe le double de l'indemnité légale (article L1226-14), sauf convention plus favorable ou refus abusif de reclassement.</span>
+    </div>
+
     <button type="button" onclick="calculer()">
       Calculer mon indemnité
     </button>
@@ -800,6 +805,11 @@ function calculer() {
     }) +
     " ans</strong>." +
     (salaireReference > 10000 ? "<br><strong>Vérifiez la saisie :</strong> un salaire de référence de plus de 10 000 € par mois est inhabituel. Les champs attendent une moyenne mensuelle, pas un total." : "");
+
+  if (document.getElementById("inapt") && document.getElementById("inapt").checked) {
+    details.innerHTML += "<br><strong>Inaptitude d'origine professionnelle :</strong> indemnité spéciale de licenciement estimée à <strong>" +
+      formatEuro(indemnite * 2) + "</strong> (double de l'indemnité légale, article L1226-14). Une indemnité compensatrice égale à celle du préavis est aussi due, même si le préavis n'est pas exécuté : voir le <a href=\"/simulateur-preavis-licenciement/\">simulateur de préavis de licenciement</a>.";
+  }
 
   avertissement.textContent =
     "Il s'agit d'une estimation de l'indemnité légale. " +

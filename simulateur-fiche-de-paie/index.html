@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Vérifier ma fiche de paie : cotisations et net 2026</title>
+  <meta name="description" content="Recalculez les cotisations salariales 2026 de votre fiche de paie et comparez-les : net avant impôt, net imposable, net à payer. Aucun fichier envoyé.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://simudroit.fr/simulateur-fiche-de-paie/">
+  <link rel="icon" href="https://simudroit.fr/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="https://simudroit.fr/favicon.ico" sizes="48x48">
+  <link rel="icon" href="https://simudroit.fr/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="https://simudroit.fr/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Vérifier ma fiche de paie : cotisations et net 2026">
+  <meta property="og:description" content="Recalculez les cotisations salariales 2026 de votre fiche de paie et comparez-les : net avant impôt, net imposable, net à payer. Aucun fichier envoyé.">
+  <meta property="og:url" content="https://simudroit.fr/simulateur-fiche-de-paie/">
+  <meta property="og:image" content="https://simudroit.fr/assets/og/simulateur-fiche-de-paie.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://simudroit.fr/assets/og/simulateur-fiche-de-paie.jpg">
+  <meta name="twitter:title" content="Vérifier ma fiche de paie : cotisations et net 2026">
+  <meta name="twitter:description" content="Recalculez les cotisations salariales 2026 de votre fiche de paie et comparez-les : net avant impôt, net imposable, net à payer. Aucun fichier envoyé.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://simudroit.fr/"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebPage", "name": "Comprendre et vérifier ma fiche de paie", "url": "https://simudroit.fr/simulateur-fiche-de-paie/", "description": "Recalculez les cotisations salariales 2026 de votre fiche de paie et comparez-les : net avant impôt, net imposable, net à payer. Aucun fichier envoyé.", "inLanguage": "fr-FR", "dateModified": "2026-10-30"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://simudroit.fr/"}, {"@type": "ListItem", "position": 2, "name": "Vérifier ma fiche de paie", "item": "https://simudroit.fr/simulateur-fiche-de-paie/"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Mes cotisations sont plus élevées que le résultat de l'outil : est-ce une erreur ?", "acceptedAnswer": {"@type": "Answer", "text": "Pas forcément. La mutuelle, la prévoyance, le statut cadre, une cotisation propre à votre convention ou à votre entreprise augmentent le total. Demandez le détail ligne par ligne à votre employeur."}}, {"@type": "Question", "name": "Mon net est plus élevé que le résultat : pourquoi ?", "acceptedAnswer": {"@type": "Answer", "text": "Des exonérations peuvent s'appliquer, par exemple sur les heures supplémentaires, ou votre salaire peut inclure des éléments qui ne supportent pas les mêmes cotisations."}}, {"@type": "Question", "name": "Mes données sont-elles envoyées quelque part ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Le calcul est fait par votre navigateur. Aucun fichier n'est téléversé et aucun montant n'est enregistré."}}, {"@type": "Question", "name": "Quelle différence entre net avant impôt et net imposable ?", "acceptedAnswer": {"@type": "Answer", "text": "Le net avant impôt est le brut moins toutes les cotisations salariales. Le net imposable ajoute la CSG non déductible et la CRDS, car elles ne réduisent pas le revenu imposable."}}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebApplication", "name": "Vérifier ma fiche de paie", "url": "https://simudroit.fr/simulateur-fiche-de-paie/", "description": "Recalculez les cotisations salariales 2026 de votre fiche de paie et comparez-les : net avant impôt, net imposable, net à payer. Aucun fichier envoyé.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}
+  </script>
+  <meta name="theme-color" content="#201e48">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="Vérifier ma fiche de paie : cotisations et net 2026 | SimuDroit">
+  <link rel="alternate" hreflang="fr" href="https://simudroit.fr/simulateur-fiche-de-paie/">
+  <link rel="alternate" hreflang="x-default" href="https://simudroit.fr/simulateur-fiche-de-paie/">
+  <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
+  <script async src="https://plausible.io/js/pa-j8JdUomB9hqqp7em82xdB.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+</head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.fr/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://simudroit.fr/simulateurs/">Simulateurs</a>
+      <a href="https://simudroit.fr/assistant/">Assistant</a>
+      <a href="https://simudroit.fr/independants/">Indépendants</a>
+      <a href="https://simudroit.fr/guides/">Guides</a>
+      <a href="https://simudroit.fr/modeles-de-lettres/">Lettres</a>
+      <a href="https://simudroit.fr/glossaire/">Glossaire</a>
+      <a href="https://simudroit.fr/faq/">FAQ</a>
+      <a class="cta-link" href="https://simudroit.fr/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://simudroit.fr/">Accueil</a> &nbsp;›&nbsp; Vérifier ma fiche de paie
+  </div>
+
+  <section class="hero">
+    <h1>Comprendre et vérifier ma fiche de paie</h1>
+    <p>Recopiez les montants de votre fiche : l'outil recalcule les cotisations salariales 2026 ligne par ligne et vous montre où se situe un éventuel écart.</p>
+      <div class="badges"><span class="badge">✓ Règles 2026 vérifiées le 30 octobre 2026</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Vos données restent dans votre navigateur</span></div>
+  </section>
+
+<section class="info-section sd-know" id="a-savoir">
+    <h2>À savoir avant de vous fier au résultat</h2>
+    <div class="sd-know-grid"><div class="sd-know-card"><h3>Aucun fichier à envoyer</h3><p>Vous saisissez seulement des montants. Le calcul se fait dans votre navigateur : rien n'est envoyé, rien n'est enregistré. Ne saisissez ni votre nom ni votre numéro de Sécurité sociale.</p></div><div class="sd-know-card"><h3>Ce que l'outil recalcule</h3><p>Les cotisations salariales d'un salarié non cadre du régime général : vieillesse, retraite complémentaire Agirc-Arrco, CSG et CRDS, puis le net avant impôt et le net imposable.</p></div><div class="sd-know-card"><h3>Ce qu'il ne sait pas</h3><p>Votre mutuelle, la prévoyance, le statut cadre, les exonérations (heures supplémentaires, etc.) ou un taux spécifique à votre entreprise. Un écart ne signifie donc pas forcément une erreur : il faut l'expliquer ligne par ligne.</p></div></div>
+  </section>
+  <section class="calculator" id="calcul">
+    <h2>Vérifiez les chiffres de votre fiche de paie</h2>
+    <noscript><p class="intro-note"><strong>JavaScript requis :</strong> ce simulateur calcule directement dans votre navigateur.</p></noscript>
+    <p class="intro-note"><strong>Confidentialité :</strong> aucun document n'est téléversé. Recopiez uniquement les montants de votre fiche. Rien n'est envoyé ni conservé.</p>
+    <div class="field"><label for="brut">Salaire brut mensuel (sur votre fiche)</label><input type="number" id="brut" min="0" max="100000" step="0.01" inputmode="decimal" placeholder="Ex. 2 500"></div>
+    <div class="field"><label for="cotFiche">Total des cotisations salariales sur votre fiche (facultatif)</label><input type="number" id="cotFiche" min="0" step="0.01" inputmode="decimal" placeholder="Ex. 521,01"><div class="field-help">Somme de la colonne « part salariale », CSG et CRDS comprises.</div></div>
+    <div class="field"><label for="netFiche">Net avant impôt sur votre fiche (facultatif)</label><input type="number" id="netFiche" min="0" step="0.01" inputmode="decimal" placeholder="Ex. 1 978,99"></div>
+    <div class="field"><label for="mutuelle">Mutuelle et prévoyance, part salariale du mois (facultatif)</label><input type="number" id="mutuelle" min="0" step="0.01" inputmode="decimal" placeholder="Ex. 35"><div class="field-help">Elle s'ajoute aux cotisations ci-dessus et vient en moins sur votre net.</div></div>
+    <div class="field"><label for="pas">Taux de prélèvement à la source en % (facultatif)</label><input type="number" id="pas" min="0" max="43" step="0.1" inputmode="decimal" placeholder="Ex. 5,5"></div>
+    <button type="button" id="calculate">Recalculer et comparer</button>
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">Net avant impôt recalculé</div>
+      <div class="result-main" data-noanim id="netCalc">–</div>
+      <div class="result-row"><span>Cotisations salariales recalculées</span><strong id="totCalc">–</strong></div>
+      <div class="result-row"><span>Net imposable estimé</span><strong id="netImp">–</strong></div>
+      <div class="result-row"><span>Net à payer estimé (mutuelle et prélèvement à la source déduits)</span><strong id="netPaye">–</strong></div>
+      <div class="result-row"><span>Comparaison avec votre fiche</span><strong id="verdict">–</strong></div>
+      <div class="table-wrap"><table class="sd-table"><thead><tr><th scope="col">Ligne</th><th scope="col">Taux</th><th scope="col">Montant</th></tr></thead><tbody id="detail"></tbody></table></div>
+      <div class="warning" id="notes"></div>
+    </div>
+  </section>
+
+  <section class="info-section" id="regles">
+    <h2>Comment lire une fiche de paie</h2>
+    <ul>
+      <li><strong>En-tête :</strong> employeur, emploi, statut (cadre ou non), convention collective, ancienneté. Vérifiez la convention collective : elle commande les primes, les congés et les préavis.</li>
+      <li><strong>Salaire brut :</strong> salaire de base, heures supplémentaires, primes, avantages en nature. Tout le reste en découle.</li>
+      <li><strong>Cotisations salariales :</strong> les prélèvements retirés du brut (retraite, CSG, CRDS, mutuelle, prévoyance). Les cotisations patronales figurent sur la fiche mais sont à la charge de l'employeur.</li>
+      <li><strong>Net avant impôt et net imposable :</strong> le net imposable sert de base au prélèvement à la source. La CSG non déductible et la CRDS n'en sont pas retranchées.</li>
+      <li><strong>Prélèvement à la source :</strong> retenu selon le taux transmis par l'administration fiscale, sur le net imposable.</li>
+      <li><strong>Net à payer :</strong> ce qui est versé sur votre compte, après impôt et autres retenues.</li>
+      <li><strong>Congés et cumuls :</strong> soldes de congés payés, cumuls annuels de brut et de net imposable.</li>
+    </ul>
+    <p>Les taux utilisés ici sont ceux de 2026 : vieillesse plafonnée 6,9 % et déplafonnée 0,4 %, Agirc-Arrco 3,15 % et contribution d'équilibre général 0,86 % sur la tranche 1 (jusqu'au plafond mensuel de la Sécurité sociale, 4 005 €), 8,64 % et 1,08 % sur la tranche 2, CSG 9,2 % (dont 6,8 % déductible) et CRDS 0,5 % sur 98,25 % du brut. En cas de doute sur une ligne, demandez des explications à votre employeur ou au service paie : il doit pouvoir justifier chaque ligne.</p>
+    <p>Sources : <a href="https://www.urssaf.fr/" target="_blank" rel="noopener noreferrer">Urssaf</a> · <a href="https://www.cleiss.fr/docs/cotisations/france.html" target="_blank" rel="noopener noreferrer">Cleiss, cotisations au 1er janvier 2026</a> · <a href="https://code.travail.gouv.fr/" target="_blank" rel="noopener noreferrer">Code du travail numérique</a>. Contrôle : pour le SMIC (1 867,02 € brut), l'outil retrouve 1 477,93 € net, le montant publié.</p>
+  </section>
+
+  <section class="info-section" id="faq-ind"><h2>Questions fréquentes</h2><h3>Mes cotisations sont plus élevées que le résultat de l&#x27;outil : est-ce une erreur ?</h3><p>Pas forcément. La mutuelle, la prévoyance, le statut cadre, une cotisation propre à votre convention ou à votre entreprise augmentent le total. Demandez le détail ligne par ligne à votre employeur.</p><h3>Mon net est plus élevé que le résultat : pourquoi ?</h3><p>Des exonérations peuvent s&#x27;appliquer, par exemple sur les heures supplémentaires, ou votre salaire peut inclure des éléments qui ne supportent pas les mêmes cotisations.</p><h3>Mes données sont-elles envoyées quelque part ?</h3><p>Non. Le calcul est fait par votre navigateur. Aucun fichier n&#x27;est téléversé et aucun montant n&#x27;est enregistré.</p><h3>Quelle différence entre net avant impôt et net imposable ?</h3><p>Le net avant impôt est le brut moins toutes les cotisations salariales. Le net imposable ajoute la CSG non déductible et la CRDS, car elles ne réduisent pas le revenu imposable.</p></section>
+
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/simulateur-brut-net/">Salaire brut en net</a><a href="/simulateur-net-brut/">Salaire net en brut</a><a href="/simulateur-smic/">SMIC 2026</a><a href="/glossaire/">Glossaire</a><a href="/modeles-de-lettres/">Modèles de lettres</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-10-30">30 octobre 2026</time>. Estimation indicative, sans valeur juridique. <a href="/methode-et-sources/">Méthode et sources</a> · <a href="/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 SimuDroit · <a href="https://simudroit.fr/">Tous les simulateurs</a> · <a href="https://simudroit.fr/methode-et-sources/">Méthode et sources</a> · <a href="https://simudroit.fr/contact/">Contact</a> · <a href="https://simudroit.fr/mentions-legales/">Mentions légales</a> · <a href="https://simudroit.fr/confidentialite/">Confidentialité</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script src="/assets/paie.js"></script>
+<script>
+  var $=function(id){return document.getElementById(id)};
+  function eur(v){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR"}).format(v)}
+  function num(id){var v=parseFloat($(id).value);return Number.isFinite(v)?v:null}
+  $("calculate").addEventListener("click",function(){
+    var b=num("brut");if(b===null||b<=0){alert("Indiquez votre salaire brut mensuel.");return}
+    var P=window.SD_PAIE,r=P.lignes(b),notes=[];
+    $("netCalc").textContent=eur(r.netAvantImpot);$("totCalc").textContent=eur(r.total);$("netImp").textContent=eur(r.netImposable);
+    $("detail").innerHTML=r.lignes.map(function(l){return "<tr><td>"+l.nom+"</td><td>"+l.taux+"</td><td>"+eur(l.montant)+"</td></tr>"}).join("");
+    var mu=num("mutuelle")||0,pas=num("pas"),netPaye=r.netAvantImpot-mu;
+    if(pas!==null&&pas>0)netPaye-=P.r2(r.netImposable*pas/100);
+    $("netPaye").textContent=eur(P.r2(netPaye));
+    var cf=num("cotFiche"),nf=num("netFiche"),parts=[];
+    if(cf!==null){var d=P.r2(cf-r.total);parts.push(Math.abs(d)<=1?"cotisations cohérentes":"cotisations : écart de "+eur(Math.abs(d))+(d>0?" en plus":" en moins")+" sur votre fiche")}
+    if(nf!==null){var e=P.r2(nf-r.netAvantImpot);parts.push(Math.abs(e)<=1?"net cohérent":"net : écart de "+eur(Math.abs(e))+(e>0?" en plus":" en moins")+" sur votre fiche")}
+    $("verdict").textContent=parts.length?parts.join(" ; "):"Saisissez des montants de votre fiche pour comparer";
+    if((cf!==null&&Math.abs(cf-r.total)>1)||(nf!==null&&Math.abs(nf-r.netAvantImpot)>1))notes.push("Un écart n'est pas forcément une erreur : mutuelle, prévoyance, statut cadre, exonérations (heures supplémentaires) ou taux propres à votre entreprise ne sont pas recalculés. Repérez la ligne qui diffère et demandez-en la justification à votre employeur.");
+    if(b>4005)notes.push("Votre salaire dépasse le plafond mensuel de la Sécurité sociale (4 005 €) : les tranches 2 de la retraite complémentaire et la contribution d'équilibre technique sont incluses.");
+    notes.push("Estimation indicative pour un salarié non cadre du régime général. Le prélèvement à la source est estimé en appliquant le taux au net imposable, sans tenir compte des retenues particulières.");
+    $("notes").innerHTML=notes.map(function(n){return "<p style=\"margin:0 0 8px\">"+n+"</p>"}).join("");
+    $("result").classList.add("visible");
+  });
+
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>
