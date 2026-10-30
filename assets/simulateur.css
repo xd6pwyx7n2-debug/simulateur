@@ -303,3 +303,7 @@ article .sd-line{max-width:none;margin:18px 0}
 @keyframes sdPulse{0%{box-shadow:0 0 0 0 rgba(91,67,214,.45)}70%,100%{box-shadow:0 0 0 12px rgba(91,67,214,0)}}
 @keyframes sdBob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-3px)}}
 @media (prefers-reduced-motion:reduce){.sd-line *,.sd-line li::before{animation:none!important}}
+
+.foot-top{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center;justify-content:center;max-width:960px;margin:0 auto 14px;padding:0 20px;font-size:.88rem}
+.foot-top strong{flex-basis:100%;text-align:center;color:inherit}
+.foot-top a{color:inherit;opacity:.9;text-decoration:underline;padding:6px 0;min-height:32px;display:inline-flex;align-items:center}
