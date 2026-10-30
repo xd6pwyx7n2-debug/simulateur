@@ -2227,5 +2227,85 @@
       "#taux": "2,2 %",
       "#tmi": "11 %"
     }
+  },
+  {
+    "page": "simulateur-salaire-net-apres-impot",
+    "entrees": {
+      "brut": 2000,
+      "conj": 0,
+      "statut": "seul",
+      "enfants": 0
+    },
+    "attendus": {
+      "#apres": "1 576,19 €",
+      "#avant": "1 583,19 €",
+      "#impotm": "7 €",
+      "#impota": "79 €",
+      "#taux": "0,4 %"
+    }
+  },
+  {
+    "page": "simulateur-salaire-net-apres-impot",
+    "entrees": {
+      "brut": 2800,
+      "conj": 0,
+      "statut": "couple",
+      "enfants": 2
+    },
+    "attendus": {
+      "#apres": "2 216,47 €",
+      "#avant": "2 216,47 €",
+      "#impotm": "0 €",
+      "#impota": "0 €",
+      "#taux": "0,0 %"
+    }
+  },
+  {
+    "page": "simulateur-salaire-net-apres-impot",
+    "entrees": {
+      "brut": 4500,
+      "conj": 0,
+      "statut": "seul",
+      "enfants": 0
+    },
+    "attendus": {
+      "#apres": "3 139,76 €",
+      "#avant": "3 561,76 €",
+      "#impotm": "422 €",
+      "#impota": "5 059 €",
+      "#taux": "12,7 %"
+    }
+  },
+  {
+    "page": "simulateur-salaire-net-apres-impot",
+    "entrees": {
+      "brut": 6000,
+      "conj": 30000,
+      "statut": "couple",
+      "enfants": 0
+    },
+    "attendus": {
+      "#apres": "4 194,91 €",
+      "#avant": "4 764,91 €",
+      "#impotm": "570 €",
+      "#impota": "10 300 €",
+      "#taux": "12,8 %"
+    }
+  },
+  {
+    "page": "simulateur-salaire-net-apres-impot",
+    "entrees": {
+      "brut": 1900,
+      "conj": 0,
+      "statut": "isole",
+      "enfants": 1
+    },
+    "attendus": {
+      "#apres": "1 504,04 €",
+      "#avant": "1 504,04 €",
+      "#impotm": "0 €",
+      "#impota": "0 €",
+      "#taux": "0,0 %"
+    }
   }
 ]
