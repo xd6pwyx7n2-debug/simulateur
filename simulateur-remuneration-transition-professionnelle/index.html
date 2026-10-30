@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PTP 2026 : éligibilité et rémunération, simulateur</title>
+  <meta name="description" content="Projet de transition professionnelle : vérifiez votre éligibilité, votre rémunération pendant la formation et le délai pour déposer votre demande.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://simudroit.fr/simulateur-remuneration-transition-professionnelle/">
+  <link rel="icon" href="https://simudroit.fr/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="https://simudroit.fr/favicon.ico" sizes="48x48">
+  <link rel="icon" href="https://simudroit.fr/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="https://simudroit.fr/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="PTP 2026 : éligibilité et rémunération, simulateur">
+  <meta property="og:description" content="Projet de transition professionnelle : vérifiez votre éligibilité, votre rémunération pendant la formation et le délai pour déposer votre demande.">
+  <meta property="og:url" content="https://simudroit.fr/simulateur-remuneration-transition-professionnelle/">
+  <meta property="og:image" content="https://simudroit.fr/assets/og/simulateur-remuneration-transition-professionnelle.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://simudroit.fr/assets/og/simulateur-remuneration-transition-professionnelle.jpg">
+  <meta name="twitter:title" content="PTP 2026 : éligibilité et rémunération, simulateur">
+  <meta name="twitter:description" content="Projet de transition professionnelle : vérifiez votre éligibilité, votre rémunération pendant la formation et le délai pour déposer votre demande.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://simudroit.fr/"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebPage", "name": "Projet de transition professionnelle : éligibilité et rémunération", "url": "https://simudroit.fr/simulateur-remuneration-transition-professionnelle/", "description": "Projet de transition professionnelle : vérifiez votre éligibilité, votre rémunération pendant la formation et le délai pour déposer votre demande.", "inLanguage": "fr-FR", "dateModified": "2026-10-30"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://simudroit.fr/"}, {"@type": "ListItem", "position": 2, "name": "Projet de transition professionnelle", "item": "https://simudroit.fr/simulateur-remuneration-transition-professionnelle/"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Qui peut bénéficier d'un projet de transition professionnelle ?", "acceptedAnswer": {"@type": "Answer", "text": "Les salariés du secteur privé, en CDI avec 24 mois d'activité dont 12 dans l'entreprise, ou en CDD avec 24 mois sur 5 ans dont 4 mois en CDD sur les 12 derniers mois."}}, {"@type": "Question", "name": "Quelle est la rémunération pendant le PTP ?", "acceptedAnswer": {"@type": "Answer", "text": "100 % du salaire de référence jusqu'à 2 SMIC ; au-delà, 90 %, puis 60 % après un an de formation, sans descendre sous 2 SMIC."}}, {"@type": "Question", "name": "Que peut faire l'employeur face à une demande de PTP ?", "acceptedAnswer": {"@type": "Answer", "text": "Il dispose de 30 jours pour répondre, et son silence vaut autorisation. Il peut reporter le congé de 9 mois au maximum pour un motif lié à la production ou au fonctionnement de l'entreprise."}}, {"@type": "Question", "name": "Quelle formation est financée ?", "acceptedAnswer": {"@type": "Answer", "text": "Une formation certifiante inscrite au RNCP, dispensée par un organisme certifié Qualiopi, d'une durée maximale d'un an ou 1 200 heures."}}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebApplication", "name": "Projet de transition professionnelle", "url": "https://simudroit.fr/simulateur-remuneration-transition-professionnelle/", "description": "Projet de transition professionnelle : vérifiez votre éligibilité, votre rémunération pendant la formation et le délai pour déposer votre demande.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}
+  </script>
+  <meta name="theme-color" content="#201e48">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="PTP 2026 : éligibilité et rémunération, simulateur | SimuDroit">
+  <link rel="alternate" hreflang="fr" href="https://simudroit.fr/simulateur-remuneration-transition-professionnelle/">
+  <link rel="alternate" hreflang="x-default" href="https://simudroit.fr/simulateur-remuneration-transition-professionnelle/">
+  <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
+  <script async src="https://plausible.io/js/pa-j8JdUomB9hqqp7em82xdB.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+</head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.fr/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://simudroit.fr/simulateurs/">Simulateurs</a>
+      <a href="https://simudroit.fr/assistant/">Assistant</a>
+      <a href="https://simudroit.fr/independants/">Indépendants</a>
+      <a href="https://simudroit.fr/guides/">Guides</a>
+      <a href="https://simudroit.fr/modeles-de-lettres/">Lettres</a>
+      <a href="https://simudroit.fr/glossaire/">Glossaire</a>
+      <a href="https://simudroit.fr/faq/">FAQ</a>
+      <a class="cta-link" href="https://simudroit.fr/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://simudroit.fr/">Accueil</a> &nbsp;›&nbsp; Projet de transition professionnelle
+  </div>
+
+  <section class="hero">
+    <h1>Projet de transition professionnelle (PTP)</h1>
+    <p>Éligibilité sur l'ancienneté, rémunération pendant la formation et délai de demande.</p>
+      <div class="badges"><span class="badge">✓ Règles 2026 vérifiées le 30 octobre 2026</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Vos données restent dans votre navigateur</span></div>
+  </section>
+<nav class="sd-line" aria-label="Parcours : Reconversion professionnelle"><p class="sd-line-lab">Votre parcours : <strong>Reconversion professionnelle</strong></p><div class="sd-line-scroll"><ol style="--n:4"><li class="done" style="--i:0"><a href="/simulateur-cpf/" title="Reste à charge CPF : Ce que finance le CPF et ce qui reste à payer."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">CPF</span></a></li><li class="cur" style="--i:1" aria-current="step"><span class="sd-line-tag">Vous êtes ici</span><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Transition pro</span></li><li class="next" style="--i:2"><a href="/simulateur-demission-reconversion/" title="Démission pour reconversion : Conditions pour toucher le chômage."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Démission</span></a></li><li class="next" style="--i:3"><a href="/simulateur-chomage/" title="Allocation chômage : Montant et durée estimés après la fin du contrat."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Chômage</span></a></li></ol></div></nav>
+
+
+<section class="info-section sd-know" id="a-savoir">
+    <h2>À savoir avant de vous fier au résultat</h2>
+    <div class="sd-know-grid"><div class="sd-know-card"><h3>Ce que calcule l'outil</h3><p>Votre éligibilité sur l'ancienneté au projet de transition professionnelle (PTP), la rémunération pendant la formation et le délai pour déposer la demande.</p></div><div class="sd-know-card"><h3>Ce que l'outil ne décide pas</h3><p>L'autorisation de l'employeur et l'accord de la commission paritaire (Transition Pro) dépendent de votre dossier : cohérence du projet, pertinence de la formation, perspectives d'emploi et budget disponible.</p></div><div class="sd-know-card"><h3>À vérifier</h3><p>La rémunération se calcule sur le salaire moyen de référence des 12 derniers mois (4 derniers mois en CDD). Les règles s'appliquent aux salariés du secteur privé.</p></div></div>
+  </section>
+  <section class="calculator" id="calcul">
+    <h2>Suis-je éligible au PTP et combien serai-je payé ?</h2><noscript><p class="intro-note"><strong>JavaScript requis :</strong> ce simulateur calcule directement dans votre navigateur.</p></noscript><div class="field"><label for="contrat">Votre contrat</label><select id="contrat"><option value="cdi">CDI</option><option value="cdd">CDD</option></select></div><div class="field"><label for="anc">Mois travaillés comme salarié (CDI : au total ; CDD : sur les 5 dernières années)</label><input type="number" id="anc" min="0" step="1" inputmode="decimal" placeholder="Ex. 60"></div><div class="field"><label for="ent">CDI : mois dans votre entreprise actuelle</label><input type="number" id="ent" min="0" step="1" inputmode="decimal" placeholder="Ex. 30"></div><div class="field"><label for="cddm">CDD : mois en CDD sur les 12 derniers mois</label><input type="number" id="cddm" min="0" step="1" inputmode="decimal" placeholder="Ex. 6"></div><div class="field"><label for="sal">Salaire mensuel brut moyen de référence (€)</label><input type="number" id="sal" min="0" step="0.01" inputmode="decimal" placeholder="Ex. 2400"></div><div class="field"><label for="duree">Durée de la formation (mois)</label><input type="number" id="duree" min="1" step="1" inputmode="decimal" placeholder="Ex. 10"></div><div class="field"><label for="modalite">Formation</label><select id="modalite"><option value="plein">À temps plein de 6 mois ou plus</option><option value="autre">De moins de 6 mois, à temps partiel ou fractionnée</option></select></div>
+    <button type="button" id="calculate">Calculer</button>
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">Éligibilité sur l'ancienneté</div>
+      <div class="result-main" data-noanim id="elig">–</div>
+      <div class="result-row"><span>Rémunération mensuelle (1re année)</span><strong id="remu1">–</strong></div>
+      <div class="result-row"><span>Rémunération mensuelle (au-delà d'un an)</span><strong id="remu2">–</strong></div>
+      <div class="result-row"><span>Demande à déposer au plus tard</span><strong id="delai">–</strong></div>
+      <div class="warning" id="notes"></div>
+    </div>
+  </section>
+
+  <section class="info-section" id="regles">
+    <h2>Le projet de transition professionnelle en bref</h2>
+    <p>Le PTP permet à un salarié de s'absenter pour suivre une formation certifiante en vue de changer de métier ou de profession, tout en étant rémunéré. Il faut, en CDI, au moins 2 ans de travail (consécutifs ou non) dont 1 an dans l'entreprise ; en CDD, au moins 2 ans d'activité sur les 5 dernières années dont 4 mois en CDD sur les 12 derniers mois.</p>
+    <p>La rémunération est de 100 % du salaire moyen de référence jusqu'à 2 SMIC. Au-delà, elle est de 90 % pour une formation d'un an au plus (ou 1 200 heures). Si la formation dure plus d'un an, elle est de 90 % la première année puis de 60 %, sans pouvoir descendre sous 2 SMIC. Avec le SMIC en vigueur, 2 SMIC représentent 3 734,04 € brut par mois.</p>
+    <p>La demande se fait au plus tard 120 jours calendaires avant le début d'une formation à temps plein de 6 mois ou plus, et 60 jours avant dans les autres cas. L'employeur répond sous 30 jours : sans réponse, l'autorisation est réputée accordée. Il peut reporter le congé de 9 mois au maximum pour un motif lié à la production ou au fonctionnement de l'entreprise. Un modèle de demande est proposé dans la <a href="/modele-lettre-conge-transition-professionnelle/">lettre de demande de congé de transition</a>.</p>
+    <p>Sources : <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F14018" target="_blank" rel="noopener noreferrer">Service-Public.fr, projet de transition professionnelle</a> · <a href="https://www.transitionspro-hdf.fr/app/uploads/2026/01/Fiche-Recap-le-PTP-en-bref.pdf" target="_blank" rel="noopener noreferrer">Transitions Pro, le PTP en bref</a>.</p>
+  </section>
+
+  <section class="info-section" id="faq-ind"><h2>Questions fréquentes</h2><h3>Qui peut bénéficier d&#x27;un projet de transition professionnelle ?</h3><p>Les salariés du secteur privé, en CDI avec 24 mois d&#x27;activité dont 12 dans l&#x27;entreprise, ou en CDD avec 24 mois sur 5 ans dont 4 mois en CDD sur les 12 derniers mois.</p><h3>Quelle est la rémunération pendant le PTP ?</h3><p>100 % du salaire de référence jusqu&#x27;à 2 SMIC ; au-delà, 90 %, puis 60 % après un an de formation, sans descendre sous 2 SMIC.</p><h3>Que peut faire l&#x27;employeur face à une demande de PTP ?</h3><p>Il dispose de 30 jours pour répondre, et son silence vaut autorisation. Il peut reporter le congé de 9 mois au maximum pour un motif lié à la production ou au fonctionnement de l&#x27;entreprise.</p><h3>Quelle formation est financée ?</h3><p>Une formation certifiante inscrite au RNCP, dispensée par un organisme certifié Qualiopi, d&#x27;une durée maximale d&#x27;un an ou 1 200 heures.</p></section>
+
+  <section class="sd-next" aria-labelledby="sd-next-t"><h2 id="sd-next-t">Et ensuite ?</h2><p class="sd-next-sub">Situation : <strong>Reconversion professionnelle</strong>. Les étapes qui reviennent le plus souvent :</p><ol class="sd-next-list"><li><a href="/simulateur-cpf/"><span class="sd-next-n">1</span><span class="sd-next-t"><strong>Reste à charge CPF</strong><small>Ce que finance le CPF et ce qui reste à payer.</small></span></a></li><li class="here" aria-current="page"><span class="sd-next-n">2</span><span class="sd-next-t"><strong>Projet de transition professionnelle</strong><small>Vous êtes ici</small></span></li><li><a href="/simulateur-demission-reconversion/"><span class="sd-next-n">3</span><span class="sd-next-t"><strong>Démission pour reconversion</strong><small>Conditions pour toucher le chômage.</small></span></a></li><li><a href="/simulateur-chomage/"><span class="sd-next-n">4</span><span class="sd-next-t"><strong>Allocation chômage</strong><small>Montant et durée estimés après la fin du contrat.</small></span></a></li></ol></section>
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/reconversion/">Reconversion : par où commencer ?</a><a href="/simulateur-cpf/">Reste à charge CPF</a><a href="/modele-lettre-conge-transition-professionnelle/">Lettre de demande de congé de transition</a><a href="/simulateur-demission-reconversion/">Démission pour reconversion</a><a href="/guides/allocation-chomage-calcul-duree/">Guide : Allocation chômage 2026 : calcul, durée, dégressivité</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-10-30">30 octobre 2026</time>. Estimation indicative, sans valeur juridique. <a href="/methode-et-sources/">Méthode et sources</a> · <a href="/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<footer><nav class="foot-top" aria-label="Les plus consultés"><strong>Les plus consultés</strong><a href="https://simudroit.fr/simulateur-brut-net/">Salaire brut en net</a><a href="https://simudroit.fr/simulateur-indemnite-licenciement/">Indemnité de licenciement</a><a href="https://simudroit.fr/simulateur-rupture-conventionnelle/">Rupture conventionnelle</a><a href="https://simudroit.fr/simulateur-chomage/">Allocation chômage</a><a href="https://simudroit.fr/simulateur-preavis-demission/">Préavis de démission</a><a href="https://simudroit.fr/simulateur-preavis-licenciement/">Préavis de licenciement</a><a href="https://simudroit.fr/simulateur-conges-payes/">Congés payés</a><a href="https://simudroit.fr/simulateur-fiche-de-paie/">Vérifier ma fiche de paie</a><a href="https://simudroit.fr/simulateur-solde-tout-compte/">Solde de tout compte</a><a href="https://simudroit.fr/simulateur-smic/">SMIC 2026</a><a href="https://simudroit.fr/salaire-brut-net/">Brut en net par montant</a><a href="https://simudroit.fr/metiers/">Mon métier : infirmier libéral, assistante maternelle, intérimaire</a><a href="https://simudroit.fr/retraite/">Retraite : par où commencer ?</a><a href="https://simudroit.fr/reconversion/">Reconversion : par où commencer ?</a></nav>
+  <p>© 2026 SimuDroit · <a href="https://simudroit.fr/">Tous les simulateurs</a> · <a href="https://simudroit.fr/methode-et-sources/">Méthode et sources</a> · <a href="https://simudroit.fr/contact/">Contact</a> · <a href="https://simudroit.fr/mentions-legales/">Mentions légales</a> · <a href="https://simudroit.fr/confidentialite/">Confidentialité</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+  var $=function(id){return document.getElementById(id)};
+  function setText(id,t){$(id).textContent=t}
+  function eur(v){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR"}).format(v)}
+  function r2(x){return Math.round((x+1e-9)*100)/100}
+  function notes(a){$("notes").innerHTML=a.map(function(n){return "<p style=\"margin:0 0 8px\">"+n+"</p>"}).join("")}
+  $("calculate").addEventListener("click",function(){
+    var anc=parseInt($("anc").value,10),sal=parseFloat($("sal").value),d=parseInt($("duree").value,10);
+    if(!(anc>=0)||!(sal>0)||!(d>=1)){notes(["Renseignez l'ancienneté, le salaire moyen et la durée de la formation."]);$("result").classList.add("visible");return}
+    var cdi=$("contrat").value==="cdi",ent=parseInt($("ent").value,10)||0,cm=parseInt($("cddm").value,10)||0,n=[];
+    var ok=cdi?(anc>=24&&ent>=12):(anc>=24&&cm>=4);
+    var smic=window.SD_PARAMS.smic.brutMensuel35h,deux=r2(2*smic),r1,r2v;
+    if(sal<=deux){r1=r2(sal);r2v=r2(sal)}else{r1=r2(sal*0.9);r2v=d>12?Math.max(r2(sal*0.6),deux):r1}
+    setText("elig",ok?"Conditions d'ancienneté remplies":"Conditions d'ancienneté non remplies");
+    setText("remu1",eur(r1));setText("remu2",d>12?eur(r2v):"–");
+    setText("delai",$("modalite").value==="plein"?"120 jours avant le début":"60 jours avant le début");
+    if(cdi){n.push((anc>=24?"✓":"✗")+" 24 mois de travail au total.");n.push((ent>=12?"✓":"✗")+" 12 mois dans l'entreprise actuelle.")}
+    else{n.push((anc>=24?"✓":"✗")+" 24 mois d'activité sur les 5 dernières années.");n.push((cm>=4?"✓":"✗")+" 4 mois en CDD sur les 12 derniers mois.")}
+    n.push("2 SMIC = "+eur(deux)+" brut par mois.");
+    if(d>12)n.push("Au-delà de 12 mois de formation, la rémunération baisse à 60 % pour les salaires supérieurs à 2 SMIC, sans descendre sous 2 SMIC.");
+    n.push("Le salaire de référence est la moyenne des 12 derniers mois (4 derniers mois en CDD). Estimation indicative : la commission Transition Pro décide.");
+    notes(n);$("result").classList.add("visible");
+  });
+
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CPF 2026 : reste à charge et droits, simulateur</title>
+  <meta name="description" content="Calculez ce que le CPF finance et votre reste à charge en 2026 : participation de 150 €, plafonds par type de formation, droits estimés. Gratuit.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://simudroit.fr/simulateur-cpf/">
+  <link rel="icon" href="https://simudroit.fr/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="https://simudroit.fr/favicon.ico" sizes="48x48">
+  <link rel="icon" href="https://simudroit.fr/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="https://simudroit.fr/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="CPF 2026 : reste à charge et droits, simulateur">
+  <meta property="og:description" content="Calculez ce que le CPF finance et votre reste à charge en 2026 : participation de 150 €, plafonds par type de formation, droits estimés. Gratuit.">
+  <meta property="og:url" content="https://simudroit.fr/simulateur-cpf/">
+  <meta property="og:image" content="https://simudroit.fr/assets/og/simulateur-cpf.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://simudroit.fr/assets/og/simulateur-cpf.jpg">
+  <meta name="twitter:title" content="CPF 2026 : reste à charge et droits, simulateur">
+  <meta name="twitter:description" content="Calculez ce que le CPF finance et votre reste à charge en 2026 : participation de 150 €, plafonds par type de formation, droits estimés. Gratuit.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://simudroit.fr/"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebPage", "name": "Reste à charge CPF 2026 : combien vais-je payer ?", "url": "https://simudroit.fr/simulateur-cpf/", "description": "Calculez ce que le CPF finance et votre reste à charge en 2026 : participation de 150 €, plafonds par type de formation, droits estimés. Gratuit.", "inLanguage": "fr-FR", "dateModified": "2026-10-30"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://simudroit.fr/"}, {"@type": "ListItem", "position": 2, "name": "Reste à charge CPF", "item": "https://simudroit.fr/simulateur-cpf/"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quel est le reste à charge du CPF en 2026 ?", "acceptedAnswer": {"@type": "Answer", "text": "150 € depuis le 2 avril 2026, pour les nouvelles demandes. Les demandeurs d'emploi et les formations abondées par l'employeur ou l'OPCO en sont exemptés."}}, {"@type": "Question", "name": "Combien le CPF crédite-t-il chaque année ?", "acceptedAnswer": {"@type": "Answer", "text": "500 € par an pour un salarié à temps plein ou à mi-temps et plus, dans la limite de 5 000 € ; 800 € par an, dans la limite de 8 000 €, sans diplôme de niveau 3."}}, {"@type": "Question", "name": "Le CPF finance-t-il une VAE ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, la VAE n'est pas plafonnée au titre du CPF."}}, {"@type": "Question", "name": "Que faire si mes droits sont insuffisants ?", "acceptedAnswer": {"@type": "Answer", "text": "Vous pouvez compléter avec un abondement de l'employeur, de l'OPCO, de la région ou de France Travail, ou payer la différence vous-même."}}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebApplication", "name": "Reste à charge CPF", "url": "https://simudroit.fr/simulateur-cpf/", "description": "Calculez ce que le CPF finance et votre reste à charge en 2026 : participation de 150 €, plafonds par type de formation, droits estimés. Gratuit.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}
+  </script>
+  <meta name="theme-color" content="#201e48">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="CPF 2026 : reste à charge et droits, simulateur | SimuDroit">
+  <link rel="alternate" hreflang="fr" href="https://simudroit.fr/simulateur-cpf/">
+  <link rel="alternate" hreflang="x-default" href="https://simudroit.fr/simulateur-cpf/">
+  <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
+  <script async src="https://plausible.io/js/pa-j8JdUomB9hqqp7em82xdB.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+</head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.fr/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://simudroit.fr/simulateurs/">Simulateurs</a>
+      <a href="https://simudroit.fr/assistant/">Assistant</a>
+      <a href="https://simudroit.fr/independants/">Indépendants</a>
+      <a href="https://simudroit.fr/guides/">Guides</a>
+      <a href="https://simudroit.fr/modeles-de-lettres/">Lettres</a>
+      <a href="https://simudroit.fr/glossaire/">Glossaire</a>
+      <a href="https://simudroit.fr/faq/">FAQ</a>
+      <a class="cta-link" href="https://simudroit.fr/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://simudroit.fr/">Accueil</a> &nbsp;›&nbsp; Reste à charge CPF
+  </div>
+
+  <section class="hero">
+    <h1>Reste à charge du CPF</h1>
+    <p>Ce que le CPF prend en charge pour votre formation et ce qui reste à payer, avec les règles 2026.</p>
+      <div class="badges"><span class="badge">✓ Règles 2026 vérifiées le 30 octobre 2026</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Vos données restent dans votre navigateur</span></div>
+  </section>
+<nav class="sd-line" aria-label="Parcours : Reconversion professionnelle"><p class="sd-line-lab">Votre parcours : <strong>Reconversion professionnelle</strong></p><div class="sd-line-scroll"><ol style="--n:4"><li class="cur" style="--i:0" aria-current="step"><span class="sd-line-tag">Vous êtes ici</span><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">CPF</span></li><li class="next" style="--i:1"><a href="/simulateur-remuneration-transition-professionnelle/" title="Projet de transition professionnelle : Éligibilité, rémunération et délais."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Transition pro</span></a></li><li class="next" style="--i:2"><a href="/simulateur-demission-reconversion/" title="Démission pour reconversion : Conditions pour toucher le chômage."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Démission</span></a></li><li class="next" style="--i:3"><a href="/simulateur-chomage/" title="Allocation chômage : Montant et durée estimés après la fin du contrat."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Chômage</span></a></li></ol></div></nav>
+
+
+<section class="info-section sd-know" id="a-savoir">
+    <h2>À savoir avant de vous fier au résultat</h2>
+    <div class="sd-know-grid"><div class="sd-know-card"><h3>Ce que calcule l'outil</h3><p>Ce que le CPF peut financer pour une formation et ce qui reste à votre charge, avec la participation forfaitaire de 150 € en vigueur depuis le 2 avril 2026.</p></div><div class="sd-know-card"><h3>Vos droits réels</h3><p>Votre solde exact figure sur Mon compte formation. L'estimation à partir des années travaillées suppose un crédit régulier de 500 € par an (800 € sans diplôme de niveau 3) et ne tient pas compte de ce que vous avez déjà utilisé.</p></div><div class="sd-know-card"><h3>À vérifier</h3><p>Certaines formations sont plafonnées (certifications du répertoire spécifique, bilan de compétences, permis B). Un abondement de l'employeur, de l'OPCO ou de la région s'ajoute sans être plafonné.</p></div></div>
+  </section>
+  <section class="calculator" id="calcul">
+    <h2>Combien me restera-t-il à payer avec mon CPF ?</h2><noscript><p class="intro-note"><strong>JavaScript requis :</strong> ce simulateur calcule directement dans votre navigateur.</p></noscript><div class="field"><label for="cout">Coût de la formation (€)</label><input type="number" id="cout" min="0" step="1" inputmode="decimal" placeholder="Ex. 3500"></div><div class="field"><label for="type">Type de formation</label><select id="type"><option value="rncp">Titre ou diplôme (RNCP), VAE, CléA</option><option value="rs">Certification du répertoire spécifique</option><option value="bilan">Bilan de compétences</option><option value="permis">Permis de conduire (catégorie B)</option></select></div><div class="field"><label for="statut">Votre situation</label><select id="statut"><option value="salarie">Salarié ou autre</option><option value="demandeur">Demandeur d'emploi inscrit à France Travail</option><option value="abonde">Formation abondée par l'employeur ou l'OPCO</option></select></div><div class="field"><label for="droits">Droits CPF disponibles (€), si vous les connaissez</label><input type="number" id="droits" min="0" step="1" inputmode="decimal" placeholder="Ex. 2500"></div><div class="field"><label for="annees">Sinon : années travaillées depuis 2015 (estimation)</label><input type="number" id="annees" min="0" step="1" inputmode="decimal" placeholder="Ex. 6"></div><div class="field"><label for="niveau">Diplôme le plus élevé</label><select id="niveau"><option value="500">Niveau 3 (CAP, BEP) ou plus</option><option value="800">Sans diplôme de niveau 3</option></select></div>
+    <button type="button" id="calculate">Calculer</button>
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">Reste à charge estimé</div>
+      <div class="result-main" data-noanim id="reste">–</div>
+      <div class="result-row"><span>Pris en charge par le CPF</span><strong id="prise">–</strong></div>
+      <div class="result-row"><span>Participation forfaitaire (incluse)</span><strong id="part">–</strong></div>
+      <div class="result-row"><span>Droits CPF retenus</span><strong id="retenus">–</strong></div>
+      <div class="warning" id="notes"></div>
+    </div>
+  </section>
+
+  <section class="info-section" id="regles">
+    <h2>Le CPF en 2026 : droits, plafonds et reste à charge</h2>
+    <p>Un salarié à temps plein ou à mi-temps et plus reçoit 500 € par an sur son CPF, dans la limite de 5 000 €. Sans diplôme de niveau 3 (CAP, BEP), c'est 800 € par an dans la limite de 8 000 €. À temps partiel inférieur à 50 %, le crédit est proratisé.</p>
+    <p>Depuis le 2 avril 2026, une participation forfaitaire de 150 € reste à la charge du titulaire pour les nouvelles demandes déposées via Mon compte formation. Les demandeurs d'emploi inscrits à France Travail en sont exemptés, de même que les salariés dont la formation est abondée par l'employeur ou l'OPCO.</p>
+    <p>Depuis le 26 février 2026, certaines formations sont plafonnées : 1 500 € pour les certifications du répertoire spécifique, 1 600 € pour le bilan de compétences, 900 € pour le permis B (avec un cofinancement d'au moins 100 € par un tiers). Les titres RNCP, la VAE et CléA ne sont pas plafonnés. Un abondement s'ajoute sans limite.</p>
+    <p>Sources : <a href="https://www.filiz.io/blog/cpf-plafonds-reste-a-charge" target="_blank" rel="noopener noreferrer">Filiz, CPF 2026 : plafonds et reste à charge</a> · <a href="https://www.editions-tissot.fr/actualite/droit-du-travail/cpf-le-reste-a-charge-passe-a-150-euros-a-compter-du-2-avril-2026" target="_blank" rel="noopener noreferrer">Éditions Tissot, reste à charge à 150 €</a> · <a href="https://www.moncompteformation.gouv.fr/" target="_blank" rel="noopener noreferrer">Mon compte formation</a>.</p>
+  </section>
+
+  <section class="info-section" id="faq-ind"><h2>Questions fréquentes</h2><h3>Quel est le reste à charge du CPF en 2026 ?</h3><p>150 € depuis le 2 avril 2026, pour les nouvelles demandes. Les demandeurs d&#x27;emploi et les formations abondées par l&#x27;employeur ou l&#x27;OPCO en sont exemptés.</p><h3>Combien le CPF crédite-t-il chaque année ?</h3><p>500 € par an pour un salarié à temps plein ou à mi-temps et plus, dans la limite de 5 000 € ; 800 € par an, dans la limite de 8 000 €, sans diplôme de niveau 3.</p><h3>Le CPF finance-t-il une VAE ?</h3><p>Oui, la VAE n&#x27;est pas plafonnée au titre du CPF.</p><h3>Que faire si mes droits sont insuffisants ?</h3><p>Vous pouvez compléter avec un abondement de l&#x27;employeur, de l&#x27;OPCO, de la région ou de France Travail, ou payer la différence vous-même.</p></section>
+
+  <section class="sd-next" aria-labelledby="sd-next-t"><h2 id="sd-next-t">Et ensuite ?</h2><p class="sd-next-sub">Situation : <strong>Reconversion professionnelle</strong>. Les étapes qui reviennent le plus souvent :</p><ol class="sd-next-list"><li class="here" aria-current="page"><span class="sd-next-n">1</span><span class="sd-next-t"><strong>Reste à charge CPF</strong><small>Vous êtes ici</small></span></li><li><a href="/simulateur-remuneration-transition-professionnelle/"><span class="sd-next-n">2</span><span class="sd-next-t"><strong>Projet de transition professionnelle</strong><small>Éligibilité, rémunération et délais.</small></span></a></li><li><a href="/simulateur-demission-reconversion/"><span class="sd-next-n">3</span><span class="sd-next-t"><strong>Démission pour reconversion</strong><small>Conditions pour toucher le chômage.</small></span></a></li><li><a href="/simulateur-chomage/"><span class="sd-next-n">4</span><span class="sd-next-t"><strong>Allocation chômage</strong><small>Montant et durée estimés après la fin du contrat.</small></span></a></li></ol></section>
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/reconversion/">Reconversion : par où commencer ?</a><a href="/simulateur-remuneration-transition-professionnelle/">Projet de transition professionnelle</a><a href="/simulateur-demission-reconversion/">Démission pour reconversion</a><a href="/simulateur-chomage/">Allocation chômage</a><a href="/guides/allocation-chomage-calcul-duree/">Guide : Allocation chômage 2026 : calcul, durée, dégressivité</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-10-30">30 octobre 2026</time>. Estimation indicative, sans valeur juridique. <a href="/methode-et-sources/">Méthode et sources</a> · <a href="/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<footer><nav class="foot-top" aria-label="Les plus consultés"><strong>Les plus consultés</strong><a href="https://simudroit.fr/simulateur-brut-net/">Salaire brut en net</a><a href="https://simudroit.fr/simulateur-indemnite-licenciement/">Indemnité de licenciement</a><a href="https://simudroit.fr/simulateur-rupture-conventionnelle/">Rupture conventionnelle</a><a href="https://simudroit.fr/simulateur-chomage/">Allocation chômage</a><a href="https://simudroit.fr/simulateur-preavis-demission/">Préavis de démission</a><a href="https://simudroit.fr/simulateur-preavis-licenciement/">Préavis de licenciement</a><a href="https://simudroit.fr/simulateur-conges-payes/">Congés payés</a><a href="https://simudroit.fr/simulateur-fiche-de-paie/">Vérifier ma fiche de paie</a><a href="https://simudroit.fr/simulateur-solde-tout-compte/">Solde de tout compte</a><a href="https://simudroit.fr/simulateur-smic/">SMIC 2026</a><a href="https://simudroit.fr/salaire-brut-net/">Brut en net par montant</a><a href="https://simudroit.fr/metiers/">Mon métier : infirmier libéral, assistante maternelle, intérimaire</a><a href="https://simudroit.fr/retraite/">Retraite : par où commencer ?</a><a href="https://simudroit.fr/reconversion/">Reconversion : par où commencer ?</a></nav>
+  <p>© 2026 SimuDroit · <a href="https://simudroit.fr/">Tous les simulateurs</a> · <a href="https://simudroit.fr/methode-et-sources/">Méthode et sources</a> · <a href="https://simudroit.fr/contact/">Contact</a> · <a href="https://simudroit.fr/mentions-legales/">Mentions légales</a> · <a href="https://simudroit.fr/confidentialite/">Confidentialité</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+  var $=function(id){return document.getElementById(id)};
+  function setText(id,t){$(id).textContent=t}
+  function eur(v){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR"}).format(v)}
+  function r2(x){return Math.round((x+1e-9)*100)/100}
+  function notes(a){$("notes").innerHTML=a.map(function(n){return "<p style=\"margin:0 0 8px\">"+n+"</p>"}).join("")}
+  $("calculate").addEventListener("click",function(){
+    var C=parseFloat($("cout").value);
+    if(!(C>0)){notes(["Indiquez le coût de la formation."]);$("result").classList.add("visible");return}
+    var t=$("type").value,st=$("statut").value,cap={rncp:Infinity,rs:1500,bilan:1600,permis:900}[t],n=[];
+    var D=parseFloat($("droits").value),est=false;
+    if(!(D>=0)||$("droits").value===""){var a=parseFloat($("annees").value),al=parseInt($("niveau").value,10);
+      if(a>=0){D=Math.min(a*al,al*10);est=true}else{D=0}}
+    var part=st==="salarie"?Math.min(150,C):0,ret=Math.min(D,cap),prise=Math.min(ret,C-part),reste=r2(C-prise);
+    setText("reste",eur(reste));setText("prise",eur(r2(prise)));setText("part",eur(part));setText("retenus",eur(r2(ret)));
+    if(est)n.push("Droits estimés à "+eur(D)+" à partir de vos années travaillées : consultez Mon compte formation pour le solde réel.");
+    if(D>cap)n.push("Cette formation est plafonnée à "+eur(cap)+" au titre du CPF.");
+    if(t==="permis")n.push("Permis B : un cofinancement d'au moins 100 € par un tiers est exigé pour mobiliser le CPF.");
+    if(st==="salarie")n.push("La participation forfaitaire de 150 € s'applique aux demandes déposées depuis le 2 avril 2026.");
+    n.push("Estimation indicative : le coût final dépend de l'organisme de formation et de votre dossier.");
+    notes(n);$("result").classList.add("visible");
+  });
+
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>

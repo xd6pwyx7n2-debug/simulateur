@@ -1657,5 +1657,202 @@
     "attendus": {
       "#total": "1 390,50 €"
     }
+  },
+  {
+    "page": "simulateur-demission-reconversion",
+    "entrees": {
+      "contrat": "cdi",
+      "jours": 1400,
+      "cep": "oui",
+      "projet": "formation"
+    },
+    "attendus": {
+      "#verdict": "Conditions de base remplies",
+      "#manque": "Aucun"
+    }
+  },
+  {
+    "page": "simulateur-demission-reconversion",
+    "entrees": {
+      "contrat": "cdi",
+      "jours": 1000,
+      "cep": "oui",
+      "projet": "creation"
+    },
+    "attendus": {
+      "#verdict": "Conditions non remplies",
+      "#manque": "300 jours"
+    }
+  },
+  {
+    "page": "simulateur-demission-reconversion",
+    "entrees": {
+      "contrat": "cdi",
+      "jours": 1300,
+      "cep": "non",
+      "projet": "formation"
+    },
+    "attendus": {
+      "#verdict": "Conditions non remplies",
+      "#manque": "Aucun"
+    }
+  },
+  {
+    "page": "simulateur-demission-reconversion",
+    "entrees": {
+      "contrat": "autre",
+      "jours": 2000,
+      "cep": "oui",
+      "projet": "formation"
+    },
+    "attendus": {
+      "#verdict": "Conditions non remplies"
+    }
+  },
+  {
+    "page": "simulateur-cpf",
+    "entrees": {
+      "cout": 3500,
+      "type": "rncp",
+      "statut": "salarie",
+      "droits": 2500
+    },
+    "attendus": {
+      "#reste": "1 000,00 €",
+      "#prise": "2 500,00 €",
+      "#part": "150,00 €"
+    }
+  },
+  {
+    "page": "simulateur-cpf",
+    "entrees": {
+      "cout": 2000,
+      "type": "rs",
+      "statut": "demandeur",
+      "droits": 5000
+    },
+    "attendus": {
+      "#reste": "500,00 €",
+      "#prise": "1 500,00 €",
+      "#part": "0,00 €"
+    }
+  },
+  {
+    "page": "simulateur-cpf",
+    "entrees": {
+      "cout": 100,
+      "type": "rncp",
+      "statut": "salarie",
+      "droits": 500
+    },
+    "attendus": {
+      "#reste": "100,00 €",
+      "#prise": "0,00 €",
+      "#part": "100,00 €"
+    }
+  },
+  {
+    "page": "simulateur-cpf",
+    "entrees": {
+      "cout": 3000,
+      "type": "rncp",
+      "statut": "salarie",
+      "annees": 6,
+      "niveau": "500"
+    },
+    "attendus": {
+      "#reste": "150,00 €",
+      "#prise": "2 850,00 €",
+      "#retenus": "3 000,00 €"
+    }
+  },
+  {
+    "page": "simulateur-cpf",
+    "entrees": {
+      "cout": 1800,
+      "type": "bilan",
+      "statut": "abonde",
+      "droits": 5000
+    },
+    "attendus": {
+      "#reste": "200,00 €",
+      "#prise": "1 600,00 €",
+      "#retenus": "1 600,00 €"
+    }
+  },
+  {
+    "page": "simulateur-remuneration-transition-professionnelle",
+    "entrees": {
+      "contrat": "cdi",
+      "anc": 60,
+      "ent": 30,
+      "sal": 2400,
+      "duree": 10,
+      "modalite": "plein"
+    },
+    "attendus": {
+      "#elig": "Conditions d'ancienneté remplies",
+      "#remu1": "2 400,00 €",
+      "#remu2": "–",
+      "#delai": "120 jours avant le début"
+    }
+  },
+  {
+    "page": "simulateur-remuneration-transition-professionnelle",
+    "entrees": {
+      "contrat": "cdi",
+      "anc": 60,
+      "ent": 30,
+      "sal": 4000,
+      "duree": 10,
+      "modalite": "plein"
+    },
+    "attendus": {
+      "#remu1": "3 600,00 €"
+    }
+  },
+  {
+    "page": "simulateur-remuneration-transition-professionnelle",
+    "entrees": {
+      "contrat": "cdi",
+      "anc": 60,
+      "ent": 30,
+      "sal": 4000,
+      "duree": 18,
+      "modalite": "plein"
+    },
+    "attendus": {
+      "#remu1": "3 600,00 €",
+      "#remu2": "3 734,04 €"
+    }
+  },
+  {
+    "page": "simulateur-remuneration-transition-professionnelle",
+    "entrees": {
+      "contrat": "cdi",
+      "anc": 20,
+      "ent": 30,
+      "sal": 2400,
+      "duree": 10,
+      "modalite": "plein"
+    },
+    "attendus": {
+      "#elig": "Conditions d'ancienneté non remplies"
+    }
+  },
+  {
+    "page": "simulateur-remuneration-transition-professionnelle",
+    "entrees": {
+      "contrat": "cdd",
+      "anc": 30,
+      "cddm": 5,
+      "sal": 2000,
+      "duree": 8,
+      "modalite": "autre"
+    },
+    "attendus": {
+      "#elig": "Conditions d'ancienneté remplies",
+      "#delai": "60 jours avant le début"
+    }
   }
 ]

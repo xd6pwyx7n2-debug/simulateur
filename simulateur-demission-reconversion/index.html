@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Démission pour reconversion : éligibilité au chômage 2026</title>
+  <meta name="description" content="Vérifiez si vous pouvez démissionner pour une reconversion et toucher le chômage : CDI, 1 300 jours travaillés, CEP, projet. Gratuit, sans inscription.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://simudroit.fr/simulateur-demission-reconversion/">
+  <link rel="icon" href="https://simudroit.fr/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="https://simudroit.fr/favicon.ico" sizes="48x48">
+  <link rel="icon" href="https://simudroit.fr/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="https://simudroit.fr/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Démission pour reconversion : éligibilité au chômage 2026">
+  <meta property="og:description" content="Vérifiez si vous pouvez démissionner pour une reconversion et toucher le chômage : CDI, 1 300 jours travaillés, CEP, projet. Gratuit, sans inscription.">
+  <meta property="og:url" content="https://simudroit.fr/simulateur-demission-reconversion/">
+  <meta property="og:image" content="https://simudroit.fr/assets/og/simulateur-demission-reconversion.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://simudroit.fr/assets/og/simulateur-demission-reconversion.jpg">
+  <meta name="twitter:title" content="Démission pour reconversion : éligibilité au chômage 2026">
+  <meta name="twitter:description" content="Vérifiez si vous pouvez démissionner pour une reconversion et toucher le chômage : CDI, 1 300 jours travaillés, CEP, projet. Gratuit, sans inscription.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://simudroit.fr/"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebPage", "name": "Démission pour reconversion : puis-je toucher le chômage ?", "url": "https://simudroit.fr/simulateur-demission-reconversion/", "description": "Vérifiez si vous pouvez démissionner pour une reconversion et toucher le chômage : CDI, 1 300 jours travaillés, CEP, projet. Gratuit, sans inscription.", "inLanguage": "fr-FR", "dateModified": "2026-10-30"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://simudroit.fr/"}, {"@type": "ListItem", "position": 2, "name": "Démission pour reconversion", "item": "https://simudroit.fr/simulateur-demission-reconversion/"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Peut-on toucher le chômage si l'on démissionne pour se reconvertir ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, sous conditions : CDI du privé, 1 300 jours travaillés sur 60 mois, CEP demandé avant la démission et projet validé par Transition Pro."}}, {"@type": "Question", "name": "Quand faut-il demander le conseil en évolution professionnelle ?", "acceptedAnswer": {"@type": "Answer", "text": "Avant la démission. Sans CEP préalable, le projet est irrecevable."}}, {"@type": "Question", "name": "Une démission pour création d'entreprise ouvre-t-elle droit au chômage ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, les projets de création ou de reprise d'entreprise sont éligibles, sous les mêmes conditions et après validation de leur sérieux."}}, {"@type": "Question", "name": "Que se passe-t-il si je ne réalise pas mon projet ?", "acceptedAnswer": {"@type": "Answer", "text": "Le versement se poursuit uniquement si vous accomplissez les démarches liées au projet. En cas de manquement, une radiation de 4 mois et la suppression de 4 mois d'allocation sont encourues."}}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebApplication", "name": "Démission pour reconversion", "url": "https://simudroit.fr/simulateur-demission-reconversion/", "description": "Vérifiez si vous pouvez démissionner pour une reconversion et toucher le chômage : CDI, 1 300 jours travaillés, CEP, projet. Gratuit, sans inscription.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}
+  </script>
+  <meta name="theme-color" content="#201e48">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="Démission pour reconversion : éligibilité au chômage 2026 | SimuDroit">
+  <link rel="alternate" hreflang="fr" href="https://simudroit.fr/simulateur-demission-reconversion/">
+  <link rel="alternate" hreflang="x-default" href="https://simudroit.fr/simulateur-demission-reconversion/">
+  <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
+  <script async src="https://plausible.io/js/pa-j8JdUomB9hqqp7em82xdB.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+</head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.fr/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://simudroit.fr/simulateurs/">Simulateurs</a>
+      <a href="https://simudroit.fr/assistant/">Assistant</a>
+      <a href="https://simudroit.fr/independants/">Indépendants</a>
+      <a href="https://simudroit.fr/guides/">Guides</a>
+      <a href="https://simudroit.fr/modeles-de-lettres/">Lettres</a>
+      <a href="https://simudroit.fr/glossaire/">Glossaire</a>
+      <a href="https://simudroit.fr/faq/">FAQ</a>
+      <a class="cta-link" href="https://simudroit.fr/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://simudroit.fr/">Accueil</a> &nbsp;›&nbsp; Démission pour reconversion
+  </div>
+
+  <section class="hero">
+    <h1>Démission pour reconversion et chômage</h1>
+    <p>Vérifiez les conditions de base avant de démissionner : ancienneté, contrat, conseil en évolution professionnelle et projet.</p>
+      <div class="badges"><span class="badge">✓ Règles 2026 vérifiées le 30 octobre 2026</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Vos données restent dans votre navigateur</span></div>
+  </section>
+<nav class="sd-line" aria-label="Parcours : Reconversion professionnelle"><p class="sd-line-lab">Votre parcours : <strong>Reconversion professionnelle</strong></p><div class="sd-line-scroll"><ol style="--n:4"><li class="done" style="--i:0"><a href="/simulateur-cpf/" title="Reste à charge CPF : Ce que finance le CPF et ce qui reste à payer."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">CPF</span></a></li><li class="done" style="--i:1"><a href="/simulateur-remuneration-transition-professionnelle/" title="Projet de transition professionnelle : Éligibilité, rémunération et délais."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Transition pro</span></a></li><li class="cur" style="--i:2" aria-current="step"><span class="sd-line-tag">Vous êtes ici</span><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Démission</span></li><li class="next" style="--i:3"><a href="/simulateur-chomage/" title="Allocation chômage : Montant et durée estimés après la fin du contrat."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Chômage</span></a></li></ol></div></nav>
+
+
+<section class="info-section sd-know" id="a-savoir">
+    <h2>À savoir avant de vous fier au résultat</h2>
+    <div class="sd-know-grid"><div class="sd-know-card"><h3>Ce que vérifie l'outil</h3><p>Les conditions de base pour toucher le chômage après une démission pour reconversion : CDI du privé, 1 300 jours travaillés sur 60 mois, conseil en évolution professionnelle demandé avant, projet de formation ou de création d'entreprise.</p></div><div class="sd-know-card"><h3>Ce qu'il ne décide pas</h3><p>C'est la commission paritaire (Transition Pro) qui valide le caractère réel et sérieux du projet. Le montant de l'allocation dépend ensuite de vos salaires, comme pour tout chômage.</p></div><div class="sd-know-card"><h3>Dans quel ordre agir</h3><p>Ne démissionnez pas avant d'avoir fait le conseil en évolution professionnelle et obtenu l'attestation : sans cela, le projet est irrecevable.</p></div></div>
+  </section>
+  <section class="calculator" id="calcul">
+    <h2>Puis-je démissionner pour une reconversion et toucher le chômage ?</h2><noscript><p class="intro-note"><strong>JavaScript requis :</strong> ce simulateur calcule directement dans votre navigateur.</p></noscript><div class="field"><label for="contrat">Votre contrat actuel</label><select id="contrat"><option value="cdi">CDI du secteur privé</option><option value="autre">CDD, intérim, fonction publique, indépendant</option></select></div><div class="field"><label for="jours">Jours travaillés sur les 60 derniers mois (1 300 jours ≈ 5 ans à temps plein)</label><input type="number" id="jours" min="0" step="1" inputmode="decimal" placeholder="Ex. 1400"></div><div class="field"><label for="cep">Conseil en évolution professionnelle (CEP) demandé avant la démission</label><select id="cep"><option value="oui">Oui</option><option value="non">Non, pas encore</option></select></div><div class="field"><label for="projet">Votre projet</label><select id="projet"><option value="formation">Reconversion avec une formation</option><option value="creation">Création ou reprise d'entreprise</option><option value="autre">Autre projet ou pas de projet précis</option></select></div>
+    <button type="button" id="calculate">Vérifier mes conditions</button>
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">Conditions de base</div>
+      <div class="result-main" data-noanim id="verdict">–</div>
+      <div class="result-row"><span>Jours travaillés manquants</span><strong id="manque">–</strong></div>
+      <div class="warning" id="notes"></div>
+    </div>
+  </section>
+
+  <section class="info-section" id="regles">
+    <h2>Comment fonctionne la démission pour reconversion</h2>
+    <p>Le dispositif ouvre le droit à l'allocation chômage après une démission, sous conditions. Il faut justifier d'au moins 1 300 jours travaillés sur les 60 mois précédant la démission, être en CDI dans le secteur privé, demander un conseil en évolution professionnelle (CEP) <strong>avant</strong> de démissionner, puis faire valider son projet par la commission Transition Pro. Sont éligibles les projets de reconversion nécessitant une formation et les projets de création ou de reprise d'entreprise.</p>
+    <p>Après la décision, vous disposez de 6 mois pour vous inscrire à France Travail et demander l'allocation, sans dépasser 12 mois après la démission. Le versement continue à condition de réaliser les démarches du projet, contrôlées dans les 6 mois suivant l'ouverture des droits. Le CEP est assuré par l'APEC, Cap emploi ou l'opérateur régional.</p>
+    <p>Estimez ensuite votre allocation avec le <a href="/simulateur-chomage/">simulateur chômage</a>.</p>
+    <p>Sources : <a href="https://www.francetravail.fr/candidat/mes-droits-aux-aides-et-allocati/a-chaque-situation-son-allocatio/quelle-est-ma-situation-professi/je-perds-ou-je-quitte-un-emploi/je-veux-demissionner-et-jai-un-p.html" target="_blank" rel="noopener noreferrer">France Travail, démission et projet de reconversion</a> · <a href="https://demission-reconversion.gouv.fr/" target="_blank" rel="noopener noreferrer">demission-reconversion.gouv.fr</a>.</p>
+  </section>
+
+  <section class="info-section" id="faq-ind"><h2>Questions fréquentes</h2><h3>Peut-on toucher le chômage si l&#x27;on démissionne pour se reconvertir ?</h3><p>Oui, sous conditions : CDI du privé, 1 300 jours travaillés sur 60 mois, CEP demandé avant la démission et projet validé par Transition Pro.</p><h3>Quand faut-il demander le conseil en évolution professionnelle ?</h3><p>Avant la démission. Sans CEP préalable, le projet est irrecevable.</p><h3>Une démission pour création d&#x27;entreprise ouvre-t-elle droit au chômage ?</h3><p>Oui, les projets de création ou de reprise d&#x27;entreprise sont éligibles, sous les mêmes conditions et après validation de leur sérieux.</p><h3>Que se passe-t-il si je ne réalise pas mon projet ?</h3><p>Le versement se poursuit uniquement si vous accomplissez les démarches liées au projet. En cas de manquement, une radiation de 4 mois et la suppression de 4 mois d&#x27;allocation sont encourues.</p></section>
+
+  <section class="sd-next" aria-labelledby="sd-next-t"><h2 id="sd-next-t">Et ensuite ?</h2><p class="sd-next-sub">Situation : <strong>Reconversion professionnelle</strong>. Les étapes qui reviennent le plus souvent :</p><ol class="sd-next-list"><li><a href="/simulateur-cpf/"><span class="sd-next-n">1</span><span class="sd-next-t"><strong>Reste à charge CPF</strong><small>Ce que finance le CPF et ce qui reste à payer.</small></span></a></li><li><a href="/simulateur-remuneration-transition-professionnelle/"><span class="sd-next-n">2</span><span class="sd-next-t"><strong>Projet de transition professionnelle</strong><small>Éligibilité, rémunération et délais.</small></span></a></li><li class="here" aria-current="page"><span class="sd-next-n">3</span><span class="sd-next-t"><strong>Démission pour reconversion</strong><small>Vous êtes ici</small></span></li><li><a href="/simulateur-chomage/"><span class="sd-next-n">4</span><span class="sd-next-t"><strong>Allocation chômage</strong><small>Montant et durée estimés après la fin du contrat.</small></span></a></li></ol></section>
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/reconversion/">Reconversion : par où commencer ?</a><a href="/simulateur-chomage/">Allocation chômage</a><a href="/simulateur-cpf/">Reste à charge CPF</a><a href="/modele-lettre-demission/">Lettre de démission</a><a href="/guides/allocation-chomage-calcul-duree/">Guide : Allocation chômage 2026 : calcul, durée, dégressivité</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-10-30">30 octobre 2026</time>. Estimation indicative, sans valeur juridique. <a href="/methode-et-sources/">Méthode et sources</a> · <a href="/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<footer><nav class="foot-top" aria-label="Les plus consultés"><strong>Les plus consultés</strong><a href="https://simudroit.fr/simulateur-brut-net/">Salaire brut en net</a><a href="https://simudroit.fr/simulateur-indemnite-licenciement/">Indemnité de licenciement</a><a href="https://simudroit.fr/simulateur-rupture-conventionnelle/">Rupture conventionnelle</a><a href="https://simudroit.fr/simulateur-chomage/">Allocation chômage</a><a href="https://simudroit.fr/simulateur-preavis-demission/">Préavis de démission</a><a href="https://simudroit.fr/simulateur-preavis-licenciement/">Préavis de licenciement</a><a href="https://simudroit.fr/simulateur-conges-payes/">Congés payés</a><a href="https://simudroit.fr/simulateur-fiche-de-paie/">Vérifier ma fiche de paie</a><a href="https://simudroit.fr/simulateur-solde-tout-compte/">Solde de tout compte</a><a href="https://simudroit.fr/simulateur-smic/">SMIC 2026</a><a href="https://simudroit.fr/salaire-brut-net/">Brut en net par montant</a><a href="https://simudroit.fr/metiers/">Mon métier : infirmier libéral, assistante maternelle, intérimaire</a><a href="https://simudroit.fr/retraite/">Retraite : par où commencer ?</a><a href="https://simudroit.fr/reconversion/">Reconversion : par où commencer ?</a></nav>
+  <p>© 2026 SimuDroit · <a href="https://simudroit.fr/">Tous les simulateurs</a> · <a href="https://simudroit.fr/methode-et-sources/">Méthode et sources</a> · <a href="https://simudroit.fr/contact/">Contact</a> · <a href="https://simudroit.fr/mentions-legales/">Mentions légales</a> · <a href="https://simudroit.fr/confidentialite/">Confidentialité</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+  var $=function(id){return document.getElementById(id)};
+  function setText(id,t){$(id).textContent=t}
+  function eur(v){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR"}).format(v)}
+  function r2(x){return Math.round((x+1e-9)*100)/100}
+  function notes(a){$("notes").innerHTML=a.map(function(n){return "<p style=\"margin:0 0 8px\">"+n+"</p>"}).join("")}
+  $("calculate").addEventListener("click",function(){
+    var j=parseInt($("jours").value,10);
+    if(!Number.isInteger(j)||j<0){notes(["Indiquez le nombre de jours travaillés sur les 60 derniers mois."]);$("result").classList.add("visible");setText("verdict","–");setText("manque","–");return}
+    var c1=$("contrat").value==="cdi",c2=j>=1300,c3=$("cep").value==="oui",c4=$("projet").value!=="autre",ok=c1&&c2&&c3&&c4;
+    var m=Math.max(0,1300-j),n=[];
+    n.push((c1?"✓":"✗")+" CDI du secteur privé (les CDD, l'intérim, les agents publics et les indépendants sont exclus).");
+    n.push((c2?"✓":"✗")+" 1 300 jours travaillés sur 60 mois"+(c2?".":" : il en manque "+m+".")); 
+    n.push((c3?"✓":"✗")+" Conseil en évolution professionnelle demandé avant la démission"+(c3?".":" : à faire avant toute démission."));
+    n.push((c4?"✓":"✗")+" Projet de formation ou de création ou reprise d'entreprise"+(c4?".":" : un autre projet n'est pas éligible."));
+    n.push(ok?"Étape suivante : faire valider le projet par la commission Transition Pro. Ne démissionnez pas avant sa décision.":"Au moins une condition n'est pas remplie : ne démissionnez pas avant d'avoir vérifié votre situation auprès de France Travail (0 801 01 03 02).");
+    n.push("Résultat indicatif : la décision appartient à Transition Pro et à France Travail.");
+    setText("verdict",ok?"Conditions de base remplies":"Conditions non remplies");setText("manque",m===0?"Aucun":m+" jour"+(m>1?"s":""));
+    notes(n);$("result").classList.add("visible");
+  });
+
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>
