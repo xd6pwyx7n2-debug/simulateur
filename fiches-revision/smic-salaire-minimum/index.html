@@ -39,7 +39,8 @@
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/theme.css">
+<link rel="stylesheet" href="/assets/fiche.css">
+  <link rel="stylesheet" href="/assets/theme.css">
 <script src="/assets/theme.js"></script>
 </head>
 <body>
@@ -61,22 +62,21 @@
   </div>
 </header>
 <main id="contenu" tabindex="-1">
-<article>
+<article class="fiche" style="--a:#1f6fb8;--b:#4db0f0">
 <p class="crumbs"><a href="https://simudroit.fr/">Accueil</a> › <a href="https://simudroit.fr/fiches-revision/">Fiches de révision</a> › Le SMIC et le salaire minimum</p>
-<h1>Le SMIC et le salaire minimum</h1>
-<p class="intro">Ce qu'est le salaire minimum légal, son montant en 2026 et comment il s'adapte à l'âge, au temps partiel et à l'apprentissage.</p>
+<div class="fiche-hero"><div class="fh-ico"><svg viewBox="-60 -60 120 120" aria-hidden="true"><circle cx="0" cy="0" r="46"/><path d="M20-22c-18-16-42-6-42 22s24 38 42 22M-30-6h34M-30 8h34"/></svg></div><div class="fh-txt"><span class="fh-chip">Fiche de révision</span><h1>Le SMIC et le salaire minimum</h1><p class="intro">Ce qu'est le salaire minimum légal, son montant en 2026 et comment il s'adapte à l'âge, au temps partiel et à l'apprentissage.</p><div class="fh-meta"><span>⏱ 3 min de lecture</span><span>📅 Chiffres 2026</span><span>✏️ 3 questions pour vous tester</span></div></div></div>
 <div class="fiche-actions"><button type="button" class="fiche-pdf">Télécharger en PDF</button><button type="button" class="fiche-share sec">Partager</button><span class="fiche-msg" role="status" aria-live="polite"></span></div>
 <p class="note"><strong>À retenir :</strong> depuis le 1er juin 2026, le SMIC brut est de 12,31 € de l'heure, soit 1 867,02 € par mois pour 35 heures par semaine ; il a augmenté de 2,41 %.</p>
 <h2>Les montants à connaître</h2>
-<div class="table-wrap"><table class="sd-table"><thead><tr><th scope="col">Période</th><th scope="col">SMIC horaire brut</th><th scope="col">SMIC mensuel brut (35 h)</th></tr></thead><tbody><tr><td>Avant le 1er juin 2026</td><td>12,02 €</td><td>1 823,03 €</td></tr><tr><td>Depuis le 1er juin 2026</td><td>12,31 €</td><td>1 867,02 €</td></tr></tbody></table></div>
+<div class="table-wrap"><table class="sd-table"><thead><tr><th scope="col">Période</th><th scope="col">SMIC horaire brut</th><th scope="col">SMIC mensuel brut (35 h)</th></tr></thead><tbody><tr><td>Avant le 1er juin 2026</td><td data-label="SMIC horaire brut">12,02 €</td><td data-label="SMIC mensuel brut (35 h)">1 823,03 €</td></tr><tr><td>Depuis le 1er juin 2026</td><td data-label="SMIC horaire brut">12,31 €</td><td data-label="SMIC mensuel brut (35 h)">1 867,02 €</td></tr></tbody></table></div>
 <p>Le SMIC mensuel correspond à environ 151,67 heures de travail. Un temps plein sur douze mois au taux actuel représente 1 867,02 × 12 = 22 404,24 € bruts (un calcul, pas un chiffre publié).</p>
 <h2>Temps partiel</h2>
 <p>Le minimum se calcule au prorata des heures : pour 17,5 heures par semaine, soit la moitié d'un temps plein, le minimum mensuel brut est de 1 867,02 ÷ 2 = 933,51 €.</p>
 <h2>Apprentis : un pourcentage du SMIC</h2>
-<div class="table-wrap"><table class="sd-table"><thead><tr><th scope="col">Année de contrat</th><th scope="col">Moins de 18 ans</th><th scope="col">18 à 20 ans</th><th scope="col">21 à 25 ans</th><th scope="col">26 ans et plus</th></tr></thead><tbody><tr><td>1re année</td><td>27 %</td><td>43 %</td><td>53 %</td><td>100 %</td></tr><tr><td>2e année</td><td>39 %</td><td>51 %</td><td>61 %</td><td>100 %</td></tr><tr><td>3e année</td><td>55 %</td><td>67 %</td><td>78 %</td><td>100 %</td></tr></tbody></table></div>
-<p>Exemple : un apprenti de 19 ans en 2e année touche 51 % de 1 867,02 €, soit 952,18 € brut par mois.</p>
-<h2>Testez-vous</h2><details style="margin:8px 0;padding:10px 14px;border:1px solid #e2e6ef;border-radius:12px;background:#fff"><summary style="cursor:pointer;font-weight:700">Quel est le SMIC mensuel brut pour 35 heures depuis le 1er juin 2026 ?</summary><p style="margin:8px 0 0">1 867,02 €.</p></details><details style="margin:8px 0;padding:10px 14px;border:1px solid #e2e6ef;border-radius:12px;background:#fff"><summary style="cursor:pointer;font-weight:700">Quel minimum pour un salarié à 24 heures par semaine ?</summary><p style="margin:8px 0 0">Au prorata : 12,31 € × 24 × 52 ÷ 12 ≈ 1 280 € brut par mois (calcul à l'heure sur 52 semaines).</p></details><details style="margin:8px 0;padding:10px 14px;border:1px solid #e2e6ef;border-radius:12px;background:#fff"><summary style="cursor:pointer;font-weight:700">Quel pourcentage du SMIC pour un apprenti de 22 ans en 1re année ?</summary><p style="margin:8px 0 0">53 %.</p></details>
-<h2>Pour s'entraîner et approfondir</h2>
+<div class="table-wrap"><table class="sd-table"><thead><tr><th scope="col">Année de contrat</th><th scope="col">Moins de 18 ans</th><th scope="col">18 à 20 ans</th><th scope="col">21 à 25 ans</th><th scope="col">26 ans et plus</th></tr></thead><tbody><tr><td>1re année</td><td data-label="Moins de 18 ans">27 %</td><td data-label="18 à 20 ans">43 %</td><td data-label="21 à 25 ans">53 %</td><td data-label="26 ans et plus">100 %</td></tr><tr><td>2e année</td><td data-label="Moins de 18 ans">39 %</td><td data-label="18 à 20 ans">51 %</td><td data-label="21 à 25 ans">61 %</td><td data-label="26 ans et plus">100 %</td></tr><tr><td>3e année</td><td data-label="Moins de 18 ans">55 %</td><td data-label="18 à 20 ans">67 %</td><td data-label="21 à 25 ans">78 %</td><td data-label="26 ans et plus">100 %</td></tr></tbody></table></div>
+<div class="fiche-ex"><b>Exemple</b>un apprenti de 19 ans en 2e année touche 51 % de 1 867,02 €, soit 952,18 € brut par mois.</div>
+<h2 class="no-n" data-e="✏️">Testez-vous</h2><details class="q"><summary>Quel est le SMIC mensuel brut pour 35 heures depuis le 1er juin 2026 ?</summary><p>1 867,02 €.</p></details><details class="q"><summary>Quel minimum pour un salarié à 24 heures par semaine ?</summary><p>Au prorata : 12,31 € × 24 × 52 ÷ 12 ≈ 1 280 € brut par mois (calcul à l'heure sur 52 semaines).</p></details><details class="q"><summary>Quel pourcentage du SMIC pour un apprenti de 22 ans en 1re année ?</summary><p>53 %.</p></details>
+<h2 class="no-n" data-e="🔎">Pour s'entraîner et approfondir</h2>
 <div class="sd-see-grid" style="margin:12px 0"><a href="/simulateur-smic/"><strong>SMIC 2026</strong><br><span>Montants et calcul.</span></a><a href="/simulateur-salaire-apprenti/"><strong>Salaire d'un apprenti</strong><br><span>Selon l'âge et l'année.</span></a><a href="/simulateur-salaire-horaire-mensuel/"><strong>Horaire et mensuel</strong><br><span>Convertir un taux horaire.</span></a><a href="/guides/smic-2026-montant-brut-net-horaire/"><strong>Guide : SMIC 2026</strong><br><span>Montants, date de revalorisation.</span></a></div>
 <p style="font-size:.9rem;color:#5a5f78">Sources : pages officielles citées dans le guide SMIC 2026. Chiffres 2026, vérifiés le 30 octobre 2026. Cette fiche est une aide à la révision et à la compréhension : elle ne remplace ni le texte officiel ni un conseil juridique.</p>
 <script src="/assets/fiche.js" defer></script>
