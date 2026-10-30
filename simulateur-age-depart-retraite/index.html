@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Âge de départ à la retraite 2026 : âge légal et trimestres</title>
+  <meta name="description" content="Calculez votre âge légal de départ à la retraite et la date du taux plein selon votre année de naissance, avec la suspension de la réforme de 2023 (LFSS 2026).">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://simudroit.fr/simulateur-age-depart-retraite/">
+  <link rel="icon" href="https://simudroit.fr/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="https://simudroit.fr/favicon.ico" sizes="48x48">
+  <link rel="icon" href="https://simudroit.fr/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="https://simudroit.fr/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Âge de départ à la retraite 2026 : âge légal et trimestres">
+  <meta property="og:description" content="Calculez votre âge légal de départ à la retraite et la date du taux plein selon votre année de naissance, avec la suspension de la réforme de 2023 (LFSS 2026).">
+  <meta property="og:url" content="https://simudroit.fr/simulateur-age-depart-retraite/">
+  <meta property="og:image" content="https://simudroit.fr/assets/og/simulateur-age-depart-retraite.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://simudroit.fr/assets/og/simulateur-age-depart-retraite.jpg">
+  <meta name="twitter:title" content="Âge de départ à la retraite 2026 : âge légal et trimestres">
+  <meta name="twitter:description" content="Calculez votre âge légal de départ à la retraite et la date du taux plein selon votre année de naissance, avec la suspension de la réforme de 2023 (LFSS 2026).">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://simudroit.fr/"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebPage", "name": "Quand puis-je partir à la retraite ? Âge légal et trimestres", "url": "https://simudroit.fr/simulateur-age-depart-retraite/", "description": "Calculez votre âge légal de départ à la retraite et la date du taux plein selon votre année de naissance, avec la suspension de la réforme de 2023 (LFSS 2026).", "inLanguage": "fr-FR", "dateModified": "2026-10-30"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://simudroit.fr/"}, {"@type": "ListItem", "position": 2, "name": "Âge de départ à la retraite", "item": "https://simudroit.fr/simulateur-age-depart-retraite/"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "À quel âge puis-je partir à la retraite si je suis né en 1965 ?", "acceptedAnswer": {"@type": "Answer", "text": "À 62 ans et 9 mois si vous êtes né de janvier à mars 1965, avec 170 trimestres pour le taux plein ; à 63 ans si vous êtes né d'avril à décembre, avec 171 trimestres."}}, {"@type": "Question", "name": "Que se passe-t-il si je n'ai pas tous mes trimestres ?", "acceptedAnswer": {"@type": "Answer", "text": "Vous pouvez partir à l'âge légal avec une décote, ou attendre d'avoir les trimestres, ou 67 ans : le taux plein est alors accordé automatiquement."}}, {"@type": "Question", "name": "La réforme des retraites a-t-elle été annulée ?", "acceptedAnswer": {"@type": "Answer", "text": "Non, elle est suspendue : le calendrier est gelé et les âges de départ des générations 1964 à 1968 sont abaissés pour les retraites à partir du 1er septembre 2026, jusqu'au 1er janvier 2028."}}, {"@type": "Question", "name": "Cet outil donne-t-il le montant de ma pension ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Il donne les dates. Pour le montant, consultez votre relevé de carrière et l'estimateur officiel sur info-retraite.fr."}}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebApplication", "name": "Âge de départ à la retraite", "url": "https://simudroit.fr/simulateur-age-depart-retraite/", "description": "Calculez votre âge légal de départ à la retraite et la date du taux plein selon votre année de naissance, avec la suspension de la réforme de 2023 (LFSS 2026).", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}
+  </script>
+  <meta name="theme-color" content="#201e48">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="Âge de départ à la retraite 2026 : âge légal et trimestres | SimuDroit">
+  <link rel="alternate" hreflang="fr" href="https://simudroit.fr/simulateur-age-depart-retraite/">
+  <link rel="alternate" hreflang="x-default" href="https://simudroit.fr/simulateur-age-depart-retraite/">
+  <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
+  <script async src="https://plausible.io/js/pa-j8JdUomB9hqqp7em82xdB.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+</head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.fr/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://simudroit.fr/simulateurs/">Simulateurs</a>
+      <a href="https://simudroit.fr/assistant/">Assistant</a>
+      <a href="https://simudroit.fr/independants/">Indépendants</a>
+      <a href="https://simudroit.fr/guides/">Guides</a>
+      <a href="https://simudroit.fr/modeles-de-lettres/">Lettres</a>
+      <a href="https://simudroit.fr/glossaire/">Glossaire</a>
+      <a href="https://simudroit.fr/faq/">FAQ</a>
+      <a class="cta-link" href="https://simudroit.fr/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://simudroit.fr/">Accueil</a> &nbsp;›&nbsp; Âge de départ à la retraite
+  </div>
+
+  <section class="hero">
+    <h1>Quand puis-je partir à la retraite ?</h1>
+    <p>Âge légal, trimestres requis et date de départ sans décote selon votre date de naissance et vos trimestres validés.</p>
+      <div class="badges"><span class="badge">✓ Règles 2026 vérifiées le 30 octobre 2026</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Vos données restent dans votre navigateur</span></div>
+  </section>
+<nav class="sd-line" aria-label="Parcours : Départ à la retraite"><p class="sd-line-lab">Votre parcours : <strong>Départ à la retraite</strong></p><div class="sd-line-scroll"><ol style="--n:4"><li class="cur" style="--i:0" aria-current="step"><span class="sd-line-tag">Vous êtes ici</span><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Âge de départ</span></li><li class="next" style="--i:1"><a href="/simulateur-indemnite-depart-retraite/" title="Indemnité de départ à la retraite : Le montant légal selon l&#x27;ancienneté."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Indemnité de départ</span></a></li><li class="next" style="--i:2"><a href="/simulateur-preavis-demission/" title="Préavis de démission : Date de fin et dispense éventuelle."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Préavis</span></a></li><li class="next" style="--i:3"><a href="/simulateur-solde-tout-compte/" title="Solde de tout compte : Les sommes à vérifier à la remise du dernier document."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Solde de tout compte</span></a></li></ol></div></nav>
+
+
+<section class="info-section sd-know" id="a-savoir">
+    <h2>À savoir avant de vous fier au résultat</h2>
+    <div class="sd-know-grid"><div class="sd-know-card"><h3>Ce que calcule l'outil</h3><p>L'âge légal de départ et le nombre de trimestres pour le taux plein selon votre date de naissance, la date à laquelle vous pouvez partir sans décote, et la date du taux plein automatique à 67 ans.</p></div><div class="sd-know-card"><h3>Une règle qui a changé</h3><p>La loi de financement de la Sécurité sociale pour 2026 suspend le calendrier de la réforme de 2023 : les âges de départ des générations 1964 à 1968 sont abaissés pour les retraites prenant effet à partir du 1er septembre 2026, jusqu'au 1er janvier 2028 au plus tard.</p></div><div class="sd-know-card"><h3>Ce qui n'est pas calculé</h3><p>Les départs anticipés pour carrière longue, handicap ou incapacité, les régimes spéciaux et la fonction publique. Le montant de la pension n'est pas estimé ici.</p></div></div>
+  </section>
+  <section class="calculator" id="calcul">
+    <h2>Quand pouvez-vous partir à la retraite ?</h2>
+    <noscript><p class="intro-note"><strong>JavaScript requis :</strong> ce simulateur calcule directement dans votre navigateur.</p></noscript>
+    <div class="field"><label for="naiss">Votre date de naissance</label><input type="date" id="naiss"></div>
+    <div class="field"><label for="trim">Trimestres déjà validés (facultatif)</label><input type="number" id="trim" min="0" max="250" step="1" inputmode="numeric" placeholder="Ex. 140"><div class="field-help">Indiqués sur votre relevé de carrière (info-retraite.fr).</div></div>
+    <div class="field"><label for="dateRel">À quelle date ? (facultatif, par défaut aujourd'hui)</label><input type="date" id="dateRel"></div>
+    <button type="button" id="calculate">Calculer ma date de départ</button>
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">Départ possible sans décote dès le</div>
+      <div class="result-main" data-noanim id="depart">–</div>
+      <div class="result-row"><span>Âge légal de départ</span><strong id="ageLegal">–</strong></div>
+      <div class="result-row"><span>Date de l'âge légal</span><strong id="dateLegal">–</strong></div>
+      <div class="result-row"><span>Trimestres pour le taux plein</span><strong id="trimReq">–</strong></div>
+      <div class="result-row"><span>Trimestres manquants</span><strong id="manque">–</strong></div>
+      <div class="result-row"><span>Taux plein automatique à 67 ans, le</span><strong id="date67">–</strong></div>
+      <div class="warning" id="notes"></div>
+    </div>
+  </section>
+
+  <section class="info-section" id="regles">
+    <h2>L'âge de départ selon votre année de naissance</h2>
+    <div class="table-wrap"><table class="sd-table"><thead><tr><th scope="col">Naissance</th><th scope="col">Âge légal</th><th scope="col">Trimestres</th></tr></thead><tbody>
+    <tr><td>1961 (janvier à août)</td><td>62 ans</td><td>168</td></tr><tr><td>1961 (septembre à décembre)</td><td>62 ans et 3 mois</td><td>169</td></tr><tr><td>1962</td><td>62 ans et 6 mois</td><td>169</td></tr><tr><td>1963</td><td>62 ans et 9 mois</td><td>170</td></tr><tr><td>1964</td><td>62 ans et 9 mois</td><td>170</td></tr><tr><td>1965 (janvier à mars)</td><td>62 ans et 9 mois</td><td>170</td></tr><tr><td>1965 (avril à décembre)</td><td>63 ans</td><td>171</td></tr><tr><td>1966</td><td>63 ans et 3 mois</td><td>172</td></tr><tr><td>1967</td><td>63 ans et 6 mois</td><td>172</td></tr><tr><td>1968</td><td>63 ans et 9 mois</td><td>172</td></tr><tr><td>1969 et après</td><td>64 ans</td><td>172</td></tr></tbody></table></div>
+    <p>Avoir l'âge légal ne suffit pas pour une pension complète : sans la durée d'assurance requise, la pension subit une décote, sauf à 67 ans, âge auquel le taux plein est accordé automatiquement. Ces âges s'appliquent aux retraites prenant effet à compter du 1er septembre 2026, dans le cadre de la suspension de la réforme jusqu'au 1er janvier 2028. Ils peuvent changer si la loi évolue. L'outil suppose que vous validez 4 trimestres par an jusqu'à votre départ.</p>
+    <p>Sources : <a href="https://www.lassuranceretraite.fr/portail-info/hors-menu/actualites-nationales/actif/2025/projet-de-loi-les-mesures-envisa.html" target="_blank" rel="noopener noreferrer">L'Assurance retraite, mesures de la LFSS 2026</a> · <a href="https://www.cnbf.fr/wp-content/uploads/2026/01/IT-CNBF-Janvier-2026-Retraites-Reforme-de-la-reforme.pdf" target="_blank" rel="noopener noreferrer">CNBF, la réforme de la réforme (janvier 2026)</a> · <a href="https://manouvellevie.groupama.fr/s-informer-retraite/tout-savoir-age-depart-retraite/age-depart-retraite-1964-1968" target="_blank" rel="noopener noreferrer">Groupama, générations 1964 à 1968</a>. Les générations 1964 et 1965 sont confirmées sur le site de l'Assurance retraite, les autres lignes sur deux sources secondaires concordantes : vérifiez votre cas sur info-retraite.fr.</p>
+  </section>
+
+  <section class="info-section" id="faq-ind"><h2>Questions fréquentes</h2><h3>À quel âge puis-je partir à la retraite si je suis né en 1965 ?</h3><p>À 62 ans et 9 mois si vous êtes né de janvier à mars 1965, avec 170 trimestres pour le taux plein ; à 63 ans si vous êtes né d&#x27;avril à décembre, avec 171 trimestres.</p><h3>Que se passe-t-il si je n&#x27;ai pas tous mes trimestres ?</h3><p>Vous pouvez partir à l&#x27;âge légal avec une décote, ou attendre d&#x27;avoir les trimestres, ou 67 ans : le taux plein est alors accordé automatiquement.</p><h3>La réforme des retraites a-t-elle été annulée ?</h3><p>Non, elle est suspendue : le calendrier est gelé et les âges de départ des générations 1964 à 1968 sont abaissés pour les retraites à partir du 1er septembre 2026, jusqu&#x27;au 1er janvier 2028.</p><h3>Cet outil donne-t-il le montant de ma pension ?</h3><p>Non. Il donne les dates. Pour le montant, consultez votre relevé de carrière et l&#x27;estimateur officiel sur info-retraite.fr.</p></section>
+
+  <section class="sd-next" aria-labelledby="sd-next-t"><h2 id="sd-next-t">Et ensuite ?</h2><p class="sd-next-sub">Situation : <strong>Départ à la retraite</strong>. Les étapes qui reviennent le plus souvent :</p><ol class="sd-next-list"><li class="here" aria-current="page"><span class="sd-next-n">1</span><span class="sd-next-t"><strong>Quand puis-je partir ?</strong><small>Vous êtes ici</small></span></li><li><a href="/simulateur-indemnite-depart-retraite/"><span class="sd-next-n">2</span><span class="sd-next-t"><strong>Indemnité de départ à la retraite</strong><small>Le montant légal selon l&#x27;ancienneté.</small></span></a></li><li><a href="/simulateur-preavis-demission/"><span class="sd-next-n">3</span><span class="sd-next-t"><strong>Préavis de démission</strong><small>Date de fin et dispense éventuelle.</small></span></a></li><li><a href="/simulateur-solde-tout-compte/"><span class="sd-next-n">4</span><span class="sd-next-t"><strong>Solde de tout compte</strong><small>Les sommes à vérifier à la remise du dernier document.</small></span></a></li></ol></section>
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/retraite/">Retraite : par où commencer ?</a><a href="/simulateur-indemnite-depart-retraite/">Indemnité de départ à la retraite</a><a href="/guides/indemnite-depart-retraite-calcul-2026/">Guide : indemnité de départ à la retraite</a><a href="/metiers/infirmier-liberal/">Infirmier libéral : retraite Carpimko</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-10-30">30 octobre 2026</time>. Estimation indicative, sans valeur juridique. <a href="/methode-et-sources/">Méthode et sources</a> · <a href="/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<footer><nav class="foot-top" aria-label="Les plus consultés"><strong>Les plus consultés</strong><a href="https://simudroit.fr/simulateur-brut-net/">Salaire brut en net</a><a href="https://simudroit.fr/simulateur-indemnite-licenciement/">Indemnité de licenciement</a><a href="https://simudroit.fr/simulateur-rupture-conventionnelle/">Rupture conventionnelle</a><a href="https://simudroit.fr/simulateur-chomage/">Allocation chômage</a><a href="https://simudroit.fr/simulateur-preavis-demission/">Préavis de démission</a><a href="https://simudroit.fr/simulateur-preavis-licenciement/">Préavis de licenciement</a><a href="https://simudroit.fr/simulateur-conges-payes/">Congés payés</a><a href="https://simudroit.fr/simulateur-fiche-de-paie/">Vérifier ma fiche de paie</a><a href="https://simudroit.fr/simulateur-solde-tout-compte/">Solde de tout compte</a><a href="https://simudroit.fr/simulateur-smic/">SMIC 2026</a><a href="https://simudroit.fr/salaire-brut-net/">Brut en net par montant</a><a href="https://simudroit.fr/metiers/">Mon métier : infirmier libéral, assistante maternelle, intérimaire</a><a href="https://simudroit.fr/retraite/">Retraite : par où commencer ?</a></nav>
+  <p>© 2026 SimuDroit · <a href="https://simudroit.fr/">Tous les simulateurs</a> · <a href="https://simudroit.fr/methode-et-sources/">Méthode et sources</a> · <a href="https://simudroit.fr/contact/">Contact</a> · <a href="https://simudroit.fr/mentions-legales/">Mentions légales</a> · <a href="https://simudroit.fr/confidentialite/">Confidentialité</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+  var $=function(id){return document.getElementById(id)};
+  function setText(id,t){$(id).textContent=t}
+  function parse(v){var p=v.split("-");return new Date(+p[0],+p[1]-1,+p[2])}
+  function eur(v){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR"}).format(v)}
+  function r2(x){return Math.round((x+1e-9)*100)/100}
+  function fmt(d){return d.toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long",year:"numeric"})}
+  function addMonths(d,n){var r=new Date(d.getFullYear(),d.getMonth()+n,1),last=new Date(r.getFullYear(),r.getMonth()+1,0).getDate();r.setDate(Math.min(d.getDate(),last));return r}
+  function notes(a){$("notes").innerHTML=a.map(function(n){return "<p style=\"margin:0 0 8px\">"+n+"</p>"}).join("")}
+  function agr(y,m){
+    if(y<1961)return null;
+    if(y===1961)return m<=8?[62,0,168]:[62,3,169];
+    if(y===1962)return [62,6,169];
+    if(y===1963||y===1964)return [62,9,170];
+    if(y===1965)return m<=3?[62,9,170]:[63,0,171];
+    if(y===1966)return [63,3,172];
+    if(y===1967)return [63,6,172];
+    if(y===1968)return [63,9,172];
+    return [64,0,172];
+  }
+  $("calculate").addEventListener("click",function(){
+    var v=$("naiss").value;if(!v){alert("Indiquez votre date de naissance.");return}
+    var b=parse(v),y=b.getFullYear(),m=b.getMonth()+1,a=agr(y,m),n=[];
+    ["depart","ageLegal","dateLegal","trimReq","manque","date67"].forEach(function(i){setText(i,"–")});
+    var d67=addMonths(b,67*12);
+    if(!a){setText("depart","Âge légal : 62 ans");setText("ageLegal","62 ans");setText("dateLegal",fmt(addMonths(b,62*12)));setText("date67",fmt(d67));
+      n.push("Pour les personnes nées avant 1961, l'âge légal est de 62 ans. La durée d'assurance requise dépend de votre génération : consultez votre relevé de carrière sur info-retraite.fr.");
+      n.push("Estimation indicative.");notes(n);$("result").classList.add("visible");return}
+    var legal=addMonths(b,a[0]*12+a[1]),req=a[2],t=parseInt($("trim").value,10),depart=legal;
+    setText("ageLegal",a[0]+" ans"+(a[1]?" et "+a[1]+" mois":""));setText("dateLegal",fmt(legal));setText("trimReq",req+" trimestres");setText("date67",fmt(d67));
+    if(Number.isInteger(t)&&t>=0){
+      var ref=$("dateRel").value?parse($("dateRel").value):new Date(),miss=Math.max(req-t,0);
+      setText("manque",miss+"");
+      var tp=addMonths(new Date(ref.getFullYear(),ref.getMonth(),ref.getDate()),miss*3);
+      depart=tp>legal?tp:legal;
+      if(depart>d67)depart=d67;
+      if(miss>0)n.push("À raison de 4 trimestres validés par an, vous aurez vos "+req+" trimestres le "+fmt(tp)+". Partir à l'âge légal avant cette date entraîne une décote définitive.");
+      if(tp>d67)n.push("Vous n'aurez pas tous vos trimestres à 67 ans : le taux plein est alors accordé automatiquement.");
+    } else {
+      setText("manque","Non renseigné");
+      n.push("Sans votre nombre de trimestres, la date affichée est celle de l'âge légal : le départ est sans décote seulement si vous avez alors "+req+" trimestres.");
+    }
+    setText("depart",fmt(depart));
+    n.push("Règles en vigueur pour les retraites prenant effet à partir du 1er septembre 2026, suspendues jusqu'au 1er janvier 2028 : elles peuvent changer. Estimation indicative, hors carrière longue, handicap et régimes spéciaux.");
+    notes(n);$("result").classList.add("visible");
+  });
+
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>

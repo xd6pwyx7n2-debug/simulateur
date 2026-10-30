@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Indemnité de fin de mission intérim : calcul à 10 %</title>
+  <meta name="description" content="Calculez l&#x27;indemnité de fin de mission d&#x27;un intérimaire : 10 % de la rémunération totale brute, et les cas où elle n&#x27;est pas due.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://simudroit.fr/simulateur-indemnite-fin-mission-interim/">
+  <link rel="icon" href="https://simudroit.fr/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="https://simudroit.fr/favicon.ico" sizes="48x48">
+  <link rel="icon" href="https://simudroit.fr/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="https://simudroit.fr/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Indemnité de fin de mission intérim : calcul à 10 %">
+  <meta property="og:description" content="Calculez l&#x27;indemnité de fin de mission d&#x27;un intérimaire : 10 % de la rémunération totale brute, et les cas où elle n&#x27;est pas due.">
+  <meta property="og:url" content="https://simudroit.fr/simulateur-indemnite-fin-mission-interim/">
+  <meta property="og:image" content="https://simudroit.fr/assets/og/simulateur-indemnite-fin-mission-interim.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://simudroit.fr/assets/og/simulateur-indemnite-fin-mission-interim.jpg">
+  <meta name="twitter:title" content="Indemnité de fin de mission intérim : calcul à 10 %">
+  <meta name="twitter:description" content="Calculez l&#x27;indemnité de fin de mission d&#x27;un intérimaire : 10 % de la rémunération totale brute, et les cas où elle n&#x27;est pas due.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://simudroit.fr/"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebPage", "name": "Indemnité de fin de mission en intérim", "url": "https://simudroit.fr/simulateur-indemnite-fin-mission-interim/", "description": "Calculez l'indemnité de fin de mission d'un intérimaire : 10 % de la rémunération totale brute, et les cas où elle n'est pas due.", "inLanguage": "fr-FR", "dateModified": "2026-10-30"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://simudroit.fr/"}, {"@type": "ListItem", "position": 2, "name": "Indemnité de fin de mission en intérim", "item": "https://simudroit.fr/simulateur-indemnite-fin-mission-interim/"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quel est le montant de l'indemnité de fin de mission ?", "acceptedAnswer": {"@type": "Answer", "text": "Au moins 10 % de la rémunération totale brute de la mission, renouvellement compris."}}, {"@type": "Question", "name": "Dans quels cas l'indemnité de fin de mission n'est-elle pas due ?", "acceptedAnswer": {"@type": "Answer", "text": "Embauche immédiate en CDI par l'entreprise utilisatrice, mission saisonnière, rupture à l'initiative du salarié, faute grave ou force majeure, formation complémentaire dispensée à l'issue de la mission."}}, {"@type": "Question", "name": "Quand l'indemnité de fin de mission est-elle versée ?", "acceptedAnswer": {"@type": "Answer", "text": "Par l'entreprise de travail temporaire, avec le dernier salaire de la mission. Elle figure sur le bulletin de paie."}}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebApplication", "name": "Indemnité de fin de mission en intérim", "url": "https://simudroit.fr/simulateur-indemnite-fin-mission-interim/", "description": "Calculez l'indemnité de fin de mission d'un intérimaire : 10 % de la rémunération totale brute, et les cas où elle n'est pas due.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}
+  </script>
+  <meta name="theme-color" content="#201e48">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="Indemnité de fin de mission intérim : calcul à 10 % | SimuDroit">
+  <link rel="alternate" hreflang="fr" href="https://simudroit.fr/simulateur-indemnite-fin-mission-interim/">
+  <link rel="alternate" hreflang="x-default" href="https://simudroit.fr/simulateur-indemnite-fin-mission-interim/">
+  <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
+  <script async src="https://plausible.io/js/pa-j8JdUomB9hqqp7em82xdB.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+</head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.fr/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://simudroit.fr/simulateurs/">Simulateurs</a>
+      <a href="https://simudroit.fr/assistant/">Assistant</a>
+      <a href="https://simudroit.fr/independants/">Indépendants</a>
+      <a href="https://simudroit.fr/guides/">Guides</a>
+      <a href="https://simudroit.fr/modeles-de-lettres/">Lettres</a>
+      <a href="https://simudroit.fr/glossaire/">Glossaire</a>
+      <a href="https://simudroit.fr/faq/">FAQ</a>
+      <a class="cta-link" href="https://simudroit.fr/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://simudroit.fr/">Accueil</a> &nbsp;›&nbsp; Indemnité de fin de mission en intérim
+  </div>
+
+  <section class="hero">
+    <h1>Indemnité de fin de mission en intérim</h1>
+    <p>10 % de la rémunération totale brute de la mission, avec les cas où l'indemnité n'est pas due.</p>
+      <div class="badges"><span class="badge">✓ Règles 2026 vérifiées le 30 octobre 2026</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Vos données restent dans votre navigateur</span></div>
+  </section>
+<nav class="sd-line" aria-label="Parcours : Intérimaire"><p class="sd-line-lab">Votre parcours : <strong>Intérimaire</strong></p><div class="sd-line-scroll"><ol style="--n:4"><li class="cur" style="--i:0" aria-current="step"><span class="sd-line-tag">Vous êtes ici</span><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Fin de mission</span></li><li class="next" style="--i:1"><a href="/simulateur-chomage/" title="Allocation chômage : Montant et durée estimés après la fin du contrat."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Chômage</span></a></li><li class="next" style="--i:2"><a href="/simulateur-solde-tout-compte/" title="Solde de tout compte : Les sommes à vérifier à la remise du dernier document."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Solde de tout compte</span></a></li><li class="next" style="--i:3"><a href="/simulateur-fiche-de-paie/" title="Vérifier ma fiche de paie : Comparez votre fiche au calcul 2026."><span class="sd-line-dot" aria-hidden="true"></span><span class="sd-line-name">Fiche de paie</span></a></li></ol></div></nav>
+
+
+<section class="info-section sd-know" id="a-savoir">
+    <h2>À savoir avant de vous fier au résultat</h2>
+    <div class="sd-know-grid"><div class="sd-know-card"><h3>Ce que calcule l'outil</h3><p>L'indemnité de fin de mission d'un intérimaire : 10 % de la rémunération totale brute de la mission, versée avec le dernier salaire.</p></div><div class="sd-know-card"><h3>Quand elle n'est pas due</h3><p>Embauche en CDI par l'entreprise utilisatrice juste après la mission, mission saisonnière, rupture à l'initiative du salarié, faute grave ou force majeure, ou formation complémentaire dispensée à l'issue de la mission.</p></div><div class="sd-know-card"><h3>À vérifier</h3><p>Une convention de branche ou un accord d'entreprise peut prévoir des règles au moins aussi favorables. Les congés payés de l'intérimaire sont versés à part : consultez votre bulletin.</p></div></div>
+  </section>
+  <section class="calculator" id="calcul">
+    <h2>Calculez votre indemnité de fin de mission</h2>
+    <noscript><p class="intro-note"><strong>JavaScript requis :</strong> ce simulateur calcule directement dans votre navigateur.</p></noscript>
+    <div class="field"><label for="brut">Rémunération totale brute de la mission, renouvellement compris (en €)</label><input type="number" id="brut" min="0" step="0.01" inputmode="decimal" placeholder="Ex. 4 800"></div>
+    <div class="field"><label><input type="checkbox" id="cdi"> <span>Embauche en CDI par l'entreprise utilisatrice juste après la mission</span></label></div>
+    <div class="field"><label><input type="checkbox" id="saison"> <span>Mission à caractère saisonnier</span></label></div>
+    <div class="field"><label><input type="checkbox" id="rupture"> <span>Rupture à l'initiative du salarié, faute grave ou force majeure</span></label></div>
+    <div class="field"><label><input type="checkbox" id="formation"> <span>Formation complémentaire dispensée à l'issue de la mission</span></label></div>
+    <button type="button" id="calculate">Calculer l'indemnité</button>
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">Indemnité de fin de mission (brute)</div>
+      <div class="result-main" data-noanim id="ifm">–</div>
+      <div class="result-row"><span>Rémunération totale brute</span><strong id="remu">–</strong></div>
+      <div class="result-row"><span>Total brut avec l'indemnité</span><strong id="total">–</strong></div>
+      <div class="warning" id="notes"></div>
+    </div>
+  </section>
+
+  <section class="info-section" id="regles">
+    <h2>L'indemnité de fin de mission en intérim</h2>
+    <p>Lorsque la mission d'un intérimaire s'achève et qu'il n'est pas embauché immédiatement en CDI par l'entreprise utilisatrice, il perçoit une indemnité destinée à compenser la précarité de sa situation (article L1251-32 du Code du travail). Elle est égale à au moins 10 % de la rémunération totale brute, renouvellement du contrat inclus. Elle s'ajoute au salaire et se verse avec le dernier salaire de la mission.</p>
+    <p>Elle n'est pas due en cas de CDI conclu immédiatement avec l'entreprise utilisatrice, de formation complémentaire dispensée à l'issue de la mission, de rupture anticipée à l'initiative du salarié ou pour faute grave ou force majeure, ni pour une mission saisonnière. Une convention de branche ou un accord d'entreprise peut prévoir plus favorable.</p>
+    <p>Sources : <a href="https://code.travail.gouv.fr/code-du-travail/l1251-32" target="_blank" rel="noopener noreferrer">Code du travail, article L1251-32</a> · <a href="https://code.travail.gouv.fr/contribution/dans-le-cadre-dun-contrat-de-mission-interim-quel-est-le-montant-de-lindemnite-de-fin-de-contrat" target="_blank" rel="noopener noreferrer">Code du travail numérique, indemnité de fin de mission</a>.</p>
+  </section>
+
+  <section class="info-section" id="faq-ind"><h2>Questions fréquentes</h2><h3>Quel est le montant de l&#x27;indemnité de fin de mission ?</h3><p>Au moins 10 % de la rémunération totale brute de la mission, renouvellement compris.</p><h3>Dans quels cas l&#x27;indemnité de fin de mission n&#x27;est-elle pas due ?</h3><p>Embauche immédiate en CDI par l&#x27;entreprise utilisatrice, mission saisonnière, rupture à l&#x27;initiative du salarié, faute grave ou force majeure, formation complémentaire dispensée à l&#x27;issue de la mission.</p><h3>Quand l&#x27;indemnité de fin de mission est-elle versée ?</h3><p>Par l&#x27;entreprise de travail temporaire, avec le dernier salaire de la mission. Elle figure sur le bulletin de paie.</p></section>
+
+  <section class="sd-next" aria-labelledby="sd-next-t"><h2 id="sd-next-t">Et ensuite ?</h2><p class="sd-next-sub">Situation : <strong>Intérimaire</strong>. Les étapes qui reviennent le plus souvent :</p><ol class="sd-next-list"><li class="here" aria-current="page"><span class="sd-next-n">1</span><span class="sd-next-t"><strong>Indemnité de fin de mission</strong><small>Vous êtes ici</small></span></li><li><a href="/simulateur-chomage/"><span class="sd-next-n">2</span><span class="sd-next-t"><strong>Allocation chômage</strong><small>Montant et durée estimés après la fin du contrat.</small></span></a></li><li><a href="/simulateur-solde-tout-compte/"><span class="sd-next-n">3</span><span class="sd-next-t"><strong>Solde de tout compte</strong><small>Les sommes à vérifier à la remise du dernier document.</small></span></a></li><li><a href="/simulateur-fiche-de-paie/"><span class="sd-next-n">4</span><span class="sd-next-t"><strong>Vérifier ma fiche de paie</strong><small>Comparez votre fiche au calcul 2026.</small></span></a></li></ol></section>
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/metiers/interimaire/">Intérimaire : droits et règles</a><a href="/simulateur-prime-precarite/">Prime de précarité (CDD)</a><a href="/simulateur-chomage/">Allocation chômage</a><a href="/simulateur-solde-tout-compte/">Solde de tout compte</a><a href="/guides/prime-precarite-cdd/">Guide : Prime de précarité en CDD : calcul et conditions</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-10-30">30 octobre 2026</time>. Estimation indicative, sans valeur juridique. <a href="/methode-et-sources/">Méthode et sources</a> · <a href="/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<footer><nav class="foot-top" aria-label="Les plus consultés"><strong>Les plus consultés</strong><a href="https://simudroit.fr/simulateur-brut-net/">Salaire brut en net</a><a href="https://simudroit.fr/simulateur-indemnite-licenciement/">Indemnité de licenciement</a><a href="https://simudroit.fr/simulateur-rupture-conventionnelle/">Rupture conventionnelle</a><a href="https://simudroit.fr/simulateur-chomage/">Allocation chômage</a><a href="https://simudroit.fr/simulateur-preavis-demission/">Préavis de démission</a><a href="https://simudroit.fr/simulateur-preavis-licenciement/">Préavis de licenciement</a><a href="https://simudroit.fr/simulateur-conges-payes/">Congés payés</a><a href="https://simudroit.fr/simulateur-fiche-de-paie/">Vérifier ma fiche de paie</a><a href="https://simudroit.fr/simulateur-solde-tout-compte/">Solde de tout compte</a><a href="https://simudroit.fr/simulateur-smic/">SMIC 2026</a><a href="https://simudroit.fr/salaire-brut-net/">Brut en net par montant</a><a href="https://simudroit.fr/metiers/">Mon métier : infirmier libéral, assistante maternelle, intérimaire</a><a href="https://simudroit.fr/retraite/">Retraite : par où commencer ?</a></nav>
+  <p>© 2026 SimuDroit · <a href="https://simudroit.fr/">Tous les simulateurs</a> · <a href="https://simudroit.fr/methode-et-sources/">Méthode et sources</a> · <a href="https://simudroit.fr/contact/">Contact</a> · <a href="https://simudroit.fr/mentions-legales/">Mentions légales</a> · <a href="https://simudroit.fr/confidentialite/">Confidentialité</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+  var $=function(id){return document.getElementById(id)};
+  function setText(id,t){$(id).textContent=t}
+  function parse(v){var p=v.split("-");return new Date(+p[0],+p[1]-1,+p[2])}
+  function eur(v){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR"}).format(v)}
+  function r2(x){return Math.round((x+1e-9)*100)/100}
+  function fmt(d){return d.toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long",year:"numeric"})}
+  function addMonths(d,n){var r=new Date(d.getFullYear(),d.getMonth()+n,1),last=new Date(r.getFullYear(),r.getMonth()+1,0).getDate();r.setDate(Math.min(d.getDate(),last));return r}
+  function notes(a){$("notes").innerHTML=a.map(function(n){return "<p style=\"margin:0 0 8px\">"+n+"</p>"}).join("")}
+  $("calculate").addEventListener("click",function(){
+    var b=parseFloat($("brut").value);if(!(b>0)){alert("Indiquez la rémunération totale brute de la mission.");return}
+    var excl=$("cdi").checked||$("saison").checked||$("rupture").checked||$("formation").checked,n=[];
+    setText("remu",eur(b));
+    if(excl){setText("ifm",eur(0));setText("total",eur(r2(b)));n.push("Dans la situation indiquée, l'indemnité de fin de mission n'est pas due.")}
+    else{var i=r2(b*0.10);setText("ifm",eur(i));setText("total",eur(r2(b+i)));n.push("Indemnité égale à 10 % de la rémunération totale brute. Une convention de branche ou un accord d'entreprise peut prévoir un taux plus favorable.")}
+    n.push("Estimation indicative, hors congés payés, versés à part. Vérifiez votre bulletin de paie et votre contrat de mission.");notes(n);$("result").classList.add("visible");
+  });
+
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>

@@ -1419,5 +1419,139 @@
       "#tcarp": "55 717,20 €",
       "#total": "61 437,45 €"
     }
+  },
+  {
+    "page": "simulateur-age-depart-retraite",
+    "entrees": {
+      "naiss": "1964-05-15",
+      "trim": 150,
+      "dateRel": "2026-10-01"
+    },
+    "attendus": {
+      "#ageLegal": "62 ans et 9 mois",
+      "#dateLegal": "lundi 15 février 2027",
+      "#trimReq": "170 trimestres",
+      "#date67": "jeudi 15 mai 2031",
+      "#manque": "20",
+      "#depart": "jeudi 15 mai 2031"
+    }
+  },
+  {
+    "page": "simulateur-age-depart-retraite",
+    "entrees": {
+      "naiss": "1970-03-10",
+      "trim": 120,
+      "dateRel": "2026-10-30"
+    },
+    "attendus": {
+      "#ageLegal": "64 ans",
+      "#dateLegal": "vendredi 10 mars 2034",
+      "#trimReq": "172 trimestres",
+      "#date67": "mardi 10 mars 2037",
+      "#manque": "52",
+      "#depart": "mardi 10 mars 2037"
+    }
+  },
+  {
+    "page": "simulateur-age-depart-retraite",
+    "entrees": {
+      "naiss": "1966-07-01",
+      "trim": 172,
+      "dateRel": "2026-10-30"
+    },
+    "attendus": {
+      "#ageLegal": "63 ans et 3 mois",
+      "#dateLegal": "lundi 1 octobre 2029",
+      "#trimReq": "172 trimestres",
+      "#date67": "vendredi 1 juillet 2033",
+      "#manque": "0",
+      "#depart": "lundi 1 octobre 2029"
+    }
+  },
+  {
+    "page": "simulateur-age-depart-retraite",
+    "entrees": {
+      "naiss": "1965-02-20"
+    },
+    "attendus": {
+      "#ageLegal": "62 ans et 9 mois",
+      "#dateLegal": "samedi 20 novembre 2027",
+      "#trimReq": "170 trimestres",
+      "#date67": "vendredi 20 février 2032",
+      "#depart": "samedi 20 novembre 2027"
+    }
+  },
+  {
+    "page": "simulateur-age-depart-retraite",
+    "entrees": {
+      "naiss": "1965-06-20",
+      "trim": 171,
+      "dateRel": "2026-10-30"
+    },
+    "attendus": {
+      "#ageLegal": "63 ans",
+      "#dateLegal": "mardi 20 juin 2028",
+      "#trimReq": "171 trimestres",
+      "#date67": "dimanche 20 juin 2032",
+      "#manque": "0",
+      "#depart": "mardi 20 juin 2028"
+    }
+  },
+  {
+    "page": "simulateur-age-depart-retraite",
+    "entrees": {
+      "naiss": "1961-09-05",
+      "trim": 100,
+      "dateRel": "2026-10-30"
+    },
+    "attendus": {
+      "#ageLegal": "62 ans et 3 mois",
+      "#dateLegal": "mardi 5 décembre 2023",
+      "#trimReq": "169 trimestres",
+      "#date67": "mardi 5 septembre 2028",
+      "#manque": "69",
+      "#depart": "mardi 5 septembre 2028"
+    }
+  },
+  {
+    "page": "simulateur-indemnite-fin-mission-interim",
+    "entrees": {
+      "brut": 4800
+    },
+    "attendus": {
+      "#ifm": "480,00 €",
+      "#total": "5 280,00 €"
+    }
+  },
+  {
+    "page": "simulateur-indemnite-fin-mission-interim",
+    "entrees": {
+      "brut": 1234.56
+    },
+    "attendus": {
+      "#ifm": "123,46 €",
+      "#total": "1 358,02 €"
+    }
+  },
+  {
+    "page": "simulateur-indemnite-fin-mission-interim",
+    "entrees": {
+      "brut": 4800,
+      "cdi": true
+    },
+    "attendus": {
+      "#ifm": "0,00 €",
+      "#total": "4 800,00 €"
+    }
+  },
+  {
+    "page": "simulateur-indemnite-fin-mission-interim",
+    "entrees": {
+      "brut": 4800,
+      "saison": true
+    },
+    "attendus": {
+      "#ifm": "0,00 €"
+    }
   }
 ]
