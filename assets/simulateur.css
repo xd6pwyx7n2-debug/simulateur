@@ -260,3 +260,19 @@ main>article{padding:clamp(22px,4.5vw,44px)}
 .result .sd-table thead th{background:#f3f2ff}
 .result .sd-table tbody td:last-child{text-align:right;white-space:nowrap}
 .sd-table tbody th[scope=row]{text-align:left}
+
+/* Et ensuite ? — parcours selon la situation */
+.sd-next{max-width:900px;margin:36px auto 0;padding:22px 20px;background:linear-gradient(135deg,#f4f2ff,#fff);border:1px solid #e0dcff;border-radius:18px;box-shadow:0 2px 6px rgba(41,35,90,.04)}
+article .sd-next{max-width:none;margin:32px 0 0}
+.sd-next h2{font-size:1.25rem;margin:0 0 4px}
+.sd-next-sub{margin:0 0 14px;color:#585776;font-size:.95rem}
+.sd-next-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px}
+.sd-next-list li{margin:0;padding:0}
+.sd-next-list a,.sd-next-list li.here{display:flex;gap:12px;align-items:flex-start;height:100%;box-sizing:border-box;padding:13px 14px;border:1px solid #e2e6ef;border-radius:14px;background:#fff;text-decoration:none;color:#1d1b3a;line-height:1.3}
+.sd-next-list a:hover,.sd-next-list a:focus-visible{border-color:#4b3bd0;background:#f4f2ff}
+.sd-next-list li.here{background:#ece8ff;border-color:#4b3bd0}
+.sd-next-n{flex:none;width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#5b43d6,#8b6cf0);color:#fff;font-weight:800;font-size:.85rem;display:inline-flex;align-items:center;justify-content:center}
+.sd-next-t{display:flex;flex-direction:column;gap:2px;min-width:0}
+.sd-next-t strong{color:#2a2660;font-size:.98rem}
+.sd-next-t small{color:#585776;font-size:.85rem}
+.sd-next-list li.here small{color:#4b3bd0;font-weight:700}
