@@ -765,5 +765,309 @@
   "attendus": {
    "#dateFin": "16 mars 2026"
   }
+ },
+ {
+  "page": "simulateur-indemnite-licenciement",
+  "entrees": {
+   "moy12": 1801.8,
+   "moy3": 1801.8,
+   "annees": 0,
+   "mois": 0
+  },
+  "attendus": {
+   "#montant": "0,00 €"
+  }
+ },
+ {
+  "page": "simulateur-indemnite-licenciement",
+  "entrees": {
+   "moy12": 2345.67,
+   "moy3": 2000,
+   "annees": 0,
+   "mois": 8
+  },
+  "attendus": {
+   "#montant": "390,95 €"
+  }
+ },
+ {
+  "page": "simulateur-indemnite-licenciement",
+  "entrees": {
+   "moy12": 2000,
+   "moy3": 2345.67,
+   "annees": 0,
+   "mois": 11
+  },
+  "attendus": {
+   "#montant": "537,55 €"
+  }
+ },
+ {
+  "page": "simulateur-indemnite-licenciement",
+  "entrees": {
+   "moy12": 4999.99,
+   "moy3": 5200.01,
+   "annees": 1,
+   "mois": 0
+  },
+  "attendus": {
+   "#montant": "1 300,00 €"
+  }
+ },
+ {
+  "page": "simulateur-indemnite-licenciement",
+  "entrees": {
+   "moy12": 8750,
+   "moy3": 8750,
+   "annees": 1,
+   "mois": 7
+  },
+  "attendus": {
+   "#montant": "3 463,54 €"
+  }
+ },
+ {
+  "page": "simulateur-indemnite-licenciement",
+  "entrees": {
+   "moy12": 1801.8,
+   "moy3": 1801.8,
+   "annees": 4,
+   "mois": 5
+  },
+  "attendus": {
+   "#montant": "1 989,49 €"
+  }
+ },
+ {
+  "page": "simulateur-indemnite-licenciement",
+  "entrees": {
+   "moy12": 2345.67,
+   "moy3": 2000,
+   "annees": 7,
+   "mois": 11
+  },
+  "attendus": {
+   "#montant": "4 642,47 €"
+  }
+ },
+ {
+  "page": "simulateur-indemnite-licenciement",
+  "entrees": {
+   "moy12": 2000,
+   "moy3": 2345.67,
+   "annees": 9,
+   "mois": 11
+  },
+  "attendus": {
+   "#montant": "5 815,31 €"
+  }
+ },
+ {
+  "page": "simulateur-indemnite-licenciement",
+  "entrees": {
+   "moy12": 4999.99,
+   "moy3": 5200.01,
+   "annees": 10,
+   "mois": 0
+  },
+  "attendus": {
+   "#montant": "13 000,03 €"
+  }
+ },
+ {
+  "page": "simulateur-indemnite-licenciement",
+  "entrees": {
+   "moy12": 8750,
+   "moy3": 8750,
+   "annees": 10,
+   "mois": 1
+  },
+  "attendus": {
+   "#montant": "22 118,06 €"
+  }
+ },
+ {
+  "page": "simulateur-indemnite-licenciement",
+  "entrees": {
+   "moy12": 1801.8,
+   "moy3": 1801.8,
+   "annees": 10,
+   "mois": 11
+  },
+  "attendus": {
+   "#montant": "5 055,05 €"
+  }
+ },
+ {
+  "page": "simulateur-indemnite-licenciement",
+  "entrees": {
+   "moy12": 2345.67,
+   "moy3": 2000,
+   "annees": 11,
+   "mois": 0
+  },
+  "attendus": {
+   "#montant": "6 646,07 €"
+  }
+ },
+ {
+  "page": "simulateur-indemnite-licenciement",
+  "entrees": {
+   "moy12": 2000,
+   "moy3": 2345.67,
+   "annees": 12,
+   "mois": 6
+  },
+  "attendus": {
+   "#montant": "7 818,90 €"
+  }
+ },
+ {
+  "page": "simulateur-indemnite-licenciement",
+  "entrees": {
+   "moy12": 4999.99,
+   "moy3": 5200.01,
+   "annees": 15,
+   "mois": 3
+  },
+  "attendus": {
+   "#montant": "22 100,04 €"
+  }
+ },
+ {
+  "page": "simulateur-indemnite-licenciement",
+  "entrees": {
+   "moy12": 8750,
+   "moy3": 8750,
+   "annees": 20,
+   "mois": 0
+  },
+  "attendus": {
+   "#montant": "51 041,67 €"
+  }
+ },
+ {
+  "page": "simulateur-indemnite-licenciement",
+  "entrees": {
+   "moy12": 1801.8,
+   "moy3": 1801.8,
+   "annees": 25,
+   "mois": 9
+  },
+  "attendus": {
+   "#montant": "13 963,95 €"
+  }
+ },
+ {
+  "page": "simulateur-indemnite-licenciement",
+  "entrees": {
+   "moy12": 2345.67,
+   "moy3": 2000,
+   "annees": 30,
+   "mois": 0
+  },
+  "attendus": {
+   "#montant": "21 501,98 €"
+  }
+ },
+ {
+  "page": "simulateur-indemnite-licenciement",
+  "entrees": {
+   "moy12": 2000,
+   "moy3": 2345.67,
+   "annees": 41,
+   "mois": 11
+  },
+  "attendus": {
+   "#montant": "30 819,50 €"
+  }
+ },
+ {
+  "page": "simulateur-rupture-conventionnelle",
+  "entrees": {
+   "salaire": 1801.8,
+   "annees": 0,
+   "mois": 7
+  },
+  "attendus": {
+   "#montant": "Non applicable"
+  }
+ },
+ {
+  "page": "simulateur-rupture-conventionnelle",
+  "entrees": {
+   "salaire": 2345.67,
+   "annees": 0,
+   "mois": 8
+  },
+  "attendus": {
+   "#montant": "390,95 €"
+  }
+ },
+ {
+  "page": "simulateur-rupture-conventionnelle",
+  "entrees": {
+   "salaire": 3100,
+   "annees": 2,
+   "mois": 5
+  },
+  "attendus": {
+   "#montant": "1 872,92 €"
+  }
+ },
+ {
+  "page": "simulateur-rupture-conventionnelle",
+  "entrees": {
+   "salaire": 5000.5,
+   "annees": 9,
+   "mois": 11
+  },
+  "attendus": {
+   "#montant": "12 397,07 €"
+  }
+ },
+ {
+  "page": "simulateur-rupture-conventionnelle",
+  "entrees": {
+   "salaire": 1801.8,
+   "annees": 10,
+   "mois": 0
+  },
+  "attendus": {
+   "#montant": "4 504,50 €"
+  }
+ },
+ {
+  "page": "simulateur-rupture-conventionnelle",
+  "entrees": {
+   "salaire": 2345.67,
+   "annees": 10,
+   "mois": 7
+  },
+  "attendus": {
+   "#montant": "6 320,28 €"
+  }
+ },
+ {
+  "page": "simulateur-rupture-conventionnelle",
+  "entrees": {
+   "salaire": 3100,
+   "annees": 18,
+   "mois": 2
+  },
+  "attendus": {
+   "#montant": "16 188,89 €"
+  }
+ },
+ {
+  "page": "simulateur-rupture-conventionnelle",
+  "entrees": {
+   "salaire": 5000.5,
+   "annees": 33,
+   "mois": 0
+  },
+  "attendus": {
+   "#montant": "50 838,42 €"
+  }
  }
 ]

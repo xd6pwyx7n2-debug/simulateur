@@ -247,3 +247,7 @@ main>article{padding:clamp(22px,4.5vw,44px)}
 .sd-fold details[open]>summary{margin-bottom:14px}
 .sd-fold details>summary:focus-visible{outline:3px solid #6857e8;outline-offset:4px;border-radius:10px}
 .sd-fold{padding-block:clamp(14px,2.2vw,20px)!important}
+
+.sd-basis{margin:18px 0 0!important;padding-top:14px;border-top:1px solid rgba(255,255,255,.2);font-size:.82rem!important;line-height:1.55;color:#d9d5f6!important}
+.sd-basis strong{color:#fff!important}
+.sd-basis a{color:#fff!important;text-decoration:underline;text-underline-offset:2px}

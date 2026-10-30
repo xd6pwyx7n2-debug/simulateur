@@ -105,6 +105,10 @@ import datetime
 MOIS = {"janvier":1,"février":2,"mars":3,"avril":4,"mai":5,"juin":6,"juillet":7,"août":8,"septembre":9,"octobre":10,"novembre":11,"décembre":12}
 _ver = re.search(r'verifie:\s*"(\d{4})-(\d{2})-(\d{2})"', open(os.path.join(ROOT, "assets", "params.js"), encoding="utf-8").read())
 _ref = datetime.date(*map(int, _ver.groups()))
+_tj = open(os.path.join(ROOT, "assets", "theme.js"), encoding="utf-8").read()
+_tv = re.search(r'VERIF="(\d{4}-\d{2}-\d{2})"', _tj)
+if not _tv or _tv.group(1) != "%04d-%02d-%02d" % (_ref.year, _ref.month, _ref.day):
+    fail("theme.js : date « barèmes vérifiés » différente de params.js (%s)" % _ref)
 for f in sorted(glob.glob(os.path.join(ROOT, "simulateur-*/index.html"))):
     t = open(f, encoding="utf-8").read()
     rel = os.path.relpath(f, ROOT)

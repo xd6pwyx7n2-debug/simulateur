@@ -88,3 +88,29 @@
     if(k)document.documentElement.style.setProperty("--sd-eyebrow",'"'+k+'"');
   }catch(e){}
 })();
+
+/* Bandeau « base du calcul » sous chaque résultat : règle, source, date de vérification */
+(function(){try{
+  var VERIF="2026-10-17",VERIF_FR="17 octobre 2026";
+  var m=location.pathname.match(/simulateur-([a-z0-9-]+)/);if(!m)return;var slug=m[1];
+  var P=window.SD_PARAMS;function eu(x){return x.toLocaleString("fr-FR",{minimumFractionDigits:2,maximumFractionDigits:2})+" €"}function pc(x){return (x*100).toLocaleString("fr-FR",{maximumFractionDigits:1})+" %"}
+  var B={
+   "indemnite-licenciement":["1/4 de mois de salaire de référence par année jusqu’à 10 ans, puis 1/3 au-delà ; salaire de référence = moyenne la plus favorable (12 ou 3 derniers mois) ; ancienneté minimale de 8 mois (articles L1234-9, R1234-2, R1234-4).","Service-Public.fr","https://www.service-public.fr/particuliers/vosdroits/F987"],
+   "rupture-conventionnelle":["indemnité au moins égale à l’indemnité légale de licenciement (article L1237-13).","Code du travail numérique","https://code.travail.gouv.fr/"],
+   "chomage":[P&&P.are?(pc(P.are.taux1)+" du salaire journalier de référence + "+eu(P.are.partFixe)+", ou "+pc(P.are.taux2)+" de ce salaire si c’est plus élevé, dans la limite de "+pc(P.are.plafondTauxSjr)+" du salaire journalier de référence, minimum "+eu(P.are.minJour)+" par jour (règlement d’assurance chômage)."):"règles du règlement d’assurance chômage (Unédic).","Unédic","https://www.unedic.org/"],
+   "conges-payes":["le plus favorable entre le maintien du salaire et le dixième de la rémunération brute de la période de référence (article L3141-24).","Article L3141-24 (Légifrance)","https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000049461568/"],
+   "heures-supplementaires":["majoration de 25 % pour les 8 premières heures supplémentaires, puis 50 %, sauf accord ou convention plus favorable (article L3121-33).","Code du travail numérique","https://code.travail.gouv.fr/"],
+   "prime-precarite":["10 % de la rémunération brute totale versée pendant le contrat, sauf cas d’exclusion (article L1243-8).","Code du travail numérique","https://code.travail.gouv.fr/"],
+   "smic":[P&&P.smic?("taux horaire brut de "+eu(P.smic.horaire)+" en vigueur depuis le "+new Date(P.smic.depuis+"T12:00:00").toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"})+", multiplié par la durée du travail."):"taux horaire brut du SMIC en vigueur, multiplié par la durée du travail.","info.gouv.fr","https://www.info.gouv.fr/"],
+   "indemnites-journalieres-maladie":["salariés : 50 % du salaire journalier de base, plafonné à 1,4 SMIC, après 3 jours de carence ; indépendants : règles spécifiques.","ameli.fr","https://www.ameli.fr/entreprise/vos-salaries/arret-de-travail/indemnites-journalieres"],
+   "solde-tout-compte":["somme des éléments dus à la fin du contrat (salaire, congés non pris, indemnités éventuelles).","Code du travail numérique","https://code.travail.gouv.fr/fiche-service-public/solde-de-tout-compte"]
+  };
+  function add(){
+    var r=document.querySelector(".result");if(!r||r.querySelector(".sd-basis"))return;
+    var b=B[slug],h='';
+    if(b)h+='<strong>Règle appliquée :</strong> '+b[0]+' <strong>Source :</strong> <a href="'+b[2]+'" target="_blank" rel="noopener noreferrer">'+b[1]+'</a>. ';
+    h+='Barèmes vérifiés le <time datetime="'+VERIF+'">'+VERIF_FR+'</time> · <a href="/methode-et-sources/">Méthode et sources</a>';
+    var p=document.createElement("p");p.className="sd-basis";p.innerHTML=h;r.appendChild(p);
+  }
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",add);else add();
+}catch(e){}})();
