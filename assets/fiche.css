@@ -68,3 +68,23 @@ article.fiche .fiche-hero h1,article.fiche .fiche-hero .intro{color:#fff!importa
 article.fiche .fiche-hero .intro{color:rgba(255,255,255,.94)!important}
 article.fiche p.note{background:color-mix(in srgb,var(--a) 8%,#fff)!important;border-left:1px solid color-mix(in srgb,var(--a) 28%,#fff)!important;border-radius:18px!important}
 article.fiche h2{font-size:clamp(1.2rem,3vw,1.45rem)!important}
+/* Stats clés en tête de fiche */
+.fh-stats{position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:16px}
+.fh-stat{padding:12px 14px;border-radius:16px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28)}
+.fh-stat b{display:block;font-size:1.28rem;line-height:1.15;font-weight:800;letter-spacing:-.02em;color:#fff}
+.fh-stat span{display:block;margin-top:3px;font-size:.78rem;line-height:1.3;color:rgba(255,255,255,.88)}
+article.fiche h2.no-n:before{font-size:1.05rem}
+article.fiche h3{margin:18px 0 6px;font-size:1.02rem;color:var(--a)!important}
+article.fiche h3:before{content:"❓ ";font-size:.95em}
+article.fiche .rel-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+article.fiche .rel-links a{display:block;padding:12px 14px;border:1.5px solid color-mix(in srgb,var(--a) 22%,#fff);border-radius:14px;background:#fff;text-decoration:none;transition:.15s}
+article.fiche .rel-links a:hover{transform:translateY(-2px);border-color:var(--a);box-shadow:0 8px 20px color-mix(in srgb,var(--a) 15%,transparent)}
+article.fiche .rel-links a strong{font-size:.9rem;color:#201e48}
+article.fiche ul li::marker{color:var(--a)}
+article.fiche ol li::marker{color:var(--a);font-weight:800}
+article.fiche table.sd-table{display:table;width:100%!important;border:1px solid color-mix(in srgb,var(--a) 22%,#fff)!important;box-shadow:none!important;border-radius:16px!important}
+article.fiche table.sd-table thead th{background:linear-gradient(135deg,var(--a),var(--b))!important;color:#fff!important;border-bottom:0!important}
+article.fiche table.sd-table td{border-bottom:0!important;border-top:1px solid color-mix(in srgb,var(--a) 14%,#fff)!important}
+article.fiche p.note{background:color-mix(in srgb,var(--a) 9%,#fff)!important;color:#201e48!important}
+@media(max-width:640px){article.fiche table.sd-table{display:block;border:0!important}}
+@media(max-width:640px){.fh-stats{grid-template-columns:1fr 1fr;gap:8px}.fh-stat{padding:10px 12px}.fh-stat b{font-size:1.05rem}article.fiche p.note{padding:14px 14px 14px 52px}.fiche-hero h1{font-size:1.45rem}}

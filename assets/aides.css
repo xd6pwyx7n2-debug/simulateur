@@ -15,3 +15,13 @@
 .ad-tags span{padding:2px 9px;border-radius:99px;background:#efecff;color:#4b3bd0;font-size:.72rem;font-weight:800}
 .ad-links{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:auto;padding-top:6px;font-size:.88rem;font-weight:700}
 .ad-empty{padding:22px;border-radius:16px;background:#f6f4ff;text-align:center}
+article.fiche .ad-sec h2{margin-top:34px!important}
+.ad-card{position:relative;border-top:4px solid var(--a,#6857e8);transition:.18s}
+.ad-card:hover{transform:translateY(-3px);box-shadow:0 16px 34px color-mix(in srgb,var(--a,#6857e8) 20%,transparent)}
+.ad-card h3{color:#201e48}
+.ad-tags span{background:color-mix(in srgb,var(--a,#6857e8) 12%,#fff);color:color-mix(in srgb,var(--a,#6857e8) 85%,#000)}
+.ad-links a:first-child{color:var(--a,#4b3bd0)}
+.ad-links a:nth-child(3){padding:3px 10px;border-radius:99px;background:color-mix(in srgb,var(--a,#6857e8) 12%,#fff);text-decoration:none}
+.ad-chips button{border-color:#d9d4f2}
+.ad-bar{border-radius:18px;background:rgba(255,255,255,.95);box-shadow:0 8px 24px rgba(41,35,90,.08);padding:14px;border:1px solid #e9e6f5;margin:18px 0}
+.ad-card h3:before{content:none!important}
