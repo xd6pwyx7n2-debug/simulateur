@@ -17,7 +17,7 @@ var FONTS=[
  ["Trebuchet","'Trebuchet MS','Segoe UI',Arial,sans-serif"],["Verdana","Verdana,Geneva,sans-serif"],["Gill","'Gill Sans','Gill Sans MT',Calibri,Arial,sans-serif"],
  ["Garamond","Garamond,'Palatino Linotype',Georgia,serif"],["Courier","'Courier New',Courier,monospace"]];
 var BODY=[0,1,2,3,5,6,0,1,3,4];                          /* polices de texte courantes */
-var LAYOUTS=["sl","sl","sr","bd","bd","ce","tl","cd","cd"];
+var LAYOUTS=["hr","hr","hr","hr","sl","sl","sr","bd","tl","cd"];
 var PAL=[["#12284c","#1d4ed8","#1d4ed8","#38bdf8","#eef4ff"],["#0b3d36","#0f766e","#0f766e","#34d399","#ecfaf5"],["#2d1b4e","#5b2a86","#be123c","#fb7185","#fdf2f4"],
  ["#1f2937","#374151","#b45309","#fbbf24","#f6f3ee"],["#5b0f2a","#9f1239","#9f1239","#f5b942","#fbf1f3"],["#0c4a5e","#0e7490","#c2410c","#fb923c","#eef8fb"],
  ["#25206b","#4338ca","#4338ca","#f472b6","#f1f0ff"],["#0f2a1d","#166534","#15803d","#a3e635","#f1f8ec"],["#111827","#1e293b","#2563eb","#22d3ee","#f1f5f9"],
@@ -28,7 +28,7 @@ function style(sd){
   var c=p(PAL), swap=r()<.25;
   var hf=p([0,0,0,3,1,2,5]), bf=p([0,0,0,0,3,5]);
   var lay=p(LAYOUTS);
-  return{seed:sd,lay:lay,hs:Math.floor(r()*6),bu:Math.floor(r()*5),sk:Math.floor(r()*4),jd:Math.floor(r()*3),mono:r()<.65,tm:r()<.55,pq:r()<.5,
+  return{seed:sd,lay:lay,hs:Math.floor(r()*7),bu:Math.floor(r()*5),sk:Math.floor(r()*4),jd:Math.floor(r()*3),mono:r()<.65,tm:r()<.55,pq:r()<.5,
     P:c[swap?1:0],P2:c[swap?0:1],A:c[2],HL:c[3],soft:c[4],hf:FONTS[hf][1],bf:FONTS[bf][1],hfn:FONTS[hf][0],bfn:FONTS[bf][0],
     fs:(10+Math.floor(r()*7)/10).toFixed(1)+"pt",rad:p([0,4,8,12,16])+"px",sw:(30+Math.floor(r()*5))+"%"};
 }
@@ -47,9 +47,10 @@ function has(d){return d.prenom||d.nom||d.titre||d.profil||d.exp.some(function(x
 var SEC={profil:"Profil",exp:"Expériences professionnelles",edu:"Formation",comp:"Compétences",lang:"Langues",int:"Centres d'intérêt",perm:"Informations complémentaires"};
 function sec(cls,title,body,wrap){return'<section class="sec '+cls+'"><h2>'+E(title)+'</h2>'+(wrap?'<div class="sb">'+body+'</div>':body)+'</section>';}
 function parts(d,tl){
-  var P={}, nm=E((d.prenom+" "+d.nom).trim()||"Prénom Nom"), tt=E(d.titre);
-  var ct=[];if(d.email)ct.push(E(d.email));if(d.tel)ct.push(E(d.tel));if(d.ville)ct.push(E(d.ville));if(d.web)ct.push(E(d.web));
-  P.ctl=ct.map(function(x){return"<li>"+x+"</li>";}).join("");
+  var P={}, fn=(d.prenom||"").trim(), ln=(d.nom||"").trim(), tt=E(d.titre);
+  var nm=(fn||ln)?(fn?'<span class="fn">'+E(fn)+'</span>':"")+(fn&&ln?" ":"")+(ln?'<span class="ln">'+E(ln)+'</span>':""):'<span class="fn">Prénom</span> <span class="ln">Nom</span>';
+  var ct=[];if(d.email)ct.push(["m",E(d.email)]);if(d.tel)ct.push(["t",E(d.tel)]);if(d.ville)ct.push(["v",E(d.ville)]);if(d.web)ct.push(["w",E(d.web)]);
+  P.ctl=ct.map(function(x){return'<li class="ci-'+x[0]+'">'+x[1]+"</li>";}).join("");
   P.head='<div class="hd"><h1 class="nm">'+nm+'</h1>'+(tt?'<p class="tt">'+tt+'</p>':"")+'</div>';
   P.nm=nm;P.tt=tt;var ini=((d.prenom||"").trim().charAt(0)+(d.nom||"").trim().charAt(0)).toUpperCase()||"CV";P.mono='<div class="mn" aria-hidden="true">'+E(ini)+'</div>';
   P.profil=d.profil.trim()?sec("s-pro",SEC.profil,"<p>"+E(d.profil).replace(/\n/g,"<br>")+"</p>",tl):"";
@@ -75,6 +76,7 @@ function render(d,st){
   switch(st.lay){
     case"sl":body='<aside class="c-side">'+(st.mono?P.mono:"")+ctU+P.comp+P.lang+P.int+'</aside><div class="c-main">'+P.head+P.profil+P.exp+P.edu+'</div>';break;
     case"sr":body='<div class="c-main">'+P.head+P.profil+P.exp+P.edu+'</div><aside class="c-side">'+(st.mono?P.mono:"")+ctU+P.comp+P.lang+P.int+'</aside>';break;
+    case"hr":body='<header class="c-hero"><h1 class="nm">'+P.nm+'</h1>'+(P.tt?'<p class="tt">'+P.tt+'</p>':"")+'</header><ul class="ct ct-in c-strip">'+P.ctl+'</ul><div class="c-body2"><div class="c-main">'+P.profil+P.exp+P.edu+'</div><aside class="c-side">'+P.comp+P.lang+P.int+'</aside></div>';break;
     case"bd":body='<header class="c-band"><div><h1 class="nm">'+P.nm+'</h1>'+(P.tt?'<p class="tt">'+P.tt+'</p>':"")+'</div>'+ctU+'</header><div class="c-body"><div class="c-main">'+P.profil+P.exp+P.edu+'</div><aside class="c-side">'+P.comp+P.lang+P.int+'</aside></div>';break;
     case"ce":body=P.head+ctI.replace('<ul class="ct ct-in">','<ul class="ct ct-in" style="justify-content:center;margin:-4pt 0 12pt">')+P.profil+P.exp+P.edu+P.comp+P.lang+P.int;break;
     case"tl":body=P.head+ctI.replace('<ul class="ct ct-in">','<ul class="ct ct-in" style="margin:-6pt 0 12pt">')+P.profil+P.exp+P.edu+P.comp+P.lang+P.int;break;
@@ -105,7 +107,7 @@ function draw(){
   var pg=doc.getElementById("pgm");if(!pg){pg=doc.createElement("style");pg.id="pgm";doc.head.appendChild(pg);}
   pg.textContent="@page{size:A4;margin:"+((st.lay==="sl"||st.lay==="sr"||st.lay==="bd")?"0":"12mm 0")+"}";
   doc.documentElement.style.cssText="--p:"+st.P+";--p2:"+st.P2+";--a:"+st.A+";--h:"+st.HL+";--soft:"+st.soft+";--sw:"+st.sw;
-  var lab=$("#cv-style-lab"); if(lab)lab.textContent="Style n° "+seed+" : "+({sl:"colonne gauche",sr:"colonne droite",bd:"bandeau",ce:"centré",tl:"chronologie",cd:"cartouche"})[st.lay]+", "+st.hfn+" / "+st.bfn;
+  var lab=$("#cv-style-lab"); if(lab)lab.textContent="Style n° "+seed+" : "+({hr:"en-tête couleur",sl:"colonne gauche",sr:"colonne droite",bd:"bandeau",ce:"centré",tl:"chronologie",cd:"cartouche"})[st.lay]+", "+st.hfn+" / "+st.bfn;
   fit(); save();
 }
 function newSeed(back){

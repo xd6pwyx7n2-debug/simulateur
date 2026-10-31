@@ -174,7 +174,7 @@ with sync_playwright() as pw:
     if not pg.eval_on_selector("ul.cl li:first-child input", "e=>e.checked"): fail("checklist : la case cochée n'est pas conservée")
     pg.goto(LOCAL + "generateur-cv/"); pg.wait_for_function("document.getElementById('cv-frame').contentDocument.querySelector('.cv')")
     pg.click("#cv-example"); pg.wait_for_timeout(200)
-    if "Camille Durand" not in pg.evaluate("document.getElementById('cv-frame').contentDocument.body.innerText"): fail("CV : l'exemple n'apparaît pas dans l'aperçu")
+    if "Camille Durand" not in " ".join(pg.evaluate("document.getElementById('cv-frame').contentDocument.body.innerText").split()): fail("CV : l'exemple n'apparaît pas dans l'aperçu")
     labs = set()
     for _ in range(6):
         pg.click("#cv-new"); pg.wait_for_timeout(80); labs.add(pg.inner_text("#cv-style-lab"))
