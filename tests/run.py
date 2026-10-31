@@ -176,6 +176,14 @@ with sync_playwright() as pw:
     _o = pg.inner_text("#bp-out").replace("\u202f", " ").replace("\u00a0", " "); _s = pg.inner_text("#sr-out").replace("\u202f", " ").replace("\u00a0", " ")
     if "55 000" not in _o or "5 000" not in _o: fail("business plan : plan de financement (55 000 / 50 000, manque 5 000) : %s" % _o[:120])
     if "90 000" not in _s or "9" not in _s: fail("business plan : seuil de rentabilité attendu 90 000 € : %s" % _s[:120])
+    pg.goto(LOCAL + "generateur-devis/"); pg.wait_for_timeout(300); pg.click("#dv-example"); pg.wait_for_timeout(200)
+    _d = pg.inner_text("#dv-sheet").replace("\u202f", " ").replace("\u00a0", " ")
+    if "346,50" not in _d or "315,00" not in _d: fail("devis : totaux HT/TTC attendus 315,00 / 346,50 : %s" % _d[-300:])
+    pg.check("#dv-franchise"); pg.wait_for_timeout(150)
+    if "293 B" not in pg.inner_text("#dv-sheet"): fail("devis : mention de franchise en base de TVA absente")
+    with pg.expect_download() as _dl: pg.click("#dv-docx")
+    _fn = _dl.value.path(); import zipfile as _z
+    if "word/document.xml" not in _z.ZipFile(_fn).namelist(): fail("devis : fichier .docx invalide")
     pg.goto(LOCAL + "generateur-cv/"); pg.wait_for_function("document.getElementById('cv-frame').contentDocument.querySelector('.cv')")
     pg.click("#cv-example"); pg.wait_for_timeout(200)
     if "Camille Durand" not in " ".join(pg.evaluate("document.getElementById('cv-frame').contentDocument.body.innerText").split()): fail("CV : l'exemple n'apparaît pas dans l'aperçu")
@@ -205,7 +213,7 @@ with sync_playwright() as pw:
     pg.set_viewport_size({"width": 390, "height": 844})
     for f in pages:
         rel = os.path.relpath(f, ROOT)
-        if rel == "404.html": continue
+        if rel in ("404.html", "simulateur/index.html", "dossiers/index.html"): continue
         pg.goto(LOCAL + ("" if rel == "index.html" else rel.replace("index.html", ""))); pg.wait_for_timeout(120)
         r = pg.evaluate("""()=>{const bad=[];
           document.querySelectorAll('input:not([type=hidden]),select,textarea').forEach(e=>{

@@ -1,0 +1,16 @@
+/* Générateur de devis : le document est isolé du thème du site. */
+#dv-sheet,#dv-sheet p,#dv-sheet span,#dv-sheet td,#dv-sheet strong{color:#1c1c28}#dv-sheet{background:#fff;width:210mm;max-width:100%;box-sizing:border-box;padding:16mm 15mm;font:10.5pt/1.45 Inter,Arial,sans-serif;box-shadow:0 2px 14px rgba(32,30,72,.18);margin:0 auto}
+#dv-sheet *{box-sizing:border-box;max-width:none}
+#dv-sheet .dv-top{display:flex;justify-content:space-between;gap:14pt;flex-wrap:wrap;border-bottom:3pt solid #4b3bd0;padding-bottom:10pt;margin-bottom:12pt}
+#dv-sheet .dv-p span,#dv-sheet .dv-cl span{display:block}#dv-sheet .dv-c{text-align:right}#dv-sheet .dv-c p.dv-h{font-size:22pt;margin:0 0 4pt;color:#4b3bd0;letter-spacing:.03em}#dv-sheet .dv-c p{margin:0}
+#dv-sheet .dv-cl{background:#f1effd;border-radius:6pt;padding:8pt 10pt;margin-bottom:10pt}#dv-sheet .dv-cl strong{display:block;color:#4b3bd0;margin-bottom:2pt}
+#dv-sheet .dv-obj,#dv-sheet .dv-meta{margin:6pt 0}
+#dv-sheet .dv-t,#dv-sheet .dv-s{width:100%;border-collapse:collapse}#dv-sheet .dv-t th{background:#4b3bd0;color:#fff!important;text-align:left;padding:5pt 6pt;font-size:9.5pt}
+#dv-sheet .dv-t td{padding:5pt 6pt;border-bottom:1px solid #d9d6ee;vertical-align:top}#dv-sheet .dv-t th:nth-child(n+2),#dv-sheet .dv-t td:nth-child(n+2){text-align:right;white-space:nowrap}
+#dv-sheet .dv-s{width:55%;margin:10pt 0 0 auto}#dv-sheet .dv-s td{padding:3pt 6pt}#dv-sheet .dv-s td:last-child{text-align:right}#dv-sheet .dv-g td{font-weight:800;font-size:12pt;border-top:2pt solid #4b3bd0}
+#dv-sheet .dv-m{margin-top:12pt;font-size:9.5pt}#dv-sheet .dv-m p{margin:0 0 3pt}
+#dv-sheet .dv-sig{display:flex;gap:18pt;margin-top:20pt}#dv-sheet .dv-sig>div{flex:1;border:1px solid #bdb8e3;border-radius:6pt;padding:8pt;min-height:60pt}#dv-sheet .dv-sig p{margin:0}#dv-sheet .dv-sg{font-size:9pt;color:#555!important;margin-top:4pt!important}
+#dv-sheet{overflow-x:auto}
+#dv-sheet .dv-stage{background:#e9e7f5;border-radius:16px;padding:12px;overflow-x:auto}
+html[data-theme="dark"] .dv-stage{background:#2a2840}
+@media print{body *{visibility:hidden!important}#dv-sheet,#dv-sheet *{visibility:visible!important}#dv-sheet{position:absolute;left:0;top:0;width:100%;box-shadow:none;padding:0;margin:0}@page{size:A4;margin:14mm}.dv-t th,.dv-cl,.dv-top{-webkit-print-color-adjust:exact;print-color-adjust:exact}}

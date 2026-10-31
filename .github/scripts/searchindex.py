@@ -5,6 +5,8 @@ import glob, html, json, os, re, sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 # mots que les visiteurs tapent et qui ne figurent pas forcément dans le titre
 SYN = {
+    "generateur-devis": "devis modele devis facture artisan micro entrepreneur creer un devis pdf word",
+    "guides/faire-un-devis-mentions-obligatoires-selon-le-metier": "devis modele devis mentions obligatoires artisan batiment acompte arrhes facture",
     "guides/creer-un-business-plan-etapes-financement-seuil-rentabilite": "business plan previsionnel plan de financement seuil de rentabilite creer entreprise banque pret",
     "guides/creer-un-profil-linkedin-professionnel-etape-par-etape": "linkedin compte profil reseau professionnel recherche emploi inscription",
     "guides/ouvrir-une-boulangerie-demarches-etape-par-etape": "boulangerie boulanger pain patisserie ouvrir commerce alimentaire",
