@@ -159,9 +159,9 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
     function go(){
       if(document.getElementById("sd-news"))return;
       var d=document.createElement("div");d.id="sd-news";d.className="sd-news";d.setAttribute("role","region");d.setAttribute("aria-label","Nouveauté");
-      d.innerHTML='<a href="/generateur-cv/"><span class="sd-news-tag">Nouveau</span><span class="sd-news-txt">Générateur de CV gratuit : un style unique à chaque CV</span><span class="sd-news-go">Essayer</span></a><button type="button" aria-label="Fermer l\'annonce">&times;</button>';
+      d.innerHTML='<a href="/generateur-cv/"><span class="sd-news-thumbs" aria-hidden="true"><img src="/assets/cv-prev-1.svg" alt="" width="26" height="37"><img src="/assets/cv-prev-2.svg" alt="" width="26" height="37"><img src="/assets/cv-prev-3.svg" alt="" width="26" height="37"></span><span class="sd-news-tag">Nouveau</span><span class="sd-news-txt"><strong>Générateur de CV gratuit</strong><span class="sd-news-sub"> : un style unique à chaque CV</span></span><span class="sd-news-go">Créer mon CV</span></a><button type="button" aria-label="Fermer l\'annonce">&times;</button>';
       var h=document.querySelector("header")||document.body.firstChild;
-      h.parentNode.insertBefore(d,h);
+      h.parentNode.insertBefore(d,h);var cs=getComputedStyle(document.body);if(h.parentNode===document.body&&parseFloat(cs.marginTop)>0)d.style.margin="-"+cs.marginTop+" -"+cs.marginRight+" "+cs.marginTop+" -"+cs.marginLeft;
       d.querySelector("button").addEventListener("click",function(){try{localStorage.setItem(K,"1");}catch(e){}d.remove();});
     }
     if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else go();

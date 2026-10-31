@@ -92,3 +92,12 @@ article.fiche .sd-table tbody th[scope=row]{padding:12px 14px;vertical-align:top
 @media(max-width:640px){article.fiche .sd-table tbody th[scope=row]{display:block;width:100%;box-sizing:border-box;background:linear-gradient(135deg,var(--a),var(--b))!important;color:#fff!important;border-top:0!important}article.fiche .sd-table tbody tr:nth-child(even) td{background:#fff}}
 @media(max-width:640px){article.fiche .sd-table td,article.fiche .sd-table th{box-sizing:border-box}}
 .fiche-hero .intro a{color:#fff!important;text-decoration:underline}
+/* checklist à cocher */
+article.fiche ul.cl{list-style:none;padding:0;margin:10px 0 6px;display:grid;gap:8px}
+article.fiche ul.cl li{margin:0;max-width:none}
+article.fiche ul.cl label{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border:1.5px solid color-mix(in srgb,var(--a) 22%,#fff);border-radius:12px;background:#fff;cursor:pointer;line-height:1.45;color:#3f3d66}
+article.fiche ul.cl label:hover{background:color-mix(in srgb,var(--a) 6%,#fff)}
+article.fiche ul.cl input{flex:0 0 22px;width:22px;height:22px;margin-top:1px;accent-color:var(--a)}
+article.fiche ul.cl input:checked+span{text-decoration:line-through;opacity:.65}
+article.fiche ul.cl label:focus-within{outline:3px solid color-mix(in srgb,var(--a) 55%,#fff);outline-offset:2px}
+article.fiche .cl-prog{font-weight:700;color:var(--a);margin:6px 0 18px}

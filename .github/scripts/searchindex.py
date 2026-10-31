@@ -5,6 +5,10 @@ import glob, html, json, os, re, sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 # mots que les visiteurs tapent et qui ne figurent pas forcément dans le titre
 SYN = {
+    "ouvrir-un-commerce": "creer boutique magasin restaurant commerce ouverture demarches creation entreprise",
+    "guides/ouvrir-un-restaurant-demarches-etape-par-etape": "restaurant licence permis exploitation hygiene debit boissons ouverture",
+    "guides/ouvrir-une-boutique-demarches-etape-par-etape": "boutique magasin commerce local ouverture",
+    "guides/bail-commercial-points-a-verifier-avant-de-signer": "bail commercial 3 6 9 loyer local depot garantie derogatoire",
  "generateur-cv": "cv curriculum vitae candidature emploi créer faire mon cv modèle cv",
  "modeles-de-lettres": "lettre courrier modèle type démission rupture réclamation",
  "modele-lettre-motivation-domaine": "lettre de motivation candidature",
