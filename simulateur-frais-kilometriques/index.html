@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Frais kilométriques 2026 : barème et calcul des frais réels | SimuDroit</title>
+  <meta name="description" content="Calculez vos frais kilométriques avec le barème de l&#x27;administration fiscale : voiture, deux-roues, véhicule électrique. Formules par tranche et rappel des règles de déduction.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://simudroit.fr/simulateur-frais-kilometriques/">
+  <link rel="icon" href="https://simudroit.fr/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="https://simudroit.fr/favicon.ico" sizes="48x48">
+  <link rel="icon" href="https://simudroit.fr/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="https://simudroit.fr/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Frais kilométriques 2026 : barème et calcul des frais réels | SimuDroit">
+  <meta property="og:description" content="Calculez vos frais kilométriques avec le barème de l&#x27;administration fiscale : voiture, deux-roues, véhicule électrique. Formules par tranche et rappel des règles de déduction.">
+  <meta property="og:url" content="https://simudroit.fr/simulateur-frais-kilometriques/">
+  <meta property="og:image" content="https://simudroit.fr/assets/og/simulateur-frais-kilometriques.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://simudroit.fr/assets/og/simulateur-frais-kilometriques.jpg">
+  <meta name="twitter:title" content="Frais kilométriques 2026 : barème et calcul des frais réels | SimuDroit">
+  <meta name="twitter:description" content="Calculez vos frais kilométriques avec le barème de l&#x27;administration fiscale : voiture, deux-roues, véhicule électrique. Formules par tranche et rappel des règles de déduction.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://simudroit.fr/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Frais kilométriques 2026 : barème et calcul des frais réels", "url": "https://simudroit.fr/simulateur-frais-kilometriques/", "description": "Calculez vos frais kilométriques avec le barème de l'administration fiscale : voiture, deux-roues, véhicule électrique. Formules par tranche et rappel des règles de déduction.", "inLanguage": "fr-FR"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://simudroit.fr/"}, {"@type": "ListItem", "position": 2, "name": "Simulateurs", "item": "https://simudroit.fr/simulateurs/"}, {"@type": "ListItem", "position": 3, "name": "Frais kilométriques", "item": "https://simudroit.fr/simulateur-frais-kilometriques/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Qu'est-ce que le barème kilométrique ?", "acceptedAnswer": {"@type": "Answer", "text": "C'est la grille publiée par l'administration fiscale pour évaluer forfaitairement les frais de véhicule (carburant, assurance, entretien, dépréciation) que vous pouvez déduire de vos revenus si vous optez pour les frais réels. Le montant dépend de la distance parcourue et de la puissance fiscale du véhicule."}}, {"@type": "Question", "name": "Quelle distance domicile-travail peut-on déduire ?", "acceptedAnswer": {"@type": "Answer", "text": "Si le trajet aller est de 40 km ou moins, la distance réelle est prise en compte. Au-delà, seuls 40 km sont retenus, sauf circonstances particulières à justifier par une note jointe à la déclaration. Un seul aller-retour par jour est en principe déductible."}}, {"@type": "Question", "name": "Le barème s'applique-t-il aux véhicules électriques ?", "acceptedAnswer": {"@type": "Answer", "text": "Il existe des barèmes distincts pour les véhicules 100 % électriques. D'après l'aide du simulateur de l'administration, ils correspondent au barème classique majoré de 20 %. Vérifiez votre cas sur impots.gouv.fr."}}, {"@type": "Question", "name": "Peut-on déduire en plus les péages et le parking ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui : d'après impots.gouv.fr, les frais de péage, de parking et de garage peuvent s'ajouter au barème, avec justificatifs à conserver au moins trois ans."}}, {"@type": "Question", "name": "Faut-il choisir les frais réels ou la déduction de 10 % ?", "acceptedAnswer": {"@type": "Answer", "text": "Les deux ne se cumulent pas : comparez le total de vos frais réels avec la déduction forfaitaire de 10 % que l'administration applique sinon. Ce simulateur calcule uniquement la partie véhicule."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Calcul des frais kilométriques", "url": "https://simudroit.fr/simulateur-frais-kilometriques/", "description": "Calculez vos frais kilométriques avec le barème de l'administration fiscale : voiture, deux-roues, véhicule électrique. Formules par tranche et rappel des règles de déduction.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}</script>
+  <meta name="theme-color" content="#201e48">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="Frais kilométriques 2026 : barème et calcul des frais réels | SimuDroit">
+  <link rel="alternate" hreflang="fr" href="https://simudroit.fr/simulateur-frais-kilometriques/">
+  <link rel="alternate" hreflang="x-default" href="https://simudroit.fr/simulateur-frais-kilometriques/">
+  <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
+  <script async src="https://plausible.io/js/pa-j8JdUomB9hqqp7em82xdB.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+</head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.fr/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://simudroit.fr/simulateurs/">Simulateurs</a>
+      <a href="https://simudroit.fr/assistant/">Assistant</a>
+      <a href="https://simudroit.fr/guides/">Guides</a>
+      <a href="https://simudroit.fr/aides/">Aides</a>
+      <a href="https://simudroit.fr/fiches-revision/">Fiches</a>
+      <a href="https://simudroit.fr/actualites/">Chiffres clés</a>
+      <a href="https://simudroit.fr/metiers/">Métiers</a>
+      <a href="https://simudroit.fr/faq/">FAQ</a>
+      <a href="https://simudroit.fr/#recherche">Rechercher</a>
+      <a class="cta-link" href="https://simudroit.fr/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://simudroit.fr/">Accueil</a> &nbsp;›&nbsp; <a href="https://simudroit.fr/simulateurs/">Simulateurs</a> &nbsp;›&nbsp; Frais kilométriques
+  </div>
+
+  <section class="hero">
+    <h1>Frais kilométriques 2026 : barème et calcul</h1>
+    <p>Évaluez la déduction de vos frais de véhicule (trajet domicile-travail ou déplacements professionnels) avec le barème de l'administration fiscale.</p>
+      <div class="badges"><span class="badge">✓ Barème des frais payés en 2025</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Vos données restent dans votre navigateur</span></div>
+  </section>
+<section class="info-section sd-know" id="a-savoir">
+    <h2>À savoir avant de vous fier au résultat</h2>
+    <div class="sd-know-grid">
+      <div class="sd-know-card"><h3>40 km maximum</h3><p>Pour le trajet domicile-travail, la distance prise en compte est limitée à 40 km (aller), sauf circonstances particulières justifiées dans une note jointe à la déclaration.</p></div>
+      <div class="sd-know-card"><h3>Un aller-retour par jour</h3><p>Un seul aller-retour quotidien est en principe déductible, sauf contraintes particulières (problème de santé, horaires atypiques).</p></div>
+      <div class="sd-know-card"><h3>Frais réels ou 10 %</h3><p>Les frais réels remplacent la déduction forfaitaire de 10 % : le choix vaut pour l'ensemble de vos frais professionnels. Gardez vos justificatifs au moins trois ans.</p></div>
+    </div>
+  </section>
+  <section class="calculator" id="calcul">
+    <h2>Calculer vos frais kilométriques</h2>
+    <noscript><p class="intro-note"><strong>JavaScript requis :</strong> ce simulateur calcule directement dans votre navigateur.</p></noscript>
+    <div class="field"><label for="veh">Type de véhicule</label><select id="veh"><option value="car">Voiture</option><option value="moto">Deux-roues de plus de 50 cm³</option><option value="cyclo">Cyclomoteur (50 cm³ ou moins)</option></select></div>
+    <div class="field" id="pw"><label for="cv">Puissance administrative</label><select id="cv"></select></div>
+    <div class="field"><label style="display:flex;align-items:center;gap:8px"><input type="checkbox" id="elec" style="width:auto;margin:0"> Véhicule 100 % électrique (barème majoré de 20 %)</label></div>
+    <div class="field"><label for="mode">Je connais</label><select id="mode"><option value="tot">le total de kilomètres de l'année</option><option value="dt">la distance domicile-travail</option></select></div>
+    <div class="field" id="f-tot"><label for="km">Kilomètres parcourus sur l'année</label><input type="number" id="km" min="0" max="1000000" step="1" inputmode="numeric" placeholder="Ex. 10000"></div>
+    <div id="f-dt" hidden>
+      <div class="field"><label for="al">Distance domicile-travail, aller simple (km)</label><input type="number" id="al" min="0" max="1000" step="0.1" inputmode="decimal" placeholder="Ex. 18"></div>
+      <div class="field"><label for="jr">Jours travaillés sur site dans l'année</label><input type="number" id="jr" min="0" max="366" step="1" inputmode="numeric" placeholder="Ex. 210"></div>
+    </div>
+    <div class="field"><label for="ext">Autres frais déductibles : péages, parking, garage (€, facultatif)</label><input type="number" id="ext" min="0" max="1000000" step="0.01" inputmode="decimal" placeholder="0"></div>
+    <button type="button" id="calculate">Calculer</button>
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">Frais kilométriques selon le barème</div>
+      <div class="result-main" id="main">0,00 €</div>
+      <div class="result-row"><span>Distance retenue</span><strong id="dist">0 km</strong></div>
+      <div class="result-row"><span>Formule appliquée</span><strong id="form">-</strong></div>
+      <div class="result-row"><span>Barème</span><strong id="bar">0,00 €</strong></div>
+      <div class="result-row"><span>Péages, parking et garage</span><strong id="exr">0,00 €</strong></div>
+      <div class="result-row"><span>Total à comparer à la déduction de 10 %</span><strong id="tot">0,00 €</strong></div>
+      <div class="warning" id="wnote">Estimation fondée sur le barème de l'administration fiscale. Seule votre déclaration de revenus fait foi.</div>
+    </div>
+  </section>
+
+  <section class="info-section" id="bareme">
+    <h2>Le barème kilométrique pour les voitures</h2>
+    <p class="field-help">Barème appliqué aux frais payés en 2025, d'après l'aide du simulateur de l'administration fiscale (d = distance en kilomètres). Pour un véhicule 100 % électrique, majoration de 20 %.</p>
+    <div class="table-wrap"><table class="sd-table"><thead><tr><th>Puissance</th><th>Jusqu'à 5 000 km</th><th>De 5 001 à 20 000 km</th><th>Au-delà de 20 000 km</th></tr></thead><tbody>
+    <tr><td>3 CV et moins</td><td>d × 0,529</td><td>(d × 0,316) + 1 065</td><td>d × 0,370</td></tr>
+    <tr><td>4 CV</td><td>d × 0,606</td><td>(d × 0,340) + 1 330</td><td>d × 0,407</td></tr>
+    <tr><td>5 CV</td><td>d × 0,636</td><td>(d × 0,357) + 1 395</td><td>d × 0,427</td></tr>
+    <tr><td>6 CV</td><td>d × 0,665</td><td>(d × 0,374) + 1 457</td><td>d × 0,447</td></tr>
+    <tr><td>7 CV et plus</td><td>d × 0,697</td><td>(d × 0,394) + 1 515</td><td>d × 0,470</td></tr>
+    </tbody></table></div>
+    <p class="field-help">Les barèmes des deux-roues et des cyclomoteurs figurent dans le simulateur ci-dessus. Source : <a href="https://simulateur-ir-ifi.impots.gouv.fr/calcul_impot/2026/aides/frais.htm" rel="noopener">aide du simulateur de l'impôt sur le revenu (impots.gouv.fr)</a>. Règles de déduction : <a href="https://www.impots.gouv.fr/particulier/frais-de-transport" rel="noopener">impots.gouv.fr, frais de transport</a> (page modifiée le 7 avril 2026).</p>
+  </section>
+
+  <section class="info-section sd-fold" id="faq-ind"><details><summary><h2>Questions fréquentes</h2></summary><h3>Qu&#x27;est-ce que le barème kilométrique ?</h3><p>C&#x27;est la grille publiée par l&#x27;administration fiscale pour évaluer forfaitairement les frais de véhicule (carburant, assurance, entretien, dépréciation) que vous pouvez déduire de vos revenus si vous optez pour les frais réels. Le montant dépend de la distance parcourue et de la puissance fiscale du véhicule.</p><h3>Quelle distance domicile-travail peut-on déduire ?</h3><p>Si le trajet aller est de 40 km ou moins, la distance réelle est prise en compte. Au-delà, seuls 40 km sont retenus, sauf circonstances particulières à justifier par une note jointe à la déclaration. Un seul aller-retour par jour est en principe déductible.</p><h3>Le barème s&#x27;applique-t-il aux véhicules électriques ?</h3><p>Il existe des barèmes distincts pour les véhicules 100 % électriques. D&#x27;après l&#x27;aide du simulateur de l&#x27;administration, ils correspondent au barème classique majoré de 20 %. Vérifiez votre cas sur impots.gouv.fr.</p><h3>Peut-on déduire en plus les péages et le parking ?</h3><p>Oui : d&#x27;après impots.gouv.fr, les frais de péage, de parking et de garage peuvent s&#x27;ajouter au barème, avec justificatifs à conserver au moins trois ans.</p><h3>Faut-il choisir les frais réels ou la déduction de 10 % ?</h3><p>Les deux ne se cumulent pas : comparez le total de vos frais réels avec la déduction forfaitaire de 10 % que l&#x27;administration applique sinon. Ce simulateur calcule uniquement la partie véhicule.</p></details></section><section class="info-section sd-fold" id="sources"><details><summary><h2>Sources officielles</h2></summary><ul><li><a href="https://simulateur-ir-ifi.impots.gouv.fr/calcul_impot/2026/aides/frais.htm" rel="noopener">impots.gouv.fr : aide du simulateur, frais réels et barème kilométrique</a></li><li><a href="https://www.impots.gouv.fr/particulier/frais-de-transport" rel="noopener">impots.gouv.fr : frais de transport</a></li></ul></details></section>
+
+  <section class="sd-next" aria-labelledby="sd-next-t"><h2 id="sd-next-t">Et ensuite ?</h2><p class="sd-next-sub">Pour affiner votre situation :</p><ol class="sd-next-list"><li><a href="/simulateur-impot-revenu/"><span class="sd-next-n">1</span><span class="sd-next-t"><strong>Impôt sur le revenu</strong><small>Estimer votre impôt.</small></span></a></li><li><a href="/simulateur-salaire-net-apres-impot/"><span class="sd-next-n">2</span><span class="sd-next-t"><strong>Salaire net après impôt</strong><small>Ce qu'il reste après prélèvement.</small></span></a></li><li><a href="/simulateur-brut-net/"><span class="sd-next-n">3</span><span class="sd-next-t"><strong>Brut en net</strong><small>Votre salaire net à partir du brut.</small></span></a></li></ol></section>
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/simulateur-impot-revenu/">Impôt sur le revenu</a><a href="/simulateur-salaire-net-apres-impot/">Salaire net après impôt</a><a href="/simulateur-brut-net/">Brut en net</a><a href="/simulateur-micro-entrepreneur/">Micro-entrepreneur</a><a href="/simulateur-tva-ht-ttc/">Calcul de TVA</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-11-01">1er novembre 2026</time> (barème de l'administration fiscale, frais payés en 2025). Estimation indicative, sans valeur juridique. <a href="/methode-et-sources/">Méthode et sources</a> · <a href="/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<nav class="sd-explore" aria-label="Toutes les rubriques"><strong>Explorer toutes les rubriques</strong><div><a href="https://simudroit.fr/simulateurs/" style="--c:#4f46e5"><i class="sdi sdi-calc" aria-hidden="true"></i>Simulateurs</a><a href="https://simudroit.fr/guides/" style="--c:#0e7490"><i class="sdi sdi-book" aria-hidden="true"></i>Guides</a><a href="https://simudroit.fr/aides/" style="--c:#0f766e"><i class="sdi sdi-heart" aria-hidden="true"></i>Aides</a><a href="https://simudroit.fr/fiches-revision/" style="--c:#7c3aed"><i class="sdi sdi-notes" aria-hidden="true"></i>Fiches de révision</a><a href="https://simudroit.fr/metiers/" style="--c:#b5530f"><i class="sdi sdi-user" aria-hidden="true"></i>Mon métier</a><a href="https://simudroit.fr/metiers/creer-son-entreprise-batiment/" style="--c:#c2410c"><i class="sdi sdi-hardhat" aria-hidden="true"></i>Créer son entreprise (bâtiment)</a><a href="https://simudroit.fr/independants/" style="--c:#1d4ed8"><i class="sdi sdi-briefcase" aria-hidden="true"></i>Indépendants</a><a href="https://simudroit.fr/retraite/" style="--c:#be185d"><i class="sdi sdi-sun" aria-hidden="true"></i>Retraite</a><a href="https://simudroit.fr/reconversion/" style="--c:#15803d"><i class="sdi sdi-refresh" aria-hidden="true"></i>Reconversion</a><a href="https://simudroit.fr/salaires/" style="--c:#a16207"><i class="sdi sdi-euro" aria-hidden="true"></i>Salaires</a><a href="https://simudroit.fr/modeles-de-lettres/" style="--c:#9333ea"><i class="sdi sdi-mail" aria-hidden="true"></i>Lettres types</a><a href="https://simudroit.fr/generateur-cv/" style="--c:#0f7a6e"><i class="sdi sdi-doc" aria-hidden="true"></i>Générateur de CV</a><a href="https://simudroit.fr/ouvrir-un-commerce/" style="--c:#b5530f"><i class="sdi sdi-briefcase" aria-hidden="true"></i>Ouvrir un commerce</a><a href="https://simudroit.fr/actualites/" style="--c:#475569"><i class="sdi sdi-chart" aria-hidden="true"></i>Chiffres et données</a><a href="https://simudroit.fr/glossaire/" style="--c:#0369a1"><i class="sdi sdi-bookopen" aria-hidden="true"></i>Glossaire</a><a href="https://simudroit.fr/faq/" style="--c:#b91c1c"><i class="sdi sdi-question" aria-hidden="true"></i>FAQ</a></div></nav>
+<footer><nav class="foot-top" aria-label="Les plus consultés"><strong>Les plus consultés</strong><a href="https://simudroit.fr/simulateur-brut-net/">Salaire brut en net</a><a href="https://simudroit.fr/simulateur-indemnite-licenciement/">Indemnité de licenciement</a><a href="https://simudroit.fr/simulateur-rupture-conventionnelle/">Rupture conventionnelle</a><a href="https://simudroit.fr/simulateur-chomage/">Allocation chômage</a><a href="https://simudroit.fr/simulateur-preavis-demission/">Préavis de démission</a><a href="https://simudroit.fr/simulateur-preavis-licenciement/">Préavis de licenciement</a><a href="https://simudroit.fr/simulateur-conges-payes/">Congés payés</a><a href="https://simudroit.fr/simulateur-fiche-de-paie/">Vérifier ma fiche de paie</a><a href="https://simudroit.fr/simulateur-solde-tout-compte/">Solde de tout compte</a><a href="https://simudroit.fr/simulateur-smic/">SMIC 2026</a><a href="https://simudroit.fr/salaire-brut-net/">Brut en net par montant</a><a href="https://simudroit.fr/metiers/">Mon métier : infirmier libéral, assistante maternelle, intérimaire</a><a href="https://simudroit.fr/retraite/">Retraite : par où commencer ?</a><a href="https://simudroit.fr/reconversion/">Reconversion : par où commencer ?</a><a href="https://simudroit.fr/jours-feries-2026-2027/">Jours fériés 2026 et 2027</a><a href="https://simudroit.fr/fiches-revision/">Fiches de révision</a><a href="https://simudroit.fr/aides/">Aides selon votre situation</a></nav>
+  <p>© 2026 SimuDroit · <a href="https://simudroit.fr/">Tous les simulateurs</a> · <a href="https://simudroit.fr/methode-et-sources/">Méthode et sources</a> · <a href="https://simudroit.fr/contact/">Contact</a> · <a href="https://simudroit.fr/mentions-legales/">Mentions légales</a> · <a href="https://simudroit.fr/confidentialite/">Confidentialité</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+  function eur(v){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR"}).format(v)}
+  function nf(v,d){return new Intl.NumberFormat("fr-FR",{maximumFractionDigits:d==null?0:d}).format(v)}
+  function num(id){var v=parseFloat(document.getElementById(id).value);return Number.isFinite(v)?v:NaN}
+  function setText(id,t){document.getElementById(id).textContent=t}
+  function r2(x){return Math.round(x*100)/100}
+  var CAR=[["3 CV et moins",[0.529,0.316,1065,0.370]],["4 CV",[0.606,0.340,1330,0.407]],["5 CV",[0.636,0.357,1395,0.427]],["6 CV",[0.665,0.374,1457,0.447]],["7 CV et plus",[0.697,0.394,1515,0.470]]];
+  var MOTO=[["1 ou 2 CV",[0.395,0.099,891,0.248]],["3, 4 ou 5 CV",[0.468,0.082,1158,0.275]],["Plus de 5 CV",[0.606,0.079,1583,0.343]]];
+  var CYCLO=[["Non applicable",[0.315,0.079,711,0.198]]];
+  var T={car:{rows:CAR,lim:[5000,20000]},moto:{rows:MOTO,lim:[3000,6000]},cyclo:{rows:CYCLO,lim:[3000,6000]}};
+  function fill(){var v=document.getElementById("veh").value,sel=document.getElementById("cv");sel.innerHTML="";T[v].rows.forEach(function(r,i){var o=document.createElement("option");o.value=i;o.textContent=r[0];sel.appendChild(o)});document.getElementById("pw").hidden=(v==="cyclo")}
+  function kmFrais(v,i,d){var t=T[v],c=t.rows[i][1],l=t.lim,a=c[0],b=c[1],k=c[2],e=c[3];
+    if(d<=l[0])return{m:d*a,f:"d × "+String(a).replace(".",",")};
+    if(d<=l[1])return{m:d*b+k,f:"(d × "+String(b).replace(".",",")+") + "+nf(k)};
+    return{m:d*e,f:"d × "+String(e).replace(".",",")};}
+  function modeMaj(){var dt=document.getElementById("mode").value==="dt";document.getElementById("f-dt").hidden=!dt;document.getElementById("f-tot").hidden=dt}
+  document.getElementById("veh").addEventListener("change",fill);document.getElementById("mode").addEventListener("change",modeMaj);fill();modeMaj();
+  document.getElementById("calculate").addEventListener("click",function(){
+    var v=document.getElementById("veh").value,i=v==="cyclo"?0:parseInt(document.getElementById("cv").value,10),d,note="Estimation fondée sur le barème de l'administration fiscale. Seule votre déclaration de revenus fait foi.";
+    if(document.getElementById("mode").value==="dt"){var al=num("al"),jr=num("jr");
+      if(!Number.isFinite(al)||al<0||!Number.isFinite(jr)||jr<0){alert("Indiquez la distance aller et le nombre de jours.");return}
+      var ret=al;if(al>40){ret=40;note="Distance limitée à 40 km par trajet : au-delà, seuls 40 km sont retenus sauf circonstances particulières justifiées dans une note jointe à la déclaration. "+note}
+      d=ret*2*jr;
+    }else{d=num("km");if(!Number.isFinite(d)||d<0){alert("Indiquez un nombre de kilomètres positif.");return}}
+    var r=kmFrais(v,i,d),m=r.m;if(document.getElementById("elec").checked)m=m*1.2;m=r2(m);
+    var ex=num("ext");if(!Number.isFinite(ex)||ex<0)ex=0;
+    setText("main",eur(m));setText("dist",nf(d,1)+" km");setText("form",r.f+(document.getElementById("elec").checked?", majoré de 20 %":""));setText("bar",eur(m));setText("exr",eur(ex));setText("tot",eur(r2(m+ex)));setText("wnote",note);
+    document.getElementById("result").classList.add("visible");
+  });
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>

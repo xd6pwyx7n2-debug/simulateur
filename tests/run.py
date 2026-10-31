@@ -282,6 +282,13 @@ with sync_playwright() as pw:
     if "Sous le plafond" not in pg.inner_text("#microVerdict") or "Entre le seuil" not in pg.inner_text("#tvaVerdict"): fail("plafonds : 40 000 € de services (sous 83 600 €, entre 37 500 et 41 250)")
     pg.evaluate("()=>{document.getElementById('caServ').value='90000';document.getElementById('calculate').click()}"); pg.wait_for_timeout(120)
     if "dépassé" not in pg.inner_text("#microVerdict") or "TVA due" not in pg.inner_text("#tvaVerdict"): fail("plafonds : 90 000 € de services doit dépasser micro et TVA")
+    pg.goto(LOCAL + "simulateur-frais-kilometriques/"); pg.wait_for_timeout(1000)
+    pg.evaluate("()=>{document.getElementById('veh').value='car';document.getElementById('veh').dispatchEvent(new Event('change'));document.getElementById('cv').value='2';document.getElementById('km').value='10000';document.getElementById('calculate').click()}"); pg.wait_for_timeout(1000)
+    if norm(pg.inner_text("#main")) != norm("4 965,00 €"): fail("frais km : 5 CV, 10 000 km attendu 4 965,00 € (%s)" % pg.inner_text("#main"))
+    pg.evaluate("()=>{document.getElementById('elec').checked=true;document.getElementById('calculate').click()}"); pg.wait_for_timeout(1000)
+    if norm(pg.inner_text("#main")) != norm("5 958,00 €"): fail("frais km : majoration électrique de 20 %% attendue 5 958,00 € (%s)" % pg.inner_text("#main"))
+    pg.evaluate("()=>{document.getElementById('elec').checked=false;document.getElementById('mode').value='dt';document.getElementById('mode').dispatchEvent(new Event('change'));document.getElementById('al').value='60';document.getElementById('jr').value='100';document.getElementById('calculate').click()}"); pg.wait_for_timeout(1000)
+    if "8 000" not in pg.inner_text("#dist").replace("\u202f"," ").replace("\u00a0"," "): fail("frais km : distance limitée à 40 km par trajet attendue (8 000 km) : %s" % pg.inner_text("#dist"))
     # TVA HT/TTC et TJM freelance
     pg.goto(LOCAL + "simulateur-tva-ht-ttc/"); pg.wait_for_timeout(200)
     pg.evaluate("()=>{document.getElementById('sens').value='ht';document.getElementById('taux').value='20';document.getElementById('montant').value='100';document.getElementById('calculate').click()}"); pg.wait_for_timeout(900)
