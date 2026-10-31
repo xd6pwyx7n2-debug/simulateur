@@ -210,7 +210,8 @@ main>article.lt-main{background:transparent;border:0!important;box-shadow:none!i
   <div id="lettre" role="region" aria-label="Lettre générée" aria-live="polite" style="white-space:pre-wrap;background:#fff;border:1.5px solid #ddd9f3;border-radius:16px;padding:22px;font-family:Georgia,'Times New Roman',serif;font-size:1rem;line-height:1.65;color:#201e48"></div>
   <div class="sd-actions">
     <button type="button" class="sd-secondary" id="copier" style="background:#efedff;color:#201e48;border-color:#dcd7f7">Copier la lettre</button>
-    <button type="button" class="sd-secondary" id="imprimer" style="background:#efedff;color:#201e48;border-color:#dcd7f7">Télécharger en PDF ou imprimer</button>
+    <button type="button" class="sd-secondary" id="imprimer" style="background:#efedff;color:#201e48;border-color:#dcd7f7">Imprimer</button>
+    <button type="button" class="sd-secondary" id="pdf" style="background:#efedff;color:#201e48;border-color:#dcd7f7">Télécharger en PDF</button>
     <button type="button" class="sd-secondary" id="word" style="background:#efedff;color:#201e48;border-color:#dcd7f7">Télécharger en Word (.docx)</button>
     <button type="button" class="sd-secondary" id="partager" hidden style="background:#efedff;color:#201e48;border-color:#dcd7f7">Partager (Drive, messagerie, e-mail)</button>
     <button type="button" class="sd-secondary" id="mail" style="background:#efedff;color:#201e48;border-color:#dcd7f7">Préparer un e-mail</button>
@@ -602,6 +603,54 @@ main>article.lt-main{background:transparent;border:0!important;box-shadow:none!i
     var p=parts(), t=plain(p); if(t.length>1700) t=t.slice(0,1700)+"\n[Suite à coller depuis la lettre]";
     location.href="mailto:?subject="+encodeURIComponent(p.objet)+"&body="+encodeURIComponent(t);
   });
+  var TW="250 333 408 500 500 833 778 180 333 333 500 564 250 333 250 278 500 500 500 500 500 500 500 500 500 500 278 278 564 564 564 444 921 722 667 667 722 611 556 722 722 333 389 722 611 889 722 722 556 722 667 556 611 722 722 944 722 722 611 333 278 333 469 500 333 444 500 444 500 444 333 500 500 278 278 500 278 778 500 500 500 500 333 389 278 500 500 722 500 500 444 480 200 480 541".split(" ").map(Number);
+  var BASE={"àâäáãå":"a","ç":"c","éèêë":"e","îïíì":"i","ñ":"n","ôöòóõ":"o","ùûüú":"u","ÿý":"y","ÀÂÄÁÃÅ":"A","Ç":"C","ÉÈÊË":"E","ÎÏÍÌ":"I","Ñ":"N","ÔÖÒÓÕ":"O","ÙÛÜÚ":"U"};
+  var SPEC={"€":["\x80",500],"…":["\x85",1000],"’":["\x92",333],"‘":["\x91",333],"“":["\x93",444],"”":["\x94",444],"–":["\x96",500],"—":["\x97",1000],"œ":["\x9c",722],"Œ":["\x8c",889],"«":["\xab",500],"»":["\xbb",500],"°":["\xb0",400]," ":[" ",250]," ":[" ",250]," ":[" ",250],"•":["\x95",350]};
+  function pdfCh(c){
+    if(SPEC[c]) return SPEC[c];
+    var n=c.charCodeAt(0);
+    if(n>=32&&n<=126) return [c,TW[n-32]];
+    for(var k in BASE){ if(k.indexOf(c)>=0) return [c,TW[BASE[k].charCodeAt(0)-32]]; }
+    if(n>=160&&n<=255) return [c,500];
+    return ["?",500];
+  }
+  function mkPdf(p){
+    var SZ=12, LEAD=17, W=595, H=842, M=57, pages=[[]], y=H-M-SZ;
+    function widthOf(t,bold){var w=0;for(var i=0;i<t.length;i++)w+=pdfCh(t[i])[1];return w*SZ/1000*(bold?1.05:1);}
+    function enc(t){var o="";for(var i=0;i<t.length;i++){var c=pdfCh(t[i])[0];if(c==="("||c===")"||c==="\\")o+="\\";o+=c;}return o;}
+    function put(t,x,bold){pages[pages.length-1].push("BT /"+(bold?"F2":"F1")+" "+SZ+" Tf "+x.toFixed(1)+" "+y.toFixed(1)+" Td ("+enc(t)+") Tj ET");}
+    function nl(){y-=LEAD;if(y<M){pages.push([]);y=H-M-SZ;}}
+    blocks(p).forEach(function(bl){
+      var x=M+(bl.ind||0)/20, maxw=W-M-x;
+      bl.l.forEach(function(line,i){
+        var bold=!!(bl.b0&&i===0), words=line.split(/ +/), cur="";
+        if(line===""){nl();return;}
+        words.forEach(function(w){
+          var tr=cur?cur+" "+w:w;
+          if(cur&&widthOf(tr,bold)>maxw){put(cur,x,bold);nl();cur=w;} else cur=tr;
+        });
+        put(cur,x,bold);nl();
+      });
+      y-=9;
+    });
+    var objs=[], n=function(s){objs.push(s);return objs.length;};
+    n("<< /Type /Catalog /Pages 2 0 R >>"); n(""); n("<< /Type /Font /Subtype /Type1 /BaseFont /Times-Roman /Encoding /WinAnsiEncoding >>"); n("<< /Type /Font /Subtype /Type1 /BaseFont /Times-Bold /Encoding /WinAnsiEncoding >>");
+    var kids=[];
+    pages.forEach(function(pg){
+      var st=pg.join("\n"), cid=objs.length+2;
+      kids.push(n("<< /Type /Page /Parent 2 0 R /MediaBox [0 0 "+W+" "+H+"] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents "+cid+" 0 R >>")+" 0 R");
+      n("<< /Length "+st.length+" >>\nstream\n"+st+"\nendstream");
+    });
+    objs[1]="<< /Type /Pages /Kids ["+kids.join(" ")+"] /Count "+pages.length+" >>";
+    var out="%PDF-1.4\n", offs=[];
+    objs.forEach(function(o,i){offs.push(out.length);out+=(i+1)+" 0 obj\n"+o+"\nendobj\n";});
+    var xr=out.length; out+="xref\n0 "+(objs.length+1)+"\n0000000000 65535 f \n";
+    offs.forEach(function(o){out+=("0000000000"+o).slice(-10)+" 00000 n \n";});
+    out+="trailer\n<< /Size "+(objs.length+1)+" /Root 1 0 R >>\nstartxref\n"+xr+"\n%%EOF\n";
+    var u=new Uint8Array(out.length);for(var i=0;i<out.length;i++)u[i]=out.charCodeAt(i)&255;
+    return new Blob([u],{type:"application/pdf"});
+  }
+  document.getElementById("pdf").addEventListener("click",function(){saveBlob(mkPdf(parts()),"lettre-"+sel.value+".pdf");});
   document.getElementById("rtf").addEventListener("click",function(){
     var p=parts();
     var e=function(t){var o="";for(var i=0;i<t.length;i++){var c=t.charCodeAt(i);if(c===92||c===123||c===125)o+="\\"+t[i];else if(c>126){o+="\\u"+(c>32767?c-65536:c)+"?";}else o+=t[i];}return o;};
