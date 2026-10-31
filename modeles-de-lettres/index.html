@@ -100,6 +100,14 @@ main>article.lt-main{background:transparent;border:0!important;box-shadow:none!i
 #copier{background:#fff!important;border:1.5px solid #cfc8f5!important;color:#201e48!important}
 .lt-faq{background:linear-gradient(180deg,#fff,#fbfaff)}
 @media(max-width:760px){.lt-steps{grid-template-columns:repeat(3,1fr);gap:8px}.lt-steps li{flex-direction:column;text-align:center;padding:10px 6px;gap:6px}.lt-steps span{font-size:0}.lt-steps strong{font-size:.85rem}.lt-chips{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px}.lt-chip{white-space:nowrap}}
+
+.lt-mem{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:0 0 14px;padding:10px 14px;border:1.5px dashed #cfc8f5;border-radius:14px;background:#faf9ff;font-size:.92rem}
+.lt-mem label{display:flex;gap:8px;align-items:center;font-weight:700;cursor:pointer}.lt-mem small{font-weight:500;color:#5a5978}
+.lt-mem button{min-height:36px;padding:0 12px;border:1.5px solid #ddd9f3;border-radius:10px;background:#fff;font:700 .85rem Inter,sans-serif;cursor:pointer}
+.lt-delai{margin:0 0 12px;padding:12px 16px;border-radius:14px;background:#fff4e5;border:1.5px solid #f3c98a;color:#5a3a06;font-size:.95rem}.lt-delai strong{color:#7a4a00}
+.lt-env{margin-top:14px;padding:12px 16px;border-radius:14px;background:#fff;border:1.5px solid #e3dffa;font-size:.92rem;color:#3d3b63}.lt-env strong{display:block;margin-bottom:2px;color:#201e48}
+.lt-suite{margin-top:14px}.lt-suite strong{display:block;margin-bottom:8px;font-size:.95rem}.lt-suite button{margin:0 8px 8px 0;min-height:40px;padding:0 14px;border:1.5px solid #6857e8;border-radius:99px;background:#fff;color:#4b3bd0;font:700 .88rem Inter,sans-serif;cursor:pointer}.lt-suite button:hover{background:#6857e8;color:#fff}
+.lt-more{margin:0 0 22px}.lt-more>summary{cursor:pointer;padding:14px 18px;border:1.5px solid #ddd9f3;border-radius:16px;background:#fff;font-weight:800;color:#4b3bd0;list-style:none}.lt-more[open]>summary{margin-bottom:14px}
 </style>
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -130,7 +138,7 @@ main>article.lt-main{background:transparent;border:0!important;box-shadow:none!i
 <p class="crumbs"><a href="https://simudroit.fr/">Accueil</a> › Modèles de lettres</p>
 <section class="hero lt-top">
 <h1>Modèles de lettres de travail&nbsp;: démission, rupture, solde de tout compte, congés</h1>
-<p>Choisissez votre situation, remplissez les champs et obtenez une lettre prête à envoyer. Tout est généré dans votre navigateur : rien n'est envoyé ni enregistré.</p>
+<p>Choisissez votre situation, remplissez les champs et obtenez une lettre prête à envoyer. Tout est généré dans votre navigateur : rien n'est envoyé, et rien n'est mémorisé sans votre accord.</p>
 <div class="badges"><span class="badge">32 modèles</span><span class="badge">PDF, impression ou copie</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Vos données restent dans votre navigateur</span></div>
 </section>
 <article class="lt-main">
@@ -191,22 +199,28 @@ main>article.lt-main{background:transparent;border:0!important;box-shadow:none!i
       <option value="copiecontrat">Demande de copie du contrat de travail ou d'un avenant</option>
     </select>
   </div>
+  <div class="lt-mem"><label><input type="checkbox" id="mem"> Mémoriser mes informations sur cet appareil <small>(facultatif, rien n'est envoyé)</small></label> <button type="button" id="memclear" hidden>Effacer</button></div>
   <div id="champs"></div>
   <p id="conseil" class="note"></p>
   </div>
   <div class="lt-preview">
   <h2 class="lt-h2"><span class="lt-n">3</span>Votre lettre</h2>
   <p class="lt-live"><span class="lt-dot" aria-hidden="true"></span>Aperçu mis à jour en direct</p>
+  <div id="delai" class="lt-delai" hidden></div>
   <div id="lettre" role="region" aria-label="Lettre générée" aria-live="polite" style="white-space:pre-wrap;background:#fff;border:1.5px solid #ddd9f3;border-radius:16px;padding:22px;font-family:Georgia,'Times New Roman',serif;font-size:1rem;line-height:1.65;color:#201e48"></div>
   <div class="sd-actions">
     <button type="button" class="sd-secondary" id="copier" style="background:#efedff;color:#201e48;border-color:#dcd7f7">Copier la lettre</button>
     <button type="button" class="sd-secondary" id="imprimer" style="background:#efedff;color:#201e48;border-color:#dcd7f7">Télécharger en PDF ou imprimer</button>
+    <button type="button" class="sd-secondary" id="word" style="background:#efedff;color:#201e48;border-color:#dcd7f7">Télécharger pour Word</button>
   </div>
+  <div id="envoihelp" class="lt-env"></div>
+  <div id="suite" class="lt-suite" hidden></div>
   </div>
 </div>
 
+<h2>Une page par situation</h2><div class="sd-see-grid" style="margin:12px 0 22px"><a href="/modele-lettre-contestation-solde-de-tout-compte/">Contester son solde de tout compte</a><a href="/modele-lettre-retractation-rupture-conventionnelle/">Se rétracter d'une rupture conventionnelle</a><a href="/modele-lettre-demande-certificat-travail-attestation-france-travail/">Demander certificat de travail et attestation France Travail</a><a href="/modele-lettre-demande-paiement-heures-supplementaires/">Demander le paiement d'heures supplémentaires</a><a href="/modele-lettre-demande-conges-payes/">Demander des congés payés</a><a href="/modele-lettre-demande-dispense-preavis/">Demander une dispense de préavis</a><a href="/modele-lettre-reclamation-salaire-impaye/">Réclamer un salaire impayé</a><a href="/modele-lettre-demande-augmentation-salaire/">Demander une augmentation</a><a href="/modele-lettre-demande-teletravail/">Demander le télétravail</a><a href="/modele-lettre-contestation-avertissement/">Contester un avertissement</a><a href="/modele-lettre-rupture-periode-essai-salarie/">Rompre sa période d'essai</a><a href="/modele-lettre-demande-temps-partiel/">Passer à temps partiel</a></div>
 <section class="lt-box lt-faq">
-<p class="lt-note">Les 32 modèles se remplissent dans le navigateur : rien n'est envoyé ni enregistré. Chaque lettre se copie, se télécharge en PDF ou s'imprime, sans création de compte.</p>
+<p class="lt-note">Les 32 modèles se remplissent dans le navigateur : rien n'est envoyé. Vous pouvez, si vous le souhaitez, mémoriser vos informations sur cet appareil uniquement. Chaque lettre se copie, se télécharge en PDF ou en document Word, ou s'imprime, sans création de compte.</p>
 <p>Ces modèles sont des trames à adapter à votre situation. Vérifiez votre convention collective et votre contrat, qui peuvent prévoir des règles plus favorables.</p>
 
 <section class="info-section" id="autres-lettres"><h2>Autres lettres à remplir : stage, apprentissage, reconversion</h2><p>Des pages dédiées, avec les règles et les délais à respecter pour chaque situation.</p><div class="sd-see-grid" style="margin:12px 0"><a href="/modele-lettre-demission/">Lettre de démission (version détaillée)</a><a href="/modele-lettre-rupture-conventionnelle/">Demande de rupture conventionnelle</a><a href="/modele-lettre-demande-de-stage/">Demande de stage</a><a href="/modele-lettre-stage-observation/">Stage d'observation</a><a href="/modele-lettre-stage-3eme/">Stage de 3e</a><a href="/modele-lettre-demande-apprentissage/">Candidature en apprentissage</a><a href="/modele-lettre-motivation-domaine/">Lettre de motivation selon le domaine</a><a href="/modele-lettre-conge-transition-professionnelle/">Congé de transition professionnelle (PTP)</a><a href="/modele-lettre-conge-vae/">Congé VAE</a><a href="/modele-lettre-bilan-de-competences/">Bilan de compétences</a></div></section>
@@ -398,6 +412,10 @@ main>article.lt-main{background:transparent;border:0!important;box-shadow:none!i
   function fr(d){ if(!d||d.indexOf("-")<0) return d; var p=d.split("-"); return p[2]+"/"+p[1]+"/"+p[0]; }
   var sel=document.getElementById("type"), box=document.getElementById("champs"), out=document.getElementById("lettre"), tip=document.getElementById("conseil");
   var vals={};
+  var MEMK="sd-lettres-v1", memOn=false;
+  function memLoad(){try{var r=localStorage.getItem(MEMK);if(r){var o=JSON.parse(r);if(o&&o.on){memOn=true;Object.keys(o.v||{}).forEach(function(k){vals[k]=o.v[k];});}}}catch(e){}}
+  function memSave(){try{if(memOn)localStorage.setItem(MEMK,JSON.stringify({on:true,v:vals}));else localStorage.removeItem(MEMK);}catch(e){}}
+  memLoad();
   function field(f){
     var id="f_"+f[0], wrap=document.createElement("div"); wrap.className="field";
     var l=document.createElement("label"); l.setAttribute("for",id); l.textContent=f[1];
@@ -443,13 +461,50 @@ main>article.lt-main{background:transparent;border:0!important;box-shadow:none!i
     var g=el("div","margin-left:55%"); g.appendChild(el("div","",p.sign)); g.appendChild(el("div","color:#555;font-size:12px;margin-top:36px","(signature)")); w.appendChild(g);
     return w;
   }
-  function render(){ var p=parts(); out.innerHTML=""; out.style.whiteSpace="normal"; out.appendChild(html(p)); out.setAttribute("data-plain",plain(p)); }
+  var DELAI={
+    retractation:{f:"signature",kind:"days",n:15,t:"Dernier jour pour vous rétracter",w:"Délai de 15 jours calendaires à compter du lendemain de la signature. Si ce jour tombe un samedi, un dimanche ou un jour férié, il est prolongé jusqu'au premier jour ouvrable suivant. La lettre doit être reçue avant la fin du délai."},
+    solde:{f:"signe",kind:"months",n:6,t:"Date limite pour dénoncer le reçu",w:"Le reçu pour solde de tout compte peut être dénoncé dans les 6 mois suivant sa signature, par lettre recommandée."},
+    motifs:{f:"notif",kind:"days",n:15,t:"Date limite pour demander les motifs",w:"Vous disposez de quinze jours après la notification du licenciement pour demander des précisions."},
+    reembauche:{f:"rupture",kind:"months",n:12,t:"Fin de la priorité de réembauche",w:"La priorité de réembauche dure un an à compter de la fin du contrat : la demande doit être faite pendant ce délai."},
+    essai:{txt:"Délai de prévenance minimal : 24 heures avant 8 jours de présence, 48 heures à partir de 8 jours. La date de réception compte."},
+    reportentretien:{txt:"Au moins cinq jours ouvrables doivent séparer la présentation de la convocation et l'entretien préalable."},
+    demission:{txt:"La date de réception de la lettre fixe le début du préavis, dont la durée dépend de votre convention collective ou de votre contrat."},
+    arret:{txt:"Le volet de l'arrêt destiné à l'employeur doit lui être transmis rapidement, en général dans les 48 heures."}
+  };
+  function addDate(iso,kind,n){var d=new Date(iso+"T12:00:00");if(isNaN(d))return null;if(kind==="days")d.setDate(d.getDate()+n);else{var j=d.getDate();d.setDate(1);d.setMonth(d.getMonth()+n);var last=new Date(d.getFullYear(),d.getMonth()+1,0).getDate();d.setDate(Math.min(j,last));}return d;}
+  function delai(){
+    var box2=document.getElementById("delai"); if(!box2) return; var d=DELAI[sel.value]; box2.hidden=true; box2.innerHTML=""; if(!d) return;
+    var h="";
+    if(d.txt){ h="<strong>À savoir sur le délai :</strong> "+d.txt; }
+    else if(vals[d.f]&&/^\d{4}-\d{2}-\d{2}$/.test(vals[d.f])){ var e=addDate(vals[d.f],d.kind,d.n); if(e) h="<strong>"+d.t+" : "+e.toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long",year:"numeric"})+".</strong> "+d.w; }
+    else { h="<strong>Délai à respecter :</strong> "+d.w+" Renseignez la date ci-contre pour calculer la date limite."; }
+    box2.innerHTML=h; box2.hidden=false;
+  }
+  var ENVH={
+    rar:["Lettre recommandée avec accusé de réception","Conservez le récépissé de dépôt et l'avis de réception : ils prouvent la date d'envoi et de réception. Gardez une copie de la lettre et des pièces jointes."],
+    main:["Remise en main propre contre décharge","Faites deux exemplaires et demandez à votre interlocuteur de dater et signer le vôtre avec la mention « reçu en main propre ». Gardez-le : c'est votre preuve."],
+    none:["Sans mention particulière","Sans preuve de date, vous aurez du mal à établir l'envoi en cas de désaccord. Pour un courrier important, préférez le recommandé ou la remise contre décharge."]
+  };
+  function envoi(){
+    var b=document.getElementById("envoihelp"); if(!b) return; var k=vals.envoi||"rar", e=ENVH[k]||ENVH.rar;
+    b.innerHTML="<strong>Mode d'envoi : "+e[0]+"</strong>"+e[1]+" L'e-mail peut convenir si le contrat, l'accord de l'entreprise ou l'employeur le prévoit : conservez alors l'accusé de réception.";
+  }
+  var SUITE={demission:["documents","preavis","indcp"],rupco:["retractation","documents"],retractation:["rupco"],documents:["solde","indcp"],solde:["miseendemeure"],essai:["documents","indcp"],impaye:["miseendemeure"],reportentretien:["motifs"],motifs:["miseendemeure"],arret:["tpt"],tpt:["amenagement"],conges:["sanssolde"],preavis:["documents"],avertissement:["miseendemeure"]};
+  function suite(){
+    var b=document.getElementById("suite"); if(!b) return; var l=SUITE[sel.value]||[]; b.innerHTML=""; b.hidden=!l.length; if(!l.length) return;
+    var st=document.createElement("strong"); st.textContent="Lettres à envoyer ensuite (vos informations sont conservées)"; b.appendChild(st);
+    l.forEach(function(k){var o=sel.querySelector('option[value="'+k+'"]'); if(!o) return; var x=document.createElement("button"); x.type="button"; x.textContent=o.textContent; x.addEventListener("click",function(){sel.value=k;sel.dispatchEvent(new Event("change",{bubbles:true}));var f=document.getElementById("lettres-app");if(f)f.scrollIntoView({behavior:"smooth",block:"start"});}); b.appendChild(x);});
+  }
+  function render(){ delai(); envoi(); memSave(); var p=parts(); out.innerHTML=""; out.style.whiteSpace="normal"; out.appendChild(html(p)); out.setAttribute("data-plain",plain(p)); }
   function draw(){
     box.innerHTML=""; var t=TYPES[sel.value];
     COMMON.concat(t.fields).forEach(function(f){box.appendChild(field(f));});
-    tip.innerHTML="<strong>Conseil :</strong> "+t.conseil; render();
+    tip.innerHTML="<strong>Conseil :</strong> "+t.conseil; suite(); render();
   }
-  try{var qt=(new URLSearchParams(location.search).get("type")||"").replace(/[^a-z]/g,"");if(qt&&sel.querySelector('option[value="'+qt+'"]'))sel.value=qt;}catch(e){}
+  try{var qt=(window.SD_TYPE||new URLSearchParams(location.search).get("type")||"").replace(/[^a-z]/g,"");if(qt&&sel.querySelector('option[value="'+qt+'"]'))sel.value=qt;}catch(e){}
+  (function(){var m=document.getElementById("mem"),c=document.getElementById("memclear");if(!m)return;m.checked=memOn;c.hidden=!memOn;
+    m.addEventListener("change",function(){memOn=m.checked;c.hidden=!memOn;memSave();});
+    c.addEventListener("click",function(){try{localStorage.removeItem(MEMK);}catch(e){}memOn=false;m.checked=false;c.hidden=true;vals={};draw();});})();
   sel.addEventListener("change",draw); draw();
   var btns=[].slice.call(document.querySelectorAll(".lt-card"));
   function sync(){btns.forEach(function(b){b.setAttribute("aria-pressed",b.getAttribute("data-type")===sel.value?"true":"false")});}
@@ -477,6 +532,19 @@ main>article.lt-main{background:transparent;border:0!important;box-shadow:none!i
     var old=document.getElementById("sd-print"); if(old) old.remove();
     var d=document.createElement("div"); d.id="sd-print"; d.className="letter"; d.appendChild(html(parts()));
     document.body.appendChild(d); window.print();
+  });
+  document.getElementById("word").addEventListener("click",function(){
+    var p=parts(), esc=function(t){return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");};
+    var h='<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><title>Lettre</title><style>body{font-family:Georgia,"Times New Roman",serif;font-size:12pt;line-height:1.5}p{margin:0 0 10pt}</style></head><body>';
+    h+='<p><b>'+esc(p.sender[0])+'</b><br>'+p.sender.slice(1).map(esc).join("<br>")+'</p>';
+    h+='<p style="margin-left:45%"><b>'+esc(p.rec[0])+'</b><br>'+p.rec.slice(1).map(esc).join("<br>")+'</p>';
+    h+='<p style="margin-left:45%">'+esc(p.place)+'</p>';
+    if(p.envoi) h+='<p><b>'+esc(p.envoi)+'</b></p>';
+    h+='<p><b>Objet : '+esc(p.objet)+'</b></p>';
+    h+=p.text.split("\n\n").map(function(x){return '<p>'+esc(x).replace(/\n/g,"<br>")+'</p>';}).join("");
+    h+='<p style="margin-left:55%">'+esc(p.sign)+'<br><br><small>(signature)</small></p></body></html>';
+    var blob=new Blob(["\ufeff"+h],{type:"application/msword"}), a=document.createElement("a");
+    a.href=URL.createObjectURL(blob); a.download="lettre-"+sel.value+".doc"; document.body.appendChild(a); a.click(); a.remove(); setTimeout(function(){URL.revokeObjectURL(a.href);},2000);
   });
   window.addEventListener("afterprint",function(){var p=document.getElementById("sd-print"); if(p) p.remove();});
 })();
