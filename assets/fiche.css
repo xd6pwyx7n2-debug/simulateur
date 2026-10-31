@@ -15,11 +15,11 @@ article.fiche{--a:#4b3bd0;--b:#8a6dff}
 article.fiche .fiche-actions button{border-color:var(--a);background:var(--a)}
 article.fiche .fiche-actions button.sec{background:#fff;color:var(--a)}
 article.fiche p.note{position:relative;margin:20px 0;padding:16px 18px 16px 58px;border:1px solid color-mix(in srgb,var(--a) 28%,#fff);border-left:1px solid color-mix(in srgb,var(--a) 28%,#fff);border-radius:18px;background:color-mix(in srgb,var(--a) 8%,#fff)}
-article.fiche p.note:before{content:"💡";position:absolute;left:16px;top:13px;display:grid;place-items:center;width:30px;height:30px;font-size:1.25rem}
+article.fiche p.note:before{content:"";position:absolute;left:16px;top:13px;width:30px;height:30px;border-radius:10px;background:var(--w-bulb) center/62% no-repeat,linear-gradient(135deg,var(--a),var(--b))}
 article.fiche{counter-reset:fs}
 article.fiche h2{display:flex;align-items:center;gap:12px}
 article.fiche h2:before{counter-increment:fs;content:counter(fs);flex:none;display:grid;place-items:center;width:34px;height:34px;margin:0;border-radius:50%;background:linear-gradient(135deg,var(--a),var(--b));color:#fff;font-size:1rem;font-weight:800;box-shadow:0 6px 14px color-mix(in srgb,var(--a) 30%,transparent);height:34px;position:static}
-article.fiche h2.no-n:before{counter-increment:none;content:attr(data-e);background:color-mix(in srgb,var(--a) 14%,#fff);box-shadow:none;font-size:1.15rem}
+article.fiche h2.no-n:before{counter-increment:none;content:"";background:linear-gradient(135deg,var(--a),var(--b));box-shadow:none}
 article.fiche .table-wrap{overflow:visible;border:0}
 article.fiche table.sd-table{border-collapse:separate;border-spacing:0;width:100%;border-radius:16px;overflow:hidden;border:1px solid color-mix(in srgb,var(--a) 22%,#fff)}
 article.fiche .sd-table thead th{background:linear-gradient(135deg,var(--a),var(--b));color:#fff;font-weight:800;text-align:left;padding:12px 14px}
@@ -27,7 +27,7 @@ article.fiche .sd-table td{padding:12px 14px;vertical-align:top;border-top:1px s
 article.fiche .sd-table tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--a) 5%,#fff)}
 article.fiche .sd-table td:first-child{font-weight:800;color:color-mix(in srgb,var(--a) 80%,#000)}
 .fiche-ex{margin:12px 0;padding:14px 16px 14px 54px;position:relative;border-radius:16px;background:#e9faf4;border:1px solid #bfeadb;color:#16423a}
-.fiche-ex:before{content:"🧮";position:absolute;left:15px;top:12px;font-size:1.3rem}
+.fiche-ex:before{content:"";position:absolute;left:15px;top:12px;width:28px;height:28px;border-radius:9px;background:var(--w-calc) center/60% no-repeat,#13806c}
 .fiche-ex b{display:block;font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;color:#13806c;margin-bottom:2px}
 article.fiche details.q{margin:10px 0;padding:0;border:1.5px solid color-mix(in srgb,var(--a) 22%,#fff);border-radius:16px;background:#fff;overflow:hidden;transition:.2s}
 article.fiche details.q[open]{border-color:var(--a);box-shadow:0 10px 24px color-mix(in srgb,var(--a) 16%,transparent)}
@@ -75,7 +75,7 @@ article.fiche h2{font-size:clamp(1.2rem,3vw,1.45rem)!important}
 .fh-stat span{display:block;margin-top:3px;font-size:.78rem;line-height:1.3;color:rgba(255,255,255,.88)}
 article.fiche h2.no-n:before{font-size:1.05rem}
 article.fiche h3{margin:18px 0 6px;font-size:1.02rem;color:var(--a)!important}
-article.fiche h3:before{content:"❓ ";font-size:.95em}
+article.fiche h3:before{content:"";display:inline-block;width:1.15em;height:1.15em;margin-right:.45em;border-radius:50%;vertical-align:-.2em;background:var(--w-question) center/72% no-repeat,var(--a)}
 article.fiche .rel-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
 article.fiche .rel-links a{display:block;padding:12px 14px;border:1.5px solid color-mix(in srgb,var(--a) 22%,#fff);border-radius:14px;background:#fff;text-decoration:none;transition:.15s}
 article.fiche .rel-links a:hover{transform:translateY(-2px);border-color:var(--a);box-shadow:0 8px 20px color-mix(in srgb,var(--a) 15%,transparent)}

@@ -284,7 +284,7 @@
     var pb = document.createElement("button");
     pb.type = "button";
     pb.className = "sd-secondary";
-    pb.innerHTML = "🖨️ Imprimer ou enregistrer le récapitulatif (PDF)";
+    pb.innerHTML = "Imprimer ou enregistrer le récapitulatif (PDF)";
     pb.addEventListener("click", function () {
       buildPrint();
       window.print();
@@ -311,12 +311,12 @@
     var cb = document.createElement("button");
     cb.type = "button";
     cb.className = "sd-secondary";
-    cb.textContent = "📋 Copier le résultat";
+    cb.textContent = "Copier le résultat";
     cb.addEventListener("click", function () {
       var txt = resultText();
       function done(ok) {
-        var old = "📋 Copier le résultat";
-        cb.textContent = ok ? "✅ Résultat copié" : "Copie impossible";
+        var old = "Copier le résultat";
+        cb.textContent = ok ? "Résultat copié" : "Copie impossible";
         setTimeout(function () { cb.textContent = old; }, 2200);
       }
       if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -336,7 +336,7 @@
       var sb = document.createElement("button");
       sb.type = "button";
       sb.className = "sd-secondary";
-      sb.textContent = "📤 Partager";
+      sb.textContent = "Partager";
       sb.addEventListener("click", function () {
         navigator.share({ title: document.title, text: resultText(), url: location.href.split("#")[0] }).catch(function () {});
       });
@@ -347,12 +347,12 @@
     var lb = document.createElement("button");
     lb.type = "button";
     lb.className = "sd-secondary";
-    lb.textContent = "🔗 Copier le lien du calcul";
+    lb.textContent = "Copier le lien du calcul";
     lb.addEventListener("click", function () {
       var url = shareUrl();
       function done(ok) {
-        lb.textContent = ok ? "✅ Lien copié" : "Copie impossible";
-        setTimeout(function () { lb.textContent = "🔗 Copier le lien du calcul"; }, 2200);
+        lb.textContent = ok ? "Lien copié" : "Copie impossible";
+        setTimeout(function () { lb.textContent = "Copier le lien du calcul"; }, 2200);
       }
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(url).then(function () { done(true); }, function () { done(false); });
@@ -518,7 +518,7 @@
     var a = document.createElement("a");
     a.className = "sd-howlink";
     a.href = "#" + target.id;
-    a.textContent = "🧮 Comment c'est calculé ?";
+    a.textContent = "Comment c'est calculé ?";
     a.addEventListener("click", function (e) {
       e.preventDefault();
       target.scrollIntoView({ behavior: "smooth", block: "start" });

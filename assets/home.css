@@ -31,3 +31,5 @@ h1,h2,h3{text-wrap:balance}
 @media(max-width:900px){.sit-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.sit-grid{grid-template-columns:1fr;gap:9px}.sit{padding:13px 15px;min-height:64px}.sit-ico{flex-basis:42px;height:42px;font-size:21px}.hero-simple .intro{font-size:15.5px;margin-bottom:20px}.hero.hero-simple{padding-top:22px}.hero-simple h1{font-size:clamp(36px,10.5vw,48px);letter-spacing:-2px}.hero-simple .quick{justify-content:flex-start}}
 .hero-simple h1{max-width:900px}
+
+.sit-ico .sdi{width:26px;height:26px}

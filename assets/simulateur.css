@@ -69,7 +69,7 @@ input:focus,select:focus{outline:none!important;border-color:var(--purple)!impor
 .example{background:#f4f2ff!important;border:1px dashed #cfc8f6!important;border-radius:16px!important;padding:16px 18px!important}
 .faq-item{border-bottom:1px solid var(--line);padding:4px 0}
 .sd-know{background:linear-gradient(180deg,#fffaf0,#fff)!important;border:1px solid #f5e3bd!important}
-.sd-know h2::before{content:"💡 "}
+.sd-know h2::before{content:"";display:inline-block;width:1.1em;height:1.1em;margin-right:.4em;vertical-align:-.15em;background:currentColor;-webkit-mask:var(--i-bulb) center/contain no-repeat;mask:var(--i-bulb) center/contain no-repeat}
 .sd-know-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:8px}
 .sd-know-card{background:#fff;border:1px solid #f1e4c6;border-radius:18px;padding:16px 18px}
 .sd-know-card h3{margin:0 0 6px!important;font-size:.95rem!important;color:#8a5a00!important}
@@ -155,7 +155,7 @@ article textarea{padding:14px 16px;border:1.5px solid #ddd9f3;border-radius:14px
 .sd-upd{margin:16px 0 0;font-size:.85rem;color:#5b6475}
 .sd-upd a{color:#4b3bd0}
 .sd-error{display:flex;gap:10px;align-items:flex-start;margin:14px 0 4px;padding:12px 14px;border-radius:12px;background:#fff1ef;border:1px solid #f5c2bb;border-left:4px solid #d64533;color:#7a1f14;font-weight:600;font-size:.93rem;line-height:1.4}
-.sd-error::before{content:"⚠";font-weight:800;color:#d64533}
+.sd-error::before{content:"";display:inline-block;width:1.1em;height:1.1em;margin-right:.4em;vertical-align:-.15em;background:#d64533;-webkit-mask:var(--i-warn) center/contain no-repeat;mask:var(--i-warn) center/contain no-repeat}
 [aria-invalid="true"]{border-color:#d64533!important;box-shadow:0 0 0 3px rgba(214,69,51,.18)!important}
 body{background:linear-gradient(180deg,#efeaff 0,#f7f5ff 620px,#f5f2ff 100%) fixed!important;min-height:100vh}
 header{background:rgba(244,241,255,.78)!important;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid rgba(104,87,232,.09)}
