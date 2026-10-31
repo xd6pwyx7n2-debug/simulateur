@@ -42,3 +42,12 @@ html{-webkit-text-size-adjust:100%;scroll-padding-top:72px}
 }
 .sd-theme .ic{display:inline-flex;align-items:center}
 @media(max-width:700px){.sd-theme-float .tx{display:none}.sd-theme-float{width:46px!important;min-height:46px;padding:0;gap:0;bottom:12px;right:12px;opacity:.94}}
+
+/* Explorer toutes les rubriques (bandeau avant le pied de page) */
+.sd-explore{max-width:1100px;margin:34px auto 0;padding:20px 16px;border-top:1px solid #e4e7ee}
+.sd-explore strong{display:block;font-size:1.05rem;margin-bottom:12px;color:#1c2233}
+.sd-explore div{display:flex;flex-wrap:wrap;gap:8px}
+.sd-explore a{display:inline-flex;align-items:center;gap:7px;padding:9px 14px;border-radius:999px;background:color-mix(in srgb,var(--c) 10%,#fff);border:1px solid color-mix(in srgb,var(--c) 30%,#fff);color:var(--c)!important;font-weight:700;font-size:.92rem;text-decoration:none!important;line-height:1.2}
+.sd-explore a:hover{background:var(--c);color:#fff!important}
+@media(max-width:600px){.sd-explore a{font-size:.88rem;padding:8px 12px}}
+.sd-explore.sd-top{margin-top:0;border-top:0;padding-top:22px}
