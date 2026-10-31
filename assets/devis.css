@@ -13,4 +13,7 @@
 #dv-sheet{overflow-x:auto}
 #dv-sheet .dv-stage{background:#e9e7f5;border-radius:16px;padding:12px;overflow-x:auto}
 html[data-theme="dark"] .dv-stage{background:#2a2840}
+#dv-sheet .dv-logo{display:block;max-height:22mm;max-width:55mm;margin:0 0 6pt}#dv-sheet .dv-sign{display:block;max-height:18mm;max-width:100%;margin:2pt 0}
+.dv-img{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:0 0 10px}.dv-img img{max-height:60px;max-width:160px;border:1px solid #cfc8f5;border-radius:8px;background:#fff;padding:3px}
+#dv-pad{width:100%;max-width:420px;height:auto;aspect-ratio:3/1;border:1.5px dashed #9a92d8;border-radius:12px;background:#fff;touch-action:none;display:block;margin:6px 0}
 @media print{body *{visibility:hidden!important}#dv-sheet,#dv-sheet *{visibility:visible!important}#dv-sheet{position:absolute;left:0;top:0;width:100%;box-shadow:none;padding:0;margin:0}@page{size:A4;margin:14mm}.dv-t th,.dv-cl,.dv-top{-webkit-print-color-adjust:exact;print-color-adjust:exact}}

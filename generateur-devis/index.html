@@ -174,6 +174,17 @@ main>article.lt-main{background:transparent;border:0!important;box-shadow:none!i
 <div id="dv-lignes"></div>
 <button type="button" class="cv-btn" id="dv-add">Ajouter une ligne</button>
 </fieldset>
+<fieldset class="cv-fs"><legend>Logo et signature (facultatifs)</legend>
+<div class="field"><label for="dv-logo-in">Logo de l'entreprise (image PNG, JPEG ou WebP)</label><input id="dv-logo-in" type="file" accept="image/png,image/jpeg,image/webp"></div>
+<div class="dv-img"><span id="dv-logo-prev"></span><button type="button" class="cv-btn danger" id="dv-logo-del" hidden>Retirer le logo</button></div>
+<div class="field"><p><strong>Votre signature</strong></p>
+<p class="field-help">Dessinez-la avec le doigt ou la souris, ou chargez une image.</p>
+<canvas id="dv-pad" width="900" height="300" role="img" aria-label="Zone pour dessiner votre signature"></canvas>
+<div class="cv-actions"><button type="button" class="cv-btn" id="dv-pad-ok">Utiliser ce dessin</button><button type="button" class="cv-btn" id="dv-pad-clear">Effacer le dessin</button></div></div>
+<div class="field"><label for="dv-sign-in">Ou charger une image de signature</label><input id="dv-sign-in" type="file" accept="image/png,image/jpeg,image/webp"></div>
+<div class="dv-img"><span id="dv-sign-prev"></span><button type="button" class="cv-btn danger" id="dv-sign-del" hidden>Retirer la signature</button></div>
+<p class="field-help">Les images restent dans votre navigateur et sont réduites avant utilisation. Une image de signature n'a pas la valeur d'une signature électronique sécurisée : le client doit signer lui-même le devis, à la main ou par un service de signature électronique.</p>
+</fieldset>
 <fieldset class="cv-fs"><legend>Paiement</legend>
 <div class="cv-row two"><div class="field"><label for="dv-acompte">Acompte ou arrhes demandé</label><input id="dv-acompte" data-f="acompte" type="number" inputmode="decimal" min="0" step="any" placeholder="0"></div>
 <div class="field"><label for="dv-actype">Exprimé en</label><select id="dv-actype" data-f="acType"><option value="pct">pourcentage du total TTC</option><option value="eur">euros</option></select></div>
