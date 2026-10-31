@@ -89,6 +89,7 @@
       <a href="/actualites/">Chiffres clés</a>
       <a href="/metiers/">Métiers</a>
       <a href="/faq/">FAQ</a>
+      <a href="#recherche">Rechercher</a>
     </nav>
 
     <a class="nav-button" href="/simulateurs/">Trouver mon simulateur <span aria-hidden="true">↗</span></a>
@@ -101,6 +102,7 @@
     <div class="eyebrow"><span class="dot"></span> Gratuit · sans compte</div>
     <h1>Vos droits.<br>Des réponses <span class="gradient">plus claires.</span></h1>
     <p class="intro">Calculez votre salaire net, vos indemnités, votre chômage ou vos aides en quelques clics.</p>
+    <div class="site-search" id="recherche" role="search"><form id="site-q-form" autocomplete="off"><span class="sq-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg></span><label for="site-q">Rechercher un outil, un guide ou une lettre</label><input id="site-q" type="search" role="combobox" aria-expanded="false" aria-controls="site-q-list" aria-autocomplete="list" placeholder="Rechercher : CV, démission, congés, retraite…" enterkeyhint="search"></form><ul id="site-q-list" role="listbox" aria-label="Résultats de recherche" hidden></ul><p id="site-q-live" class="sr-only" role="status" aria-live="polite"></p></div>
     <h2 class="sit-title">Quelle est votre situation ?</h2>
     <div class="sit-grid" role="navigation" aria-label="Par où commencer"><a class="sit" style="--c:#c2410c" href="/parcours/"><span class="sit-ico" aria-hidden="true"><i class="sdi sdi-door"></i></span><span><strong>Je quitte mon poste</strong><small>Licenciement, rupture, démission, fin de CDD</small></span></a><a class="sit" style="--c:#4f46e5" href="/simulateur-brut-net/"><span class="sit-ico" aria-hidden="true"><i class="sdi sdi-euro"></i></span><span><strong>Je regarde mon salaire</strong><small>Brut et net, SMIC, congés, heures sup</small></span></a><a class="sit" style="--c:#0f766e" href="/aides/"><span class="sit-ico" aria-hidden="true"><i class="sdi sdi-heart"></i></span><span><strong>Je cherche une aide</strong><small>RSA, prime d'activité, APL, allocations</small></span></a><a class="sit" style="--c:#be185d" href="/retraite/"><span class="sit-ico" aria-hidden="true"><i class="sdi sdi-sun"></i></span><span><strong>Je prépare ma retraite</strong><small>Âge de départ, retraite progressive, cumul</small></span></a><a class="sit" style="--c:#1d4ed8" href="/independants/"><span class="sit-ico" aria-hidden="true"><i class="sdi sdi-briefcase"></i></span><span><strong>Je suis indépendant</strong><small>Micro-entreprise, TVA, protection sociale</small></span></a><a class="sit" style="--c:#9333ea" href="/modeles-de-lettres/"><span class="sit-ico" aria-hidden="true"><i class="sdi sdi-mail"></i></span><span><strong>J'ai un courrier à envoyer</strong><small>Démission, rupture, solde de tout compte</small></span></a></div>
     <p class="sit-more"><a href="/simulateurs/">Voir les <span id="simu-count">50</span> simulateurs</a> · <a href="/assistant/">Je ne sais pas par où commencer →</a></p>
@@ -412,5 +414,6 @@
 })();
 </script>
 <script>(function(){var n=document.querySelectorAll("#simulateurs .card[data-category]").length,e=document.getElementById("simu-count");if(e&&n)e.textContent=n;})();</script>
+<script src="/assets/search.js" defer></script>
 </body>
 </html>

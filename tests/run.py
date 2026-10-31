@@ -172,6 +172,15 @@ with sync_playwright() as pw:
     import zipfile
     dl.value.save_as("/tmp/_cv.docx")
     if zipfile.ZipFile("/tmp/_cv.docx").testzip() is not None: fail("CV : fichier .docx invalide")
+    # recherche de l'accueil : index à jour et résultats pertinents
+    import subprocess
+    if subprocess.run(["python3", os.path.join(ROOT, ".github/scripts/searchindex.py"), "--check"], capture_output=True).returncode != 0:
+        fail("recherche : assets/search-index.json obsolète (lancer .github/scripts/searchindex.py)")
+    pg.goto(LOCAL); pg.wait_for_timeout(300)
+    for q, attendu in [("cv", "/generateur-cv/"), ("licenciement", "indemnite-licenciement"), ("démission", "demission"), ("congés payes", "conges-payes"), ("aesh", "aesh")]:
+        pg.fill("#site-q", q); pg.wait_for_timeout(500)
+        hrefs = pg.eval_on_selector_all("#site-q-list a", "els=>els.map(e=>e.getAttribute('href'))")
+        if not any(attendu in h for h in hrefs[:5]): fail("recherche « %s » : %s absent des 5 premiers (%s)" % (q, attendu, hrefs[:5]))
     # saisie vide : un message en ligne, jamais une boîte alert()
     for f in sorted(glob.glob(os.path.join(ROOT, "simulateur-*/index.html"))):
         slug = os.path.basename(os.path.dirname(f))
