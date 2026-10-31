@@ -139,3 +139,13 @@ article .fiche-hero .intro{max-width:62ch}
 table,.fh-stat b,.stat strong,.amount,.result-main,.sd-table td{font-variant-numeric:tabular-nums lining-nums}
 strong,b{font-weight:650}
 .kicker,.eyebrow,.fh-chip,.quick-title{letter-spacing:.09em}
+.sd-news{position:relative;background:linear-gradient(90deg,#2a2660,#5b43d6 55%,#c2306a);color:#fff;font-family:Inter,system-ui,sans-serif}
+.sd-news a{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;padding:10px 46px 10px 16px;color:#fff;text-decoration:none;font-weight:600;font-size:.95rem;line-height:1.3;text-align:center}
+.sd-news a:hover .sd-news-go,.sd-news a:focus-visible .sd-news-go{background:#ffe9c9}
+.sd-news a:focus-visible{outline:3px solid #fff;outline-offset:-4px}
+.sd-news-tag{background:#ffb26b;color:#2a2660;font-weight:800;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:3px 10px}
+.sd-news-go{background:#fff;color:#2a2660;font-weight:800;border-radius:999px;padding:4px 14px;font-size:.88rem}
+.sd-news-go::after{content:" \2192"}
+.sd-news button{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:40px;height:40px;border:0;background:transparent;color:#fff;font-size:1.6rem;line-height:1;cursor:pointer;border-radius:10px}
+.sd-news button:hover{background:rgba(255,255,255,.18)}.sd-news button:focus-visible{outline:3px solid #fff}
+@media print{.sd-news{display:none!important}}

@@ -151,3 +151,19 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
 /* Ligne de parcours : centre l'étape courante sur mobile */
 (function(){function c(){var l=document.querySelector(".sd-line .cur"),s=document.querySelector(".sd-line-scroll");if(!l||!s||s.scrollWidth<=s.clientWidth)return;s.scrollLeft=l.offsetLeft-(s.clientWidth-l.offsetWidth)/2}
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",c);else c()})();
+/* Bandeau de nouveauté : générateur de CV (fermable, mémorisé sur l'appareil) */
+(function(){
+  try{
+    if(/^\/generateur-cv\/?$/.test(location.pathname))return;
+    var K="sd-news-cv-1";try{if(localStorage.getItem(K))return;}catch(e){}
+    function go(){
+      if(document.getElementById("sd-news"))return;
+      var d=document.createElement("div");d.id="sd-news";d.className="sd-news";d.setAttribute("role","region");d.setAttribute("aria-label","Nouveauté");
+      d.innerHTML='<a href="/generateur-cv/"><span class="sd-news-tag">Nouveau</span><span class="sd-news-txt">Générateur de CV gratuit : un style unique à chaque CV</span><span class="sd-news-go">Essayer</span></a><button type="button" aria-label="Fermer l\'annonce">&times;</button>';
+      var h=document.querySelector("header")||document.body.firstChild;
+      h.parentNode.insertBefore(d,h);
+      d.querySelector("button").addEventListener("click",function(){try{localStorage.setItem(K,"1");}catch(e){}d.remove();});
+    }
+    if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else go();
+  }catch(e){}
+})();

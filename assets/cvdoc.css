@@ -55,3 +55,48 @@ html,body{margin:0;padding:0;background:#fff}
 html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 @media print{.cv{min-height:0}.cv.l-sl,.cv.l-sr{height:297mm;overflow:hidden}.cv.l-bd{height:297mm;overflow:hidden}.cv.l-cd .hd{margin-top:-12mm;padding-top:calc(20pt + 12mm)}}
 .cv.l-bd{display:flex;flex-direction:column}
+
+/* ===== version moderne : couleurs vives, grands titres, formes ===== */
+.cv .nm{font-size:2.9em;font-weight:800;letter-spacing:-.025em;line-height:1.02}
+.cv .tt{font-size:1.08em;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-top:7pt}
+.cv .hd::after{content:"";display:block;width:52pt;height:5pt;background:var(--h);margin-top:11pt;border-radius:var(--r)}
+.cv.l-ce .hd::after{margin-left:auto;margin-right:auto}.cv.l-bd .hd::after{display:none}
+.cv{line-height:1.45}.cv .sec{margin:0 0 13pt}
+.cv .job strong,.cv .edu strong{color:var(--p);font-size:1.04em}
+.cv .jc{font-style:normal;font-weight:600;color:var(--a)}
+.cv.jd-2 .jdt{background:var(--soft);color:var(--p);font-weight:700;border-radius:999px;padding:1pt 8pt;font-size:.86em}
+.cv.hs-5 .sec>h2{font-size:1.15em;color:var(--p);padding-left:12pt;position:relative;margin-bottom:6pt;font-weight:800}
+.cv.hs-5 .sec>h2::before{content:"";position:absolute;left:0;top:.18em;width:7pt;height:.78em;background:var(--h);border-radius:var(--r)}
+.cv.hs-0 .sec>h2{border-bottom:2.5pt solid var(--h);font-weight:800}
+.cv.hs-1 .sec>h2{border-left-color:var(--h);font-weight:800}
+.cv.hs-4 .sec>h2{border-top-color:var(--h)}
+.cv.sk-0 .sk li{background:var(--soft);border:0;color:var(--p);font-weight:600;padding:1pt 8pt}
+.cv.sk-3 .sk{display:flex;flex-wrap:wrap;gap:3pt}.cv.sk-3 .sk li{background:var(--p);color:#fff;border-radius:var(--r);padding:1pt 8pt;font-weight:600}
+.cv.sk-2 .sk li::before{background:var(--h)}.cv.sk-1 .sk li:not(:last-child)::after{color:var(--h)}
+.cv .mn{width:54pt;height:54pt;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--hf);font-weight:800;font-size:1.7em;letter-spacing:.02em;margin:0 0 14pt}
+.cv.l-sl .c-side{background:linear-gradient(170deg,var(--p),var(--p2))}.cv.l-sl{background:none}
+.cv.l-sl .mn{background:var(--h);color:#fff;color:#111}
+.cv.l-sr .c-side{background:var(--soft);border-left:4pt solid var(--h)}.cv.l-sr{background:none}
+.cv.l-sr .mn{background:var(--p);color:#fff}
+.cv.l-sl .c-side .sec>h2{border-bottom-color:var(--h)}
+.cv.l-bd .c-band{background:linear-gradient(120deg,var(--p),var(--p2));clip-path:polygon(0 0,100% 0,100% calc(100% - 16pt),0 100%);padding-bottom:34pt}
+.cv.l-bd .c-band .nm{font-size:3em}.cv.l-bd .c-band .tt{color:var(--h);opacity:1}
+.cv.l-bd .c-body{margin-top:-10pt}
+.cv.l-ce{border-top:16pt solid var(--p)}.cv.l-ce .hd{border-bottom:0}
+.cv.l-ce .hd .tt{color:var(--a)}
+.cv.l-cd .hd{background:linear-gradient(120deg,var(--p),var(--p2));border-left:0;color:#fff;padding:26pt 28pt 18pt}
+.cv.l-cd .hd .nm{color:#fff}.cv.l-cd .hd .tt{color:var(--h)}.cv.l-cd .hd .ct,.cv.l-cd .hd .ct li{color:#fff}
+.cv.l-cd .hd::after{background:var(--h)}
+.cv.l-tl .sec>.sb{border-left:3pt solid var(--h)}.cv.l-tl .hd .nm{color:var(--p)}
+.cv:not(.l-sl):not(.l-cd):not(.l-bd) .hd .nm{color:var(--p)}
+.cv .sk li{max-width:none}
+.cv.l-sl .c-side .sk li,.cv.l-sl .c-side .sk li::after{color:#fff}
+.cv.l-sl.sk-0 .c-side .sk li{background:rgba(255,255,255,.16);color:#fff}.cv.l-sl.sk-3 .c-side .sk li{background:var(--h);color:#111}
+.cv.l-sl .c-side .sk li{border:0}
+.cv.l-ce,.cv.l-tl{overflow:hidden}
+.cv.l-ce::after,.cv.l-tl::after{content:"";position:absolute;top:-70pt;right:-70pt;width:220pt;height:220pt;border-radius:50%;background:var(--h);opacity:.2;pointer-events:none}
+.cv.l-ce::before,.cv.l-tl::before{content:"";position:absolute;top:30pt;right:60pt;width:70pt;height:70pt;border-radius:50%;background:var(--p);opacity:.12;pointer-events:none}
+.cv.l-ce>*,.cv.l-tl>*{position:relative;z-index:1}
+.cv.l-cd .hd .tt,.cv.l-bd .c-band .tt{color:#fff;opacity:.95}
+.cv.l-tl .sec>h2::before{display:none!important}
+.cv.l-tl .sec>h2{padding-left:0!important}

@@ -17,17 +17,18 @@ var FONTS=[
  ["Trebuchet","'Trebuchet MS','Segoe UI',Arial,sans-serif"],["Verdana","Verdana,Geneva,sans-serif"],["Gill","'Gill Sans','Gill Sans MT',Calibri,Arial,sans-serif"],
  ["Garamond","Garamond,'Palatino Linotype',Georgia,serif"],["Courier","'Courier New',Courier,monospace"]];
 var BODY=[0,1,2,3,5,6,0,1,3,4];                          /* polices de texte courantes */
-var LAYOUTS=["sl","sr","bd","ce","tl","cd"];
+var LAYOUTS=["sl","sl","sr","bd","bd","ce","tl","cd","cd"];
 function style(sd){
   var r=rng(sd), p=function(a){return a[Math.floor(r()*a.length)];};
-  var h=Math.floor(r()*360), s=38+Math.floor(r()*34), l=22+Math.floor(r()*14);
-  var P=dark(h,s,l,6.5), ah=(h+p([0,0,20,-20,35,-35,150,180,210]) +360)%360, A=dark(ah,52+Math.floor(r()*26),38+Math.floor(r()*10),4.6);
-  var soft=hsl(h,28+Math.floor(r()*30),94+Math.floor(r()*3));
-  var hf=p([0,1,2,3,4,5,6]), bf=p(BODY); if(hf===7)hf=0;
+  var h=Math.floor(r()*360), s=62+Math.floor(r()*26), l=24+Math.floor(r()*13);
+  var P=dark(h,s,l,7), P2=dark((h+p([14,22,-14,-22,30]) +360)%360,Math.min(95,s+8),Math.max(14,l-9),9);
+  var ah=(h+p([150,170,190,210,30,-30,60,-60,120])+360)%360, A=dark(ah,78+Math.floor(r()*18),36+Math.floor(r()*8),4.6), HL=hsl(ah,88+Math.floor(r()*10),52+Math.floor(r()*8));
+  var soft=hsl(h,34+Math.floor(r()*40),94+Math.floor(r()*3));
+  var hf=p([0,0,3,5,4,1,2,6]), bf=p(BODY);
   var lay=p(LAYOUTS);
-  return{seed:sd,lay:lay,hs:Math.floor(r()*5),bu:Math.floor(r()*5),sk:Math.floor(r()*3),jd:Math.floor(r()*2),
-    P:hex(P),A:hex(A),soft:hex(soft),hf:FONTS[hf][1],bf:FONTS[bf][1],hfn:FONTS[hf][0],bfn:FONTS[bf][0],
-    fs:(9.4+Math.floor(r()*9)/10).toFixed(1)+"pt",rad:p([0,2,4,9,12])+"px",sw:(29+Math.floor(r()*6))+"%"};
+  return{seed:sd,lay:lay,hs:Math.floor(r()*6),bu:Math.floor(r()*5),sk:Math.floor(r()*4),jd:Math.floor(r()*3),mono:r()<.6,
+    P:hex(P),P2:hex(P2),A:hex(A),HL:hex(HL),soft:hex(soft),hf:FONTS[hf][1],bf:FONTS[bf][1],hfn:FONTS[hf][0],bfn:FONTS[bf][0],
+    fs:(9.4+Math.floor(r()*9)/10).toFixed(1)+"pt",rad:p([0,3,6,10,14])+"px",sw:(29+Math.floor(r()*6))+"%"};
 }
 /* ---------- données ---------- */
 function lines(t){return String(t||"").split(/\r?\n/).map(function(x){return x.replace(/^\s*[-•*–]\s*/,"").trim();}).filter(Boolean);}
@@ -48,7 +49,7 @@ function parts(d,tl){
   var ct=[];if(d.email)ct.push(E(d.email));if(d.tel)ct.push(E(d.tel));if(d.ville)ct.push(E(d.ville));if(d.web)ct.push(E(d.web));
   P.ctl=ct.map(function(x){return"<li>"+x+"</li>";}).join("");
   P.head='<div class="hd"><h1 class="nm">'+nm+'</h1>'+(tt?'<p class="tt">'+tt+'</p>':"")+'</div>';
-  P.nm=nm;P.tt=tt;
+  P.nm=nm;P.tt=tt;var ini=((d.prenom||"").trim().charAt(0)+(d.nom||"").trim().charAt(0)).toUpperCase()||"CV";P.mono='<div class="mn" aria-hidden="true">'+E(ini)+'</div>';
   P.profil=d.profil.trim()?sec("s-pro",SEC.profil,"<p>"+E(d.profil).replace(/\n/g,"<br>")+"</p>",tl):"";
   var ex=d.exp.filter(function(x){return x.poste||x.org||x.miss;}).map(function(x){
     var dt=[x.deb,x.fin].filter(Boolean).join(" – "), co=[x.org,x.lieu].filter(Boolean).join(", "), m=lines(x.miss);
@@ -66,12 +67,12 @@ function parts(d,tl){
 }
 function render(d,st){
   var tl=st.lay==="tl", P=parts(d,tl), body;
-  var cls="cv l-"+st.lay+" hs-"+st.hs+" bu-"+st.bu+" sk-"+st.sk+" jd-"+st.jd;
-  var vars="--p:"+st.P+";--a:"+st.A+";--soft:"+st.soft+";--hf:"+st.hf+";--bf:"+st.bf+";--fs:"+st.fs+";--r:"+st.rad+";--sw:"+st.sw;
+  var cls="cv l-"+st.lay+(st.mono?" mono":"")+" hs-"+st.hs+" bu-"+st.bu+" sk-"+st.sk+" jd-"+st.jd;
+  var vars="--p:"+st.P+";--p2:"+st.P2+";--a:"+st.A+";--h:"+st.HL+";--soft:"+st.soft+";--hf:"+st.hf+";--bf:"+st.bf+";--fs:"+st.fs+";--r:"+st.rad+";--sw:"+st.sw;
   var ctU='<ul class="ct">'+P.ctl+'</ul>', ctI='<ul class="ct ct-in">'+P.ctl+'</ul>';
   switch(st.lay){
-    case"sl":body='<aside class="c-side">'+ctU+P.comp+P.lang+P.int+'</aside><div class="c-main">'+P.head+P.profil+P.exp+P.edu+'</div>';break;
-    case"sr":body='<div class="c-main">'+P.head+P.profil+P.exp+P.edu+'</div><aside class="c-side">'+ctU+P.comp+P.lang+P.int+'</aside>';break;
+    case"sl":body='<aside class="c-side">'+(st.mono?P.mono:"")+ctU+P.comp+P.lang+P.int+'</aside><div class="c-main">'+P.head+P.profil+P.exp+P.edu+'</div>';break;
+    case"sr":body='<div class="c-main">'+P.head+P.profil+P.exp+P.edu+'</div><aside class="c-side">'+(st.mono?P.mono:"")+ctU+P.comp+P.lang+P.int+'</aside>';break;
     case"bd":body='<header class="c-band"><div><h1 class="nm">'+P.nm+'</h1>'+(P.tt?'<p class="tt">'+P.tt+'</p>':"")+'</div>'+ctU+'</header><div class="c-body"><div class="c-main">'+P.profil+P.exp+P.edu+'</div><aside class="c-side">'+P.comp+P.lang+P.int+'</aside></div>';break;
     case"ce":body=P.head+ctI.replace('<ul class="ct ct-in">','<ul class="ct ct-in" style="justify-content:center;margin:-4pt 0 12pt">')+P.profil+P.exp+P.edu+P.comp+P.lang+P.int;break;
     case"tl":body=P.head+ctI.replace('<ul class="ct ct-in">','<ul class="ct ct-in" style="margin:-6pt 0 12pt">')+P.profil+P.exp+P.edu+P.comp+P.lang+P.int;break;
@@ -101,7 +102,7 @@ function draw(){
   doc.documentElement.className="l-"+st.lay;
   var pg=doc.getElementById("pgm");if(!pg){pg=doc.createElement("style");pg.id="pgm";doc.head.appendChild(pg);}
   pg.textContent="@page{size:A4;margin:"+((st.lay==="sl"||st.lay==="sr"||st.lay==="bd")?"0":"12mm 0")+"}";
-  doc.documentElement.style.cssText="--p:"+st.P+";--a:"+st.A+";--soft:"+st.soft+";--sw:"+st.sw;
+  doc.documentElement.style.cssText="--p:"+st.P+";--p2:"+st.P2+";--a:"+st.A+";--h:"+st.HL+";--soft:"+st.soft+";--sw:"+st.sw;
   var lab=$("#cv-style-lab"); if(lab)lab.textContent="Style n° "+seed+" : "+({sl:"colonne gauche",sr:"colonne droite",bd:"bandeau",ce:"centré",tl:"chronologie",cd:"cartouche"})[st.lay]+", "+st.hfn+" / "+st.bfn;
   fit(); save();
 }
@@ -116,9 +117,9 @@ function repItem(kind){
   var id=function(k){return kind+k+n;};
   var f=function(k,l,ph,ta){return'<div class="field"><label for="'+id(k)+'">'+l+'</label>'+(ta?'<textarea id="'+id(k)+'" data-k="'+k+'" rows="4" placeholder="'+ph+'"></textarea>':'<input id="'+id(k)+'" data-k="'+k+'" type="text" placeholder="'+ph+'" autocomplete="off">')+'</div>';};
   if(kind==="exp"){
-    wrap.innerHTML='<legend>Expérience</legend>'+f("poste","Poste occupé","Infirmier diplômé d'État")+'<div class="cv-row two">'+f("org","Employeur","Centre hospitalier")+f("lieu","Lieu","Limoges")+f("deb","Début","09/2019")+f("fin","Fin","Aujourd'hui")+'</div>'+f("miss","Missions et réalisations (une par ligne)","Prise en charge de 12 patients par jour\nEncadrement des étudiants en stage",1)+'<button type="button" class="cv-btn danger" data-del>Supprimer cette expérience</button>';
+    wrap.innerHTML='<legend>Expérience</legend>'+f("poste","Poste occupé","Chargé de communication")+'<div class="cv-row two">'+f("org","Employeur","Agence Lumière")+f("lieu","Lieu","Lyon")+f("deb","Début","09/2019")+f("fin","Fin","Aujourd'hui")+'</div>'+f("miss","Missions et réalisations (une par ligne)","Pilotage de 3 campagnes par trimestre\nHausse de 25 % du trafic du site",1)+'<button type="button" class="cv-btn danger" data-del>Supprimer cette expérience</button>';
   }else{
-    wrap.innerHTML='<legend>Formation</legend>'+f("dipl","Diplôme ou formation","Diplôme d'État d'infirmier")+'<div class="cv-row two">'+f("ecole","Établissement","IFSI de Limoges")+f("per","Année ou période","2016 – 2019")+'</div>'+f("det","Précisions (facultatif)","Mention, spécialité…")+'<button type="button" class="cv-btn danger" data-del>Supprimer cette formation</button>';
+    wrap.innerHTML='<legend>Formation</legend>'+f("dipl","Diplôme ou formation","Master Communication")+'<div class="cv-row two">'+f("ecole","Établissement","Université de Lyon")+f("per","Année ou période","2016 – 2019")+'</div>'+f("det","Précisions (facultatif)","Mention, spécialité…")+'<button type="button" class="cv-btn danger" data-del>Supprimer cette formation</button>';
   }
   return wrap;
 }
@@ -144,12 +145,12 @@ function fill(d){
   (d.exp&&d.exp.length?d.exp:[{}]).forEach(function(x){addRep("exp",x);});
   (d.edu&&d.edu.length?d.edu:[{}]).forEach(function(x){addRep("edu",x);});
 }
-var EX={prenom:"Camille",nom:"Durand",titre:"Infirmière diplômée d'État",email:"camille.durand@exemple.fr",tel:"06 00 00 00 00",ville:"Limoges (87)",web:"",
- profil:"Infirmière diplômée d'État avec cinq ans d'expérience en médecine et en soins à domicile. Rigoureuse, autonome, attentive aux patients et à leurs proches.",
- comp:"Soins techniques\nÉducation thérapeutique\nTransmissions et traçabilité\nGestion des urgences\nTutorat d'étudiants",langues:"Anglais : B2\nEspagnol : notions",interets:"Course à pied, Bénévolat, Photographie",permis:"Permis B",
- exp:[{poste:"Infirmière",org:"Centre hospitalier (exemple)",lieu:"Limoges",deb:"09/2021",fin:"Aujourd'hui",miss:"Prise en charge de 12 patients par jour en médecine polyvalente\nEncadrement des étudiants en stage\nCoordination avec les équipes médicales et les familles"},
-  {poste:"Infirmière de nuit",org:"Clinique (exemple)",lieu:"Brive-la-Gaillarde",deb:"10/2019",fin:"08/2021",miss:"Surveillance des patients en post-opératoire\nPréparation et administration des traitements"}],
- edu:[{dipl:"Diplôme d'État d'infirmier",ecole:"IFSI (exemple)",per:"2016 – 2019",det:"Mention très bien au mémoire de fin d'études"},{dipl:"Baccalauréat ST2S",ecole:"Lycée (exemple)",per:"2016",det:""}]};
+var EX={prenom:"Camille",nom:"Durand",titre:"Chargée de communication digitale",email:"camille.durand@exemple.fr",tel:"06 00 00 00 00",ville:"Lyon (69)",web:"linkedin.com/in/exemple",
+ profil:"Chargée de communication avec cinq ans d'expérience en agence et en entreprise. Créative, organisée, orientée résultats : je transforme une stratégie de marque en campagnes qui performent.",
+ comp:"Stratégie éditoriale\nRéseaux sociaux\nGestion de projet\nSEO et analytics\nSuite Adobe\nRédaction web",langues:"Anglais : courant (C1)\nEspagnol : intermédiaire (B1)",interets:"Photographie, Randonnée, Bénévolat associatif",permis:"Permis B",
+ exp:[{poste:"Chargée de communication",org:"Agence Lumière (exemple)",lieu:"Lyon",deb:"09/2021",fin:"Aujourd'hui",miss:"Pilotage de 3 campagnes par trimestre pour 12 clients\nHausse de 25 % du trafic organique grâce à une refonte éditoriale\nAnimation d'une équipe de 4 freelances"},
+  {poste:"Assistante communication",org:"Groupe Horizon (exemple)",lieu:"Grenoble",deb:"10/2019",fin:"08/2021",miss:"Création des newsletters mensuelles (28 000 abonnés)\nGestion des réseaux sociaux et du calendrier éditorial"}],
+ edu:[{dipl:"Master Communication et médias",ecole:"Université (exemple)",per:"2017 – 2019",det:"Mention bien, mémoire sur les stratégies de contenu"},{dipl:"Licence Information-communication",ecole:"Université (exemple)",per:"2014 – 2017",det:""}]};
 /* ---------- exports ---------- */
 function plainText(d){
   var o=[],nm=(d.prenom+" "+d.nom).trim();if(nm)o.push(nm.toUpperCase());if(d.titre)o.push(d.titre);
