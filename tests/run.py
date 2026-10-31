@@ -224,7 +224,7 @@ with sync_playwright() as pw:
     # pension d'invalidité : 30 000 € cat. 2 = 1 250,00 ; cat. 1 revenu 10 000 = minimum 338,31 ; cat. 3 = 2 548,44 ; indépendant cat. 1 10 000 = 530,21
     pg.goto(LOCAL + "simulateur-pension-invalidite/"); pg.wait_for_timeout(200)
     def inv(st, cat, sam):
-        pg.evaluate("(a)=>{document.getElementById('statut').value=a[0];document.getElementById('cat').value=a[1];document.getElementById('sam').value=a[2];document.getElementById('calculate').click()}", [st, cat, str(sam)]); pg.wait_for_timeout(900)
+        pg.evaluate("(a)=>{document.getElementById('statut').value=a[0];document.getElementById('cat').value=a[1];document.getElementById('sam').value=a[2];document.getElementById('calculate').click()}", [st, cat, str(sam)]); pg.wait_for_timeout(1600)
         return norm(pg.inner_text("#pension"))
     for st, cat, sam, exp in [("sal","2",30000,"1 250,00 €"),("sal","1",10000,"338,31 €"),("sal","3",30000,"2 548,44 €"),("ind","1",10000,"530,21 €"),("sal","2",90000,"2 002,50 €")]:
         r = inv(st, cat, sam)

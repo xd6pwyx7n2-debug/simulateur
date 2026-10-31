@@ -107,7 +107,7 @@ main>article.lt-main{background:transparent;border:0!important;box-shadow:none!i
 .lt-delai{margin:0 0 12px;padding:12px 16px;border-radius:14px;background:#fff4e5;border:1.5px solid #f3c98a;color:#5a3a06;font-size:.95rem}.lt-delai strong{color:#7a4a00}
 .lt-env{margin-top:14px;padding:12px 16px;border-radius:14px;background:#fff;border:1.5px solid #e3dffa;font-size:.92rem;color:#3d3b63}.lt-env strong{display:block;margin-bottom:2px;color:#201e48}
 .lt-suite{margin-top:14px}.lt-suite strong{display:block;margin-bottom:8px;font-size:.95rem}.lt-suite button{margin:0 8px 8px 0;min-height:40px;padding:0 14px;border:1.5px solid #6857e8;border-radius:99px;background:#fff;color:#4b3bd0;font:700 .88rem Inter,sans-serif;cursor:pointer}.lt-suite button:hover{background:#6857e8;color:#fff}
-.lt-more{margin:0 0 22px}.lt-more>summary{cursor:pointer;padding:14px 18px;border:1.5px solid #ddd9f3;border-radius:16px;background:#fff;font-weight:800;color:#4b3bd0;list-style:none}.lt-more[open]>summary{margin-bottom:14px}
+.lt-ics{margin-top:10px;padding:10px 16px;border-radius:12px;border:1.5px solid #cfc8f5;background:#fff;color:#4b3bd0;font-weight:800;font:inherit;font-weight:800;cursor:pointer}.lt-more{margin:0 0 22px}.lt-more>summary{cursor:pointer;padding:14px 18px;border:1.5px solid #ddd9f3;border-radius:16px;background:#fff;font-weight:800;color:#4b3bd0;list-style:none}.lt-more[open]>summary{margin-bottom:14px}
 </style>
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -211,7 +211,10 @@ main>article.lt-main{background:transparent;border:0!important;box-shadow:none!i
   <div class="sd-actions">
     <button type="button" class="sd-secondary" id="copier" style="background:#efedff;color:#201e48;border-color:#dcd7f7">Copier la lettre</button>
     <button type="button" class="sd-secondary" id="imprimer" style="background:#efedff;color:#201e48;border-color:#dcd7f7">Télécharger en PDF ou imprimer</button>
-    <button type="button" class="sd-secondary" id="word" style="background:#efedff;color:#201e48;border-color:#dcd7f7">Télécharger pour Word</button>
+    <button type="button" class="sd-secondary" id="word" style="background:#efedff;color:#201e48;border-color:#dcd7f7">Télécharger en Word (.docx)</button>
+    <button type="button" class="sd-secondary" id="partager" hidden style="background:#efedff;color:#201e48;border-color:#dcd7f7">Partager (Drive, messagerie, e-mail)</button>
+    <button type="button" class="sd-secondary" id="mail" style="background:#efedff;color:#201e48;border-color:#dcd7f7">Préparer un e-mail</button>
+    <button type="button" class="sd-secondary" id="rtf" style="background:#efedff;color:#201e48;border-color:#dcd7f7">Autre traitement de texte (.rtf)</button>
   </div>
   <div id="envoihelp" class="lt-env"></div>
   <div id="suite" class="lt-suite" hidden></div>
@@ -220,7 +223,7 @@ main>article.lt-main{background:transparent;border:0!important;box-shadow:none!i
 
 <h2>Une page par situation</h2><div class="sd-see-grid" style="margin:12px 0 22px"><a href="/modele-lettre-contestation-solde-de-tout-compte/">Contester son solde de tout compte</a><a href="/modele-lettre-retractation-rupture-conventionnelle/">Se rétracter d'une rupture conventionnelle</a><a href="/modele-lettre-demande-certificat-travail-attestation-france-travail/">Demander certificat de travail et attestation France Travail</a><a href="/modele-lettre-demande-paiement-heures-supplementaires/">Demander le paiement d'heures supplémentaires</a><a href="/modele-lettre-demande-conges-payes/">Demander des congés payés</a><a href="/modele-lettre-demande-dispense-preavis/">Demander une dispense de préavis</a><a href="/modele-lettre-reclamation-salaire-impaye/">Réclamer un salaire impayé</a><a href="/modele-lettre-demande-augmentation-salaire/">Demander une augmentation</a><a href="/modele-lettre-demande-teletravail/">Demander le télétravail</a><a href="/modele-lettre-contestation-avertissement/">Contester un avertissement</a><a href="/modele-lettre-rupture-periode-essai-salarie/">Rompre sa période d'essai</a><a href="/modele-lettre-demande-temps-partiel/">Passer à temps partiel</a></div>
 <section class="lt-box lt-faq">
-<p class="lt-note">Les 32 modèles se remplissent dans le navigateur : rien n'est envoyé. Vous pouvez, si vous le souhaitez, mémoriser vos informations sur cet appareil uniquement. Chaque lettre se copie, se télécharge en PDF ou en document Word, ou s'imprime, sans création de compte.</p>
+<p class="lt-note">Les 32 modèles se remplissent dans le navigateur : rien n'est envoyé. Vous pouvez, si vous le souhaitez, mémoriser vos informations sur cet appareil uniquement. Chaque lettre se copie, se télécharge en PDF, en Word (.docx) ou en .rtf (tout traitement de texte), se partage par e-mail ou Drive, et les dates limites s’ajoutent à votre agenda, sans création de compte.</p>
 <p>Ces modèles sont des trames à adapter à votre situation. Vérifiez votre convention collective et votre contrat, qui peuvent prévoir des règles plus favorables.</p>
 
 <section class="info-section" id="autres-lettres"><h2>Autres lettres à remplir : stage, apprentissage, reconversion</h2><p>Des pages dédiées, avec les règles et les délais à respecter pour chaque situation.</p><div class="sd-see-grid" style="margin:12px 0"><a href="/modele-lettre-demission/">Lettre de démission (version détaillée)</a><a href="/modele-lettre-rupture-conventionnelle/">Demande de rupture conventionnelle</a><a href="/modele-lettre-demande-de-stage/">Demande de stage</a><a href="/modele-lettre-stage-observation/">Stage d'observation</a><a href="/modele-lettre-stage-3eme/">Stage de 3e</a><a href="/modele-lettre-demande-apprentissage/">Candidature en apprentissage</a><a href="/modele-lettre-motivation-domaine/">Lettre de motivation selon le domaine</a><a href="/modele-lettre-conge-transition-professionnelle/">Congé de transition professionnelle (PTP)</a><a href="/modele-lettre-conge-vae/">Congé VAE</a><a href="/modele-lettre-bilan-de-competences/">Bilan de compétences</a></div></section>
@@ -479,6 +482,20 @@ main>article.lt-main{background:transparent;border:0!important;box-shadow:none!i
     else if(vals[d.f]&&/^\d{4}-\d{2}-\d{2}$/.test(vals[d.f])){ var e=addDate(vals[d.f],d.kind,d.n); if(e) h="<strong>"+d.t+" : "+e.toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long",year:"numeric"})+".</strong> "+d.w; }
     else { h="<strong>Délai à respecter :</strong> "+d.w+" Renseignez la date ci-contre pour calculer la date limite."; }
     box2.innerHTML=h; box2.hidden=false;
+    if(typeof e!=="undefined"&&e&&!d.txt&&h){
+      var bt=document.createElement("button"); bt.type="button"; bt.className="lt-ics"; bt.textContent="Ajouter un rappel à mon agenda (.ics)";
+      bt.addEventListener("click",function(){ics(e,d.t+" : "+sel.options[sel.selectedIndex].textContent,d.w);});
+      box2.appendChild(document.createElement("br")); box2.appendChild(bt);
+    }
+  }
+  function ics(dt,title,desc){
+    var z=function(n){return (n<10?"0":"")+n;}, ymd=function(x){return x.getFullYear()+z(x.getMonth()+1)+z(x.getDate());};
+    var nx=new Date(dt.getFullYear(),dt.getMonth(),dt.getDate()+1), esc=function(t){return String(t).replace(/\\/g,"\\\\").replace(/;/g,"\\;").replace(/,/g,"\\,").replace(/\n/g,"\\n");};
+    var now=new Date(), st=now.getUTCFullYear()+z(now.getUTCMonth()+1)+z(now.getUTCDate())+"T"+z(now.getUTCHours())+z(now.getUTCMinutes())+z(now.getUTCSeconds())+"Z";
+    function al(tr,tx){return ["BEGIN:VALARM","ACTION:DISPLAY","DESCRIPTION:"+esc(tx),"TRIGGER:"+tr,"END:VALARM"];}
+    var L=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//SimuDroit//Lettres//FR","CALSCALE:GREGORIAN","BEGIN:VEVENT","UID:"+Date.now()+"@simudroit.fr","DTSTAMP:"+st,"DTSTART;VALUE=DATE:"+ymd(dt),"DTEND;VALUE=DATE:"+ymd(nx),"SUMMARY:"+esc(title),"DESCRIPTION:"+esc(desc+" (Rappel indicatif généré par SimuDroit : vérifiez la date avec les textes applicables.)")]
+      .concat(al("-P6DT15H","Dans 7 jours : "+title),al("-PT15H","Demain : "+title),al("PT9H","Aujourd'hui : "+title),["END:VEVENT","END:VCALENDAR"]);
+    saveBlob(new Blob([L.join("\r\n")+"\r\n"],{type:"text/calendar;charset=utf-8"}),"rappel-"+sel.value+".ics");
   }
   var ENVH={
     rar:["Lettre recommandée avec accusé de réception","Conservez le récépissé de dépôt et l'avis de réception : ils prouvent la date d'envoi et de réception. Gardez une copie de la lettre et des pièces jointes."],
@@ -533,18 +550,67 @@ main>article.lt-main{background:transparent;border:0!important;box-shadow:none!i
     var d=document.createElement("div"); d.id="sd-print"; d.className="letter"; d.appendChild(html(parts()));
     document.body.appendChild(d); window.print();
   });
-  document.getElementById("word").addEventListener("click",function(){
-    var p=parts(), esc=function(t){return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");};
-    var h='<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><title>Lettre</title><style>body{font-family:Georgia,"Times New Roman",serif;font-size:12pt;line-height:1.5}p{margin:0 0 10pt}</style></head><body>';
-    h+='<p><b>'+esc(p.sender[0])+'</b><br>'+p.sender.slice(1).map(esc).join("<br>")+'</p>';
-    h+='<p style="margin-left:45%"><b>'+esc(p.rec[0])+'</b><br>'+p.rec.slice(1).map(esc).join("<br>")+'</p>';
-    h+='<p style="margin-left:45%">'+esc(p.place)+'</p>';
-    if(p.envoi) h+='<p><b>'+esc(p.envoi)+'</b></p>';
-    h+='<p><b>Objet : '+esc(p.objet)+'</b></p>';
-    h+=p.text.split("\n\n").map(function(x){return '<p>'+esc(x).replace(/\n/g,"<br>")+'</p>';}).join("");
-    h+='<p style="margin-left:55%">'+esc(p.sign)+'<br><br><small>(signature)</small></p></body></html>';
-    var blob=new Blob(["\ufeff"+h],{type:"application/msword"}), a=document.createElement("a");
-    a.href=URL.createObjectURL(blob); a.download="lettre-"+sel.value+".doc"; document.body.appendChild(a); a.click(); a.remove(); setTimeout(function(){URL.revokeObjectURL(a.href);},2000);
+  function saveBlob(blob,name){var a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(a.href);},2000);}
+  function blocks(p){
+    var b=[{l:[p.sender[0]].concat(p.sender.slice(1)),b0:true},{l:p.rec,b0:true,ind:4800},{l:[p.place],ind:4800}];
+    if(p.envoi) b.push({l:[p.envoi],b0:true});
+    b.push({l:["Objet : "+p.objet],b0:true});
+    p.text.split("\n\n").forEach(function(x){b.push({l:x.split("\n")});});
+    b.push({l:[p.sign,"","(signature)"],ind:5600});
+    return b;
+  }
+  var CT=(function(){var t=[],c,n,k;for(n=0;n<256;n++){c=n;for(k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0;}return t;})();
+  function crc(u){var c=0xFFFFFFFF;for(var i=0;i<u.length;i++)c=CT[(c^u[i])&255]^(c>>>8);return (c^0xFFFFFFFF)>>>0;}
+  function zip(files){
+    var enc=new TextEncoder(),parts=[],cd=[],off=0;
+    function u16(v){return [v&255,(v>>8)&255];} function u32(v){return [v&255,(v>>8)&255,(v>>16)&255,(v>>>24)&255];}
+    files.forEach(function(f){
+      var nm=enc.encode(f[0]),d=enc.encode(f[1]),c=crc(d);
+      var h=[].concat(u32(0x04034b50),u16(20),u16(0x0800),u16(0),u16(0),u16(0x21),u32(c),u32(d.length),u32(d.length),u16(nm.length),u16(0));
+      parts.push(new Uint8Array(h),nm,d);
+      cd.push(new Uint8Array([].concat(u32(0x02014b50),u16(20),u16(20),u16(0x0800),u16(0),u16(0),u16(0x21),u32(c),u32(d.length),u32(d.length),u16(nm.length),u16(0),u16(0),u16(0),u16(0),u32(0),u32(off))),nm);
+      off+=h.length+nm.length+d.length;
+    });
+    var cs=0;cd.forEach(function(x){cs+=x.length;});
+    parts=parts.concat(cd);
+    parts.push(new Uint8Array([].concat(u32(0x06054b50),u16(0),u16(0),u16(files.length),u16(files.length),u32(cs),u32(off),u16(0))));
+    return new Blob(parts,{type:"application/vnd.openxmlformats-officedocument.wordprocessingml.document"});
+  }
+  function mkDocx(){
+    var p=parts(), x=function(t){return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");};
+    var body=blocks(p).map(function(bl){
+      var runs=bl.l.map(function(t,i){return (i?'<w:r><w:br/></w:r>':'')+'<w:r><w:rPr>'+((bl.b0&&i===0)?'<w:b/>':'')+'</w:rPr><w:t xml:space="preserve">'+x(t)+'</w:t></w:r>';}).join("");
+      return '<w:p><w:pPr><w:spacing w:after="200" w:line="300" w:lineRule="auto"/>'+(bl.ind?'<w:ind w:left="'+bl.ind+'"/>':'')+'</w:pPr>'+runs+'</w:p>';
+    }).join("");
+    var NS='xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"';
+    var H='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
+    var doc=H+'<w:document '+NS+'><w:body>'+body+'<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1417" w:right="1417" w:bottom="1417" w:left="1417" w:header="708" w:footer="708" w:gutter="0"/></w:sectPr></w:body></w:document>';
+    var sty=H+'<w:styles '+NS+'><w:docDefaults><w:rPrDefault><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/><w:sz w:val="24"/><w:lang w:val="fr-FR"/></w:rPr></w:rPrDefault></w:docDefaults></w:styles>';
+    var ct=H+'<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/><Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/></Types>';
+    var rels=H+'<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>';
+    var drels=H+'<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>';
+    return zip([["[Content_Types].xml",ct],["_rels/.rels",rels],["word/document.xml",doc],["word/styles.xml",sty],["word/_rels/document.xml.rels",drels]]);
+  }
+  document.getElementById("word").addEventListener("click",function(){saveBlob(mkDocx(),"lettre-"+sel.value+".docx");});
+  var shareB=document.getElementById("partager");
+  try{var tf=new File([""],"t.docx",{type:"application/vnd.openxmlformats-officedocument.wordprocessingml.document"}); if(shareB&&navigator.canShare&&navigator.canShare({files:[tf]})) shareB.hidden=false;}catch(e){}
+  if(shareB) shareB.addEventListener("click",function(){
+    var f=new File([mkDocx()],"lettre-"+sel.value+".docx",{type:"application/vnd.openxmlformats-officedocument.wordprocessingml.document"});
+    navigator.share({files:[f],title:"Lettre"}).catch(function(){});
+  });
+  document.getElementById("mail").addEventListener("click",function(){
+    var p=parts(), t=plain(p); if(t.length>1700) t=t.slice(0,1700)+"\n[Suite à coller depuis la lettre]";
+    location.href="mailto:?subject="+encodeURIComponent(p.objet)+"&body="+encodeURIComponent(t);
+  });
+  document.getElementById("rtf").addEventListener("click",function(){
+    var p=parts();
+    var e=function(t){var o="";for(var i=0;i<t.length;i++){var c=t.charCodeAt(i);if(c===92||c===123||c===125)o+="\\"+t[i];else if(c>126){o+="\\u"+(c>32767?c-65536:c)+"?";}else o+=t[i];}return o;};
+    var r="{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0 Times New Roman;}}\\paperw11906\\paperh16838\\margl1417\\margr1417\\margt1417\\margb1417\\f0\\fs24\\lang1036\n";
+    blocks(p).forEach(function(bl){
+      r+="\\pard\\sa200"+(bl.ind?"\\li"+bl.ind:"")+" "+bl.l.map(function(t,i){return (bl.b0&&i===0)?"{\\b "+e(t)+"}":e(t);}).join("\\line\n")+"\\par\n";
+    });
+    r+="}";
+    saveBlob(new Blob([r],{type:"application/rtf"}),"lettre-"+sel.value+".rtf");
   });
   window.addEventListener("afterprint",function(){var p=document.getElementById("sd-print"); if(p) p.remove();});
 })();

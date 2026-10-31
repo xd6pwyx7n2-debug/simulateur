@@ -108,7 +108,7 @@ main>article.lt-main{background:transparent;border:0!important;box-shadow:none!i
 .lt-delai{margin:0 0 12px;padding:12px 16px;border-radius:14px;background:#fff4e5;border:1.5px solid #f3c98a;color:#5a3a06;font-size:.95rem}.lt-delai strong{color:#7a4a00}
 .lt-env{margin-top:14px;padding:12px 16px;border-radius:14px;background:#fff;border:1.5px solid #e3dffa;font-size:.92rem;color:#3d3b63}.lt-env strong{display:block;margin-bottom:2px;color:#201e48}
 .lt-suite{margin-top:14px}.lt-suite strong{display:block;margin-bottom:8px;font-size:.95rem}.lt-suite button{margin:0 8px 8px 0;min-height:40px;padding:0 14px;border:1.5px solid #6857e8;border-radius:99px;background:#fff;color:#4b3bd0;font:700 .88rem Inter,sans-serif;cursor:pointer}.lt-suite button:hover{background:#6857e8;color:#fff}
-.lt-more{margin:0 0 22px}.lt-more>summary{cursor:pointer;padding:14px 18px;border:1.5px solid #ddd9f3;border-radius:16px;background:#fff;font-weight:800;color:#4b3bd0;list-style:none}.lt-more[open]>summary{margin-bottom:14px}
+.lt-ics{margin-top:10px;padding:10px 16px;border-radius:12px;border:1.5px solid #cfc8f5;background:#fff;color:#4b3bd0;font-weight:800;font:inherit;font-weight:800;cursor:pointer}.lt-more{margin:0 0 22px}.lt-more>summary{cursor:pointer;padding:14px 18px;border:1.5px solid #ddd9f3;border-radius:16px;background:#fff;font-weight:800;color:#4b3bd0;list-style:none}.lt-more[open]>summary{margin-bottom:14px}
 </style>
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -212,7 +212,10 @@ main>article.lt-main{background:transparent;border:0!important;box-shadow:none!i
   <div class="sd-actions">
     <button type="button" class="sd-secondary" id="copier" style="background:#efedff;color:#201e48;border-color:#dcd7f7">Copier la lettre</button>
     <button type="button" class="sd-secondary" id="imprimer" style="background:#efedff;color:#201e48;border-color:#dcd7f7">Télécharger en PDF ou imprimer</button>
-    <button type="button" class="sd-secondary" id="word" style="background:#efedff;color:#201e48;border-color:#dcd7f7">Télécharger pour Word</button>
+    <button type="button" class="sd-secondary" id="word" style="background:#efedff;color:#201e48;border-color:#dcd7f7">Télécharger en Word (.docx)</button>
+    <button type="button" class="sd-secondary" id="partager" hidden style="background:#efedff;color:#201e48;border-color:#dcd7f7">Partager (Drive, messagerie, e-mail)</button>
+    <button type="button" class="sd-secondary" id="mail" style="background:#efedff;color:#201e48;border-color:#dcd7f7">Préparer un e-mail</button>
+    <button type="button" class="sd-secondary" id="rtf" style="background:#efedff;color:#201e48;border-color:#dcd7f7">Autre traitement de texte (.rtf)</button>
   </div>
   <div id="envoihelp" class="lt-env"></div>
   <div id="suite" class="lt-suite" hidden></div>
@@ -224,6 +227,386 @@ main>article.lt-main{background:transparent;border:0!important;box-shadow:none!i
 <p>Ces modèles sont des trames à adapter à votre situation. Vérifiez votre convention collective et votre contrat, qui peuvent prévoir des règles plus favorables.</p></section>
 <h2>Questions fréquentes</h2><h3>Comment rédiger la réponse ?</h3><p>Décrivez les faits et vos arguments calmement, sans attaque.</p><h3>Quoi joindre ?</h3><p>Les pièces utiles (courriels, témoignages).</p><h3>Que conserver ?</h3><p>Le courrier de l'employeur et la preuve d'envoi de votre réponse.</p>
 <h2>Pour aller plus loin</h2><div class="sd-see-grid" style="margin:12px 0 22px"><a href="/guides/entretien-prealable-licenciement-assistance-deroulement/">Guide : entretien préalable et licenciement</a><a href="/modeles-de-lettres/">Tous les modèles de lettres</a><a href="/modeles-de-lettres/">Les 32 modèles de lettres gratuits</a></div>
+<script>window.SD_TYPE="avertissement";</script>
+<script>
+(function(){
+  var COMMON=[
+    ["nom","Vos prénom et nom","text","Ex. Marie Durand"],
+    ["adresse","Votre adresse complète","text","Ex. 12 rue des Lilas, 87000 Limoges"],
+    ["employeur","Nom de l'employeur ou de l'entreprise","text","Ex. Société Exemple"],
+    ["dest","À l'attention de (facultatif)","text","Ex. Service des ressources humaines"],
+    ["adrEmp","Adresse de l'employeur","text","Ex. 5 avenue de la Gare, 87000 Limoges"],
+    ["ville","Ville où vous écrivez","text","Ex. Limoges"],
+    ["dateLettre","Date de la lettre","date",""],
+    ["envoi","Mode d'envoi","select",""]
+  ];
+
+  var TYPES={
+    demission:{
+      conseil:"Envoyez cette lettre en recommandé avec accusé de réception ou remettez-la en main propre contre décharge : la date fixe le début du préavis, dont la durée dépend de votre convention collective ou de votre contrat.",
+      fields:[["poste","Votre poste","text","Ex. Assistante commerciale"],["duree","Durée du préavis","text","Ex. un mois"],["fin","Date de fin de préavis (facultatif)","date",""]],
+      build:function(v){return "Objet : Démission\n\nMadame, Monsieur,\n\nPar la présente, je vous informe de ma décision de démissionner du poste de "+(v.poste||"[poste]")+" que j'occupe au sein de votre entreprise.\n\nConformément à mon contrat de travail et à la convention collective applicable, la durée de mon préavis est de "+(v.duree||"[durée]")+". Il débutera à la date de première présentation de cette lettre"+(v.fin?" et prendra fin le "+v.fin:"")+".\n\nÀ l'issue de mon contrat, je vous remercie de bien vouloir me remettre mon certificat de travail, mon attestation destinée à France Travail, mon dernier bulletin de paie et mon reçu pour solde de tout compte.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    rupco:{
+      conseil:"La rupture conventionnelle suppose l'accord des deux parties. Après un entretien, une convention est signée, suivie d'un délai de rétractation de 15 jours calendaires puis d'une homologation. Vous pouvez être assisté lors de l'entretien.",
+      fields:[["poste","Votre poste","text","Ex. Technicien de maintenance"],["anciennete","Votre ancienneté","text","Ex. 6 ans"]],
+      build:function(v){return "Objet : Demande d'entretien en vue d'une rupture conventionnelle\n\nMadame, Monsieur,\n\nJ'occupe le poste de "+(v.poste||"[poste]")+" au sein de votre entreprise depuis "+(v.anciennete||"[ancienneté]")+".\n\nJe souhaite vous proposer d'envisager une rupture conventionnelle de mon contrat de travail, conformément aux articles L. 1237-11 et suivants du Code du travail.\n\nJe vous remercie de bien vouloir me proposer un entretien afin d'en discuter. Je vous informe que je pourrai, si je le souhaite, être assisté lors de cet entretien dans les conditions prévues par la loi.\n\nDans l'attente de votre réponse, je vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    documents:{
+      conseil:"À la fin du contrat, l'employeur doit remettre le certificat de travail, l'attestation destinée à France Travail et le reçu pour solde de tout compte. Sans eux, vous ne pouvez pas vous inscrire correctement au chômage : relancez par écrit.",
+      fields:[["fin","Date de fin de contrat","date",""]],
+      build:function(v){return "Objet : Demande des documents de fin de contrat\n\nMadame, Monsieur,\n\nMon contrat de travail a pris fin le "+(v.fin||"[date]")+".\n\nÀ ce jour, je n'ai pas reçu l'ensemble des documents de fin de contrat. Je vous demande de bien vouloir me remettre, dans les meilleurs délais :\n- mon certificat de travail ;\n- mon attestation destinée à France Travail ;\n- mon dernier bulletin de paie ;\n- mon reçu pour solde de tout compte.\n\nCes documents me sont nécessaires pour faire valoir mes droits.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    solde:{
+      conseil:"Le reçu pour solde de tout compte peut être dénoncé dans les 6 mois suivant sa signature, par lettre recommandée. Joignez vos bulletins de paie et le calcul des sommes qui vous semblent dues.",
+      fields:[["signe","Date de signature du reçu","date",""],["motif","Sommes contestées (précisez le détail)","textarea","Ex. indemnité compensatrice de congés payés : 10 jours non payés ; prime d'objectifs de mars non versée"],["montant","Montant total réclamé (€)","text","Ex. 1 250"]],
+      build:function(v){return "Objet : Contestation du solde de tout compte\n\nMadame, Monsieur,\n\nLe "+(v.signe||"[date]")+", j'ai signé un reçu pour solde de tout compte à l'occasion de la fin de mon contrat de travail.\n\nAprès vérification, je constate que certaines sommes ne m'ont pas été versées ou ont été mal calculées, à savoir :\n"+(v.motif||"[détail des sommes contestées]")+"\n\nJe dénonce par la présente ce reçu pour solde de tout compte dans le délai de six mois prévu par l'article L. 1234-20 du Code du travail, et je vous demande de régulariser ma situation en me versant la somme de "+(v.montant?v.montant+" euros":"[montant]")+" dans un délai de quinze jours.\n\nÀ défaut, je me réserve la possibilité de saisir les juridictions compétentes.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    hs:{
+      conseil:"Joignez un décompte précis de vos heures (dates, horaires, demandes de l'employeur). Les heures supplémentaires sont majorées de 25 % puis 50 %, sauf accord prévoyant un autre taux d'au moins 10 %.",
+      fields:[["periode","Période concernée","text","Ex. de mars à juin 2026"],["heures","Nombre d'heures supplémentaires non payées","text","Ex. 24"]],
+      build:function(v){return "Objet : Demande de paiement d'heures supplémentaires\n\nMadame, Monsieur,\n\nSur la période "+(v.periode||"[période]")+", j'ai effectué "+(v.heures||"[nombre]")+" heures supplémentaires à votre demande ou avec votre accord, au-delà de la durée de travail prévue.\n\nCes heures ne figurent pas sur mes bulletins de paie et ne m'ont pas été rémunérées. Vous trouverez ci-joint le décompte détaillé correspondant.\n\nJe vous demande de bien vouloir procéder à leur paiement, avec les majorations applicables, dans un délai de quinze jours.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    conges:{
+      conseil:"Les dates de congés sont fixées par l'employeur après consultation, selon l'ordre des départs défini par l'entreprise. Faites votre demande suffisamment tôt et conservez la réponse écrite.",
+      fields:[["debut","Premier jour de congé","date",""],["finc","Dernier jour de congé","date",""]],
+      build:function(v){return "Objet : Demande de congés payés\n\nMadame, Monsieur,\n\nJe souhaite poser des congés payés du "+(v.debut||"[date de début]")+" au "+(v.finc||"[date de fin]")+" inclus.\n\nJe vous remercie de bien vouloir me confirmer votre accord par retour de courrier ou de courriel.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    preavis:{
+      conseil:"Votre employeur n'est pas obligé d'accepter. Demandez son accord par écrit : en cas d'accord, la date de fin de contrat qui figure sur sa réponse fait foi. Conservez-la.",
+      fields:[["poste", "Votre poste", "text", "Ex. Vendeuse"], ["demission", "Date de remise de votre démission", "date", ""], ["souhait", "Date de départ souhaitée", "date", ""]],
+      build:function(v){return "Objet : Demande de dispense de préavis\n\nMadame, Monsieur,\n\nJe vous ai remis ma démission le "+(v.demission||"[date]")+" du poste de "+(v.poste||"[poste]")+".\n\nJe vous demande de bien vouloir me dispenser d'exécuter tout ou partie de mon préavis, afin de quitter l'entreprise le "+(v.souhait||"[date souhaitée]")+".\n\nJe vous remercie de me faire part de votre réponse par écrit.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    retractation:{
+      conseil:"Le délai de rétractation est de 15 jours calendaires à compter du lendemain de la signature de la convention. Envoyez la lettre en recommandé avec accusé de réception, ou remettez-la en main propre contre décharge, avant la fin de ce délai : la date de réception fait foi.",
+      fields:[["signature", "Date de signature de la convention", "date", ""]],
+      build:function(v){return "Objet : Rétractation de la rupture conventionnelle\n\nMadame, Monsieur,\n\nLe "+(v.signature||"[date]")+", nous avons signé une convention de rupture de mon contrat de travail.\n\nPar la présente, je vous informe que j'exerce mon droit de rétractation et que je renonce à cette rupture conventionnelle. Mon contrat de travail se poursuit donc dans les conditions antérieures.\n\nJe vous remercie de bien vouloir me confirmer la réception de ce courrier.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    tpartiel:{
+      conseil:"L'employeur peut accepter ou refuser selon les règles de votre convention collective et de votre contrat. Précisez le rythme souhaité et laissez-lui un délai raisonnable pour répondre.",
+      fields:[["poste", "Votre poste", "text", "Ex. Comptable"], ["rythme", "Durée et répartition souhaitées", "textarea", "Ex. 28 heures par semaine, du lundi au jeudi"], ["debut", "Date de début souhaitée", "date", ""]],
+      build:function(v){return "Objet : Demande de passage à temps partiel\n\nMadame, Monsieur,\n\nJ'occupe le poste de "+(v.poste||"[poste]")+" au sein de votre entreprise. Je souhaite passer à temps partiel à compter du "+(v.debut||"[date]")+", selon l'organisation suivante :\n"+(v.rythme||"[durée et répartition]")+"\n\nJe reste disponible pour un entretien afin d'étudier avec vous les modalités de cette demande.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    sanssolde:{
+      conseil:"Le congé sans solde n'est pas un droit automatique : il dépend de votre convention collective et de l'accord de l'employeur. Demandez une réponse écrite.",
+      fields:[["debut", "Premier jour de congé", "date", ""], ["finc", "Dernier jour de congé", "date", ""], ["motif", "Motif (facultatif)", "text", "Ex. projet personnel"]],
+      build:function(v){return "Objet : Demande de congé sans solde\n\nMadame, Monsieur,\n\nJe souhaite bénéficier d'un congé sans solde du "+(v.debut||"[date de début]")+" au "+(v.finc||"[date de fin]")+" inclus"+(v.motif?" (motif : "+v.motif+")":"")+".\n\nJe vous remercie de me faire connaître votre décision par écrit.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    teletravail:{
+      conseil:"Vérifiez d'abord si votre entreprise a un accord ou une charte sur le télétravail : la demande doit en suivre les règles. Proposez un rythme précis.",
+      fields:[["poste", "Votre poste", "text", "Ex. Gestionnaire de paie"], ["rythme", "Rythme souhaité", "text", "Ex. 2 jours par semaine, mardi et jeudi"], ["debut", "Date de début souhaitée", "date", ""]],
+      build:function(v){return "Objet : Demande de télétravail\n\nMadame, Monsieur,\n\nJ'occupe le poste de "+(v.poste||"[poste]")+". Je souhaite pouvoir exercer mes fonctions en télétravail selon le rythme suivant : "+(v.rythme||"[rythme]")+", à compter du "+(v.debut||"[date]")+".\n\nJe reste disponible pour un entretien afin d'échanger sur l'organisation de mon travail.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    augmentation:{
+      conseil:"Appuyez-vous sur des faits : résultats, missions nouvelles, ancienneté. Le salaire actuel et le salaire souhaité rendent la demande concrète.",
+      fields:[["poste", "Votre poste", "text", "Ex. Chargé de clientèle"], ["actuel", "Salaire actuel (brut mensuel, €)", "text", "Ex. 2 300"], ["souhait", "Salaire souhaité (brut mensuel, €)", "text", "Ex. 2 500"], ["arguments", "Vos arguments", "textarea", "Ex. responsabilités nouvelles depuis janvier, objectifs dépassés"]],
+      build:function(v){return "Objet : Demande de révision de ma rémunération\n\nMadame, Monsieur,\n\nJ'occupe le poste de "+(v.poste||"[poste]")+" avec une rémunération brute mensuelle de "+(v.actuel||"[salaire actuel]")+" euros.\n\nCompte tenu de l'évolution de mes missions et de mes résultats :\n"+(v.arguments||"[vos arguments]")+"\n\nJe sollicite une révision de ma rémunération à "+(v.souhait||"[salaire souhaité]")+" euros bruts par mois.\n\nJe souhaiterais en discuter lors d'un entretien.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    impaye:{
+      conseil:"Joignez vos bulletins de paie et le contrat. Si l'employeur ne régularise pas, vous pouvez le relancer en recommandé, contacter l'inspection du travail ou saisir le conseil de prud'hommes.",
+      fields:[["periode", "Période ou mois concernés", "text", "Ex. salaire de septembre 2026"], ["montant", "Montant dû (€)", "text", "Ex. 2 150"]],
+      build:function(v){return "Objet : Réclamation de salaire impayé\n\nMadame, Monsieur,\n\nÀ ce jour, je n'ai pas reçu le paiement de ma rémunération pour la période suivante : "+(v.periode||"[période]")+".\n\nLe montant dû s'élève à "+(v.montant?v.montant+" euros":"[montant]")+". Je vous demande de procéder à son règlement dans un délai de huit jours à réception de la présente.\n\nÀ défaut, je me réserverai la possibilité de faire valoir mes droits par les voies appropriées.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    prime:{
+      conseil:"Appuyez-vous sur le contrat, un avenant, un accord d'entreprise ou la convention collective qui prévoit la prime, et joignez-les. Précisez le calcul.",
+      fields:[["prime", "Nature de la prime ou commission", "text", "Ex. prime d'objectifs du 3e trimestre"], ["base", "Texte qui la prévoit", "text", "Ex. article 6 de mon contrat de travail"], ["montant", "Montant réclamé (€)", "text", "Ex. 800"]],
+      build:function(v){return "Objet : Réclamation de prime\n\nMadame, Monsieur,\n\nJe constate que la prime suivante ne m'a pas été versée : "+(v.prime||"[prime]")+".\n\nElle est prévue par "+(v.base||"[texte de référence]")+". Son montant s'élève à "+(v.montant?v.montant+" euros":"[montant]")+".\n\nJe vous demande de bien vouloir régulariser ma situation dans les meilleurs délais.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    bulletins:{
+      conseil:"Cette demande est utile pour un dossier de location, de prêt ou de chômage. Indiquez précisément les mois manquants.",
+      fields:[["mois", "Mois ou période manquants", "text", "Ex. de janvier à mars 2026"]],
+      build:function(v){return "Objet : Demande de duplicata de bulletins de paie\n\nMadame, Monsieur,\n\nJe vous prie de bien vouloir me remettre un duplicata de mes bulletins de paie pour la période suivante : "+(v.mois||"[période]")+".\n\nJe vous remercie de me les transmettre par courrier ou par voie électronique.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    arret:{
+      conseil:"Le volet de l'arrêt destiné à l'employeur doit lui être transmis rapidement, en général dans les 48 heures. Le volet destiné à la Sécurité sociale part de votre côté vers votre caisse.",
+      fields:[["debut", "Premier jour d'arrêt", "date", ""], ["finc", "Dernier jour d'arrêt", "date", ""], ["prolong", "S'agit-il d'une prolongation ? (oui ou non)", "text", "Ex. non"]],
+      build:function(v){return "Objet : Transmission d'un arrêt de travail\n\nMadame, Monsieur,\n\nJe vous prie de trouver ci-joint le volet de mon arrêt de travail pour la période du "+(v.debut||"[date de début]")+" au "+(v.finc||"[date de fin]")+" inclus"+(/^o/i.test(v.prolong||"")?" (prolongation)":"")+".\n\nJe reste joignable pour toute question relative à la continuité de mon activité.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    avertissement:{
+      conseil:"Décrivez les faits et vos arguments calmement, sans attaque. Joignez les pièces utiles (courriels, témoignages). Conservez le courrier de l'employeur et la preuve d'envoi de votre réponse.",
+      fields:[["date", "Date de l'avertissement", "date", ""], ["motif", "Faits reprochés selon l'employeur", "textarea", "Ex. retard répété"], ["reponse", "Votre version des faits", "textarea", "Ex. changement d'horaires non communiqué"]],
+      build:function(v){return "Objet : Contestation de l'avertissement du "+(v.date||"[date]")+"\n\nMadame, Monsieur,\n\nPar courrier du "+(v.date||"[date]")+", vous m'avez notifié un avertissement. Il m'est reproché : "+(v.motif||"[faits reprochés]")+"\n\nJe conteste cette sanction pour les raisons suivantes :\n"+(v.reponse||"[votre version des faits]")+"\n\nJe vous demande de bien vouloir réexaminer cette décision et d'en tirer les conséquences.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    essai:{
+      conseil:"Le délai de prévenance minimal est de 24 heures si vous avez moins de 8 jours de présence, et de 48 heures à partir de 8 jours de présence. Remettez la lettre en main propre contre décharge ou envoyez-la en recommandé, car la date compte.",
+      fields:[["poste", "Votre poste", "text", "Ex. Technicien"], ["embauche", "Date de début de contrat", "date", ""]],
+      build:function(v){return "Objet : Rupture de la période d'essai\n\nMadame, Monsieur,\n\nEmbauché(e) le "+(v.embauche||"[date d'embauche]")+" au poste de "+(v.poste||"[poste]")+", je vous informe de ma décision de mettre fin à ma période d'essai.\n\nJe respecterai le délai de prévenance applicable.\n\nJe vous remercie de me remettre mon certificat de travail, mon attestation destinée à France Travail et mon solde de tout compte.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    paternite:{
+      conseil:"Vérifiez les délais de prévenance et le fractionnement applicables dans notre guide et auprès de votre employeur, puis envoyez la lettre en recommandé ou contre décharge. Joignez un justificatif si on vous le demande.",
+      fields:[["naissance", "Date prévue ou date de naissance", "date", ""], ["debut", "Premier jour de congé souhaité", "date", ""], ["finc", "Dernier jour de congé souhaité", "date", ""]],
+      build:function(v){return "Objet : Congé de paternité et d'accueil de l'enfant\n\nMadame, Monsieur,\n\nJe vous informe de la naissance (ou de la naissance prévue) de mon enfant le "+(v.naissance||"[date]")+".\n\nJe souhaite prendre mon congé de paternité et d'accueil de l'enfant du "+(v.debut||"[date de début]")+" au "+(v.finc||"[date de fin]")+" inclus.\n\nJe reste à votre disposition pour tout justificatif et pour organiser mon absence.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    maternite:{
+      conseil:"Prévenez votre employeur par écrit en précisant la date prévue de l'accouchement et la date de début du congé. Conservez la preuve d'envoi. Le détail des durées et des indemnités est dans notre guide du congé maternité.",
+      fields:[["accouchement", "Date présumée de l'accouchement", "date", ""], ["debut", "Date de début de congé", "date", ""]],
+      build:function(v){return "Objet : Congé de maternité\n\nMadame, Monsieur,\n\nJe vous informe que la date présumée de mon accouchement est fixée au "+(v.accouchement||"[date]")+".\n\nJe souhaite débuter mon congé de maternité le "+(v.debut||"[date de début]")+". Je vous remettrai tout justificatif nécessaire.\n\nJe reste disponible pour organiser la transmission de mes dossiers avant mon départ.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    attestation:{
+      conseil:"Cette attestation sert pour un dossier de location, de prêt ou d'administration. Indiquez à quoi elle sert et les mentions voulues (poste, ancienneté, type de contrat).",
+      fields:[["poste", "Votre poste", "text", "Ex. Cuisinier"], ["mentions", "Mentions souhaitées", "text", "Ex. poste, date d'entrée, type de contrat, salaire"], ["usage", "Usage (facultatif)", "text", "Ex. dossier de location"]],
+      build:function(v){return "Objet : Demande d'attestation employeur\n\nMadame, Monsieur,\n\nJe vous prie de bien vouloir me remettre une attestation employeur indiquant : "+(v.mentions||"[mentions]")+""+(v.usage?", destinée à "+v.usage:"")+".\n\nJe vous remercie de me la transmettre dans les meilleurs délais.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    frais:{
+      conseil:"Joignez les justificatifs (factures, tickets, relevés kilométriques) et précisez le texte qui prévoit le remboursement : contrat, note de frais interne ou convention collective.",
+      fields:[["frais", "Nature des frais", "text", "Ex. déplacements chez des clients, mars à mai"], ["montant", "Montant total (€)", "text", "Ex. 215"]],
+      build:function(v){return "Objet : Demande de remboursement de frais professionnels\n\nMadame, Monsieur,\n\nDans le cadre de mes fonctions, j'ai engagé les frais suivants : "+(v.frais||"[nature des frais]")+", pour un montant total de "+(v.montant?v.montant+" euros":"[montant]")+".\n\nVous trouverez ci-joint les justificatifs. Je vous demande de bien vouloir procéder à leur remboursement.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    reportentretien:{
+      conseil:"La loi impose un délai minimum de cinq jours ouvrables entre la présentation de la lettre de convocation et l'entretien préalable. L'employeur n'est pas obligé d'accepter un report, mais il est d'usage de le proposer. Vous pouvez vous faire assister par un salarié de l'entreprise ou, en l'absence de représentants du personnel, par un conseiller du salarié.",
+      fields:[["recu","Date de réception de la convocation","date",""],["entretien","Date de l'entretien prévu","date",""],["motifrep","Raison de la demande de report","textarea","Ex. je ne peux pas me rendre disponible à cette date ; je souhaite me faire assister et préparer mon entretien"],["dates","Dates que vous proposez (facultatif)","text","Ex. entre le 10 et le 14 novembre"]],
+      build:function(v){return "Objet : Demande de report de l'entretien préalable\n\nMadame, Monsieur,\n\nJ'ai reçu le "+(v.recu||"[date]")+" votre convocation à un entretien préalable fixé au "+(v.entretien||"[date]")+".\n\nJe vous demande de bien vouloir reporter cet entretien : "+(v.motifrep||"[raison]")+".\n\nJe vous rappelle que la loi prévoit un délai minimum de cinq jours ouvrables entre la présentation de la lettre de convocation et l'entretien (article L. 1232-2 du Code du travail), afin de permettre au salarié de préparer sa défense et de se faire assister."+(v.dates?"\n\nJe suis disponible aux dates suivantes : "+v.dates+".":"")+"\n\nJe vous remercie de me confirmer par écrit la nouvelle date.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    motifs:{
+      conseil:"Vous disposez de quinze jours après la notification du licenciement pour demander des précisions, par lettre recommandée avec avis de réception ou remise contre récépissé. L'employeur a ensuite quinze jours pour répondre. Cette demande ne prolonge pas le délai pour contester le licenciement devant les prud'hommes.",
+      fields:[["notif","Date de réception de la lettre de licenciement","date",""],["points","Motifs ou points à préciser","textarea","Ex. vous évoquez une insuffisance professionnelle : quels faits, quelles dates, quels objectifs non atteints ?"]],
+      build:function(v){return "Objet : Demande de précision des motifs de mon licenciement\n\nMadame, Monsieur,\n\nJ'ai reçu le "+(v.notif||"[date]")+" la lettre de licenciement que vous m'avez notifiée.\n\nConformément à l'article R. 1232-13 du Code du travail, je vous demande de bien vouloir me préciser les motifs énoncés dans cette lettre, notamment : "+(v.points||"[points à préciser]")+".\n\nJe vous remercie de me répondre par écrit dans le délai de quinze jours prévu par ce même article.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    demissionlegitime:{
+      conseil:"France Travail apprécie lui-même si la démission est légitime. Certains motifs sont prévus par les règles d'assurance chômage, par exemple suivre son conjoint qui change de lieu de résidence pour son travail, ou des salaires impayés. Conservez les justificatifs (attestation de mutation, bulletins de paie, courriers) et joignez-les à votre dossier.",
+      fields:[["poste","Votre poste","text","Ex. Assistante commerciale"],["duree","Durée du préavis","text","Ex. un mois"],["motif","Motif de la démission","textarea","Ex. mon conjoint est muté à Lyon à compter du 1er janvier ; mes salaires de septembre et octobre n'ont pas été versés"]],
+      build:function(v){return "Objet : Démission\n\nMadame, Monsieur,\n\nPar la présente, je vous informe de ma décision de démissionner du poste de "+(v.poste||"[poste]")+" que j'occupe au sein de votre entreprise.\n\nCette démission est motivée par les circonstances suivantes : "+(v.motif||"[motif]")+".\n\nJe respecterai le préavis de "+(v.duree||"[durée]")+" prévu par mon contrat de travail ou la convention collective applicable, qui débutera à la date de première présentation de cette lettre.\n\nJe vous précise que ces circonstances pourront être invoquées auprès de France Travail pour faire reconnaître le caractère légitime de ma démission. Je vous remercie de bien vouloir me remettre, à l'issue de mon contrat, mon certificat de travail, mon attestation destinée à France Travail et mon solde de tout compte.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    reembauche:{
+      conseil:"Après un licenciement pour motif économique, vous bénéficiez d'une priorité de réembauche pendant un an à partir de la fin de votre contrat, à condition d'en faire la demande pendant ce délai. L'employeur doit alors vous informer de tout poste disponible compatible avec votre qualification.",
+      fields:[["poste","Poste occupé","text","Ex. Comptable"],["rupture","Date de fin de votre contrat","date",""],["quali","Qualifications ou postes recherchés","textarea","Ex. poste de comptable ou d'assistant comptable"]],
+      build:function(v){return "Objet : Demande de bénéficier de la priorité de réembauche\n\nMadame, Monsieur,\n\nJ'ai été licencié(e) pour motif économique de mon poste de "+(v.poste||"[poste]")+", mon contrat ayant pris fin le "+(v.rupture||"[date]")+".\n\nConformément à l'article L. 1233-45 du Code du travail, je vous demande de bénéficier de la priorité de réembauche pendant un délai d'un an à compter de la rupture de mon contrat.\n\nMes qualifications et les postes que je recherche : "+(v.quali||"[qualifications]")+".\n\nJe vous demande de bien vouloir m'informer de tout emploi disponible compatible avec ma qualification.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    miseendemeure:{
+      conseil:"Avant de saisir le conseil de prud'hommes, une mise en demeure envoyée en recommandé prouve que vous avez réclamé les sommes. Joignez vos bulletins de paie, votre contrat et un décompte. Les salaires se prescrivent par trois ans.",
+      fields:[["sommes","Sommes réclamées (détail)","textarea","Ex. salaire de septembre 2026 : 2 100 € ; prime d'objectifs de juin : 500 €"],["total","Montant total (€)","text","Ex. 2 600"],["avant","Précédentes demandes (facultatif)","text","Ex. mails des 3 et 17 octobre 2026"]],
+      build:function(v){return "Objet : Mise en demeure de payer\n\nMadame, Monsieur,\n\nÀ ce jour, les sommes suivantes ne m'ont pas été versées : "+(v.sommes||"[détail des sommes]")+", soit un total de "+(v.total||"[montant]")+" euros."+(v.avant?"\n\nJe vous les ai déjà réclamées : "+v.avant+".":"")+"\n\nPar la présente, je vous mets en demeure de me régler cette somme dans un délai de huit jours à compter de la réception de ce courrier.\n\nÀ défaut, je saisirai le conseil de prud'hommes afin d'obtenir le paiement de ces sommes.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    indcp:{
+      conseil:"Si votre contrat prend fin avant que vous ayez pu prendre tous vos congés, l'employeur doit vous verser une indemnité compensatrice. Elle est calculée selon la règle la plus favorable : maintien de salaire ou dixième de la rémunération perçue. Vérifiez le nombre de jours sur votre dernier bulletin de paie.",
+      fields:[["fin","Date de fin de contrat","date",""],["jours","Nombre de jours de congés non pris","text","Ex. 12"]],
+      build:function(v){return "Objet : Demande de paiement de l'indemnité compensatrice de congés payés\n\nMadame, Monsieur,\n\nMon contrat de travail a pris fin le "+(v.fin||"[date]")+". À cette date, il me restait "+(v.jours||"[nombre]")+" jours de congés payés acquis et non pris.\n\nJe vous demande de bien vouloir me verser l'indemnité compensatrice correspondante, calculée selon la règle la plus favorable (maintien de salaire ou dixième de la rémunération brute), et de me faire parvenir le détail de son calcul.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    tpt:{
+      conseil:"Le temps partiel thérapeutique est prescrit par votre médecin, puis suppose l'accord de l'employeur et de l'Assurance maladie pour les indemnités journalières. Prévenez aussi le médecin du travail. Joignez le certificat de votre médecin à cette lettre.",
+      fields:[["debut","Date de début souhaitée","date",""],["quotite","Temps de travail prescrit","text","Ex. 50 % (deux jours et demi par semaine)"],["duree","Durée prévue","text","Ex. trois mois, renouvelable"]],
+      build:function(v){return "Objet : Reprise du travail à temps partiel thérapeutique\n\nMadame, Monsieur,\n\nMon médecin m'a prescrit une reprise du travail à temps partiel thérapeutique à compter du "+(v.debut||"[date]")+", à raison de "+(v.quotite||"[temps de travail]")+", pour une durée de "+(v.duree||"[durée]")+".\n\nVous trouverez ci-joint le certificat médical correspondant. Je vous demande de bien vouloir donner votre accord et de me proposer les modalités pratiques (jours et horaires de présence), en lien avec le médecin du travail.\n\nJe reste à votre disposition pour en discuter rapidement.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    amenagement:{
+      conseil:"Après un avis du médecin du travail, l'employeur est tenu de prendre en considération ses propositions. S'il les refuse, il doit en indiquer les motifs par écrit au salarié et au médecin du travail (article L. 4624-6 du Code du travail). Joignez l'avis du médecin.",
+      fields:[["poste","Votre poste","text","Ex. Aide-soignante"],["avis","Date de l'avis du médecin du travail (facultatif)","date",""],["mesures","Aménagements demandés ou préconisés","textarea","Ex. éviter le port de charges de plus de 5 kg ; poste assis ; horaires fixes"]],
+      build:function(v){return "Objet : Demande d'aménagement de mon poste de travail\n\nMadame, Monsieur,\n\nJ'occupe le poste de "+(v.poste||"[poste]")+"."+(v.avis?" Dans son avis du "+v.avis+", le médecin du travail a émis des propositions d'adaptation de mon poste.":"")+" Je vous demande de mettre en place les aménagements suivants : "+(v.mesures||"[aménagements]")+".\n\nConformément à l'article L. 4624-6 du Code du travail, l'employeur est tenu de prendre en considération les propositions du médecin du travail et, en cas de refus, d'en faire connaître les motifs par écrit au salarié et au médecin du travail.\n\nJe vous remercie de me faire connaître votre réponse par écrit dans les meilleurs délais.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    harcelement:{
+      conseil:"Décrivez des faits précis, datés, sans interprétation. Conservez les preuves (mails, messages, témoignages, certificats médicaux). L'employeur doit prendre toutes les mesures nécessaires pour prévenir ces agissements. Vous pouvez aussi saisir le médecin du travail, les représentants du personnel, l'inspection du travail ou un avocat.",
+      fields:[["faits","Faits (dates, lieux, personnes concernées)","textarea","Ex. le 3 octobre, en réunion, M. X m'a insultée devant l'équipe ; le 10 octobre, il m'a retiré mes dossiers sans explication"],["effets","Conséquences sur votre santé ou votre travail (facultatif)","textarea","Ex. arrêt de travail du 15 au 30 octobre ; troubles du sommeil"]],
+      build:function(v){return "Objet : Signalement de faits susceptibles de relever du harcèlement moral\n\nMadame, Monsieur,\n\nJe vous alerte sur des faits que je subis dans le cadre de mon travail : "+(v.faits||"[faits]")+"."+(v.effets?"\n\nCes faits ont des conséquences sur ma santé et mon travail : "+v.effets+".":"")+"\n\nJe considère que ces faits sont susceptibles de relever du harcèlement moral au sens des articles L. 1152-1 et suivants du Code du travail. Conformément à l'article L. 1152-4, l'employeur doit prendre toutes les dispositions nécessaires pour prévenir ces agissements.\n\nJe vous demande d'ouvrir sans délai une enquête et de m'informer par écrit des mesures que vous prendrez pour y mettre fin.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    },
+    copiecontrat:{
+      conseil:"Utile si vous avez perdu votre contrat ou si on vous a promis une modification (salaire, horaires) qui n'a pas été formalisée.",
+      fields:[["document", "Document demandé", "text", "Ex. mon contrat de travail et ses avenants"]],
+      build:function(v){return "Objet : Demande de copie de document\n\nMadame, Monsieur,\n\nJe vous prie de bien vouloir me remettre une copie de "+(v.document||"[document]")+".\n\nJe vous remercie de me le transmettre par courrier ou par voie électronique.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.";}
+    }
+  };
+  function fr(d){ if(!d||d.indexOf("-")<0) return d; var p=d.split("-"); return p[2]+"/"+p[1]+"/"+p[0]; }
+  var sel=document.getElementById("type"), box=document.getElementById("champs"), out=document.getElementById("lettre"), tip=document.getElementById("conseil");
+  var vals={};
+  var MEMK="sd-lettres-v1", memOn=false;
+  function memLoad(){try{var r=localStorage.getItem(MEMK);if(r){var o=JSON.parse(r);if(o&&o.on){memOn=true;Object.keys(o.v||{}).forEach(function(k){vals[k]=o.v[k];});}}}catch(e){}}
+  function memSave(){try{if(memOn)localStorage.setItem(MEMK,JSON.stringify({on:true,v:vals}));else localStorage.removeItem(MEMK);}catch(e){}}
+  memLoad();
+  function field(f){
+    var id="f_"+f[0], wrap=document.createElement("div"); wrap.className="field";
+    var l=document.createElement("label"); l.setAttribute("for",id); l.textContent=f[1];
+    var i;
+    if(f[2]==="select"){ i=document.createElement("select"); [["rar","Lettre recommandée avec accusé de réception"],["main","Remise en main propre contre décharge"],["none","Sans mention"]].forEach(function(o){var op=document.createElement("option"); op.value=o[0]; op.textContent=o[1]; i.appendChild(op);}); }
+    else if(f[2]==="textarea"){ i=document.createElement("textarea"); i.rows=3; }
+    else { i=document.createElement("input"); i.type=f[2]; }
+    if(f[0]==="dateLettre"&&!vals.dateLettre) vals.dateLettre=new Date().toISOString().slice(0,10);
+    if(f[0]==="envoi"&&!vals.envoi) vals.envoi="rar";
+    i.id=id; if(f[2]!=="select") i.placeholder=f[3]||""; i.value=vals[f[0]]||"";
+    i.addEventListener("change",function(){vals[f[0]]=i.value;render();});
+    i.addEventListener("input",function(){vals[f[0]]=i.value;render();});
+    wrap.appendChild(l); wrap.appendChild(i); return wrap;
+  }
+  var ENVOI={rar:"Lettre recommandée avec accusé de réception",main:"Remise en main propre contre décharge",none:""};
+  function lines(x){ return (x||"").split("\n"); }
+  function parts(){
+    var t=TYPES[sel.value], v={}; Object.keys(vals).forEach(function(k){v[k]=vals[k];});
+    Object.keys(v).forEach(function(k){ if(/^\d{4}-\d{2}-\d{2}$/.test(v[k]||"")) v[k]=fr(v[k]); });
+    var d=v.dateLettre||new Date().toLocaleDateString("fr-FR");
+    var body=t.build(v), m=body.match(/^Objet : ([^\n]*)\n\n([\s\S]*)$/);
+    return {
+      sender:[v.nom||"[Vos prénom et nom]", v.adresse||"[Votre adresse]"],
+      rec:[v.employeur||"[Employeur]"].concat(v.dest?[v.dest]:[]).concat([v.adrEmp||"[Adresse de l'employeur]"]),
+      place:"Fait à "+(v.ville||"[Ville]")+", le "+d,
+      envoi:ENVOI[v.envoi||"rar"],
+      objet:m?m[1]:"", text:m?m[2]:body,
+      sign:v.nom||"[Votre prénom et nom]"
+    };
+  }
+  function plain(p){
+    return p.sender.join("\n")+"\n\n"+p.rec.join("\n")+"\n\n"+p.place+"\n\n"+(p.envoi?p.envoi+"\n\n":"")+"Objet : "+p.objet+"\n\n"+p.text+"\n\n"+p.sign+"\n(signature)";
+  }
+  function el(tag,css,txt){ var e=document.createElement(tag); if(css) e.style.cssText=css; if(txt!=null) e.textContent=txt; return e; }
+  function html(p){
+    var w=el("div","font-family:Georgia,'Times New Roman',serif;font-size:14px;line-height:1.6;color:#111");
+    var s=el("div","margin-bottom:28px"); p.sender.forEach(function(l,i){s.appendChild(el("div",i===0?"font-weight:bold":"",l));}); w.appendChild(s);
+    var r=el("div","margin:0 0 24px 45%"); p.rec.forEach(function(l,i){r.appendChild(el("div",i===0?"font-weight:bold":"",l));}); w.appendChild(r);
+    w.appendChild(el("div","margin:0 0 20px 45%",p.place));
+    if(p.envoi) w.appendChild(el("div","margin:0 0 14px;font-weight:bold",p.envoi));
+    w.appendChild(el("div","margin:0 0 18px;font-weight:bold","Objet : "+p.objet));
+    w.appendChild(el("div","white-space:pre-wrap;margin-bottom:34px",p.text));
+    var g=el("div","margin-left:55%"); g.appendChild(el("div","",p.sign)); g.appendChild(el("div","color:#555;font-size:12px;margin-top:36px","(signature)")); w.appendChild(g);
+    return w;
+  }
+  var DELAI={
+    retractation:{f:"signature",kind:"days",n:15,t:"Dernier jour pour vous rétracter",w:"Délai de 15 jours calendaires à compter du lendemain de la signature. Si ce jour tombe un samedi, un dimanche ou un jour férié, il est prolongé jusqu'au premier jour ouvrable suivant. La lettre doit être reçue avant la fin du délai."},
+    solde:{f:"signe",kind:"months",n:6,t:"Date limite pour dénoncer le reçu",w:"Le reçu pour solde de tout compte peut être dénoncé dans les 6 mois suivant sa signature, par lettre recommandée."},
+    motifs:{f:"notif",kind:"days",n:15,t:"Date limite pour demander les motifs",w:"Vous disposez de quinze jours après la notification du licenciement pour demander des précisions."},
+    reembauche:{f:"rupture",kind:"months",n:12,t:"Fin de la priorité de réembauche",w:"La priorité de réembauche dure un an à compter de la fin du contrat : la demande doit être faite pendant ce délai."},
+    essai:{txt:"Délai de prévenance minimal : 24 heures avant 8 jours de présence, 48 heures à partir de 8 jours. La date de réception compte."},
+    reportentretien:{txt:"Au moins cinq jours ouvrables doivent séparer la présentation de la convocation et l'entretien préalable."},
+    demission:{txt:"La date de réception de la lettre fixe le début du préavis, dont la durée dépend de votre convention collective ou de votre contrat."},
+    arret:{txt:"Le volet de l'arrêt destiné à l'employeur doit lui être transmis rapidement, en général dans les 48 heures."}
+  };
+  function addDate(iso,kind,n){var d=new Date(iso+"T12:00:00");if(isNaN(d))return null;if(kind==="days")d.setDate(d.getDate()+n);else{var j=d.getDate();d.setDate(1);d.setMonth(d.getMonth()+n);var last=new Date(d.getFullYear(),d.getMonth()+1,0).getDate();d.setDate(Math.min(j,last));}return d;}
+  function delai(){
+    var box2=document.getElementById("delai"); if(!box2) return; var d=DELAI[sel.value]; box2.hidden=true; box2.innerHTML=""; if(!d) return;
+    var h="";
+    if(d.txt){ h="<strong>À savoir sur le délai :</strong> "+d.txt; }
+    else if(vals[d.f]&&/^\d{4}-\d{2}-\d{2}$/.test(vals[d.f])){ var e=addDate(vals[d.f],d.kind,d.n); if(e) h="<strong>"+d.t+" : "+e.toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long",year:"numeric"})+".</strong> "+d.w; }
+    else { h="<strong>Délai à respecter :</strong> "+d.w+" Renseignez la date ci-contre pour calculer la date limite."; }
+    box2.innerHTML=h; box2.hidden=false;
+    if(typeof e!=="undefined"&&e&&!d.txt&&h){
+      var bt=document.createElement("button"); bt.type="button"; bt.className="lt-ics"; bt.textContent="Ajouter un rappel à mon agenda (.ics)";
+      bt.addEventListener("click",function(){ics(e,d.t+" : "+sel.options[sel.selectedIndex].textContent,d.w);});
+      box2.appendChild(document.createElement("br")); box2.appendChild(bt);
+    }
+  }
+  function ics(dt,title,desc){
+    var z=function(n){return (n<10?"0":"")+n;}, ymd=function(x){return x.getFullYear()+z(x.getMonth()+1)+z(x.getDate());};
+    var nx=new Date(dt.getFullYear(),dt.getMonth(),dt.getDate()+1), esc=function(t){return String(t).replace(/\\/g,"\\\\").replace(/;/g,"\\;").replace(/,/g,"\\,").replace(/\n/g,"\\n");};
+    var now=new Date(), st=now.getUTCFullYear()+z(now.getUTCMonth()+1)+z(now.getUTCDate())+"T"+z(now.getUTCHours())+z(now.getUTCMinutes())+z(now.getUTCSeconds())+"Z";
+    function al(tr,tx){return ["BEGIN:VALARM","ACTION:DISPLAY","DESCRIPTION:"+esc(tx),"TRIGGER:"+tr,"END:VALARM"];}
+    var L=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//SimuDroit//Lettres//FR","CALSCALE:GREGORIAN","BEGIN:VEVENT","UID:"+Date.now()+"@simudroit.fr","DTSTAMP:"+st,"DTSTART;VALUE=DATE:"+ymd(dt),"DTEND;VALUE=DATE:"+ymd(nx),"SUMMARY:"+esc(title),"DESCRIPTION:"+esc(desc+" (Rappel indicatif généré par SimuDroit : vérifiez la date avec les textes applicables.)")]
+      .concat(al("-P6DT15H","Dans 7 jours : "+title),al("-PT15H","Demain : "+title),al("PT9H","Aujourd'hui : "+title),["END:VEVENT","END:VCALENDAR"]);
+    saveBlob(new Blob([L.join("\r\n")+"\r\n"],{type:"text/calendar;charset=utf-8"}),"rappel-"+sel.value+".ics");
+  }
+  var ENVH={
+    rar:["Lettre recommandée avec accusé de réception","Conservez le récépissé de dépôt et l'avis de réception : ils prouvent la date d'envoi et de réception. Gardez une copie de la lettre et des pièces jointes."],
+    main:["Remise en main propre contre décharge","Faites deux exemplaires et demandez à votre interlocuteur de dater et signer le vôtre avec la mention « reçu en main propre ». Gardez-le : c'est votre preuve."],
+    none:["Sans mention particulière","Sans preuve de date, vous aurez du mal à établir l'envoi en cas de désaccord. Pour un courrier important, préférez le recommandé ou la remise contre décharge."]
+  };
+  function envoi(){
+    var b=document.getElementById("envoihelp"); if(!b) return; var k=vals.envoi||"rar", e=ENVH[k]||ENVH.rar;
+    b.innerHTML="<strong>Mode d'envoi : "+e[0]+"</strong>"+e[1]+" L'e-mail peut convenir si le contrat, l'accord de l'entreprise ou l'employeur le prévoit : conservez alors l'accusé de réception.";
+  }
+  var SUITE={demission:["documents","preavis","indcp"],rupco:["retractation","documents"],retractation:["rupco"],documents:["solde","indcp"],solde:["miseendemeure"],essai:["documents","indcp"],impaye:["miseendemeure"],reportentretien:["motifs"],motifs:["miseendemeure"],arret:["tpt"],tpt:["amenagement"],conges:["sanssolde"],preavis:["documents"],avertissement:["miseendemeure"]};
+  function suite(){
+    var b=document.getElementById("suite"); if(!b) return; var l=SUITE[sel.value]||[]; b.innerHTML=""; b.hidden=!l.length; if(!l.length) return;
+    var st=document.createElement("strong"); st.textContent="Lettres à envoyer ensuite (vos informations sont conservées)"; b.appendChild(st);
+    l.forEach(function(k){var o=sel.querySelector('option[value="'+k+'"]'); if(!o) return; var x=document.createElement("button"); x.type="button"; x.textContent=o.textContent; x.addEventListener("click",function(){sel.value=k;sel.dispatchEvent(new Event("change",{bubbles:true}));var f=document.getElementById("lettres-app");if(f)f.scrollIntoView({behavior:"smooth",block:"start"});}); b.appendChild(x);});
+  }
+  function render(){ delai(); envoi(); memSave(); var p=parts(); out.innerHTML=""; out.style.whiteSpace="normal"; out.appendChild(html(p)); out.setAttribute("data-plain",plain(p)); }
+  function draw(){
+    box.innerHTML=""; var t=TYPES[sel.value];
+    COMMON.concat(t.fields).forEach(function(f){box.appendChild(field(f));});
+    tip.innerHTML="<strong>Conseil :</strong> "+t.conseil; suite(); render();
+  }
+  try{var qt=(window.SD_TYPE||new URLSearchParams(location.search).get("type")||"").replace(/[^a-z]/g,"");if(qt&&sel.querySelector('option[value="'+qt+'"]'))sel.value=qt;}catch(e){}
+  (function(){var m=document.getElementById("mem"),c=document.getElementById("memclear");if(!m)return;m.checked=memOn;c.hidden=!memOn;
+    m.addEventListener("change",function(){memOn=m.checked;c.hidden=!memOn;memSave();});
+    c.addEventListener("click",function(){try{localStorage.removeItem(MEMK);}catch(e){}memOn=false;m.checked=false;c.hidden=true;vals={};draw();});})();
+  sel.addEventListener("change",draw); draw();
+  var btns=[].slice.call(document.querySelectorAll(".lt-card"));
+  function sync(){btns.forEach(function(b){b.setAttribute("aria-pressed",b.getAttribute("data-type")===sel.value?"true":"false")});}
+  btns.forEach(function(b){b.addEventListener("click",function(){sel.value=b.getAttribute("data-type");sel.dispatchEvent(new Event("change",{bubbles:true}));var f=document.getElementById("lettres-app");if(f&&window.matchMedia("(max-width:979px)").matches)f.scrollIntoView({behavior:"smooth",block:"start"});});});
+  sel.addEventListener("change",sync); sync();
+  (function(){
+    var q=document.getElementById("lt-q"),chips=document.querySelector(".lt-chips"),grps=[].slice.call(document.querySelectorAll(".lt-grp")),empty=document.getElementById("lt-empty"),cur="";
+    function norm(t){return (t||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");}
+    var all=document.createElement("button");all.type="button";all.className="lt-chip";all.textContent="Toutes";all.setAttribute("aria-pressed","true");all.setAttribute("data-g","");chips.appendChild(all);
+    grps.forEach(function(g,i){g.setAttribute("data-g","g"+i);var b=document.createElement("button");b.type="button";b.className="lt-chip";b.setAttribute("data-g","g"+i);b.setAttribute("aria-pressed","false");b.textContent=g.querySelector(".lt-grp-t").textContent;chips.appendChild(b);});
+    function apply(){var t=norm(q.value),any=false;grps.forEach(function(g){var show=0;[].slice.call(g.querySelectorAll(".lt-card")).forEach(function(c){var ok=(!t||norm(c.textContent).indexOf(t)>-1);c.hidden=!ok;if(ok)show++;});var gok=show>0&&(!cur||g.getAttribute("data-g")===cur);g.hidden=!gok;if(gok)any=true;});empty.hidden=any;}
+    chips.addEventListener("click",function(e){var b=e.target.closest(".lt-chip");if(!b)return;cur=b.getAttribute("data-g");[].slice.call(chips.children).forEach(function(c){c.setAttribute("aria-pressed",c===b?"true":"false");});apply();});
+    q.addEventListener("input",apply);
+  })();
+
+  if(qt){setTimeout(function(){var f=document.getElementById("lettres-app");if(f)f.scrollIntoView({block:"start"});},60);}
+
+  document.getElementById("copier").addEventListener("click",function(){
+    var b=this, txt=out.getAttribute("data-plain")||out.textContent;
+    function ok(r){b.textContent=r?"Lettre copiée":"Copie impossible"; setTimeout(function(){b.textContent="Copier la lettre";},2200);}
+    if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(function(){ok(true);},function(){ok(false);});
+    else { var ta=document.createElement("textarea"); ta.value=txt; document.body.appendChild(ta); ta.select(); var r=false; try{r=document.execCommand("copy");}catch(e){} ta.remove(); ok(r); }
+  });
+  document.getElementById("imprimer").addEventListener("click",function(){
+    var old=document.getElementById("sd-print"); if(old) old.remove();
+    var d=document.createElement("div"); d.id="sd-print"; d.className="letter"; d.appendChild(html(parts()));
+    document.body.appendChild(d); window.print();
+  });
+  function saveBlob(blob,name){var a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(a.href);},2000);}
+  function blocks(p){
+    var b=[{l:[p.sender[0]].concat(p.sender.slice(1)),b0:true},{l:p.rec,b0:true,ind:4800},{l:[p.place],ind:4800}];
+    if(p.envoi) b.push({l:[p.envoi],b0:true});
+    b.push({l:["Objet : "+p.objet],b0:true});
+    p.text.split("\n\n").forEach(function(x){b.push({l:x.split("\n")});});
+    b.push({l:[p.sign,"","(signature)"],ind:5600});
+    return b;
+  }
+  var CT=(function(){var t=[],c,n,k;for(n=0;n<256;n++){c=n;for(k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0;}return t;})();
+  function crc(u){var c=0xFFFFFFFF;for(var i=0;i<u.length;i++)c=CT[(c^u[i])&255]^(c>>>8);return (c^0xFFFFFFFF)>>>0;}
+  function zip(files){
+    var enc=new TextEncoder(),parts=[],cd=[],off=0;
+    function u16(v){return [v&255,(v>>8)&255];} function u32(v){return [v&255,(v>>8)&255,(v>>16)&255,(v>>>24)&255];}
+    files.forEach(function(f){
+      var nm=enc.encode(f[0]),d=enc.encode(f[1]),c=crc(d);
+      var h=[].concat(u32(0x04034b50),u16(20),u16(0x0800),u16(0),u16(0),u16(0x21),u32(c),u32(d.length),u32(d.length),u16(nm.length),u16(0));
+      parts.push(new Uint8Array(h),nm,d);
+      cd.push(new Uint8Array([].concat(u32(0x02014b50),u16(20),u16(20),u16(0x0800),u16(0),u16(0),u16(0x21),u32(c),u32(d.length),u32(d.length),u16(nm.length),u16(0),u16(0),u16(0),u16(0),u32(0),u32(off))),nm);
+      off+=h.length+nm.length+d.length;
+    });
+    var cs=0;cd.forEach(function(x){cs+=x.length;});
+    parts=parts.concat(cd);
+    parts.push(new Uint8Array([].concat(u32(0x06054b50),u16(0),u16(0),u16(files.length),u16(files.length),u32(cs),u32(off),u16(0))));
+    return new Blob(parts,{type:"application/vnd.openxmlformats-officedocument.wordprocessingml.document"});
+  }
+  function mkDocx(){
+    var p=parts(), x=function(t){return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");};
+    var body=blocks(p).map(function(bl){
+      var runs=bl.l.map(function(t,i){return (i?'<w:r><w:br/></w:r>':'')+'<w:r><w:rPr>'+((bl.b0&&i===0)?'<w:b/>':'')+'</w:rPr><w:t xml:space="preserve">'+x(t)+'</w:t></w:r>';}).join("");
+      return '<w:p><w:pPr><w:spacing w:after="200" w:line="300" w:lineRule="auto"/>'+(bl.ind?'<w:ind w:left="'+bl.ind+'"/>':'')+'</w:pPr>'+runs+'</w:p>';
+    }).join("");
+    var NS='xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"';
+    var H='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
+    var doc=H+'<w:document '+NS+'><w:body>'+body+'<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1417" w:right="1417" w:bottom="1417" w:left="1417" w:header="708" w:footer="708" w:gutter="0"/></w:sectPr></w:body></w:document>';
+    var sty=H+'<w:styles '+NS+'><w:docDefaults><w:rPrDefault><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/><w:sz w:val="24"/><w:lang w:val="fr-FR"/></w:rPr></w:rPrDefault></w:docDefaults></w:styles>';
+    var ct=H+'<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/><Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/></Types>';
+    var rels=H+'<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>';
+    var drels=H+'<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>';
+    return zip([["[Content_Types].xml",ct],["_rels/.rels",rels],["word/document.xml",doc],["word/styles.xml",sty],["word/_rels/document.xml.rels",drels]]);
+  }
+  document.getElementById("word").addEventListener("click",function(){saveBlob(mkDocx(),"lettre-"+sel.value+".docx");});
+  var shareB=document.getElementById("partager");
+  try{var tf=new File([""],"t.docx",{type:"application/vnd.openxmlformats-officedocument.wordprocessingml.document"}); if(shareB&&navigator.canShare&&navigator.canShare({files:[tf]})) shareB.hidden=false;}catch(e){}
+  if(shareB) shareB.addEventListener("click",function(){
+    var f=new File([mkDocx()],"lettre-"+sel.value+".docx",{type:"application/vnd.openxmlformats-officedocument.wordprocessingml.document"});
+    navigator.share({files:[f],title:"Lettre"}).catch(function(){});
+  });
+  document.getElementById("mail").addEventListener("click",function(){
+    var p=parts(), t=plain(p); if(t.length>1700) t=t.slice(0,1700)+"\n[Suite à coller depuis la lettre]";
+    location.href="mailto:?subject="+encodeURIComponent(p.objet)+"&body="+encodeURIComponent(t);
+  });
+  document.getElementById("rtf").addEventListener("click",function(){
+    var p=parts();
+    var e=function(t){var o="";for(var i=0;i<t.length;i++){var c=t.charCodeAt(i);if(c===92||c===123||c===125)o+="\\"+t[i];else if(c>126){o+="\\u"+(c>32767?c-65536:c)+"?";}else o+=t[i];}return o;};
+    var r="{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0 Times New Roman;}}\\paperw11906\\paperh16838\\margl1417\\margr1417\\margt1417\\margb1417\\f0\\fs24\\lang1036\n";
+    blocks(p).forEach(function(bl){
+      r+="\\pard\\sa200"+(bl.ind?"\\li"+bl.ind:"")+" "+bl.l.map(function(t,i){return (bl.b0&&i===0)?"{\\b "+e(t)+"}":e(t);}).join("\\line\n")+"\\par\n";
+    });
+    r+="}";
+    saveBlob(new Blob([r],{type:"application/rtf"}),"lettre-"+sel.value+".rtf");
+  });
+  window.addEventListener("afterprint",function(){var p=document.getElementById("sd-print"); if(p) p.remove();});
+})();
+</script>
+
 </article>
 </main>
 <nav class="sd-explore" aria-label="Toutes les rubriques"><strong>Explorer toutes les rubriques</strong><div><a href="https://simudroit.fr/simulateurs/" style="--c:#4f46e5"><i class="sdi sdi-calc" aria-hidden="true"></i>Simulateurs</a><a href="https://simudroit.fr/guides/" style="--c:#0e7490"><i class="sdi sdi-book" aria-hidden="true"></i>Guides</a><a href="https://simudroit.fr/aides/" style="--c:#0f766e"><i class="sdi sdi-heart" aria-hidden="true"></i>Aides</a><a href="https://simudroit.fr/fiches-revision/" style="--c:#7c3aed"><i class="sdi sdi-notes" aria-hidden="true"></i>Fiches de révision</a><a href="https://simudroit.fr/metiers/" style="--c:#b5530f"><i class="sdi sdi-user" aria-hidden="true"></i>Mon métier</a><a href="https://simudroit.fr/metiers/creer-son-entreprise-batiment/" style="--c:#c2410c"><i class="sdi sdi-hardhat" aria-hidden="true"></i>Créer son entreprise (bâtiment)</a><a href="https://simudroit.fr/independants/" style="--c:#1d4ed8"><i class="sdi sdi-briefcase" aria-hidden="true"></i>Indépendants</a><a href="https://simudroit.fr/retraite/" style="--c:#be185d"><i class="sdi sdi-sun" aria-hidden="true"></i>Retraite</a><a href="https://simudroit.fr/reconversion/" style="--c:#15803d"><i class="sdi sdi-refresh" aria-hidden="true"></i>Reconversion</a><a href="https://simudroit.fr/salaires/" style="--c:#a16207"><i class="sdi sdi-euro" aria-hidden="true"></i>Salaires</a><a href="https://simudroit.fr/modele-lettre-contestation-avertissement/" style="--c:#9333ea"><i class="sdi sdi-mail" aria-hidden="true"></i>Lettres types</a><a href="https://simudroit.fr/actualites/" style="--c:#475569"><i class="sdi sdi-chart" aria-hidden="true"></i>Chiffres et données</a><a href="https://simudroit.fr/glossaire/" style="--c:#0369a1"><i class="sdi sdi-bookopen" aria-hidden="true"></i>Glossaire</a><a href="https://simudroit.fr/faq/" style="--c:#b91c1c"><i class="sdi sdi-question" aria-hidden="true"></i>FAQ</a></div></nav>
