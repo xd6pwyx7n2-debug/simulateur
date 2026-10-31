@@ -179,6 +179,11 @@ with sync_playwright() as pw:
     pg.goto(LOCAL + "generateur-devis/"); pg.wait_for_timeout(300); pg.click("#dv-example"); pg.wait_for_timeout(200)
     _d = pg.inner_text("#dv-sheet").replace("\u202f", " ").replace("\u00a0", " ")
     if "346,50" not in _d or "315,00" not in _d: fail("devis : totaux HT/TTC attendus 315,00 / 346,50 : %s" % _d[-300:])
+    _c1 = pg.eval_on_selector("#dv-sheet", "e=>e.style.cssText"); pg.select_option("#dv-activite", "res"); pg.wait_for_timeout(150); _c2 = pg.eval_on_selector("#dv-sheet", "e=>e.style.cssText")
+    if _c1 == _c2: fail("devis : le style ne change pas avec l'activité")
+    pg.click("#dv-style"); pg.wait_for_timeout(150)
+    if pg.eval_on_selector("#dv-sheet", "e=>e.style.cssText") == _c2: fail("devis : « Autre style » ne change rien")
+    pg.select_option("#dv-activite", "bat"); pg.wait_for_timeout(150)
     pg.check("#dv-franchise"); pg.wait_for_timeout(150)
     if "293 B" not in pg.inner_text("#dv-sheet"): fail("devis : mention de franchise en base de TVA absente")
     import base64 as _b

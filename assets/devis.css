@@ -1,13 +1,13 @@
 /* Générateur de devis : le document est isolé du thème du site. */
-#dv-sheet,#dv-sheet p,#dv-sheet span,#dv-sheet td,#dv-sheet strong{color:#1c1c28}#dv-sheet{background:#fff;width:210mm;max-width:100%;box-sizing:border-box;padding:16mm 15mm;font:10.5pt/1.45 Inter,Arial,sans-serif;box-shadow:0 2px 14px rgba(32,30,72,.18);margin:0 auto}
+#dv-sheet,#dv-sheet p,#dv-sheet span,#dv-sheet td,#dv-sheet strong{color:#1c1c28}#dv-sheet{font-family:var(--df,Inter,Arial,sans-serif);background:#fff;width:210mm;max-width:100%;box-sizing:border-box;padding:16mm 15mm;font-size:10.5pt;line-height:1.45;box-shadow:0 2px 14px rgba(32,30,72,.18);margin:0 auto}
 #dv-sheet *{box-sizing:border-box;max-width:none}
-#dv-sheet .dv-top{display:flex;justify-content:space-between;gap:14pt;flex-wrap:wrap;border-bottom:3pt solid #4b3bd0;padding-bottom:10pt;margin-bottom:12pt}
-#dv-sheet .dv-p span,#dv-sheet .dv-cl span{display:block}#dv-sheet .dv-c{text-align:right}#dv-sheet .dv-c p.dv-h{font-size:22pt;margin:0 0 4pt;color:#4b3bd0;letter-spacing:.03em}#dv-sheet .dv-c p{margin:0}
-#dv-sheet .dv-cl{background:#f1effd;border-radius:6pt;padding:8pt 10pt;margin-bottom:10pt}#dv-sheet .dv-cl strong{display:block;color:#4b3bd0;margin-bottom:2pt}
+#dv-sheet .dv-top{display:flex;justify-content:space-between;gap:14pt;flex-wrap:wrap;border-bottom:3pt solid var(--dp,#4b3bd0);padding-bottom:10pt;margin-bottom:12pt}
+#dv-sheet .dv-p span,#dv-sheet .dv-cl span{display:block}#dv-sheet .dv-c{text-align:right}#dv-sheet .dv-c p.dv-h{font-size:22pt;margin:0 0 4pt;color:var(--dp,#4b3bd0);letter-spacing:.03em}#dv-sheet .dv-c p{margin:0}
+#dv-sheet .dv-cl{background:var(--ds,#f1effd);border-radius:6pt;padding:8pt 10pt;margin-bottom:10pt}#dv-sheet .dv-cl strong{display:block;color:var(--dp,#4b3bd0);margin-bottom:2pt}
 #dv-sheet .dv-obj,#dv-sheet .dv-meta{margin:6pt 0}
-#dv-sheet .dv-t,#dv-sheet .dv-s{width:100%;border-collapse:collapse}#dv-sheet .dv-t th{background:#4b3bd0;color:#fff!important;text-align:left;padding:5pt 6pt;font-size:9.5pt}
+#dv-sheet .dv-t,#dv-sheet .dv-s{width:100%;border-collapse:collapse}#dv-sheet .dv-t th{background:var(--dp,#4b3bd0);color:#fff!important;text-align:left;padding:5pt 6pt;font-size:9.5pt}
 #dv-sheet .dv-t td{padding:5pt 6pt;border-bottom:1px solid #d9d6ee;vertical-align:top}#dv-sheet .dv-t th:nth-child(n+2),#dv-sheet .dv-t td:nth-child(n+2){text-align:right;white-space:nowrap}
-#dv-sheet .dv-s{width:55%;margin:10pt 0 0 auto}#dv-sheet .dv-s td{padding:3pt 6pt}#dv-sheet .dv-s td:last-child{text-align:right}#dv-sheet .dv-g td{font-weight:800;font-size:12pt;border-top:2pt solid #4b3bd0}
+#dv-sheet .dv-s{width:55%;margin:10pt 0 0 auto}#dv-sheet .dv-s td{padding:3pt 6pt}#dv-sheet .dv-s td:last-child{text-align:right}#dv-sheet .dv-g td{font-weight:800;font-size:12pt;border-top:2pt solid var(--dp,#4b3bd0)}
 #dv-sheet .dv-m{margin-top:12pt;font-size:9.5pt}#dv-sheet .dv-m p{margin:0 0 3pt}
 #dv-sheet .dv-sig{display:flex;gap:18pt;margin-top:20pt}#dv-sheet .dv-sig>div{flex:1;border:1px solid #bdb8e3;border-radius:6pt;padding:8pt;min-height:60pt}#dv-sheet .dv-sig p{margin:0}#dv-sheet .dv-sg{font-size:9pt;color:#555!important;margin-top:4pt!important}
 #dv-sheet{overflow-x:auto}
@@ -16,4 +16,13 @@ html[data-theme="dark"] .dv-stage{background:#2a2840}
 #dv-sheet .dv-logo{display:block;max-height:22mm;max-width:55mm;margin:0 0 6pt}#dv-sheet .dv-sign{display:block;max-height:18mm;max-width:100%;margin:2pt 0}
 .dv-img{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:0 0 10px}.dv-img img{max-height:60px;max-width:160px;border:1px solid #cfc8f5;border-radius:8px;background:#fff;padding:3px}
 #dv-pad{width:100%;max-width:420px;height:auto;aspect-ratio:3/1;border:1.5px dashed #9a92d8;border-radius:12px;background:#fff;touch-action:none;display:block;margin:6px 0}
+#dv-sheet .dv-cl,#dv-sheet .dv-sig>div{border-radius:var(--dr,6px)}#dv-sheet .dv-g td{border-top-color:var(--da,#7c6cff)}
+#dv-sheet.dvh-band .dv-top{background:var(--dp);margin:-16mm -15mm 12pt;padding:12mm 15mm 8mm;border-bottom:5pt solid var(--da)}
+#dv-sheet.dvh-band .dv-top,#dv-sheet.dvh-band .dv-top span,#dv-sheet.dvh-band .dv-top strong,#dv-sheet.dvh-band .dv-top p{color:#fff}
+#dv-sheet.dvh-bar .dv-top{border-bottom:0;border-left:8pt solid var(--da);padding-left:12pt;background:var(--ds)}
+#dv-sheet.dvh-center .dv-top{flex-direction:column;align-items:center;text-align:center;border-bottom:1.5pt solid var(--da)}
+#dv-sheet.dvh-center .dv-c{text-align:center;order:-1}#dv-sheet.dvh-center .dv-logo{margin-left:auto;margin-right:auto}
+#dv-sheet.dvh-split .dv-top{border-bottom:0}#dv-sheet.dvh-split .dv-c{order:-1;text-align:left;flex:1 1 50%}#dv-sheet.dvh-split .dv-c p.dv-h{font-size:34pt;line-height:1;margin-bottom:8pt;border-bottom:5pt solid var(--da);display:inline-block}
+#dv-sheet.dvh-split .dv-p{text-align:right}
+#dv-sheet .dv-t th{border-radius:0}
 @media print{body *{visibility:hidden!important}#dv-sheet,#dv-sheet *{visibility:visible!important}#dv-sheet{position:absolute;left:0;top:0;width:100%;box-shadow:none;padding:0;margin:0}@page{size:A4;margin:14mm}.dv-t th,.dv-cl,.dv-top{-webkit-print-color-adjust:exact;print-color-adjust:exact}}

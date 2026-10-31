@@ -10,8 +10,22 @@ var ACT={
  bat:{n:"Bâtiment, artisanat, dépannage ou réparation à domicile",notes:["Le devis est obligatoire pour ces activités : indiquez le taux horaire de main-d'œuvre TTC, la durée estimée et les frais de déplacement.","Informez le client qu'il peut conserver les pièces remplacées (à faire écrire et signer avant les travaux).","Pour des travaux de structure, l'assurance décennale doit figurer au contrat."],extra:["Le client peut demander à conserver les pièces remplacées ; son choix est à consigner par écrit avant les travaux."]},
  sap:{n:"Services à la personne",notes:["Le devis est obligatoire si le prix mensuel est supérieur ou égal à 100 € TTC, et à conserver au moins 1 an."],extra:[]},
  dem:{n:"Déménagement",notes:["Devis obligatoire et gratuit."],extra:[]},
+ res:{n:"Restauration, traiteur, événementiel",notes:["Aucune obligation de devis n'est indiquée dans la liste officielle pour ce secteur, mais un devis précis (menu, nombre de convives, date, acompte) évite les litiges.","Si vous vendez de l'alcool ou des repas, vérifiez aussi les règles d'hygiène et d'information des consommateurs."],extra:[]},
+ bea:{n:"Beauté, coiffure, bien-être",notes:["Aucune obligation de devis n'est indiquée dans la liste officielle pour ce secteur. Un devis reste utile pour les forfaits et les prestations sur mesure.","Affichez par ailleurs la liste de vos prix dans votre établissement."],extra:[]},
+ cre:{n:"Conseil, communication, création, informatique",notes:["Aucune obligation de devis n'est indiquée dans la liste officielle pour ce secteur. Un devis décrit le périmètre, le calendrier et les droits cédés.","Pensez à préciser les révisions incluses, le calendrier et les conditions de paiement."],extra:[]},
  aut:{n:"Autre prestation ou vente",notes:["Le devis n'est pas imposé par la liste officielle pour ce type d'activité, mais il sert de preuve de l'accord sur le prix et les conditions."],extra:[]}
 };
+var THEMES={
+ bat:{h:"band",f:"Inter,Arial,sans-serif",r:"0",v:[["#1f2a36","#e8590c","#f4efe9"],["#263238","#f2a900","#f6f3e6"],["#2b2d42","#d90429","#f1f1f4"]]},
+ sap:{h:"bar",f:"Inter,Arial,sans-serif",r:"10px",v:[["#0f6b63","#2fb8a8","#eaf7f5"],["#5b4b8a","#e58fb0","#f4effa"],["#2d6a9f","#f2b84b","#eaf2fa"]]},
+ dem:{h:"band",f:"Inter,Arial,sans-serif",r:"4px",v:[["#0b3d91","#ffb703","#eaf0fb"],["#14532d","#f97316","#ecf6ee"],["#1d3557","#e63946","#edf1f7"]]},
+ res:{h:"center",f:"Georgia,'Times New Roman',serif",r:"2px",v:[["#7a1f2b","#d4a24c","#faf3ea"],["#2f3e2e","#c9a227","#f3f5ee"],["#3b2a20","#e07a5f","#f8f0eb"]]},
+ bea:{h:"center",f:"'Gill Sans','Gill Sans MT',Calibri,Arial,sans-serif",r:"14px",v:[["#6b3f5c","#e8b4c8","#fbf1f5"],["#1f1f1f","#c9a66b","#f7f2ea"],["#2f5d62","#f1c0b9","#eef6f6"]]},
+ cre:{h:"split",f:"Inter,Arial,sans-serif",r:"8px",v:[["#3b2dbf","#00c2a8","#f0eefd"],["#111827","#ff5d73","#f3f4f6"],["#0f172a","#38bdf8","#eef6fb"]]},
+ aut:{h:"bar",f:"Inter,Arial,sans-serif",r:"6px",v:[["#4b3bd0","#7c6cff","#f1effd"],["#0f766e","#f59e0b","#ecf7f5"],["#9f1239","#f5b942","#fbf1f3"]]}
+};
+var VAR=0;
+function theme(d){var t=THEMES[d.activite]||THEMES.aut,c=t.v[VAR%t.v.length];return{t:t,c:c};}
 var LIGNES=0,IMG={logo:"",sign:""};
 function readImg(file,max,cb){var r=new FileReader();r.onload=function(){var im=new Image();im.onload=function(){var k=Math.min(1,max/Math.max(im.width,im.height)),w=Math.max(1,Math.round(im.width*k)),h=Math.max(1,Math.round(im.height*k)),c=document.createElement("canvas");c.width=w;c.height=h;var x=c.getContext("2d");var png=/png|webp|gif|svg/.test(file.type);if(!png){x.fillStyle="#fff";x.fillRect(0,0,w,h);}x.drawImage(im,0,0,w,h);cb(c.toDataURL(png?"image/png":"image/jpeg",.88),w,h);};im.onerror=function(){say("Image illisible");};im.src=r.result;};r.readAsDataURL(file);}
 function dataBytes(u){var b=atob(u.split(",")[1]),a=new Uint8Array(b.length);for(var i=0;i<b.length;i++)a[i]=b.charCodeAt(i);return a;}
@@ -74,7 +88,7 @@ function plain(d){
   var acc=acompte(d,c);if(acc>0)L.push((d.acKind==="arrhes"?"Arrhes":"Acompte")+" demandé : "+eur(acc));if(d.paiement)L.push("Paiement : "+d.paiement);
   L.push("");L.push("Bon pour accord, date et signature du client :");return L.join("\n");
 }
-function draw(){var d=collect();$("#dv-sheet").innerHTML=sheet(d);var a=ACT[d.activite]||ACT.aut;$("#dv-notes").innerHTML=a.notes.map(function(x){return"<li>"+E(x)+"</li>";}).join("");save(d);}
+function draw(){var d=collect(),th=theme(d),s=$("#dv-sheet");s.className="dvh-"+th.t.h;s.style.cssText="--dp:"+th.c[0]+";--da:"+th.c[1]+";--ds:"+th.c[2]+";--df:"+th.t.f+";--dr:"+th.t.r;s.innerHTML=sheet(d);var lb=$("#dv-style-lab");if(lb)lb.textContent="Style "+(VAR%3+1)+" sur 3, adapté à : "+(ACT[d.activite]||ACT.aut).n;var a=ACT[d.activite]||ACT.aut;$("#dv-notes").innerHTML=a.notes.map(function(x){return"<li>"+E(x)+"</li>";}).join("");save(d);}
 function save(d){var on=$("#dv-mem");if(on&&on.checked){try{localStorage.setItem(KEY,JSON.stringify(d));}catch(e){}}}
 function load(){try{return JSON.parse(localStorage.getItem(KEY)||"null");}catch(e){return null;}}
 function setImgs(){var l=$("#dv-logo-prev"),s=$("#dv-sign-prev");if(l){l.innerHTML=IMG.logo?'<img src="'+IMG.logo+'" alt="Logo chargé">':"";$("#dv-logo-del").hidden=!IMG.logo;}if(s){s.innerHTML=IMG.sign?'<img src="'+IMG.sign+'" alt="Signature chargée">':"";$("#dv-sign-del").hidden=!IMG.sign;}}
@@ -91,7 +105,7 @@ function zip(files){var enc=new TextEncoder(),parts=[],cd=[],off=0;function u16(
  var cs=0;cd.forEach(function(x){cs+=x.length;});parts=parts.concat(cd);parts.push(new Uint8Array([].concat(u32(0x06054b50),u16(0),u16(0),u16(files.length),u16(files.length),u32(cs),u32(off),u16(0))));
  return new Blob(parts,{type:"application/vnd.openxmlformats-officedocument.wordprocessingml.document"});}
 function mkDocx(d,sz){sz=sz||{};
-  var c=calc(d),acc=acompte(d,c),x=function(t){return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");};
+  var c=calc(d),acc=acompte(d,c),TH=theme(d).c,x=function(t){return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");};
   var p=function(t,o){o=o||{};return'<w:p><w:pPr><w:spacing w:before="'+(o.b||0)+'" w:after="'+(o.a||60)+'"/>'+(o.r?'<w:jc w:val="right"/>':"")+'</w:pPr><w:r><w:rPr>'+(o.bold?'<w:b/>':"")+(o.sz?'<w:sz w:val="'+o.sz+'"/>':"")+'</w:rPr><w:t xml:space="preserve">'+x(t)+'</w:t></w:r></w:p>';};
   var cell=function(t,w,bold,r){return'<w:tc><w:tcPr><w:tcW w:w="'+w+'" w:type="dxa"/></w:tcPr>'+p(t,{bold:bold,r:r,a:20})+'</w:tc>';};
   var W=[4300,1100,1500,900,1600];
@@ -127,7 +141,8 @@ function init(){
   var f=$("#dv-form");if(!f)return;
   $('[data-f="date"]').value=today();
   var saved=load();if(saved){fill(saved);var m=$("#dv-mem");if(m){m.checked=true;$("#dv-memclear").hidden=false;}}else ligne();
-  f.addEventListener("input",function(){toggle();draw();});f.addEventListener("change",function(){toggle();draw();});
+  f.addEventListener("input",function(){toggle();draw();});$("#dv-activite").addEventListener("change",function(){VAR=0;});f.addEventListener("change",function(){toggle();draw();});
+  $("#dv-style").addEventListener("click",function(){VAR++;draw();say("Style du devis changé");});
   $("#dv-add").addEventListener("click",function(){ligne();draw();});
   $("#dv-lignes").addEventListener("click",function(e){if(e.target.hasAttribute("data-del")){e.target.closest(".dv-l").remove();if(!$$("#dv-lignes .dv-l").length)ligne();relabel();draw();}});
   $("#dv-example").addEventListener("click",function(){example();say("Exemple chargé");});

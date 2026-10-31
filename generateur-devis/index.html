@@ -150,7 +150,7 @@ main>article.lt-main{background:transparent;border:0!important;box-shadow:none!i
 <div class="cv-grid" id="dv-app">
 <form class="cv-form" id="dv-form" onsubmit="return false" aria-label="Informations du devis" novalidate>
 <fieldset class="cv-fs"><legend>Votre activité</legend>
-<div class="field"><label for="dv-activite">Type d'activité</label><select id="dv-activite" data-f="activite"><option value="bat">Bâtiment, artisanat, dépannage ou réparation à domicile</option><option value="sap">Services à la personne</option><option value="dem">Déménagement</option><option value="aut">Autre prestation ou vente</option></select></div>
+<div class="field"><label for="dv-activite">Type d'activité</label><select id="dv-activite" data-f="activite"><option value="bat">Bâtiment, artisanat, dépannage ou réparation à domicile</option><option value="sap">Services à la personne</option><option value="dem">Déménagement</option><option value="res">Restauration, traiteur, événementiel</option><option value="bea">Beauté, coiffure, bien-être</option><option value="cre">Conseil, communication, création, informatique</option><option value="aut">Autre prestation ou vente</option></select></div>
 <ul id="dv-notes" class="field-help"></ul>
 </fieldset>
 <fieldset class="cv-fs"><legend>Prestataire</legend>
@@ -198,6 +198,7 @@ main>article.lt-main{background:transparent;border:0!important;box-shadow:none!i
 </form>
 <div class="cv-prev">
 <h2 class="lt-h2"><span class="lt-n">2</span>Votre devis</h2>
+<div class="cv-style"><button type="button" class="cv-btn" id="dv-style">Autre style</button><output id="dv-style-lab" aria-live="off"></output></div>
 <div class="dv-stage" role="region" aria-label="Aperçu du devis"><div id="dv-sheet"></div></div>
 <div class="cv-actions"><button type="button" class="cv-btn" id="dv-pdf">Télécharger en PDF</button><button type="button" class="cv-btn" id="dv-docx">Télécharger en Word (.docx)</button><button type="button" class="cv-btn" id="dv-copy">Copier le texte</button></div>
 <p id="dv-live" class="sr-only" role="status" aria-live="polite"></p>
