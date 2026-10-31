@@ -88,3 +88,6 @@ article.fiche table.sd-table td{border-bottom:0!important;border-top:1px solid c
 article.fiche p.note{background:color-mix(in srgb,var(--a) 9%,#fff)!important;color:#201e48!important}
 @media(max-width:640px){article.fiche table.sd-table{display:block;border:0!important}}
 @media(max-width:640px){.fh-stats{grid-template-columns:1fr 1fr;gap:8px}.fh-stat{padding:10px 12px}.fh-stat b{font-size:1.05rem}article.fiche p.note{padding:14px 14px 14px 52px}.fiche-hero h1{font-size:1.45rem}}
+article.fiche .sd-table tbody th[scope=row]{padding:12px 14px;vertical-align:top;text-align:left;font-weight:800;color:color-mix(in srgb,var(--a) 80%,#000);border-top:1px solid color-mix(in srgb,var(--a) 14%,#fff)!important;border-bottom:0!important;background:color-mix(in srgb,var(--a) 6%,#fff)!important}
+@media(max-width:640px){article.fiche .sd-table tbody th[scope=row]{display:block;width:100%;box-sizing:border-box;background:linear-gradient(135deg,var(--a),var(--b))!important;color:#fff!important;border-top:0!important}article.fiche .sd-table tbody tr:nth-child(even) td{background:#fff}}
+@media(max-width:640px){article.fiche .sd-table td,article.fiche .sd-table th{box-sizing:border-box}}
