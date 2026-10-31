@@ -5,6 +5,9 @@ import glob, html, json, os, re, sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 # mots que les visiteurs tapent et qui ne figurent pas forcément dans le titre
 SYN = {
+    "nouveautes": "nouveautes actualites quoi de neuf rss",
+    "guides/acre-cfe-creation-entreprise-demande-exoneration": "acre cfe creer entreprise micro exoneration cotisations impot",
+    "guides/frais-de-notaire-achat-immobilier-composition-calcul": "notaire achat immobilier frais emoluments droits de mutation acheter maison appartement",
     "ouvrir-un-commerce": "creer boutique magasin restaurant commerce ouverture demarches creation entreprise",
     "guides/ouvrir-un-restaurant-demarches-etape-par-etape": "restaurant licence permis exploitation hygiene debit boissons ouverture",
     "guides/ouvrir-une-boutique-demarches-etape-par-etape": "boutique magasin commerce local ouverture",

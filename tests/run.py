@@ -67,6 +67,11 @@ for f in pages:
     if rel in ("simulateur/index.html", "dossiers/index.html"): continue  # redirection noindex (ancien chemin)
     p = P(); p.feed(s)
     if p.h1 != 1 and rel != "404.html": fail("%s : %d balises h1" % (rel, p.h1))
+    _h = [int(x) for x in re.findall(r"<h([1-4])[ >]", s)]
+    for _i in range(1, len(_h)):
+        if _h[_i] - _h[_i-1] > 1: fail("%s : saut de niveau de titre (h%d vers h%d)" % (rel, _h[_i-1], _h[_i])); break
+    if rel != "404.html" and not re.search(r"<main[ >]", s): fail("%s : pas de balise main" % rel)
+    if re.search(r"<img(?![^>]*\balt=)", s): fail("%s : image sans attribut alt" % rel)
     if "%s" in s or "undefined" in re.sub(r"<script[\s\S]*?</script>", "", s): fail("%s : texte résiduel (%%s ou undefined)" % rel)
     for j in p.ld:
         try: json.loads(j)
@@ -161,6 +166,12 @@ with sync_playwright() as pw:
         for sel_b in ("#word", "#pdf", "#rtf", "#mail"):
             if pg.locator(sel_b).count() != 1: fail("%s : bouton %s manquant" % (slug, sel_b))
     # générateur de CV : exemple, styles différents, export Word
+    pg.goto(LOCAL + "guides/frais-de-notaire-achat-immobilier-composition-calcul/"); pg.wait_for_timeout(300)
+    pg.fill("#fn-prix", "200000"); pg.wait_for_timeout(100)
+    if "1 995,25" not in pg.inner_text("#fn-out").replace("\u202f", " ").replace("\u00a0", " "): fail("frais de notaire : 200 000 € devrait donner 1 995,25 € HT d'émoluments (%s)" % pg.inner_text("#fn-out")[:80])
+    pg.goto(LOCAL + "guides/ouvrir-un-restaurant-demarches-etape-par-etape/"); pg.wait_for_timeout(300)
+    pg.click("ul.cl li:first-child label"); pg.reload(); pg.wait_for_timeout(300)
+    if not pg.eval_on_selector("ul.cl li:first-child input", "e=>e.checked"): fail("checklist : la case cochée n'est pas conservée")
     pg.goto(LOCAL + "generateur-cv/"); pg.wait_for_function("document.getElementById('cv-frame').contentDocument.querySelector('.cv')")
     pg.click("#cv-example"); pg.wait_for_timeout(200)
     if "Camille Durand" not in pg.evaluate("document.getElementById('cv-frame').contentDocument.body.innerText"): fail("CV : l'exemple n'apparaît pas dans l'aperçu")

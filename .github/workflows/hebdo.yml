@@ -15,6 +15,9 @@ jobs:
           python-version: "3.12"
       - name: Fraîcheur des paramètres
         run: python3 .github/scripts/fraicheur.py
+      - name: Veille des sources (dates de vérification anciennes, avertissement)
+        continue-on-error: true
+        run: python3 .github/scripts/veille.py 180
       - run: pip install playwright
       - run: playwright install --with-deps chromium
       - name: Tests (calculs, liens, pages)
