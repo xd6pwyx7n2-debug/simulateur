@@ -1,0 +1,19 @@
+/* Générateur de CV : formulaire + aperçu. Le style du CV lui-même est piloté par des variables CSS (voir cv.js). */
+.cv-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:26px;margin:8px 0 22px}.cv-grid>*{min-width:0}
+@media(min-width:1000px){.cv-grid{grid-template-columns:minmax(0,5fr) minmax(0,6fr);align-items:start}.cv-prev{position:sticky;top:12px}}
+.cv-form fieldset.cv-fs{border:1.5px solid #ddd9f3;border-radius:16px;padding:16px 18px 6px;margin:0 0 18px;background:#fff}
+.cv-form legend{font-weight:800;color:#201e48;padding:0 8px;font-size:1.02rem}
+.cv-row{display:grid;gap:0 14px}
+@media(min-width:560px){.cv-row.two{grid-template-columns:1fr 1fr}}
+.cv-rep{border:1.5px dashed #cfc8f5;border-radius:14px;padding:12px 14px 4px;margin:0 0 14px;background:#faf9ff}
+.cv-rep>legend{font-size:.95rem}
+.cv-btn{font:inherit;font-weight:800;padding:10px 16px;border-radius:12px;border:1.5px solid #cfc8f5;background:#fff;color:#4b3bd0;cursor:pointer;margin:0 8px 12px 0}
+.cv-btn:hover{background:#efedff}.cv-btn.danger{color:#9c2a2a;border-color:#e6c3c3}
+.cv-actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.cv-style{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:0 0 12px}
+.cv-style output{font-weight:700;color:#4b3bd0}
+.cv-stage{background:#e9e7f5;border-radius:16px;padding:12px;overflow:hidden}
+.cv-scale{transform-origin:top left}
+.cv-hint{font-size:.9rem;color:#555474}
+html[data-theme="dark"] .cv-stage{filter:invert(1) hue-rotate(180deg)}
+.cv-scale{width:210mm}.cv-frame{display:block;width:210mm;border:0;background:#fff;box-shadow:0 2px 14px rgba(32,30,72,.18)}

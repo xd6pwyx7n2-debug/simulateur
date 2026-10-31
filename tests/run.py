@@ -151,6 +151,27 @@ with sync_playwright() as pw:
             fail("lettre %s : contenu incomplet" % k)
         if pg.locator('.lt-card[data-type="%s"]' % k).count() != 1:
             fail("lettre %s : carte manquante dans le sélecteur" % k)
+    # pages « une lettre par situation » : le script doit être présent et générer la lettre
+    for f in sorted(glob.glob(os.path.join(ROOT, "modele-lettre-*/index.html"))):
+        if 'id="word"' not in open(f, encoding="utf-8").read(): continue
+        slug = os.path.basename(os.path.dirname(f))
+        pg.goto(LOCAL + slug + "/"); pg.wait_for_timeout(250)
+        t = pg.inner_text("#lettre")
+        if len(t) < 250 or "undefined" in t: fail("%s : lettre non générée (script manquant ?)" % slug)
+        for sel_b in ("#word", "#pdf", "#rtf", "#mail"):
+            if pg.locator(sel_b).count() != 1: fail("%s : bouton %s manquant" % (slug, sel_b))
+    # générateur de CV : exemple, styles différents, export Word
+    pg.goto(LOCAL + "generateur-cv/"); pg.wait_for_function("document.getElementById('cv-frame').contentDocument.querySelector('.cv')")
+    pg.click("#cv-example"); pg.wait_for_timeout(200)
+    if "Camille Durand" not in pg.evaluate("document.getElementById('cv-frame').contentDocument.body.innerText"): fail("CV : l'exemple n'apparaît pas dans l'aperçu")
+    labs = set()
+    for _ in range(6):
+        pg.click("#cv-new"); pg.wait_for_timeout(80); labs.add(pg.inner_text("#cv-style-lab"))
+    if len(labs) < 5: fail("CV : « Autre style » ne varie pas (%d styles sur 6)" % len(labs))
+    with pg.expect_download() as dl: pg.click("#cv-docx")
+    import zipfile
+    dl.value.save_as("/tmp/_cv.docx")
+    if zipfile.ZipFile("/tmp/_cv.docx").testzip() is not None: fail("CV : fichier .docx invalide")
     # saisie vide : un message en ligne, jamais une boîte alert()
     for f in sorted(glob.glob(os.path.join(ROOT, "simulateur-*/index.html"))):
         slug = os.path.basename(os.path.dirname(f))
