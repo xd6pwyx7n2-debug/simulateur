@@ -19,3 +19,15 @@ h1,h2,h3{text-wrap:balance}
 .foot-top{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center;justify-content:center;max-width:960px;margin:0 auto 14px;padding:0 20px;font-size:.88rem}
 .foot-top strong{flex-basis:100%;text-align:center}
 .foot-top a{color:inherit;opacity:.9;text-decoration:underline;padding:6px 0;min-height:32px;display:inline-flex;align-items:center}
+.hero.hero-simple{padding:34px 0 40px;text-align:center}.hero-simple .wrap{position:relative;z-index:1}.hero-simple h1{max-width:760px;margin:18px auto 12px}.hero-simple .intro,.hero .intro.x{display:block!important}.hero-simple .intro{max-width:600px;margin:0 auto 26px;font-size:17px}
+.sit-title{font-size:1.15rem;margin:0 0 14px;letter-spacing:-.3px}
+.sit-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;text-align:left}
+.sit{display:flex;gap:14px;align-items:center;padding:16px 18px;border-radius:18px;background:color-mix(in srgb,var(--c) 7%,#fff);border:1.5px solid color-mix(in srgb,var(--c) 25%,#fff);box-shadow:0 6px 18px rgba(41,35,90,.06);transition:.18s;min-height:76px}
+.sit:hover,.sit:focus-visible{transform:translateY(-3px);border-color:var(--c);box-shadow:0 14px 30px color-mix(in srgb,var(--c) 22%,transparent)}
+.sit-ico{display:grid;place-items:center;flex:0 0 48px;height:48px;border-radius:14px;background:#fff;font-size:24px;box-shadow:0 6px 14px color-mix(in srgb,var(--c) 22%,transparent)}
+.sit strong{display:block;font-size:1.02rem;color:var(--c);filter:brightness(.8)}.sit small{display:block;color:#5c5a80;font-size:.86rem;line-height:1.35;margin-top:2px}
+.sit-more{margin:16px 0 22px;font-weight:700;color:#4b3bd0}.sit-more a:hover{text-decoration:underline}
+.hero-simple .quick{justify-content:center}
+@media(max-width:900px){.sit-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.sit-grid{grid-template-columns:1fr;gap:9px}.sit{padding:13px 15px;min-height:64px}.sit-ico{flex-basis:42px;height:42px;font-size:21px}.hero-simple .intro{font-size:15.5px;margin-bottom:20px}.hero.hero-simple{padding-top:22px}.hero-simple h1{font-size:clamp(36px,10.5vw,48px);letter-spacing:-2px}.hero-simple .quick{justify-content:flex-start}}
+.hero-simple h1{max-width:900px}

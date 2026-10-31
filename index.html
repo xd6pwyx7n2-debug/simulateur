@@ -96,51 +96,18 @@
 </header>
 
 <main id="contenu" tabindex="-1">
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="eyebrow"><span class="dot"></span> Le droit du travail, plus lisible</div>
-      <h1>Vos droits.<br>Des réponses <span class="gradient">plus claires.</span></h1>
-      <p class="intro">Salaire, indemnités, congés ou fin de contrat : utilisez des simulateurs simples pour y voir plus clair et préparer vos prochaines démarches.</p>
-      <div class="start" role="navigation" aria-label="Par où commencer">
-        <a class="button primary" href="/simulateurs/">Trouver mon simulateur <span aria-hidden="true">→</span></a>
-        <a class="start-btn" href="/parcours/"><strong>Je quitte mon poste</strong><span>Licenciement, rupture, démission, fin de CDD</span></a>
-        <a class="start-btn" href="/simulateurs/"><strong>Je suis salarié</strong><span>Salaire, congés, arrêt maladie, chômage</span></a>
-        <a class="start-btn" href="/independants/"><strong>Je suis indépendant</strong><span>Micro-entreprise, TVA, protection sociale</span></a>
-        <a class="start-btn" href="/modeles-de-lettres/"><strong>J'ai un courrier à envoyer</strong><span>Démission, rétractation, solde de tout compte : 32 lettres prêtes</span></a>
-        <div class="quick" role="navigation" aria-label="Les plus demandés" style="order:-1;margin:0"><span class="quick-title">Les plus demandés</span><a href="/simulateur-indemnite-licenciement/">Indemnité de licenciement</a><a href="/simulateur-indemnites-journalieres-maladie/">Arrêt maladie</a><a href="/simulateur-conge-maternite/">Congé maternité</a><a href="/simulateur-conges-payes/">Congés payés</a><a href="/simulateur-prime-precarite/">Prime de fin de CDD</a><a href="/salaire-moyen-median-france-2025/">Salaire moyen</a></div>
-        <a class="start-link" href="/assistant/">Je ne sais pas par où commencer →</a>
-      </div>
-      <div class="trust"><span><b>✓</b> Accès gratuit</span><span><b>✓</b> Utilisation simple</span><span><b>✓</b> Résultats indicatifs</span></div>
-      <div class="stats">
-        <div class="stat"><strong id="simu-count">50</strong><span>simulateurs pratiques</span></div>
-        <div class="stat"><strong>Gratuit</strong><span>sans paiement</span></div>
-        <div class="stat"><strong>En ligne</strong><span>sans installation</span></div>
-      </div>
-    </div>
-
-    <div class="hero-image">
-      <div class="photo">
-        <img src="assets/hero.svg" alt="Illustration de documents et d'un calcul sur un fond violet" width="1200" height="800" fetchpriority="high">
-        <div class="photo-label">Comprendre avant d’agir</div>
-        <div class="photo-copy">
-          <small>Un outil pour avancer</small>
-          <p class="photo-title">Moins de flou.<br>Plus de repères.</p>
-          <p>Des estimations utiles pour mieux préparer vos démarches.</p>
-        </div>
-      </div>
-      <div class="float one">
-        <span class="float-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 19V5m0 14h17M8 15l3-4 3 2 5-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        <span><strong>Des repères concrets</strong><small>Pour estimer et comparer</small></span>
-      </div>
-      <div class="float two">
-        <span class="float-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v18M17 7.5c0-1.7-2-2.5-5-2.5S7 6 7 7.5 9 10 12 10s5 1 5 2.5S15 15 12 15s-5-.8-5-2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
-        <span><strong>Calculs simplifiés</strong><small>Un premier ordre d’idée</small></span>
-      </div>
-    </div>
+<section class="hero hero-simple">
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span> Gratuit · sans compte</div>
+    <h1>Vos droits.<br>Des réponses <span class="gradient">plus claires.</span></h1>
+    <p class="intro">Calculez votre salaire net, vos indemnités, votre chômage ou vos aides en quelques clics.</p>
+    <h2 class="sit-title">Quelle est votre situation ?</h2>
+    <div class="sit-grid" role="navigation" aria-label="Par où commencer"><a class="sit" style="--c:#c2410c" href="/parcours/"><span class="sit-ico" aria-hidden="true">🚪</span><span><strong>Je quitte mon poste</strong><small>Licenciement, rupture, démission, fin de CDD</small></span></a><a class="sit" style="--c:#4f46e5" href="/simulateur-brut-net/"><span class="sit-ico" aria-hidden="true">💶</span><span><strong>Je regarde mon salaire</strong><small>Brut et net, SMIC, congés, heures sup</small></span></a><a class="sit" style="--c:#0f766e" href="/aides/"><span class="sit-ico" aria-hidden="true">🤝</span><span><strong>Je cherche une aide</strong><small>RSA, prime d'activité, APL, allocations</small></span></a><a class="sit" style="--c:#be185d" href="/retraite/"><span class="sit-ico" aria-hidden="true">🌅</span><span><strong>Je prépare ma retraite</strong><small>Âge de départ, retraite progressive, cumul</small></span></a><a class="sit" style="--c:#1d4ed8" href="/independants/"><span class="sit-ico" aria-hidden="true">💼</span><span><strong>Je suis indépendant</strong><small>Micro-entreprise, TVA, protection sociale</small></span></a><a class="sit" style="--c:#9333ea" href="/modeles-de-lettres/"><span class="sit-ico" aria-hidden="true">✉️</span><span><strong>J'ai un courrier à envoyer</strong><small>Démission, rupture, solde de tout compte</small></span></a></div>
+    <p class="sit-more"><a href="/simulateurs/">Voir les <span id="simu-count">50</span> simulateurs</a> · <a href="/assistant/">Je ne sais pas par où commencer →</a></p>
+    <div class="quick" role="navigation" aria-label="Les plus demandés"><span class="quick-title">Les plus demandés</span><a href="/simulateur-indemnite-licenciement/">Indemnité de licenciement</a><a href="/simulateur-chomage/">Chômage</a><a href="/simulateur-rupture-conventionnelle/">Rupture conventionnelle</a><a href="/simulateur-indemnites-journalieres-maladie/">Arrêt maladie</a><a href="/simulateur-conge-maternite/">Congé maternité</a><a href="/simulateur-conges-payes/">Congés payés</a><a href="/simulateur-prime-precarite/">Prime de fin de CDD</a><a href="/salaire-moyen-median-france-2025/">Salaire moyen</a></div>
   </div>
 </section>
-<nav class="sd-explore sd-top" aria-label="Toutes les rubriques"><strong>Explorer toutes les rubriques</strong><div><a href="/simulateurs/" style="--c:#4f46e5"><span aria-hidden="true">🧮</span>Simulateurs</a><a href="/guides/" style="--c:#0e7490"><span aria-hidden="true">📘</span>Guides</a><a href="/aides/" style="--c:#0f766e"><span aria-hidden="true">🤝</span>Aides</a><a href="/fiches-revision/" style="--c:#7c3aed"><span aria-hidden="true">📝</span>Fiches de révision</a><a href="/metiers/" style="--c:#b5530f"><span aria-hidden="true">👷</span>Mon métier</a><a href="/metiers/creer-son-entreprise-batiment/" style="--c:#c2410c"><span aria-hidden="true">🏗️</span>Créer son entreprise (bâtiment)</a><a href="/independants/" style="--c:#1d4ed8"><span aria-hidden="true">💼</span>Indépendants</a><a href="/retraite/" style="--c:#be185d"><span aria-hidden="true">🌅</span>Retraite</a><a href="/reconversion/" style="--c:#15803d"><span aria-hidden="true">🔄</span>Reconversion</a><a href="/salaires/" style="--c:#a16207"><span aria-hidden="true">💶</span>Salaires</a><a href="/modeles-de-lettres/" style="--c:#9333ea"><span aria-hidden="true">✉️</span>Lettres types</a><a href="/actualites/" style="--c:#475569"><span aria-hidden="true">📰</span>Actualités</a><a href="/glossaire/" style="--c:#0369a1"><span aria-hidden="true">📖</span>Glossaire</a><a href="/faq/" style="--c:#b91c1c"><span aria-hidden="true">❓</span>FAQ</a></div></nav>
+<nav class="sd-explore sd-top" aria-label="Toutes les rubriques"><strong>Toutes les rubriques</strong><div><a href="/simulateurs/" style="--c:#4f46e5"><span aria-hidden="true">🧮</span>Simulateurs</a><a href="/guides/" style="--c:#0e7490"><span aria-hidden="true">📘</span>Guides</a><a href="/aides/" style="--c:#0f766e"><span aria-hidden="true">🤝</span>Aides</a><a href="/fiches-revision/" style="--c:#7c3aed"><span aria-hidden="true">📝</span>Fiches de révision</a><a href="/metiers/" style="--c:#b5530f"><span aria-hidden="true">👷</span>Mon métier</a><a href="/metiers/creer-son-entreprise-batiment/" style="--c:#c2410c"><span aria-hidden="true">🏗️</span>Créer son entreprise (bâtiment)</a><a href="/independants/" style="--c:#1d4ed8"><span aria-hidden="true">💼</span>Indépendants</a><a href="/retraite/" style="--c:#be185d"><span aria-hidden="true">🌅</span>Retraite</a><a href="/reconversion/" style="--c:#15803d"><span aria-hidden="true">🔄</span>Reconversion</a><a href="/salaires/" style="--c:#a16207"><span aria-hidden="true">💶</span>Salaires</a><a href="/modeles-de-lettres/" style="--c:#9333ea"><span aria-hidden="true">✉️</span>Lettres types</a><a href="/actualites/" style="--c:#475569"><span aria-hidden="true">📰</span>Actualités</a><a href="/glossaire/" style="--c:#0369a1"><span aria-hidden="true">📖</span>Glossaire</a><a href="/faq/" style="--c:#b91c1c"><span aria-hidden="true">❓</span>FAQ</a></div></nav>
 
 
 <section class="section" id="salaires">
@@ -289,32 +256,9 @@
   </div>
 </section>
 
-<section class="section white" id="fonctionnement">
-  <div class="wrap">
-    <div class="section-head">
-      <div><div class="kicker">Simple, en trois étapes</div><h2 class="section-title">Un premier repère, sans jargon.</h2></div>
-      <p class="section-desc">Les simulateurs vous aident à mieux comprendre une situation avant d’aller plus loin.</p>
-    </div>
-    <div class="how-grid">
-      <article class="how-card"><div class="number">01</div><h3>Choisissez un sujet</h3><p>Ouvrez l’outil correspondant à votre question : salaire, contrat, congés ou temps de travail.</p></article>
-      <article class="how-card"><div class="number">02</div><h3>Renseignez les informations</h3><p>Complétez les champs demandés avec les éléments dont vous disposez.</p></article>
-      <article class="how-card"><div class="number">03</div><h3>Consultez l’estimation</h3><p>Utilisez le résultat comme point de départ et vérifiez les règles applicables à votre cas.</p></article>
-    </div>
-    <div class="notice" id="limites"><span aria-hidden="true">ⓘ</span><div><strong>À garder en tête :</strong> les résultats sont des estimations informatives et ne remplacent pas l’étude de votre situation, de votre convention collective ou des textes applicables. Les règles peuvent évoluer. En cas d’enjeu important, vérifiez les informations auprès d’une source officielle ou d’un professionnel compétent.</div></div>
-  </div>
-</section>
-
-<section class="cta">
-  <div class="wrap">
-    <div class="cta-panel">
-      <div><div class="kicker" style="color:#bcb5ff">À vous de jouer</div><h2>Commencez par la question qui compte pour vous.</h2><p>Choisissez un simulateur et obtenez rapidement un premier repère.</p></div>
-      <a class="button" href="/simulateurs/">Voir les simulateurs <span aria-hidden="true">→</span></a>
-    </div>
-  </div>
-</section>
 </main>
 
-<nav class="sd-explore" aria-label="Toutes les rubriques"><strong>Explorer toutes les rubriques</strong><div><a href="/simulateurs/" style="--c:#4f46e5"><span aria-hidden="true">🧮</span>Simulateurs</a><a href="/guides/" style="--c:#0e7490"><span aria-hidden="true">📘</span>Guides</a><a href="/aides/" style="--c:#0f766e"><span aria-hidden="true">🤝</span>Aides</a><a href="/fiches-revision/" style="--c:#7c3aed"><span aria-hidden="true">📝</span>Fiches de révision</a><a href="/metiers/" style="--c:#b5530f"><span aria-hidden="true">👷</span>Mon métier</a><a href="/metiers/creer-son-entreprise-batiment/" style="--c:#c2410c"><span aria-hidden="true">🏗️</span>Créer son entreprise (bâtiment)</a><a href="/independants/" style="--c:#1d4ed8"><span aria-hidden="true">💼</span>Indépendants</a><a href="/retraite/" style="--c:#be185d"><span aria-hidden="true">🌅</span>Retraite</a><a href="/reconversion/" style="--c:#15803d"><span aria-hidden="true">🔄</span>Reconversion</a><a href="/salaires/" style="--c:#a16207"><span aria-hidden="true">💶</span>Salaires</a><a href="/modeles-de-lettres/" style="--c:#9333ea"><span aria-hidden="true">✉️</span>Lettres types</a><a href="/actualites/" style="--c:#475569"><span aria-hidden="true">📰</span>Actualités</a><a href="/glossaire/" style="--c:#0369a1"><span aria-hidden="true">📖</span>Glossaire</a><a href="/faq/" style="--c:#b91c1c"><span aria-hidden="true">❓</span>FAQ</a></div></nav>
+<nav class="sd-explore" aria-label="Toutes les rubriques"><strong>Toutes les rubriques</strong><div><a href="/simulateurs/" style="--c:#4f46e5"><span aria-hidden="true">🧮</span>Simulateurs</a><a href="/guides/" style="--c:#0e7490"><span aria-hidden="true">📘</span>Guides</a><a href="/aides/" style="--c:#0f766e"><span aria-hidden="true">🤝</span>Aides</a><a href="/fiches-revision/" style="--c:#7c3aed"><span aria-hidden="true">📝</span>Fiches de révision</a><a href="/metiers/" style="--c:#b5530f"><span aria-hidden="true">👷</span>Mon métier</a><a href="/metiers/creer-son-entreprise-batiment/" style="--c:#c2410c"><span aria-hidden="true">🏗️</span>Créer son entreprise (bâtiment)</a><a href="/independants/" style="--c:#1d4ed8"><span aria-hidden="true">💼</span>Indépendants</a><a href="/retraite/" style="--c:#be185d"><span aria-hidden="true">🌅</span>Retraite</a><a href="/reconversion/" style="--c:#15803d"><span aria-hidden="true">🔄</span>Reconversion</a><a href="/salaires/" style="--c:#a16207"><span aria-hidden="true">💶</span>Salaires</a><a href="/modeles-de-lettres/" style="--c:#9333ea"><span aria-hidden="true">✉️</span>Lettres types</a><a href="/actualites/" style="--c:#475569"><span aria-hidden="true">📰</span>Actualités</a><a href="/glossaire/" style="--c:#0369a1"><span aria-hidden="true">📖</span>Glossaire</a><a href="/faq/" style="--c:#b91c1c"><span aria-hidden="true">❓</span>FAQ</a></div></nav>
 <footer><nav class="foot-top" aria-label="Les plus consultés"><strong>Les plus consultés</strong><a href="https://simudroit.fr/simulateur-brut-net/">Salaire brut en net</a><a href="https://simudroit.fr/simulateur-indemnite-licenciement/">Indemnité de licenciement</a><a href="https://simudroit.fr/simulateur-rupture-conventionnelle/">Rupture conventionnelle</a><a href="https://simudroit.fr/simulateur-chomage/">Allocation chômage</a><a href="https://simudroit.fr/simulateur-preavis-demission/">Préavis de démission</a><a href="https://simudroit.fr/simulateur-preavis-licenciement/">Préavis de licenciement</a><a href="https://simudroit.fr/simulateur-conges-payes/">Congés payés</a><a href="https://simudroit.fr/simulateur-fiche-de-paie/">Vérifier ma fiche de paie</a><a href="https://simudroit.fr/simulateur-solde-tout-compte/">Solde de tout compte</a><a href="https://simudroit.fr/simulateur-smic/">SMIC 2026</a><a href="https://simudroit.fr/salaire-brut-net/">Brut en net par montant</a><a href="https://simudroit.fr/metiers/">Mon métier : infirmier libéral, assistante maternelle, intérimaire</a><a href="https://simudroit.fr/retraite/">Retraite : par où commencer ?</a><a href="https://simudroit.fr/reconversion/">Reconversion : par où commencer ?</a><a href="https://simudroit.fr/jours-feries-2026-2027/">Jours fériés 2026 et 2027</a><a href="https://simudroit.fr/fiches-revision/">Fiches de révision</a><a href="https://simudroit.fr/aides/">Aides selon votre situation</a></nav>
   <div class="wrap footer-inner">
     <a class="brand" href="/" style="font-size:16px">
