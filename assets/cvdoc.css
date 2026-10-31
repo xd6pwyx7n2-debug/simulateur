@@ -100,3 +100,32 @@ html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .cv.l-cd .hd .tt,.cv.l-bd .c-band .tt{color:#fff;opacity:.95}
 .cv.l-tl .sec>h2::before{display:none!important}
 .cv.l-tl .sec>h2{padding-left:0!important}
+
+/* ===== v3 : plus de présence, de respiration, de relief ===== */
+.cv{line-height:1.52}
+.cv .nm{font-size:3.25em;font-weight:800;letter-spacing:-.03em}
+.cv .tt{font-size:1em;letter-spacing:.2em;font-weight:600;margin-top:8pt}
+.cv .sec{margin:0 0 17pt}
+.cv .job,.cv .edu{margin:0 0 11pt}
+.cv .jt strong{font-size:1.08em}
+.cv .job li{margin:0 0 2.6pt}
+.cv .sec>h2{font-size:1.02em}
+.cv.hs-0 .sec>h2,.cv.hs-4 .sec>h2{font-size:.9em;letter-spacing:.18em}
+.cv.hs-1 .sec>h2,.cv.hs-5 .sec>h2{font-size:1.2em}
+.cv .s-pro p{font-size:1.06em;line-height:1.6}
+.cv.pq .s-pro p{border-left:3pt solid var(--h);padding-left:11pt;font-style:italic;color:#333}
+.cv.l-sl .c-side .s-pro p,.cv.l-sr .c-side .s-pro p{border:0;padding:0}
+.cv.tm:not(.l-tl) .c-main .job,.cv.tm:not(.l-tl) .c-main .edu,.cv.tm.l-ce .job,.cv.tm.l-ce .edu,.cv.tm.l-cd .job,.cv.tm.l-cd .edu{position:relative;padding-left:14pt;border-left:1.5pt solid var(--soft);margin-left:3pt}
+.cv.tm:not(.l-tl) .job::before,.cv.tm:not(.l-tl) .edu::before{content:"";position:absolute;left:-5.2pt;top:.42em;width:8.5pt;height:8.5pt;border-radius:50%;background:var(--h);border:2pt solid #fff;box-shadow:0 0 0 1.5pt var(--a)}
+.cv.tm.l-bd .c-main .job,.cv.tm.l-bd .c-main .edu{border-left-color:var(--soft)}
+.cv .mn{width:62pt;height:62pt;font-size:1.9em;box-shadow:0 0 0 4pt rgba(255,255,255,.22)}
+.cv.l-sr .mn{box-shadow:0 0 0 4pt var(--soft)}
+.cv.l-sl .c-side{padding:30pt 16pt 24pt 19pt}.cv.l-sr .c-side{padding:30pt 18pt 24pt 17pt}
+.cv.l-sl .c-main{padding:32pt 24pt 24pt 22pt}.cv.l-sr .c-main{padding:32pt 20pt 24pt 26pt}
+.cv.l-ce{padding:32pt 34pt}.cv.l-tl{padding:32pt 32pt}
+.cv.l-bd .c-band{padding:30pt 30pt 40pt}.cv.l-cd .hd{padding:32pt 32pt 22pt}.cv.l-cd .cv-body{padding:0 32pt}
+.cv .ct li{margin:0 0 4pt}
+.cv.l-sl .c-side .sec>h2{font-size:.84em;letter-spacing:.16em}
+.cv .jdt{font-weight:600}
+.cv.l-sl .c-side::after{content:"";display:block;width:70%;height:3pt;background:var(--h);border-radius:2pt;margin-top:8pt;opacity:.9}
+.cv .c-side .ct{margin-bottom:16pt}
