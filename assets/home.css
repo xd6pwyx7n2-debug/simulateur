@@ -65,3 +65,5 @@ h1,h2,h3{text-wrap:balance}
 .cv-spot .prev img:nth-child(1){transform:translateY(10px) rotate(-3deg)}.cv-spot .prev img:nth-child(2){transform:translateY(-8px)}.cv-spot .prev img:nth-child(3){transform:translateY(12px) rotate(3deg)}
 @media(max-width:899px){.cv-spot .prev{order:-1}.cv-spot .prev img{width:30%}}
 @media(prefers-reduced-motion:no-preference){.cv-spot .prev img{transition:transform .25s}.cv-spot .box:hover .prev img:nth-child(2){transform:translateY(-14px)}}
+.sit-badge{display:inline-block;font-style:normal;font-size:.68rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;background:#0f766e;color:#fff;border-radius:99px;padding:2px 8px;margin-left:6px;vertical-align:2px;filter:none}
+.sit-new{border-width:2px;position:relative}.sit-new .sit-badge{position:absolute;top:9px;right:11px;margin:0}.sit-new strong{padding-right:70px}@media(max-width:560px){.sit-new strong{padding-right:64px}}
