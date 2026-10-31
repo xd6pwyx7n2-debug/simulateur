@@ -7,6 +7,8 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 SYN = {
     "faire-le-point-reconversion": "reconversion professionnelle bilan de competences orientation changer de metier projet professionnel cep pistes plan d action",
     "ouvrir-un-salon-de-coiffure-demarches-etape-par-etape": "coiffeur coiffure salon ouvrir un salon de coiffure cap bp qualification affichage prix",
+    "ouvrir-un-food-truck-demarches-etape-par-etape": "food truck camion restauration ambulante commerçant ambulant ouvrir un food truck hygiene",
+    "ouvrir-un-bar-cafe-licence-permis-exploitation-demarches": "bar cafe licence 3 licence 4 permis exploitation debit de boissons terrasse ouvrir un bar",
     "generateur-devis": "devis modele devis facture artisan micro entrepreneur creer un devis pdf word",
     "guides/faire-un-devis-mentions-obligatoires-selon-le-metier": "devis modele devis mentions obligatoires artisan batiment acompte arrhes facture",
     "guides/creer-un-business-plan-etapes-financement-seuil-rentabilite": "business plan previsionnel plan de financement seuil de rentabilite creer entreprise banque pret",
