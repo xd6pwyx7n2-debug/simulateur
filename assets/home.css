@@ -33,3 +33,5 @@ h1,h2,h3{text-wrap:balance}
 .hero-simple h1{max-width:900px}
 
 .sit-ico .sdi{width:26px;height:26px}
+.hero.hero-simple{background-image:url(/assets/hero-bg.svg),radial-gradient(620px 430px at 93% 6%,rgba(160,136,255,.40),transparent 70%),radial-gradient(540px 400px at 3% 92%,rgba(255,158,128,.24),transparent 70%),radial-gradient(440px 320px at 52% -4%,rgba(120,223,193,.26),transparent 70%);background-repeat:no-repeat;background-size:cover,auto,auto,auto;background-position:center,0 0,0 0,0 0}
+@media(max-width:900px){.hero.hero-simple{background-image:radial-gradient(620px 430px at 93% 6%,rgba(160,136,255,.40),transparent 70%),radial-gradient(540px 400px at 3% 92%,rgba(255,158,128,.24),transparent 70%)}}
