@@ -26,3 +26,4 @@ html[data-theme="dark"] .dv-stage{background:#2a2840}
 #dv-sheet.dvh-split .dv-p{text-align:right}
 #dv-sheet .dv-t th{border-radius:0}
 @media print{body *{visibility:hidden!important}#dv-sheet,#dv-sheet *{visibility:visible!important}#dv-sheet{position:absolute;left:0;top:0;width:100%;box-shadow:none;padding:0;margin:0}@page{size:A4;margin:14mm}.dv-t th,.dv-cl,.dv-top{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+#dv-sheet.qt .dv-t{width:100%!important;display:table}#dv-sheet.qt .dv-s{width:80%}#dv-sheet.qt .dv-s td:last-child{white-space:nowrap}
