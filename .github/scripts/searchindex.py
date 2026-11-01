@@ -20,6 +20,8 @@ SYN = {
     "guides/prime-d-activite-2026-conditions-calcul-montant-demande": "prime d activite 2026 caf montant forfait 638 conditions calcul bonification demande trimestrielle",
     "guides/apl-aide-au-logement-2026-conditions-loyers-plafonds-demande": "apl aide personnalisee au logement caf loyer plafond zone conditions demande logement conventionne gel budget 2027",
     "guides/budget-2027-ce-qui-est-propose-et-ce-qui-est-vote": "budget 2027 projet de loi de finances plf retraites abattement 10 pour cent apl heures supplementaires indemnites journalieres vote assemblee 49",
+    "generateur-attestation-d-hebergement": "attestation hebergement generateur modele attestation sur l'honneur heberge hebergeant pdf word gratuit",
+    "guides/attestation-d-hebergement-comment-la-rediger-pieces-a-fournir": "attestation hebergement pieces a fournir justificatif de domicile heberge chez un tiers carte identite passeport",
     "generateur-quittance-de-loyer": "quittance de loyer generateur modele quittance proprietaire locataire pdf word gratuit",
     "guides/quittance-de-loyer-obligation-mentions-paiement-partiel": "quittance de loyer obligation gratuite mentions loyer charges paiement partiel recu bailleur locataire",
     "generateur-facture": "facture modele facture generateur de facture creer une facture pdf word auto entrepreneur micro entrepreneur mentions",
