@@ -252,7 +252,9 @@ with sync_playwright() as pw:
     # résultat en temps réel : modifier une valeur met à jour le résultat sans recliquer
     pg.goto(LOCAL + "simulateur-brut-net/"); pg.wait_for_timeout(200)
     pg.evaluate("()=>{var e=document.getElementById('brut');e.value='2500';e.dispatchEvent(new Event('input',{bubbles:true}));document.getElementById('calculate').click()}"); pg.wait_for_timeout(1100)
-    pg.evaluate("()=>{var e=document.getElementById('brut');e.value='3000';e.dispatchEvent(new Event('input',{bubbles:true}))}"); pg.wait_for_timeout(1600)
+    pg.evaluate("()=>{var e=document.getElementById('brut');e.value='3000';e.dispatchEvent(new Event('input',{bubbles:true}))}")
+    try: pg.wait_for_function("()=>/2\\s374,79/.test(document.getElementById('net').innerText.replace(/[\\u202f\\u00a0]/g,' '))", timeout=6000)
+    except Exception: pass
     if norm("2 374,79 €") not in norm(pg.inner_text("#net")): fail("temps réel : le résultat ne s'est pas mis à jour (%s)" % pg.inner_text("#net"))
     # chômage : bloc ATI des indépendants (26,30 € x 182 j = 4 786,60 €)
     pg.goto(LOCAL + "simulateur-ati-independant/"); pg.wait_for_timeout(200)

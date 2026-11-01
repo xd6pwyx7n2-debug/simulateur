@@ -53,3 +53,4 @@
 @media print{body *{visibility:hidden!important}#pt-doc,#pt-doc *{visibility:visible!important}#pt-doc{position:absolute;left:0;top:0;width:100%;border:0;padding:0;max-width:none}@page{size:A4;margin:14mm}#pt-doc a{color:#1c1c28;text-decoration:none}}
 .pt-mem label{display:inline-flex;align-items:center;gap:8px;margin-right:8px}.pt-mem input{width:auto;margin:0}
 .pt-step label input[type=checkbox]{width:auto;margin-right:6px}
+.pt-mem input[type=checkbox]{width:22px;height:22px}
