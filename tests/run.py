@@ -109,6 +109,24 @@ for f in pages:
     for _t in re.findall(r'<input\b[^>]*\btype="number"[^>]*>', _h):
         _m = re.search(r'\bmin="(-?[\d.]+)"', _t)
         if _m and float(_m.group(1)) >= 0 and "inputmode" not in _t: fail("%s : champ numérique sans inputmode : %s" % (os.path.relpath(f, ROOT), _t[:90]))
+# Sources officielles : les 12 simulateurs qui n'en citaient pas doivent afficher, près du résultat (theme.js), une règle,
+# une source d'un organisme officiel et une date de relecture réelle (ou aucune date si la source n'a pas été relue).
+_th = open(os.path.join(ROOT, "assets", "theme.js"), encoding="utf-8").read()
+OFFICIEL = re.compile(r'^https://([a-z0-9-]+\.)*(service-public\.gouv\.fr|code\.travail\.gouv\.fr|impots\.gouv\.fr|insee\.fr|moncompteformation\.gouv\.fr|dreets\.gouv\.fr|legifrance\.gouv\.fr|economie\.gouv\.fr|info\.gouv\.fr)/')
+for _s in ("indemnite-depart-retraite", "smic", "salaire-horaire-mensuel", "prorata-salaire", "preavis-demission", "fin-contrat-fonction-publique",
+           "cpf", "impot-revenu", "salaire-net-apres-impot", "frais-kilometriques", "comparer-mon-salaire", "rupture-assistante-maternelle"):
+    _m = re.search(r'^\s+"%s":\[(.*)\],?\s*$' % re.escape(_s), _th, re.M)
+    if not _m: fail("sources : %s absent du bandeau « base du calcul » (theme.js)" % _s); continue
+    _e = _m.group(1)
+    _urls = re.findall(r'"(https://[^"]+)"', _e)
+    if not _urls or not OFFICIEL.match(_urls[0]): fail("sources : %s, source principale non officielle ou absente" % _s)
+    if not re.search(r'(?:"|\))\s*,\s*(?:"20\d\d-\d\d-\d\d"|false)\s*,', _e) and not re.search(r',\s*(?:"20\d\d-\d\d-\d\d"|false)\s*,', _e): fail("sources : %s, date de relecture manquante (ISO ou false)" % _s)
+    if re.search(r'"20(\d\d)-(\d\d)-(\d\d)"', _e) and not re.search(r'"2026-1[01]-\d\d"', _e): fail("sources : %s, date de relecture invraisemblable" % _s)
+# Plus aucune source privée ou syndicale sur les pages d'impôt, de CPF et de fin de contrat dans la fonction publique
+for _s, _bad in (("cpf", ("filiz.io", "editions-tissot")), ("impot-revenu", ("legifiscal",)), ("fin-contrat-fonction-publique", ("snes.edu",))):
+    _h = open(os.path.join(ROOT, "simulateur-" + _s, "index.html"), encoding="utf-8").read()
+    for _b in _bad:
+        if _b in _h: fail("sources : simulateur-%s cite encore une source non officielle (%s)" % (_s, _b))
 # Assistant : la réponse sur les indépendants ne doit pas contredire le catalogue
 _a = open(os.path.join(ROOT, "assistant", "index.html"), encoding="utf-8").read()
 if "concernent les salariés. Pour un indépendant" in _a: fail("assistant : réponse obsolète sur les indépendants")

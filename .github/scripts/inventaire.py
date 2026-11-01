@@ -25,7 +25,9 @@ try:
         return {champs:inp.length,nombres:num.length,sansInputmode:num.filter(i=>!i.inputMode).length,resultat_initial_zero:zero,blocs_resultat:res.length}}""")
       guides=len(set(re.findall(r'href="/guides/[^"]+"',html)));lettres=len(set(re.findall(r'href="/modele-lettre-[^"]+"',html)))
       outils=len(set(re.findall(r'href="/simulateur-[^"]+"',html)))
-      src=len(re.findall(r'(service-public\.gouv\.fr|legifrance\.gouv\.fr|urssaf\.fr|francetravail\.fr|ameli\.fr|info-retraite\.fr|travail-emploi\.gouv\.fr|code\.travail\.gouv\.fr)',html))
+      src=len(re.findall(r'(service-public\.gouv\.fr|legifrance\.gouv\.fr|urssaf\.fr|francetravail\.fr|ameli\.fr|info-retraite\.fr|travail-emploi\.gouv\.fr|code\.travail\.gouv\.fr|impots\.gouv\.fr|insee\.fr|moncompteformation\.gouv\.fr|dreets\.gouv\.fr|economie\.gouv\.fr|info\.gouv\.fr)',html))
+      # source affichée près du résultat par assets/theme.js (carte « base du calcul »)
+      th=open('assets/theme.js',encoding='utf-8').read();src+=1 if re.search(r'^\s+"%s":\['%re.escape(slug.replace('simulateur-','',1)),th,re.M) else 0
       m=re.search(r'(?:vérifié|Vérifié|mise à jour|Mis à jour)[^<]{0,40}?(\d{1,2}(?:er)? [a-zéû]+ 20\d\d)',html)
       last=subprocess.run(["git","log","-1","--format=%cs","--",d],capture_output=True,text=True).stdout.strip()
       title=re.search(r'<title>(.*?)</title>',html).group(1)
