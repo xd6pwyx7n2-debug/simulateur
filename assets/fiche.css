@@ -101,3 +101,11 @@ article.fiche ul.cl input{flex:0 0 22px;width:22px;height:22px;margin-top:1px;ac
 article.fiche ul.cl input:checked+span{text-decoration:line-through;opacity:.65}
 article.fiche ul.cl label:focus-within{outline:3px solid color-mix(in srgb,var(--a) 55%,#fff);outline-offset:2px}
 article.fiche .cl-prog{font-weight:700;color:var(--a);margin:6px 0 18px}
+.gd-tool{display:flex;gap:18px;align-items:center;border:1.5px solid #cfc8f5;border-radius:18px;padding:16px 18px;margin:18px 0;background:linear-gradient(135deg,#f1effd,#eaf7f5)}
+.gd-tool>svg{flex:0 0 92px;width:92px;height:auto;filter:drop-shadow(0 2px 6px rgba(32,30,72,.25))}
+.gd-tool-tag{display:inline-block;font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#0b5d52;background:#fff;border-radius:99px;padding:3px 10px}
+.gd-tool strong{display:block;font-size:1.15rem;color:#201e48;margin:6px 0 2px}
+.gd-tool p{margin:0 0 10px;color:#3b3a5a}
+.gd-tool-btn{display:inline-flex;align-items:center;background:#4b3bd0;color:#fff!important;font-weight:800;padding:0 20px;min-height:44px;border-radius:12px;text-decoration:none}
+.gd-tool-btn:hover{background:#3b2dbf}.gd-tool-btn:focus-visible{outline:3px solid #00a58e;outline-offset:2px}
+@media(max-width:560px){.gd-tool{flex-direction:column;align-items:flex-start}}

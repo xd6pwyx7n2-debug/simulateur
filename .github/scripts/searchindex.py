@@ -12,6 +12,11 @@ SYN = {
     "ouvrir-une-epicerie-demarches-etape-par-etape": "epicerie epicerie fine commerce alimentaire superette ouvrir une epicerie ddpp declaration sanitaire",
     "simulateur-frais-kilometriques": "frais kilometriques bareme kilometrique indemnites kilometriques frais reels deduction voiture moto electrique trajet domicile travail impot",
     "journee-de-solidarite-2027-date-regles-remuneration": "journee de solidarite 2027 lundi de pentecote 7 heures non remuneree temps partiel jour ferie travaille",
+    "guides/convention-de-stage-regles-duree-gratification-droits-du-stagiaire": "convention de stage duree maximale 6 mois gratification obligatoire droits du stagiaire tuteur delai de carence",
+    "guides/contrat-d-apprentissage-conditions-demarches-droits-de-l-apprenti": "contrat d apprentissage alternance apprenti age 16 29 ans duree rupture 45 jours opco cfa conges",
+    "guides/rapport-de-stage-comment-le-rediger-etape-par-etape": "rapport de stage plan redaction comment faire un rapport de stage introduction conclusion annexes sommaire",
+    "generateur-page-de-garde-rapport-de-stage": "page de garde rapport de stage logo entreprise generateur pdf word modele page de garde memoire",
+    "guides/devenir-chauffeur-routier-permis-c-ce-fimo-fco-formations": "chauffeur routier conducteur routier poids lourd permis c permis ce fimo fco formation transport marchandises camion",
     "generateur-devis": "devis modele devis facture artisan micro entrepreneur creer un devis pdf word",
     "guides/faire-un-devis-mentions-obligatoires-selon-le-metier": "devis modele devis mentions obligatoires artisan batiment acompte arrhes facture",
     "guides/creer-un-business-plan-etapes-financement-seuil-rentabilite": "business plan previsionnel plan de financement seuil de rentabilite creer entreprise banque pret",
@@ -49,7 +54,7 @@ def typ(path):
     if path.startswith("simulateur-") or path == "simulateurs": return "Simulateur"
     if path.startswith("guides/") and path != "guides": return "Guide"
     if path.startswith("modele-lettre") or path == "modeles-de-lettres": return "Lettre"
-    if path == "generateur-cv": return "Outil"
+    if path == "generateur-cv" or path.startswith("generateur-"): return "Outil"
     if path.startswith("aides/"): return "Aide"
     if path.startswith("metiers/"): return "Métier"
     if path.startswith("fiches-revision/"): return "Fiche"

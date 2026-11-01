@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://simudroit.fr/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/a-propos/</loc>
@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/assistant/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/exemples-brut-net/</loc>
@@ -81,6 +81,22 @@
     <lastmod>2026-11-01</lastmod>
   </url>
   <url>
+    <loc>https://simudroit.fr/guides/convention-de-stage-regles-duree-gratification-droits-du-stagiaire/</loc>
+    <lastmod>2026-11-01</lastmod>
+  </url>
+  <url>
+    <loc>https://simudroit.fr/guides/contrat-d-apprentissage-conditions-demarches-droits-de-l-apprenti/</loc>
+    <lastmod>2026-11-01</lastmod>
+  </url>
+  <url>
+    <loc>https://simudroit.fr/guides/rapport-de-stage-comment-le-rediger-etape-par-etape/</loc>
+    <lastmod>2026-11-01</lastmod>
+  </url>
+  <url>
+    <loc>https://simudroit.fr/guides/devenir-chauffeur-routier-permis-c-ce-fimo-fco-formations/</loc>
+    <lastmod>2026-11-01</lastmod>
+  </url>
+  <url>
     <loc>https://simudroit.fr/guides/abandon-de-poste-presomption-de-demission-chomage/</loc>
     <lastmod>2026-10-31</lastmod>
   </url>
@@ -114,15 +130,19 @@
   </url>
   <url>
     <loc>https://simudroit.fr/generateur-cv/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/generateur-devis/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
+  </url>
+  <url>
+    <loc>https://simudroit.fr/generateur-page-de-garde-rapport-de-stage/</loc>
+    <lastmod>2026-11-01</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/faire-le-point-reconversion/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/modele-lettre-demande-temps-partiel/</loc>
@@ -130,7 +150,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/modele-lettre-rupture-periode-essai-salarie/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/modele-lettre-contestation-avertissement/</loc>
@@ -146,7 +166,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/modele-lettre-reclamation-salaire-impaye/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/modele-lettre-demande-dispense-preavis/</loc>
@@ -158,19 +178,19 @@
   </url>
   <url>
     <loc>https://simudroit.fr/modele-lettre-demande-paiement-heures-supplementaires/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/modele-lettre-demande-certificat-travail-attestation-france-travail/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/modele-lettre-retractation-rupture-conventionnelle/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/modele-lettre-contestation-solde-de-tout-compte/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/parcours/</loc>
@@ -302,19 +322,19 @@
   </url>
   <url>
     <loc>https://simudroit.fr/guides/choisir-statut-micro-ei-eurl-sasu/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://simudroit.fr/guides/artisan-batiment-se-mettre-a-son-compte-salarie-feuille-de-route/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://simudroit.fr/guides/vendre-son-entreprise-cession-etapes-precautions/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -404,7 +424,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/guides/mi-temps-therapeutique-amenagement-poste-medecine-travail/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -446,25 +466,25 @@
   </url>
   <url>
     <loc>https://simudroit.fr/guides/aesh-corps-categorie-b-proposition-de-loi-assemblee/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://simudroit.fr/guides/calcul-anciennete-salarie-periodes-prises-en-compte/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://simudroit.fr/guides/ouvrir-un-restaurant-demarches-etape-par-etape/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://simudroit.fr/guides/bail-commercial-points-a-verifier-avant-de-signer/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -482,73 +502,73 @@
   </url>
   <url>
     <loc>https://simudroit.fr/guides/ouvrir-une-boutique-demarches-etape-par-etape/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://simudroit.fr/guides/acre-cfe-creation-entreprise-demande-exoneration/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://simudroit.fr/guides/frais-de-notaire-achat-immobilier-composition-calcul/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://simudroit.fr/guides/ouvrir-une-boulangerie-demarches-etape-par-etape/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://simudroit.fr/guides/ouvrir-un-salon-de-tatouage-demarches-etape-par-etape/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://simudroit.fr/guides/ouvrir-un-salon-de-coiffure-demarches-etape-par-etape/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://simudroit.fr/guides/ouvrir-un-bar-cafe-licence-permis-exploitation-demarches/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://simudroit.fr/guides/ouvrir-un-food-truck-demarches-etape-par-etape/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://simudroit.fr/guides/ouvrir-une-epicerie-demarches-etape-par-etape/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://simudroit.fr/guides/creer-un-profil-linkedin-professionnel-etape-par-etape/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://simudroit.fr/guides/creer-un-business-plan-etapes-financement-seuil-rentabilite/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://simudroit.fr/guides/faire-un-devis-mentions-obligatoires-selon-le-metier/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -704,15 +724,15 @@
   </url>
   <url>
     <loc>https://simudroit.fr/metiers/infirmier-liberal-prevoyance/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/metiers/infirmier-liberal-arret-maladie-invalidite/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/metiers/creer-son-entreprise-batiment/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/metiers/chauffagiste-creer-son-entreprise/</loc>
@@ -940,7 +960,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/actualites/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/fiches-revision/</loc>
@@ -948,7 +968,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/aides/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/aides/prime-d-activite/</loc>
@@ -984,7 +1004,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/aides/allocations-familiales/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/aides/aspa-minimum-vieillesse/</loc>
