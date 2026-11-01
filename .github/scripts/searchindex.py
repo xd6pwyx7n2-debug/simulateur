@@ -19,6 +19,7 @@ SYN = {
     "guides/devenir-chauffeur-routier-permis-c-ce-fimo-fco-formations": "chauffeur routier conducteur routier poids lourd permis c permis ce fimo fco formation transport marchandises camion",
     "guides/prime-d-activite-2026-conditions-calcul-montant-demande": "prime d activite 2026 caf montant forfait 638 conditions calcul bonification demande trimestrielle",
     "guides/apl-aide-au-logement-2026-conditions-loyers-plafonds-demande": "apl aide personnalisee au logement caf loyer plafond zone conditions demande logement conventionne gel budget 2027",
+    "guides/budget-2027-ce-qui-est-propose-et-ce-qui-est-vote": "budget 2027 projet de loi de finances plf retraites abattement 10 pour cent apl heures supplementaires indemnites journalieres vote assemblee 49",
     "generateur-facture": "facture modele facture generateur de facture creer une facture pdf word auto entrepreneur micro entrepreneur mentions",
     "guides/facture-mentions-obligatoires-penalites-franchise-tva": "facture mentions obligatoires penalites de retard indemnite 40 euros franchise tva 293 b facturation electronique 2026 2027",
     "generateur-devis": "devis modele devis facture artisan micro entrepreneur creer un devis pdf word",
