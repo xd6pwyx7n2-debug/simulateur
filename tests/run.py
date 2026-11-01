@@ -103,6 +103,17 @@ for f in pages:
     if rel in ("404.html", "simulateur/index.html", "dossiers/index.html"): continue
     url = BASE + (rel[:-len("index.html")] if rel.endswith("index.html") else rel)
     if url not in locs: fail("sitemap : page absente %s" % url)
+# Clavier mobile : tout champ numérique à minimum positif doit déclarer son inputmode
+for f in pages:
+    _h = open(f, encoding="utf-8").read()
+    for _t in re.findall(r'<input\b[^>]*\btype="number"[^>]*>', _h):
+        _m = re.search(r'\bmin="(-?[\d.]+)"', _t)
+        if _m and float(_m.group(1)) >= 0 and "inputmode" not in _t: fail("%s : champ numérique sans inputmode : %s" % (os.path.relpath(f, ROOT), _t[:90]))
+# Assistant : la réponse sur les indépendants ne doit pas contredire le catalogue
+_a = open(os.path.join(ROOT, "assistant", "index.html"), encoding="utf-8").read()
+if "concernent les salariés. Pour un indépendant" in _a: fail("assistant : réponse obsolète sur les indépendants")
+for _s in ("micro-entrepreneur", "tjm-freelance", "ati-independant"):
+    if "simulateur-" + _s not in _a: fail("assistant : lien vers simulateur-%s absent de la réponse sur les indépendants" % _s)
 print("Contrôles statiques :", len(pages), "pages,", len(locs), "URL de sitemap")
 
 # ---------- 1bis. Date « Barèmes vérifiés le … » sur chaque simulateur ----------

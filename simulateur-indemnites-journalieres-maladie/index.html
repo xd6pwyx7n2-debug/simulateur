@@ -450,15 +450,15 @@
     <div id="blocSalarie">
     <div class="field">
       <label for="s1">Salaire brut du dernier mois avant l'arrêt (€)</label>
-      <input type="number" id="s1" min="0" step="0.01" placeholder="Ex. 2 500">
+      <input type="number" id="s1" min="0" step="0.01" placeholder="Ex. 2 500" inputmode="decimal">
     </div>
     <div class="field">
       <label for="s2">Salaire brut de l'avant-dernier mois (€)</label>
-      <input type="number" id="s2" min="0" step="0.01" placeholder="Ex. 2 500">
+      <input type="number" id="s2" min="0" step="0.01" placeholder="Ex. 2 500" inputmode="decimal">
     </div>
     <div class="field">
       <label for="s3">Salaire brut du 3e mois précédent (€)</label>
-      <input type="number" id="s3" min="0" step="0.01" placeholder="Ex. 2 500">
+      <input type="number" id="s3" min="0" step="0.01" placeholder="Ex. 2 500" inputmode="decimal">
       <div class="field-help">Indiquez les 3 derniers salaires bruts (primes comprises) précédant l'arrêt, tels qu'ils figurent sur vos bulletins de paie.</div>
     </div>
     </div>
@@ -473,19 +473,19 @@
       </div>
       <div class="field">
         <label for="ca">Chiffre d'affaires annuel moyen des 3 dernières années civiles (€)</label>
-        <input type="number" id="ca" min="0" step="1" placeholder="Ex. 30 000">
+        <input type="number" id="ca" min="0" step="1" placeholder="Ex. 30 000" inputmode="numeric">
         <div class="field-help">Faites la moyenne des chiffres d'affaires déclarés chacune des 3 années civiles précédant l'arrêt. L'abattement forfaitaire est appliqué automatiquement.</div>
       </div>
       <div class="field">
         <label for="affil">Ancienneté d'affiliation dans cette activité (en mois)</label>
-        <input type="number" id="affil" min="0" max="600" step="1" placeholder="Ex. 24">
+        <input type="number" id="affil" min="0" max="600" step="1" placeholder="Ex. 24" inputmode="numeric">
         <div class="field-help">Il faut au moins 12 mois d'affiliation continus pour ouvrir droit aux indemnités.</div>
       </div>
       <div class="intro-note"><strong>Non concernés :</strong> les professions libérales réglementées affiliées à la Cipav (architectes, experts-comptables, etc.) ne perçoivent pas ces indemnités journalières. Ce calcul s'adresse aux micro-entrepreneurs artisans, commerçants et professions libérales non réglementées. <a href="https://www.autoentrepreneur.urssaf.fr/portail/accueil/sinformer-sur-le-statut/lessentiel-du-statut.html" target="_blank" rel="noopener noreferrer">Source : Urssaf</a></div>
     </div>
     <div class="field">
       <label for="jours">Durée de l'arrêt (en jours calendaires)</label>
-      <input type="number" id="jours" min="1" max="1095" step="1" placeholder="Ex. 15">
+      <input type="number" id="jours" min="1" max="1095" step="1" placeholder="Ex. 15" inputmode="numeric">
       <div class="field-help">Comptez tous les jours de l'arrêt, week-ends compris. Les 3 premiers jours ne sont pas indemnisés (délai de carence).</div>
     </div>
     <button type="button" id="calculate">Calculer</button>

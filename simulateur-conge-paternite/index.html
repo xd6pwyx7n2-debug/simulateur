@@ -450,15 +450,15 @@
     <div id="blocSalarie">
     <div class="field">
       <label for="s1">Salaire brut du dernier mois avant le congé (€)</label>
-      <input type="number" id="s1" min="0" step="0.01" placeholder="Ex. 2 500">
+      <input type="number" id="s1" min="0" step="0.01" placeholder="Ex. 2 500" inputmode="decimal">
     </div>
     <div class="field">
       <label for="s2">Salaire brut de l'avant-dernier mois (€)</label>
-      <input type="number" id="s2" min="0" step="0.01" placeholder="Ex. 2 500">
+      <input type="number" id="s2" min="0" step="0.01" placeholder="Ex. 2 500" inputmode="decimal">
     </div>
     <div class="field">
       <label for="s3">Salaire brut du 3e mois précédent (€)</label>
-      <input type="number" id="s3" min="0" step="0.01" placeholder="Ex. 2 500">
+      <input type="number" id="s3" min="0" step="0.01" placeholder="Ex. 2 500" inputmode="decimal">
       <div class="field-help">Indiquez les 3 derniers salaires bruts (primes comprises) précédant le début du congé, tels qu'ils figurent sur vos bulletins de paie.</div>
     </div>
     </div>
@@ -473,12 +473,12 @@
       </div>
       <div class="field">
         <label for="ca">Chiffre d'affaires annuel moyen des 3 dernières années civiles (€)</label>
-        <input type="number" id="ca" min="0" step="1" placeholder="Ex. 30 000">
+        <input type="number" id="ca" min="0" step="1" placeholder="Ex. 30 000" inputmode="numeric">
         <div class="field-help">Il sert à vérifier le seuil de revenu : sous 4 582 € de revenu annuel moyen (après abattement), l'indemnité est réduite à 10 %.</div>
       </div>
       <div class="field">
         <label for="affil">Ancienneté d'affiliation comme indépendant (en mois)</label>
-        <input type="number" id="affil" min="0" max="600" step="1" placeholder="Ex. 24">
+        <input type="number" id="affil" min="0" max="600" step="1" placeholder="Ex. 24" inputmode="numeric">
         <div class="field-help">Il faut au moins 6 mois d'affiliation à la date de début du congé.</div>
       </div>
     </div>
