@@ -17,6 +17,8 @@ SYN = {
     "guides/rapport-de-stage-comment-le-rediger-etape-par-etape": "rapport de stage plan redaction comment faire un rapport de stage introduction conclusion annexes sommaire",
     "generateur-page-de-garde-rapport-de-stage": "page de garde rapport de stage logo entreprise generateur pdf word modele page de garde memoire",
     "guides/devenir-chauffeur-routier-permis-c-ce-fimo-fco-formations": "chauffeur routier conducteur routier poids lourd permis c permis ce fimo fco formation transport marchandises camion",
+    "generateur-facture": "facture modele facture generateur de facture creer une facture pdf word auto entrepreneur micro entrepreneur mentions",
+    "guides/facture-mentions-obligatoires-penalites-franchise-tva": "facture mentions obligatoires penalites de retard indemnite 40 euros franchise tva 293 b facturation electronique 2026 2027",
     "generateur-devis": "devis modele devis facture artisan micro entrepreneur creer un devis pdf word",
     "guides/faire-un-devis-mentions-obligatoires-selon-le-metier": "devis modele devis mentions obligatoires artisan batiment acompte arrhes facture",
     "guides/creer-un-business-plan-etapes-financement-seuil-rentabilite": "business plan previsionnel plan de financement seuil de rentabilite creer entreprise banque pret",

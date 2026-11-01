@@ -137,6 +137,10 @@
     <lastmod>2026-11-01</lastmod>
   </url>
   <url>
+    <loc>https://simudroit.fr/generateur-facture/</loc>
+    <lastmod>2026-11-01</lastmod>
+  </url>
+  <url>
     <loc>https://simudroit.fr/generateur-page-de-garde-rapport-de-stage/</loc>
     <lastmod>2026-11-01</lastmod>
   </url>
@@ -573,6 +577,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://simudroit.fr/guides/facture-mentions-obligatoires-penalites-franchise-tva/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://simudroit.fr/metiers/aesh-accompagnant-eleves-handicap/</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -792,35 +802,35 @@
   </url>
   <url>
     <loc>https://simudroit.fr/simulateur-salaire-apprenti/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/simulateur-gratification-stage/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/metiers/apprenti/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/metiers/stagiaire/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/modele-lettre-demande-de-stage/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/modele-lettre-demande-apprentissage/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/modele-lettre-stage-observation/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/modele-lettre-stage-3eme/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/modele-lettre-motivation-domaine/</loc>
@@ -848,7 +858,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/reconversion/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/modele-lettre-conge-transition-professionnelle/</loc>
