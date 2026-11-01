@@ -20,6 +20,7 @@ SYN = {
     "guides/prime-d-activite-2026-conditions-calcul-montant-demande": "prime d activite 2026 caf montant forfait 638 conditions calcul bonification demande trimestrielle",
     "guides/apl-aide-au-logement-2026-conditions-loyers-plafonds-demande": "apl aide personnalisee au logement caf loyer plafond zone conditions demande logement conventionne gel budget 2027",
     "guides/budget-2027-ce-qui-est-propose-et-ce-qui-est-vote": "budget 2027 projet de loi de finances plf retraites abattement 10 pour cent apl heures supplementaires indemnites journalieres vote assemblee 49",
+    "documents-a-generer": "documents a generer generateur gratuit cv devis facture quittance attestation contrat page de garde pdf word",
     "generateur-contrat-emploi-a-domicile": "contrat de travail emploi a domicile femme de menage aide a domicile cesu cdi cdd periode d'essai modele gratuit pdf word",
     "guides/cesu-embaucher-aide-a-domicile-menage-demarches-contrat-credit-impot": "cesu embaucher femme de menage aide a domicile particulier employeur declaration urssaf credit d'impot 50 pourcent salaire contrat",
     "generateur-attestation-d-hebergement": "attestation hebergement generateur modele attestation sur l'honneur heberge hebergeant pdf word gratuit",

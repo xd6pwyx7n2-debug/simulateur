@@ -244,6 +244,8 @@ with sync_playwright() as pw:
     if "word/document.xml" not in __import__("zipfile").ZipFile(_dc.value.path()).namelist(): fail("contrat à domicile : fichier .docx invalide")
     pg.goto(LOCAL + "guides/cesu-embaucher-aide-a-domicile-menage-demarches-contrat-credit-impot/"); pg.wait_for_timeout(300)
     if len(pg.query_selector_all("ol.gd-metro > li")) != 6: fail("guide Cesu : le parcours en 6 stations est absent")
+    pg.goto(LOCAL + "documents-a-generer/"); pg.wait_for_timeout(300)
+    if len(pg.query_selector_all("article a[href^='/generateur-']")) < 7: fail("documents à générer : les 7 générateurs doivent être listés")
     pg.goto(LOCAL + "generateur-page-de-garde-rapport-de-stage/"); pg.wait_for_timeout(300); pg.click("#gp-example"); pg.wait_for_timeout(200)
     _g = pg.inner_text("#gp-sheet")
     if "Camille Martin" not in _g or "Entreprise Exemple" not in _g or "12/04/2027" not in _g: fail("page de garde : l'exemple n'apparaît pas dans l'aperçu (%s)" % _g[:150])
