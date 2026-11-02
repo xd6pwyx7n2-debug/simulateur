@@ -157,6 +157,13 @@ for _s, _bad in (("cpf", ("filiz.io", "editions-tissot")), ("impot-revenu", ("le
     _h = open(os.path.join(ROOT, "simulateur-" + _s, "index.html"), encoding="utf-8").read()
     for _b in _bad:
         if _b in _h: fail("sources : simulateur-%s cite encore une source non officielle (%s)" % (_s, _b))
+# Guide frais kilométriques : barème identique à celui du simulateur, parcours en stations, lien vers le simulateur
+_g = open(os.path.join(ROOT, "guides", "frais-kilometriques-bareme-2026-deduire-trajet-domicile-travail", "index.html"), encoding="utf-8").read()
+for _v in ("d × 0,529", "(d × 0,316) + 1 065", "d × 0,697", "(d × 0,394) + 1 515", "d × 0,470", "3 751,20", "4 501,44"):
+    if _v not in _g: fail("guide frais kilométriques : valeur du barème absente (%s)" % _v)
+if _g.count('<li><strong>') < 5 or "/simulateur-frais-kilometriques/" not in _g or "gd-metro" not in _g: fail("guide frais kilométriques : parcours ou lien vers le simulateur absent")
+if 5001 and round(6600*0.357+1395, 2) != 3751.20: fail("guide frais kilométriques : exemple chiffré incohérent")
+if "frais-kilometriques-bareme" not in _page("frais-kilometriques"): fail("simulateur frais kilométriques : lien vers le guide absent")
 # Assistant : la réponse sur les indépendants ne doit pas contredire le catalogue
 _a = open(os.path.join(ROOT, "assistant", "index.html"), encoding="utf-8").read()
 if "concernent les salariés. Pour un indépendant" in _a: fail("assistant : réponse obsolète sur les indépendants")

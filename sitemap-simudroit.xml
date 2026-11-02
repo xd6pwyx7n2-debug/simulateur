@@ -266,7 +266,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/simulateur-preavis-demission/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-02</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/simulateur-prime-precarite/</loc>
@@ -402,7 +402,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/simulateur-fin-contrat-fonction-publique/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -420,6 +420,12 @@
   </url>
   <url>
     <loc>https://simudroit.fr/guides/comprendre-fiche-de-paie-brut-net-imposable/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://simudroit.fr/guides/frais-kilometriques-bareme-2026-deduire-trajet-domicile-travail/</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -898,7 +904,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/simulateur-cpf/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-02</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/simulateur-remuneration-transition-professionnelle/</loc>
@@ -1006,7 +1012,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/simulateur-impot-revenu/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-02</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/simulateur-salaire-net-apres-impot/</loc>
