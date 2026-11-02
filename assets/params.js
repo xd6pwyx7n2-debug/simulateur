@@ -18,7 +18,8 @@ window.SD_PARAMS = {
   fonctionPublique: {          // point d'indice inchangé depuis le 1er juillet 2023 (CDG 33, juin 2026)
     depuis: "2023-07-01",
     pointAnnuel: 59.0734,       // valeur annuelle du point ; mensuel = IM x 59,0734 / 12
-    imPlancher: 366             // minimum de traitement (depuis le 1er janvier 2024)
+    imPlancher: 366,            // minimum de traitement (depuis le 1er janvier 2024)
+    plafondFinContrat: 3734.03  // plafond mensuel brut de l'indemnité de fin de contrat des contractuels (Service-Public F1606, vérifiée le 1er juin 2026) ; proratisé selon la quotité de travail
   },
   pmss: 4005,                   // plafond mensuel de la Sécurité sociale 2026
   ijMaladie: {                  // ameli.fr, depuis le 1er juillet 2026

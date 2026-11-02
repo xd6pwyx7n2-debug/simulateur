@@ -122,6 +122,36 @@ for _s in ("indemnite-depart-retraite", "smic", "salaire-horaire-mensuel", "pror
     if not _urls or not OFFICIEL.match(_urls[0]): fail("sources : %s, source principale non officielle ou absente" % _s)
     if not re.search(r'(?:"|\))\s*,\s*(?:"20\d\d-\d\d-\d\d"|false)\s*,', _e) and not re.search(r',\s*(?:"20\d\d-\d\d-\d\d"|false)\s*,', _e): fail("sources : %s, date de relecture manquante (ISO ou false)" % _s)
     if re.search(r'"20(\d\d)-(\d\d)-(\d\d)"', _e) and not re.search(r'"2026-1[01]-\d\d"', _e): fail("sources : %s, date de relecture invraisemblable" % _s)
+# Registre des sources relues : la date affichée doit correspondre à une relecture enregistrée, et chaque lien doit y figurer
+_reg = json.load(open(os.path.join(ROOT, ".github", "sources-verifiees.json"), encoding="utf-8"))
+for _s, _r in _reg.items():
+    _m = re.search(r'^\s+"%s":\[(.*)\],?\s*$' % re.escape(_s), _th, re.M)
+    if not _m: fail("registre : %s absent de theme.js" % _s); continue
+    _e = _m.group(1)
+    _d = re.search(r'",\s*("20\d\d-\d\d-\d\d"|false)\s*,', _e)
+    _aff = _d.group(1).strip('"') if _d else None
+    if (_aff == "false" and _r["date_relecture"] is not False) or (_aff not in (None, "false") and _aff != _r["date_relecture"]): fail("registre : %s, date affichée %s différente de la relecture enregistrée %s" % (_s, _aff, _r["date_relecture"]))
+    for _u in set(re.findall(r'https://[^"\'\s<>]+', _e)):
+        if _u not in _r["urls"]: fail("registre : %s, lien non enregistré comme relu : %s" % (_s, _u))
+    if _r["date_relecture"] and not _r["regles_confirmees"]: fail("registre : %s, date de relecture sans règle confirmée" % _s)
+# Cohérence des paramètres avec les règles documentées (valeurs relues sur les sources du registre)
+def _page(slug): return open(os.path.join(ROOT, "simulateur-" + slug, "index.html"), encoding="utf-8").read()
+_c = _page("cpf")
+for _k in ("rs:1500", "bilan:1600", "permis:900", "Math.min(150,C)", "al*10"):
+    if _k not in _c: fail("cpf : paramètre attendu absent (%s)" % _k)
+if "2 avril 2026" not in _c or "au moins 100 €" in _c: fail("cpf : date du 2 avril absente ou mention obsolète du cofinancement de 100 €")
+if "2 octobre 2026" in _c.split("<script>")[-1] or "non adopté" not in _th.split('"cpf":[')[1].split('"impot-revenu"')[0]: fail("cpf : règle du 2 octobre 2026 (projet de loi non adopté) à ne jamais appliquer, mention « non adopté » requise")
+for _slug in ("impot-revenu", "salaire-net-apres-impot"):
+    _p = _page(_slug)
+    for _k in ("[11600,0],[29579,.11],[84577,.30],[181917,.41]", "509", "14555", "1807", "4262"):
+        if _k not in _p: fail("%s : paramètre fiscal attendu absent (%s)" % (_slug, _k))
+_p = _page("impot-revenu")
+for _k in ("3277", "1982", "1483", "897", "0.4525"):
+    if _k not in _p: fail("impot-revenu : paramètre de décote absent (%s)" % _k)
+if "3734.03" not in open(os.path.join(ROOT, "assets", "params.js"), encoding="utf-8").read() or "plafondFinContrat" not in _page("fin-contrat-fonction-publique"): fail("fin de contrat fonction publique : plafond officiel non utilisé par le calcul")
+_k = _page("frais-kilometriques")
+for _v in ("0.529", "0.316", "1065", "0.370", "0.697", "0.394", "1515", "0.470", "0.395", "891", "0.606", "1583", "0.315", "711", "0.198"):
+    if _v not in _k: fail("frais kilométriques : coefficient du barème absent (%s)" % _v)
 # Plus aucune source privée ou syndicale sur les pages d'impôt, de CPF et de fin de contrat dans la fonction publique
 for _s, _bad in (("cpf", ("filiz.io", "editions-tissot")), ("impot-revenu", ("legifiscal",)), ("fin-contrat-fonction-publique", ("snes.edu",))):
     _h = open(os.path.join(ROOT, "simulateur-" + _s, "index.html"), encoding="utf-8").read()
@@ -410,6 +440,15 @@ with sync_playwright() as pw:
     for tot, mo, exp in [("18000","12","1 800,00 €"),("12000","3","0,00 €"),("20000","13","0,00 €")]:
         pg.evaluate("(a)=>{document.getElementById('total').value=a[0];document.getElementById('mois').value=a[1];document.getElementById('calculate').click()}", [tot, mo]); pg.wait_for_timeout(900)
         if norm(pg.inner_text("#indem")) != norm(exp): fail("fin de contrat fonction publique %s/%s : attendu %s (%s)" % (tot, mo, exp, pg.inner_text("#indem")))
+    # fin de contrat fonction publique, temps partiel : le plafond (3 734,03 €) est proratisé selon la quotité
+    for tot, mo, q, exp in [("24000","12","100","2 400,00 €"),("24000","12","50","0,00 €"),("18000","12","50","1 800,00 €")]:
+        pg.evaluate("(a)=>{document.getElementById('total').value=a[0];document.getElementById('mois').value=a[1];document.getElementById('quotite').value=a[2];document.getElementById('calculate').click()}", [tot, mo, q]); pg.wait_for_timeout(700)
+        if norm(pg.inner_text("#indem")) != norm(exp): fail("fin de contrat fonction publique %s/%s quotité %s : attendu %s (%s)" % (tot, mo, q, exp, pg.inner_text("#indem")))
+    # préavis de démission : dernier jour inclus, de date à date (Service-Public F2883 : 8 juillet + 1 mois = 7 août)
+    pg.goto(LOCAL + "simulateur-preavis-demission/"); pg.wait_for_timeout(200)
+    for d, n, u, exp in [("2026-07-08","1","mois","07 août 2026"),("2026-07-07","1","mois","06 août 2026"),("2026-01-31","1","mois","28 février 2026"),("2026-12-15","2","mois","14 février 2027"),("2026-09-01","1","mois","30 septembre 2026"),("2026-07-08","15","jours","23 juillet 2026"),("2026-07-08","2","semaines","22 juillet 2026")]:
+        pg.evaluate("(a)=>{document.getElementById('dateDemission').value=a[0];document.getElementById('duree').value=a[1];document.getElementById('dureeType').value=a[2];calculer()}", [d, n, u]); pg.wait_for_timeout(300)
+        if norm(pg.inner_text("#dateFin")) != norm(exp): fail("préavis de démission %s +%s %s : attendu %s (%s)" % (d, n, u, exp, pg.inner_text("#dateFin")))
     # chômage : rupture conventionnelle (fin de contrat à partir du 1er sept. 2026) -> plafond 15 mois avant 55 ans
     pg.goto(LOCAL + "simulateur-chomage/"); pg.wait_for_timeout(200)
     pg.evaluate("()=>{const v={salaire:'30000',age:'40',duree:'24',conges:'0',supralegal:'0'};for(const k in v)document.getElementById(k).value=v[k];document.getElementById('rc').checked=true;calculer()}"); pg.wait_for_timeout(900)

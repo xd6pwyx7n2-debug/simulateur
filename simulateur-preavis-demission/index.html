@@ -899,6 +899,13 @@
           duree
         );
 
+      /* Service-Public (fiche F2883) : décompte de date à date, la notification du 8 juillet
+         pour 1 mois court jusqu'au 7 août inclus. Si le mois d'arrivée n'a pas ce quantième
+         (ex. 31 janvier), la fin reste le dernier jour du mois. */
+      if (dateFin.getDate() === dateDepart.getDate()) {
+        dateFin.setDate(dateFin.getDate() - 1);
+      }
+
     }
 
     document.getElementById("dateFin").textContent =
@@ -925,7 +932,10 @@
       duree +
       " " +
       unite +
-      ".";
+      "." +
+      (type === "mois"
+        ? " Il s'agit du dernier jour de préavis inclus, compté de date à date (Service-Public, fiche F2883)."
+        : " Le jour de la notification n'est pas compté ; la fiche officielle ne précise pas ce décompte pour un préavis en jours ou en semaines.");
 
     document.getElementById("resultat").classList.add("show");
 

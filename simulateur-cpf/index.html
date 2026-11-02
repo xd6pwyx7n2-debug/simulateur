@@ -447,7 +447,7 @@
     <h2>Le CPF en 2026 : droits, plafonds et reste à charge</h2>
     <p>Un salarié à temps plein ou à mi-temps et plus reçoit 500 € par an sur son CPF, dans la limite de 5 000 €. Sans diplôme de niveau 3 (CAP, BEP), c'est 800 € par an dans la limite de 8 000 €. À temps partiel inférieur à 50 %, le crédit est proratisé.</p>
     <p>Depuis le 2 avril 2026, une participation forfaitaire de 150 € reste à la charge du titulaire pour les nouvelles demandes déposées via Mon compte formation. Les demandeurs d'emploi inscrits à France Travail en sont exemptés, de même que les salariés dont la formation est abondée par l'employeur ou l'OPCO.</p>
-    <p>Depuis le 26 février 2026, certaines formations sont plafonnées : 1 500 € pour les certifications du répertoire spécifique, 1 600 € pour le bilan de compétences, 900 € pour le permis B (avec un cofinancement d'au moins 100 € par un tiers). Les titres RNCP, la VAE et CléA ne sont pas plafonnés. Un abondement s'ajoute sans limite.</p>
+    <p>Depuis le 26 février 2026, certaines formations sont plafonnées : 1 500 € pour les certifications du répertoire spécifique, 1 600 € pour le bilan de compétences, 900 € pour le permis B (un salarié ne peut le financer avec le CPF que s'il a un financement externe : employeur, OPCO, Région, compte professionnel de prévention ou accident du travail). Les titres RNCP, la VAE et CléA ne sont pas plafonnés. Un abondement s'ajoute sans limite.</p>
     <p>Sources officielles (consultées le 1er novembre 2026) : <a href="https://www.moncompteformation.gouv.fr/espace-public/une-participation-financiere-obligatoire-pour-mobiliser-vos-droits-cpf" target="_blank" rel="noopener noreferrer">Mon compte formation, participation financière obligatoire (150 €)</a> · <a href="https://www.moncompteformation.gouv.fr/espace-public/pourquoi-mes-droits-cpf-sont-ils-plafonnes" target="_blank" rel="noopener noreferrer">Mon compte formation, plafonds de prise en charge</a> · <a href="https://www.service-public.gouv.fr/particuliers/actualites/A18831" target="_blank" rel="noopener noreferrer">Service-Public, ce qui change en 2026 pour le CPF</a>. Les changements annoncés pour les demandes à partir du 2 octobre 2026 relèvent du projet de loi de finances 2027, non adopté : ils ne sont pas pris en compte.</p>
   </section>
 
@@ -485,8 +485,8 @@
     setText("reste",eur(reste));setText("prise",eur(r2(prise)));setText("part",eur(part));setText("retenus",eur(r2(ret)));
     if(est)n.push("Droits estimés à "+eur(D)+" à partir de vos années travaillées : consultez Mon compte formation pour le solde réel.");
     if(D>cap)n.push("Cette formation est plafonnée à "+eur(cap)+" au titre du CPF.");
-    if(t==="permis")n.push("Permis B : un cofinancement d'au moins 100 € par un tiers est exigé pour mobiliser le CPF.");
-    if(st==="salarie")n.push("La participation forfaitaire de 150 € s'applique aux demandes déposées depuis le 2 avril 2026.");
+    if(t==="permis")n.push(st==="salarie"?"Permis B : un salarié ne peut mobiliser son CPF qu'avec un financement externe (employeur, OPCO, Région, compte professionnel de prévention, accident du travail). Plafond de 900 €.":"Permis B : plafond de 900 € de droits CPF.");
+    if(st==="salarie")n.push("La participation forfaitaire de 150 € s'applique aux demandes déposées depuis le 2 avril 2026. Certaines situations en sont exonérées : financement par l'employeur ou l'OPCO, compte professionnel de prévention, accident du travail ou maladie professionnelle, élus dans le cadre de leur mandat.");
     n.push("Estimation indicative : le coût final dépend de l'organisme de formation et de votre dossier.");
     notes(n);$("result").classList.add("visible");
   });
