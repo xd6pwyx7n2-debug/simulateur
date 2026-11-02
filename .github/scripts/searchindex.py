@@ -22,6 +22,8 @@ SYN = {
     "guides/budget-2027-ce-qui-est-propose-et-ce-qui-est-vote": "budget 2027 projet de loi de finances plf retraites abattement 10 pour cent apl heures supplementaires indemnites journalieres vote assemblee 49",
     "documents-a-generer": "documents a generer generateur gratuit cv devis facture quittance attestation contrat page de garde pdf word",
     "generateur-contrat-emploi-a-domicile": "contrat de travail emploi a domicile femme de menage aide a domicile cesu cdi cdd periode d'essai modele gratuit pdf word",
+    "guides/point-d-indice-fonction-publique-calcul-traitement-indiciaire": "point d indice fonction publique 2026 valeur 4,92 indice majore traitement indiciaire brut calcul fonctionnaire salaire indice 366",
+    "guides/charges-infirmier-liberal-cotisations-rattrapage-combien-mettre-de-cote": "infirmier liberal idel charges cotisations urssaf carpimko rattrapage regularisation mettre de cote 50 pourcent provision impot installation debut activite",
     "guides/frais-kilometriques-bareme-2026-deduire-trajet-domicile-travail": "frais kilometriques bareme kilometrique 2026 deduire trajet domicile travail frais reels 10 pourcent 40 km voiture electrique impot",
     "guides/cesu-embaucher-aide-a-domicile-menage-demarches-contrat-credit-impot": "cesu embaucher femme de menage aide a domicile particulier employeur declaration urssaf credit d'impot 50 pourcent salaire contrat",
     "generateur-attestation-d-hebergement": "attestation hebergement generateur modele attestation sur l'honneur heberge hebergeant pdf word gratuit",

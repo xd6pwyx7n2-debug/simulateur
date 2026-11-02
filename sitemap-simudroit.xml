@@ -50,7 +50,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/guides/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-02</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/guides/allocation-chomage-calcul-duree/</loc>
@@ -330,7 +330,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/simulateur-frais-kilometriques/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -426,6 +426,12 @@
   </url>
   <url>
     <loc>https://simudroit.fr/guides/frais-kilometriques-bareme-2026-deduire-trajet-domicile-travail/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://simudroit.fr/guides/point-d-indice-fonction-publique-calcul-traitement-indiciaire/</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -456,6 +462,12 @@
   </url>
   <url>
     <loc>https://simudroit.fr/guides/retraite-infirmier-liberal-carpimko-calcul-cotisations-2026/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://simudroit.fr/guides/charges-infirmier-liberal-cotisations-rattrapage-combien-mettre-de-cote/</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -522,7 +534,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/nouveautes/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

@@ -164,6 +164,23 @@ for _v in ("d × 0,529", "(d × 0,316) + 1 065", "d × 0,697", "(d × 0,394) + 1
 if _g.count('<li><strong>') < 5 or "/simulateur-frais-kilometriques/" not in _g or "gd-metro" not in _g: fail("guide frais kilométriques : parcours ou lien vers le simulateur absent")
 if 5001 and round(6600*0.357+1395, 2) != 3751.20: fail("guide frais kilométriques : exemple chiffré incohérent")
 if "frais-kilometriques-bareme" not in _page("frais-kilometriques"): fail("simulateur frais kilométriques : lien vers le guide absent")
+# Guide point d'indice : valeur du point cohérente avec les paramètres du simulateur et exemples exacts
+_pi = open(os.path.join(ROOT, "guides", "point-d-indice-fonction-publique-calcul-traitement-indiciaire", "index.html"), encoding="utf-8").read()
+_fp = re.search(r'pointAnnuel:\s*([\d.]+)', open(os.path.join(ROOT, "assets", "params.js"), encoding="utf-8").read())
+if not _fp or "59,0734" not in _pi or float(_fp.group(1)) != 59.0734: fail("guide point d'indice : valeur du point incohérente avec params.js")
+for _im, _an, _me in ((366, "21 620,86", "1 801,73"), (400, "23 629,36", "1 969,11"), (500, "29 536,70", "2 461,39")):
+    _a = round(_im * float(_fp.group(1)), 2)
+    _f = lambda x: ("{:,.2f}".format(x)).replace(",", " ").replace(".", ",")
+    _num = lambda s: float(s.replace(" ", "").replace(",", "."))
+    if _f(_a) != _an or abs(_a / 12 - _num(_me)) > 0.011 or _an not in _pi or _me not in _pi: fail("guide point d'indice : exemple IM %d incohérent (%s / %s)" % (_im, _f(_a), _f(round(_a / 12, 2))))
+if "/simulateur-point-indice/" not in _pi or "point-d-indice-fonction" not in _page("point-indice"): fail("guide point d'indice : liens croisés avec le simulateur absents")
+# Guide charges infirmier libéral : taux cohérents avec le guide retraite (Carpimko), outil de rattrapage, parcours et liens
+_ch = open(os.path.join(ROOT, "guides", "charges-infirmier-liberal-cotisations-rattrapage-combien-mettre-de-cote", "index.html"), encoding="utf-8").read()
+_rt = open(os.path.join(ROOT, "guides", "retraite-infirmier-liberal-carpimko-calcul-cotisations-2026", "index.html"), encoding="utf-8").read()
+for _v in ("8,73 %", "1,87 %", "8,70 %", "224 €", "1 022 €"):
+    if _v not in _ch or _v not in _rt: fail("charges infirmier libéral : taux Carpimko incohérent avec le guide retraite (%s)" % _v)
+if "idel-calc" not in _ch or "gd-metro" not in _ch or "pas une règle officielle" not in _ch: fail("charges infirmier libéral : outil, parcours ou mise en garde sur les 50 % absent")
+if "Urssaf n'est pas lisible" not in _ch: fail("charges infirmier libéral : mention de la limite de lecture des taux Urssaf absente")
 # Assistant : la réponse sur les indépendants ne doit pas contredire le catalogue
 _a = open(os.path.join(ROOT, "assistant", "index.html"), encoding="utf-8").read()
 if "concernent les salariés. Pour un indépendant" in _a: fail("assistant : réponse obsolète sur les indépendants")
@@ -456,6 +473,11 @@ with sync_playwright() as pw:
     for d, n, u, exp in [("2026-07-08","1","mois","07 août 2026"),("2026-07-07","1","mois","06 août 2026"),("2026-01-31","1","mois","28 février 2026"),("2026-12-15","2","mois","14 février 2027"),("2026-09-01","1","mois","30 septembre 2026"),("2026-07-08","15","jours","23 juillet 2026"),("2026-07-08","2","semaines","22 juillet 2026")]:
         pg.evaluate("(a)=>{document.getElementById('dateDemission').value=a[0];document.getElementById('duree').value=a[1];document.getElementById('dureeType').value=a[2];calculer()}", [d, n, u]); pg.wait_for_timeout(300)
         if norm(pg.inner_text("#dateFin")) != norm(exp): fail("préavis de démission %s +%s %s : attendu %s (%s)" % (d, n, u, exp, pg.inner_text("#dateFin")))
+    # outil de rattrapage (guide charges infirmier libéral) : 9 000 - 3 000 = 6 000, soit 500 par mois sur 12 mois ; rien à rattraper si trop payé
+    pg.goto(LOCAL + "guides/charges-infirmier-liberal-cotisations-rattrapage-combien-mettre-de-cote/"); pg.wait_for_timeout(300)
+    for d_, p_, m_, exp in [("9000","3000","12","500,00"),("9000","3000","6","1 000,00"),("2000","3000","12","Rien à rattraper")]:
+        pg.evaluate("(a)=>{document.getElementById('idel-def').value=a[0];document.getElementById('idel-prov').value=a[1];document.getElementById('idel-mois').value=a[2];document.getElementById('idel-go').click()}", [d_, p_, m_]); pg.wait_for_timeout(200)
+        if norm(exp) not in norm(pg.inner_text("#idel-out")): fail("outil rattrapage %s/%s/%s : attendu %s (%s)" % (d_, p_, m_, exp, pg.inner_text("#idel-out")))
     # chômage : rupture conventionnelle (fin de contrat à partir du 1er sept. 2026) -> plafond 15 mois avant 55 ans
     pg.goto(LOCAL + "simulateur-chomage/"); pg.wait_for_timeout(200)
     pg.evaluate("()=>{const v={salaire:'30000',age:'40',duree:'24',conges:'0',supralegal:'0'};for(const k in v)document.getElementById(k).value=v[k];document.getElementById('rc').checked=true;calculer()}"); pg.wait_for_timeout(900)
