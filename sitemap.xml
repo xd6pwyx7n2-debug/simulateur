@@ -50,7 +50,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/guides/</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/guides/allocation-chomage-calcul-duree/</loc>
@@ -432,7 +432,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/guides/point-d-indice-fonction-publique-calcul-traitement-indiciaire/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -462,12 +462,18 @@
   </url>
   <url>
     <loc>https://simudroit.fr/guides/retraite-infirmier-liberal-carpimko-calcul-cotisations-2026/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://simudroit.fr/guides/charges-infirmier-liberal-cotisations-rattrapage-combien-mettre-de-cote/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://simudroit.fr/guides/s-installer-infirmier-liberal-etapes-statuts-demarches/</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -534,7 +540,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/nouveautes/</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -796,7 +802,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/metiers/infirmier-liberal/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-03</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/metiers/infirmier-liberal-societe/</loc>
@@ -976,7 +982,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/simulateur-point-indice/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-03</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/simulateur-comparer-mon-salaire/</loc>

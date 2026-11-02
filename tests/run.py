@@ -181,6 +181,12 @@ for _v in ("8,73 %", "1,87 %", "8,70 %", "224 €", "1 022 €"):
     if _v not in _ch or _v not in _rt: fail("charges infirmier libéral : taux Carpimko incohérent avec le guide retraite (%s)" % _v)
 if "idel-calc" not in _ch or "gd-metro" not in _ch or "pas une règle officielle" not in _ch: fail("charges infirmier libéral : outil, parcours ou mise en garde sur les 50 % absent")
 if "Urssaf n'est pas lisible" not in _ch: fail("charges infirmier libéral : mention de la limite de lecture des taux Urssaf absente")
+# Guide installation infirmier libéral : cohérence avec la page société (micro-BNC exclu), parcours, mention des limites
+_in = open(os.path.join(ROOT, "guides", "s-installer-infirmier-liberal-etapes-statuts-demarches", "index.html"), encoding="utf-8").read()
+if "micro-BNC est exclu" not in _in or "micro-BNC est exclu" not in open(os.path.join(ROOT, "metiers", "infirmier-liberal-societe", "index.html"), encoding="utf-8").read(): fail("installation infirmier libéral : règle du micro-BNC incohérente entre les pages")
+if "gd-metro" not in _in or "8 jours" not in _in or "n'est pas lisible" not in _in: fail("installation infirmier libéral : parcours, délai de 8 jours ou mention de limite absent")
+for _l in ("/guides/charges-infirmier-liberal-cotisations-rattrapage-combien-mettre-de-cote/", "/metiers/infirmier-liberal-societe/"):
+    if _l not in _in: fail("installation infirmier libéral : lien interne absent (%s)" % _l)
 # Assistant : la réponse sur les indépendants ne doit pas contredire le catalogue
 _a = open(os.path.join(ROOT, "assistant", "index.html"), encoding="utf-8").read()
 if "concernent les salariés. Pour un indépendant" in _a: fail("assistant : réponse obsolète sur les indépendants")
