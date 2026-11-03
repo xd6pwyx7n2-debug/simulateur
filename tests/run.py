@@ -187,6 +187,13 @@ if "micro-BNC est exclu" not in _in or "micro-BNC est exclu" not in open(os.path
 if "gd-metro" not in _in or "8 jours" not in _in or "n'est pas lisible" not in _in: fail("installation infirmier libéral : parcours, délai de 8 jours ou mention de limite absent")
 for _l in ("/guides/charges-infirmier-liberal-cotisations-rattrapage-combien-mettre-de-cote/", "/metiers/infirmier-liberal-societe/"):
     if _l not in _in: fail("installation infirmier libéral : lien interne absent (%s)" % _l)
+# Chaque page indexable déclare son adresse canonique (balise parfois écrite sur plusieurs lignes)
+for f in pages:
+    _rel = os.path.relpath(f, ROOT)
+    if _rel == "404.html": continue
+    _hh = open(f, encoding="utf-8").read()
+    if "noindex" in _hh: continue
+    if not re.search(r'<link\s+rel="canonical"\s+href="https://simudroit\.fr/[^"]*"\s*/?>', _hh): fail("canonical absent : %s" % _rel)
 # Assistant : la réponse sur les indépendants ne doit pas contredire le catalogue
 _a = open(os.path.join(ROOT, "assistant", "index.html"), encoding="utf-8").read()
 if "concernent les salariés. Pour un indépendant" in _a: fail("assistant : réponse obsolète sur les indépendants")
