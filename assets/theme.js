@@ -182,3 +182,51 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
     if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else go();
   }catch(e){}
 })();
+
+/* Mobile : les sections des pages « fiche » (guides, aides, métiers) se replient pour éviter les pages interminables */
+(function(){
+  function go(){
+    if(!window.matchMedia||!window.matchMedia("(max-width:640px)").matches)return;
+    var art=document.querySelector("main article");
+    if(!art||art.querySelector(".gd-grid,#gd-list,form,input,select,textarea,.card,.cards")||art.hasAttribute("data-nofold"))return;
+    if(art.querySelectorAll(":scope>h2").length<3)return;
+    var kids=Array.prototype.slice.call(art.children),groups=[],cur=null;
+    kids.forEach(function(k){
+      if(k.tagName==="H2"){cur={h:k,body:[]};groups.push(cur);}
+      else if(cur&&k.tagName!=="SCRIPT"&&k.tagName!=="STYLE"&&!k.matches("nav,.sd-next,.sd-see,section.sd-next,section.sd-see"))cur.body.push(k);
+      else if(cur&&(k.matches("nav,.sd-next,.sd-see")))cur=null;
+    });
+    var hash=location.hash?document.getElementById(location.hash.slice(1)):null,first=true;
+    groups.forEach(function(g){
+      if(!g.body.length||g.h.closest("details"))return;
+      var d=document.createElement("details"),s=document.createElement("summary"),b=document.createElement("div");
+      d.className="sd-m-fold";b.className="sd-m-body";
+      g.h.parentNode.insertBefore(d,g.h);s.appendChild(g.h);d.appendChild(s);g.body.forEach(function(n){b.appendChild(n);});d.appendChild(b);
+      if(first){d.open=true;first=false;}
+      if(hash&&(d.contains(hash)))d.open=true;
+    });
+    window.addEventListener("beforeprint",function(){Array.prototype.forEach.call(document.querySelectorAll("details.sd-m-fold"),function(x){x.open=true;});});
+  }
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else go();
+})();
+
+/* Mobile : sur les simulateurs, l'outil reste visible et les textes d'explication qui le suivent se replient */
+(function(){
+  function go(){
+    if(!window.matchMedia||!window.matchMedia("(max-width:640px)").matches)return;
+    var calc=document.querySelector("main section.calculator");
+    if(!calc||calc.hasAttribute("data-nofold"))return;
+    var n=calc.nextElementSibling,list=[];
+    while(n){if(n.tagName==="SECTION"&&n.classList.contains("info-section")&&!n.classList.contains("sd-fold")&&n.querySelector(":scope>h2"))list.push(n);n=n.nextElementSibling;}
+    list.forEach(function(s){
+      var h=s.querySelector(":scope>h2"),d=document.createElement("details"),sm=document.createElement("summary"),b=document.createElement("div");
+      d.className="sd-m-fold";b.className="sd-m-body";
+      s.parentNode.insertBefore(d,s);sm.appendChild(h);d.appendChild(sm);
+      while(s.firstChild)b.appendChild(s.firstChild);d.appendChild(b);s.remove();
+      if(s.classList.contains("sd-know"))d.open=true;
+      var id=s.id;if(id){d.id=id;if(location.hash==="#"+id)d.open=true;}
+    });
+    window.addEventListener("beforeprint",function(){Array.prototype.forEach.call(document.querySelectorAll("details.sd-m-fold"),function(x){x.open=true;});});
+  }
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else go();
+})();

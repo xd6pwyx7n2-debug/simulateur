@@ -578,6 +578,20 @@ with sync_playwright() as pw:
     pg.check("[data-st=s1]"); pg.check("[data-st=s2]"); pg.wait_for_timeout(100)
     if "2 étapes sur 7" not in pg.inner_text("#ps-prog-l"): fail("plan de sortie : progression non mise à jour")
     if pg.evaluate("()=>localStorage.getItem('sd-plan-sortie-v1')") is not None: fail("plan de sortie : mémorisation active sans consentement")
+    # mobile : pages courtes (sections repliables, index compact) et filtres du guide toujours fonctionnels
+    _mc = b.new_context(viewport={"width": 390, "height": 844}); _mp = _mc.new_page()
+    for _u, _max, _folds in (("guides/smic-2026-montant-brut-net-horaire/", 9, 5), ("guides/sortir-du-surendettement-plan-d-action-positif/", 7, 5), ("simulateur-smic/", 10, 2), ("guides/", 8, 0)):
+        _mp.goto(LOCAL + _u); _mp.wait_for_timeout(500)
+        _ec = _mp.evaluate("document.documentElement.scrollHeight") / 844
+        if _ec > _max: fail("mobile : %s fait %.1f écrans (max %d)" % (_u, _ec, _max))
+        if _mp.evaluate("document.querySelectorAll('details.sd-m-fold').length") < _folds: fail("mobile : sections repliables absentes sur %s" % _u)
+    _mp.goto(LOCAL + "guides/"); _mp.wait_for_timeout(400)
+    if _mp.evaluate("[...document.querySelectorAll('#gd-list .gd-card')].filter(c=>!c.hidden).length") != 12: fail("mobile : l'index des guides doit afficher 12 guides avant « Voir tous »")
+    _mp.click("#gd-more"); _mp.wait_for_timeout(300)
+    if _mp.evaluate("[...document.querySelectorAll('#gd-list .gd-card')].filter(c=>!c.hidden).length") < 70: fail("mobile : « Voir tous les guides » n'affiche pas tout")
+    _mp.fill("#gd-q", "smic"); _mp.wait_for_timeout(200)
+    if not 1 <= _mp.evaluate("[...document.querySelectorAll('#gd-list .gd-card')].filter(c=>!c.hidden).length") <= 8: fail("mobile : la recherche de guides ne filtre pas")
+    _mc.close()
     # chômage : rupture conventionnelle (fin de contrat à partir du 1er sept. 2026) -> plafond 15 mois avant 55 ans
     pg.goto(LOCAL + "simulateur-chomage/"); pg.wait_for_timeout(200)
     pg.evaluate("()=>{const v={salaire:'30000',age:'40',duree:'24',conges:'0',supralegal:'0'};for(const k in v)document.getElementById(k).value=v[k];document.getElementById('rc').checked=true;calculer()}"); pg.wait_for_timeout(900)
