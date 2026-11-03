@@ -263,6 +263,12 @@ for _v in ("CAP, BEP ou brevet", "bac+2", "bac+3", "sans concours", "PACTE", "F1
 _cf = _g("concours-fonction-publique-types-conditions-inscription-calendrier")
 for _v in ("1er novembre 2005", "3 ans d'activité", "2 ans", "PACTE", "concours-territorial.fr", "concours-fph.ars.sante.fr", "Talents", "fonction-publique.gouv.fr", "F434", "Limites"):
     if _v not in _cf: fail("guide concours fonction publique : mention absente (%s)" % _v)
+# Guide budget : sources Mes questions d'argent, aucun pourcentage « idéal » inventé, ton positif
+_bg = _g("bien-gerer-son-budget-methode-des-enveloppes-pas-a-pas")
+for _v in ("mesquestionsdargent.fr", "enveloppes", "charges fixes", "Limites", "gd-metro", "Mon plan de sortie"):
+    if _v not in _bg: fail("guide budget : mention absente (%s)" % _v)
+for _bad in ("50/30/20", "50 %", "règle des 50", "honte", "coupable"):
+    if _bad in _bg: fail("guide budget : contenu non sourcé ou ton jugeant (%s)" % _bad)
 # Guide Parcoursup 2027 : dates du calendrier officiel (PDF octobre 2026), source officielle, mise en garde sur les évolutions
 _pc = _g("parcoursup-2027-calendrier-dates-cles-et-ce-qui-peut-changer")
 for _v in ("17 décembre 2026", "18 janvier", "11 mars 2027", "1er avril 2027", "1er juin 2027", "10 juin", "9 septembre 2027", "10 juillet 2027", "parcoursup.gouv.fr/sites/default/files", "source non officielle", "fait foi"):
