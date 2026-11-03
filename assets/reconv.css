@@ -1,0 +1,21 @@
+.rc-q{margin:6px 0 10px;font-size:1.15rem;font-weight:800;color:#14532d}
+.rc-pick{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 12px}
+.rc-card{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:14px;min-height:92px;border:2px solid color-mix(in srgb,var(--c) 30%,#fff);border-radius:16px;background:color-mix(in srgb,var(--c) 7%,#fff);color:#1f2937;font:inherit;font-weight:700;line-height:1.25;text-align:left;cursor:pointer;transition:transform .18s,border-color .18s,box-shadow .18s}
+.rc-card .sdi{width:30px;height:30px;color:var(--c)}
+.rc-card:hover{transform:translateY(-2px);border-color:var(--c)}
+.rc-card:focus-visible{outline:3px solid var(--c);outline-offset:2px}
+.rc-card[aria-expanded=true]{border-color:var(--c);background:color-mix(in srgb,var(--c) 14%,#fff);box-shadow:0 6px 18px color-mix(in srgb,var(--c) 25%,transparent)}
+.rc-panel{margin:0 0 16px;padding:16px;border-radius:16px;border:2px solid var(--c);background:#fff;animation:rcin .25s ease}
+.rc-panel h3{margin:0 0 6px;font-size:1.05rem;color:color-mix(in srgb,var(--c) 70%,#000)!important}
+.rc-panel p{margin:0 0 12px}
+.rc-go{display:flex;flex-wrap:wrap;gap:8px}
+.rc-go a{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;background:var(--c);color:#fff;font-weight:700;text-decoration:none}
+.rc-go a.alt{background:#fff;color:color-mix(in srgb,var(--c) 70%,#000);border:2px solid var(--c)}
+.rc-go a:hover{filter:brightness(1.08)}
+.rc-hint{margin:0 0 14px;color:#4b5563;font-size:.92rem}
+.rc-faq details{border:1px solid #d9e8de;border-radius:12px;margin:0 0 8px;background:#fff}
+.rc-faq summary{padding:12px 14px;min-height:44px;font-weight:700;cursor:pointer;display:flex;align-items:center}
+.rc-faq details p{margin:0;padding:0 14px 12px}
+@keyframes rcin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.rc-panel{animation:none}.rc-card{transition:none}}
+@media(max-width:640px){.rc-pick{grid-template-columns:repeat(2,1fr);gap:8px}.rc-card{padding:12px;min-height:84px;font-size:.93rem}}

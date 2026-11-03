@@ -580,7 +580,7 @@ with sync_playwright() as pw:
     if pg.evaluate("()=>localStorage.getItem('sd-plan-sortie-v1')") is not None: fail("plan de sortie : mémorisation active sans consentement")
     # mobile : pages courtes (sections repliables, index compact) et filtres du guide toujours fonctionnels
     _mc = b.new_context(viewport={"width": 390, "height": 844}); _mp = _mc.new_page()
-    for _u, _max, _folds in (("guides/smic-2026-montant-brut-net-horaire/", 9, 5), ("guides/sortir-du-surendettement-plan-d-action-positif/", 7, 5), ("simulateur-smic/", 10, 2), ("guides/", 8, 0), ("", 10, 0), ("simulateurs/", 8, 0), ("aides/", 13, 5)):
+    for _u, _max, _folds in (("guides/smic-2026-montant-brut-net-horaire/", 9, 5), ("guides/sortir-du-surendettement-plan-d-action-positif/", 7, 5), ("simulateur-smic/", 10, 2), ("guides/", 8, 0), ("", 10, 0), ("simulateurs/", 8, 0), ("aides/", 13, 5), ("reconversion/", 7, 0)):
         _mp.goto(LOCAL + _u); _mp.wait_for_timeout(500)
         _ec = _mp.evaluate("document.documentElement.scrollHeight") / 844
         if _ec > _max: fail("mobile : %s fait %.1f écrans (max %d)" % (_u, _ec, _max))
@@ -597,10 +597,17 @@ with sync_playwright() as pw:
     if _mp.evaluate("document.getElementById('sd-suite').hidden") or "/simulateur-" not in (_mp.evaluate("document.querySelector('#sd-suite a').getAttribute('href')") or ""): fail("mobile : barre Suite absente après lecture")
     _mp.click("#sd-suite button"); _mp.wait_for_timeout(200)
     if not _mp.evaluate("document.getElementById('sd-suite').hidden"): fail("mobile : la barre Suite doit pouvoir être fermée")
+    _mp.goto(LOCAL + "reconversion/"); _mp.wait_for_timeout(400)
+    if _mp.evaluate("[...document.querySelectorAll('.rc-panel')].filter(p=>!p.hidden).length") != 0: fail("reconversion : aucune piste ne doit être ouverte au départ")
+    _mp.click(".rc-card >> nth=1"); _mp.wait_for_timeout(300)
+    if _mp.evaluate("[...document.querySelectorAll('.rc-panel')].filter(p=>!p.hidden).map(p=>p.id)") != ["rc-p2"] or "conseil en évolution professionnelle" not in _mp.inner_text("#rc-p2"): fail("reconversion : le choix de situation n'affiche pas la bonne piste")
+    if "/simulateur-demission-reconversion/" not in _mp.evaluate("[...document.querySelectorAll('#rc-p2 a')].map(a=>a.getAttribute('href')).join(' ')"): fail("reconversion : piste démission sans lien vers le simulateur")
+    _mp.click(".rc-card >> nth=1"); _mp.wait_for_timeout(200)
+    if _mp.evaluate("[...document.querySelectorAll('.rc-panel')].filter(p=>!p.hidden).length") != 0: fail("reconversion : un second toucher doit refermer la piste")
     _mc.close()
     # accessibilité : pas d'image sans alt, de champ sans libellé, de bouton ou lien sans nom, d'identifiant en double, de contraste insuffisant
     _a11y = open(os.path.join(ROOT, "tests", "a11y_check.js"), encoding="utf-8").read()
-    for _u in ("", "simulateurs/", "simulateur-smic/", "simulateur-aide-carburant-grands-rouleurs/", "guides/smic-2026-montant-brut-net-horaire/", "guides/sortir-du-surendettement-plan-d-action-positif/", "metiers/infirmier-liberal/", "generateur-cv/", "mon-plan-de-sortie-surendettement/", "aides/"):
+    for _u in ("", "simulateurs/", "simulateur-smic/", "simulateur-aide-carburant-grands-rouleurs/", "guides/smic-2026-montant-brut-net-horaire/", "guides/sortir-du-surendettement-plan-d-action-positif/", "metiers/infirmier-liberal/", "generateur-cv/", "mon-plan-de-sortie-surendettement/", "aides/", "reconversion/"):
         pg.goto(LOCAL + _u); pg.wait_for_timeout(500)
         _bad = [x for x in pg.evaluate(_a11y) if x[0] in ("img-sans-alt", "champ-sans-libelle", "bouton-sans-nom", "lien-sans-nom", "id-doublon", "h1-nombre", "contraste", "lang-absent")]
         if _bad: fail("accessibilité %s : %s" % (_u or "accueil", "; ".join("%s %s %s" % (x[0], x[1], x[2]) for x in _bad[:4])))
