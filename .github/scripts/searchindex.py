@@ -33,6 +33,7 @@ SYN = {
     "guides/naissance-bebe-demarches-aides-conges-dans-l-ordre": "naissance bebe demarches declaration de naissance 5 jours mairie caf paje prime naissance cmg preparE conge parental impots vitale mutuelle",
     "guides/sortir-du-surendettement-plan-d-action-positif": "surendettement sortir du surendettement banque de france commission dossier plan effacement dettes retablissement personnel ficp 7 ans dettes aide",
     "guides/metiers-sans-diplome-au-dessus-du-smic-acces-et-salaires": "metiers sans diplome bien remuneres salaire au dessus du smic conducteur routier bus metro train agent de securite cariste taxi onisep formation courte",
+    "mon-plan-de-sortie-surendettement": "plan de sortie surendettement parcours accompagne agenda rappels releve de compte analyse depenses budget csv",
     "guides/frais-kilometriques-bareme-2026-deduire-trajet-domicile-travail": "frais kilometriques bareme kilometrique 2026 deduire trajet domicile travail frais reels 10 pourcent 40 km voiture electrique impot",
     "guides/cesu-embaucher-aide-a-domicile-menage-demarches-contrat-credit-impot": "cesu embaucher femme de menage aide a domicile particulier employeur declaration urssaf credit d'impot 50 pourcent salaire contrat",
     "generateur-attestation-d-hebergement": "attestation hebergement generateur modele attestation sur l'honneur heberge hebergeant pdf word gratuit",

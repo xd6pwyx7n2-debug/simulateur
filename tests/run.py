@@ -243,6 +243,11 @@ for _v in ("2 130 €", "1 888 €", "1 867,02 €", "262,98 €", "20,98 €", 
     if _v not in _md: fail("guide métiers sans diplôme : mention absente (%s)" % _v)
 if round(2130 - 1867.02, 2) != 262.98 or round(1888 - 1867.02, 2) != 20.98: fail("guide métiers sans diplôme : écart au Smic faux")
 if "sans diplôme ne veut pas dire sans formation" not in _md: fail("guide métiers sans diplôme : nuance « sans formation » absente")
+_ps2 = open(os.path.join(ROOT, "mon-plan-de-sortie-surendettement", "index.html"), encoding="utf-8").read(); _psj = open(os.path.join(ROOT, "assets", "plan-sortie.js"), encoding="utf-8").read()
+for _v in ("Rien n'est envoyé", "3 mois", "Mémoriser ma progression sur cet appareil uniquement", "Tout effacer"):
+    if _v not in _ps2: fail("plan de sortie : mention absente (%s)" % _v)
+if re.search(r"fetch\(|XMLHttpRequest|sendBeacon", _psj): fail("plan de sortie : le script ne doit effectuer aucune requête réseau")
+if "mon-plan-de-sortie-surendettement" not in _g("sortir-du-surendettement-plan-d-action-positif"): fail("guide surendettement : lien vers le plan de sortie absent")
 # Assistant : la réponse sur les indépendants ne doit pas contredire le catalogue
 _a = open(os.path.join(ROOT, "assistant", "index.html"), encoding="utf-8").read()
 if "concernent les salariés. Pour un indépendant" in _a: fail("assistant : réponse obsolète sur les indépendants")
@@ -559,6 +564,20 @@ with sync_playwright() as pw:
         if _ev(**_kw) != _att: fail("aide carburant : %s, attendu %s, obtenu %s" % (_lab, _att, _ev(**_kw)))
     pg.fill("#rfr", "40000"); pg.fill("#parts", "2"); pg.fill("#al", "22"); pg.click("#calculate"); pg.wait_for_timeout(300)
     if "Éligible" not in pg.inner_text("#main") or "100" not in pg.inner_text("#mnt"): fail("aide carburant : résultat affiché incorrect (%s)" % pg.inner_text("#result"))
+    # Mon plan de sortie du surendettement : analyse CSV, calendrier, progression (tout en local)
+    pg.goto(LOCAL + "mon-plan-de-sortie-surendettement/"); pg.wait_for_timeout(600)
+    _csv = "Date;Libellé;Montant\n01/09/2026;SALAIRE;1000,00\n02/09/2026;LOYER;-500,00\n03/09/2026;NETFLIX;-10,00\n03/10/2026;NETFLIX;-10,00\n05/10/2026;CARREFOUR;-40,00"
+    _r = pg.evaluate("(c)=>{var a=SDplan.analyse(c);return [a.depenses,a.revenus,a.recurrents.length,a.cats[0].cat,a.n]}", _csv)
+    if _r != [560, 1000, 1, "Logement et énergie", 5]: fail("plan de sortie : analyse CSV inattendue %s" % _r)
+    _r2 = pg.evaluate("()=>{var a=SDplan.analyse('Date,Libelle,Debit,Credit\\n01/09/2026,PRET CETELEM,95.50,\\n02/09/2026,SALAIRE,,1200.00');return [a.depenses,a.revenus]}")
+    if _r2 != [95.5, 1200]: fail("plan de sortie : colonnes débit/crédit mal lues %s" % _r2)
+    if "Colonnes" not in (pg.evaluate("()=>SDplan.analyse('a;b\\n1;2').err") or ""): fail("plan de sortie : colonnes inconnues non signalées")
+    _ics = pg.evaluate("()=>SDplan.ics({depot:new Date(2026,10,30),loyer:5,budget:true,debut:new Date(2026,10,3)})")
+    if _ics.count("BEGIN:VEVENT") != 4 or "DTSTART;VALUE=DATE:20261130" not in _ics or "DTSTART;VALUE=DATE:20270228" not in _ics or "RRULE:FREQ=MONTHLY;COUNT=12" not in _ics: fail("plan de sortie : fichier .ics incohérent (4 événements, dépôt le 30/11/2026, réponse le 28/02/2027)")
+    if pg.evaluate("()=>{var d=SDplan.addMonths(new Date(2026,10,30),3);return [d.getMonth(),d.getDate()]}") != [1, 28]: fail("plan de sortie : +3 mois depuis le 30 novembre doit donner le 28 février")
+    pg.check("[data-st=s1]"); pg.check("[data-st=s2]"); pg.wait_for_timeout(100)
+    if "2 étapes sur 7" not in pg.inner_text("#ps-prog-l"): fail("plan de sortie : progression non mise à jour")
+    if pg.evaluate("()=>localStorage.getItem('sd-plan-sortie-v1')") is not None: fail("plan de sortie : mémorisation active sans consentement")
     # chômage : rupture conventionnelle (fin de contrat à partir du 1er sept. 2026) -> plafond 15 mois avant 55 ans
     pg.goto(LOCAL + "simulateur-chomage/"); pg.wait_for_timeout(200)
     pg.evaluate("()=>{const v={salaire:'30000',age:'40',duree:'24',conges:'0',supralegal:'0'};for(const k in v)document.getElementById(k).value=v[k];document.getElementById('rc').checked=true;calculer()}"); pg.wait_for_timeout(900)
