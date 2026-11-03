@@ -285,6 +285,10 @@ for _v in ("1er mars", "31 mai", "28 ans", "10 mois", "7 ans", "F12214", "A18239
 _vs = _g("vacances-scolaires-2026-2027-dates-zones-a-b-c")
 for _v in ("19 décembre 2026 au 4 janvier 2027", "13 février au 1er mars 2027", "20 février au 8 mars 2027", "6 au 22 février 2027", "10 au 26 avril 2027", "17 avril au 3 mai 2027", "3 au 19 avril 2027", "3 juillet 2027", "7 mai 2027", "F31952", "22 octobre 2025", "Limites"):
     if _v not in _vs: fail("guide vacances scolaires : mention absente (%s)" % _v)
+# Guide inaptitude : règles Service-Public F726 et F31225
+_in = _g("inaptitude-medicale-au-travail-reclassement-licenciement-indemnites")
+for _v in ("médecin du travail", "reclassement", "un mois", "double", "8 mois", "15 jours", "F726", "F31225", "Limites"):
+    if _v not in _in: fail("guide inaptitude : mention absente (%s)" % _v)
 # Guide dépôt de garantie : délais Service-Public F31269
 _dg = _g("depot-de-garantie-restitution-delai-retenues-que-faire-si-non-rendu")
 for _v in ("1 mois", "2 mois", "10 %", "20 %", "3 ans", "5 000 €", "F31269", "9 juin 2026", "Limites"):
