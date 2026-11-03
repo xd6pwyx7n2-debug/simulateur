@@ -281,6 +281,10 @@ for _m, _a in ((145.40, 1454), (216.30, 2163), (307.10, 3071), (382.80, 3828), (
     if _ms not in _bs or ("{:,}".format(_a).replace(",", " ") + " €") not in _bs: fail("guide bourse : montant absent (%s / %s)" % (_ms, _a))
 for _v in ("1er mars", "31 mai", "28 ans", "10 mois", "7 ans", "F12214", "A18239", "Limites", "arrêté du 26 mars 2026"):
     if _v not in _bs: fail("guide bourse : mention absente (%s)" % _v)
+# Guide vacances scolaires 2026-2027 : dates Service-Public (arrêté du 22 octobre 2025)
+_vs = _g("vacances-scolaires-2026-2027-dates-zones-a-b-c")
+for _v in ("19 décembre 2026 au 4 janvier 2027", "13 février au 1er mars 2027", "20 février au 8 mars 2027", "6 au 22 février 2027", "10 au 26 avril 2027", "17 avril au 3 mai 2027", "3 au 19 avril 2027", "3 juillet 2027", "7 mai 2027", "F31952", "22 octobre 2025", "Limites"):
+    if _v not in _vs: fail("guide vacances scolaires : mention absente (%s)" % _v)
 # Guide Parcoursup 2027 : dates du calendrier officiel (PDF octobre 2026), source officielle, mise en garde sur les évolutions
 _pc = _g("parcoursup-2027-calendrier-dates-cles-et-ce-qui-peut-changer")
 for _v in ("17 décembre 2026", "18 janvier", "11 mars 2027", "1er avril 2027", "1er juin 2027", "10 juin", "9 septembre 2027", "10 juillet 2027", "parcoursup.gouv.fr/sites/default/files", "source non officielle", "fait foi"):
