@@ -248,3 +248,27 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
   }
   if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else go();
 })();
+
+/* Mobile : barre « Suite » fixe avec le prochain clic pertinent (apparaît après un peu de lecture, fermable) */
+(function(){
+  function go(){
+    if(!window.matchMedia||!window.matchMedia("(max-width:640px)").matches)return;
+    if(location.pathname==="/"||document.getElementById("sd-suite"))return;
+    try{if(sessionStorage.getItem("sd-suite-x")==="1")return;}catch(e){}
+    var a=document.querySelector("main .sd-next-list li:not(.here) a")||document.querySelector("main .rel-links a")||document.querySelector("main .sd-see-grid a");
+    if(!a)return;
+    var s=a.querySelector("strong"),label=((s&&s.textContent)||a.textContent||"").replace(/\s+/g," ").trim();
+    if(!label||label.length>60)return;
+    var bar=document.createElement("div");bar.id="sd-suite";bar.setAttribute("role","complementary");bar.setAttribute("aria-label","Suite de la lecture");bar.hidden=true;
+    var l=document.createElement("a");l.href=a.getAttribute("href");l.innerHTML='<small>Suite</small><span></span>';l.querySelector("span").textContent=label;
+    var x=document.createElement("button");x.type="button";x.setAttribute("aria-label","Fermer la suggestion");x.textContent="×";
+    bar.appendChild(l);bar.appendChild(x);document.body.appendChild(bar);
+    x.addEventListener("click",function(){bar.hidden=true;document.body.classList.remove("sd-has-bar");try{sessionStorage.setItem("sd-suite-x","1");}catch(e){}});
+    var shown=false;
+    function chk(){if(bar.dataset.closed)return;var y=window.scrollY||0,h=document.documentElement.scrollHeight-window.innerHeight;var on=y>400&&y<h-200;
+      try{if(sessionStorage.getItem("sd-suite-x")==="1")on=false;}catch(e){}
+      if(on!==shown){shown=on;bar.hidden=!on;document.body.classList.toggle("sd-has-bar",on);}}
+    window.addEventListener("scroll",chk,{passive:true});chk();
+  }
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else go();
+})();

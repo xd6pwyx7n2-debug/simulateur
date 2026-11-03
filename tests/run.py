@@ -591,6 +591,12 @@ with sync_playwright() as pw:
     if _mp.evaluate("[...document.querySelectorAll('#gd-list .gd-card')].filter(c=>!c.hidden).length") < 70: fail("mobile : « Voir tous les guides » n'affiche pas tout")
     _mp.fill("#gd-q", "smic"); _mp.wait_for_timeout(200)
     if not 1 <= _mp.evaluate("[...document.querySelectorAll('#gd-list .gd-card')].filter(c=>!c.hidden).length") <= 8: fail("mobile : la recherche de guides ne filtre pas")
+    _mp.goto(LOCAL + "simulateur-smic/"); _mp.wait_for_timeout(400)
+    if _mp.evaluate("document.getElementById('sd-suite').hidden") is not True: fail("mobile : la barre Suite ne doit pas masquer le haut de page")
+    _mp.evaluate("window.scrollTo(0,900)"); _mp.wait_for_timeout(300)
+    if _mp.evaluate("document.getElementById('sd-suite').hidden") or "/simulateur-" not in (_mp.evaluate("document.querySelector('#sd-suite a').getAttribute('href')") or ""): fail("mobile : barre Suite absente après lecture")
+    _mp.click("#sd-suite button"); _mp.wait_for_timeout(200)
+    if not _mp.evaluate("document.getElementById('sd-suite').hidden"): fail("mobile : la barre Suite doit pouvoir être fermée")
     _mc.close()
     # accessibilité : pas d'image sans alt, de champ sans libellé, de bouton ou lien sans nom, d'identifiant en double, de contraste insuffisant
     _a11y = open(os.path.join(ROOT, "tests", "a11y_check.js"), encoding="utf-8").read()
