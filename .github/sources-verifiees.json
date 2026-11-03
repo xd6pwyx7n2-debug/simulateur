@@ -193,5 +193,22 @@
    "textes du décret non relus sur Légifrance",
    "pages Service-Public lues en traduction automatique"
   ]
+ },
+ "capacite-emprunt": {
+  "date_relecture": "2026-11-03",
+  "urls": [
+   "https://www.economie.gouv.fr/hcsf/mesures/mesure-relative-loctroi-de-credits-immobiliers"
+  ],
+  "regles_confirmees": [
+   "taux d'effort maximal de 35 %",
+   "durée maximale de 25 ans",
+   "différé d'amortissement de 2 ans possible",
+   "flexibilité des banques de 20 % de la production trimestrielle"
+  ],
+  "non_verifie": [
+   "l'assurance est-elle incluse dans le taux d'effort : non précisé par la page",
+   "durée de 27 ans sous conditions : non confirmée par les pages lues",
+   "texte intégral de la décision D-HCSF-2021-7"
+  ]
  }
 }

@@ -114,7 +114,7 @@ for f in pages:
 _th = open(os.path.join(ROOT, "assets", "theme.js"), encoding="utf-8").read()
 OFFICIEL = re.compile(r'^https://([a-z0-9-]+\.)*(service-public\.gouv\.fr|code\.travail\.gouv\.fr|impots\.gouv\.fr|insee\.fr|moncompteformation\.gouv\.fr|dreets\.gouv\.fr|legifrance\.gouv\.fr|economie\.gouv\.fr|info\.gouv\.fr)/')
 for _s in ("indemnite-depart-retraite", "smic", "salaire-horaire-mensuel", "prorata-salaire", "preavis-demission", "fin-contrat-fonction-publique",
-           "cpf", "impot-revenu", "salaire-net-apres-impot", "frais-kilometriques", "aide-carburant-grands-rouleurs", "saisie-sur-salaire", "comparer-mon-salaire", "rupture-assistante-maternelle"):
+           "cpf", "impot-revenu", "salaire-net-apres-impot", "frais-kilometriques", "aide-carburant-grands-rouleurs", "saisie-sur-salaire", "capacite-emprunt", "comparer-mon-salaire", "rupture-assistante-maternelle"):
     _m = re.search(r'^\s+"%s":\[(.*)\],?\s*$' % re.escape(_s), _th, re.M)
     if not _m: fail("sources : %s absent du bandeau « base du calcul » (theme.js)" % _s); continue
     _e = _m.group(1)
@@ -276,6 +276,9 @@ for _rp in ("bilan-de-competences", "vae", "chomage-pendant-formation", "metiers
 _ss = _page("saisie-sur-salaire")
 for _v in ("373,33", "2 150,83", "145 €", "651,69", "10 000 €", "service-public.gouv.fr", "1er juillet 2025"):
     if _v not in _ss: fail("saisie sur salaire : mention absente (%s)" % _v)
+_ce = _page("capacite-emprunt")
+for _v in ("35 %", "25 ans", "economie.gouv.fr/hcsf", "ne précise pas si l'assurance", "D-HCSF-2021-7"):
+    if _v not in _ce: fail("capacité d'emprunt : mention absente (%s)" % _v)
 _ps2 = open(os.path.join(ROOT, "mon-plan-de-sortie-surendettement", "index.html"), encoding="utf-8").read(); _psj = open(os.path.join(ROOT, "assets", "plan-sortie.js"), encoding="utf-8").read()
 for _v in ("Rien n'est envoyé", "3 mois", "Mémoriser ma progression sur cet appareil uniquement", "Tout effacer"):
     if _v not in _ps2: fail("plan de sortie : mention absente (%s)" % _v)
@@ -605,6 +608,15 @@ with sync_playwright() as pw:
     if _sai(600)["saisie"] != 0 or _sai(651.69, 0, "pen")["saisie"] != 0: fail("saisie sur salaire : rien ne doit être saisi sous le solde insaisissable de 651,69 €")
     pg.fill("#net", "1500"); pg.click("#calculate"); pg.wait_for_timeout(300)
     if "234" not in pg.inner_text("#sai") or "1 265" not in pg.inner_text("#res").replace("\u202f", " ").replace("\xa0", " "): fail("saisie sur salaire : résultat affiché incorrect (%s)" % pg.inner_text("#result"))
+    # capacité d'emprunt : règle HCSF (35 %, 25 ans), formules d'annuité
+    pg.goto(LOCAL + "simulateur-capacite-emprunt/"); pg.wait_for_timeout(600)
+    _c = pg.evaluate("(o)=>window.sdCapacite(o)", {"rev": 3500, "cre": 0, "tau": 4, "dur": 20, "ass": 0, "mon": 0})
+    if abs(_c["mmax"] - 1225) > 0.01 or abs(_c["cap"] - 202152) > 30: fail("capacité d'emprunt : 3 500 € à 4 % sur 20 ans attendu 1 225 € / ≈202 152 € (%s)" % _c)
+    _c = pg.evaluate("(o)=>window.sdCapacite(o)", {"rev": 4000, "cre": 0, "tau": 3.5, "dur": 25, "ass": 0, "mon": 200000})
+    if abs(_c["mens"] - 1001.25) > 0.05 or abs(_c["tnew"] - 0.2503) > 0.001: fail("capacité d'emprunt : 200 000 € à 3,5 % sur 25 ans attendu 1 001,25 € (%s)" % _c)
+    _c = pg.evaluate("(o)=>window.sdCapacite(o)", {"rev": 3000, "cre": 1050, "tau": 3, "dur": 30, "ass": 0, "mon": 0})
+    if _c["mmax"] != 0 or _c["cap"] != 0: fail("capacité d'emprunt : crédits en cours à 35 % = capacité nulle (%s)" % _c)
+    if pg.evaluate("(o)=>window.sdCapacite(o).cap", {"rev": 3000, "cre": 0, "tau": 3, "dur": 40, "ass": 0, "mon": 0}) != pg.evaluate("(o)=>window.sdCapacite(o).cap", {"rev": 3000, "cre": 0, "tau": 3, "dur": 25, "ass": 0, "mon": 0}): fail("capacité d'emprunt : la durée doit être plafonnée à 25 ans")
     # Mon plan de sortie du surendettement : analyse CSV, calendrier, progression (tout en local)
     pg.goto(LOCAL + "mon-plan-de-sortie-surendettement/"); pg.wait_for_timeout(600)
     _csv = "Date;Libellé;Montant\n01/09/2026;SALAIRE;1000,00\n02/09/2026;LOYER;-500,00\n03/09/2026;NETFLIX;-10,00\n03/10/2026;NETFLIX;-10,00\n05/10/2026;CARREFOUR;-40,00"
