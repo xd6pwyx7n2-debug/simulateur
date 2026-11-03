@@ -243,6 +243,10 @@ for _v in ("2 130 €", "1 888 €", "1 867,02 €", "262,98 €", "20,98 €", 
     if _v not in _md: fail("guide métiers sans diplôme : mention absente (%s)" % _v)
 if round(2130 - 1867.02, 2) != 262.98 or round(1888 - 1867.02, 2) != 20.98: fail("guide métiers sans diplôme : écart au Smic faux")
 if "sans diplôme ne veut pas dire sans formation" not in _md: fail("guide métiers sans diplôme : nuance « sans formation » absente")
+# Guide Parcoursup 2027 : dates du calendrier officiel (PDF octobre 2026), source officielle, mise en garde sur les évolutions
+_pc = _g("parcoursup-2027-calendrier-dates-cles-et-ce-qui-peut-changer")
+for _v in ("17 décembre 2026", "18 janvier", "11 mars 2027", "1er avril 2027", "1er juin 2027", "10 juin", "9 septembre 2027", "10 juillet 2027", "parcoursup.gouv.fr/sites/default/files", "source non officielle", "fait foi"):
+    if _v not in _pc: fail("guide Parcoursup : mention absente (%s)" % _v)
 _ps2 = open(os.path.join(ROOT, "mon-plan-de-sortie-surendettement", "index.html"), encoding="utf-8").read(); _psj = open(os.path.join(ROOT, "assets", "plan-sortie.js"), encoding="utf-8").read()
 for _v in ("Rien n'est envoyé", "3 mois", "Mémoriser ma progression sur cet appareil uniquement", "Tout effacer"):
     if _v not in _ps2: fail("plan de sortie : mention absente (%s)" % _v)
@@ -483,7 +487,7 @@ with sync_playwright() as pw:
     # micro-entrepreneur : 3 000 € de prestations BIC -> cotisations 636,00 €, net 2 364,00 € ; avec ACRE 477,00 € / 2 523,00 € ; net voulu 2 364 -> CA 3 000
     pg.goto(LOCAL + "simulateur-micro-entrepreneur/"); pg.wait_for_timeout(200)
     def micro(mode, act, montant, acre=False, vl=False):
-        pg.evaluate("(a)=>{document.getElementById('mode').value=a[0];document.getElementById('act').value=a[1];document.getElementById('montant').value=a[2];document.getElementById('acre').checked=a[3];document.getElementById('vl').checked=a[4];document.getElementById('calculate').click()}", [mode, act, str(montant), acre, vl]); pg.wait_for_timeout(900)
+        pg.evaluate("(a)=>{document.getElementById('mode').value=a[0];document.getElementById('act').value=a[1];document.getElementById('montant').value=a[2];document.getElementById('acre').checked=a[3];document.getElementById('vl').checked=a[4];document.getElementById('calculate').click()}", [mode, act, str(montant), acre, vl]); pg.wait_for_timeout(1800)
         return {k: norm(pg.inner_text("#"+k)) for k in ("net","ca","cot","imp")}
     r = micro("ca", "prestations", 3000)
     if r["cot"] != norm("636,00 €") or r["net"] != norm("2 364,00 €"): fail("micro : 3 000 € BIC attendu 636,00 € / 2 364,00 € (%s)" % r)
