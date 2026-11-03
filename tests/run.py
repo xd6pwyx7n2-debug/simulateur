@@ -194,6 +194,22 @@ for f in pages:
     _hh = open(f, encoding="utf-8").read()
     if "noindex" in _hh: continue
     if not re.search(r'<link\s+rel="canonical"\s+href="https://simudroit\.fr/[^"]*"\s*/?>', _hh): fail("canonical absent : %s" % _rel)
+# Pages 2027 : montants annoncés cohérents, statuts affichés, aucun Smic 2027 présenté comme un fait
+def _g(s): return open(os.path.join(ROOT, "guides", s, "index.html"), encoding="utf-8").read()
+_p27 = _g("plafond-securite-sociale-2027-montants-ce-qui-change"); _s27 = _g("smic-2027-revalorisation-1er-janvier-ce-que-lon-sait"); _h27 = _g("ce-qui-change-au-1er-janvier-2027-les-chiffres")
+for _v in ("48 900 €", "4 075 €", "12 225 €", "annoncés", "arrêté officiel"):
+    if _v not in _p27: fail("PASS 2027 : mention absente (%s)" % _v)
+if round(48900/12, 2) != 4075.0 or round(48900/48060 - 1, 4) != 0.0175 and round((48900/48060-1)*100, 2) != 1.75: fail("PASS 2027 : arithmétique 48 900 / 12 ou hausse incohérente")
+if "4 005 €" not in _p27 or "reste soumis au plafond 2026" not in _p27: fail("PASS 2027 : règle de la période de travail absente")
+if "12,31 €" not in _s27 or "1 867,02 €" not in _s27 or "pas encore connu" not in _s27: fail("Smic 2027 : montant actuel ou statut absent")
+if round(12.31*1.01, 2) != 12.43 or round(1867.02*1.01, 2) != 1885.69: fail("Smic 2027 : exemple pédagogique faux")
+if "n'est pas encore connu" not in _s27 and "pas encore connu" not in _s27: fail("Smic 2027 présenté comme connu")
+for _l in ("/guides/plafond-securite-sociale-2027-montants-ce-qui-change/", "/guides/smic-2027-revalorisation-1er-janvier-ce-que-lon-sait/", "/guides/budget-2027-ce-qui-est-propose-et-ce-qui-est-vote/", "/guides/journee-de-solidarite-2027-date-regles-remuneration/"):
+    if _l not in _h27: fail("hub 2027 : lien absent (%s)" % _l)
+for _l, _src in (("/guides/ce-qui-change-au-1er-janvier-2027-les-chiffres/", "smic-2026-montant-brut-net-horaire"), ("/guides/plafond-securite-sociale-2027-montants-ce-qui-change/", "simulateur-gratification-stage"), ("/guides/smic-2027-revalorisation-1er-janvier-ce-que-lon-sait/", "simulateur-smic")):
+    _pp = os.path.join(ROOT, "guides", _src) if not _src.startswith("simulateur") else os.path.join(ROOT, _src)
+    if _l not in open(os.path.join(_pp, "index.html"), encoding="utf-8").read(): fail("lien interne 2027 absent depuis %s" % _src)
+if "pmss: 4005" not in open(os.path.join(ROOT, "assets", "params.js"), encoding="utf-8").read(): fail("params.js : le plafond 2026 ne doit pas être changé avant le 1er janvier 2027")
 # Assistant : la réponse sur les indépendants ne doit pas contredire le catalogue
 _a = open(os.path.join(ROOT, "assistant", "index.html"), encoding="utf-8").read()
 if "concernent les salariés. Pour un indépendant" in _a: fail("assistant : réponse obsolète sur les indépendants")
