@@ -114,7 +114,7 @@ for f in pages:
 _th = open(os.path.join(ROOT, "assets", "theme.js"), encoding="utf-8").read()
 OFFICIEL = re.compile(r'^https://([a-z0-9-]+\.)*(service-public\.gouv\.fr|code\.travail\.gouv\.fr|impots\.gouv\.fr|insee\.fr|moncompteformation\.gouv\.fr|dreets\.gouv\.fr|legifrance\.gouv\.fr|economie\.gouv\.fr|info\.gouv\.fr)/')
 for _s in ("indemnite-depart-retraite", "smic", "salaire-horaire-mensuel", "prorata-salaire", "preavis-demission", "fin-contrat-fonction-publique",
-           "cpf", "impot-revenu", "salaire-net-apres-impot", "frais-kilometriques", "comparer-mon-salaire", "rupture-assistante-maternelle"):
+           "cpf", "impot-revenu", "salaire-net-apres-impot", "frais-kilometriques", "aide-carburant-grands-rouleurs", "comparer-mon-salaire", "rupture-assistante-maternelle"):
     _m = re.search(r'^\s+"%s":\[(.*)\],?\s*$' % re.escape(_s), _th, re.M)
     if not _m: fail("sources : %s absent du bandeau « base du calcul » (theme.js)" % _s); continue
     _e = _m.group(1)
@@ -227,6 +227,9 @@ import re as _re2
 if _re2.search(r"\d[\d  ]*(,\d+)? ?€ par mois", _nai.split("congé parental d'éducation</h2>")[0]): fail("guide naissance : montant de prestation Caf affiché hors section sourcée")
 for _src in ("simulateur-conge-paternite", "simulateur-conge-maternite", "simulateur-conge-supplementaire-naissance"):
     if "/guides/naissance-bebe-demarches-aides-conges-dans-l-ordre/" not in open(os.path.join(ROOT, _src, "index.html"), encoding="utf-8").read(): fail("lien vers le guide naissance absent depuis %s" % _src)
+_ac = _page("aide-carburant-grands-rouleurs")
+for _v in ("22 770", "31 décembre 2026", "27 octobre", "15 km", "8 000 km", "100 €", "simulateur officiel"):
+    if _v not in _ac: fail("aide carburant : mention absente (%s)" % _v)
 # Assistant : la réponse sur les indépendants ne doit pas contredire le catalogue
 _a = open(os.path.join(ROOT, "assistant", "index.html"), encoding="utf-8").read()
 if "concernent les salariés. Pour un indépendant" in _a: fail("assistant : réponse obsolète sur les indépendants")
@@ -531,6 +534,18 @@ with sync_playwright() as pw:
     for d_, p_, m_, exp in [("9000","3000","12","500,00"),("9000","3000","6","1 000,00"),("2000","3000","12","Rien à rattraper")]:
         pg.evaluate("(a)=>{document.getElementById('idel-def').value=a[0];document.getElementById('idel-prov').value=a[1];document.getElementById('idel-mois').value=a[2];document.getElementById('idel-go').click()}", [d_, p_, m_]); pg.wait_for_timeout(200)
         if norm(exp) not in norm(pg.inner_text("#idel-out")): fail("outil rattrapage %s/%s/%s : attendu %s (%s)" % (d_, p_, m_, exp, pg.inner_text("#idel-out")))
+    # aide carburant grands rouleurs : critères de la FAQ DGFiP (plafond 22 770 € par part, 15 km ou 8 000 km, motorisation)
+    pg.goto(LOCAL + "simulateur-aide-carburant-grands-rouleurs/"); pg.wait_for_timeout(800)
+    _b = {"rfr": 40000, "parts": 2, "act": "oui", "age": "oui", "al": 22, "kmp": 0, "mot": "th", "usg": "pro", "fon": "perso", "ifi": "non"}
+    def _ev(**kw):
+        o = dict(_b); o.update(kw); return pg.evaluate("(o)=>{var r=window.sdEvalue(o);return [r.ok,r.montant]}", o)
+    for _lab, _kw, _att in (("cas de base 20 000 €/part", {}, [True, 100]), ("25 000 €/part", {"rfr": 50000}, [False, 0]), ("limite 22 770 €/part", {"rfr": 22770, "parts": 1}, [True, 100]), ("22 771 €/part", {"rfr": 22771, "parts": 1}, [False, 0]),
+                            ("14,9 km et 7 999 km", {"al": 14.9, "kmp": 7999}, [False, 0]), ("15 km", {"al": 15}, [True, 100]), ("8 000 km", {"al": 5, "kmp": 8000}, [True, 100]),
+                            ("électrique", {"mot": "el"}, [False, 0]), ("hybride rechargeable", {"mot": "hr"}, [False, 0]), ("hybride non rechargeable", {"mot": "hy"}, [True, 100]),
+                            ("véhicule de fonction", {"fon": "fct"}, [False, 0]), ("IFI", {"ifi": "oui"}, [False, 0]), ("chômage seul", {"act": "non"}, [False, 0])):
+        if _ev(**_kw) != _att: fail("aide carburant : %s, attendu %s, obtenu %s" % (_lab, _att, _ev(**_kw)))
+    pg.fill("#rfr", "40000"); pg.fill("#parts", "2"); pg.fill("#al", "22"); pg.click("#calculate"); pg.wait_for_timeout(300)
+    if "Éligible" not in pg.inner_text("#main") or "100" not in pg.inner_text("#mnt"): fail("aide carburant : résultat affiché incorrect (%s)" % pg.inner_text("#result"))
     # chômage : rupture conventionnelle (fin de contrat à partir du 1er sept. 2026) -> plafond 15 mois avant 55 ans
     pg.goto(LOCAL + "simulateur-chomage/"); pg.wait_for_timeout(200)
     pg.evaluate("()=>{const v={salaire:'30000',age:'40',duree:'24',conges:'0',supralegal:'0'};for(const k in v)document.getElementById(k).value=v[k];document.getElementById('rc').checked=true;calculer()}"); pg.wait_for_timeout(900)

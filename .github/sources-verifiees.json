@@ -156,5 +156,22 @@
   "non_verifie": [
    "fiche DREETS de mars 2024 non relue à cette date"
   ]
+ },
+ "aide-carburant-grands-rouleurs": {
+  "date_relecture": "2026-11-03",
+  "urls": [
+   "https://www.impots.gouv.fr/sites/default/files/media/1_metier/1_particulier/simulateurs/2026/ict_aide_grands_rouleurs/faq_aide_carburant_travailleurs_grands_rouleurs.pdf"
+  ],
+  "regles_confirmees": [
+   "plafond 22 770 € de revenu fiscal de référence par part",
+   "15 km par trajet ou 8 000 km par an",
+   "100 € par usager et par véhicule",
+   "formulaire du 27 octobre au 31 décembre 2026",
+   "exclusions : électrique, hybride rechargeable, véhicule de fonction, immatriculation étrangère, IFI"
+  ],
+  "non_verifie": [
+   "texte du décret du 15 octobre 2026 non relu",
+   "la FAQ n'est pas datée"
+  ]
  }
 }

@@ -130,7 +130,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/generateur-cv/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-03</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/generateur-devis/</loc>
@@ -230,15 +230,15 @@
   </url>
   <url>
     <loc>https://simudroit.fr/simulateur-conge-supplementaire-naissance/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-03</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/simulateur-conge-maternite/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-03</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/simulateur-conge-paternite/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-03</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/simulateur-conges-payes/</loc>
@@ -330,6 +330,12 @@
   </url>
   <url>
     <loc>https://simudroit.fr/simulateur-frais-kilometriques/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://simudroit.fr/simulateur-aide-carburant-grands-rouleurs/</loc>
     <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -438,19 +444,19 @@
   </url>
   <url>
     <loc>https://simudroit.fr/guides/conge-maternite-duree-indemnites/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://simudroit.fr/guides/conge-paternite-2026-duree-jours-demarches-tous-secteurs/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://simudroit.fr/guides/naissance-bebe-demarches-aides-conges-dans-l-ordre/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
