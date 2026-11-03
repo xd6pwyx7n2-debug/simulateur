@@ -592,6 +592,12 @@ with sync_playwright() as pw:
     _mp.fill("#gd-q", "smic"); _mp.wait_for_timeout(200)
     if not 1 <= _mp.evaluate("[...document.querySelectorAll('#gd-list .gd-card')].filter(c=>!c.hidden).length") <= 8: fail("mobile : la recherche de guides ne filtre pas")
     _mc.close()
+    # accessibilité : pas d'image sans alt, de champ sans libellé, de bouton ou lien sans nom, d'identifiant en double, de contraste insuffisant
+    _a11y = open(os.path.join(ROOT, "tests", "a11y_check.js"), encoding="utf-8").read()
+    for _u in ("", "simulateurs/", "simulateur-smic/", "simulateur-aide-carburant-grands-rouleurs/", "guides/smic-2026-montant-brut-net-horaire/", "guides/sortir-du-surendettement-plan-d-action-positif/", "metiers/infirmier-liberal/", "generateur-cv/", "mon-plan-de-sortie-surendettement/", "aides/"):
+        pg.goto(LOCAL + _u); pg.wait_for_timeout(500)
+        _bad = [x for x in pg.evaluate(_a11y) if x[0] in ("img-sans-alt", "champ-sans-libelle", "bouton-sans-nom", "lien-sans-nom", "id-doublon", "h1-nombre", "contraste", "lang-absent")]
+        if _bad: fail("accessibilité %s : %s" % (_u or "accueil", "; ".join("%s %s %s" % (x[0], x[1], x[2]) for x in _bad[:4])))
     # chômage : rupture conventionnelle (fin de contrat à partir du 1er sept. 2026) -> plafond 15 mois avant 55 ans
     pg.goto(LOCAL + "simulateur-chomage/"); pg.wait_for_timeout(200)
     pg.evaluate("()=>{const v={salaire:'30000',age:'40',duree:'24',conges:'0',supralegal:'0'};for(const k in v)document.getElementById(k).value=v[k];document.getElementById('rc').checked=true;calculer()}"); pg.wait_for_timeout(900)
