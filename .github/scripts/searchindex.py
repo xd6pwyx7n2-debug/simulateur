@@ -32,6 +32,7 @@ SYN = {
     "guides/conge-paternite-2026-duree-jours-demarches-tous-secteurs": "conge paternite 2026 25 jours 32 jours naissance demarches prevenir employeur fractionner fonctionnaire independant protection licenciement",
     "guides/naissance-bebe-demarches-aides-conges-dans-l-ordre": "naissance bebe demarches declaration de naissance 5 jours mairie caf paje prime naissance cmg preparE conge parental impots vitale mutuelle",
     "guides/sortir-du-surendettement-plan-d-action-positif": "surendettement sortir du surendettement banque de france commission dossier plan effacement dettes retablissement personnel ficp 7 ans dettes aide",
+    "guides/prime-de-noel-2026-montants-date-de-versement-qui-y-a-droit": "prime de noel 2026 montant date versement rsa ass aer caf france travail 152,45 16 decembre allocataires",
     "guides/comment-devenir-auto-entrepreneur-micro-entrepreneur-etapes": "comment devenir auto entrepreneur micro entrepreneur creer micro entreprise etapes declaration acre versement liberatoire plafond 83 600 203 100 immatriculation guichet",
     "guides/parcoursup-2027-calendrier-dates-cles-et-ce-qui-peut-changer": "parcoursup 2027 calendrier dates voeux 17 decembre 18 janvier 11 mars 1er avril 1er juin phase complementaire inscription etudes superieur bachelier terminale",
     "guides/metiers-sans-diplome-au-dessus-du-smic-acces-et-salaires": "metiers sans diplome bien remuneres salaire au dessus du smic conducteur routier bus metro train agent de securite cariste taxi onisep formation courte",
