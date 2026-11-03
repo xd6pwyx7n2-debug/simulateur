@@ -285,6 +285,10 @@ for _v in ("1er mars", "31 mai", "28 ans", "10 mois", "7 ans", "F12214", "A18239
 _vs = _g("vacances-scolaires-2026-2027-dates-zones-a-b-c")
 for _v in ("19 décembre 2026 au 4 janvier 2027", "13 février au 1er mars 2027", "20 février au 8 mars 2027", "6 au 22 février 2027", "10 au 26 avril 2027", "17 avril au 3 mai 2027", "3 au 19 avril 2027", "3 juillet 2027", "7 mai 2027", "F31952", "22 octobre 2025", "Limites"):
     if _v not in _vs: fail("guide vacances scolaires : mention absente (%s)" % _v)
+# Guide carte grise : délais et coûts Service-Public
+_cg = _g("carte-grise-voiture-d-occasion-et-changement-d-adresse-delais-demarches")
+for _v in ("1 mois", "2,76 €", "135 €", "15 jours", "F1050", "F12118", "ants.gouv.fr", "Limites"):
+    if _v not in _cg: fail("guide carte grise : mention absente (%s)" % _v)
 # Guide CMG assistante maternelle : sources Service-Public, pas de barème inventé
 _cm = _g("cmg-complement-mode-de-garde-assistante-maternelle-conditions-demande")
 for _v in ("1er septembre 2025", "100 %", "Pajemploi", "R72489", "F39152", "A18360", "31 août 2025", "1er décembre 2025", "12 ans", "ne les invente pas", "Limites"):
