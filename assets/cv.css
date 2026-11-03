@@ -17,3 +17,5 @@
 .cv-hint{font-size:.9rem;color:#555474}
 html[data-theme="dark"] .cv-stage{filter:invert(1) hue-rotate(180deg)}
 .cv-scale{width:210mm}.cv-frame{display:block;width:210mm;border:0;background:#fff;box-shadow:0 2px 14px rgba(32,30,72,.18)}
+
+.cv-check{margin:16px 0;padding:14px 16px;border:1.5px solid #e3dffa;border-radius:14px;background:#fff}.cv-check h3{margin:0 0 6px;font-size:1.05rem}.cv-check ul{margin:8px 0;padding-left:0;list-style:none}.cv-check li{padding:6px 0;border-top:1px solid #efecfb;font-size:.95rem}.cv-check li strong{display:inline-block;margin-right:6px;padding:1px 8px;border-radius:99px;font-size:.78rem}.cv-ck-a strong{background:#fde8e8;color:#8a1c1c}.cv-ck-b strong{background:#fff4e5;color:#7a4a00}

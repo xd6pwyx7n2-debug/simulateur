@@ -210,6 +210,23 @@ for _l, _src in (("/guides/ce-qui-change-au-1er-janvier-2027-les-chiffres/", "sm
     _pp = os.path.join(ROOT, "guides", _src) if not _src.startswith("simulateur") else os.path.join(ROOT, _src)
     if _l not in open(os.path.join(_pp, "index.html"), encoding="utf-8").read(): fail("lien interne 2027 absent depuis %s" % _src)
 if "pmss: 4005" not in open(os.path.join(ROOT, "assets", "params.js"), encoding="utf-8").read(): fail("params.js : le plafond 2026 ne doit pas être changé avant le 1er janvier 2027")
+# Guide congé paternité : durées cohérentes avec le simulateur et le guide maternité
+_pat = _g("conge-paternite-2026-duree-jours-demarches-tous-secteurs")
+for _v in ("25 jours", "32 jours", "1 mois", "10 semaines", "5 jours", "gd-metro", "source non officielle", "D1225-8"):
+    if _v not in _pat: fail("guide congé paternité : mention absente (%s)" % _v)
+if 3 + 4 + 21 - 3 != 25 or 4 + 28 != 32: fail("congé paternité : arithmétique 4 + 21 = 25 et 4 + 28 = 32")
+_ps = open(os.path.join(ROOT, "simulateur-conge-paternite", "index.html"), encoding="utf-8").read()
+if "25 jours" not in _ps or "32" not in _ps: fail("simulateur paternité : durées 25 / 32 jours absentes")
+for _src in ("simulateur-conge-paternite", "simulateur-conge-supplementaire-naissance"):
+    if "/guides/conge-paternite-2026-duree-jours-demarches-tous-secteurs/" not in open(os.path.join(ROOT, _src, "index.html"), encoding="utf-8").read(): fail("lien vers le guide paternité absent depuis %s" % _src)
+# Guide naissance : délais officiels (Service-Public F32571) et liens vers les congés
+_nai = _g("naissance-bebe-demarches-aides-conges-dans-l-ordre")
+for _v in ("5 jours", "14e semaine", "60 jours", "gd-metro", "F32571", "source non officielle", "25 jours"):
+    if _v not in _nai: fail("guide naissance : mention absente (%s)" % _v)
+import re as _re2
+if _re2.search(r"\d[\d  ]*(,\d+)? ?€ par mois", _nai.split("congé parental d'éducation</h2>")[0]): fail("guide naissance : montant de prestation Caf affiché hors section sourcée")
+for _src in ("simulateur-conge-paternite", "simulateur-conge-maternite", "simulateur-conge-supplementaire-naissance"):
+    if "/guides/naissance-bebe-demarches-aides-conges-dans-l-ordre/" not in open(os.path.join(ROOT, _src, "index.html"), encoding="utf-8").read(): fail("lien vers le guide naissance absent depuis %s" % _src)
 # Assistant : la réponse sur les indépendants ne doit pas contredire le catalogue
 _a = open(os.path.join(ROOT, "assistant", "index.html"), encoding="utf-8").read()
 if "concernent les salariés. Pour un indépendant" in _a: fail("assistant : réponse obsolète sur les indépendants")
@@ -386,6 +403,13 @@ with sync_playwright() as pw:
     import zipfile
     dl.value.save_as("/tmp/_cv.docx")
     if zipfile.ZipFile("/tmp/_cv.docx").testzip() is not None: fail("CV : fichier .docx invalide")
+    # relecture automatique : exemple propre, puis erreurs détectées
+    if "Aucun point" not in pg.inner_text("#cv-check-sum"): fail("CV : la relecture signale des points sur l'exemple fourni")
+    pg.fill("#f-email", "abc"); pg.fill("#f-profil", "Court"); pg.wait_for_timeout(200)
+    _ck = pg.inner_text("#cv-check-list")
+    if "e-mail" not in _ck or "profil est très court" not in _ck or "2 points" not in pg.inner_text("#cv-check-sum"): fail("CV : la relecture ne détecte pas e-mail invalide / profil court")
+    pg.click("#cv-clear"); pg.wait_for_timeout(200)
+    if "Remplissez" not in pg.inner_text("#cv-check-sum"): fail("CV : relecture non réinitialisée après effacement")
     # recherche de l'accueil : index à jour et résultats pertinents
     import subprocess
     if subprocess.run(["python3", os.path.join(ROOT, ".github/scripts/searchindex.py"), "--check"], capture_output=True).returncode != 0:

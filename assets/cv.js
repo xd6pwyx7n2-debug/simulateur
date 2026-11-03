@@ -94,9 +94,47 @@ function fit(){
   var h=Math.max(1123,doc.documentElement.scrollHeight), k=Math.min(1,(stage.clientWidth-24)/793.7);
   frame.style.height=h+"px"; scaleEl.style.transform="scale("+k+")"; scaleEl.style.transformOrigin="top left"; stage.style.height=(h*k+24)+"px";
 }
+/* ---------- relecture automatique (règles simples, rien n'est envoyé) ---------- */
+function yr(s){var m=String(s||"").match(/(19|20)\d{2}/);return m?+m[0]:null;}
+function review(d){
+  var o=[],n=function(l,t){o.push({l:l,t:t});};
+  if(!has(d))return o;
+  if(!d.prenom.trim()||!d.nom.trim())n("a","Ajoutez votre prénom et votre nom.");
+  if(!d.titre.trim())n("a","Ajoutez le titre du poste visé : c'est la première chose que lit le recruteur.");
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(d.email.trim()))n("a","L'adresse e-mail est absente ou semble incomplète.");
+  if(!d.tel.trim())n("b","Ajoutez un numéro de téléphone.");
+  if(!d.ville.trim())n("b","Indiquez votre ville : beaucoup de recruteurs filtrent par zone.");
+  var p=d.profil.trim();
+  if(p&&p.length<120)n("b","Le profil est très court : visez deux ou trois phrases.");
+  if(p.length>600)n("b","Le profil dépasse 600 caractères : raccourcissez-le pour qu'il soit lu.");
+  var chiffres=false,vide=false,desordre=false,inverse=false,tout=d.exp.map(function(x){return x.miss;}).join(" ");
+  d.exp.forEach(function(x,i){
+    if(!(x.poste||x.org))return;
+    if(!x.deb.trim())n("a","Expérience "+(i+1)+" : ajoutez la date de début.");
+    var a=yr(x.deb),b=yr(x.fin);
+    if(a&&b&&b<a)inverse=true;
+    if(!x.miss.trim())vide=true;
+    if(i>0){var pa=yr(d.exp[i-1].deb);if(pa&&a&&a>pa)desordre=true;}
+  });
+  if(inverse)n("a","Une expérience se termine avant d'avoir commencé : vérifiez les années.");
+  if(desordre)n("b","Classez les expériences de la plus récente à la plus ancienne.");
+  if(vide)n("b","Une expérience n'a aucune mission décrite : ajoutez 2 ou 3 lignes.");
+  if(tout.trim()&&!/\d/.test(tout))n("b","Aucun chiffre dans vos missions : un volume, un budget ou un pourcentage rend une réalisation crédible.");
+  if(list(d.comp).length>15)n("b","Plus de 15 compétences : gardez les plus pertinentes pour le poste.");
+  var all=[d.titre,d.profil,tout].join(" ");
+  if(/ {2,}/.test(all))n("b","Des doubles espaces se sont glissés dans le texte.");
+  if(/[A-ZÉÈÀ]{4,}(\s+[A-ZÉÈÀ]{2,}){4,}/.test(all))n("b","Une longue phrase est écrite en majuscules : elle sera difficile à lire.");
+  return o;
+}
+function drawReview(d){
+  var ul=$("#cv-check-list"),h=$("#cv-check-sum");if(!ul)return;
+  var r=review(d);
+  ul.innerHTML=r.map(function(x){return'<li class="'+(x.l==="a"?"cv-ck-a":"cv-ck-b")+'"><strong>'+(x.l==="a"?"À corriger":"À améliorer")+'</strong> '+E(x.t)+'</li>';}).join("");
+  if(h)h.textContent=!has(d)?"Remplissez le formulaire pour lancer la relecture.":r.length?r.length+" point"+(r.length>1?"s":"")+" à revoir.":"Aucun point à signaler. Relisez quand même chaque phrase à voix haute.";
+}
 function draw(){
   var doc=frame.contentDocument; if(!doc||!doc.body)return;
-  var d=collect(), st=style(seed); cur=st;
+  var d=collect(), st=style(seed); cur=st; drawReview(d);
   var lay=st.lay;
   function put(){doc.body.innerHTML=render(d,st);doc.documentElement.className="l-"+st.lay;}
   put();
