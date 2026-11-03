@@ -255,6 +255,10 @@ for _v in ("152,45 €", "228,68 €", "274,41 €", "60,98 €", "76,23 €", "
 _am = _g("comment-devenir-assistante-maternelle-agrement-formation-demarches")
 for _v in ("3 mois", "120 heures", "80 heures", "15 jours", "4 enfants", "F798", "monenfant.fr", "Limites", "ne précise pas la durée de validité"):
     if _v not in _am and _v != "4 enfants": fail("guide assistante maternelle : mention absente (%s)" % _v)
+# Guide devenir fonctionnaire : niveaux de diplôme par catégorie et sources Service-Public
+_fo = _g("comment-devenir-fonctionnaire-concours-conditions-categories")
+for _v in ("CAP, BEP ou brevet", "bac+2", "bac+3", "sans concours", "PACTE", "F13272", "F434", "F34827", "Limites", "troisième concours"):
+    if _v not in _fo: fail("guide devenir fonctionnaire : mention absente (%s)" % _v)
 # Guide Parcoursup 2027 : dates du calendrier officiel (PDF octobre 2026), source officielle, mise en garde sur les évolutions
 _pc = _g("parcoursup-2027-calendrier-dates-cles-et-ce-qui-peut-changer")
 for _v in ("17 décembre 2026", "18 janvier", "11 mars 2027", "1er avril 2027", "1er juin 2027", "10 juin", "9 septembre 2027", "10 juillet 2027", "parcoursup.gouv.fr/sites/default/files", "source non officielle", "fait foi"):
