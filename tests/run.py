@@ -269,6 +269,10 @@ for _v in ("mesquestionsdargent.fr", "enveloppes", "charges fixes", "Limites", "
     if _v not in _bg: fail("guide budget : mention absente (%s)" % _v)
 for _bad in ("50/30/20", "50 %", "règle des 50", "honte", "coupable"):
     if _bad in _bg: fail("guide budget : contenu non sourcé ou ton jugeant (%s)" % _bad)
+# Guide taxe foncière 2026 : dates et plafonds Service-Public, aucune estimation de montant inventée
+_tf = _g("taxe-fonciere-2026-dates-exonerations-contester-mensualisation")
+for _v in ("20 octobre", "15 octobre", "300 €", "15 décembre 2026", "12 793 €", "26 457 €", "3 416 €", "100 €", "10 %", "31 décembre 2026", "A15144", "A19047", "A17727", "Limites"):
+    if _v not in _tf: fail("guide taxe foncière : mention absente (%s)" % _v)
 # Guide Parcoursup 2027 : dates du calendrier officiel (PDF octobre 2026), source officielle, mise en garde sur les évolutions
 _pc = _g("parcoursup-2027-calendrier-dates-cles-et-ce-qui-peut-changer")
 for _v in ("17 décembre 2026", "18 janvier", "11 mars 2027", "1er avril 2027", "1er juin 2027", "10 juin", "9 septembre 2027", "10 juillet 2027", "parcoursup.gouv.fr/sites/default/files", "source non officielle", "fait foi"):
