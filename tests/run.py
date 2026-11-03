@@ -247,6 +247,12 @@ if "sans diplôme ne veut pas dire sans formation" not in _md: fail("guide méti
 _pc = _g("parcoursup-2027-calendrier-dates-cles-et-ce-qui-peut-changer")
 for _v in ("17 décembre 2026", "18 janvier", "11 mars 2027", "1er avril 2027", "1er juin 2027", "10 juin", "9 septembre 2027", "10 juillet 2027", "parcoursup.gouv.fr/sites/default/files", "source non officielle", "fait foi"):
     if _v not in _pc: fail("guide Parcoursup : mention absente (%s)" % _v)
+# Sous-pages reconversion : même DA (FAQ repliable, bandeau d'action, cartes d'outils), sans liste de liens nus
+for _rp in ("bilan-de-competences", "vae", "chomage-pendant-formation", "metiers-du-soin"):
+    _rt = open(os.path.join(ROOT, "reconversion", _rp, "index.html"), encoding="utf-8").read()
+    for _v in ("reconv.css", 'class="rc-faq"', 'class="rc-cta"', 'class="rc-guides"', "faire-le-point-reconversion"):
+        if _v not in _rt: fail("reconversion/%s : élément de la DA absent (%s)" % (_rp, _v))
+    if "sd-see-grid" in _rt: fail("reconversion/%s : liste de liens nus (sd-see-grid) au lieu des cartes" % _rp)
 _ps2 = open(os.path.join(ROOT, "mon-plan-de-sortie-surendettement", "index.html"), encoding="utf-8").read(); _psj = open(os.path.join(ROOT, "assets", "plan-sortie.js"), encoding="utf-8").read()
 for _v in ("Rien n'est envoyé", "3 mois", "Mémoriser ma progression sur cet appareil uniquement", "Tout effacer"):
     if _v not in _ps2: fail("plan de sortie : mention absente (%s)" % _v)
