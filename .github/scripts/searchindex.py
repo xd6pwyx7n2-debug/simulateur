@@ -31,6 +31,7 @@ SYN = {
     "guides/ce-qui-change-au-1er-janvier-2027-les-chiffres": "ce qui change 1er janvier 2027 plafond smic budget cpf nouveautes",
     "guides/conge-paternite-2026-duree-jours-demarches-tous-secteurs": "conge paternite 2026 25 jours 32 jours naissance demarches prevenir employeur fractionner fonctionnaire independant protection licenciement",
     "guides/naissance-bebe-demarches-aides-conges-dans-l-ordre": "naissance bebe demarches declaration de naissance 5 jours mairie caf paje prime naissance cmg preparE conge parental impots vitale mutuelle",
+    "guides/sortir-du-surendettement-plan-d-action-positif": "surendettement sortir du surendettement banque de france commission dossier plan effacement dettes retablissement personnel ficp 7 ans dettes aide",
     "guides/frais-kilometriques-bareme-2026-deduire-trajet-domicile-travail": "frais kilometriques bareme kilometrique 2026 deduire trajet domicile travail frais reels 10 pourcent 40 km voiture electrique impot",
     "guides/cesu-embaucher-aide-a-domicile-menage-demarches-contrat-credit-impot": "cesu embaucher femme de menage aide a domicile particulier employeur declaration urssaf credit d'impot 50 pourcent salaire contrat",
     "generateur-attestation-d-hebergement": "attestation hebergement generateur modele attestation sur l'honneur heberge hebergeant pdf word gratuit",

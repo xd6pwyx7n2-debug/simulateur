@@ -230,6 +230,13 @@ for _src in ("simulateur-conge-paternite", "simulateur-conge-maternite", "simula
 _ac = _page("aide-carburant-grands-rouleurs")
 for _v in ("22 770", "31 décembre 2026", "27 octobre", "15 km", "8 000 km", "100 €", "simulateur officiel"):
     if _v not in _ac: fail("aide carburant : mention absente (%s)" % _v)
+# Guide surendettement : règles de la Banque de France, ton positif, limites déclarées
+_su = _g("sortir-du-surendettement-plan-d-action-positif")
+for _v in ("3 mois", "7 ans", "134 803", "17 447", "gd-metro", "Station 7", "gratuite", "Limites de cette page", "18 ou 24 mois"):
+    if _v not in _su: fail("guide surendettement : mention absente (%s)" % _v)
+for _bad in ("honte", "coupable de", "faute de votre part", "vous avez mal géré"):
+    if _bad in _su.lower(): fail("guide surendettement : ton jugeant (%s)" % _bad)
+if "sponsored" in _su or "lien partenaire" in _su: fail("guide surendettement : pas de lien affilié sans programme déclaré")
 # Assistant : la réponse sur les indépendants ne doit pas contredire le catalogue
 _a = open(os.path.join(ROOT, "assistant", "index.html"), encoding="utf-8").read()
 if "concernent les salariés. Pour un indépendant" in _a: fail("assistant : réponse obsolète sur les indépendants")
