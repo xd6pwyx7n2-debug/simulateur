@@ -34,6 +34,7 @@ SYN = {
     "guides/conge-paternite-2026-duree-jours-demarches-tous-secteurs": "conge paternite 2026 25 jours 32 jours naissance demarches prevenir employeur fractionner fonctionnaire independant protection licenciement",
     "guides/naissance-bebe-demarches-aides-conges-dans-l-ordre": "naissance bebe demarches declaration de naissance 5 jours mairie caf paje prime naissance cmg preparE conge parental impots vitale mutuelle",
     "guides/sortir-du-surendettement-plan-d-action-positif": "surendettement sortir du surendettement banque de france commission dossier plan effacement dettes retablissement personnel ficp 7 ans dettes aide",
+    "guides/cmg-complement-mode-de-garde-assistante-maternelle-conditions-demande": "cmg complement mode de garde assistante maternelle caf pajemploi aide garde enfant nounou 2026",
     "guides/cheque-energie-2026-montants-conditions-demander-avant-le-31-decembre": "cheque energie 2026 montant 48 277 euros conditions demande 31 decembre electricite gaz fioul facture aide",
     "guides/vacances-scolaires-2026-2027-dates-zones-a-b-c": "vacances scolaires 2026 2027 dates zone a b c noel hiver printemps ete calendrier scolaire rentree 7 mai 2027 pont ascension",
     "guides/bourse-sur-criteres-sociaux-2026-2027-echelons-montants-conditions": "bourse sur criteres sociaux 2026 2027 echelons montants crous dossier social etudiant dse etudiant boursier conditions age 28 ans 10 mois",
