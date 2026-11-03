@@ -237,6 +237,12 @@ for _v in ("3 mois", "7 ans", "134 803", "17 447", "gd-metro", "Station 7", "gra
 for _bad in ("honte", "coupable de", "faute de votre part", "vous avez mal géré"):
     if _bad in _su.lower(): fail("guide surendettement : ton jugeant (%s)" % _bad)
 if "sponsored" in _su or "lien partenaire" in _su: fail("guide surendettement : pas de lien affilié sans programme déclaré")
+# Guide métiers sans diplôme : écarts au Smic recalculés, sources Onisep, aucune promesse excessive
+_md = _g("metiers-sans-diplome-au-dessus-du-smic-acces-et-salaires")
+for _v in ("2 130 €", "1 888 €", "1 867,02 €", "262,98 €", "20,98 €", "FIMO", "onisep.fr", "Limites"):
+    if _v not in _md: fail("guide métiers sans diplôme : mention absente (%s)" % _v)
+if round(2130 - 1867.02, 2) != 262.98 or round(1888 - 1867.02, 2) != 20.98: fail("guide métiers sans diplôme : écart au Smic faux")
+if "sans diplôme ne veut pas dire sans formation" not in _md: fail("guide métiers sans diplôme : nuance « sans formation » absente")
 # Assistant : la réponse sur les indépendants ne doit pas contredire le catalogue
 _a = open(os.path.join(ROOT, "assistant", "index.html"), encoding="utf-8").read()
 if "concernent les salariés. Pour un indépendant" in _a: fail("assistant : réponse obsolète sur les indépendants")
