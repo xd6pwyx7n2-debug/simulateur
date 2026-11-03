@@ -285,6 +285,10 @@ for _v in ("1er mars", "31 mai", "28 ans", "10 mois", "7 ans", "F12214", "A18239
 _vs = _g("vacances-scolaires-2026-2027-dates-zones-a-b-c")
 for _v in ("19 décembre 2026 au 4 janvier 2027", "13 février au 1er mars 2027", "20 février au 8 mars 2027", "6 au 22 février 2027", "10 au 26 avril 2027", "17 avril au 3 mai 2027", "3 au 19 avril 2027", "3 juillet 2027", "7 mai 2027", "F31952", "22 octobre 2025", "Limites"):
     if _v not in _vs: fail("guide vacances scolaires : mention absente (%s)" % _v)
+# Guide chèque énergie 2026 : montants et date limite Service-Public, seuil 2026 non confirmé signalé
+_ce = _g("cheque-energie-2026-montants-conditions-demander-avant-le-31-decembre")
+for _v in ("48 € et 277 €", "31 décembre 2026", "1er avril", "11 000 €", "A17885", "F33667", "chequeenergie.gouv.fr", "n'a pas pu être confirmé", "Limites"):
+    if _v not in _ce: fail("guide chèque énergie : mention absente (%s)" % _v)
 # Guide Parcoursup 2027 : dates du calendrier officiel (PDF octobre 2026), source officielle, mise en garde sur les évolutions
 _pc = _g("parcoursup-2027-calendrier-dates-cles-et-ce-qui-peut-changer")
 for _v in ("17 décembre 2026", "18 janvier", "11 mars 2027", "1er avril 2027", "1er juin 2027", "10 juin", "9 septembre 2027", "10 juillet 2027", "parcoursup.gouv.fr/sites/default/files", "source non officielle", "fait foi"):
