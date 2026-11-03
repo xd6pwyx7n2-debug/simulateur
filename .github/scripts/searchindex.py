@@ -34,6 +34,7 @@ SYN = {
     "guides/conge-paternite-2026-duree-jours-demarches-tous-secteurs": "conge paternite 2026 25 jours 32 jours naissance demarches prevenir employeur fractionner fonctionnaire independant protection licenciement",
     "guides/naissance-bebe-demarches-aides-conges-dans-l-ordre": "naissance bebe demarches declaration de naissance 5 jours mairie caf paje prime naissance cmg preparE conge parental impots vitale mutuelle",
     "guides/sortir-du-surendettement-plan-d-action-positif": "surendettement sortir du surendettement banque de france commission dossier plan effacement dettes retablissement personnel ficp 7 ans dettes aide",
+    "guides/depot-de-garantie-restitution-delai-retenues-que-faire-si-non-rendu": "depot de garantie caution restitution delai retenue locataire propriétaire non rendu penalite 10 pour cent etat des lieux",
     "guides/preavis-locataire-duree-motifs-1-mois-lettre-type-conge-logement": "preavis locataire logement vide meuble un mois trois mois zone tendue lettre conge bail quitter appartement modele",
     "guides/carte-grise-voiture-d-occasion-et-changement-d-adresse-delais-demarches": "carte grise voiture occasion changement adresse ants delai un mois cession code certificat immatriculation amende 135",
     "guides/cmg-complement-mode-de-garde-assistante-maternelle-conditions-demande": "cmg complement mode de garde assistante maternelle caf pajemploi aide garde enfant nounou 2026",
