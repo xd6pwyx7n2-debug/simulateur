@@ -580,7 +580,7 @@ with sync_playwright() as pw:
     if pg.evaluate("()=>localStorage.getItem('sd-plan-sortie-v1')") is not None: fail("plan de sortie : mémorisation active sans consentement")
     # mobile : pages courtes (sections repliables, index compact) et filtres du guide toujours fonctionnels
     _mc = b.new_context(viewport={"width": 390, "height": 844}); _mp = _mc.new_page()
-    for _u, _max, _folds in (("guides/smic-2026-montant-brut-net-horaire/", 9, 5), ("guides/sortir-du-surendettement-plan-d-action-positif/", 7, 5), ("simulateur-smic/", 10, 2), ("guides/", 8, 0)):
+    for _u, _max, _folds in (("guides/smic-2026-montant-brut-net-horaire/", 9, 5), ("guides/sortir-du-surendettement-plan-d-action-positif/", 7, 5), ("simulateur-smic/", 10, 2), ("guides/", 8, 0), ("", 10, 0), ("simulateurs/", 8, 0), ("aides/", 13, 5)):
         _mp.goto(LOCAL + _u); _mp.wait_for_timeout(500)
         _ec = _mp.evaluate("document.documentElement.scrollHeight") / 844
         if _ec > _max: fail("mobile : %s fait %.1f écrans (max %d)" % (_u, _ec, _max))

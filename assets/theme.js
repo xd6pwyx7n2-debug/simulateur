@@ -230,3 +230,21 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
   }
   if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else go();
 })();
+
+/* Mobile : page des aides, chaque rubrique devient un accordéon */
+(function(){
+  function go(){
+    if(!window.matchMedia||!window.matchMedia("(max-width:640px)").matches)return;
+    var secs=Array.prototype.slice.call(document.querySelectorAll("article .ad-sec"));
+    secs.forEach(function(s,i){
+      var h=s.querySelector(":scope>h2");if(!h||s.closest("details"))return;
+      var d=document.createElement("details"),sm=document.createElement("summary"),b=document.createElement("div");
+      d.className="sd-m-fold";b.className="sd-m-body";d.id=s.id;
+      if(s.getAttribute("style"))d.setAttribute("style",s.getAttribute("style"));
+      s.parentNode.insertBefore(d,s);sm.appendChild(h);d.appendChild(sm);
+      while(s.firstChild)b.appendChild(s.firstChild);d.appendChild(b);s.remove();
+      if(i===0||location.hash==="#"+d.id)d.open=true;
+    });
+  }
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else go();
+})();
