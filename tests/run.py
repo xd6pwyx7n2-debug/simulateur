@@ -285,6 +285,10 @@ for _v in ("1er mars", "31 mai", "28 ans", "10 mois", "7 ans", "F12214", "A18239
 _vs = _g("vacances-scolaires-2026-2027-dates-zones-a-b-c")
 for _v in ("19 décembre 2026 au 4 janvier 2027", "13 février au 1er mars 2027", "20 février au 8 mars 2027", "6 au 22 février 2027", "10 au 26 avril 2027", "17 avril au 3 mai 2027", "3 au 19 avril 2027", "3 juillet 2027", "7 mai 2027", "F31952", "22 octobre 2025", "Limites"):
     if _v not in _vs: fail("guide vacances scolaires : mention absente (%s)" % _v)
+# Guide salaire impayé : prescription et procédure Service-Public
+_si = _g("salaire-impaye-ou-en-retard-que-faire-prescription-3-ans-prud-hommes")
+for _v in ("3 ans", "L3245-1", "mise en demeure", "F2308", "F2360", "15 jours", "Limites"):
+    if _v not in _si: fail("guide salaire impayé : mention absente (%s)" % _v)
 # Guide inaptitude : règles Service-Public F726 et F31225
 _in = _g("inaptitude-medicale-au-travail-reclassement-licenciement-indemnites")
 for _v in ("médecin du travail", "reclassement", "un mois", "double", "8 mois", "15 jours", "F726", "F31225", "Limites"):
