@@ -347,6 +347,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://simudroit.fr/simulateur-saisie-sur-salaire/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://simudroit.fr/simulateur-aide-carburant-grands-rouleurs/</loc>
     <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
@@ -738,6 +744,12 @@
   </url>
   <url>
     <loc>https://simudroit.fr/guides/comment-devenir-fonctionnaire-concours-conditions-categories/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://simudroit.fr/guides/concours-fonction-publique-types-conditions-inscription-calendrier/</loc>
     <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

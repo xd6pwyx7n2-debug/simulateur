@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Saisie sur salaire 2026 : combien peut-on saisir ? | SimuDroit</title>
+  <meta name="description" content="Calculez la part saisissable de votre salaire en 2026 avec le barème officiel : tranches, personnes à charge, reste à vivre garanti de 651,69 € et pension alimentaire.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://simudroit.fr/simulateur-saisie-sur-salaire/">
+  <link rel="icon" href="https://simudroit.fr/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="https://simudroit.fr/favicon.ico" sizes="48x48">
+  <link rel="icon" href="https://simudroit.fr/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="https://simudroit.fr/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Saisie sur salaire 2026 : combien peut-on saisir ? | SimuDroit">
+  <meta property="og:description" content="Calculez la part saisissable de votre salaire en 2026 avec le barème officiel : tranches, personnes à charge, reste à vivre garanti de 651,69 € et pension alimentaire.">
+  <meta property="og:url" content="https://simudroit.fr/simulateur-saisie-sur-salaire/">
+  <meta property="og:image" content="https://simudroit.fr/assets/og/simulateur-saisie-sur-salaire.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://simudroit.fr/assets/og/simulateur-saisie-sur-salaire.jpg">
+  <meta name="twitter:title" content="Saisie sur salaire 2026 : combien peut-on saisir ? | SimuDroit">
+  <meta name="twitter:description" content="Calculez la part saisissable de votre salaire en 2026 avec le barème officiel : tranches, personnes à charge, reste à vivre garanti de 651,69 € et pension alimentaire.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://simudroit.fr/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Saisie sur salaire 2026 : combien peut-on saisir ?", "url": "https://simudroit.fr/simulateur-saisie-sur-salaire/", "description": "Calculez la part saisissable de votre salaire en 2026 avec le barème officiel : tranches, personnes à charge, reste à vivre garanti de 651,69 € et pension alimentaire.", "inLanguage": "fr-FR"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://simudroit.fr/"}, {"@type": "ListItem", "position": 2, "name": "Simulateurs", "item": "https://simudroit.fr/simulateurs/"}, {"@type": "ListItem", "position": 3, "name": "Saisie sur salaire", "item": "https://simudroit.fr/simulateur-saisie-sur-salaire/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quelle part du salaire peut être saisie ?", "acceptedAnswer": {"@type": "Answer", "text": "Elle dépend d'un barème par tranches de rémunération nette mensuelle : 1/20 jusqu'à 373,33 €, puis 1/10, 1/5, 1/4, 1/3, 2/3, et la totalité au-delà de 2 150,83 €. Chaque personne à charge relève les seuils de 145 €."}}, {"@type": "Question", "name": "Combien doit-il rester après une saisie sur salaire ?", "acceptedAnswer": {"@type": "Answer", "text": "Le salarié doit conserver au moins l'équivalent du solde bancaire insaisissable, soit 651,69 €, le montant du RSA pour une personne seule."}}, {"@type": "Question", "name": "Peut-on saisir plus pour une pension alimentaire impayée ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui : pour une pension alimentaire impayée, tout le revenu saisissable peut être prélevé, à l'exception du solde insaisissable de 651,69 €."}}, {"@type": "Question", "name": "Sur quelle base calcule-t-on la saisie ?", "acceptedAnswer": {"@type": "Answer", "text": "Sur la rémunération nette perçue au cours des 12 mois précédant la notification de la saisie, hors remboursements de frais et allocations pour charges de famille."}}, {"@type": "Question", "name": "Faut-il un avocat ?", "acceptedAnswer": {"@type": "Answer", "text": "Un avocat est obligatoire lorsque le montant impayé atteint 10 000 €."}}, {"@type": "Question", "name": "Ce simulateur remplace-t-il un calcul officiel ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Il applique le barème publié sur Service-Public. Seul le commissaire de justice ou le juge de l'exécution détermine le montant réel."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Simulateur de saisie sur salaire", "url": "https://simudroit.fr/simulateur-saisie-sur-salaire/", "description": "Calculez la part saisissable de votre salaire en 2026 avec le barème officiel : tranches, personnes à charge, reste à vivre garanti de 651,69 € et pension alimentaire.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}</script>
+  <meta name="theme-color" content="#201e48">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="Saisie sur salaire 2026 : combien peut-on saisir ? | SimuDroit">
+  <link rel="alternate" hreflang="fr" href="https://simudroit.fr/simulateur-saisie-sur-salaire/">
+  <link rel="alternate" hreflang="x-default" href="https://simudroit.fr/simulateur-saisie-sur-salaire/">
+  <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
+  <script async src="https://plausible.io/js/pa-j8JdUomB9hqqp7em82xdB.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+</head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.fr/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://simudroit.fr/simulateurs/">Simulateurs</a>
+      <a href="https://simudroit.fr/assistant/">Assistant</a>
+      <a href="https://simudroit.fr/guides/">Guides</a>
+      <a href="https://simudroit.fr/aides/">Aides</a>
+      <a href="https://simudroit.fr/fiches-revision/">Fiches</a>
+      <a href="https://simudroit.fr/actualites/">Chiffres clés</a>
+      <a href="https://simudroit.fr/metiers/">Métiers</a>
+      <a href="https://simudroit.fr/faq/">FAQ</a>
+      <a href="https://simudroit.fr/#recherche">Rechercher</a>
+      <a class="cta-link" href="https://simudroit.fr/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://simudroit.fr/">Accueil</a> &nbsp;›&nbsp; <a href="https://simudroit.fr/simulateurs/">Simulateurs</a> &nbsp;›&nbsp; Saisie sur salaire
+  </div>
+
+  <section class="hero">
+    <h1>Saisie sur salaire 2026 : combien peut-on saisir ?</h1>
+    <p>Un créancier peut prélever une partie de votre salaire, mais jamais tout. Voyez en deux minutes ce qui est saisissable et ce qui vous reste, avec le barème officiel.</p>
+      <div class="badges"><span class="badge">✓ Barème 2026 relu le 3 novembre 2026</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Vos données restent dans votre navigateur</span></div>
+  </section>
+<section class="info-section sd-know" id="a-savoir">
+    <h2>À savoir avant de vous fier au résultat</h2>
+    <div class="sd-know-grid">
+      <div class="sd-know-card"><h3>Vous gardez toujours un minimum</h3><p>Le salarié conserve au moins 651,69 €, le montant du RSA pour une personne seule. C'est le solde insaisissable.</p></div>
+      <div class="sd-know-card"><h3>Le barème dépend de la base de calcul</h3><p>La saisie se calcule sur la rémunération nette des 12 mois précédant la notification, pas sur le dernier bulletin.</p></div>
+      <div class="sd-know-card"><h3>Ce n'est pas une décision</h3><p>Seul le commissaire de justice ou le juge de l'exécution fixe le montant réel. Ce calcul vous donne un ordre de grandeur.</p></div>
+    </div>
+  </section>
+  <section class="calculator" id="calcul">
+    <h2>Calculer la part saisissable</h2>
+    <noscript><p class="intro-note"><strong>JavaScript requis :</strong> ce simulateur calcule directement dans votre navigateur.</p></noscript>
+    <div class="field"><label for="net">Rémunération nette mensuelle moyenne sur 12 mois (€)</label><input type="number" id="net" min="0" max="1000000" step="1" inputmode="decimal" placeholder="Ex. 1800"><p class="field-help">Hors remboursements de frais et allocations familiales. Les allocations chômage et les pensions de retraite comptent aussi.</p></div>
+    <div class="field"><label for="chg">Nombre de personnes à charge</label><input type="number" id="chg" min="0" max="20" step="1" inputmode="numeric" placeholder="Ex. 1" value="0"><p class="field-help">Justificatifs à fournir : chaque personne à charge relève les seuils de 145 €.</p></div>
+    <div class="field"><label for="typ">Nature de la dette</label><select id="typ"><option value="bar">Dette ordinaire (crédit, loyer, facture…)</option><option value="pen">Pension alimentaire impayée</option></select></div>
+    <button type="button" id="calculate">Calculer</button>
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">Part saisissable estimée</div>
+      <div class="result-main" id="main">-</div>
+      <div class="result-row"><span>Part saisissable par mois</span><strong id="sai">0 €</strong></div>
+      <div class="result-row"><span>Il vous reste par mois</span><strong id="res">0 €</strong></div>
+      <div class="result-row"><span>Minimum garanti (solde insaisissable)</span><strong id="sbi">651,69 €</strong></div>
+      <div class="warning" id="wnote">Estimation indicative fondée sur le barème publié par l'administration. Le montant réel est fixé par le commissaire de justice.</div>
+    </div>
+  </section>
+
+  <section class="info-section" id="bareme">
+    <h2>Le barème 2026, tranche par tranche</h2>
+    <div class="table-wrap"><table class="sd-table"><thead><tr><th>Rémunération nette mensuelle</th><th>Fraction saisissable</th></tr></thead><tbody>
+    <tr><td>Jusqu'à 373,33 €</td><td>1/20</td></tr>
+    <tr><td>De 373,33 € à 727,50 €</td><td>1/10</td></tr>
+    <tr><td>De 727,50 € à 1 083,33 €</td><td>1/5</td></tr>
+    <tr><td>De 1 083,33 € à 1 435,83 €</td><td>1/4</td></tr>
+    <tr><td>De 1 435,83 € à 1 789,17 €</td><td>1/3</td></tr>
+    <tr><td>De 1 789,17 € à 2 150,83 €</td><td>2/3</td></tr>
+    <tr><td>Au-delà de 2 150,83 €</td><td>La totalité</td></tr>
+    </tbody></table></div>
+    <p class="field-help">Chaque tranche ne s'applique qu'à la part de salaire qu'elle contient. Chaque personne à charge relève les seuils de 145 €. Source : <a href="https://www.service-public.gouv.fr/particuliers/actualites/A15377" rel="noopener">Service-Public, barème 2026</a> et <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F115" rel="noopener">fiche F115</a>.</p>
+  </section>
+
+  <section class="info-section" id="procedure">
+    <h2>Comment se passe une saisie</h2>
+    <ol>
+      <li>Le créancier doit avoir un titre exécutoire pour une somme due et non contestée. Un commissaire de justice vous signifie un commandement de payer : vous avez un mois pour payer, négocier ou contester devant le juge de l'exécution.</li>
+      <li>Vous pouvez demander un plan de paiement au commissaire de justice.</li>
+      <li>Passé un mois, la saisie peut être déclenchée. Votre employeur verse chaque mois la part saisissable au commissaire de justice répartiteur.</li>
+      <li>La saisie prend fin quand la dette est payée, par décision du juge ou par accord de tous les créanciers.</li>
+    </ol>
+    <p class="field-help">Procédure applicable aux dettes engagées à partir du 1er juillet 2025, d'après Service-Public. Un avocat est obligatoire à partir de 10 000 € impayés. Si votre budget est tendu, voyez aussi notre <a href="/guides/sortir-du-surendettement-plan-d-action-positif/">guide pour sortir du surendettement</a>.</p>
+  </section>
+
+  <section class="info-section sd-fold" id="faq-ind"><details><summary><h2>Questions fréquentes</h2></summary><h3>Quelle part du salaire peut être saisie ?</h3><p>Elle dépend d&#x27;un barème par tranches de rémunération nette mensuelle : 1/20 jusqu&#x27;à 373,33 €, puis 1/10, 1/5, 1/4, 1/3, 2/3, et la totalité au-delà de 2 150,83 €. Chaque personne à charge relève les seuils de 145 €.</p><h3>Combien doit-il rester après une saisie sur salaire ?</h3><p>Le salarié doit conserver au moins l&#x27;équivalent du solde bancaire insaisissable, soit 651,69 €, le montant du RSA pour une personne seule.</p><h3>Peut-on saisir plus pour une pension alimentaire impayée ?</h3><p>Oui : pour une pension alimentaire impayée, tout le revenu saisissable peut être prélevé, à l&#x27;exception du solde insaisissable de 651,69 €.</p><h3>Sur quelle base calcule-t-on la saisie ?</h3><p>Sur la rémunération nette perçue au cours des 12 mois précédant la notification de la saisie, hors remboursements de frais et allocations pour charges de famille.</p><h3>Faut-il un avocat ?</h3><p>Un avocat est obligatoire lorsque le montant impayé atteint 10 000 €.</p><h3>Ce simulateur remplace-t-il un calcul officiel ?</h3><p>Non. Il applique le barème publié sur Service-Public. Seul le commissaire de justice ou le juge de l&#x27;exécution détermine le montant réel.</p></details></section>
+
+  <section class="sd-next" aria-labelledby="sd-next-t"><h2 id="sd-next-t">Et ensuite ?</h2><p class="sd-next-sub">Pour aller plus loin :</p><ol class="sd-next-list"><li><a href="/mon-plan-de-sortie-surendettement/"><span class="sd-next-n">1</span><span class="sd-next-t"><strong>Mon plan de sortie</strong><small>Analysez vos dépenses et construisez un plan pas à pas.</small></span></a></li><li><a href="/guides/sortir-du-surendettement-plan-d-action-positif/"><span class="sd-next-n">2</span><span class="sd-next-t"><strong>Sortir du surendettement</strong><small>Les étapes et les solutions, sans jugement.</small></span></a></li><li><a href="/simulateur-brut-net/"><span class="sd-next-n">3</span><span class="sd-next-t"><strong>Brut en net</strong><small>Passer du brut au net avant de calculer.</small></span></a></li></ol></section>
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/mon-plan-de-sortie-surendettement/">Mon plan de sortie</a><a href="/guides/sortir-du-surendettement-plan-d-action-positif/">Sortir du surendettement</a><a href="/simulateur-brut-net/">Brut en net</a><a href="/simulateur-smic/">Simulateur Smic</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-11-03">3 novembre 2026</time> (Service-Public, barème 2026). Estimation indicative, sans valeur juridique. <a href="/methode-et-sources/">Méthode et sources</a> · <a href="/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<nav class="sd-explore" aria-label="Toutes les rubriques"><strong>Explorer toutes les rubriques</strong><div><a href="https://simudroit.fr/simulateurs/" style="--c:#4f46e5"><i class="sdi sdi-calc" aria-hidden="true"></i>Simulateurs</a><a href="https://simudroit.fr/guides/" style="--c:#0e7490"><i class="sdi sdi-book" aria-hidden="true"></i>Guides</a><a href="https://simudroit.fr/aides/" style="--c:#0f766e"><i class="sdi sdi-heart" aria-hidden="true"></i>Aides</a><a href="https://simudroit.fr/fiches-revision/" style="--c:#7c3aed"><i class="sdi sdi-notes" aria-hidden="true"></i>Fiches de révision</a><a href="https://simudroit.fr/metiers/" style="--c:#b5530f"><i class="sdi sdi-user" aria-hidden="true"></i>Mon métier</a><a href="https://simudroit.fr/metiers/creer-son-entreprise-batiment/" style="--c:#c2410c"><i class="sdi sdi-hardhat" aria-hidden="true"></i>Créer son entreprise (bâtiment)</a><a href="https://simudroit.fr/independants/" style="--c:#1d4ed8"><i class="sdi sdi-briefcase" aria-hidden="true"></i>Indépendants</a><a href="https://simudroit.fr/retraite/" style="--c:#be185d"><i class="sdi sdi-sun" aria-hidden="true"></i>Retraite</a><a href="https://simudroit.fr/reconversion/" style="--c:#15803d"><i class="sdi sdi-refresh" aria-hidden="true"></i>Reconversion</a><a href="https://simudroit.fr/salaires/" style="--c:#a16207"><i class="sdi sdi-euro" aria-hidden="true"></i>Salaires</a><a href="https://simudroit.fr/modeles-de-lettres/" style="--c:#9333ea"><i class="sdi sdi-mail" aria-hidden="true"></i>Lettres types</a><a href="https://simudroit.fr/generateur-cv/" style="--c:#0f7a6e"><i class="sdi sdi-doc" aria-hidden="true"></i>Générateur de CV</a><a href="https://simudroit.fr/ouvrir-un-commerce/" style="--c:#b5530f"><i class="sdi sdi-briefcase" aria-hidden="true"></i>Ouvrir un commerce</a><a href="https://simudroit.fr/actualites/" style="--c:#475569"><i class="sdi sdi-chart" aria-hidden="true"></i>Chiffres et données</a><a href="https://simudroit.fr/glossaire/" style="--c:#0369a1"><i class="sdi sdi-bookopen" aria-hidden="true"></i>Glossaire</a><a href="https://simudroit.fr/faq/" style="--c:#b91c1c"><i class="sdi sdi-question" aria-hidden="true"></i>FAQ</a></div></nav>
+<footer><nav class="foot-top" aria-label="Les plus consultés"><strong>Les plus consultés</strong><a href="https://simudroit.fr/simulateur-brut-net/">Salaire brut en net</a><a href="https://simudroit.fr/simulateur-indemnite-licenciement/">Indemnité de licenciement</a><a href="https://simudroit.fr/simulateur-rupture-conventionnelle/">Rupture conventionnelle</a><a href="https://simudroit.fr/simulateur-chomage/">Allocation chômage</a><a href="https://simudroit.fr/simulateur-preavis-demission/">Préavis de démission</a><a href="https://simudroit.fr/simulateur-preavis-licenciement/">Préavis de licenciement</a><a href="https://simudroit.fr/simulateur-conges-payes/">Congés payés</a><a href="https://simudroit.fr/simulateur-fiche-de-paie/">Vérifier ma fiche de paie</a><a href="https://simudroit.fr/simulateur-solde-tout-compte/">Solde de tout compte</a><a href="https://simudroit.fr/simulateur-smic/">SMIC 2026</a><a href="https://simudroit.fr/salaire-brut-net/">Brut en net par montant</a><a href="https://simudroit.fr/metiers/">Mon métier : infirmier libéral, assistante maternelle, intérimaire</a><a href="https://simudroit.fr/retraite/">Retraite : par où commencer ?</a><a href="https://simudroit.fr/reconversion/">Reconversion : par où commencer ?</a><a href="https://simudroit.fr/jours-feries-2026-2027/">Jours fériés 2026 et 2027</a><a href="https://simudroit.fr/fiches-revision/">Fiches de révision</a><a href="https://simudroit.fr/aides/">Aides selon votre situation</a><a href="https://simudroit.fr/documents-a-generer/">Documents à générer</a></nav>
+  <p>© 2026 SimuDroit · <a href="https://simudroit.fr/">Tous les simulateurs</a> · <a href="https://simudroit.fr/methode-et-sources/">Méthode et sources</a> · <a href="https://simudroit.fr/contact/">Contact</a> · <a href="https://simudroit.fr/mentions-legales/">Mentions légales</a> · <a href="https://simudroit.fr/confidentialite/">Confidentialité</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+  function eur(v){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(v)}
+  function num(id){var v=parseFloat(document.getElementById(id).value);return Number.isFinite(v)?v:NaN}
+  function setText(id,t){document.getElementById(id).textContent=t}
+  var SEUILS=[373.33,727.5,1083.33,1435.83,1789.17,2150.83],TAUX=[1/20,1/10,1/5,1/4,1/3,2/3,1],MAJ=145,SBI=651.69;
+  function saisie(o){
+    var net=Math.max(0,o.net),n=Math.max(0,Math.floor(o.chg||0)),s=MAJ*n,b=[0],i,sai=0;
+    for(i=0;i<SEUILS.length;i++)b.push(SEUILS[i]+s);
+    if(o.typ==="pen"){sai=Math.max(0,net-SBI)}
+    else{for(i=0;i<TAUX.length;i++){var lo=b[i],hi=i<b.length-1?b[i+1]:Infinity;if(net>lo)sai+=TAUX[i]*(Math.min(net,hi)-lo)}
+      sai=Math.min(sai,Math.max(0,net-SBI))}
+    sai=Math.round(sai*100)/100;
+    return{saisie:sai,reste:Math.round((net-sai)*100)/100};
+  }
+  window.sdSaisie=saisie;
+  document.getElementById("calculate").addEventListener("click",function(){
+    var net=num("net"),chg=num("chg");
+    if(!Number.isFinite(net)||net<0){alert("Indiquez votre rémunération nette mensuelle moyenne.");return}
+    if(!Number.isFinite(chg))chg=0;
+    var typ=document.getElementById("typ").value,r=saisie({net:net,chg:chg,typ:typ});
+    setText("main",r.saisie>0?"Environ "+eur(r.saisie)+" par mois":"Rien n'est saisissable");
+    setText("sai",eur(r.saisie));setText("res",eur(r.reste));
+    setText("wnote",net<=SBI?"Votre rémunération ne dépasse pas le minimum garanti de 651,69 € : rien ne peut être saisi sur salaire.":(typ==="pen"?"Pour une pension alimentaire impayée, tout le revenu saisissable peut être prélevé, sauf le solde insaisissable de 651,69 €.":"Estimation fondée sur le barème 2026 et sur la rémunération nette moyenne des 12 derniers mois. Le montant réel est fixé par le commissaire de justice."));
+    document.getElementById("result").classList.add("visible");
+  });
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>

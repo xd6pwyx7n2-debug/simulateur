@@ -114,7 +114,7 @@ for f in pages:
 _th = open(os.path.join(ROOT, "assets", "theme.js"), encoding="utf-8").read()
 OFFICIEL = re.compile(r'^https://([a-z0-9-]+\.)*(service-public\.gouv\.fr|code\.travail\.gouv\.fr|impots\.gouv\.fr|insee\.fr|moncompteformation\.gouv\.fr|dreets\.gouv\.fr|legifrance\.gouv\.fr|economie\.gouv\.fr|info\.gouv\.fr)/')
 for _s in ("indemnite-depart-retraite", "smic", "salaire-horaire-mensuel", "prorata-salaire", "preavis-demission", "fin-contrat-fonction-publique",
-           "cpf", "impot-revenu", "salaire-net-apres-impot", "frais-kilometriques", "aide-carburant-grands-rouleurs", "comparer-mon-salaire", "rupture-assistante-maternelle"):
+           "cpf", "impot-revenu", "salaire-net-apres-impot", "frais-kilometriques", "aide-carburant-grands-rouleurs", "saisie-sur-salaire", "comparer-mon-salaire", "rupture-assistante-maternelle"):
     _m = re.search(r'^\s+"%s":\[(.*)\],?\s*$' % re.escape(_s), _th, re.M)
     if not _m: fail("sources : %s absent du bandeau « base du calcul » (theme.js)" % _s); continue
     _e = _m.group(1)
@@ -259,6 +259,10 @@ for _v in ("3 mois", "120 heures", "80 heures", "15 jours", "4 enfants", "F798",
 _fo = _g("comment-devenir-fonctionnaire-concours-conditions-categories")
 for _v in ("CAP, BEP ou brevet", "bac+2", "bac+3", "sans concours", "PACTE", "F13272", "F434", "F34827", "Limites", "troisième concours"):
     if _v not in _fo: fail("guide devenir fonctionnaire : mention absente (%s)" % _v)
+# Guide concours de la fonction publique : règles du portail officiel, limites assumées
+_cf = _g("concours-fonction-publique-types-conditions-inscription-calendrier")
+for _v in ("1er novembre 2005", "3 ans d'activité", "2 ans", "PACTE", "concours-territorial.fr", "concours-fph.ars.sante.fr", "Talents", "fonction-publique.gouv.fr", "F434", "Limites"):
+    if _v not in _cf: fail("guide concours fonction publique : mention absente (%s)" % _v)
 # Guide Parcoursup 2027 : dates du calendrier officiel (PDF octobre 2026), source officielle, mise en garde sur les évolutions
 _pc = _g("parcoursup-2027-calendrier-dates-cles-et-ce-qui-peut-changer")
 for _v in ("17 décembre 2026", "18 janvier", "11 mars 2027", "1er avril 2027", "1er juin 2027", "10 juin", "9 septembre 2027", "10 juillet 2027", "parcoursup.gouv.fr/sites/default/files", "source non officielle", "fait foi"):
@@ -269,6 +273,9 @@ for _rp in ("bilan-de-competences", "vae", "chomage-pendant-formation", "metiers
     for _v in ("reconv.css", 'class="rc-faq"', 'class="rc-cta"', 'class="rc-guides"', "faire-le-point-reconversion"):
         if _v not in _rt: fail("reconversion/%s : élément de la DA absent (%s)" % (_rp, _v))
     if "sd-see-grid" in _rt: fail("reconversion/%s : liste de liens nus (sd-see-grid) au lieu des cartes" % _rp)
+_ss = _page("saisie-sur-salaire")
+for _v in ("373,33", "2 150,83", "145 €", "651,69", "10 000 €", "service-public.gouv.fr", "1er juillet 2025"):
+    if _v not in _ss: fail("saisie sur salaire : mention absente (%s)" % _v)
 _ps2 = open(os.path.join(ROOT, "mon-plan-de-sortie-surendettement", "index.html"), encoding="utf-8").read(); _psj = open(os.path.join(ROOT, "assets", "plan-sortie.js"), encoding="utf-8").read()
 for _v in ("Rien n'est envoyé", "3 mois", "Mémoriser ma progression sur cet appareil uniquement", "Tout effacer"):
     if _v not in _ps2: fail("plan de sortie : mention absente (%s)" % _v)
@@ -590,6 +597,14 @@ with sync_playwright() as pw:
         if _ev(**_kw) != _att: fail("aide carburant : %s, attendu %s, obtenu %s" % (_lab, _att, _ev(**_kw)))
     pg.fill("#rfr", "40000"); pg.fill("#parts", "2"); pg.fill("#al", "22"); pg.click("#calculate"); pg.wait_for_timeout(300)
     if "Éligible" not in pg.inner_text("#main") or "100" not in pg.inner_text("#mnt"): fail("aide carburant : résultat affiché incorrect (%s)" % pg.inner_text("#result"))
+    # saisie sur salaire : barème 2026 Service-Public (exemple officiel 1 500 € = environ 234,76 €), personnes à charge, solde insaisissable
+    pg.goto(LOCAL + "simulateur-saisie-sur-salaire/"); pg.wait_for_timeout(600)
+    def _sai(net, chg=0, typ="bar"): return pg.evaluate("(o)=>window.sdSaisie(o)", {"net": net, "chg": chg, "typ": typ})
+    for _lab, _a, _att in (("1 500 € seul", _sai(1500), 234.76), ("2 150,83 €", _sai(2150.83), 572.26), ("1 personne à charge, 800 € : 1/20 de 518,33 puis 1/10", _sai(800, 1), 54.09), ("518,33 € sous le minimum garanti", _sai(518.33, 1), 0), ("pension 1 000 €", _sai(1000, 0, "pen"), 348.31), ("700 € plafonné par le reste à vivre", _sai(700), 48.31)):
+        if abs(_a["saisie"] - _att) > 0.05: fail("saisie sur salaire : %s, attendu %s, obtenu %s" % (_lab, _att, _a))
+    if _sai(600)["saisie"] != 0 or _sai(651.69, 0, "pen")["saisie"] != 0: fail("saisie sur salaire : rien ne doit être saisi sous le solde insaisissable de 651,69 €")
+    pg.fill("#net", "1500"); pg.click("#calculate"); pg.wait_for_timeout(300)
+    if "234" not in pg.inner_text("#sai") or "1 265" not in pg.inner_text("#res").replace("\u202f", " ").replace("\xa0", " "): fail("saisie sur salaire : résultat affiché incorrect (%s)" % pg.inner_text("#result"))
     # Mon plan de sortie du surendettement : analyse CSV, calendrier, progression (tout en local)
     pg.goto(LOCAL + "mon-plan-de-sortie-surendettement/"); pg.wait_for_timeout(600)
     _csv = "Date;Libellé;Montant\n01/09/2026;SALAIRE;1000,00\n02/09/2026;LOYER;-500,00\n03/09/2026;NETFLIX;-10,00\n03/10/2026;NETFLIX;-10,00\n05/10/2026;CARREFOUR;-40,00"
