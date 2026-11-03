@@ -273,6 +273,14 @@ for _bad in ("50/30/20", "50 %", "règle des 50", "honte", "coupable"):
 _tf = _g("taxe-fonciere-2026-dates-exonerations-contester-mensualisation")
 for _v in ("20 octobre", "15 octobre", "300 €", "15 décembre 2026", "12 793 €", "26 457 €", "3 416 €", "100 €", "10 %", "31 décembre 2026", "A15144", "A19047", "A17727", "Limites"):
     if _v not in _tf: fail("guide taxe foncière : mention absente (%s)" % _v)
+# Guide bourse sur critères sociaux 2026-2027 : montants Service-Public recalculés (mensuel x 10 = annuel)
+_bs = _g("bourse-sur-criteres-sociaux-2026-2027-echelons-montants-conditions")
+for _m, _a in ((145.40, 1454), (216.30, 2163), (307.10, 3071), (382.80, 3828), (458.70, 4587), (521.20, 5212), (550.60, 5506), (633.50, 6335)):
+    if round(_m * 10) != _a: fail("guide bourse : incohérence mensuel/annuel %s/%s" % (_m, _a))
+    _ms = ("%.2f" % _m).replace(".", ",") + " €"
+    if _ms not in _bs or ("{:,}".format(_a).replace(",", " ") + " €") not in _bs: fail("guide bourse : montant absent (%s / %s)" % (_ms, _a))
+for _v in ("1er mars", "31 mai", "28 ans", "10 mois", "7 ans", "F12214", "A18239", "Limites", "arrêté du 26 mars 2026"):
+    if _v not in _bs: fail("guide bourse : mention absente (%s)" % _v)
 # Guide Parcoursup 2027 : dates du calendrier officiel (PDF octobre 2026), source officielle, mise en garde sur les évolutions
 _pc = _g("parcoursup-2027-calendrier-dates-cles-et-ce-qui-peut-changer")
 for _v in ("17 décembre 2026", "18 janvier", "11 mars 2027", "1er avril 2027", "1er juin 2027", "10 juin", "9 septembre 2027", "10 juillet 2027", "parcoursup.gouv.fr/sites/default/files", "source non officielle", "fait foi"):
