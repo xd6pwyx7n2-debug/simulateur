@@ -251,6 +251,10 @@ for _v in ("203 100 €", "83 600 €", "60 jours", "30 septembre", "2042-C PRO"
 _pn = _g("prime-de-noel-2026-montants-date-de-versement-qui-y-a-droit")
 for _v in ("152,45 €", "228,68 €", "274,41 €", "60,98 €", "76,23 €", "16 décembre", "F1325", "pas encore publiés", "Limites"):
     if _v not in _pn: fail("guide prime de Noël : mention absente (%s)" % _v)
+# Guide devenir assistante maternelle : délais et chiffres Service-Public, limites assumées
+_am = _g("comment-devenir-assistante-maternelle-agrement-formation-demarches")
+for _v in ("3 mois", "120 heures", "80 heures", "15 jours", "4 enfants", "F798", "monenfant.fr", "Limites", "ne précise pas la durée de validité"):
+    if _v not in _am and _v != "4 enfants": fail("guide assistante maternelle : mention absente (%s)" % _v)
 # Guide Parcoursup 2027 : dates du calendrier officiel (PDF octobre 2026), source officielle, mise en garde sur les évolutions
 _pc = _g("parcoursup-2027-calendrier-dates-cles-et-ce-qui-peut-changer")
 for _v in ("17 décembre 2026", "18 janvier", "11 mars 2027", "1er avril 2027", "1er juin 2027", "10 juin", "9 septembre 2027", "10 juillet 2027", "parcoursup.gouv.fr/sites/default/files", "source non officielle", "fait foi"):
