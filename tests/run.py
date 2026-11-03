@@ -243,6 +243,10 @@ for _v in ("2 130 €", "1 888 €", "1 867,02 €", "262,98 €", "20,98 €", 
     if _v not in _md: fail("guide métiers sans diplôme : mention absente (%s)" % _v)
 if round(2130 - 1867.02, 2) != 262.98 or round(1888 - 1867.02, 2) != 20.98: fail("guide métiers sans diplôme : écart au Smic faux")
 if "sans diplôme ne veut pas dire sans formation" not in _md: fail("guide métiers sans diplôme : nuance « sans formation » absente")
+# Guide devenir auto-entrepreneur : chiffres Service-Public, limites assumées
+_ae = _g("comment-devenir-auto-entrepreneur-micro-entrepreneur-etapes")
+for _v in ("203 100 €", "83 600 €", "60 jours", "30 septembre", "2042-C PRO", "24 mois", "F23267", "F11677", "Limites", "n'a pas pu être vérifiée"):
+    if _v not in _ae: fail("guide devenir auto-entrepreneur : mention absente (%s)" % _v)
 # Guide Parcoursup 2027 : dates du calendrier officiel (PDF octobre 2026), source officielle, mise en garde sur les évolutions
 _pc = _g("parcoursup-2027-calendrier-dates-cles-et-ce-qui-peut-changer")
 for _v in ("17 décembre 2026", "18 janvier", "11 mars 2027", "1er avril 2027", "1er juin 2027", "10 juin", "9 septembre 2027", "10 juillet 2027", "parcoursup.gouv.fr/sites/default/files", "source non officielle", "fait foi"):
