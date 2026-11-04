@@ -180,7 +180,7 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
 /* Bandeau de nouveauté : générateur de CV (fermable, mémorisé sur l'appareil) */
 (function(){
   try{
-    if(/^\/generateur-cv\/?$/.test(location.pathname))return;
+    if(location.pathname!=="/"&&location.pathname!=="/index.html")return;
     var K="sd-news-cv-1";try{if(localStorage.getItem(K))return;}catch(e){}
     function go(){
       if(document.getElementById("sd-news"))return;

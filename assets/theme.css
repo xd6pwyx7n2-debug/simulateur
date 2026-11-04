@@ -178,3 +178,17 @@ details.sd-m-fold>.sd-m-body{padding:0 14px 14px}
 #sd-suite a:focus-visible,#sd-suite button:focus-visible{outline:3px solid #ffd8a8;outline-offset:-3px}
 @media(min-width:641px){#sd-suite{display:none!important}}
 @media print{#sd-suite{display:none!important}}
+
+/* Polissage : simplicité, lisibilité, accessibilité */
+:focus-visible{outline:3px solid #4f46e5;outline-offset:2px;border-radius:4px}
+a,button,summary{-webkit-tap-highlight-color:transparent}
+p,li{max-width:72ch}
+article.fiche p.note,article.fiche li{line-height:1.6}
+@media(max-width:640px){
+  main{padding-left:8px;padding-right:8px}
+  article.fiche{padding:16px 14px;border-radius:18px}
+  article.fiche p.note{padding:12px 12px 12px 46px;font-size:1rem}
+  body{font-size:16.5px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+@media(prefers-contrast:more){:root{--muted:#4a4a63}}
