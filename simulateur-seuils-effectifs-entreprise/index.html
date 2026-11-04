@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Seuils d&#x27;effectifs : vos obligations selon le nombre de salariés | SimuDroit</title>
+  <meta name="description" content="Entrez votre effectif : voyez les obligations de l&#x27;employeur qui s&#x27;appliquent (CSE, règlement intérieur, DUERP, cotisations) et celles qui arrivent, d&#x27;après Service-Public.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://simudroit.fr/simulateur-seuils-effectifs-entreprise/">
+  <link rel="icon" href="https://simudroit.fr/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="https://simudroit.fr/favicon.ico" sizes="48x48">
+  <link rel="icon" href="https://simudroit.fr/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="https://simudroit.fr/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Seuils d&#x27;effectifs : vos obligations selon le nombre de salariés | SimuDroit">
+  <meta property="og:description" content="Entrez votre effectif : voyez les obligations de l&#x27;employeur qui s&#x27;appliquent (CSE, règlement intérieur, DUERP, cotisations) et celles qui arrivent, d&#x27;après Service-Public.">
+  <meta property="og:url" content="https://simudroit.fr/simulateur-seuils-effectifs-entreprise/">
+  <meta property="og:image" content="https://simudroit.fr/assets/og/simulateur-seuils-effectifs-entreprise.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://simudroit.fr/assets/og/simulateur-seuils-effectifs-entreprise.jpg">
+  <meta name="twitter:title" content="Seuils d&#x27;effectifs : vos obligations selon le nombre de salariés | SimuDroit">
+  <meta name="twitter:description" content="Entrez votre effectif : voyez les obligations de l&#x27;employeur qui s&#x27;appliquent (CSE, règlement intérieur, DUERP, cotisations) et celles qui arrivent, d&#x27;après Service-Public.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://simudroit.fr/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Seuils d'effectifs : vos obligations selon le nombre de salariés", "url": "https://simudroit.fr/simulateur-seuils-effectifs-entreprise/", "description": "Entrez votre effectif : voyez les obligations de l'employeur qui s'appliquent (CSE, règlement intérieur, DUERP, cotisations) et celles qui arrivent, d'après Service-Public.", "inLanguage": "fr-FR"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://simudroit.fr/"}, {"@type": "ListItem", "position": 2, "name": "Simulateurs", "item": "https://simudroit.fr/simulateurs/"}, {"@type": "ListItem", "position": 3, "name": "Seuils d'effectifs", "item": "https://simudroit.fr/simulateur-seuils-effectifs-entreprise/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "À partir de combien de salariés faut-il un CSE ?", "acceptedAnswer": {"@type": "Answer", "text": "À partir de 11 salariés, si ce seuil est atteint pendant 12 mois consécutifs, d'après Service-Public."}}, {"@type": "Question", "name": "À partir de combien de salariés le règlement intérieur est-il obligatoire ?", "acceptedAnswer": {"@type": "Answer", "text": "À partir de 50 salariés employés pendant 12 mois consécutifs. En dessous, il est facultatif."}}, {"@type": "Question", "name": "Qu'est-ce que la règle des 5 années consécutives ?", "acceptedAnswer": {"@type": "Answer", "text": "Pour l'effectif au sens de la Sécurité sociale, les effets d'un seuil ne s'appliquent qu'après 5 années consécutives au-dessus de ce seuil : les nouvelles obligations commencent la 6e année."}}, {"@type": "Question", "name": "Comment est compté l'effectif ?", "acceptedAnswer": {"@type": "Answer", "text": "L'Urssaf calcule l'effectif à partir de la DSN, et l'effectif annuel est déterminé au 1er janvier. Le Code du travail et le Code de la Sécurité sociale ont des règles de calcul distinctes."}}, {"@type": "Question", "name": "Le document unique d'évaluation des risques est-il obligatoire dès le premier salarié ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui : le DUERP doit être établi et mis à disposition des salariés dès 1 salarié, et mis à jour au moins annuellement à partir de 11 salariés."}}, {"@type": "Question", "name": "Que se passe-t-il si l'effectif repasse sous un seuil ?", "acceptedAnswer": {"@type": "Answer", "text": "Les obligations liées au seuil cessent de s'appliquer à partir de l'année du franchissement à la baisse."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Simulateur de seuils d'effectifs", "url": "https://simudroit.fr/simulateur-seuils-effectifs-entreprise/", "description": "Entrez votre effectif : voyez les obligations de l'employeur qui s'appliquent (CSE, règlement intérieur, DUERP, cotisations) et celles qui arrivent, d'après Service-Public.", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}</script>
+  <meta name="theme-color" content="#201e48">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="Seuils d&#x27;effectifs : vos obligations selon le nombre de salariés">
+  <link rel="alternate" hreflang="fr" href="https://simudroit.fr/simulateur-seuils-effectifs-entreprise/">
+  <link rel="alternate" hreflang="x-default" href="https://simudroit.fr/simulateur-seuils-effectifs-entreprise/">
+  <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
+  <script async src="https://plausible.io/js/pa-j8JdUomB9hqqp7em82xdB.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+</head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.fr/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://simudroit.fr/simulateurs/">Simulateurs</a>
+      <a href="https://simudroit.fr/assistant/">Assistant</a>
+      <a href="https://simudroit.fr/guides/">Guides</a>
+      <a href="https://simudroit.fr/aides/">Aides</a>
+      <a href="https://simudroit.fr/fiches-revision/">Fiches</a>
+      <a href="https://simudroit.fr/actualites/">Chiffres clés</a>
+      <a href="https://simudroit.fr/metiers/">Métiers</a>
+      <a href="https://simudroit.fr/faq/">FAQ</a>
+      <a href="https://simudroit.fr/#recherche">Rechercher</a>
+      <a class="cta-link" href="https://simudroit.fr/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://simudroit.fr/">Accueil</a> &nbsp;›&nbsp; <a href="https://simudroit.fr/simulateurs/">Simulateurs</a> &nbsp;›&nbsp; Seuils d'effectifs
+  </div>
+
+  <section class="hero">
+    <h1>Seuils d'effectifs : vos obligations d'employeur</h1>
+    <p>Entrez le nombre de salariés de votre entreprise : le calcul se fait dans votre navigateur et affiche les obligations qui s'appliquent, celles qui arrivent après 5 ans, et le prochain seuil.</p>
+      <div class="badges"><span class="badge">✓ Fiche Service-Public relue le 4 novembre 2026</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Vos données restent dans votre navigateur</span></div>
+  </section>
+<section class="info-section sd-know" id="a-savoir">
+    <h2>À savoir avant de vous fier au résultat</h2>
+    <div class="sd-know-grid">
+      <div class="sd-know-card"><h3>Trois seuils clés</h3><p>11, 20 et 50 salariés déclenchent la plupart des obligations (CSE, emploi de travailleurs handicapés, règlement intérieur, index d'égalité).</p></div>
+      <div class="sd-know-card"><h3>Le calcul de l'effectif</h3><p>L'effectif se calcule différemment selon le Code du travail et la Sécurité sociale. Cet outil prend l'effectif que vous saisissez, sans le recalculer.</p></div>
+      <div class="sd-know-card"><h3>Outil d'information</h3><p>Il ne remplace ni l'Urssaf ni un conseil juridique. Votre convention collective peut prévoir davantage.</p></div>
+    </div>
+  </section>
+  <section class="calculator" id="calcul">
+    <h2>Mes obligations selon l'effectif</h2>
+    <noscript><p class="intro-note"><strong>JavaScript requis :</strong> ce simulateur calcule directement dans votre navigateur.</p></noscript>
+    <div class="field"><label for="eff">Effectif de l'entreprise (nombre de salariés)</label><input type="number" id="eff" min="0" max="100000" step="1" inputmode="numeric" placeholder="Ex. 14"></div>
+    <div class="field"><label for="mois12">Ce seuil est-il atteint depuis 12 mois consécutifs ?</label><select id="mois12"><option value="1">Oui, depuis 12 mois ou plus</option><option value="0">Non, le seuil vient d'être franchi</option></select></div>
+    <div class="field"><label for="ans5">Ce seuil est-il atteint depuis 5 années consécutives ?</label><select id="ans5"><option value="0">Non, moins de 5 ans</option><option value="1">Oui, depuis 5 ans ou plus</option></select></div>
+    <button type="button" id="calculate">Voir mes obligations</button>
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">Votre tranche d'effectif</div>
+      <div class="result-main" id="main">-</div>
+      <h3>Obligations qui s'appliquent</h3><ul id="now"></ul>
+      <h3>Obligations qui s'appliquent après 5 années consécutives</h3><ul id="after5"></ul>
+      <div class="warning" id="wnote">Outil d'information. Vérifiez avec l'Urssaf et votre convention collective.</div>
+    </div>
+  </section>
+
+  <section class="info-section" id="regles">
+    <h2>Les seuils en un coup d'œil</h2>
+    <div class="table-wrap"><table class="sd-table"><thead><tr><th>Effectif</th><th>Ce qui change</th></tr></thead><tbody>
+    <tr><td>1 à 10 salariés</td><td>DUERP, DSN mensuelle, cotisations de base, emplacement pour les repas. Règlement intérieur facultatif.</td></tr>
+    <tr><td>11 à 19 salariés</td><td>CSE (si 11 salariés pendant 12 mois consécutifs), DUERP mis à jour chaque année, après 5 ans : formation professionnelle à 1 % et versement mobilité.</td></tr>
+    <tr><td>20 à 49 salariés</td><td>Obligation d'emploi des travailleurs handicapés (après 5 ans), déclaration annuelle, CSE, DUERP.</td></tr>
+    <tr><td>50 à 199 salariés</td><td>Règlement intérieur, base de données économiques, sociales et environnementales, index d'égalité professionnelle, réunions du CSE tous les 2 mois.</td></tr>
+    <tr><td>200 salariés et plus</td><td>Toutes les obligations précédentes, CSE par établissement distinct, local syndical. Contribution supplémentaire à l'apprentissage à partir de 250.</td></tr>
+    </tbody></table></div>
+    <p class="field-help">Source : <a href="https://entreprendre.service-public.gouv.fr/vosdroits/F31415" rel="noopener">Service-Public Entreprendre, F31415 : effectifs de l'entreprise, obligations sociales selon les seuils</a> (page mise à jour le 14 août 2026). La page est une traduction automatique ; certaines obligations (participation pour 11 à 49 salariés) y sont décrites de façon ambiguë et ne sont pas reprises ici.</p>
+  </section>
+
+  <section class="info-section" id="astuces">
+    <h2>Avant de franchir un seuil</h2>
+    <ol>
+      <li>Vérifiez votre effectif au 1er janvier : l'Urssaf le fixe à partir des DSN.</li>
+      <li>Repérez la date où vous atteindrez 11 salariés pendant 12 mois : c'est le déclencheur du CSE.</li>
+      <li>Préparez le DUERP dès le premier salarié : il est obligatoire quelle que soit la taille.</li>
+      <li>Pour 50 salariés, anticipez le règlement intérieur, la BDESE et l'index d'égalité.</li>
+    </ol>
+    <p class="field-help">Pour calculer la fin de période d'essai d'une embauche, utilisez le <a href="/simulateur-periode-essai/">simulateur de période d'essai</a>.</p>
+  </section>
+
+  <section class="info-section sd-fold" id="faq-ind"><details><summary><h2>Questions fréquentes</h2></summary><h3>À partir de combien de salariés faut-il un CSE ?</h3><p>À partir de 11 salariés, si ce seuil est atteint pendant 12 mois consécutifs, d&#x27;après Service-Public.</p><h3>À partir de combien de salariés le règlement intérieur est-il obligatoire ?</h3><p>À partir de 50 salariés employés pendant 12 mois consécutifs. En dessous, il est facultatif.</p><h3>Qu&#x27;est-ce que la règle des 5 années consécutives ?</h3><p>Pour l&#x27;effectif au sens de la Sécurité sociale, les effets d&#x27;un seuil ne s&#x27;appliquent qu&#x27;après 5 années consécutives au-dessus de ce seuil : les nouvelles obligations commencent la 6e année.</p><h3>Comment est compté l&#x27;effectif ?</h3><p>L&#x27;Urssaf calcule l&#x27;effectif à partir de la DSN, et l&#x27;effectif annuel est déterminé au 1er janvier. Le Code du travail et le Code de la Sécurité sociale ont des règles de calcul distinctes.</p><h3>Le document unique d&#x27;évaluation des risques est-il obligatoire dès le premier salarié ?</h3><p>Oui : le DUERP doit être établi et mis à disposition des salariés dès 1 salarié, et mis à jour au moins annuellement à partir de 11 salariés.</p><h3>Que se passe-t-il si l&#x27;effectif repasse sous un seuil ?</h3><p>Les obligations liées au seuil cessent de s&#x27;appliquer à partir de l&#x27;année du franchissement à la baisse.</p></details></section>
+
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/simulateur-periode-essai/">Période d'essai</a><a href="/simulateur-rupture-conventionnelle/">Rupture conventionnelle</a><a href="/simulateur-preavis-licenciement/">Préavis de licenciement</a><a href="/simulateur-planning-roulement-equipe/">Planning en roulement</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-11-04">4 novembre 2026</time> (Service-Public Entreprendre). Estimation indicative, sans valeur juridique. <a href="/methode-et-sources/">Méthode et sources</a> · <a href="/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<nav class="sd-explore" aria-label="Toutes les rubriques"><strong>Explorer toutes les rubriques</strong><div><a href="https://simudroit.fr/simulateurs/" style="--c:#4f46e5"><i class="sdi sdi-calc" aria-hidden="true"></i>Simulateurs</a><a href="https://simudroit.fr/guides/" style="--c:#0e7490"><i class="sdi sdi-book" aria-hidden="true"></i>Guides</a><a href="https://simudroit.fr/aides/" style="--c:#0f766e"><i class="sdi sdi-heart" aria-hidden="true"></i>Aides</a><a href="https://simudroit.fr/fiches-revision/" style="--c:#7c3aed"><i class="sdi sdi-notes" aria-hidden="true"></i>Fiches de révision</a><a href="https://simudroit.fr/metiers/" style="--c:#b5530f"><i class="sdi sdi-user" aria-hidden="true"></i>Mon métier</a><a href="https://simudroit.fr/metiers/creer-son-entreprise-batiment/" style="--c:#c2410c"><i class="sdi sdi-hardhat" aria-hidden="true"></i>Créer son entreprise (bâtiment)</a><a href="https://simudroit.fr/independants/" style="--c:#1d4ed8"><i class="sdi sdi-briefcase" aria-hidden="true"></i>Indépendants</a><a href="https://simudroit.fr/retraite/" style="--c:#be185d"><i class="sdi sdi-sun" aria-hidden="true"></i>Retraite</a><a href="https://simudroit.fr/reconversion/" style="--c:#15803d"><i class="sdi sdi-refresh" aria-hidden="true"></i>Reconversion</a><a href="https://simudroit.fr/salaires/" style="--c:#a16207"><i class="sdi sdi-euro" aria-hidden="true"></i>Salaires</a><a href="https://simudroit.fr/modeles-de-lettres/" style="--c:#9333ea"><i class="sdi sdi-mail" aria-hidden="true"></i>Lettres types</a><a href="https://simudroit.fr/generateur-cv/" style="--c:#0f7a6e"><i class="sdi sdi-doc" aria-hidden="true"></i>Générateur de CV</a><a href="https://simudroit.fr/ouvrir-un-commerce/" style="--c:#b5530f"><i class="sdi sdi-briefcase" aria-hidden="true"></i>Ouvrir un commerce</a><a href="https://simudroit.fr/actualites/" style="--c:#475569"><i class="sdi sdi-chart" aria-hidden="true"></i>Chiffres et données</a><a href="https://simudroit.fr/glossaire/" style="--c:#0369a1"><i class="sdi sdi-bookopen" aria-hidden="true"></i>Glossaire</a><a href="https://simudroit.fr/faq/" style="--c:#b91c1c"><i class="sdi sdi-question" aria-hidden="true"></i>FAQ</a></div></nav>
+<footer><nav class="foot-top" aria-label="Les plus consultés"><strong>Les plus consultés</strong><a href="https://simudroit.fr/simulateur-brut-net/">Salaire brut en net</a><a href="https://simudroit.fr/simulateur-indemnite-licenciement/">Indemnité de licenciement</a><a href="https://simudroit.fr/simulateur-rupture-conventionnelle/">Rupture conventionnelle</a><a href="https://simudroit.fr/simulateur-chomage/">Allocation chômage</a><a href="https://simudroit.fr/simulateur-preavis-demission/">Préavis de démission</a><a href="https://simudroit.fr/simulateur-preavis-licenciement/">Préavis de licenciement</a><a href="https://simudroit.fr/simulateur-conges-payes/">Congés payés</a><a href="https://simudroit.fr/simulateur-fiche-de-paie/">Vérifier ma fiche de paie</a><a href="https://simudroit.fr/simulateur-solde-tout-compte/">Solde de tout compte</a><a href="https://simudroit.fr/simulateur-smic/">SMIC 2026</a><a href="https://simudroit.fr/salaire-brut-net/">Brut en net par montant</a><a href="https://simudroit.fr/metiers/">Mon métier : infirmier libéral, assistante maternelle, intérimaire</a><a href="https://simudroit.fr/retraite/">Retraite : par où commencer ?</a><a href="https://simudroit.fr/reconversion/">Reconversion : par où commencer ?</a><a href="https://simudroit.fr/jours-feries-2026-2027/">Jours fériés 2026 et 2027</a><a href="https://simudroit.fr/fiches-revision/">Fiches de révision</a><a href="https://simudroit.fr/aides/">Aides selon votre situation</a><a href="https://simudroit.fr/documents-a-generer/">Documents à générer</a></nav>
+  <p>© 2026 SimuDroit · <a href="https://simudroit.fr/">Tous les simulateurs</a> · <a href="https://simudroit.fr/methode-et-sources/">Méthode et sources</a> · <a href="https://simudroit.fr/contact/">Contact</a> · <a href="https://simudroit.fr/mentions-legales/">Mentions légales</a> · <a href="https://simudroit.fr/confidentialite/">Confidentialité</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+  function setText(id,t){document.getElementById(id).textContent=t}
+  var N={
+    base:["Document unique d'évaluation des risques professionnels (DUERP) établi et mis à disposition des salariés","Déclaration sociale nominative (DSN) mensuelle, avec la déclaration d'emploi des travailleurs handicapés","Taxe d'apprentissage, cotisation AT/MP, contribution à la formation professionnelle à 0,55 %, FNAL à 0,10 % jusqu'au plafond de la Sécurité sociale","Emplacement pour les repas des salariés","Règlement intérieur facultatif"],
+    s11:["DUERP mis à jour au moins une fois par an","Comité social et économique (CSE) si l'effectif de 11 salariés est atteint pendant 12 mois consécutifs","Réunion de la délégation du CSE au moins une fois par mois","Formation professionnelle à 1 % (au lieu de 0,55 %), FNAL à 0,10 %, forfait social"],
+    s11a5:["Contribution à la formation professionnelle à 1 % et versement mobilité, après 5 années consécutives à 11 salariés ou plus"],
+    s20:["CSE obligatoire, ou procès-verbal de carence justifié","Déclaration annuelle d'emploi des travailleurs handicapés (DOETH)"],
+    s20a5:["Obligation d'emploi des travailleurs handicapés, après 5 années consécutives à 20 salariés ou plus"],
+    s50:["Règlement intérieur obligatoire si 50 salariés sont employés pendant 12 mois consécutifs","Base de données économiques, sociales et environnementales (BDESE)","Index de l'égalité professionnelle, déclaré dans les 3 ans suivant le franchissement de 50 salariés","Réunion du CSE au moins tous les 2 mois","Lieu de restauration"],
+    s50a5:["FNAL à 0,50 % sur l'ensemble des rémunérations, PEEC (1 % logement) et participation obligatoire, après 5 années consécutives à 50 salariés ou plus"],
+    s200:["Un CSE à créer dans chaque établissement distinct, si l'entreprise en compte au moins deux","Local syndical pour les représentants syndicaux","Contribution supplémentaire à l'apprentissage (CSA) à partir de 250 salariés"]
+  };
+  function calc(o){
+    var e=Math.max(0,Math.floor(o.eff)),now=N.base.slice(),a5=[],tr="1 à 10 salariés",next=null;
+    if(e>=11){tr="11 à 19 salariés";now=now.concat(N.s11);a5=a5.concat(N.s11a5);next={seuil:20,txt:"Prochain seuil : 20 salariés (obligation d'emploi des travailleurs handicapés)."};}
+    if(e>=20){tr="20 à 49 salariés";now=now.concat(N.s20);a5=a5.concat(N.s20a5);next={seuil:50,txt:"Prochain seuil : 50 salariés (règlement intérieur, BDESE, index d'égalité)."};}
+    if(e>=50){tr="50 à 199 salariés";now=now.concat(N.s50);a5=a5.concat(N.s50a5);next={seuil:200,txt:"Prochain seuil : 200 salariés (CSE par établissement, local syndical)."};}
+    if(e>=200){tr="200 salariés et plus";now=now.concat(N.s200);next=null;}
+    if(e<11)next={seuil:11,txt:"Prochain seuil : 11 salariés (CSE à créer après 12 mois consécutifs)."};
+    if(o.mois12===0){now=now.filter(function(x){return x.indexOf("pendant 12 mois consécutifs")<0});}
+    var pending=[];
+    if(o.mois12===0){if(e>=11)pending.push("CSE : obligatoire quand 11 salariés sont atteints pendant 12 mois consécutifs");if(e>=50)pending.push("Règlement intérieur : obligatoire quand 50 salariés sont employés pendant 12 mois consécutifs");}
+    if(o.ans5===1){now=now.concat(a5);a5=[];}
+    return {tranche:tr,now:now,after5:a5,pending:pending,next:next,eff:e};
+  }
+  window.sdSeuils=calc;
+  function fill(id,arr){var u=document.getElementById(id);u.innerHTML="";arr.forEach(function(t){var li=document.createElement("li");li.textContent=t;u.appendChild(li)})}
+  document.getElementById("calculate").addEventListener("click",function(){
+    var e=parseFloat(document.getElementById("eff").value);
+    if(!Number.isFinite(e)||e<0){alert("Indiquez le nombre de salariés.");return}
+    var r=calc({eff:e,mois12:parseInt(document.getElementById("mois12").value,10),ans5:parseInt(document.getElementById("ans5").value,10)});
+    setText("main",r.eff+" salarié"+(r.eff>1?"s":"")+" : tranche "+r.tranche);
+    fill("now",r.now.concat(r.pending.map(function(p){return "À venir : "+p})));
+    fill("after5",r.after5.length?r.after5:["Aucune obligation supplémentaire en attente à ce niveau d'effectif."]);
+    setText("wnote",(r.next?r.next.txt+" ":"")+"Outil d'information. Vérifiez avec l'Urssaf et votre convention collective.");
+    document.getElementById("result").classList.add("visible");
+  });
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>

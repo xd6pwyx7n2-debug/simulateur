@@ -10,6 +10,8 @@ SYN = {
     "ouvrir-un-food-truck-demarches-etape-par-etape": "food truck camion restauration ambulante commerçant ambulant ouvrir un food truck hygiene",
     "ouvrir-un-bar-cafe-licence-permis-exploitation-demarches": "bar cafe licence 3 licence 4 permis exploitation debit de boissons terrasse ouvrir un bar",
     "ouvrir-une-epicerie-demarches-etape-par-etape": "epicerie epicerie fine commerce alimentaire superette ouvrir une epicerie ddpp declaration sanitaire",
+    "simulateur-seuils-effectifs-entreprise": "seuils effectifs entreprise 11 salaries 20 50 cse comite social economique reglement interieur duerp obligations employeur tpe pme bdese index egalite",
+    "simulateur-planning-roulement-equipe": "planning roulement equipe horaires employes heures repos 11 heures 35 heures rotation shifts organisation equipe employeur nombre employes",
     "simulateur-capacite-emprunt": "capacite d emprunt taux d endettement credit immobilier mensualite 35 hcsf pret simulateur combien emprunter duree 25 ans assurance",
     "simulateur-saisie-sur-salaire": "saisie sur salaire saisie des remunerations bareme 2026 quotite saisissable reste a vivre solde insaisissable 651,69 pension alimentaire dette commissaire de justice huissier simulateur",
     "simulateur-aide-carburant-grands-rouleurs": "aide carburant grands rouleurs prime carburant 2026 simulateur 100 euros eligibilite travailleurs 22770 revenu fiscal de reference formulaire 31 decembre",

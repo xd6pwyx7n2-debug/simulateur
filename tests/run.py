@@ -114,7 +114,7 @@ for f in pages:
 _th = open(os.path.join(ROOT, "assets", "theme.js"), encoding="utf-8").read()
 OFFICIEL = re.compile(r'^https://([a-z0-9-]+\.)*(service-public\.gouv\.fr|code\.travail\.gouv\.fr|impots\.gouv\.fr|insee\.fr|moncompteformation\.gouv\.fr|dreets\.gouv\.fr|legifrance\.gouv\.fr|economie\.gouv\.fr|info\.gouv\.fr)/')
 for _s in ("indemnite-depart-retraite", "smic", "salaire-horaire-mensuel", "prorata-salaire", "preavis-demission", "fin-contrat-fonction-publique",
-           "cpf", "impot-revenu", "salaire-net-apres-impot", "frais-kilometriques", "aide-carburant-grands-rouleurs", "saisie-sur-salaire", "capacite-emprunt", "comparer-mon-salaire", "rupture-assistante-maternelle"):
+           "cpf", "impot-revenu", "salaire-net-apres-impot", "frais-kilometriques", "aide-carburant-grands-rouleurs", "saisie-sur-salaire", "capacite-emprunt", "seuils-effectifs-entreprise", "planning-roulement-equipe", "comparer-mon-salaire", "rupture-assistante-maternelle"):
     _m = re.search(r'^\s+"%s":\[(.*)\],?\s*$' % re.escape(_s), _th, re.M)
     if not _m: fail("sources : %s absent du bandeau « base du calcul » (theme.js)" % _s); continue
     _e = _m.group(1)
@@ -337,6 +337,12 @@ for _v in ("373,33", "2 150,83", "145 €", "651,69", "10 000 €", "service-pub
 _ce = _page("capacite-emprunt")
 for _v in ("35 %", "25 ans", "economie.gouv.fr/hcsf", "ne précise pas si l'assurance", "D-HCSF-2021-7"):
     if _v not in _ce: fail("capacité d'emprunt : mention absente (%s)" % _v)
+_se = _page("seuils-effectifs-entreprise")
+for _v in ("11 salariés", "50 salariés", "12 mois consécutifs", "5 années consécutives", "F31415", "traduction automatique"):
+    if _v not in _se: fail("seuils d'effectifs : mention absente (%s)" % _v)
+_pl = _page("planning-roulement-equipe")
+for _v in ("10 heures", "48 heures", "11 heures", "35 heures", "F1911", "F2327", "Pauses"):
+    if _v not in _pl: fail("planning en roulement : mention absente (%s)" % _v)
 _ps2 = open(os.path.join(ROOT, "mon-plan-de-sortie-surendettement", "index.html"), encoding="utf-8").read(); _psj = open(os.path.join(ROOT, "assets", "plan-sortie.js"), encoding="utf-8").read()
 for _v in ("Rien n'est envoyé", "3 mois", "Mémoriser ma progression sur cet appareil uniquement", "Tout effacer"):
     if _v not in _ps2: fail("plan de sortie : mention absente (%s)" % _v)
@@ -675,6 +681,30 @@ with sync_playwright() as pw:
     _c = pg.evaluate("(o)=>window.sdCapacite(o)", {"rev": 3000, "cre": 1050, "tau": 3, "dur": 30, "ass": 0, "mon": 0})
     if _c["mmax"] != 0 or _c["cap"] != 0: fail("capacité d'emprunt : crédits en cours à 35 % = capacité nulle (%s)" % _c)
     if pg.evaluate("(o)=>window.sdCapacite(o).cap", {"rev": 3000, "cre": 0, "tau": 3, "dur": 40, "ass": 0, "mon": 0}) != pg.evaluate("(o)=>window.sdCapacite(o).cap", {"rev": 3000, "cre": 0, "tau": 3, "dur": 25, "ass": 0, "mon": 0}): fail("capacité d'emprunt : la durée doit être plafonnée à 25 ans")
+    # seuils d'effectifs : tranches et obligations
+    pg.goto(LOCAL + "simulateur-seuils-effectifs-entreprise/"); pg.wait_for_timeout(600)
+    _s = pg.evaluate("(o)=>window.sdSeuils(o)", {"eff": 8, "mois12": 1, "ans5": 0})
+    if not _s["tranche"].startswith("1 à 10") or any("CSE" in x for x in _s["now"]): fail("seuils : 8 salariés = pas de CSE (%s)" % _s)
+    _s = pg.evaluate("(o)=>window.sdSeuils(o)", {"eff": 12, "mois12": 1, "ans5": 0})
+    if not any("CSE" in x for x in _s["now"]): fail("seuils : 12 salariés sur 12 mois = CSE (%s)" % _s)
+    _s = pg.evaluate("(o)=>window.sdSeuils(o)", {"eff": 12, "mois12": 0, "ans5": 0})
+    if any("Comité social" in x for x in _s["now"]) or not _s["pending"]: fail("seuils : 12 salariés depuis moins de 12 mois = CSE à venir (%s)" % _s)
+    _s = pg.evaluate("(o)=>window.sdSeuils(o)", {"eff": 60, "mois12": 1, "ans5": 0})
+    if not any("Règlement intérieur obligatoire" in x for x in _s["now"]) or not any("BDESE" in x or "Base de données" in x for x in _s["now"]) or not _s["after5"]: fail("seuils : 60 salariés = règlement intérieur, BDESE, obligations après 5 ans (%s)" % _s)
+    _s = pg.evaluate("(o)=>window.sdSeuils(o)", {"eff": 60, "mois12": 1, "ans5": 1})
+    if _s["after5"]: fail("seuils : 5 années atteintes = plus d'obligation en attente (%s)" % _s)
+    pg.fill("#eff", "25"); pg.click("#calculate"); pg.wait_for_timeout(300)
+    if "20 à 49" not in pg.inner_text("#main") or "Prochain seuil : 50" not in pg.inner_text("#wnote"): fail("seuils : affichage 25 salariés (%s)" % pg.inner_text("#result"))
+    # planning en roulement : couverture, limites légales
+    pg.goto(LOCAL + "simulateur-planning-roulement-equipe/"); pg.wait_for_timeout(600)
+    _p = pg.evaluate("(o)=>{const r=window.sdPlanning(o);delete r.weeks;return r}", {"n": 6, "jours": 6, "debut": 8, "fin": 20, "postes": 2, "heures": 35, "duree": 7, "semaines": 4})
+    if _p["K"] != 2 or _p["needWeek"] != 24 or _p["minStaff"] != 5 or _p["unfilled"] != 0 or _p["restViol"] != 0 or _p["restFail"] != 0 or _p["maxDay"] > 10 or _p["maxWeek"] > 48: fail("planning : cas 6 salariés / 6 jours / 8h-20h / 2 par poste (%s)" % _p)
+    _p = pg.evaluate("(o)=>{const r=window.sdPlanning(o);delete r.weeks;return r}", {"n": 4, "jours": 7, "debut": 8, "fin": 20, "postes": 2, "heures": 35, "duree": 7, "semaines": 4})
+    if _p["minStaff"] != 6 or _p["unfilled"] <= 0 or _p["restViol"] != 0 or _p["maxWeek"] > 48: fail("planning : 4 salariés pour 7 jours = déficit sans violer les limites (%s)" % _p)
+    _p = pg.evaluate("(o)=>{const r=window.sdPlanning(o);delete r.weeks;return r}", {"n": 10, "jours": 7, "debut": 6, "fin": 22, "postes": 2, "heures": 35, "duree": 7, "semaines": 6})
+    if _p["K"] != 3 or _p["restViol"] != 0 or _p["restFail"] != 0: fail("planning : 3 postes par jour sur 7 jours (%s)" % _p)
+    pg.fill("#n", "6"); pg.click("#calculate"); pg.wait_for_timeout(300)
+    if len(pg.query_selector_all("#grids table")) != 4 or "respecté" not in pg.inner_text("#checks"): fail("planning : 4 semaines affichées et contrôles (%s)" % pg.inner_text("#result"))
     # Mon plan de sortie du surendettement : analyse CSV, calendrier, progression (tout en local)
     pg.goto(LOCAL + "mon-plan-de-sortie-surendettement/"); pg.wait_for_timeout(600)
     _csv = "Date;Libellé;Montant\n01/09/2026;SALAIRE;1000,00\n02/09/2026;LOYER;-500,00\n03/09/2026;NETFLIX;-10,00\n03/10/2026;NETFLIX;-10,00\n05/10/2026;CARREFOUR;-40,00"

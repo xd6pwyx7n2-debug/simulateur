@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Planning en roulement : proposition selon l&#x27;effectif et les heures | SimuDroit</title>
+  <meta name="description" content="Proposez un roulement d&#x27;équipe selon le nombre d&#x27;employés, l&#x27;amplitude d&#x27;ouverture et la durée du travail : planning sur plusieurs semaines avec contrôle des limites légales.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://simudroit.fr/simulateur-planning-roulement-equipe/">
+  <link rel="icon" href="https://simudroit.fr/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="https://simudroit.fr/favicon.ico" sizes="48x48">
+  <link rel="icon" href="https://simudroit.fr/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="https://simudroit.fr/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Planning en roulement : proposition selon l&#x27;effectif et les heures | SimuDroit">
+  <meta property="og:description" content="Proposez un roulement d&#x27;équipe selon le nombre d&#x27;employés, l&#x27;amplitude d&#x27;ouverture et la durée du travail : planning sur plusieurs semaines avec contrôle des limites légales.">
+  <meta property="og:url" content="https://simudroit.fr/simulateur-planning-roulement-equipe/">
+  <meta property="og:image" content="https://simudroit.fr/assets/og/simulateur-planning-roulement-equipe.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://simudroit.fr/assets/og/simulateur-planning-roulement-equipe.jpg">
+  <meta name="twitter:title" content="Planning en roulement : proposition selon l&#x27;effectif et les heures | SimuDroit">
+  <meta name="twitter:description" content="Proposez un roulement d&#x27;équipe selon le nombre d&#x27;employés, l&#x27;amplitude d&#x27;ouverture et la durée du travail : planning sur plusieurs semaines avec contrôle des limites légales.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://simudroit.fr/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Planning en roulement : proposition selon l'effectif et les heures", "url": "https://simudroit.fr/simulateur-planning-roulement-equipe/", "description": "Proposez un roulement d'équipe selon le nombre d'employés, l'amplitude d'ouverture et la durée du travail : planning sur plusieurs semaines avec contrôle des limites légales.", "inLanguage": "fr-FR"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://simudroit.fr/"}, {"@type": "ListItem", "position": 2, "name": "Simulateurs", "item": "https://simudroit.fr/simulateurs/"}, {"@type": "ListItem", "position": 3, "name": "Planning en roulement", "item": "https://simudroit.fr/simulateur-planning-roulement-equipe/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Comment le planning est-il construit ?", "acceptedAnswer": {"@type": "Answer", "text": "L'outil découpe la journée en postes de la durée choisie, puis attribue chaque poste à des salariés en alternant les semaines : moins de postes déjà faits d'abord, rotation des créneaux et des week-ends, jours de repos répartis."}}, {"@type": "Question", "name": "Quelles limites légales sont contrôlées ?", "acceptedAnswer": {"@type": "Answer", "text": "10 heures au plus par jour, 48 heures au plus par semaine, 11 heures de repos entre deux journées et 35 heures consécutives de repos par semaine, d'après Service-Public."}}, {"@type": "Question", "name": "L'outil tient-il compte des pauses ?", "acceptedAnswer": {"@type": "Answer", "text": "Non : une pause d'au moins 20 minutes est due après 6 heures de travail consécutives, mais les heures affichées sont des durées de poste. Prévoyez la pause dans l'organisation."}}, {"@type": "Question", "name": "Les congés et les absences sont-ils pris en compte ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Prévoyez des remplaçants ou une marge d'effectif pour les congés payés et les arrêts."}}, {"@type": "Question", "name": "Cette proposition remplace-t-elle l'accord de l'entreprise ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Une convention collective ou un accord d'entreprise peut fixer d'autres règles. Les plannings doivent aussi respecter les délais de prévenance applicables."}}, {"@type": "Question", "name": "Que faire s'il manque des salariés ?", "acceptedAnswer": {"@type": "Answer", "text": "L'outil indique le déficit en heures et le nombre minimum de salariés nécessaires. Vous pouvez embaucher, élargir les postes ou recourir aux heures supplémentaires dans la limite des durées maximales."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Planning en roulement d'équipe", "url": "https://simudroit.fr/simulateur-planning-roulement-equipe/", "description": "Proposez un roulement d'équipe selon le nombre d'employés, l'amplitude d'ouverture et la durée du travail : planning sur plusieurs semaines avec contrôle des limites légales.", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}</script>
+  <meta name="theme-color" content="#201e48">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="Planning en roulement : proposition selon l&#x27;effectif et les heures">
+  <link rel="alternate" hreflang="fr" href="https://simudroit.fr/simulateur-planning-roulement-equipe/">
+  <link rel="alternate" hreflang="x-default" href="https://simudroit.fr/simulateur-planning-roulement-equipe/">
+  <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
+  <script async src="https://plausible.io/js/pa-j8JdUomB9hqqp7em82xdB.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+</head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.fr/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://simudroit.fr/simulateurs/">Simulateurs</a>
+      <a href="https://simudroit.fr/assistant/">Assistant</a>
+      <a href="https://simudroit.fr/guides/">Guides</a>
+      <a href="https://simudroit.fr/aides/">Aides</a>
+      <a href="https://simudroit.fr/fiches-revision/">Fiches</a>
+      <a href="https://simudroit.fr/actualites/">Chiffres clés</a>
+      <a href="https://simudroit.fr/metiers/">Métiers</a>
+      <a href="https://simudroit.fr/faq/">FAQ</a>
+      <a href="https://simudroit.fr/#recherche">Rechercher</a>
+      <a class="cta-link" href="https://simudroit.fr/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://simudroit.fr/">Accueil</a> &nbsp;›&nbsp; <a href="https://simudroit.fr/simulateurs/">Simulateurs</a> &nbsp;›&nbsp; Planning en roulement
+  </div>
+
+  <section class="hero">
+    <h1>Planning en roulement d'équipe</h1>
+    <p>Indiquez le nombre d'employés, les horaires d'ouverture et les heures à faire : l'outil propose un roulement sur plusieurs semaines et contrôle les limites légales. Le calcul se fait dans votre navigateur.</p>
+      <div class="badges"><span class="badge">✓ Durées légales relues le 4 novembre 2026</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Vos données restent dans votre navigateur</span></div>
+  </section>
+<section class="info-section sd-know" id="a-savoir">
+    <h2>À savoir avant de vous fier au planning</h2>
+    <div class="sd-know-grid">
+      <div class="sd-know-card"><h3>Une proposition à ajuster</h3><p>Le roulement est un point de départ. Les souhaits des salariés, les compétences requises et les absences ne sont pas modélisés.</p></div>
+      <div class="sd-know-card"><h3>Des limites contrôlées</h3><p>Le planning vérifie 10 heures par jour, 48 heures par semaine, 11 heures de repos entre deux postes et 35 heures de repos par semaine.</p></div>
+      <div class="sd-know-card"><h3>Votre accord prime</h3><p>Une convention ou un accord d'entreprise peut prévoir d'autres règles : vérifiez-les avant de diffuser le planning.</p></div>
+    </div>
+  </section>
+  <section class="calculator" id="calcul">
+    <h2>Construire mon roulement</h2>
+    <noscript><p class="intro-note"><strong>JavaScript requis :</strong> ce simulateur calcule directement dans votre navigateur.</p></noscript>
+    <div class="field"><label for="n">Nombre d'employés disponibles</label><input type="number" id="n" min="1" max="60" step="1" inputmode="numeric" placeholder="Ex. 6" value="6"></div>
+    <div class="field"><label for="jours">Jours d'ouverture par semaine</label><select id="jours"><option value="5">5 jours (lundi au vendredi)</option><option value="6" selected>6 jours (lundi au samedi)</option><option value="7">7 jours</option></select></div>
+    <div class="field"><label for="debut">Heure d'ouverture</label><input type="number" id="debut" min="0" max="23.5" step="0.5" inputmode="decimal" placeholder="Ex. 8" value="8"></div>
+    <div class="field"><label for="fin">Heure de fermeture</label><input type="number" id="fin" min="1" max="24" step="0.5" inputmode="decimal" placeholder="Ex. 20" value="20"></div>
+    <div class="field"><label for="postes">Salariés présents à chaque poste</label><input type="number" id="postes" min="1" max="20" step="1" inputmode="numeric" placeholder="Ex. 2" value="2"></div>
+    <div class="field"><label for="heures">Durée hebdomadaire du contrat (heures)</label><input type="number" id="heures" min="1" max="48" step="0.5" inputmode="decimal" placeholder="Ex. 35" value="35"></div>
+    <div class="field"><label for="duree">Durée d'un poste (heures, 10 au plus)</label><input type="number" id="duree" min="1" max="10" step="0.5" inputmode="decimal" placeholder="Ex. 7" value="7"></div>
+    <div class="field"><label for="semaines">Nombre de semaines à planifier</label><select id="semaines"><option>1</option><option>2</option><option selected>4</option><option>6</option></select></div>
+    <button type="button" id="calculate">Proposer un roulement</button>
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">Votre besoin et votre roulement</div>
+      <div class="result-main" id="main">-</div>
+      <div class="result-row"><span>Postes à couvrir par semaine</span><strong id="besoin">-</strong></div>
+      <div class="result-row"><span>Postes par salarié et par semaine</span><strong id="parsal">-</strong></div>
+      <div class="result-row"><span>Effectif minimum pour couvrir le besoin</span><strong id="minimum">-</strong></div>
+      <div class="result-row"><span>Heures moyennes par salarié et par semaine</span><strong id="moy">-</strong></div>
+      <div class="result-row"><span>Postes non pourvus sur la période</span><strong id="manque">-</strong></div>
+      <h3>Contrôles</h3><ul id="checks"></ul>
+      <div class="table-wrap" id="grids"></div>
+      <p><button type="button" id="copier">Copier le planning</button> <button type="button" id="imprimer">Imprimer</button></p>
+      <div class="warning" id="wnote">Proposition indicative. Pauses, congés et souhaits des salariés ne sont pas pris en compte.</div>
+    </div>
+  </section>
+
+  <section class="info-section" id="regles">
+    <h2>Les limites légales contrôlées</h2>
+    <div class="table-wrap"><table class="sd-table"><thead><tr><th>Règle</th><th>Valeur</th></tr></thead><tbody>
+    <tr><td>Durée légale hebdomadaire</td><td>35 heures</td></tr>
+    <tr><td>Durée maximale par jour</td><td>10 heures de travail effectif (dérogations possibles jusqu'à 12 heures)</td></tr>
+    <tr><td>Durée maximale par semaine</td><td>48 heures, et 44 heures en moyenne sur 12 semaines consécutives</td></tr>
+    <tr><td>Repos quotidien</td><td>11 heures consécutives entre deux journées</td></tr>
+    <tr><td>Repos hebdomadaire</td><td>24 heures consécutives, soit 35 heures avec le repos quotidien</td></tr>
+    <tr><td>Pause</td><td>20 minutes au moins dès 6 heures de travail consécutives</td></tr>
+    </tbody></table></div>
+    <p class="field-help">Sources : <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F1911" rel="noopener">Service-Public F1911 : durée du travail d'un salarié du secteur privé à temps plein</a> (mise à jour du 9 janvier 2023) et <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F2327" rel="noopener">F2327 : repos hebdomadaire</a> (mise à jour du 26 octobre 2023). Les pages sont des traductions automatiques ; le repos quotidien de 11 heures est mentionné sur F2327. Les règles propres aux jeunes de moins de 18 ans, au travail de nuit et aux conventions ne sont pas reprises.</p>
+  </section>
+
+  <section class="info-section" id="astuces">
+    <h2>Comment lire le roulement</h2>
+    <ol>
+      <li>Chaque ligne est un salarié, chaque colonne un jour, de lundi à dimanche.</li>
+      <li>Les créneaux alternent d'une semaine à l'autre, ainsi que les week-ends travaillés.</li>
+      <li>Si des postes ne sont pas pourvus, l'outil indique l'effectif minimum nécessaire.</li>
+      <li>Copiez le planning dans votre tableur pour l'ajuster.</li>
+    </ol>
+    <p class="field-help">Pour chiffrer des heures supplémentaires, utilisez le <a href="/simulateur-heures-supplementaires/">simulateur d'heures supplémentaires</a>.</p>
+  </section>
+
+  <section class="info-section sd-fold" id="faq-ind"><details><summary><h2>Questions fréquentes</h2></summary><h3>Comment le planning est-il construit ?</h3><p>L&#x27;outil découpe la journée en postes de la durée choisie, puis attribue chaque poste à des salariés en alternant les semaines : moins de postes déjà faits d&#x27;abord, rotation des créneaux et des week-ends, jours de repos répartis.</p><h3>Quelles limites légales sont contrôlées ?</h3><p>10 heures au plus par jour, 48 heures au plus par semaine, 11 heures de repos entre deux journées et 35 heures consécutives de repos par semaine, d&#x27;après Service-Public.</p><h3>L&#x27;outil tient-il compte des pauses ?</h3><p>Non : une pause d&#x27;au moins 20 minutes est due après 6 heures de travail consécutives, mais les heures affichées sont des durées de poste. Prévoyez la pause dans l&#x27;organisation.</p><h3>Les congés et les absences sont-ils pris en compte ?</h3><p>Non. Prévoyez des remplaçants ou une marge d&#x27;effectif pour les congés payés et les arrêts.</p><h3>Cette proposition remplace-t-elle l&#x27;accord de l&#x27;entreprise ?</h3><p>Non. Une convention collective ou un accord d&#x27;entreprise peut fixer d&#x27;autres règles. Les plannings doivent aussi respecter les délais de prévenance applicables.</p><h3>Que faire s&#x27;il manque des salariés ?</h3><p>L&#x27;outil indique le déficit en heures et le nombre minimum de salariés nécessaires. Vous pouvez embaucher, élargir les postes ou recourir aux heures supplémentaires dans la limite des durées maximales.</p></details></section>
+
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/simulateur-heures-supplementaires/">Heures supplémentaires</a><a href="/simulateur-temps-partiel/">Temps partiel</a><a href="/simulateur-seuils-effectifs-entreprise/">Seuils d'effectifs</a><a href="/simulateur-periode-essai/">Période d'essai</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-11-04">4 novembre 2026</time> (Service-Public). Proposition indicative, sans valeur juridique. <a href="/methode-et-sources/">Méthode et sources</a> · <a href="/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<nav class="sd-explore" aria-label="Toutes les rubriques"><strong>Explorer toutes les rubriques</strong><div><a href="https://simudroit.fr/simulateurs/" style="--c:#4f46e5"><i class="sdi sdi-calc" aria-hidden="true"></i>Simulateurs</a><a href="https://simudroit.fr/guides/" style="--c:#0e7490"><i class="sdi sdi-book" aria-hidden="true"></i>Guides</a><a href="https://simudroit.fr/aides/" style="--c:#0f766e"><i class="sdi sdi-heart" aria-hidden="true"></i>Aides</a><a href="https://simudroit.fr/fiches-revision/" style="--c:#7c3aed"><i class="sdi sdi-notes" aria-hidden="true"></i>Fiches de révision</a><a href="https://simudroit.fr/metiers/" style="--c:#b5530f"><i class="sdi sdi-user" aria-hidden="true"></i>Mon métier</a><a href="https://simudroit.fr/metiers/creer-son-entreprise-batiment/" style="--c:#c2410c"><i class="sdi sdi-hardhat" aria-hidden="true"></i>Créer son entreprise (bâtiment)</a><a href="https://simudroit.fr/independants/" style="--c:#1d4ed8"><i class="sdi sdi-briefcase" aria-hidden="true"></i>Indépendants</a><a href="https://simudroit.fr/retraite/" style="--c:#be185d"><i class="sdi sdi-sun" aria-hidden="true"></i>Retraite</a><a href="https://simudroit.fr/reconversion/" style="--c:#15803d"><i class="sdi sdi-refresh" aria-hidden="true"></i>Reconversion</a><a href="https://simudroit.fr/salaires/" style="--c:#a16207"><i class="sdi sdi-euro" aria-hidden="true"></i>Salaires</a><a href="https://simudroit.fr/modeles-de-lettres/" style="--c:#9333ea"><i class="sdi sdi-mail" aria-hidden="true"></i>Lettres types</a><a href="https://simudroit.fr/generateur-cv/" style="--c:#0f7a6e"><i class="sdi sdi-doc" aria-hidden="true"></i>Générateur de CV</a><a href="https://simudroit.fr/ouvrir-un-commerce/" style="--c:#b5530f"><i class="sdi sdi-briefcase" aria-hidden="true"></i>Ouvrir un commerce</a><a href="https://simudroit.fr/actualites/" style="--c:#475569"><i class="sdi sdi-chart" aria-hidden="true"></i>Chiffres et données</a><a href="https://simudroit.fr/glossaire/" style="--c:#0369a1"><i class="sdi sdi-bookopen" aria-hidden="true"></i>Glossaire</a><a href="https://simudroit.fr/faq/" style="--c:#b91c1c"><i class="sdi sdi-question" aria-hidden="true"></i>FAQ</a></div></nav>
+<footer><nav class="foot-top" aria-label="Les plus consultés"><strong>Les plus consultés</strong><a href="https://simudroit.fr/simulateur-brut-net/">Salaire brut en net</a><a href="https://simudroit.fr/simulateur-indemnite-licenciement/">Indemnité de licenciement</a><a href="https://simudroit.fr/simulateur-rupture-conventionnelle/">Rupture conventionnelle</a><a href="https://simudroit.fr/simulateur-chomage/">Allocation chômage</a><a href="https://simudroit.fr/simulateur-preavis-demission/">Préavis de démission</a><a href="https://simudroit.fr/simulateur-preavis-licenciement/">Préavis de licenciement</a><a href="https://simudroit.fr/simulateur-conges-payes/">Congés payés</a><a href="https://simudroit.fr/simulateur-fiche-de-paie/">Vérifier ma fiche de paie</a><a href="https://simudroit.fr/simulateur-solde-tout-compte/">Solde de tout compte</a><a href="https://simudroit.fr/simulateur-smic/">SMIC 2026</a><a href="https://simudroit.fr/salaire-brut-net/">Brut en net par montant</a><a href="https://simudroit.fr/metiers/">Mon métier : infirmier libéral, assistante maternelle, intérimaire</a><a href="https://simudroit.fr/retraite/">Retraite : par où commencer ?</a><a href="https://simudroit.fr/reconversion/">Reconversion : par où commencer ?</a><a href="https://simudroit.fr/jours-feries-2026-2027/">Jours fériés 2026 et 2027</a><a href="https://simudroit.fr/fiches-revision/">Fiches de révision</a><a href="https://simudroit.fr/aides/">Aides selon votre situation</a><a href="https://simudroit.fr/documents-a-generer/">Documents à générer</a></nav>
+  <p>© 2026 SimuDroit · <a href="https://simudroit.fr/">Tous les simulateurs</a> · <a href="https://simudroit.fr/methode-et-sources/">Méthode et sources</a> · <a href="https://simudroit.fr/contact/">Contact</a> · <a href="https://simudroit.fr/mentions-legales/">Mentions légales</a> · <a href="https://simudroit.fr/confidentialite/">Confidentialité</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+  function setText(id,t){document.getElementById(id).textContent=t}
+  var JOURS=["Lun","Mar","Mer","Jeu","Ven","Sam","Dim"];
+  function hh(x){var h=Math.floor(x+1e-9),m=Math.round((x-h)*60);return h+"h"+(m?(m<10?"0"+m:m):"")}
+  function slotsFor(debut,fin,S){
+    var span=fin-debut,K,L,st=[],i;
+    if(span<=S){K=1;L=span;st=[debut]}
+    else{K=Math.ceil(span/S);L=S;for(i=0;i<K;i++)st.push(Math.round((debut+i*(span-S)/(K-1))*2)/2)}
+    return {K:K,L:L,starts:st};
+  }
+  function calc(o){
+    var N=o.n,D=o.jours,C=o.postes,H=o.heures,W=o.semaines;
+    var sl=slotsFor(o.debut,o.fin,o.duree),K=sl.K,L=sl.L;
+    var maxS=Math.min(6,Math.floor(H/L+1e-9));if(maxS<1)maxS=1;
+    var needWeek=D*K*C,minStaff=Math.ceil(needWeek/maxS);
+    var emp=[],e,w,d,k;
+    for(e=0;e<N;e++)emp.push({shifts:[],slotCnt:new Array(K).fill(0),wk:0,cons:0,lastEnd:-1e9,lastDay:-2,sat:0,total:0});
+    var weeks=[],unfilled=0,restViol=0;
+    for(w=0;w<W;w++){
+      var grid=[];for(e=0;e<N;e++){grid.push(new Array(7).fill(null));emp[e].wk=0}
+      var off=[];
+      for(e=0;e<N;e++){var s=new Set();if(D===7){var a=(e*2+w*3)%7;s.add(a);s.add((a+1)%7)}else if(D===6){s.add((e+w)%6)}off.push(s)}
+      for(d=0;d<7;d++){
+        var assigned=new Set();
+        if(d>=D){emp.forEach(function(x){x.cons=0});continue}
+        for(k=0;k<K;k++){
+          var start=sl.starts[k],abs=(w*7+d)*24+start,cand=[];
+          for(e=0;e<N;e++){
+            var E=emp[e];
+            if(assigned.has(e)||off[e].has(d)||E.wk>=maxS)continue;
+            if(E.cons>=6)continue;
+            if(abs-E.lastEnd<11)continue;
+            cand.push(e);
+          }
+          cand.sort(function(a,b){
+            var A=emp[a],B=emp[b];
+            if(A.wk!==B.wk)return A.wk-B.wk;
+            if(d>=5&&A.sat!==B.sat)return A.sat-B.sat;
+            if(A.slotCnt[k]!==B.slotCnt[k])return A.slotCnt[k]-B.slotCnt[k];
+            return ((a+w+d)%N)-((b+w+d)%N);
+          });
+          var take=cand.slice(0,C);
+          if(take.length<C)unfilled+=C-take.length;
+          take.forEach(function(x){
+            var E=emp[x];assigned.add(x);E.wk++;E.total++;E.slotCnt[k]++;if(d>=5)E.sat++;
+            E.lastEnd=(w*7+d)*24+start+L;
+            grid[x][d]={s:start,e:start+L,k:k};
+          });
+        }
+        for(e=0;e<N;e++){emp[e].cons=assigned.has(e)?emp[e].cons+1:0;}
+      }
+      weeks.push(grid);
+    }
+    /* contrôles réels sur la chronologie */
+    var maxDay=0,maxWeek=0,restFail=0,restLow=0;
+    for(e=0;e<N;e++){
+      var seq=[];
+      for(w=0;w<W;w++)for(d=0;d<7;d++){var c=weeks[w][e][d];if(c)seq.push({a:(w*7+d)*24+c.s,b:(w*7+d)*24+c.e})}
+      for(var i=1;i<seq.length;i++){if(seq[i].a-seq[i-1].b<11)restViol++}
+      for(w=0;w<W;w++){
+        var h=0;for(d=0;d<7;d++){var c2=weeks[w][e][d];if(c2){h+=c2.e-c2.s;if(c2.e-c2.s>maxDay)maxDay=c2.e-c2.s}}
+        if(h>maxWeek)maxWeek=h;
+        var ws=w*7*24,we=ws+168,ok=false,prevEnd=ws-1e9;
+        for(i=0;i<=seq.length;i++){
+          var gs=i===0?-1e9:seq[i-1].b,ge=i<seq.length?seq[i].a:1e9;
+          if(ge-gs>=35&&gs<we&&ge>ws){ok=true;break}
+        }
+        if(!ok)restFail++;
+      }
+    }
+    var avgH=N>0?(emp.reduce(function(s,x){return s+x.total},0)*L/(N*W)):0;
+    return {K:K,L:L,starts:sl.starts,maxS:maxS,needWeek:needWeek,minStaff:minStaff,unfilled:unfilled,restViol:restViol,restFail:restFail,maxDay:maxDay,maxWeek:maxWeek,avgH:avgH,weeks:weeks,N:N,D:D,W:W,C:C,H:H,emp:emp.map(function(x){return {total:x.total,sat:x.sat}})};
+  }
+  window.sdPlanning=calc;
+  var last=null;
+  function render(r){
+    var host=document.getElementById("grids");host.innerHTML="";
+    var txt=[],w,e,d;
+    for(w=0;w<r.W;w++){
+      var t=document.createElement("table");t.className="sd-table";
+      var cap=document.createElement("caption");cap.textContent="Semaine "+(w+1);t.appendChild(cap);
+      var tr=document.createElement("tr");["Salarié"].concat(JOURS,["Heures"]).forEach(function(x){var th=document.createElement("th");th.textContent=x;tr.appendChild(th)});t.appendChild(tr);
+      txt.push("Semaine "+(w+1));txt.push(["Salarié"].concat(JOURS,["Heures"]).join("\t"));
+      for(e=0;e<r.N;e++){
+        var row=document.createElement("tr"),cells=["Salarié "+(e+1)],tot=0;
+        for(d=0;d<7;d++){var c=r.weeks[w][e][d];if(c){cells.push(hh(c.s)+"-"+hh(c.e));tot+=c.e-c.s}else cells.push(d>=r.D?"fermé":"repos")}
+        cells.push(String(Math.round(tot*100)/100).replace(".",",")+" h");
+        cells.forEach(function(x,i){var td=document.createElement(i===0?"th":"td");td.textContent=x;if(x==="repos"||x==="fermé")td.style.color="#6b7280";row.appendChild(td)});
+        t.appendChild(row);txt.push(cells.join("\t"));
+      }
+      host.appendChild(t);txt.push("");
+    }
+    last=txt.join("\n");
+  }
+  document.getElementById("calculate").addEventListener("click",function(){
+    var o={n:Math.floor(parseFloat(document.getElementById("n").value)),jours:parseInt(document.getElementById("jours").value,10),debut:parseFloat(document.getElementById("debut").value),fin:parseFloat(document.getElementById("fin").value),postes:Math.floor(parseFloat(document.getElementById("postes").value)),heures:parseFloat(document.getElementById("heures").value),duree:parseFloat(document.getElementById("duree").value),semaines:parseInt(document.getElementById("semaines").value,10)};
+    if(!(o.n>=1)||!(o.postes>=1)||!(o.heures>0)||!(o.duree>0)||!(o.fin>o.debut)){alert("Indiquez l'effectif, les horaires, le nombre de salariés par poste, la durée du contrat et la durée d'un poste.");return}
+    if(o.duree>10){alert("Un poste ne peut pas dépasser 10 heures de travail effectif.");return}
+    var r=calc(o);
+    setText("main",r.K+" poste"+(r.K>1?"s":"")+" par jour de "+hh(r.L)+" ("+r.starts.map(hh).join(", ")+")");
+    setText("besoin",r.needWeek+" postes ("+Math.round(r.needWeek*r.L*100)/100+" h)");
+    setText("parsal",r.maxS+" postes ("+Math.round(r.maxS*r.L*100)/100+" h)");
+    setText("minimum",r.minStaff+" salarié"+(r.minStaff>1?"s":"")+(r.N>=r.minStaff?" (effectif suffisant)":" (il en manque "+(r.minStaff-r.N)+")"));
+    setText("manque",String(r.unfilled));
+    setText("moy",(Math.round(r.avgH*10)/10).toString().replace(".",",")+" h (contrat : "+String(o.heures).replace(".",",")+" h)");
+    var ck=[];
+    ck.push((r.maxDay<=10?"✓":"⚠")+" Durée maximale par jour : "+hh(r.maxDay)+" (limite 10 h)");
+    ck.push((r.maxWeek<=48?"✓":"⚠")+" Durée maximale par semaine : "+hh(r.maxWeek)+" (limite 48 h)");
+    ck.push((r.restViol===0?"✓":"⚠")+" Repos de 11 heures entre deux postes : "+(r.restViol===0?"respecté":r.restViol+" cas non respectés"));
+    ck.push((r.restFail===0?"✓":"⚠")+" Repos hebdomadaire de 35 heures consécutives : "+(r.restFail===0?"respecté pour chaque salarié et chaque semaine":r.restFail+" semaines sans repos de 35 h"));
+    var u=document.getElementById("checks");u.innerHTML="";ck.forEach(function(t){var li=document.createElement("li");li.textContent=t;u.appendChild(li)});
+    render(r);
+    var w="Proposition indicative. Pauses (20 minutes dès 6 heures de travail), congés et souhaits des salariés ne sont pas pris en compte.";
+    if(r.unfilled>0)w="Des postes ne sont pas pourvus : "+r.unfilled+" sur la période, soit environ "+Math.round(r.unfilled*r.L)+" heures à couvrir par de l'embauche, des heures supplémentaires dans les limites légales ou des horaires réduits. "+w;
+    else if(r.avgH<o.heures-0.5)w="Votre effectif dépasse le besoin : chaque salarié ne fait en moyenne que "+(Math.round(r.avgH*10)/10).toString().replace(".",",")+" h pour "+String(o.heures).replace(".",",")+" h au contrat. Réduisez l'effectif du planning, élargissez les horaires ou ajoutez des salariés par poste. "+w;
+    setText("wnote",w);
+    document.getElementById("result").classList.add("visible");
+  });
+  document.getElementById("copier").addEventListener("click",function(){if(!last)return;try{navigator.clipboard.writeText(last);this.textContent="Planning copié"}catch(e){}});
+  document.getElementById("imprimer").addEventListener("click",function(){window.print()});
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>

@@ -210,5 +210,41 @@
    "durée de 27 ans sous conditions : non confirmée par les pages lues",
    "texte intégral de la décision D-HCSF-2021-7"
   ]
+ },
+ "seuils-effectifs-entreprise": {
+  "date_relecture": "2026-11-04",
+  "urls": [
+   "https://entreprendre.service-public.gouv.fr/vosdroits/F31415"
+  ],
+  "regles_confirmees": [
+   "CSE à partir de 11 salariés pendant 12 mois consécutifs",
+   "règlement intérieur à partir de 50 salariés pendant 12 mois consécutifs",
+   "effets des seuils pour l'effectif Sécurité sociale après 5 années consécutives",
+   "BDESE, index d'égalité professionnelle et réunions du CSE tous les 2 mois à partir de 50 salariés"
+  ],
+  "non_verifie": [
+   "participation et intéressement pour 11 à 49 salariés : description ambiguë, non reprise",
+   "taux exacts de l'obligation d'emploi des travailleurs handicapés : non indiqués sur la page",
+   "calcul de l'effectif : renvoyé à une fiche distincte, non lue"
+  ]
+ },
+ "planning-roulement-equipe": {
+  "date_relecture": "2026-11-04",
+  "urls": [
+   "https://www.service-public.gouv.fr/particuliers/vosdroits/F1911",
+   "https://www.service-public.gouv.fr/particuliers/vosdroits/F2327"
+  ],
+  "regles_confirmees": [
+   "35 heures de durée légale hebdomadaire",
+   "10 heures maximum par jour, dérogations jusqu'à 12 heures",
+   "48 heures maximum par semaine et 44 heures en moyenne sur 12 semaines",
+   "pause de 20 minutes après 6 heures de travail consécutives",
+   "repos hebdomadaire de 24 heures consécutives, soit 35 heures avec le repos quotidien de 11 heures"
+  ],
+  "non_verifie": [
+   "délais de prévenance des plannings : non lus",
+   "travail de nuit, jeunes de moins de 18 ans, conventions collectives : non modélisés",
+   "fiche F1911 vérifiée le 9 janvier 2023 et F2327 le 26 octobre 2023 : traductions automatiques"
+  ]
  }
 }
