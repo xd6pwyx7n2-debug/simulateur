@@ -289,6 +289,10 @@ for _v in ("19 décembre 2026 au 4 janvier 2027", "13 février au 1er mars 2027"
 _cc = _g("credit-a-la-consommation-retractation-14-jours-remboursement-anticipe-credit-renouvelable")
 for _v in ("14 jours", "75 000 €", "10 000 €", "0,5 %", "TAEG", "8 %", "F2451", "F2436", "Limites"):
     if _v not in _cc: fail("guide crédit conso : mention absente (%s)" % _v)
+# Guide embaucher
+_em = _g("embaucher-premier-salarie-saisonnier-interimaire-apprenti-demarches")
+for _v in ("DPAE", "1 305 €", "8 jours", "18 mois", "5 000 €", "F23107", "F2918", "F23556", "Limites"):
+    if _v not in _em: fail("guide embaucher : mention absente (%s)" % _v)
 # Guide pension alimentaire : Aripa, frais et ASF
 _pa = _g("pension-alimentaire-impayee-aripa-intermediation-allocation-soutien-familial")
 for _v in ("Aripa", "60 jours", "5 ans", "7,5 %", "10 %", "200,78 €", "267,63 €", "F36407", "Limites"):
