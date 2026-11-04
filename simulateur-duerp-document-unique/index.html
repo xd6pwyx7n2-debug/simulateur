@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Générateur de DUERP simplifié : document unique gratuit | SimuDroit</title>
+  <meta name="description" content="Préparez votre document unique d&#x27;évaluation des risques (DUERP) : cochez les risques, notez fréquence et gravité, obtenez un tableau priorisé à imprimer. D&#x27;après Service-Public.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://simudroit.fr/simulateur-duerp-document-unique/">
+  <link rel="icon" href="https://simudroit.fr/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="https://simudroit.fr/favicon.ico" sizes="48x48">
+  <link rel="icon" href="https://simudroit.fr/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="https://simudroit.fr/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Générateur de DUERP simplifié : document unique gratuit | SimuDroit">
+  <meta property="og:description" content="Préparez votre document unique d&#x27;évaluation des risques (DUERP) : cochez les risques, notez fréquence et gravité, obtenez un tableau priorisé à imprimer. D&#x27;après Service-Public.">
+  <meta property="og:url" content="https://simudroit.fr/simulateur-duerp-document-unique/">
+  <meta property="og:image" content="https://simudroit.fr/assets/og/simulateur-duerp-document-unique.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://simudroit.fr/assets/og/simulateur-duerp-document-unique.jpg">
+  <meta name="twitter:title" content="Générateur de DUERP simplifié : document unique gratuit | SimuDroit">
+  <meta name="twitter:description" content="Préparez votre document unique d&#x27;évaluation des risques (DUERP) : cochez les risques, notez fréquence et gravité, obtenez un tableau priorisé à imprimer. D&#x27;après Service-Public.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://simudroit.fr/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Générateur de DUERP simplifié : document unique gratuit", "url": "https://simudroit.fr/simulateur-duerp-document-unique/", "description": "Préparez votre document unique d'évaluation des risques (DUERP) : cochez les risques, notez fréquence et gravité, obtenez un tableau priorisé à imprimer. D'après Service-Public.", "inLanguage": "fr-FR"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://simudroit.fr/"}, {"@type": "ListItem", "position": 2, "name": "Simulateurs", "item": "https://simudroit.fr/simulateurs/"}, {"@type": "ListItem", "position": 3, "name": "Générateur de DUERP", "item": "https://simudroit.fr/simulateur-duerp-document-unique/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Qui doit avoir un DUERP ?", "acceptedAnswer": {"@type": "Answer", "text": "Toute entreprise dès le premier salarié embauché, d'après Service-Public. Il n'existe aucun modèle imposé : papier ou numérique."}}, {"@type": "Question", "name": "À quelle fréquence mettre à jour le DUERP ?", "acceptedAnswer": {"@type": "Answer", "text": "Au moins une fois par an dans les entreprises de 11 salariés et plus. Dans toutes les entreprises, à chaque décision d'aménagement important modifiant les conditions de travail, et quand une nouvelle information sur un risque apparaît."}}, {"@type": "Question", "name": "Combien de temps conserver le DUERP ?", "acceptedAnswer": {"@type": "Answer", "text": "40 ans à compter de son élaboration, y compris les versions antérieures."}}, {"@type": "Question", "name": "Qui peut consulter le DUERP ?", "acceptedAnswer": {"@type": "Answer", "text": "Les salariés et anciens salariés, les membres du CSE, le service de prévention et de santé au travail, l'inspection du travail et la Carsat. L'employeur affiche les modalités de consultation."}}, {"@type": "Question", "name": "Que risque-t-on sans DUERP ?", "acceptedAnswer": {"@type": "Answer", "text": "Selon Service-Public : une amende pénale jusqu'à 1 500 € (personne physique) ou 7 500 € (société), et une amende administrative jusqu'à 4 000 €. Une actualité du site précise ces sanctions depuis la loi du 25 juin 2026, mais le texte est incohérent : vérifiez les montants à jour."}}, {"@type": "Question", "name": "Cet outil remplace-t-il un DUERP complet ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. C'est un point de départ pour structurer votre évaluation. Votre service de prévention et de santé au travail, votre OPCO ou votre branche peuvent vous aider à l'adapter à votre activité."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Générateur de DUERP simplifié", "url": "https://simudroit.fr/simulateur-duerp-document-unique/", "description": "Préparez votre document unique d'évaluation des risques (DUERP) : cochez les risques, notez fréquence et gravité, obtenez un tableau priorisé à imprimer. D'après Service-Public.", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}</script>
+  <meta name="theme-color" content="#201e48">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="Générateur de DUERP simplifié : document unique gratuit | SimuDroit">
+  <link rel="alternate" hreflang="fr" href="https://simudroit.fr/simulateur-duerp-document-unique/">
+  <link rel="alternate" hreflang="x-default" href="https://simudroit.fr/simulateur-duerp-document-unique/">
+  <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
+  <script async src="https://plausible.io/js/pa-j8JdUomB9hqqp7em82xdB.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+</head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.fr/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://simudroit.fr/simulateurs/">Simulateurs</a>
+      <a href="https://simudroit.fr/assistant/">Assistant</a>
+      <a href="https://simudroit.fr/guides/">Guides</a>
+      <a href="https://simudroit.fr/aides/">Aides</a>
+      <a href="https://simudroit.fr/fiches-revision/">Fiches</a>
+      <a href="https://simudroit.fr/actualites/">Chiffres clés</a>
+      <a href="https://simudroit.fr/metiers/">Métiers</a>
+      <a href="https://simudroit.fr/faq/">FAQ</a>
+      <a href="https://simudroit.fr/#recherche">Rechercher</a>
+      <a class="cta-link" href="https://simudroit.fr/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://simudroit.fr/">Accueil</a> &nbsp;›&nbsp; <a href="https://simudroit.fr/employeurs-rh/">Employeurs et RH</a> &nbsp;›&nbsp; Générateur de DUERP
+  </div>
+
+  <section class="hero">
+    <h1>Générateur de DUERP simplifié</h1>
+    <p>Le document unique d'évaluation des risques est obligatoire dès le premier salarié. Cochez les risques de chaque unité de travail, notez-les, et obtenez un tableau priorisé avec les actions à mener, à imprimer ou copier. Rien n'est envoyé : tout reste dans votre navigateur.</p>
+      <div class="badges"><span class="badge">✓ Règles relues le 4 novembre 2026</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Rien n'est envoyé</span></div>
+  </section>
+<section class="info-section sd-know" id="a-savoir">
+    <h2>À savoir avant de commencer</h2>
+    <div class="sd-know-grid">
+      <div class="sd-know-card"><h3>Obligatoire dès 1 salarié</h3><p>Aucun modèle n'est imposé : papier ou numérique, l'important est qu'il soit cohérent et daté.</p></div>
+      <div class="sd-know-card"><h3>Mise à jour</h3><p>Au moins une fois par an à partir de 11 salariés, et à chaque changement important dans le travail.</p></div>
+      <div class="sd-know-card"><h3>Conservation 40 ans</h3><p>Gardez toutes les versions successives du document.</p></div>
+    </div>
+  </section>
+<style>#calcul .field-row{display:flex;gap:10px}#calcul .field-row>.field{flex:1}#calcul .rk{border:1px solid var(--border,#d6d9e0);border-radius:10px;padding:10px;margin:8px 0}#calcul .rk label.t{display:flex;gap:8px;align-items:center;font-weight:600}#calcul .rk .det{display:none;margin-top:8px}#calcul .rk.on .det{display:block}#calcul .det input[type=text]{width:100%}@media print{header,footer,.sd-explore,.sd-see,#a-savoir,#form,button,.breadcrumb,.hero{display:none!important}}</style>
+  <section class="calculator" id="calcul">
+    <h2>Préparer mon DUERP</h2>
+    <noscript><p class="intro-note"><strong>JavaScript requis :</strong> ce générateur fonctionne dans votre navigateur.</p></noscript>
+    <div id="form">
+    <div class="field-row"><div class="field"><label for="ent">Nom de l'entreprise</label><input type="text" id="ent" maxlength="80" placeholder="Ex. Boulangerie Martin"></div>
+    <div class="field"><label for="eff">Nombre de salariés</label><input type="number" id="eff" min="1" max="100000" step="1" inputmode="numeric" value="3"></div></div>
+    <div class="field"><label for="unite">Unité de travail (poste, atelier, équipe ou lieu)</label><input type="text" id="unite" maxlength="80" placeholder="Ex. Fournil et vente"></div>
+    <p class="field-help">Pour chaque risque présent dans cette unité : cochez-le, puis notez sa fréquence et sa gravité. Les mesures proposées sont des exemples génériques à adapter. Le barème est celui de l'outil : la méthode d'évaluation est au choix de l'employeur.</p>
+    <div id="risks"></div>
+    <div class="field"><label for="date">Date de l'évaluation</label><input type="date" id="date"></div>
+    <button type="button" id="calculate">Générer le tableau</button>
+    <p class="warning" id="err" role="alert" hidden></p>
+    </div>
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">Votre tableau d'évaluation des risques</div>
+      <div class="result-main" data-noanim id="main">-</div>
+      <div id="out"></div>
+      <div class="result-row"><span>Prochaine mise à jour</span><strong id="maj">-</strong></div>
+      <div class="result-row"><span>À conserver jusqu'en</span><strong id="cons">-</strong></div>
+      <p><button type="button" id="copy">Copier le tableau</button> <button type="button" id="print">Imprimer</button></p>
+      <div class="warning" id="wnote">Point de départ à compléter : ce tableau ne remplace pas une évaluation adaptée à votre activité.</div>
+    </div>
+  </section>
+
+  <section class="info-section" id="regles">
+    <h2>Ce que contient un DUERP</h2>
+    <ol>
+      <li>Le cadre de l'évaluation et la méthode d'analyse choisie.</li>
+      <li>L'inventaire des risques identifiés et évalués, par unité de travail.</li>
+      <li>Les actions de prévention prévues.</li>
+      <li>Les données collectives sur l'exposition aux facteurs de risques professionnels, en annexe.</li>
+    </ol>
+    <p class="field-help">Le barème de l'outil : priorité = fréquence (1 à 3) x gravité (1 à 4). De 9 à 12 : à traiter en premier. De 4 à 8 : à planifier. Moins de 4 : à surveiller. C'est une convention de l'outil, non une obligation légale. Pour 50 salariés et plus, un programme annuel de prévention est aussi exigé. Sources : <a href="https://entreprendre.service-public.gouv.fr/vosdroits/F35360" rel="noopener">Service-Public Entreprendre F35360</a> (mise à jour du 22 juillet 2026) et <a href="https://www.inrs.fr/demarche/document-unique/ce-qu-il-faut-retenir.html" rel="noopener">INRS, document unique : ce qu'il faut retenir</a> (mise à jour du 18 octobre 2024). Les fiches sont des traductions automatiques. Le dépôt dématérialisé du document n'est pas traité par ces sources et n'est donc pas repris ici : renseignez-vous auprès de votre service de prévention. La liste de risques est indicative.</p>
+  </section>
+
+  <section class="info-section" id="astuces">
+    <h2>Pour aller plus loin</h2>
+    <ol>
+      <li>Impliquez vos salariés : ils connaissent les risques réels de leur poste.</li>
+      <li>Datez chaque version et conservez les anciennes.</li>
+      <li>Indiquez où et comment le document peut être consulté.</li>
+      <li>Passez en revue le <a href="/employeurs-rh/">tableau de bord employeurs</a> et le <a href="/guides/embaucher-premier-salarie-saisonnier-interimaire-apprenti-demarches/">guide d'embauche</a> : le DUERP est exigé dès le premier salarié.</li>
+    </ol>
+  </section>
+
+  <section class="info-section sd-fold" id="faq-ind"><details><summary><h2>Questions fréquentes</h2></summary><h3>Qui doit avoir un DUERP ?</h3><p>Toute entreprise dès le premier salarié embauché, d&#x27;après Service-Public. Il n&#x27;existe aucun modèle imposé : papier ou numérique.</p><h3>À quelle fréquence mettre à jour le DUERP ?</h3><p>Au moins une fois par an dans les entreprises de 11 salariés et plus. Dans toutes les entreprises, à chaque décision d&#x27;aménagement important modifiant les conditions de travail, et quand une nouvelle information sur un risque apparaît.</p><h3>Combien de temps conserver le DUERP ?</h3><p>40 ans à compter de son élaboration, y compris les versions antérieures.</p><h3>Qui peut consulter le DUERP ?</h3><p>Les salariés et anciens salariés, les membres du CSE, le service de prévention et de santé au travail, l&#x27;inspection du travail et la Carsat. L&#x27;employeur affiche les modalités de consultation.</p><h3>Que risque-t-on sans DUERP ?</h3><p>Selon Service-Public : une amende pénale jusqu&#x27;à 1 500 € (personne physique) ou 7 500 € (société), et une amende administrative jusqu&#x27;à 4 000 €. Une actualité du site précise ces sanctions depuis la loi du 25 juin 2026, mais le texte est incohérent : vérifiez les montants à jour.</p><h3>Cet outil remplace-t-il un DUERP complet ?</h3><p>Non. C&#x27;est un point de départ pour structurer votre évaluation. Votre service de prévention et de santé au travail, votre OPCO ou votre branche peuvent vous aider à l&#x27;adapter à votre activité.</p></details></section>
+
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/employeurs-rh/">Employeurs et RH</a><a href="/simulateur-seuils-effectifs-entreprise/">Seuils d'effectifs</a><a href="/simulateur-planning-roulement-equipe/">Planning de roulement</a><a href="/simulateur-suivi-arrets-maladie-equipe/">Suivi des arrêts maladie</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-11-04">4 novembre 2026</time> (Service-Public, INRS). Repère indicatif, sans valeur juridique. <a href="/methode-et-sources/">Méthode et sources</a> · <a href="/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<nav class="sd-explore" aria-label="Toutes les rubriques"><strong>Explorer toutes les rubriques</strong><div><a href="https://simudroit.fr/simulateurs/" style="--c:#4f46e5"><i class="sdi sdi-calc" aria-hidden="true"></i>Simulateurs</a><a href="https://simudroit.fr/guides/" style="--c:#0e7490"><i class="sdi sdi-book" aria-hidden="true"></i>Guides</a><a href="https://simudroit.fr/aides/" style="--c:#0f766e"><i class="sdi sdi-heart" aria-hidden="true"></i>Aides</a><a href="https://simudroit.fr/fiches-revision/" style="--c:#7c3aed"><i class="sdi sdi-notes" aria-hidden="true"></i>Fiches de révision</a><a href="https://simudroit.fr/metiers/" style="--c:#b5530f"><i class="sdi sdi-user" aria-hidden="true"></i>Mon métier</a><a href="https://simudroit.fr/metiers/creer-son-entreprise-batiment/" style="--c:#c2410c"><i class="sdi sdi-hardhat" aria-hidden="true"></i>Créer son entreprise (bâtiment)</a><a href="https://simudroit.fr/independants/" style="--c:#1d4ed8"><i class="sdi sdi-briefcase" aria-hidden="true"></i>Indépendants</a><a href="https://simudroit.fr/retraite/" style="--c:#be185d"><i class="sdi sdi-sun" aria-hidden="true"></i>Retraite</a><a href="https://simudroit.fr/reconversion/" style="--c:#15803d"><i class="sdi sdi-refresh" aria-hidden="true"></i>Reconversion</a><a href="https://simudroit.fr/salaires/" style="--c:#a16207"><i class="sdi sdi-euro" aria-hidden="true"></i>Salaires</a><a href="https://simudroit.fr/modeles-de-lettres/" style="--c:#9333ea"><i class="sdi sdi-mail" aria-hidden="true"></i>Lettres types</a><a href="https://simudroit.fr/generateur-cv/" style="--c:#0f7a6e"><i class="sdi sdi-doc" aria-hidden="true"></i>Générateur de CV</a><a href="https://simudroit.fr/ouvrir-un-commerce/" style="--c:#b5530f"><i class="sdi sdi-briefcase" aria-hidden="true"></i>Ouvrir un commerce</a><a href="https://simudroit.fr/actualites/" style="--c:#475569"><i class="sdi sdi-chart" aria-hidden="true"></i>Chiffres et données</a><a href="https://simudroit.fr/glossaire/" style="--c:#0369a1"><i class="sdi sdi-bookopen" aria-hidden="true"></i>Glossaire</a><a href="https://simudroit.fr/faq/" style="--c:#b91c1c"><i class="sdi sdi-question" aria-hidden="true"></i>FAQ</a></div></nav>
+<footer><nav class="foot-top" aria-label="Les plus consultés"><strong>Les plus consultés</strong><a href="https://simudroit.fr/simulateur-brut-net/">Salaire brut en net</a><a href="https://simudroit.fr/simulateur-indemnite-licenciement/">Indemnité de licenciement</a><a href="https://simudroit.fr/simulateur-rupture-conventionnelle/">Rupture conventionnelle</a><a href="https://simudroit.fr/simulateur-chomage/">Allocation chômage</a><a href="https://simudroit.fr/simulateur-preavis-demission/">Préavis de démission</a><a href="https://simudroit.fr/simulateur-preavis-licenciement/">Préavis de licenciement</a><a href="https://simudroit.fr/simulateur-conges-payes/">Congés payés</a><a href="https://simudroit.fr/simulateur-fiche-de-paie/">Vérifier ma fiche de paie</a><a href="https://simudroit.fr/simulateur-solde-tout-compte/">Solde de tout compte</a><a href="https://simudroit.fr/simulateur-smic/">SMIC 2026</a><a href="https://simudroit.fr/salaire-brut-net/">Brut en net par montant</a><a href="https://simudroit.fr/metiers/">Mon métier : infirmier libéral, assistante maternelle, intérimaire</a><a href="https://simudroit.fr/retraite/">Retraite : par où commencer ?</a><a href="https://simudroit.fr/reconversion/">Reconversion : par où commencer ?</a><a href="https://simudroit.fr/jours-feries-2026-2027/">Jours fériés 2026 et 2027</a><a href="https://simudroit.fr/fiches-revision/">Fiches de révision</a><a href="https://simudroit.fr/aides/">Aides selon votre situation</a><a href="https://simudroit.fr/documents-a-generer/">Documents à générer</a></nav>
+  <p>© 2026 SimuDroit · <a href="https://simudroit.fr/">Tous les simulateurs</a> · <a href="https://simudroit.fr/methode-et-sources/">Méthode et sources</a> · <a href="https://simudroit.fr/contact/">Contact</a> · <a href="https://simudroit.fr/mentions-legales/">Mentions légales</a> · <a href="https://simudroit.fr/confidentialite/">Confidentialité</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+  function setText(id,t){document.getElementById(id).textContent=t}
+  var R=[{"id": "manut", "nom": "Manutention et port de charges", "mesure": "Aides à la manutention, formation aux gestes et postures, charges limitées"}, {"id": "chute", "nom": "Chutes de plain-pied ou de hauteur", "mesure": "Sols dégagés et propres, éclairage, échelles et escabeaux conformes"}, {"id": "route", "nom": "Risque routier (trajets professionnels)", "mesure": "Planification des trajets, entretien des véhicules, pas de téléphone au volant"}, {"id": "incendie", "nom": "Incendie et évacuation", "mesure": "Extincteurs vérifiés, issues dégagées, exercice d'évacuation"}, {"id": "elec", "nom": "Risque électrique", "mesure": "Installations vérifiées, habilitation du personnel concerné"}, {"id": "chimie", "nom": "Produits chimiques", "mesure": "Fiches de données de sécurité, stockage adapté, gants et protections"}, {"id": "bruit", "nom": "Bruit", "mesure": "Mesure du niveau sonore, protections auditives, traitement acoustique"}, {"id": "ecran", "nom": "Travail sur écran et postures", "mesure": "Poste réglable, pauses régulières, éclairage adapté"}, {"id": "rps", "nom": "Charge mentale, stress, relations de travail", "mesure": "Échanges réguliers avec l'équipe, charge de travail suivie, référent désigné"}, {"id": "agress", "nom": "Agressions et incivilités du public", "mesure": "Procédure en cas d'incident, travail à plusieurs aux horaires sensibles"}, {"id": "machine", "nom": "Machines et outils (coupure, écrasement)", "mesure": "Protecteurs en place, maintenance, formation à l'utilisation"}, {"id": "thermique", "nom": "Chaleur, froid, intempéries", "mesure": "Pauses, eau à disposition, vêtements adaptés"}, {"id": "isole", "nom": "Travail isolé", "mesure": "Dispositif d'alerte, points de contact réguliers"}, {"id": "biolog", "nom": "Risque biologique et infectieux", "mesure": "Gestes d'hygiène, équipements de protection, vaccination proposée"}];
+  var FR=["","rare","fréquente","très fréquente"],GR=["","légère","sérieuse","grave","très grave"];
+  function lvl(s){return s>=9?"À traiter en premier":s>=4?"À planifier":"À surveiller"}
+  function pad(n){return String(n).padStart(2,"0")}
+  function fdate(d){return pad(d.getUTCDate())+"/"+pad(d.getUTCMonth()+1)+"/"+d.getUTCFullYear()}
+  function calc(o){
+    var rows=(o.risques||[]).map(function(r){
+      var base=null;for(var i=0;i<R.length;i++)if(R[i].id===r.id)base=R[i];
+      var f=Math.min(3,Math.max(1,r.freq|0)),g=Math.min(4,Math.max(1,r.grav|0)),s=f*g;
+      return {id:r.id,nom:base?base.nom:r.id,freq:f,grav:g,score:s,niveau:lvl(s),mesure:(r.mesure||(base?base.mesure:""))};
+    }).sort(function(a,b){return b.score-a.score});
+    var d=o.date?new Date(o.date+"T00:00:00Z"):null,maj="",cons="";
+    if(d&&!isNaN(d)){
+      if(o.eff>=11){var n=new Date(Date.UTC(d.getUTCFullYear()+1,d.getUTCMonth(),d.getUTCDate()));maj="Avant le "+fdate(n)+" (au moins une fois par an), et à chaque changement important"}
+      else maj="À chaque changement important des conditions de travail ou nouvelle information sur un risque";
+      cons=String(d.getUTCFullYear()+40);
+    }
+    return {rows:rows,maj:maj,cons:cons,prog:o.eff>=50};
+  }
+  window.sdDuerp=calc;
+  var box=document.getElementById("risks");
+  R.forEach(function(r){
+    var d=document.createElement("div");d.className="rk";
+    d.innerHTML='<label class="t"><input type="checkbox" data-id="'+r.id+'"> '+r.nom+'</label><div class="det"><div class="field-row"><div class="field"><label>Fréquence</label><select class="f" aria-label="Fréquence : '+r.nom+'"><option value="1">rare</option><option value="2" selected>fréquente</option><option value="3">très fréquente</option></select></div><div class="field"><label>Gravité</label><select class="g" aria-label="Gravité : '+r.nom+'"><option value="1">légère</option><option value="2" selected>sérieuse</option><option value="3">grave</option><option value="4">très grave</option></select></div></div><div class="field"><label>Mesure de prévention</label><input type="text" class="m" maxlength="200" aria-label="Mesure de prévention : '+r.nom+'"></div></div>';
+    d.querySelector(".m").value=r.mesure;
+    d.querySelector("input[type=checkbox]").addEventListener("change",function(){d.classList.toggle("on",this.checked)});
+    box.appendChild(d);
+  });
+  var td=new Date();document.getElementById("date").value=td.getFullYear()+"-"+pad(td.getMonth()+1)+"-"+pad(td.getDate());
+  var last="";
+  function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+  document.getElementById("calculate").addEventListener("click",function(){
+    var el=document.getElementById("err");el.hidden=true;
+    var eff=parseInt(document.getElementById("eff").value,10),ris=[];
+    box.querySelectorAll(".rk").forEach(function(d){var c=d.querySelector("input[type=checkbox]");if(c.checked)ris.push({id:c.getAttribute("data-id"),freq:+d.querySelector(".f").value,grav:+d.querySelector(".g").value,mesure:d.querySelector(".m").value})});
+    if(!(eff>=1)){el.textContent="Indiquez le nombre de salariés.";el.hidden=false;return}
+    if(!ris.length){el.textContent="Cochez au moins un risque présent dans cette unité de travail.";el.hidden=false;return}
+    var r=calc({eff:eff,date:document.getElementById("date").value,risques:ris});
+    var ent=document.getElementById("ent").value.trim()||"Mon entreprise",un=document.getElementById("unite").value.trim()||"Unité de travail";
+    setText("main",r.rows.length+" risque"+(r.rows.length>1?"s":"")+" évalué"+(r.rows.length>1?"s":"")+" - "+un);
+    var h='<div class="table-wrap"><table class="sd-table"><thead><tr><th>Risque</th><th>Fréquence</th><th>Gravité</th><th>Priorité</th><th>Mesure de prévention</th></tr></thead><tbody>';
+    r.rows.forEach(function(x){h+="<tr><td>"+esc(x.nom)+"</td><td>"+FR[x.freq]+"</td><td>"+GR[x.grav]+"</td><td>"+x.niveau+" ("+x.score+")</td><td>"+esc(x.mesure)+"</td></tr>"});
+    document.getElementById("out").innerHTML=h+"</tbody></table></div>"+(r.prog?'<p class="field-help">Au moins 50 salariés : un programme annuel de prévention doit aussi être établi.</p>':"");
+    setText("maj",r.maj);setText("cons",r.cons);
+    last=ent+" - DUERP - "+un+" - évaluation du "+document.getElementById("date").value+"\n"+r.rows.map(function(x){return "- "+x.nom+" | fréquence : "+FR[x.freq]+" | gravité : "+GR[x.grav]+" | "+x.niveau+" | "+x.mesure}).join("\n")+"\nMise à jour : "+r.maj;
+    document.getElementById("result").classList.add("visible");
+  });
+  document.getElementById("copy").addEventListener("click",function(){try{navigator.clipboard.writeText(last)}catch(e){}});
+  document.getElementById("print").addEventListener("click",function(){window.print()});
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>

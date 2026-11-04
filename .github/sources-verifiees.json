@@ -303,5 +303,25 @@
    "Vendredi saint et 26 décembre en Alsace-Moselle : non lus sur ces fiches",
    "allongements outre-mer et étranger non modélisés"
   ]
+ },
+ "duerp-document-unique": {
+  "date_relecture": "2026-11-04",
+  "urls": [
+   "https://entreprendre.service-public.gouv.fr/vosdroits/F35360",
+   "https://www.inrs.fr/demarche/document-unique/ce-qu-il-faut-retenir.html",
+   "https://entreprendre.service-public.gouv.fr/actualites/A18908"
+  ],
+  "regles_confirmees": [
+   "DUERP obligatoire dès le premier salarié",
+   "mise à jour annuelle à partir de 11 salariés et à chaque changement important",
+   "conservation 40 ans",
+   "aucun modèle imposé",
+   "programme annuel de prévention à 50 salariés et plus"
+  ],
+  "non_verifie": [
+   "dépôt dématérialisé et calendrier par taille : non traités par les sources lues",
+   "sanctions : F35360 (1 500 / 7 500 / 4 000 €) et A18908 (7 500 € pénal) incohérentes entre elles",
+   "fiches en traduction automatique"
+  ]
  }
 }

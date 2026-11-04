@@ -15,6 +15,7 @@ SYN = {
     "simulateur-planning-roulement-equipe": "planning roulement equipe horaires employes heures repos 11 heures 35 heures rotation shifts organisation equipe employeur nombre employes",
     "simulateur-suivi-conges-payes-equipe": "suivi conges payes equipe jours acquis soldes salaries periode de reference 1er juin 31 mai jours ouvrables ouvres employeur compteur conges",
     "simulateur-calcul-delais-echeances": "calcul delai date echeance ajouter jours mois date limite jours francs ouvrables ouvres calendaires jour ferie report prorogation",
+    "simulateur-duerp-document-unique": "duerp document unique evaluation risques professionnels generateur modele employeur prevention tableau",
     "simulateur-capacite-emprunt": "capacite d emprunt taux d endettement credit immobilier mensualite 35 hcsf pret simulateur combien emprunter duree 25 ans assurance",
     "simulateur-saisie-sur-salaire": "saisie sur salaire saisie des remunerations bareme 2026 quotite saisissable reste a vivre solde insaisissable 651,69 pension alimentaire dette commissaire de justice huissier simulateur",
     "simulateur-aide-carburant-grands-rouleurs": "aide carburant grands rouleurs prime carburant 2026 simulateur 100 euros eligibilite travailleurs 22770 revenu fiscal de reference formulaire 31 decembre",

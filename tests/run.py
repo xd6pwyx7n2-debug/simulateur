@@ -359,6 +359,9 @@ for _v in ("F31111", "F35697", "jours francs", "dernier jour du mois", "premier 
 _eh = open(os.path.join(ROOT, "employeurs-rh", "index.html"), encoding="utf-8").read()
 for _v in ("simulateur-planning-roulement-equipe", "simulateur-suivi-conges-payes-equipe", "simulateur-suivi-arrets-maladie-equipe", "simulateur-seuils-effectifs-entreprise", "simulateur-calcul-delais-echeances", "Ce que ces outils ne remplacent pas"):
     if _v not in _eh: fail("hub employeurs : mention absente (%s)" % _v)
+_du = _page("duerp-document-unique")
+for _v in ("F35360", "40 ans", "11 salariés", "dès le premier salarié", "convention de l'outil"):
+    if _v not in _du: fail("DUERP : mention absente (%s)" % _v)
 _ps2 = open(os.path.join(ROOT, "mon-plan-de-sortie-surendettement", "index.html"), encoding="utf-8").read(); _psj = open(os.path.join(ROOT, "assets", "plan-sortie.js"), encoding="utf-8").read()
 for _v in ("Rien n'est envoyé", "3 mois", "Mémoriser ma progression sur cet appareil uniquement", "Tout effacer"):
     if _v not in _ps2: fail("plan de sortie : mention absente (%s)" % _v)
@@ -756,6 +759,15 @@ with sync_playwright() as pw:
     if _cdl(2026, 11, 4, 8, "fra")[0] != "2026-11-13" or _cdl(2024, 2, 29, 1, "an")[0] != "2025-02-28": fail("délai : jours francs, année bissextile")
     pg.fill("#dep", "2026-11-04"); pg.fill("#n", "14"); pg.click("#calculate"); pg.wait_for_timeout(300)
     if "mercredi 18 novembre 2026" not in pg.inner_text("#main"): fail("délai : affichage (%s)" % pg.inner_text("#result"))
+    # DUERP : priorités, mise à jour, conservation
+    pg.goto(LOCAL + "simulateur-duerp-document-unique/"); pg.wait_for_timeout(600)
+    _d = pg.evaluate("(o)=>window.sdDuerp(o)", {"eff": 12, "date": "2026-11-04", "risques": [{"id": "chute", "freq": 1, "grav": 2}, {"id": "manut", "freq": 3, "grav": 3}, {"id": "bruit", "freq": 2, "grav": 2}]})
+    if [x["id"] for x in _d["rows"]] != ["manut", "bruit", "chute"] or _d["rows"][0]["niveau"] != "À traiter en premier" or _d["rows"][2]["niveau"] != "À surveiller": fail("DUERP : tri et niveaux (%s)" % _d)
+    if "04/11/2027" not in _d["maj"] or _d["cons"] != "2066" or _d["prog"]: fail("DUERP : mise à jour annuelle, conservation 40 ans (%s)" % _d)
+    _d = pg.evaluate("(o)=>window.sdDuerp(o)", {"eff": 50, "date": "2026-11-04", "risques": [{"id": "chute", "freq": 9, "grav": 9}]})
+    if not _d["prog"] or _d["rows"][0]["score"] != 12: fail("DUERP : 50 salariés et bornes (%s)" % _d)
+    pg.check("input[data-id=manut]"); pg.fill("#unite", "Fournil"); pg.click("#calculate"); pg.wait_for_timeout(300)
+    if "1 risque évalué - Fournil" not in pg.inner_text("#main"): fail("DUERP : affichage (%s)" % pg.inner_text("#result"))
     # Mon plan de sortie du surendettement : analyse CSV, calendrier, progression (tout en local)
     pg.goto(LOCAL + "mon-plan-de-sortie-surendettement/"); pg.wait_for_timeout(600)
     _csv = "Date;Libellé;Montant\n01/09/2026;SALAIRE;1000,00\n02/09/2026;LOYER;-500,00\n03/09/2026;NETFLIX;-10,00\n03/10/2026;NETFLIX;-10,00\n05/10/2026;CARREFOUR;-40,00"
