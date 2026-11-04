@@ -283,3 +283,7 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
   }
   if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else go();
 })();
+
+/* Tableaux : étiquette de colonne sur chaque cellule (lecture mobile) */
+(function(){function go(){try{[].forEach.call(document.querySelectorAll("table.sd-table"),function(t){var h=[].map.call(t.querySelectorAll("thead th"),function(x){return x.textContent.trim()});if(!h.length)return;[].forEach.call(t.querySelectorAll("tbody tr"),function(r){[].forEach.call(r.children,function(c,i){if(i>0&&c.tagName==="TD"&&!c.hasAttribute("data-label")&&h[i])c.setAttribute("data-label",h[i])})})})}catch(e){}}
+if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else go()})();
