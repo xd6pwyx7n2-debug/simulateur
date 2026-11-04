@@ -78,7 +78,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/guides/journee-de-solidarite-2027-date-regles-remuneration/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-04</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/guides/convention-de-stage-regles-duree-gratification-droits-du-stagiaire/</loc>
@@ -761,6 +761,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://simudroit.fr/guides/credit-a-la-consommation-retractation-14-jours-remboursement-anticipe-credit-renouvelable/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://simudroit.fr/guides/apl-aide-au-logement-2026-conditions-loyers-plafonds-demande/</loc>
     <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
@@ -1150,7 +1156,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/simulateur-point-indice/</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-04</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/simulateur-comparer-mon-salaire/</loc>
