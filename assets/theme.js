@@ -81,6 +81,7 @@
     else if(/^\/independants/.test(p))k="Indépendants";
     else if(/^\/employeurs-rh/.test(p))k="Employeurs";
     else if(/^\/litiges/.test(p))k="Guides";
+    else if(/^\/quiz-droits/.test(p))k="Guides";
     else if(/^\/assistant/.test(p))k="Assistant";
     else if(/^\/a-propos/.test(p))k="À propos";
     else if(/^\/contact/.test(p))k="Contact";

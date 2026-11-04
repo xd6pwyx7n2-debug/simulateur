@@ -134,7 +134,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/modeles-de-lettres/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-04</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/generateur-cv/</loc>
@@ -696,19 +696,19 @@
   </url>
   <url>
     <loc>https://simudroit.fr/guides/plafond-securite-sociale-2027-montants-ce-qui-change/</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://simudroit.fr/guides/smic-2027-revalorisation-1er-janvier-ce-que-lon-sait/</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://simudroit.fr/guides/ce-qui-change-au-1er-janvier-2027-les-chiffres/</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -864,7 +864,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/guides/budget-2027-ce-qui-est-propose-et-ce-qui-est-vote/</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1449,5 +1449,9 @@
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://simudroit.fr/quiz-droits-consommateur-vrai-ou-faux/</loc>
+    <lastmod>2026-11-04</lastmod>
   </url>
 </urlset>

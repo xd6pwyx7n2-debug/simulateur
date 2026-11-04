@@ -417,6 +417,9 @@ for _v in ("F35360", "40 ans", "11 salariés", "dès le premier salarié", "conv
 _ll = _page("lettre-litige")
 for _v in ("F10485", "F11094", "F2474", "F33338", "F31269", "sdLettre"):
     if _v not in _ll: fail("lettres de litige : mention absente (%s)" % _v)
+_qz = open(os.path.join(ROOT, "quiz-droits-consommateur-vrai-ou-faux", "index.html"), encoding="utf-8").read()
+for _v in ("F10485", "F11094", "F33338", "F2474", "F31269", "qz-static"):
+    if _v not in _qz: fail("quiz droits : mention absente (%s)" % _v)
 _ps2 = open(os.path.join(ROOT, "mon-plan-de-sortie-surendettement", "index.html"), encoding="utf-8").read(); _psj = open(os.path.join(ROOT, "assets", "plan-sortie.js"), encoding="utf-8").read()
 for _v in ("Rien n'est envoyé", "3 mois", "Mémoriser ma progression sur cet appareil uniquement", "Tout effacer"):
     if _v not in _ps2: fail("plan de sortie : mention absente (%s)" % _v)
@@ -837,6 +840,11 @@ with sync_playwright() as pw:
     if _lt("recours", {"date_dec": "2026-07-01"})["alertes"][0]["t"] != "alerte" or _lt("garantie", {"livraison": "2025-05-01"})["alertes"][0]["t"] != "astuce": fail("lettre litige : recours / garantie")
     pg.click(".lt-t[data-t=reclamation]"); pg.fill("#f_objet", "un lave-linge"); pg.wait_for_timeout(200)
     if "un lave-linge" not in pg.inner_text("#lt-sheet"): fail("lettre litige : aperçu en direct")
+    # quiz droits : parcours complet
+    pg.goto(LOCAL + "quiz-droits-consommateur-vrai-ou-faux/"); pg.wait_for_timeout(500)
+    for _k in range(10):
+        pg.click('.qz-btns button[data-a="1"]'); pg.click("#qz-n"); pg.wait_for_timeout(60)
+    if "/ 10" not in pg.inner_text("#qz") or "Rejouer" not in pg.inner_text("#qz"): fail("quiz droits : écran de résultat")
     # Mon plan de sortie du surendettement : analyse CSV, calendrier, progression (tout en local)
     pg.goto(LOCAL + "mon-plan-de-sortie-surendettement/"); pg.wait_for_timeout(600)
     _csv = "Date;Libellé;Montant\n01/09/2026;SALAIRE;1000,00\n02/09/2026;LOYER;-500,00\n03/09/2026;NETFLIX;-10,00\n03/10/2026;NETFLIX;-10,00\n05/10/2026;CARREFOUR;-40,00"
