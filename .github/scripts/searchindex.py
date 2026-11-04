@@ -44,6 +44,7 @@ SYN = {
     "guides/cumul-emploi-retraite-2027-nouvelles-regles-seuil-7000-euros-pension-reduite": "cumul emploi retraite 2027 nouvelles regles seuil 7000 euros pension reduite age legal 67 ans decret",
     "guides/treve-hivernale-2026-2027-expulsion-coupures-energie-eau-ce-qui-est-interdit": "treve hivernale 2026 2027 expulsion locataire coupure gaz electricite eau impaye loyer 31 mars",
     "guides/ce-qui-change-au-1er-janvier-2027-vote-ou-en-projet-budget-smic-impot-retraite": "ce qui change 1er janvier 2027 budget 2027 smic impot revenu retraite pass indemnites rupture prime activite plf plfss",
+    "guides/black-friday-achats-en-ligne-droit-de-retractation-14-jours-garantie-2-ans": "black friday achat en ligne droit de retractation 14 jours remboursement retour garantie legale conformite 2 ans vendeur colis",
     "guides/credit-a-la-consommation-retractation-14-jours-remboursement-anticipe-credit-renouvelable": "credit consommation retractation 14 jours remboursement anticipe credit renouvelable revolving taeg pret personnel taux usure",
     "guides/pension-alimentaire-impayee-aripa-intermediation-allocation-soutien-familial": "pension alimentaire impayee aripa intermediation financiere caf msa allocation soutien familial asf recouvrement enfant parent",
     "guides/salaire-impaye-ou-en-retard-que-faire-prescription-3-ans-prud-hommes": "salaire impaye retard paiement prescription 3 ans prud hommes mise en demeure rappel de salaire employeur ne paie pas",

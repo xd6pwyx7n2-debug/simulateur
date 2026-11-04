@@ -289,6 +289,10 @@ for _v in ("19 décembre 2026 au 4 janvier 2027", "13 février au 1er mars 2027"
 _cc = _g("credit-a-la-consommation-retractation-14-jours-remboursement-anticipe-credit-renouvelable")
 for _v in ("14 jours", "75 000 €", "10 000 €", "0,5 %", "TAEG", "8 %", "F2451", "F2436", "Limites"):
     if _v not in _cc: fail("guide crédit conso : mention absente (%s)" % _v)
+# Guide Black Friday
+_bf = _g("black-friday-achats-en-ligne-droit-de-retractation-14-jours-garantie-2-ans")
+for _v in ("14 jours", "2 ans", "27 novembre 2026", "F10485", "F11094", "F10868", "Limites"):
+    if _v not in _bf: fail("guide Black Friday : mention absente (%s)" % _v)
 # Guide ce qui change au 1er janvier 2027
 _cj = _g("ce-qui-change-au-1er-janvier-2027-vote-ou-en-projet-budget-smic-impot-retraite")
 for _v in ("1er janvier 2027", "1 867,02 €", "7 000 €", "Salairia", "PLFSS", "mi-décembre", "Limites"):
