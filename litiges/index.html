@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>J'ai un litige : par où commencer ? Parcours guidé</title>
+  <meta name="description" content="Un problème avec un achat, un abonnement, une banque, un artisan, un propriétaire, un voisin ou une administration ? Choisissez votre cas : étapes, lettre à remplir et guide, sans tribunal.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://simudroit.fr/litiges/">
+  <link rel="icon" href="https://simudroit.fr/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="https://simudroit.fr/favicon.ico" sizes="48x48">
+  <link rel="icon" href="https://simudroit.fr/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="https://simudroit.fr/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="J&#x27;ai un litige : par où commencer ? Parcours guidé | SimuDroit">
+  <meta property="og:description" content="Un problème avec un achat, un abonnement, une banque, un artisan, un propriétaire, un voisin ou une administration ? Choisissez votre cas : étapes, lettre à remplir et guide, sans tribunal.">
+  <meta property="og:url" content="https://simudroit.fr/litiges/">
+  <meta property="og:image" content="https://simudroit.fr/assets/og/litiges.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://simudroit.fr/assets/og/litiges.jpg">
+  <meta name="twitter:title" content="J&#x27;ai un litige : par où commencer ? Parcours guidé | SimuDroit">
+  <meta name="twitter:description" content="Un problème avec un achat, un abonnement, une banque, un artisan, un propriétaire, un voisin ou une administration ? Choisissez votre cas : étapes, lettre à remplir et guide, sans tribunal.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://simudroit.fr/"}
+  </script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Litiges : par où commencer", "url": "https://simudroit.fr/litiges/", "description": "Un problème avec un achat, un abonnement, une banque, un artisan, un propriétaire, un voisin ou une administration ? Choisissez votre cas : étapes, lettre à remplir et guide, sans tribunal.", "inLanguage": "fr-FR", "dateModified": "2026-11-04"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://simudroit.fr/"}, {"@type": "ListItem", "position": 2, "name": "Litiges : par où commencer", "item": "https://simudroit.fr/litiges/"}]}</script>
+  
+  
+  <meta name="theme-color" content="#201e48">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="J&#x27;ai un litige : par où commencer ? Parcours guidé | SimuDroit">
+  <link rel="alternate" hreflang="fr" href="https://simudroit.fr/litiges/">
+  <link rel="alternate" hreflang="x-default" href="https://simudroit.fr/litiges/">
+  <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
+  <script async src="https://plausible.io/js/pa-j8JdUomB9hqqp7em82xdB.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+</head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.fr/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://simudroit.fr/simulateurs/">Simulateurs</a>
+      <a href="https://simudroit.fr/assistant/">Assistant</a>
+      <a href="https://simudroit.fr/litiges/">Indépendants</a>
+      <a href="https://simudroit.fr/guides/">Guides</a>
+      <a href="https://simudroit.fr/aides/">Aides</a>
+      <a href="https://simudroit.fr/fiches-revision/">Fiches</a>
+      <a href="https://simudroit.fr/actualites/">Chiffres clés</a>
+      <a href="https://simudroit.fr/metiers/">Métiers</a>
+      <a href="https://simudroit.fr/faq/">FAQ</a>
+      <a href="https://simudroit.fr/#recherche">Rechercher</a>
+      <a class="cta-link" href="https://simudroit.fr/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <style>.lg-q{margin:6px 0 10px;font-size:1.05rem;font-weight:700}.lg-th{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin:0 0 22px;padding:0;list-style:none}.lg-t{appearance:none;display:block;width:100%;text-align:left;font:inherit;color:inherit;cursor:pointer;padding:16px 18px;border-radius:16px;background:color-mix(in srgb,var(--c) 7%,#fff);border:1.5px solid color-mix(in srgb,var(--c) 30%,#fff);min-height:76px}.lg-t strong{display:block;color:var(--c);filter:brightness(.8);font-size:1.02rem}.lg-t small{color:#5c5a80;font-size:.86rem}.lg-t[aria-pressed=true]{border-color:var(--c);box-shadow:0 0 0 2px var(--c) inset}.lg-sits{display:grid;gap:8px;margin:0 0 20px}.lg-s{appearance:none;text-align:left;font:inherit;color:inherit;cursor:pointer;padding:12px 16px;border-radius:12px;border:1.5px solid #dcd7f7;background:#fff;min-height:44px}.lg-s[aria-pressed=true]{border-color:#4f46e5;background:#eef0ff;font-weight:700}.lg-res{border:1.5px solid #dcd7f7;border-radius:16px;padding:18px 20px;background:#fff;margin:0 0 20px}.lg-res h3{margin:0 0 6px}.lg-go{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 6px}.lg-go a{display:inline-block;padding:11px 16px;border-radius:12px;border:1.5px solid #4f46e5;color:#3730a3;font-weight:700;text-decoration:none;min-height:44px;box-sizing:border-box}.lg-go a.p{background:#4f46e5;color:#fff}.lg-rap{background:#fff7ed;border:1.5px solid #fdba74;border-radius:12px;padding:10px 14px;color:#7c2d12;margin:10px 0 0}.js .lg-sitgrp[hidden],.js .lg-res[hidden]{display:none}.lg-help{color:#5c5a80;margin:0 0 14px}</style><div class="breadcrumb">
+    <a href="https://simudroit.fr/">Accueil</a> &nbsp;›&nbsp; Litiges
+  </div>
+
+  <section class="hero">
+    <h1>J'ai un litige : par où commencer ?</h1>
+    <p>Répondez à deux questions simples. Vous obtenez les étapes dans l'ordre, la lettre à remplir et le guide qui correspond à votre cas. Dans la plupart des litiges du quotidien, on peut avancer sans aller au tribunal.</p>
+      <div class="badges"><span class="badge">✓ Sources officielles relues le 4 novembre 2026</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Vos données restent dans votre navigateur</span></div>
+  </section>
+  <section class="info-section" id="parcours" aria-labelledby="lg-t1">
+    <h2 id="lg-t1">1. Quel est votre problème ?</h2>
+    <p class="lg-help">Choisissez la case qui ressemble le plus à votre cas.</p>
+    <ul class="lg-th" id="lg-th"><li><button type="button" class="lg-t" style="--c:#4f46e5" data-th="achat" aria-pressed="false"><strong>J'ai acheté quelque chose</strong><small>Colis, produit, magasin, site</small></button></li><li><button type="button" class="lg-t" style="--c:#0e7490" data-th="abonnement" aria-pressed="false"><strong>Un abonnement ou un contrat</strong><small>Box, mobile, salle de sport, assurance</small></button></li><li><button type="button" class="lg-t" style="--c:#0f766e" data-th="banque" aria-pressed="false"><strong>Ma banque</strong><small>Frais, prélèvement, paiement contesté</small></button></li><li><button type="button" class="lg-t" style="--c:#b45309" data-th="artisan" aria-pressed="false"><strong>Un artisan ou des travaux</strong><small>Travaux mal faits, retard, abandon</small></button></li><li><button type="button" class="lg-t" style="--c:#be185d" data-th="logement" aria-pressed="false"><strong>Mon logement</strong><small>Propriétaire, dépôt de garantie, expulsion</small></button></li><li><button type="button" class="lg-t" style="--c:#7c3aed" data-th="voisin" aria-pressed="false"><strong>Mon voisin</strong><small>Bruit, nuisances, mur, arbres</small></button></li><li><button type="button" class="lg-t" style="--c:#1d4ed8" data-th="admin" aria-pressed="false"><strong>Une administration</strong><small>Caf, caisse de retraite, impôts, mairie</small></button></li><li><button type="button" class="lg-t" style="--c:#c2410c" data-th="travail" aria-pressed="false"><strong>Mon employeur</strong><small>Salaire, fin de contrat, licenciement</small></button></li><li><button type="button" class="lg-t" style="--c:#475569" data-th="silence" aria-pressed="false"><strong>Il ne répond pas ou refuse</strong><small>Sans réponse après ma réclamation</small></button></li></ul>
+    <div id="lg-sits"><div class="lg-sitgrp" id="g-achat" data-th="achat"><h3 class="lg-q">J'ai acheté quelque chose : quelle est votre situation ?</h3><div class="lg-sits" role="group" aria-label="J'ai acheté quelque chose"><button type="button" class="lg-s" data-s="a1" aria-pressed="false">Le produit ou le service ne correspond pas à ce qui était prévu</button><button type="button" class="lg-s" data-s="a2" aria-pressed="false">Je veux annuler un achat fait en ligne</button><button type="button" class="lg-s" data-s="a3" aria-pressed="false">Un produit est tombé en panne</button></div><article class="lg-res" id="r-a1" data-s="a1"><h3>Le produit ou le service ne correspond pas à ce qui était prévu</h3><ol class="gd-metro"><li>Rassemblez la commande, la facture et les échanges.</li><li>Envoyez une réclamation écrite au vendeur.</li><li>Sans réponse en 8 à 15 jours : mise en demeure en recommandé.</li><li>Toujours rien : saisissez gratuitement le médiateur de la consommation.</li><li>En dernier recours : conciliateur de justice, puis tribunal.</li></ol><div class="lg-go"><a class="p" href="/simulateur-lettre-litige/?type=reclamation">Écrire ma réclamation</a><a href="/guides/litige-se-defendre-sans-tribunal-etapes-reclamation-mediation-conciliation/">Guide : les étapes d'un litige</a><a href="/guides/mediateur-de-la-consommation-saisir-gratuitement-delai-1-an-90-jours/">Guide : le médiateur</a></div><p class="lg-rap"><strong>À savoir :</strong> Le médiateur se saisit dans l'année qui suit la réclamation écrite.</p></article><article class="lg-res" id="r-a2" data-s="a2"><h3>Je veux annuler un achat fait en ligne</h3><ol class="gd-metro"><li>Comptez 14 jours à partir de la réception du bien.</li><li>Envoyez votre rétractation par écrit, avec preuve.</li><li>Renvoyez le bien dans les 14 jours suivants.</li><li>Le remboursement est dû au plus tard 14 jours après votre décision.</li></ol><div class="lg-go"><a class="p" href="/simulateur-lettre-litige/?type=retractation">Écrire ma rétractation</a><a href="/guides/black-friday-achats-en-ligne-droit-de-retractation-14-jours-garantie-2-ans/">Guide : Black Friday et achats en ligne</a></div><p class="lg-rap"><strong>À savoir :</strong> Le délai est de 14 jours après la réception.</p></article><article class="lg-res" id="r-a3" data-s="a3"><h3>Un produit est tombé en panne</h3><ol class="gd-metro"><li>Retrouvez la preuve d'achat et la date de livraison.</li><li>Demandez la réparation ou le remplacement au vendeur, par écrit.</li><li>À défaut, demandez une réduction du prix ou le remboursement.</li><li>Sans réponse : médiateur de la consommation.</li></ol><div class="lg-go"><a class="p" href="/simulateur-lettre-litige/?type=garantie">Écrire ma demande de garantie</a><a href="/guides/litige-se-defendre-sans-tribunal-etapes-reclamation-mediation-conciliation/">Guide : les étapes d'un litige</a><a href="/guides/mise-en-demeure-lettre-de-reclamation-comment-ecrire-modele/">Guide : la mise en demeure</a></div><p class="lg-rap"><strong>À savoir :</strong> La garantie légale de conformité dure 2 ans à compter de la livraison.</p></article></div><div class="lg-sitgrp" id="g-abonnement" data-th="abonnement"><h3 class="lg-q">Un abonnement ou un contrat : quelle est votre situation ?</h3><div class="lg-sits" role="group" aria-label="Un abonnement ou un contrat"><button type="button" class="lg-s" data-s="b1" aria-pressed="false">Je veux résilier et on me met des bâtons dans les roues</button></div><article class="lg-res" id="r-b1" data-s="b1"><h3>Je veux résilier et on me met des bâtons dans les roues</h3><ol class="gd-metro"><li>Relisez la date de fin d'engagement et le préavis.</li><li>Essayez d'abord la résiliation en ligne (3 clics pour un contrat pris en ligne).</li><li>Sinon, envoyez une lettre de résiliation en recommandé.</li><li>Contestez tout prélèvement fait après la date d'effet.</li><li>Sans réponse : médiateur de la consommation.</li></ol><div class="lg-go"><a class="p" href="/simulateur-lettre-litige/?type=resiliation">Écrire ma résiliation</a><a href="/guides/resilier-un-abonnement-box-salle-de-sport-assurance-droits-etapes/">Guide : résilier un abonnement</a></div><p class="lg-rap"><strong>À savoir :</strong> Gardez la preuve d'envoi et la date d'effet demandée.</p></article></div><div class="lg-sitgrp" id="g-banque" data-th="banque"><h3 class="lg-q">Ma banque : quelle est votre situation ?</h3><div class="lg-sits" role="group" aria-label="Ma banque"><button type="button" class="lg-s" data-s="c1" aria-pressed="false">Une opération ou des frais que je conteste</button></div><article class="lg-res" id="r-c1" data-s="c1"><h3>Une opération ou des frais que je conteste</h3><ol class="gd-metro"><li>Notez la date, le montant et la référence de l'opération.</li><li>Envoyez une réclamation écrite à la banque.</li><li>La banque a 2 mois pour répondre (15 jours pour un litige de paiement).</li><li>Sans réponse satisfaisante : médiateur bancaire, gratuit.</li></ol><div class="lg-go"><a class="p" href="/simulateur-lettre-litige/?type=banque">Écrire ma réclamation à la banque</a><a href="/guides/litige-avec-sa-banque-reclamation-mediateur-bancaire-delais/">Guide : litige avec sa banque</a></div><p class="lg-rap"><strong>À savoir :</strong> Ne saisissez jamais votre numéro de compte complet dans un courrier.</p></article></div><div class="lg-sitgrp" id="g-artisan" data-th="artisan"><h3 class="lg-q">Un artisan ou des travaux : quelle est votre situation ?</h3><div class="lg-sits" role="group" aria-label="Un artisan ou des travaux"><button type="button" class="lg-s" data-s="d1" aria-pressed="false">Les travaux sont mal faits ou inachevés</button></div><article class="lg-res" id="r-d1" data-s="d1"><h3>Les travaux sont mal faits ou inachevés</h3><ol class="gd-metro"><li>Faites des photos datées et gardez devis, factures et échanges.</li><li>Décrivez les défauts par écrit à l'artisan.</li><li>Mettez en demeure l'artisan de reprendre les travaux dans un délai précis.</li><li>Sans effet : conciliateur de justice ou médiateur de la consommation.</li><li>Avant de payer le solde, vérifiez les garanties qui s'appliquent.</li></ol><div class="lg-go"><a class="p" href="/simulateur-lettre-litige/?type=mise_en_demeure">Écrire ma mise en demeure</a><a href="/guides/travaux-mal-faits-artisan-garanties-parfait-achevement-decennale-mise-en-demeure/">Guide : travaux mal faits</a><a href="/guides/conciliateur-de-justice-gratuit-comment-le-saisir-litiges-du-quotidien/">Guide : le conciliateur</a></div><p class="lg-rap"><strong>À savoir :</strong> Les garanties après travaux (parfait achèvement, décennale) ont leurs propres délais.</p></article></div><div class="lg-sitgrp" id="g-logement" data-th="logement"><h3 class="lg-q">Mon logement : quelle est votre situation ?</h3><div class="lg-sits" role="group" aria-label="Mon logement"><button type="button" class="lg-s" data-s="e1" aria-pressed="false">Mon propriétaire ne me rend pas mon dépôt de garantie</button><button type="button" class="lg-s" data-s="e2" aria-pressed="false">On me menace d'expulsion ou de coupure d'énergie</button></div><article class="lg-res" id="r-e1" data-s="e1"><h3>Mon propriétaire ne me rend pas mon dépôt de garantie</h3><ol class="gd-metro"><li>Calculez la date limite : 1 mois (état des lieux conforme) ou 2 mois.</li><li>Envoyez une lettre recommandée de réclamation.</li><li>Une majoration de 10 % du loyer par mois de retard peut être demandée.</li><li>Sans réponse : conciliateur de justice ou commission de conciliation.</li></ol><div class="lg-go"><a class="p" href="/simulateur-lettre-litige/?type=depot">Écrire ma demande de restitution</a><a href="/guides/conciliateur-de-justice-gratuit-comment-le-saisir-litiges-du-quotidien/">Guide : le conciliateur</a><a href="/guides/litige-se-defendre-sans-tribunal-etapes-reclamation-mediation-conciliation/">Guide : les étapes d'un litige</a></div><p class="lg-rap"><strong>À savoir :</strong> Le délai part de la remise des clés.</p></article><article class="lg-res" id="r-e2" data-s="e2"><h3>On me menace d'expulsion ou de coupure d'énergie</h3><ol class="gd-metro"><li>Lisez ce qui est interdit pendant la trêve hivernale.</li><li>Ne quittez jamais le logement sans décision de justice.</li><li>Contactez rapidement un travailleur social ou l'ADIL de votre département.</li><li>Faites le point sur vos aides au logement.</li></ol><div class="lg-go"><a href="/guides/treve-hivernale-2026-2027-expulsion-coupures-energie-eau-ce-qui-est-interdit/">Guide : la trêve hivernale</a><a href="/aides/">Mes aides</a></div><p class="lg-rap"><strong>À savoir :</strong> Cette situation demande un conseil individuel : l'ADIL est gratuite.</p></article></div><div class="lg-sitgrp" id="g-voisin" data-th="voisin"><h3 class="lg-q">Mon voisin : quelle est votre situation ?</h3><div class="lg-sits" role="group" aria-label="Mon voisin"><button type="button" class="lg-s" data-s="f1" aria-pressed="false">Le bruit ou les nuisances ne s'arrêtent pas</button></div><article class="lg-res" id="r-f1" data-s="f1"><h3>Le bruit ou les nuisances ne s'arrêtent pas</h3><ol class="gd-metro"><li>Parlez-en d'abord au voisin, calmement.</li><li>Puis envoyez-lui une lettre simple.</li><li>Puis un recommandé de mise en demeure.</li><li>Saisissez un conciliateur de justice (gratuit).</li><li>Notez dates et heures pour constituer des preuves, obtenues loyalement.</li></ol><div class="lg-go"><a class="p" href="/simulateur-lettre-litige/?type=voisin">Écrire à mon voisin</a><a href="/guides/bruit-de-voisinage-nuisances-etapes-amiable-conciliateur-amende/">Guide : bruit de voisinage</a><a href="/guides/conciliateur-de-justice-gratuit-comment-le-saisir-litiges-du-quotidien/">Guide : le conciliateur</a></div><p class="lg-rap"><strong>À savoir :</strong> Une tentative amiable est demandée avant d'aller au tribunal.</p></article></div><div class="lg-sitgrp" id="g-admin" data-th="admin"><h3 class="lg-q">Une administration : quelle est votre situation ?</h3><div class="lg-sits" role="group" aria-label="Une administration"><button type="button" class="lg-s" data-s="g1" aria-pressed="false">Je conteste une décision (refus, trop-perçu, radiation)</button></div><article class="lg-res" id="r-g1" data-s="g1"><h3>Je conteste une décision (refus, trop-perçu, radiation)</h3><ol class="gd-metro"><li>Lisez la décision : date, motif, voies et délais de recours.</li><li>Envoyez un recours gracieux écrit, avec les justificatifs.</li><li>Sans réponse pendant 2 mois, la demande est considérée comme rejetée.</li><li>Vous pouvez saisir le Défenseur des droits, gratuitement.</li><li>Le tribunal administratif reste le dernier recours.</li></ol><div class="lg-go"><a class="p" href="/simulateur-lettre-litige/?type=recours">Écrire mon recours</a><a href="/guides/contester-une-decision-administrative-recours-gracieux-defenseur-des-droits/">Guide : contester une décision</a></div><p class="lg-rap"><strong>À savoir :</strong> Le délai est en général de 2 mois à compter de la notification.</p></article></div><div class="lg-sitgrp" id="g-travail" data-th="travail"><h3 class="lg-q">Mon employeur : quelle est votre situation ?</h3><div class="lg-sits" role="group" aria-label="Mon employeur"><button type="button" class="lg-s" data-s="h1" aria-pressed="false">Mon salaire n'est pas payé ou est incomplet</button><button type="button" class="lg-s" data-s="h2" aria-pressed="false">Je veux contester un licenciement</button></div><article class="lg-res" id="r-h1" data-s="h1"><h3>Mon salaire n'est pas payé ou est incomplet</h3><ol class="gd-metro"><li>Rassemblez bulletins de paie et relevés bancaires.</li><li>Envoyez un courrier de réclamation à l'employeur.</li><li>Sans réponse : mise en demeure en recommandé.</li><li>Contactez l'inspection du travail ou un conseil de prud'hommes.</li></ol><div class="lg-go"><a href="/modele-lettre-reclamation-salaire-impaye/">Lettre : salaire impayé</a><a href="/modeles-de-lettres/">Tous les modèles de lettres</a></div><p class="lg-rap"><strong>À savoir :</strong> Les délais de prescription des salaires dépendent de la situation : vérifiez-les.</p></article><article class="lg-res" id="r-h2" data-s="h2"><h3>Je veux contester un licenciement</h3><ol class="gd-metro"><li>Notez la date de notification.</li><li>Vérifiez le délai pour saisir les prud'hommes.</li><li>Faites calculer votre indemnité.</li><li>Faites-vous aider (syndicat, avocat, défenseur syndical).</li></ol><div class="lg-go"><a href="/guides/contester-licenciement-delai-prudhommes-bareme/">Guide : contester un licenciement</a><a href="/simulateur-indemnite-licenciement/">Calculer mon indemnité</a></div><p class="lg-rap"><strong>À savoir :</strong> Le délai de contestation est court : agissez vite.</p></article></div><div class="lg-sitgrp" id="g-silence" data-th="silence"><h3 class="lg-q">Il ne répond pas ou refuse : quelle est votre situation ?</h3><div class="lg-sits" role="group" aria-label="Il ne répond pas ou refuse"><button type="button" class="lg-s" data-s="i1" aria-pressed="false">J'ai écrit, mais je n'ai pas de réponse satisfaisante</button><button type="button" class="lg-s" data-s="i2" aria-pressed="false">Je dois relancer avec plus de fermeté</button></div><article class="lg-res" id="r-i1" data-s="i1"><h3>J'ai écrit, mais je n'ai pas de réponse satisfaisante</h3><ol class="gd-metro"><li>Vérifiez que votre réclamation est écrite et datée.</li><li>Saisissez le médiateur de la consommation (gratuit, 1 an après la réclamation).</li><li>Ou tentez le conciliateur de justice pour les litiges du quotidien.</li><li>En dernier recours, la voie judiciaire.</li></ol><div class="lg-go"><a class="p" href="/simulateur-lettre-litige/?type=mediateur">Écrire ma saisine du médiateur</a><a href="/guides/mediateur-de-la-consommation-saisir-gratuitement-delai-1-an-90-jours/">Guide : le médiateur</a><a href="/guides/conciliateur-de-justice-gratuit-comment-le-saisir-litiges-du-quotidien/">Guide : le conciliateur</a></div><p class="lg-rap"><strong>À savoir :</strong> Le médiateur se saisit dans l'année qui suit la réclamation écrite.</p></article><article class="lg-res" id="r-i2" data-s="i2"><h3>Je dois relancer avec plus de fermeté</h3><ol class="gd-metro"><li>Rappelez les faits et vos demandes précédentes.</li><li>Fixez un délai précis de 8 à 15 jours.</li><li>Annoncez la suite que vous donnerez.</li><li>Envoyez en recommandé avec accusé de réception.</li></ol><div class="lg-go"><a class="p" href="/simulateur-lettre-litige/?type=mise_en_demeure">Écrire ma mise en demeure</a><a href="/guides/mise-en-demeure-lettre-de-reclamation-comment-ecrire-modele/">Guide : la mise en demeure</a></div><p class="lg-rap"><strong>À savoir :</strong> Gardez une copie et la preuve d'envoi.</p></article></div></div>
+  </section>
+  <section class="info-section" id="outils">
+    <h2>Les outils pour passer à l'action</h2>
+    <div class="sd-know-grid">
+      <div class="sd-know-card"><h3><a href="/simulateur-lettre-litige/">Générateur de lettres de litige</a></h3><p>Dix lettres à remplir, avec alertes si un délai est dépassé.</p></div>
+      <div class="sd-know-card"><h3><a href="/simulateur-calcul-delais-echeances/">Calcul de délai</a></h3><p>Votre date limite en jours ou en mois, avec jours fériés.</p></div>
+      <div class="sd-know-card"><h3><a href="/modeles-de-lettres/">Lettres type</a></h3><p>Les modèles de courriers du quotidien et du travail.</p></div>
+      <div class="sd-know-card"><h3><a href="/guides/litige-se-defendre-sans-tribunal-etapes-reclamation-mediation-conciliation/">Le guide complet</a></h3><p>Les étapes d'un litige, de la réclamation au médiateur.</p></div>
+    </div>
+  </section>
+  <section class="info-section"><h2>Ce que cette page ne remplace pas</h2><p>Les étapes sont tirées de fiches officielles (Service-Public, notamment) et vérifiées ; elles décrivent le cas général. Votre contrat, une situation d'urgence ou un enjeu important justifient l'avis d'un professionnel : conciliateur de justice, ADIL, association de consommateurs, avocat. Les lettres sont des trames du site, non des modèles officiels.</p></section>
+
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/guides/">Tous les guides</a><a href="/simulateurs/">Simulateurs</a><a href="/aides/">Aides</a><a href="/modeles-de-lettres/">Lettres types</a></div>
+    <p class="sd-upd">Dernière vérification : <time datetime="2026-11-04">4 novembre 2026</time>. Information indicative, sans valeur juridique. <a href="/methode-et-sources/">Méthode et sources</a> · <a href="/a-propos/">À propos</a></p>
+  </section>
+<script>(function(){var d=document;d.documentElement.classList.add("js");
+var th=[].slice.call(d.querySelectorAll(".lg-t")),gr=[].slice.call(d.querySelectorAll(".lg-sitgrp")),ss=[].slice.call(d.querySelectorAll(".lg-s")),rs=[].slice.call(d.querySelectorAll(".lg-res"));
+function showT(id,scroll){th.forEach(function(b){b.setAttribute("aria-pressed",b.dataset.th===id?"true":"false")});gr.forEach(function(g){g.hidden=g.dataset.th!==id});ss.forEach(function(b){b.setAttribute("aria-pressed","false")});rs.forEach(function(r){r.hidden=true});
+ var g=d.getElementById("g-"+id);if(g){var one=g.querySelectorAll(".lg-s");if(one.length===1)showS(one[0].dataset.s);else if(scroll)g.scrollIntoView({behavior:"smooth",block:"start"})}}
+function showS(id){ss.forEach(function(b){b.setAttribute("aria-pressed",b.dataset.s===id?"true":"false")});rs.forEach(function(r){r.hidden=r.dataset.s!==id});var r=d.getElementById("r-"+id);if(r)r.scrollIntoView({behavior:"smooth",block:"nearest"});try{history.replaceState(null,"","#"+id)}catch(e){}}
+gr.forEach(function(g){g.hidden=true});rs.forEach(function(r){r.hidden=true});
+th.forEach(function(b){b.addEventListener("click",function(){showT(b.dataset.th,true)})});
+ss.forEach(function(b){b.addEventListener("click",function(){showS(b.dataset.s)})});
+var hs=(location.hash||"").slice(1),hit=d.getElementById("r-"+hs);if(hit){var p=hit.parentNode.dataset.th;showT(p,false);showS(hs)}
+})();</script>
+
+</main>
+
+<nav class="sd-explore" aria-label="Toutes les rubriques"><strong>Explorer toutes les rubriques</strong><div><a href="https://simudroit.fr/simulateurs/" style="--c:#4f46e5"><i class="sdi sdi-calc" aria-hidden="true"></i>Simulateurs</a><a href="https://simudroit.fr/guides/" style="--c:#0e7490"><i class="sdi sdi-book" aria-hidden="true"></i>Guides</a><a href="https://simudroit.fr/aides/" style="--c:#0f766e"><i class="sdi sdi-heart" aria-hidden="true"></i>Aides</a><a href="https://simudroit.fr/fiches-revision/" style="--c:#7c3aed"><i class="sdi sdi-notes" aria-hidden="true"></i>Fiches de révision</a><a href="https://simudroit.fr/metiers/" style="--c:#b5530f"><i class="sdi sdi-user" aria-hidden="true"></i>Mon métier</a><a href="https://simudroit.fr/metiers/creer-son-entreprise-batiment/" style="--c:#c2410c"><i class="sdi sdi-hardhat" aria-hidden="true"></i>Créer son entreprise (bâtiment)</a><a href="https://simudroit.fr/litiges/" style="--c:#1d4ed8"><i class="sdi sdi-briefcase" aria-hidden="true"></i>Indépendants</a><a href="https://simudroit.fr/retraite/" style="--c:#be185d"><i class="sdi sdi-sun" aria-hidden="true"></i>Retraite</a><a href="https://simudroit.fr/reconversion/" style="--c:#15803d"><i class="sdi sdi-refresh" aria-hidden="true"></i>Reconversion</a><a href="https://simudroit.fr/salaires/" style="--c:#a16207"><i class="sdi sdi-euro" aria-hidden="true"></i>Salaires</a><a href="https://simudroit.fr/modeles-de-lettres/" style="--c:#9333ea"><i class="sdi sdi-mail" aria-hidden="true"></i>Lettres types</a><a href="https://simudroit.fr/generateur-cv/" style="--c:#0f7a6e"><i class="sdi sdi-doc" aria-hidden="true"></i>Générateur de CV</a><a href="https://simudroit.fr/ouvrir-un-commerce/" style="--c:#b5530f"><i class="sdi sdi-briefcase" aria-hidden="true"></i>Ouvrir un commerce</a><a href="https://simudroit.fr/actualites/" style="--c:#475569"><i class="sdi sdi-chart" aria-hidden="true"></i>Chiffres et données</a><a href="https://simudroit.fr/glossaire/" style="--c:#0369a1"><i class="sdi sdi-bookopen" aria-hidden="true"></i>Glossaire</a><a href="https://simudroit.fr/faq/" style="--c:#b91c1c"><i class="sdi sdi-question" aria-hidden="true"></i>FAQ</a></div></nav>
+<footer><nav class="foot-top" aria-label="Les plus consultés"><strong>Les plus consultés</strong><a href="https://simudroit.fr/simulateur-brut-net/">Salaire brut en net</a><a href="https://simudroit.fr/simulateur-indemnite-licenciement/">Indemnité de licenciement</a><a href="https://simudroit.fr/simulateur-rupture-conventionnelle/">Rupture conventionnelle</a><a href="https://simudroit.fr/simulateur-chomage/">Allocation chômage</a><a href="https://simudroit.fr/simulateur-preavis-demission/">Préavis de démission</a><a href="https://simudroit.fr/simulateur-preavis-licenciement/">Préavis de licenciement</a><a href="https://simudroit.fr/simulateur-conges-payes/">Congés payés</a><a href="https://simudroit.fr/simulateur-fiche-de-paie/">Vérifier ma fiche de paie</a><a href="https://simudroit.fr/simulateur-solde-tout-compte/">Solde de tout compte</a><a href="https://simudroit.fr/simulateur-smic/">SMIC 2026</a><a href="https://simudroit.fr/salaire-brut-net/">Brut en net par montant</a><a href="https://simudroit.fr/metiers/">Mon métier : infirmier libéral, assistante maternelle, intérimaire</a><a href="https://simudroit.fr/retraite/">Retraite : par où commencer ?</a><a href="https://simudroit.fr/reconversion/">Reconversion : par où commencer ?</a><a href="https://simudroit.fr/jours-feries-2026-2027/">Jours fériés 2026 et 2027</a><a href="https://simudroit.fr/fiches-revision/">Fiches de révision</a><a href="https://simudroit.fr/aides/">Aides selon votre situation</a><a href="https://simudroit.fr/documents-a-generer/">Documents à générer</a></nav>
+  <p>© 2026 SimuDroit · <a href="https://simudroit.fr/">Tous les simulateurs</a> · <a href="https://simudroit.fr/methode-et-sources/">Méthode et sources</a> · <a href="https://simudroit.fr/contact/">Contact</a> · <a href="https://simudroit.fr/mentions-legales/">Mentions légales</a> · <a href="https://simudroit.fr/confidentialite/">Confidentialité</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script></script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>

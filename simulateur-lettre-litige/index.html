@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Générateur de lettres de litige : réclamation, mise en demeure | SimuDroit</title>
+  <meta name="description" content="Dix lettres de litige à remplir en ligne : réclamation, mise en demeure, rétractation, résiliation, garantie, recours, voisinage, dépôt de garantie. À copier, imprimer ou télécharger.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://simudroit.fr/simulateur-lettre-litige/">
+  <link rel="icon" href="https://simudroit.fr/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="https://simudroit.fr/favicon.ico" sizes="48x48">
+  <link rel="icon" href="https://simudroit.fr/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="https://simudroit.fr/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Générateur de lettres de litige : réclamation, mise en demeure | SimuDroit">
+  <meta property="og:description" content="Dix lettres de litige à remplir en ligne : réclamation, mise en demeure, rétractation, résiliation, garantie, recours, voisinage, dépôt de garantie. À copier, imprimer ou télécharger.">
+  <meta property="og:url" content="https://simudroit.fr/simulateur-lettre-litige/">
+  <meta property="og:image" content="https://simudroit.fr/assets/og/simulateur-lettre-litige.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://simudroit.fr/assets/og/simulateur-lettre-litige.jpg">
+  <meta name="twitter:title" content="Générateur de lettres de litige : réclamation, mise en demeure | SimuDroit">
+  <meta name="twitter:description" content="Dix lettres de litige à remplir en ligne : réclamation, mise en demeure, rétractation, résiliation, garantie, recours, voisinage, dépôt de garantie. À copier, imprimer ou télécharger.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://simudroit.fr/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Générateur de lettres de litige : réclamation, mise en demeure", "url": "https://simudroit.fr/simulateur-lettre-litige/", "description": "Dix lettres de litige à remplir en ligne : réclamation, mise en demeure, rétractation, résiliation, garantie, recours, voisinage, dépôt de garantie. À copier, imprimer ou télécharger.", "inLanguage": "fr-FR"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://simudroit.fr/"}, {"@type": "ListItem", "position": 2, "name": "Simulateurs", "item": "https://simudroit.fr/simulateurs/"}, {"@type": "ListItem", "position": 3, "name": "Lettres de litige", "item": "https://simudroit.fr/simulateur-lettre-litige/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Cette lettre a-t-elle une valeur juridique ?", "acceptedAnswer": {"@type": "Answer", "text": "C'est une trame à adapter, sans valeur de conseil juridique. Elle structure vos demandes : faits, demande, délai, suites. Pour une situation à fort enjeu, faites-la relire."}}, {"@type": "Question", "name": "Mes données sont-elles envoyées quelque part ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. La lettre se construit dans votre navigateur et rien n'est transmis ni enregistré."}}, {"@type": "Question", "name": "Comment envoyer la lettre ?", "acceptedAnswer": {"@type": "Answer", "text": "De préférence en recommandé avec accusé de réception, en gardant une copie. Une réclamation simple peut partir par courriel."}}, {"@type": "Question", "name": "Quel délai laisser pour répondre ?", "acceptedAnswer": {"@type": "Answer", "text": "Un délai de 8 à 15 jours est un repère courant, non une règle légale. Les délais légaux propres à chaque cas sont rappelés dans la lettre quand ils existent."}}, {"@type": "Question", "name": "Pourquoi des alertes apparaissent-elles ?", "acceptedAnswer": {"@type": "Answer", "text": "L'outil compare vos dates aux délais indiqués par Service-Public (14 jours de rétractation, 2 ans de garantie, 2 mois de recours, 1 an pour le médiateur) et vous prévient quand un délai semble dépassé."}}, {"@type": "Question", "name": "Quelles lettres propose l'outil ?", "acceptedAnswer": {"@type": "Answer", "text": "Réclamation, mise en demeure, rétractation d'un achat à distance, résiliation d'abonnement, garantie légale de conformité, recours contre une décision administrative, bruit de voisinage, dépôt de garantie, saisine d'un médiateur, réclamation bancaire."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Générateur de lettres de litige", "url": "https://simudroit.fr/simulateur-lettre-litige/", "description": "Dix lettres de litige à remplir en ligne : réclamation, mise en demeure, rétractation, résiliation, garantie, recours, voisinage, dépôt de garantie. À copier, imprimer ou télécharger.", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}</script>
+  <meta name="theme-color" content="#201e48">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="Générateur de lettres de litige : réclamation, mise en demeure | SimuDroit">
+  <link rel="alternate" hreflang="fr" href="https://simudroit.fr/simulateur-lettre-litige/">
+  <link rel="alternate" hreflang="x-default" href="https://simudroit.fr/simulateur-lettre-litige/">
+  <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
+  <script async src="https://plausible.io/js/pa-j8JdUomB9hqqp7em82xdB.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+</head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.fr/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://simudroit.fr/simulateurs/">Simulateurs</a>
+      <a href="https://simudroit.fr/assistant/">Assistant</a>
+      <a href="https://simudroit.fr/guides/">Guides</a>
+      <a href="https://simudroit.fr/aides/">Aides</a>
+      <a href="https://simudroit.fr/fiches-revision/">Fiches</a>
+      <a href="https://simudroit.fr/actualites/">Chiffres clés</a>
+      <a href="https://simudroit.fr/metiers/">Métiers</a>
+      <a href="https://simudroit.fr/faq/">FAQ</a>
+      <a href="https://simudroit.fr/#recherche">Rechercher</a>
+      <a class="cta-link" href="https://simudroit.fr/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://simudroit.fr/">Accueil</a> &nbsp;›&nbsp; <a href="https://simudroit.fr/simulateurs/">Simulateurs</a> &nbsp;›&nbsp; Lettres de litige
+  </div>
+
+  <section class="hero">
+    <h1>Générateur de lettres de litige</h1>
+    <p>Choisissez votre situation, remplissez quelques champs : la lettre se construit sous vos yeux, avec les délais à respecter et des alertes si une date semble dépassée. Elle reste dans votre navigateur.</p>
+      <div class="badges"><span class="badge">✓ Délais relus le 4 novembre 2026</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Rien n'est envoyé</span></div>
+  </section>
+<style>#calcul .lt-types{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin:10px 0 18px}#calcul .lt-t{appearance:none;text-align:left;border:1.5px solid #dcd7f7;background:#fff;border-radius:14px;padding:12px 14px;cursor:pointer;font:inherit;color:inherit;min-height:44px}#calcul .lt-t strong{display:block;font-size:.95rem}#calcul .lt-t small{color:#5a5880}#calcul .lt-t[aria-pressed=true]{border-color:#4f46e5;background:#eef0ff;box-shadow:0 0 0 2px #4f46e5 inset}#calcul .lt-prog{display:flex;gap:6px;margin:6px 0 14px}#calcul .lt-prog span{flex:1;height:6px;border-radius:99px;background:#e6e2fa}#calcul .lt-prog span.on{background:#4f46e5}#calcul .lt-sheet{background:#fff;color:#111;border:1px solid #d6d9e0;border-radius:10px;padding:22px;margin:12px 0;font:15px/1.55 Georgia,serif}#calcul .lt-sheet p{margin:0 0 12px}#calcul .lt-alert{background:#fff7ed;border:1.5px solid #fdba74;border-radius:12px;padding:10px 14px;margin:8px 0;color:#7c2d12}#calcul .lt-tip{background:#ecfdf5;border:1.5px solid #6ee7b7;border-radius:12px;padding:10px 14px;margin:8px 0;color:#064e3b}#calcul textarea{width:100%;min-height:90px}@media print{header,footer,.sd-explore,.sd-see,.hero,.breadcrumb,#a-savoir,#lt-form,#lt-types-wrap,.lt-actions,.lt-alerts,.info-section,.lt-prog,h2,.sd-fold{display:none!important}#calcul .lt-sheet{border:none;padding:0}}</style>
+  <section class="calculator" id="calcul">
+    <h2>Écrire ma lettre</h2>
+    <noscript><p class="intro-note"><strong>JavaScript requis :</strong> ce générateur fonctionne dans votre navigateur.</p></noscript>
+    <div class="lt-prog" aria-hidden="true"><span class="on" id="p1"></span><span id="p2"></span><span id="p3"></span></div>
+    <div id="lt-types-wrap"><h3>1. Quelle est votre situation ?</h3><div class="lt-types" id="lt-types" role="group" aria-label="Type de lettre"></div></div>
+    <div id="lt-form" hidden><h3>2. Remplissez les champs</h3><div id="lt-fields"></div></div>
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">3. Votre lettre</div>
+      <div class="result-main" data-noanim id="main">-</div>
+      <div class="lt-alerts" id="lt-alerts"></div>
+      <div class="lt-sheet" id="lt-sheet"></div>
+      <p class="lt-actions"><button type="button" id="copy">Copier le texte</button> <button type="button" id="word">Télécharger en Word</button> <button type="button" id="print">Imprimer ou enregistrer en PDF</button></p>
+      <div class="warning" id="wnote">Trame à adapter : sans valeur de conseil juridique. Envoyez de préférence en recommandé avec accusé de réception et gardez une copie.</div>
+    </div>
+  </section>
+
+  <section class="info-section" id="regles">
+    <h2>Les délais que l'outil vérifie</h2>
+    <div class="table-wrap"><table class="sd-table"><thead><tr><th>Situation</th><th>Délai</th></tr></thead><tbody>
+    <tr><td>Rétractation d'un achat à distance</td><td>14 jours calendaires à partir du lendemain de la réception du bien</td></tr>
+    <tr><td>Garantie légale de conformité</td><td>2 ans à compter de la livraison</td></tr>
+    <tr><td>Recours contre une décision administrative</td><td>2 mois en métropole</td></tr>
+    <tr><td>Saisine du médiateur de la consommation</td><td>1 an après la réclamation écrite</td></tr>
+    <tr><td>Restitution du dépôt de garantie</td><td>1 mois (état des lieux conforme) ou 2 mois</td></tr>
+    </tbody></table></div>
+    <p class="field-help">Sources : <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F10485" rel="noopener">F10485 rétractation</a>, <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F11094" rel="noopener">F11094 garantie de conformité</a>, <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F2474" rel="noopener">F2474 recours administratifs</a>, <a href="https://entreprendre.service-public.gouv.fr/vosdroits/F33338" rel="noopener">F33338 médiation</a>, <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F31269" rel="noopener">F31269 dépôt de garantie</a>. Les fiches sont des traductions automatiques. Les délais sont calculés sans tenir compte des jours fériés, sauf indication. Les formulations des lettres sont des trames du site, non des modèles officiels.</p>
+  </section>
+
+  <section class="info-section" id="astuces">
+    <h2>Avant d'envoyer</h2>
+    <ol>
+      <li>Relisez les faits : dates, montants, références.</li>
+      <li>Joignez des copies, jamais les originaux.</li>
+      <li>Envoyez en recommandé avec accusé de réception et gardez la preuve de dépôt.</li>
+      <li>Notez la date limite que vous avez fixée, puis passez à l'étape suivante : <a href="/guides/litige-se-defendre-sans-tribunal-etapes-reclamation-mediation-conciliation/">le guide des étapes d'un litige</a>.</li>
+    </ol>
+  </section>
+
+  <section class="info-section sd-fold" id="faq-ind"><details><summary><h2>Questions fréquentes</h2></summary><h3>Cette lettre a-t-elle une valeur juridique ?</h3><p>C&#x27;est une trame à adapter, sans valeur de conseil juridique. Elle structure vos demandes : faits, demande, délai, suites. Pour une situation à fort enjeu, faites-la relire.</p><h3>Mes données sont-elles envoyées quelque part ?</h3><p>Non. La lettre se construit dans votre navigateur et rien n&#x27;est transmis ni enregistré.</p><h3>Comment envoyer la lettre ?</h3><p>De préférence en recommandé avec accusé de réception, en gardant une copie. Une réclamation simple peut partir par courriel.</p><h3>Quel délai laisser pour répondre ?</h3><p>Un délai de 8 à 15 jours est un repère courant, non une règle légale. Les délais légaux propres à chaque cas sont rappelés dans la lettre quand ils existent.</p><h3>Pourquoi des alertes apparaissent-elles ?</h3><p>L&#x27;outil compare vos dates aux délais indiqués par Service-Public (14 jours de rétractation, 2 ans de garantie, 2 mois de recours, 1 an pour le médiateur) et vous prévient quand un délai semble dépassé.</p><h3>Quelles lettres propose l&#x27;outil ?</h3><p>Réclamation, mise en demeure, rétractation d&#x27;un achat à distance, résiliation d&#x27;abonnement, garantie légale de conformité, recours contre une décision administrative, bruit de voisinage, dépôt de garantie, saisine d&#x27;un médiateur, réclamation bancaire.</p></details></section>
+
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/guides/litige-se-defendre-sans-tribunal-etapes-reclamation-mediation-conciliation/">Litige : les étapes</a><a href="/guides/mise-en-demeure-lettre-de-reclamation-comment-ecrire-modele/">Mise en demeure</a><a href="/modeles-de-lettres/">Lettres type travail</a><a href="/simulateur-calcul-delais-echeances/">Calcul de délai</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-11-04">4 novembre 2026</time> (Service-Public). Repère indicatif, sans valeur juridique. <a href="/methode-et-sources/">Méthode et sources</a> · <a href="/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<nav class="sd-explore" aria-label="Toutes les rubriques"><strong>Explorer toutes les rubriques</strong><div><a href="https://simudroit.fr/simulateurs/" style="--c:#4f46e5"><i class="sdi sdi-calc" aria-hidden="true"></i>Simulateurs</a><a href="https://simudroit.fr/guides/" style="--c:#0e7490"><i class="sdi sdi-book" aria-hidden="true"></i>Guides</a><a href="https://simudroit.fr/aides/" style="--c:#0f766e"><i class="sdi sdi-heart" aria-hidden="true"></i>Aides</a><a href="https://simudroit.fr/fiches-revision/" style="--c:#7c3aed"><i class="sdi sdi-notes" aria-hidden="true"></i>Fiches de révision</a><a href="https://simudroit.fr/metiers/" style="--c:#b5530f"><i class="sdi sdi-user" aria-hidden="true"></i>Mon métier</a><a href="https://simudroit.fr/metiers/creer-son-entreprise-batiment/" style="--c:#c2410c"><i class="sdi sdi-hardhat" aria-hidden="true"></i>Créer son entreprise (bâtiment)</a><a href="https://simudroit.fr/independants/" style="--c:#1d4ed8"><i class="sdi sdi-briefcase" aria-hidden="true"></i>Indépendants</a><a href="https://simudroit.fr/retraite/" style="--c:#be185d"><i class="sdi sdi-sun" aria-hidden="true"></i>Retraite</a><a href="https://simudroit.fr/reconversion/" style="--c:#15803d"><i class="sdi sdi-refresh" aria-hidden="true"></i>Reconversion</a><a href="https://simudroit.fr/salaires/" style="--c:#a16207"><i class="sdi sdi-euro" aria-hidden="true"></i>Salaires</a><a href="https://simudroit.fr/modeles-de-lettres/" style="--c:#9333ea"><i class="sdi sdi-mail" aria-hidden="true"></i>Lettres types</a><a href="https://simudroit.fr/generateur-cv/" style="--c:#0f7a6e"><i class="sdi sdi-doc" aria-hidden="true"></i>Générateur de CV</a><a href="https://simudroit.fr/ouvrir-un-commerce/" style="--c:#b5530f"><i class="sdi sdi-briefcase" aria-hidden="true"></i>Ouvrir un commerce</a><a href="https://simudroit.fr/actualites/" style="--c:#475569"><i class="sdi sdi-chart" aria-hidden="true"></i>Chiffres et données</a><a href="https://simudroit.fr/glossaire/" style="--c:#0369a1"><i class="sdi sdi-bookopen" aria-hidden="true"></i>Glossaire</a><a href="https://simudroit.fr/faq/" style="--c:#b91c1c"><i class="sdi sdi-question" aria-hidden="true"></i>FAQ</a></div></nav>
+<footer><nav class="foot-top" aria-label="Les plus consultés"><strong>Les plus consultés</strong><a href="https://simudroit.fr/simulateur-brut-net/">Salaire brut en net</a><a href="https://simudroit.fr/simulateur-indemnite-licenciement/">Indemnité de licenciement</a><a href="https://simudroit.fr/simulateur-rupture-conventionnelle/">Rupture conventionnelle</a><a href="https://simudroit.fr/simulateur-chomage/">Allocation chômage</a><a href="https://simudroit.fr/simulateur-preavis-demission/">Préavis de démission</a><a href="https://simudroit.fr/simulateur-preavis-licenciement/">Préavis de licenciement</a><a href="https://simudroit.fr/simulateur-conges-payes/">Congés payés</a><a href="https://simudroit.fr/simulateur-fiche-de-paie/">Vérifier ma fiche de paie</a><a href="https://simudroit.fr/simulateur-solde-tout-compte/">Solde de tout compte</a><a href="https://simudroit.fr/simulateur-smic/">SMIC 2026</a><a href="https://simudroit.fr/salaire-brut-net/">Brut en net par montant</a><a href="https://simudroit.fr/metiers/">Mon métier : infirmier libéral, assistante maternelle, intérimaire</a><a href="https://simudroit.fr/retraite/">Retraite : par où commencer ?</a><a href="https://simudroit.fr/reconversion/">Reconversion : par où commencer ?</a><a href="https://simudroit.fr/jours-feries-2026-2027/">Jours fériés 2026 et 2027</a><a href="https://simudroit.fr/fiches-revision/">Fiches de révision</a><a href="https://simudroit.fr/aides/">Aides selon votre situation</a><a href="https://simudroit.fr/documents-a-generer/">Documents à générer</a></nav>
+  <p>© 2026 SimuDroit · <a href="https://simudroit.fr/">Tous les simulateurs</a> · <a href="https://simudroit.fr/methode-et-sources/">Méthode et sources</a> · <a href="https://simudroit.fr/contact/">Contact</a> · <a href="https://simudroit.fr/mentions-legales/">Mentions légales</a> · <a href="https://simudroit.fr/confidentialite/">Confidentialité</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+  var DAY=86400000,MOIS=["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
+  function iso(s){var m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(s||"");if(!m)return NaN;var t=Date.UTC(+m[1],+m[2]-1,+m[3]),d=new Date(t);return (d.getUTCFullYear()==+m[1]&&d.getUTCMonth()==+m[2]-1&&d.getUTCDate()==+m[3])?t:NaN}
+  function fd(t){var d=new Date(t);return d.getUTCDate()+(d.getUTCDate()===1?"er":"")+" "+MOIS[d.getUTCMonth()]+" "+d.getUTCFullYear()}
+  function addM(t,n){var d=new Date(t),y=d.getUTCFullYear(),m=d.getUTCMonth()+n,day=d.getUTCDate();y+=Math.floor(m/12);m=((m%12)+12)%12;var last=new Date(Date.UTC(y,m+1,0)).getUTCDate();return Date.UTC(y,m,Math.min(day,last))}
+  function nextWork(t){while(new Date(t).getUTCDay()===0||new Date(t).getUTCDay()===6)t+=DAY;return t}
+  function ph(v,k,lab){var x=(v[k]||"").toString().trim();return x?x:"["+lab+"]"}
+  function dt(v,k,lab){var t=iso(v[k]);return isNaN(t)?"["+lab+"]":fd(t)}
+  var DEMANDE={remboursement:"me rembourser la somme de",reparation:"procéder à la réparation, sans frais pour moi, de",remplacement:"procéder au remplacement, sans frais pour moi, de",execution:"exécuter votre obligation concernant"};
+  var COMMUN=[["moi_nom","Votre nom et prénom","text","Prénom Nom"],["moi_adresse","Votre adresse (rue, code postal, ville)","text",""],["moi_contact","Votre téléphone ou courriel (facultatif)","text",""],["dest_nom","Nom du destinataire","text",""],["dest_adresse","Adresse du destinataire","text",""],["ville","Votre ville","text",""]];
+  var T={
+  reclamation:{nom:"Réclamation à un professionnel",desc:"Produit ou service défaillant",champs:[["ref","Numéro de commande, de contrat ou de dossier","text",""],["date","Date de l'achat ou du contrat","date",""],["objet","Ce que vous avez acheté ou souscrit","text","Ex. un lave-linge, un abonnement"],["montant","Montant payé (euros)","text",""],["probleme","Le problème rencontré","area","Décrivez les faits : dates, ce qui était prévu, ce qui s'est passé"],["demande","Votre demande","sel",[["remboursement","Remboursement"],["reparation","Réparation"],["remplacement","Remplacement"],["execution","Exécution du contrat ou livraison"]]],["delai","Délai laissé (jours)","num","15"],["pieces","Pièces jointes","text","facture, échanges, photos"]],
+   build:function(v){var d=v.demande||"remboursement";var cible=d==="remboursement"?ph(v,"montant","montant")+" euros":(ph(v,"objet","objet"));
+    return ["Objet : réclamation, "+ph(v,"ref","référence"),"Madame, Monsieur,","Le "+dt(v,"date","date")+", j'ai acheté ou souscrit "+ph(v,"objet","objet")+" pour un montant de "+ph(v,"montant","montant")+" euros (référence : "+ph(v,"ref","référence")+").","Or, "+ph(v,"probleme","décrivez le problème")+".","En conséquence, je vous demande de "+DEMANDE[d]+" "+cible+" dans un délai de "+(v.delai||"15")+" jours à compter de la réception de ce courrier.","À défaut de réponse satisfaisante, je me réserve la possibilité de saisir le médiateur de la consommation, puis, si nécessaire, la juridiction compétente.","Vous trouverez ci-joint les copies de : "+ph(v,"pieces","pièces")+".","Je vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées."]},
+   alertes:function(v,now){return []}},
+  mise_en_demeure:{nom:"Mise en demeure",desc:"Après une première réclamation sans suite",champs:[["ref","Numéro de commande, de contrat ou de dossier","text",""],["date","Date de l'achat ou du contrat","date",""],["objet","Ce que vous avez acheté ou souscrit","text",""],["montant","Montant concerné (euros)","text",""],["probleme","Les faits","area","Dates, ce qui était prévu, ce qui s'est passé"],["date_rec","Date de votre première réclamation","date",""],["demande","Votre demande","sel",[["remboursement","Remboursement"],["reparation","Réparation"],["remplacement","Remplacement"],["execution","Exécution du contrat ou livraison"]]],["delai","Délai laissé (jours)","num","8"],["suite","Si rien ne change, vous saisirez","sel",[["le médiateur de la consommation","Le médiateur de la consommation"],["le conciliateur de justice","Le conciliateur de justice"],["la juridiction compétente","La juridiction compétente"]]],["pieces","Pièces jointes","text","contrat, facture, première réclamation"]],
+   build:function(v){var d=v.demande||"remboursement";var cible=d==="remboursement"?ph(v,"montant","montant")+" euros":ph(v,"objet","objet");
+    return ["Lettre recommandée avec accusé de réception","Objet : mise en demeure, "+ph(v,"ref","référence"),"Madame, Monsieur,","Le "+dt(v,"date","date")+", j'ai acheté ou souscrit "+ph(v,"objet","objet")+" pour un montant de "+ph(v,"montant","montant")+" euros (référence : "+ph(v,"ref","référence")+"). "+ph(v,"probleme","exposez les faits"),"J'ai déjà réclamé le "+dt(v,"date_rec","date de la réclamation")+", sans obtenir de réponse satisfaisante.","En conséquence, je vous mets en demeure de "+DEMANDE[d]+" "+cible+" dans un délai de "+(v.delai||"8")+" jours à compter de la réception de cette lettre.","À défaut, je saisirai "+(v.suite||"le médiateur de la consommation")+".","Vous trouverez ci-joint les copies de : "+ph(v,"pieces","pièces")+".","Je vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées."]},
+   alertes:function(v,now){return []}},
+  retractation:{nom:"Rétractation d'un achat en ligne",desc:"Annuler un achat à distance sous 14 jours",champs:[["ref","Numéro de commande","text",""],["date","Date de la commande","date",""],["recep","Date de réception du bien","date",""],["bien","Bien commandé","text",""],["montant","Montant payé, livraison comprise (euros)","text",""]],
+   build:function(v){return ["Lettre recommandée avec accusé de réception, ou courriel avec accusé","Objet : rétractation de la commande n° "+ph(v,"ref","numéro"),"Madame, Monsieur,","Je vous informe que j'exerce mon droit de rétractation pour l'achat à distance suivant : "+ph(v,"bien","bien commandé")+", commandé le "+dt(v,"date","date de la commande")+" et reçu le "+dt(v,"recep","date de réception")+".","Je vous demande de me rembourser l'intégralité des sommes versées, soit "+ph(v,"montant","montant")+" euros, frais de livraison compris, au plus tard 14 jours après avoir été informé de ma décision, par le moyen de paiement utilisé lors de la commande.","Je renverrai le bien dans les 14 jours suivant l'envoi de ce courrier. Merci de m'indiquer les modalités de retour.","Je vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées."]},
+   alertes:function(v,now){var r=iso(v.recep);if(isNaN(r))return [];var last=nextWork(r+14*DAY);return now>last+DAY-1?[{t:"alerte",m:"Le délai de 14 jours semble dépassé : il se terminait le "+fd(last)+" (jours fériés non pris en compte). Si le vendeur ne vous avait pas informé de votre droit de rétractation, le délai peut être prolongé de 12 mois."}]:[{t:"astuce",m:"Vous avez jusqu'au "+fd(last)+" au plus tard pour envoyer votre rétractation (jours fériés non pris en compte)."}]}},
+  resiliation:{nom:"Résiliation d'un abonnement",desc:"Forfait, box, salle de sport, assurance en ligne",champs:[["operateur","Entreprise ou opérateur","text",""],["client","Numéro de client ou de contrat","text",""],["date","Date de souscription","date",""],["motif","Motif de la résiliation","sel",[["anniversaire","Fin d'engagement ou date anniversaire"],["pas_rappel","Pas de rappel écrit avant la reconduction"],["legitime","Motif légitime (déménagement, perte d'emploi, hospitalisation...)"],["modification","Modification du contrat par l'entreprise"],["panne","Service défaillant malgré mes réclamations"]]],["detail","Précisions sur le motif","text","Ex. déménagement dans une zone non couverte"],["effet","Date d'effet souhaitée","date",""]],
+   build:function(v){var m=v.motif||"anniversaire",p;
+    if(m==="pas_rappel")p="Vous ne m'avez pas rappelé par écrit, avant la date limite de non-reconduction, mon droit de m'opposer à la reconduction du contrat. En conséquence, je résilie mon contrat immédiatement et sans frais, et je vous demande de me rembourser, dans un délai de 30 jours, les sommes versées pour la période postérieure à la résiliation.";
+    else if(m==="legitime")p="Je résilie mon contrat pour le motif légitime suivant : "+ph(v,"detail","motif")+". Je joins les justificatifs. La résiliation doit intervenir sans frais.";
+    else if(m==="modification")p="Vous avez modifié les conditions de mon contrat. Dans le délai de 4 mois suivant cette modification, j'exerce mon droit de résilier sans frais. "+(v.detail?v.detail:"");
+    else if(m==="panne")p="Le service ne fonctionne pas correctement malgré mes réclamations : "+ph(v,"detail","décrivez la panne")+". Je résilie mon contrat et vous demande le remboursement de la période pendant laquelle le service n'a pas été fourni.";
+    else p="Je résilie mon contrat, conformément à ses conditions, à la date de fin de l'engagement ou à la date anniversaire.";
+    return ["Lettre recommandée avec accusé de réception","Objet : résiliation du contrat n° "+ph(v,"client","numéro de client"),"Madame, Monsieur,","Je suis titulaire du contrat n° "+ph(v,"client","numéro")+" souscrit auprès de "+ph(v,"operateur","entreprise")+" le "+dt(v,"date","date de souscription")+".",p,"Je vous demande de prendre en compte cette résiliation à compter du "+dt(v,"effet","date d'effet")+" et de m'en accuser réception par écrit, sur un support durable. Je vous demande de cesser tout prélèvement à compter de cette date.","Je vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées."]},
+   alertes:function(v,now){return [{t:"astuce",m:"Un contrat pris en ligne doit pouvoir se résilier en ligne en 3 clics : essayez le bouton « Résilier votre contrat » avant d'envoyer ce courrier."}]}},
+  garantie:{nom:"Garantie légale de conformité",desc:"Un produit tombe en panne ou n'est pas conforme",champs:[["bien","Produit concerné","text",""],["date_achat","Date de l'achat","date",""],["livraison","Date de livraison","date",""],["ref","Numéro de facture ou de commande","text",""],["defaut","Le défaut constaté","area","Depuis quand, comment il se manifeste"],["choix","Votre choix","sel",[["la réparation","Réparation"],["le remplacement","Remplacement"]]]],
+   build:function(v){return ["Lettre recommandée avec accusé de réception","Objet : mise en œuvre de la garantie légale de conformité, "+ph(v,"ref","référence"),"Madame, Monsieur,","Le "+dt(v,"date_achat","date de l'achat")+", j'ai acheté "+ph(v,"bien","produit")+" (référence : "+ph(v,"ref","référence")+"), livré le "+dt(v,"livraison","date de livraison")+".","Il présente le défaut suivant : "+ph(v,"defaut","défaut")+".","Ce défaut relève de la garantie légale de conformité, qui s'applique pendant 2 ans à compter de la livraison. Je vous demande "+(v.choix||"la réparation")+" du produit, sans frais pour moi, dans un délai de 30 jours à compter de ma demande.","À défaut, je me réserverai le droit de demander une réduction du prix ou la résolution de la vente, avec remboursement.","Je joins la preuve d'achat.","Je vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées."]},
+   alertes:function(v,now){var l=iso(v.livraison);if(isNaN(l))return [];var f=addM(l,24);return now>f?[{t:"alerte",m:"La garantie légale de 2 ans semble terminée depuis le "+fd(f)+". Vérifiez la date de livraison et d'éventuelles garanties commerciales."}]:[{t:"astuce",m:"La garantie légale court jusqu'au "+fd(f)+". Pour un bien neuf, le défaut est présumé exister dès l'achat pendant 24 mois."}]}},
+  recours:{nom:"Recours contre une décision administrative",desc:"Caf, caisse, mairie, service public",champs:[["organisme","Organisme","text","Ex. Caf de ..."],["ref","Numéro de dossier","text",""],["date_dec","Date de la décision","date",""],["objet","Objet de la décision","text","Ex. refus d'une aide, demande de remboursement"],["motifs","Vos motifs","area","Pourquoi la décision vous semble inexacte"],["type","Type de recours","sel",[["gracieux","Recours gracieux (à l'auteur de la décision)"],["hiérarchique","Recours hiérarchique (au supérieur)"]]],["pieces","Pièces jointes","text","la décision contestée, justificatifs"]],
+   build:function(v){var g=(v.type||"gracieux")==="gracieux";return ["Lettre recommandée avec accusé de réception","Objet : recours "+(g?"gracieux":"hiérarchique")+", dossier n° "+ph(v,"ref","numéro de dossier"),"Madame, Monsieur,","Par décision du "+dt(v,"date_dec","date de la décision")+", vous avez décidé : "+ph(v,"objet","objet de la décision")+".","Je conteste cette décision pour les motifs suivants : "+ph(v,"motifs","vos motifs")+".","Je vous demande en conséquence de réexaminer ma situation et de revenir sur cette décision.","Vous trouverez ci-joint les copies de : "+ph(v,"pieces","pièces")+".","À défaut de réponse dans un délai de 2 mois, ma demande sera considérée comme rejetée et je me réserve la possibilité de saisir le tribunal administratif ou le Défenseur des droits.","Je vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées."]},
+   alertes:function(v,now){var d=iso(v.date_dec);if(isNaN(d))return [];var f=addM(d,2);return now>f?[{t:"alerte",m:"Le délai de 2 mois semble dépassé depuis le "+fd(f)+" (à compter de la notification ou de la réception). Relisez votre notification : certaines procédures ont un autre délai. Agissez sans attendre."}]:[{t:"astuce",m:"Vous avez jusqu'au "+fd(f)+" environ pour contester (2 mois en métropole, à compter de la réception de la décision)."}]}},
+  voisin:{nom:"Bruit de voisinage",desc:"Mise en demeure de cesser les nuisances",champs:[["faits","Nature du bruit","text","Ex. musique forte, aboiements"],["periodes","Quand ?","text","Ex. depuis septembre, souvent après 22 h"],["demarche","Démarches déjà faites","text","Ex. échange oral le 3 octobre, lettre simple le 10 octobre"],["delai","Délai laissé (jours)","num","8"]],
+   build:function(v){return ["Lettre recommandée avec accusé de réception","Objet : mise en demeure de cesser les nuisances sonores","Madame, Monsieur,","Je me permets de vous écrire au sujet de nuisances sonores provenant de votre logement : "+ph(v,"faits","nature du bruit")+", "+ph(v,"periodes","périodes")+".","Ce bruit dépasse les inconvénients normaux de voisinage. J'ai déjà tenté de régler la situation à l'amiable : "+ph(v,"demarche","démarches")+".","Je vous demande de faire cesser ces nuisances dans un délai de "+(v.delai||"8")+" jours à compter de la réception de cette lettre.","À défaut, je saisirai un conciliateur de justice, puis, si nécessaire, la juridiction compétente, et je ferai constater les nuisances.","Je reste disposé(e) à en discuter pour trouver une solution commune.","Je vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées."]},
+   alertes:function(v,now){return [{t:"astuce",m:"La tentative amiable est obligatoire avant le tribunal : parlez au voisin, envoyez une lettre simple, puis ce recommandé, puis un conciliateur de justice (gratuit). Conservez des preuves obtenues loyalement."}]}},
+  depot:{nom:"Dépôt de garantie non rendu",desc:"Réclamer la restitution au propriétaire",champs:[["adresse","Adresse du logement quitté","text",""],["cles","Date de remise des clés","date",""],["montant","Montant du dépôt de garantie (euros)","text",""],["loyer","Loyer mensuel hors charges (euros)","text",""],["etat","État des lieux de sortie","sel",[["conforme","Conforme à l'état des lieux d'entrée (délai de 1 mois)"],["ecart","Avec des différences (délai de 2 mois)"]]]],
+   build:function(v){var c=iso(v.cles),n=(v.etat==="ecart")?2:1,lim=isNaN(c)?"[date limite]":fd(addM(c,n));return ["Lettre recommandée avec accusé de réception","Objet : restitution du dépôt de garantie, logement situé "+ph(v,"adresse","adresse"),"Madame, Monsieur,","J'ai quitté le logement situé "+ph(v,"adresse","adresse")+" et vous ai remis les clés le "+dt(v,"cles","date de remise des clés")+".","Le délai légal de restitution du dépôt de garantie est de "+n+" mois à compter de la remise des clés, soit jusqu'au "+lim+". À ce jour, je n'ai pas reçu la somme de "+ph(v,"montant","montant")+" euros.","Je vous demande de me la restituer, déduction faite des seules retenues justifiées, avec justificatifs. Je vous rappelle qu'à défaut, une majoration de 10 % du loyer mensuel hors charges ("+ph(v,"loyer","loyer")+" euros) est due par mois de retard commencé.","Je vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées."]},
+   alertes:function(v,now){var c=iso(v.cles);if(isNaN(c))return [];var n=(v.etat==="ecart")?2:1,l=addM(c,n);return now>l?[{t:"alerte",m:"Le délai de restitution s'est terminé le "+fd(l)+" : le propriétaire est en retard. Envoyez cette lettre en recommandé, puis envisagez le conciliateur ou la commission départementale de conciliation."}]:[{t:"astuce",m:"Le propriétaire a jusqu'au "+fd(l)+" pour restituer le dépôt. Passé ce jour, vous pourrez réclamer la majoration."}]}},
+  mediateur:{nom:"Saisine d'un médiateur de la consommation",desc:"Après une réclamation restée sans réponse",champs:[["pro","Professionnel concerné","text",""],["ref","Numéro de commande ou de contrat","text",""],["date_rec","Date de votre réclamation écrite","date",""],["resume","Résumé du litige","area","Faits, montant, ce que vous demandez"],["pieces","Pièces jointes","text","réclamation, réponse, contrat, facture"]],
+   build:function(v){return ["Objet : demande de médiation, litige avec "+ph(v,"pro","professionnel")+", référence "+ph(v,"ref","référence"),"Madame, Monsieur,","Je vous saisis d'un litige qui m'oppose à "+ph(v,"pro","professionnel")+".","Résumé : "+ph(v,"resume","résumé du litige"),"J'ai adressé une réclamation écrite au professionnel le "+dt(v,"date_rec","date de la réclamation")+", sans obtenir satisfaction. Le litige n'a été soumis ni à un autre médiateur ni à un tribunal.","Je vous demande de bien vouloir proposer une solution.","Pièces jointes : "+ph(v,"pieces","pièces")+".","Je vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées."]},
+   alertes:function(v,now){var r=iso(v.date_rec);if(isNaN(r))return [];var f=addM(r,12);return now>f?[{t:"alerte",m:"Plus d'un an s'est écoulé depuis votre réclamation écrite (limite le "+fd(f)+") : le médiateur peut refuser votre dossier. Vérifiez ses conditions."}]:[{t:"astuce",m:"Vous avez jusqu'au "+fd(f)+" pour saisir le médiateur (1 an après la réclamation écrite)."}]}},
+  banque:{nom:"Réclamation à sa banque",desc:"Frais, prélèvement ou paiement contesté",champs:[["banque","Nom de la banque","text",""],["ref","Référence du dossier ou de l'opération","text","Ne saisissez pas votre numéro de compte complet"],["date_ev","Date de l'opération","date",""],["montant","Montant contesté (euros)","text",""],["objet","Ce que vous contestez","area","Faits et demande"],["paiement","Litige sur un service de paiement (virement, prélèvement, carte) ?","sel",[["non","Non"],["oui","Oui"]]]],
+   build:function(v){return ["Lettre recommandée avec accusé de réception","Objet : réclamation, référence "+ph(v,"ref","référence"),"Madame, Monsieur,","Je conteste l'opération du "+dt(v,"date_ev","date")+" d'un montant de "+ph(v,"montant","montant")+" euros. "+ph(v,"objet","exposez les faits et votre demande"),"Je vous demande de traiter ma réclamation et de me répondre par écrit dans un délai de "+(v.paiement==="oui"?"15 jours":"2 mois")+".","À défaut de réponse satisfaisante, je saisirai le médiateur bancaire.","Je vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées."]},
+   alertes:function(v,now){return [{t:"astuce",m:"La banque a 2 mois pour répondre (15 jours pour un litige sur un paiement). Sans réponse satisfaisante, vous pourrez saisir gratuitement le médiateur bancaire."}]}}
+  };
+  function sdLettre(o){
+    var t=T[o.type];if(!t)return {texte:"",alertes:[]};
+    var v=o.v||{},now=o.now||Date.now(),paras=t.build(v);
+    var sender=ph(v,"moi_nom","Votre nom")+"\n"+ph(v,"moi_adresse","Votre adresse")+(v.moi_contact?"\n"+v.moi_contact:"");
+    var dest=ph(v,"dest_nom","Destinataire")+"\n"+ph(v,"dest_adresse","Adresse du destinataire");
+    var head=sender+"\n\n"+dest+"\n\nFait à "+ph(v,"ville","ville")+", le "+fd(o.today||Date.UTC(new Date(now).getUTCFullYear(),new Date(now).getUTCMonth(),new Date(now).getUTCDate()));
+    var texte=head+"\n\n"+paras.join("\n\n")+"\n\n"+ph(v,"moi_nom","Signature");
+    return {texte:texte,alertes:t.alertes(v,now),nom:t.nom};
+  }
+  window.sdLettre=sdLettre;
+  var cur=null,vals={};
+  function esc(x){return String(x).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+  function prog(n){["p1","p2","p3"].forEach(function(id,i){document.getElementById(id).className=i<n?"on":""})}
+  var tw=document.getElementById("lt-types");
+  Object.keys(T).forEach(function(k){var b=document.createElement("button");b.type="button";b.className="lt-t";b.setAttribute("aria-pressed","false");b.setAttribute("data-t",k);b.innerHTML="<strong>"+esc(T[k].nom)+"</strong><small>"+esc(T[k].desc)+"</small>";b.addEventListener("click",function(){choose(k)});tw.appendChild(b)});
+  function field(f,v){var id="f_"+f[0],h="";
+    if(f[2]==="area")h='<textarea id="'+id+'" placeholder="'+esc(f[3]||"")+'" maxlength="900"></textarea>';
+    else if(f[2]==="sel")h='<select id="'+id+'">'+f[3].map(function(o){return '<option value="'+esc(o[0])+'">'+esc(o[1])+'</option>'}).join("")+"</select>";
+    else if(f[2]==="date")h='<input type="date" id="'+id+'">';
+    else if(f[2]==="num")h='<input type="number" id="'+id+'" min="1" max="365" inputmode="numeric" value="'+esc(f[3]||"")+'">';
+    else h='<input type="text" id="'+id+'" maxlength="160" placeholder="'+esc(f[3]||"")+'">';
+    return '<div class="field"><label for="'+id+'">'+esc(f[1])+"</label>"+h+"</div>";}
+  function choose(k){
+    cur=k;[].forEach.call(tw.children,function(b){b.setAttribute("aria-pressed",b.getAttribute("data-t")===k?"true":"false")});
+    var fs=T[k].champs.concat(COMMUN);
+    document.getElementById("lt-fields").innerHTML=fs.map(function(f){return field(f)}).join("");
+    document.getElementById("lt-form").hidden=false;prog(2);
+    [].forEach.call(document.querySelectorAll("#lt-fields input,#lt-fields textarea,#lt-fields select"),function(el){el.addEventListener("input",render);el.addEventListener("change",render)});
+    try{if(history.replaceState)history.replaceState(null,"","?type="+k)}catch(e){}
+    render();
+  }
+  function collect(){var v={};[].forEach.call(document.querySelectorAll("#lt-fields [id^=f_]"),function(el){v[el.id.slice(2)]=el.value});return v}
+  var lastTxt="";
+  function render(){
+    if(!cur)return;
+    var r=sdLettre({type:cur,v:collect()});lastTxt=r.texte;
+    document.getElementById("main").textContent=r.nom;
+    document.getElementById("lt-alerts").innerHTML=r.alertes.map(function(a){return '<div class="'+(a.t==="alerte"?"lt-alert":"lt-tip")+'" role="'+(a.t==="alerte"?"alert":"note")+'">'+esc(a.m)+"</div>"}).join("");
+    document.getElementById("lt-sheet").innerHTML=r.texte.split("\n\n").map(function(p){return "<p>"+esc(p).replace(/\n/g,"<br>")+"</p>"}).join("");
+    document.getElementById("result").classList.add("visible");prog(3);
+  }
+  document.getElementById("copy").addEventListener("click",function(){try{navigator.clipboard.writeText(lastTxt)}catch(e){}});
+  document.getElementById("print").addEventListener("click",function(){window.print()});
+  document.getElementById("word").addEventListener("click",function(){
+    var h="<html><head><meta charset=\"utf-8\"></head><body style=\"font-family:Georgia,serif;font-size:12pt\">"+lastTxt.split("\n\n").map(function(p){return "<p>"+esc(p).replace(/\n/g,"<br>")+"</p>"}).join("")+"</body></html>";
+    var b=new Blob(["﻿",h],{type:"application/msword"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="lettre-litige.doc";document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},500);
+  });
+  try{var q=new URLSearchParams(location.search).get("type");if(q&&T[q])choose(q)}catch(e){}
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>

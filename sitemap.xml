@@ -1440,4 +1440,14 @@
     <loc>https://simudroit.fr/simulateur-duerp-document-unique/</loc>
     <lastmod>2026-11-04</lastmod>
   </url>
+  <url>
+    <loc>https://simudroit.fr/simulateur-lettre-litige/</loc>
+    <lastmod>2026-11-04</lastmod>
+  </url>
+  <url>
+    <loc>https://simudroit.fr/litiges/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

@@ -323,5 +323,27 @@
    "sanctions : F35360 (1 500 / 7 500 / 4 000 €) et A18908 (7 500 € pénal) incohérentes entre elles",
    "fiches en traduction automatique"
   ]
+ },
+ "lettre-litige": {
+  "date_relecture": "2026-11-04",
+  "urls": [
+   "https://www.service-public.gouv.fr/particuliers/vosdroits/F10485",
+   "https://www.service-public.gouv.fr/particuliers/vosdroits/F11094",
+   "https://www.service-public.gouv.fr/particuliers/vosdroits/F2474",
+   "https://entreprendre.service-public.gouv.fr/vosdroits/F33338",
+   "https://www.service-public.gouv.fr/particuliers/vosdroits/F31269"
+  ],
+  "regles_confirmees": [
+   "rétractation : 14 jours à compter de la réception",
+   "garantie légale de conformité : 2 ans",
+   "recours administratif : 2 mois",
+   "médiation : 1 an après la réclamation écrite",
+   "dépôt de garantie : 1 ou 2 mois"
+  ],
+  "non_verifie": [
+   "pages en traduction automatique",
+   "jours fériés et prolongations non modélisés",
+   "trames de lettres propres au site"
+  ]
  }
 }

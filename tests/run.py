@@ -414,6 +414,9 @@ for _v in ("simulateur-planning-roulement-equipe", "simulateur-suivi-conges-paye
 _du = _page("duerp-document-unique")
 for _v in ("F35360", "40 ans", "11 salariés", "dès le premier salarié", "convention de l'outil"):
     if _v not in _du: fail("DUERP : mention absente (%s)" % _v)
+_ll = _page("lettre-litige")
+for _v in ("F10485", "F11094", "F2474", "F33338", "F31269", "sdLettre"):
+    if _v not in _ll: fail("lettres de litige : mention absente (%s)" % _v)
 _ps2 = open(os.path.join(ROOT, "mon-plan-de-sortie-surendettement", "index.html"), encoding="utf-8").read(); _psj = open(os.path.join(ROOT, "assets", "plan-sortie.js"), encoding="utf-8").read()
 for _v in ("Rien n'est envoyé", "3 mois", "Mémoriser ma progression sur cet appareil uniquement", "Tout effacer"):
     if _v not in _ps2: fail("plan de sortie : mention absente (%s)" % _v)
@@ -820,6 +823,20 @@ with sync_playwright() as pw:
     if not _d["prog"] or _d["rows"][0]["score"] != 12: fail("DUERP : 50 salariés et bornes (%s)" % _d)
     pg.check("input[data-id=manut]"); pg.fill("#unite", "Fournil"); pg.click("#calculate"); pg.wait_for_timeout(300)
     if "1 risque évalué - Fournil" not in pg.inner_text("#main"): fail("DUERP : affichage (%s)" % pg.inner_text("#result"))
+    # lettres de litige : alertes de délai et texte
+    pg.goto(LOCAL + "simulateur-lettre-litige/"); pg.wait_for_timeout(600)
+    def _lt(ty, v):
+        _n = int(__import__("datetime").datetime(2026, 11, 4, tzinfo=__import__("datetime").timezone.utc).timestamp() * 1000)
+        return pg.evaluate("(o)=>window.sdLettre(o)", {"type": ty, "v": v, "now": _n, "today": _n})
+    _r = _lt("retractation", {"recep": "2026-10-20"})
+    if not _r["alertes"] or _r["alertes"][0]["t"] != "alerte": fail("lettre litige : rétractation hors délai non signalée")
+    _r = _lt("retractation", {"recep": "2026-11-02"})
+    if _r["alertes"][0]["t"] != "astuce": fail("lettre litige : rétractation dans les délais")
+    _r = _lt("depot", {"cles": "2026-09-01", "etat": "ecart", "adresse": "1 rue X"})
+    if "1er novembre 2026" not in _r["texte"] or _r["alertes"][0]["t"] != "alerte": fail("lettre litige : dépôt de garantie")
+    if _lt("recours", {"date_dec": "2026-07-01"})["alertes"][0]["t"] != "alerte" or _lt("garantie", {"livraison": "2025-05-01"})["alertes"][0]["t"] != "astuce": fail("lettre litige : recours / garantie")
+    pg.click(".lt-t[data-t=reclamation]"); pg.fill("#f_objet", "un lave-linge"); pg.wait_for_timeout(200)
+    if "un lave-linge" not in pg.inner_text("#lt-sheet"): fail("lettre litige : aperçu en direct")
     # Mon plan de sortie du surendettement : analyse CSV, calendrier, progression (tout en local)
     pg.goto(LOCAL + "mon-plan-de-sortie-surendettement/"); pg.wait_for_timeout(600)
     _csv = "Date;Libellé;Montant\n01/09/2026;SALAIRE;1000,00\n02/09/2026;LOYER;-500,00\n03/09/2026;NETFLIX;-10,00\n03/10/2026;NETFLIX;-10,00\n05/10/2026;CARREFOUR;-40,00"
