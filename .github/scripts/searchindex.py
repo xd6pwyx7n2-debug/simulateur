@@ -13,6 +13,7 @@ SYN = {
     "simulateur-seuils-effectifs-entreprise": "seuils effectifs entreprise 11 salaries 20 50 cse comite social economique reglement interieur duerp obligations employeur tpe pme bdese index egalite",
     "simulateur-suivi-arrets-maladie-equipe": "suivi arrets maladie equipe visite de reprise prereprise absenteisme jours absence employeur salaries 60 jours 30 jours accident du travail medecin du travail",
     "simulateur-planning-roulement-equipe": "planning roulement equipe horaires employes heures repos 11 heures 35 heures rotation shifts organisation equipe employeur nombre employes",
+    "simulateur-suivi-conges-payes-equipe": "suivi conges payes equipe jours acquis soldes salaries periode de reference 1er juin 31 mai jours ouvrables ouvres employeur compteur conges",
     "simulateur-capacite-emprunt": "capacite d emprunt taux d endettement credit immobilier mensualite 35 hcsf pret simulateur combien emprunter duree 25 ans assurance",
     "simulateur-saisie-sur-salaire": "saisie sur salaire saisie des remunerations bareme 2026 quotite saisissable reste a vivre solde insaisissable 651,69 pension alimentaire dette commissaire de justice huissier simulateur",
     "simulateur-aide-carburant-grands-rouleurs": "aide carburant grands rouleurs prime carburant 2026 simulateur 100 euros eligibilite travailleurs 22770 revenu fiscal de reference formulaire 31 decembre",

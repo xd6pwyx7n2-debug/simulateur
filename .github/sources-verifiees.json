@@ -266,5 +266,24 @@
    "taux d'absentéisme : formule interne, non officielle",
    "fiches en traduction automatique"
   ]
+ },
+ "suivi-conges-payes-equipe": {
+  "date_relecture": "2026-11-04",
+  "urls": [
+   "https://www.service-public.gouv.fr/particuliers/vosdroits/F2258",
+   "https://www.service-public.gouv.fr/particuliers/actualites/A15702"
+  ],
+  "regles_confirmees": [
+   "2,5 jours ouvrables par mois de travail effectif, 30 par an",
+   "fractions arrondies à l'entier supérieur",
+   "période de référence du 1er juin au 31 mai, 1er avril au 31 mars pour le bâtiment et le spectacle",
+   "dates de départ communiquées 1 mois avant, période de congés 2 mois avant",
+   "report obligatoire en cas de maladie, maternité, adoption ou paternité"
+  ],
+  "non_verifie": [
+   "25 jours ouvrés par an : déduit de 5 semaines à 5 jours, non écrit sur la fiche",
+   "acquisition pendant un arrêt maladie : non modélisée",
+   "fiches en traduction automatique"
+  ]
  }
 }
