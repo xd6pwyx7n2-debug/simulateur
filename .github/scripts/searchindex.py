@@ -42,6 +42,7 @@ SYN = {
     "guides/sortir-du-surendettement-plan-d-action-positif": "surendettement sortir du surendettement banque de france commission dossier plan effacement dettes retablissement personnel ficp 7 ans dettes aide",
     "guides/embaucher-premier-salarie-saisonnier-interimaire-apprenti-demarches": "embaucher premier salarie saisonnier interimaire apprenti dpae contrat employeur demarches embauche aide apprentissage",
     "guides/cumul-emploi-retraite-2027-nouvelles-regles-seuil-7000-euros-pension-reduite": "cumul emploi retraite 2027 nouvelles regles seuil 7000 euros pension reduite age legal 67 ans decret",
+    "guides/treve-hivernale-2026-2027-expulsion-coupures-energie-eau-ce-qui-est-interdit": "treve hivernale 2026 2027 expulsion locataire coupure gaz electricite eau impaye loyer 31 mars",
     "guides/credit-a-la-consommation-retractation-14-jours-remboursement-anticipe-credit-renouvelable": "credit consommation retractation 14 jours remboursement anticipe credit renouvelable revolving taeg pret personnel taux usure",
     "guides/pension-alimentaire-impayee-aripa-intermediation-allocation-soutien-familial": "pension alimentaire impayee aripa intermediation financiere caf msa allocation soutien familial asf recouvrement enfant parent",
     "guides/salaire-impaye-ou-en-retard-que-faire-prescription-3-ans-prud-hommes": "salaire impaye retard paiement prescription 3 ans prud hommes mise en demeure rappel de salaire employeur ne paie pas",
