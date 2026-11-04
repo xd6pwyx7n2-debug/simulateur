@@ -289,6 +289,26 @@ for _v in ("19 décembre 2026 au 4 janvier 2027", "13 février au 1er mars 2027"
 _cc = _g("credit-a-la-consommation-retractation-14-jours-remboursement-anticipe-credit-renouvelable")
 for _v in ("14 jours", "75 000 €", "10 000 €", "0,5 %", "TAEG", "8 %", "F2451", "F2436", "Limites"):
     if _v not in _cc: fail("guide crédit conso : mention absente (%s)" % _v)
+# Guide litiges litige-se-de
+_llitige = _g("litige-se-defendre-sans-tribunal-etapes-reclamation-mediation-conciliation")
+for _v in ('5 000 €', '1er octobre 2023', 'F1736', 'F33338', 'F13158', 'F31301', 'Limites'):
+    if _v not in _llitige: fail("guide litiges litige-se-de : mention absente (%s)" % _v)
+# Guide litiges mediateur-de
+_lmediat = _g("mediateur-de-la-consommation-saisir-gratuitement-delai-1-an-90-jours")
+for _v in ('1 an', '90 jours', 'F33338', '3 000 €', '15 000 €', 'Limites'):
+    if _v not in _lmediat: fail("guide litiges mediateur-de : mention absente (%s)" % _v)
+# Guide litiges conciliateur
+_lconcil = _g("conciliateur-de-justice-gratuit-comment-le-saisir-litiges-du-quotidien")
+for _v in ('conciliateurs.fr', '3 mois', '5 000 €', 'F1736', 'F31301', 'Limites'):
+    if _v not in _lconcil: fail("guide litiges conciliateur : mention absente (%s)" % _v)
+# Guide litiges contester-un
+_lcontes = _g("contester-une-decision-administrative-recours-gracieux-defenseur-des-droits")
+for _v in ('2 mois', 'F2474', 'F13158', 'Défenseur des droits', 'gracieux', 'Limites'):
+    if _v not in _lcontes: fail("guide litiges contester-un : mention absente (%s)" % _v)
+# Guide litiges mise-en-deme
+_lmisee = _g("mise-en-demeure-lettre-de-reclamation-comment-ecrire-modele")
+for _v in ('Objet : mise en demeure', 'recommandé', '8 à 15 jours', 'F33338', 'Limites'):
+    if _v not in _lmisee: fail("guide litiges mise-en-deme : mention absente (%s)" % _v)
 # Guide Black Friday
 _bf = _g("black-friday-achats-en-ligne-droit-de-retractation-14-jours-garantie-2-ans")
 for _v in ("14 jours", "2 ans", "27 novembre 2026", "F10485", "F11094", "F10868", "Limites"):
