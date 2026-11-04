@@ -158,7 +158,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/generateur-attestation-d-hebergement/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-03</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/generateur-contrat-emploi-a-domicile/</loc>
@@ -198,7 +198,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/modele-lettre-reclamation-salaire-impaye/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-03</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/modele-lettre-demande-dispense-preavis/</loc>
@@ -755,6 +755,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://simudroit.fr/guides/pension-alimentaire-impayee-aripa-intermediation-allocation-soutien-familial/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://simudroit.fr/guides/apl-aide-au-logement-2026-conditions-loyers-plafonds-demande/</loc>
     <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
@@ -768,7 +774,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/guides/quittance-de-loyer-obligation-mentions-paiement-partiel/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

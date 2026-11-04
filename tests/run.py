@@ -285,6 +285,10 @@ for _v in ("1er mars", "31 mai", "28 ans", "10 mois", "7 ans", "F12214", "A18239
 _vs = _g("vacances-scolaires-2026-2027-dates-zones-a-b-c")
 for _v in ("19 décembre 2026 au 4 janvier 2027", "13 février au 1er mars 2027", "20 février au 8 mars 2027", "6 au 22 février 2027", "10 au 26 avril 2027", "17 avril au 3 mai 2027", "3 au 19 avril 2027", "3 juillet 2027", "7 mai 2027", "F31952", "22 octobre 2025", "Limites"):
     if _v not in _vs: fail("guide vacances scolaires : mention absente (%s)" % _v)
+# Guide pension alimentaire : Aripa, frais et ASF
+_pa = _g("pension-alimentaire-impayee-aripa-intermediation-allocation-soutien-familial")
+for _v in ("Aripa", "60 jours", "5 ans", "7,5 %", "10 %", "200,78 €", "267,63 €", "F36407", "Limites"):
+    if _v not in _pa: fail("guide pension alimentaire : mention absente (%s)" % _v)
 # Guide salaire impayé : prescription et procédure Service-Public
 _si = _g("salaire-impaye-ou-en-retard-que-faire-prescription-3-ans-prud-hommes")
 for _v in ("3 ans", "L3245-1", "mise en demeure", "F2308", "F2360", "15 jours", "Limites"):

@@ -34,6 +34,7 @@ SYN = {
     "guides/conge-paternite-2026-duree-jours-demarches-tous-secteurs": "conge paternite 2026 25 jours 32 jours naissance demarches prevenir employeur fractionner fonctionnaire independant protection licenciement",
     "guides/naissance-bebe-demarches-aides-conges-dans-l-ordre": "naissance bebe demarches declaration de naissance 5 jours mairie caf paje prime naissance cmg preparE conge parental impots vitale mutuelle",
     "guides/sortir-du-surendettement-plan-d-action-positif": "surendettement sortir du surendettement banque de france commission dossier plan effacement dettes retablissement personnel ficp 7 ans dettes aide",
+    "guides/pension-alimentaire-impayee-aripa-intermediation-allocation-soutien-familial": "pension alimentaire impayee aripa intermediation financiere caf msa allocation soutien familial asf recouvrement enfant parent",
     "guides/salaire-impaye-ou-en-retard-que-faire-prescription-3-ans-prud-hommes": "salaire impaye retard paiement prescription 3 ans prud hommes mise en demeure rappel de salaire employeur ne paie pas",
     "guides/inaptitude-medicale-au-travail-reclassement-licenciement-indemnites": "inaptitude medecin du travail reclassement licenciement pour inaptitude indemnite salaire apres un mois accident du travail maladie professionnelle",
     "guides/depot-de-garantie-restitution-delai-retenues-que-faire-si-non-rendu": "depot de garantie caution restitution delai retenue locataire propriétaire non rendu penalite 10 pour cent etat des lieux",
