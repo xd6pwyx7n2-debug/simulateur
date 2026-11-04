@@ -56,6 +56,8 @@ SYN = {
     "guides/bruit-de-voisinage-nuisances-etapes-amiable-conciliateur-amende": "bruit voisinage tapage nocturne nuisance voisin amende 450 conciliateur recommande preuves commissaire justice",
     "guides/litige-avec-sa-banque-reclamation-mediateur-bancaire-delais": "litige banque reclamation mediateur bancaire delai 2 mois 15 jours 90 jours gratuit paiement",
     "guides/travaux-mal-faits-artisan-garanties-parfait-achevement-decennale-mise-en-demeure": "travaux mal faits artisan malfacons garantie parfait achevement biennale decennale mise en demeure recommande devis depasse",
+    "guides/changer-ou-resilier-sa-mutuelle-sante-apres-un-an-echeance-avis-d-echeance": "mutuelle sante resilier changer echeance annuelle apres un an avis d echeance 15 jours complementaire sante",
+    "guides/declaration-de-revenus-qui-doit-declarer-en-ligne-obligatoire-majoration-corriger": "declaration revenus impots qui doit declarer en ligne obligatoire majoration 0,2 60 euros corriger justificatifs campagne avril 2027",
     "guides/credit-a-la-consommation-retractation-14-jours-remboursement-anticipe-credit-renouvelable": "credit consommation retractation 14 jours remboursement anticipe credit renouvelable revolving taeg pret personnel taux usure",
     "guides/pension-alimentaire-impayee-aripa-intermediation-allocation-soutien-familial": "pension alimentaire impayee aripa intermediation financiere caf msa allocation soutien familial asf recouvrement enfant parent",
     "guides/salaire-impaye-ou-en-retard-que-faire-prescription-3-ans-prud-hommes": "salaire impaye retard paiement prescription 3 ans prud hommes mise en demeure rappel de salaire employeur ne paie pas",

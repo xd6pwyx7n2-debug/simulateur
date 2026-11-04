@@ -325,6 +325,14 @@ for _v in ('2 mois', '15 jours', '90 jours', 'F20523', 'médiateur bancaire', 'L
 _ltravau = _g("travaux-mal-faits-artisan-garanties-parfait-achevement-decennale-mise-en-demeure")
 for _v in ('10 ans', 'parfait achèvement', 'décennale', 'F2958', 'R24080', 'Limites'):
     if _v not in _ltravau: fail("guide litiges travaux-mal- : mention absente (%s)" % _v)
+# Guide litiges changer-ou-r
+_lchange = _g("changer-ou-resilier-sa-mutuelle-sante-apres-un-an-echeance-avis-d-echeance")
+for _v in ('F20314', '15 jours', 'après un an', 'Limites'):
+    if _v not in _lchange: fail("guide litiges changer-ou-r : mention absente (%s)" % _v)
+# Guide litiges declaration-
+_ldeclar = _g("declaration-de-revenus-qui-doit-declarer-en-ligne-obligatoire-majoration-corriger")
+for _v in ('F358', '0,2 %', '60 €', '3 ans', 'Limites'):
+    if _v not in _ldeclar: fail("guide litiges declaration- : mention absente (%s)" % _v)
 # Guide Black Friday
 _bf = _g("black-friday-achats-en-ligne-droit-de-retractation-14-jours-garantie-2-ans")
 for _v in ("14 jours", "2 ans", "27 novembre 2026", "F10485", "F11094", "F10868", "Limites"):
