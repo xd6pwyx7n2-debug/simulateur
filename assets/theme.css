@@ -192,3 +192,12 @@ article.fiche p.note,article.fiche li{line-height:1.6}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 @media(prefers-contrast:more){:root{--muted:#4a4a63}}
+@media(max-width:640px){
+  .quick{display:none}
+  .filters{flex-wrap:nowrap!important;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:8px;margin-right:-8px;-webkit-overflow-scrolling:touch}
+  .filters .filter{flex:0 0 auto;scroll-snap-align:start;white-space:nowrap}
+}
+@media(max-width:640px){
+  .gd-chips{flex-wrap:nowrap!important;overflow-x:auto;padding-bottom:8px;margin-right:-8px;-webkit-overflow-scrolling:touch}
+  .gd-chips .gd-chip{flex:0 0 auto;white-space:nowrap}
+}
