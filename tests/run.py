@@ -309,6 +309,22 @@ for _v in ('2 mois', 'F2474', 'F13158', 'Défenseur des droits', 'gracieux', 'Li
 _lmisee = _g("mise-en-demeure-lettre-de-reclamation-comment-ecrire-modele")
 for _v in ('Objet : mise en demeure', 'recommandé', '8 à 15 jours', 'F33338', 'Limites'):
     if _v not in _lmisee: fail("guide litiges mise-en-deme : mention absente (%s)" % _v)
+# Guide litiges resilier-un-
+_lresili = _g("resilier-un-abonnement-box-salle-de-sport-assurance-droits-etapes")
+for _v in ('3 clics', 'F33991', 'F22486', '24 mois', 'RIO', 'Limites'):
+    if _v not in _lresili: fail("guide litiges resilier-un- : mention absente (%s)" % _v)
+# Guide litiges bruit-de-voi
+_lbruit = _g("bruit-de-voisinage-nuisances-etapes-amiable-conciliateur-amende")
+for _v in ('450 €', '68 €', '22 h', 'F612', 'A18139', 'Limites'):
+    if _v not in _lbruit: fail("guide litiges bruit-de-voi : mention absente (%s)" % _v)
+# Guide litiges litige-avec-
+_llitige = _g("litige-avec-sa-banque-reclamation-mediateur-bancaire-delais")
+for _v in ('2 mois', '15 jours', '90 jours', 'F20523', 'médiateur bancaire', 'Limites'):
+    if _v not in _llitige: fail("guide litiges litige-avec- : mention absente (%s)" % _v)
+# Guide litiges travaux-mal-
+_ltravau = _g("travaux-mal-faits-artisan-garanties-parfait-achevement-decennale-mise-en-demeure")
+for _v in ('10 ans', 'parfait achèvement', 'décennale', 'F2958', 'R24080', 'Limites'):
+    if _v not in _ltravau: fail("guide litiges travaux-mal- : mention absente (%s)" % _v)
 # Guide Black Friday
 _bf = _g("black-friday-achats-en-ligne-droit-de-retractation-14-jours-garantie-2-ans")
 for _v in ("14 jours", "2 ans", "27 novembre 2026", "F10485", "F11094", "F10868", "Limites"):
