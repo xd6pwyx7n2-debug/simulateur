@@ -79,6 +79,7 @@
     else if(/^\/parcours/.test(p))k="Parcours";
     else if(/^\/exemples-/.test(p))k="Exemples chiffrés";
     else if(/^\/independants/.test(p))k="Indépendants";
+    else if(/^\/employeurs-rh/.test(p))k="Employeurs";
     else if(/^\/assistant/.test(p))k="Assistant";
     else if(/^\/a-propos/.test(p))k="À propos";
     else if(/^\/contact/.test(p))k="Contact";

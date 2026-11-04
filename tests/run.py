@@ -352,6 +352,9 @@ for _v in ("2,5 jours", "30 jours", "1er juin au 31 mai", "F2258", "A15702", "2 
 _cd = _page("calcul-delais-echeances")
 for _v in ("F31111", "F35697", "jours francs", "dernier jour du mois", "premier jour ouvrable"):
     if _v not in _cd: fail("calcul de délai : mention absente (%s)" % _v)
+_eh = open(os.path.join(ROOT, "employeurs-rh", "index.html"), encoding="utf-8").read()
+for _v in ("simulateur-planning-roulement-equipe", "simulateur-suivi-conges-payes-equipe", "simulateur-suivi-arrets-maladie-equipe", "simulateur-seuils-effectifs-entreprise", "simulateur-calcul-delais-echeances", "Ce que ces outils ne remplacent pas"):
+    if _v not in _eh: fail("hub employeurs : mention absente (%s)" % _v)
 _ps2 = open(os.path.join(ROOT, "mon-plan-de-sortie-surendettement", "index.html"), encoding="utf-8").read(); _psj = open(os.path.join(ROOT, "assets", "plan-sortie.js"), encoding="utf-8").read()
 for _v in ("Rien n'est envoyé", "3 mois", "Mémoriser ma progression sur cet appareil uniquement", "Tout effacer"):
     if _v not in _ps2: fail("plan de sortie : mention absente (%s)" % _v)

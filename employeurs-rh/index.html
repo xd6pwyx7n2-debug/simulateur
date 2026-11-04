@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Outils gratuits pour employeurs et RH : planning, congés, arrêts</title>
+  <meta name="description" content="Outils gratuits pour les employeurs et responsables RH de petites entreprises : planning de roulement, suivi des congés et arrêts maladie, seuils d&#x27;effectifs, calcul de délais, ruptures.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://simudroit.fr/employeurs-rh/">
+  <link rel="icon" href="https://simudroit.fr/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="https://simudroit.fr/favicon.ico" sizes="48x48">
+  <link rel="icon" href="https://simudroit.fr/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="https://simudroit.fr/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Outils gratuits pour employeurs et RH : planning, congés, arrêts | SimuDroit">
+  <meta property="og:description" content="Outils gratuits pour les employeurs et responsables RH de petites entreprises : planning de roulement, suivi des congés et arrêts maladie, seuils d&#x27;effectifs, calcul de délais, ruptures.">
+  <meta property="og:url" content="https://simudroit.fr/employeurs-rh/">
+  <meta property="og:image" content="https://simudroit.fr/assets/og/employeurs-rh.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://simudroit.fr/assets/og/employeurs-rh.jpg">
+  <meta name="twitter:title" content="Outils gratuits pour employeurs et RH : planning, congés, arrêts | SimuDroit">
+  <meta name="twitter:description" content="Outils gratuits pour les employeurs et responsables RH de petites entreprises : planning de roulement, suivi des congés et arrêts maladie, seuils d&#x27;effectifs, calcul de délais, ruptures.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://simudroit.fr/"}
+  </script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Outils pour employeurs et RH", "url": "https://simudroit.fr/employeurs-rh/", "description": "Outils gratuits pour les employeurs et responsables RH de petites entreprises : planning de roulement, suivi des congés et arrêts maladie, seuils d'effectifs, calcul de délais, ruptures.", "inLanguage": "fr-FR", "dateModified": "2026-11-04"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://simudroit.fr/"}, {"@type": "ListItem", "position": 2, "name": "Outils pour employeurs et RH", "item": "https://simudroit.fr/employeurs-rh/"}]}</script>
+  
+  
+  <meta name="theme-color" content="#201e48">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="Outils gratuits pour employeurs et RH : planning, congés, arrêts | SimuDroit">
+  <link rel="alternate" hreflang="fr" href="https://simudroit.fr/employeurs-rh/">
+  <link rel="alternate" hreflang="x-default" href="https://simudroit.fr/employeurs-rh/">
+  <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
+  <script async src="https://plausible.io/js/pa-j8JdUomB9hqqp7em82xdB.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+</head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.fr/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://simudroit.fr/simulateurs/">Simulateurs</a>
+      <a href="https://simudroit.fr/assistant/">Assistant</a>
+      <a href="https://simudroit.fr/employeurs-rh/">Indépendants</a>
+      <a href="https://simudroit.fr/guides/">Guides</a>
+      <a href="https://simudroit.fr/aides/">Aides</a>
+      <a href="https://simudroit.fr/fiches-revision/">Fiches</a>
+      <a href="https://simudroit.fr/actualites/">Chiffres clés</a>
+      <a href="https://simudroit.fr/metiers/">Métiers</a>
+      <a href="https://simudroit.fr/faq/">FAQ</a>
+      <a href="https://simudroit.fr/#recherche">Rechercher</a>
+      <a class="cta-link" href="https://simudroit.fr/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://simudroit.fr/">Accueil</a> &nbsp;›&nbsp; Employeurs et RH
+  </div>
+
+  <section class="hero">
+    <h1>Outils gratuits pour employeurs et responsables RH</h1>
+    <p>Organiser un planning, suivre les congés et les arrêts maladie, savoir à quel seuil d'effectif on passe, calculer une date limite, chiffrer une rupture : les outils pour les petites entreprises, au même endroit.</p>
+      <div class="badges"><span class="badge">✓ Sources officielles relues le 4 novembre 2026</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Vos données restent dans votre navigateur</span></div>
+  </section>
+  <section class="info-section sd-know" id="organiser">
+    <h2>Organiser et suivre l'équipe</h2>
+    <div class="sd-know-grid">
+      <div class="sd-know-card"><h3><a href="/simulateur-planning-roulement-equipe/">Planning de roulement</a></h3><p>Une proposition de roulement selon le nombre de salariés et les heures à couvrir, avec contrôle du repos quotidien et hebdomadaire.</p></div>
+      <div class="sd-know-card"><h3><a href="/simulateur-suivi-conges-payes-equipe/">Suivi des congés payés de l'équipe</a></h3><p>Jours acquis, pris et soldes de chaque salarié, projection en fin de période de référence.</p></div>
+      <div class="sd-know-card"><h3><a href="/simulateur-suivi-arrets-maladie-equipe/">Suivi des arrêts maladie</a></h3><p>Date de reprise et visite de reprise à organiser, sans saisir de motif médical.</p></div>
+      <div class="sd-know-card"><h3><a href="/simulateur-seuils-effectifs-entreprise/">Seuils d'effectifs</a></h3><p>À partir de combien de salariés quelles obligations (11, 20, 50, 200), avec la règle des 5 ans.</p></div>
+      <div class="sd-know-card"><h3><a href="/simulateur-calcul-delais-echeances/">Calcul de délai et d'échéance</a></h3><p>Une date limite en jours, mois ou années, avec report des week-ends et jours fériés.</p></div>
+      <div class="sd-know-card"><h3><a href="/jours-feries-2026-2027/">Jours fériés 2026 et 2027</a></h3><p>Le calendrier des jours fériés et des ponts, pour préparer les plannings.</p></div>
+    </div>
+  </section>
+  <section class="info-section sd-know" id="remunerer">
+    <h2>Rémunérer et calculer</h2>
+    <div class="sd-know-grid">
+      <div class="sd-know-card"><h3><a href="/simulateur-brut-net/">Brut en net</a></h3><p>Le net d'un salarié à partir du brut, cotisations 2026 comprises.</p></div>
+      <div class="sd-know-card"><h3><a href="/simulateur-net-brut/">Net en brut</a></h3><p>Le brut à prévoir pour un net voulu.</p></div>
+      <div class="sd-know-card"><h3><a href="/simulateur-heures-supplementaires/">Heures supplémentaires</a></h3><p>Majorations et montant à payer.</p></div>
+      <div class="sd-know-card"><h3><a href="/simulateur-maintien-salaire-maladie/">Maintien de salaire en maladie</a></h3><p>Ce que l'employeur doit compléter pendant un arrêt.</p></div>
+      <div class="sd-know-card"><h3><a href="/simulateur-prorata-salaire/">Prorata de salaire</a></h3><p>Salaire d'un mois incomplet (entrée ou sortie en cours de mois).</p></div>
+      <div class="sd-know-card"><h3><a href="/simulateur-salaire-apprenti/">Salaire d'un apprenti</a></h3><p>La rémunération minimale selon l'âge et l'année de contrat.</p></div>
+      <div class="sd-know-card"><h3><a href="/simulateur-gratification-stage/">Gratification de stage</a></h3><p>Le montant minimal dû à un stagiaire.</p></div>
+      <div class="sd-know-card"><h3><a href="/simulateur-fiche-de-paie/">Lire une fiche de paie</a></h3><p>Comprendre chaque ligne d'un bulletin.</p></div>
+    </div>
+  </section>
+  <section class="info-section sd-know" id="rompre">
+    <h2>Fin de contrat et ruptures</h2>
+    <div class="sd-know-grid">
+      <div class="sd-know-card"><h3><a href="/simulateur-periode-essai/">Période d'essai</a></h3><p>Durée, renouvellement et délai de prévenance.</p></div>
+      <div class="sd-know-card"><h3><a href="/simulateur-rupture-conventionnelle/">Rupture conventionnelle</a></h3><p>Indemnité minimale et calendrier de la procédure.</p></div>
+      <div class="sd-know-card"><h3><a href="/simulateur-indemnite-licenciement/">Indemnité de licenciement</a></h3><p>Le minimum légal selon l'ancienneté.</p></div>
+      <div class="sd-know-card"><h3><a href="/simulateur-preavis-licenciement/">Préavis de licenciement</a></h3><p>Durée du préavis et date de fin.</p></div>
+      <div class="sd-know-card"><h3><a href="/simulateur-prime-precarite/">Prime de précarité</a></h3><p>L'indemnité de fin de CDD.</p></div>
+      <div class="sd-know-card"><h3><a href="/simulateur-solde-tout-compte/">Solde de tout compte</a></h3><p>Les éléments à régler au départ du salarié.</p></div>
+      <div class="sd-know-card"><h3><a href="/guides/inaptitude-medicale-au-travail-reclassement-licenciement-indemnites/">Guide : inaptitude médicale</a></h3><p>Reclassement, licenciement et indemnités.</p></div>
+      <div class="sd-know-card"><h3><a href="/guides/entretien-prealable-licenciement-assistance-deroulement/">Guide : entretien préalable</a></h3><p>Déroulement et assistance du salarié.</p></div>
+    </div>
+  </section>
+  <section class="info-section sd-know" id="modeles">
+    <h2>Guides et modèles utiles</h2>
+    <div class="sd-know-grid">
+      <div class="sd-know-card"><h3><a href="/guides/journee-de-solidarite-2027-date-regles-remuneration/">Journée de solidarité 2027</a></h3><p>Date, règles et rémunération.</p></div>
+      <div class="sd-know-card"><h3><a href="/guides/conges-payes-arret-maladie-acquisition-report/">Congés payés et arrêt maladie</a></h3><p>Acquisition et report des congés.</p></div>
+      <div class="sd-know-card"><h3><a href="/guides/arret-maladie-indemnites-journalieres-carence-employeur/">Arrêt maladie : rôle de l'employeur</a></h3><p>Carence, indemnités journalières et complément.</p></div>
+      <div class="sd-know-card"><h3><a href="/guides/contrat-d-apprentissage-conditions-demarches-droits-de-l-apprenti/">Contrat d'apprentissage</a></h3><p>Conditions et démarches.</p></div>
+      <div class="sd-know-card"><h3><a href="/modeles-de-lettres/">Lettres types</a></h3><p>Modèles de lettres à adapter, gratuits.</p></div>
+      <div class="sd-know-card"><h3><a href="/generateur-contrat-emploi-a-domicile/">Contrat d'emploi à domicile</a></h3><p>Générer un contrat pour un salarié à domicile.</p></div>
+    </div>
+  </section>
+  <section class="info-section"><h2>Ce que ces outils ne remplacent pas</h2><p>Chaque règle est tirée de sources officielles (Service-Public, Code du travail numérique, Urssaf) et datée. Votre convention collective, un accord d'entreprise ou le contrat de travail peuvent prévoir mieux. En cas de doute sur une obligation légale, rapprochez-vous de votre expert-comptable, de votre organisation professionnelle ou de l'inspection du travail.</p></section>
+
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/simulateurs/">Tous les simulateurs</a><a href="/guides/">Guides</a><a href="/independants/">Indépendants</a><a href="/modeles-de-lettres/">Lettres types</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-11-04">4 novembre 2026</time>. Estimation indicative, sans valeur juridique. <a href="/methode-et-sources/">Méthode et sources</a> · <a href="/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<nav class="sd-explore" aria-label="Toutes les rubriques"><strong>Explorer toutes les rubriques</strong><div><a href="https://simudroit.fr/simulateurs/" style="--c:#4f46e5"><i class="sdi sdi-calc" aria-hidden="true"></i>Simulateurs</a><a href="https://simudroit.fr/guides/" style="--c:#0e7490"><i class="sdi sdi-book" aria-hidden="true"></i>Guides</a><a href="https://simudroit.fr/aides/" style="--c:#0f766e"><i class="sdi sdi-heart" aria-hidden="true"></i>Aides</a><a href="https://simudroit.fr/fiches-revision/" style="--c:#7c3aed"><i class="sdi sdi-notes" aria-hidden="true"></i>Fiches de révision</a><a href="https://simudroit.fr/metiers/" style="--c:#b5530f"><i class="sdi sdi-user" aria-hidden="true"></i>Mon métier</a><a href="https://simudroit.fr/metiers/creer-son-entreprise-batiment/" style="--c:#c2410c"><i class="sdi sdi-hardhat" aria-hidden="true"></i>Créer son entreprise (bâtiment)</a><a href="https://simudroit.fr/employeurs-rh/" style="--c:#1d4ed8"><i class="sdi sdi-briefcase" aria-hidden="true"></i>Indépendants</a><a href="https://simudroit.fr/retraite/" style="--c:#be185d"><i class="sdi sdi-sun" aria-hidden="true"></i>Retraite</a><a href="https://simudroit.fr/reconversion/" style="--c:#15803d"><i class="sdi sdi-refresh" aria-hidden="true"></i>Reconversion</a><a href="https://simudroit.fr/salaires/" style="--c:#a16207"><i class="sdi sdi-euro" aria-hidden="true"></i>Salaires</a><a href="https://simudroit.fr/modeles-de-lettres/" style="--c:#9333ea"><i class="sdi sdi-mail" aria-hidden="true"></i>Lettres types</a><a href="https://simudroit.fr/generateur-cv/" style="--c:#0f7a6e"><i class="sdi sdi-doc" aria-hidden="true"></i>Générateur de CV</a><a href="https://simudroit.fr/ouvrir-un-commerce/" style="--c:#b5530f"><i class="sdi sdi-briefcase" aria-hidden="true"></i>Ouvrir un commerce</a><a href="https://simudroit.fr/actualites/" style="--c:#475569"><i class="sdi sdi-chart" aria-hidden="true"></i>Chiffres et données</a><a href="https://simudroit.fr/glossaire/" style="--c:#0369a1"><i class="sdi sdi-bookopen" aria-hidden="true"></i>Glossaire</a><a href="https://simudroit.fr/faq/" style="--c:#b91c1c"><i class="sdi sdi-question" aria-hidden="true"></i>FAQ</a></div></nav>
+<footer><nav class="foot-top" aria-label="Les plus consultés"><strong>Les plus consultés</strong><a href="https://simudroit.fr/simulateur-brut-net/">Salaire brut en net</a><a href="https://simudroit.fr/simulateur-indemnite-licenciement/">Indemnité de licenciement</a><a href="https://simudroit.fr/simulateur-rupture-conventionnelle/">Rupture conventionnelle</a><a href="https://simudroit.fr/simulateur-chomage/">Allocation chômage</a><a href="https://simudroit.fr/simulateur-preavis-demission/">Préavis de démission</a><a href="https://simudroit.fr/simulateur-preavis-licenciement/">Préavis de licenciement</a><a href="https://simudroit.fr/simulateur-conges-payes/">Congés payés</a><a href="https://simudroit.fr/simulateur-fiche-de-paie/">Vérifier ma fiche de paie</a><a href="https://simudroit.fr/simulateur-solde-tout-compte/">Solde de tout compte</a><a href="https://simudroit.fr/simulateur-smic/">SMIC 2026</a><a href="https://simudroit.fr/salaire-brut-net/">Brut en net par montant</a><a href="https://simudroit.fr/metiers/">Mon métier : infirmier libéral, assistante maternelle, intérimaire</a><a href="https://simudroit.fr/retraite/">Retraite : par où commencer ?</a><a href="https://simudroit.fr/reconversion/">Reconversion : par où commencer ?</a><a href="https://simudroit.fr/jours-feries-2026-2027/">Jours fériés 2026 et 2027</a><a href="https://simudroit.fr/fiches-revision/">Fiches de révision</a><a href="https://simudroit.fr/aides/">Aides selon votre situation</a><a href="https://simudroit.fr/documents-a-generer/">Documents à générer</a></nav>
+  <p>© 2026 SimuDroit · <a href="https://simudroit.fr/">Tous les simulateurs</a> · <a href="https://simudroit.fr/methode-et-sources/">Méthode et sources</a> · <a href="https://simudroit.fr/contact/">Contact</a> · <a href="https://simudroit.fr/mentions-legales/">Mentions légales</a> · <a href="https://simudroit.fr/confidentialite/">Confidentialité</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script></script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>
