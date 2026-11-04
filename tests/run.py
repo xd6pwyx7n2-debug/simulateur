@@ -289,6 +289,10 @@ for _v in ("19 décembre 2026 au 4 janvier 2027", "13 février au 1er mars 2027"
 _cc = _g("credit-a-la-consommation-retractation-14-jours-remboursement-anticipe-credit-renouvelable")
 for _v in ("14 jours", "75 000 €", "10 000 €", "0,5 %", "TAEG", "8 %", "F2451", "F2436", "Limites"):
     if _v not in _cc: fail("guide crédit conso : mention absente (%s)" % _v)
+# Guide cumul emploi-retraite 2027
+_ce = _g("cumul-emploi-retraite-2027-nouvelles-regles-seuil-7000-euros-pension-reduite")
+for _v in ("7 000 €", "50 %", "1er janvier 2027", "2026-1016", "A18914", "13 000 €", "Limites"):
+    if _v not in _ce: fail("guide cumul 2027 : mention absente (%s)" % _v)
 # Guide embaucher
 _em = _g("embaucher-premier-salarie-saisonnier-interimaire-apprenti-demarches")
 for _v in ("DPAE", "1 305 €", "8 jours", "18 mois", "5 000 €", "F23107", "F2918", "F23556", "Limites"):
