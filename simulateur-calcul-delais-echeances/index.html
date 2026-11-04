@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Calcul de délai : date d&#x27;échéance en jours ou en mois | SimuDroit</title>
+  <meta name="description" content="Calculez une date limite : ajoutez des jours calendaires, ouvrables, ouvrés ou francs, des mois ou des années à une date, avec report des week-ends et jours fériés, d&#x27;après Service-Public.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://simudroit.fr/simulateur-calcul-delais-echeances/">
+  <link rel="icon" href="https://simudroit.fr/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="https://simudroit.fr/favicon.ico" sizes="48x48">
+  <link rel="icon" href="https://simudroit.fr/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="https://simudroit.fr/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Calcul de délai : date d&#x27;échéance en jours ou en mois | SimuDroit">
+  <meta property="og:description" content="Calculez une date limite : ajoutez des jours calendaires, ouvrables, ouvrés ou francs, des mois ou des années à une date, avec report des week-ends et jours fériés, d&#x27;après Service-Public.">
+  <meta property="og:url" content="https://simudroit.fr/simulateur-calcul-delais-echeances/">
+  <meta property="og:image" content="https://simudroit.fr/assets/og/simulateur-calcul-delais-echeances.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://simudroit.fr/assets/og/simulateur-calcul-delais-echeances.jpg">
+  <meta name="twitter:title" content="Calcul de délai : date d&#x27;échéance en jours ou en mois | SimuDroit">
+  <meta name="twitter:description" content="Calculez une date limite : ajoutez des jours calendaires, ouvrables, ouvrés ou francs, des mois ou des années à une date, avec report des week-ends et jours fériés, d&#x27;après Service-Public.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://simudroit.fr/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Calcul de délai : date d'échéance en jours ou en mois", "url": "https://simudroit.fr/simulateur-calcul-delais-echeances/", "description": "Calculez une date limite : ajoutez des jours calendaires, ouvrables, ouvrés ou francs, des mois ou des années à une date, avec report des week-ends et jours fériés, d'après Service-Public.", "inLanguage": "fr-FR"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://simudroit.fr/"}, {"@type": "ListItem", "position": 2, "name": "Simulateurs", "item": "https://simudroit.fr/simulateurs/"}, {"@type": "ListItem", "position": 3, "name": "Calcul de délai", "item": "https://simudroit.fr/simulateur-calcul-delais-echeances/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Le jour de départ compte-t-il dans un délai en jours ?", "acceptedAnswer": {"@type": "Answer", "text": "Non : pour un délai en jours, le délai commence le lendemain de l'acte, de l'événement ou de la notification. Le jour de réception ne compte pas, d'après Service-Public."}}, {"@type": "Question", "name": "Comment se calcule un délai en mois ?", "acceptedAnswer": {"@type": "Answer", "text": "De date à date : le délai se termine le même quantième du mois voulu. Si ce jour n'existe pas, il se termine le dernier jour du mois (31 juillet + 4 mois = 30 novembre)."}}, {"@type": "Question", "name": "Que se passe-t-il si l'échéance tombe un samedi, un dimanche ou un jour férié ?", "acceptedAnswer": {"@type": "Answer", "text": "Dans une procédure civile, elle est reportée au premier jour ouvrable suivant. Un nouveau report s'applique si le jour obtenu est encore chômé."}}, {"@type": "Question", "name": "Quelle différence entre jours ouvrables, ouvrés et calendaires ?", "acceptedAnswer": {"@type": "Answer", "text": "Les jours calendaires comptent tous les jours. Les jours ouvrables sont tous les jours sauf le jour de repos hebdomadaire (en général le dimanche) et les fériés chômés, soit en général 6 par semaine. Les jours ouvrés sont les jours réellement travaillés dans l'entreprise, en général du lundi au vendredi."}}, {"@type": "Question", "name": "Qu'est-ce qu'un jour franc ?", "acceptedAnswer": {"@type": "Answer", "text": "Un jour entier de 0 h à 24 h : le jour de l'événement et le jour d'échéance ne sont pas comptés. L'échéance tombe donc le lendemain du dernier jour franc."}}, {"@type": "Question", "name": "Cet outil remplace-t-il le texte applicable ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Chaque matière (travail, impôts, justice administrative, pénal, contrats) peut fixer ses propres règles de décompte. Vérifiez le texte qui s'applique à votre délai, et en cas de doute prévoyez une marge."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Calcul de délai et d'échéance", "url": "https://simudroit.fr/simulateur-calcul-delais-echeances/", "description": "Calculez une date limite : ajoutez des jours calendaires, ouvrables, ouvrés ou francs, des mois ou des années à une date, avec report des week-ends et jours fériés, d'après Service-Public.", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}</script>
+  <meta name="theme-color" content="#201e48">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="Calcul de délai : date d&#x27;échéance en jours ou en mois | SimuDroit">
+  <link rel="alternate" hreflang="fr" href="https://simudroit.fr/simulateur-calcul-delais-echeances/">
+  <link rel="alternate" hreflang="x-default" href="https://simudroit.fr/simulateur-calcul-delais-echeances/">
+  <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
+  <script async src="https://plausible.io/js/pa-j8JdUomB9hqqp7em82xdB.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+</head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.fr/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://simudroit.fr/simulateurs/">Simulateurs</a>
+      <a href="https://simudroit.fr/assistant/">Assistant</a>
+      <a href="https://simudroit.fr/guides/">Guides</a>
+      <a href="https://simudroit.fr/aides/">Aides</a>
+      <a href="https://simudroit.fr/fiches-revision/">Fiches</a>
+      <a href="https://simudroit.fr/actualites/">Chiffres clés</a>
+      <a href="https://simudroit.fr/metiers/">Métiers</a>
+      <a href="https://simudroit.fr/faq/">FAQ</a>
+      <a href="https://simudroit.fr/#recherche">Rechercher</a>
+      <a class="cta-link" href="https://simudroit.fr/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://simudroit.fr/">Accueil</a> &nbsp;›&nbsp; <a href="https://simudroit.fr/simulateurs/">Simulateurs</a> &nbsp;›&nbsp; Calcul de délai
+  </div>
+
+  <section class="hero">
+    <h1>Calcul de délai et de date d'échéance</h1>
+    <p>Indiquez la date de départ et la durée du délai : l'outil donne la date limite, le jour de la semaine et le report éventuel pour un week-end ou un jour férié. Le calcul se fait dans votre navigateur.</p>
+      <div class="badges"><span class="badge">✓ Règles relues le 4 novembre 2026</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Rien n'est envoyé</span></div>
+  </section>
+<section class="info-section sd-know" id="a-savoir">
+    <h2>À savoir avant de vous fier au résultat</h2>
+    <div class="sd-know-grid">
+      <div class="sd-know-card"><h3>Le départ ne compte pas</h3><p>Pour un délai en jours, on compte à partir du lendemain de l'événement ou de la notification.</p></div>
+      <div class="sd-know-card"><h3>Mois : de date à date</h3><p>Un délai en mois se termine le même quantième. Si le jour n'existe pas, c'est le dernier jour du mois.</p></div>
+      <div class="sd-know-card"><h3>Règles de procédure civile</h3><p>Le report au premier jour ouvrable suivant est celui de la procédure civile. D'autres matières peuvent compter autrement.</p></div>
+    </div>
+  </section>
+<style>#calcul .field-row{display:flex;gap:10px}#calcul .field-row>.field{flex:1}</style>
+  <section class="calculator" id="calcul">
+    <h2>Calculer mon échéance</h2>
+    <noscript><p class="intro-note"><strong>JavaScript requis :</strong> ce simulateur calcule directement dans votre navigateur.</p></noscript>
+    <div class="field"><label for="dep">Date de départ (événement, réception, notification)</label><input type="date" id="dep"></div>
+    <div class="field-row"><div class="field"><label for="n">Durée du délai</label><input type="number" id="n" min="0" max="3650" step="1" inputmode="numeric" placeholder="Ex. 14" value="14"></div>
+    <div class="field"><label for="unite">Unité</label><select id="unite"><option value="cal">jours calendaires</option><option value="fra">jours francs</option><option value="ouv">jours ouvrables (hors dimanche et fériés)</option><option value="oue">jours ouvrés (du lundi au vendredi, hors fériés)</option><option value="mois">mois</option><option value="an">années</option></select></div></div>
+    <div class="field"><label for="report">Si l'échéance tombe un samedi, un dimanche ou un férié</label><select id="report"><option value="1">Reporter au premier jour ouvrable suivant (procédure civile)</option><option value="0">Ne pas reporter</option></select></div>
+    <div class="field"><label for="alsace">Jours fériés locaux</label><select id="alsace"><option value="0">Jours fériés nationaux</option><option value="1">Alsace-Moselle (Vendredi saint et 26 décembre en plus)</option></select></div>
+    <button type="button" id="calculate">Calculer la date limite</button>
+    <p class="warning" id="err" role="alert" hidden></p>
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">Votre date limite</div>
+      <div class="result-main" data-noanim id="main">-</div>
+      <div class="result-row"><span>Date avant report éventuel</span><strong id="brut">-</strong></div>
+      <div class="result-row"><span>Report</span><strong id="rep">-</strong></div>
+      <div class="result-row"><span>Jours restants depuis aujourd'hui</span><strong id="reste">-</strong></div>
+      <div class="warning" id="wnote">Repère indicatif : vérifiez les règles de décompte du texte qui s'applique à votre délai.</div>
+    </div>
+  </section>
+
+  <section class="info-section" id="regles">
+    <h2>Comment le délai est compté</h2>
+    <div class="table-wrap"><table class="sd-table"><thead><tr><th>Unité</th><th>Règle retenue par l'outil</th></tr></thead><tbody>
+    <tr><td>Jours calendaires</td><td>Tous les jours comptent, week-ends et fériés compris. Le jour de départ est exclu.</td></tr>
+    <tr><td>Jours francs</td><td>Le jour de départ et le jour d'échéance ne sont pas comptés : l'échéance est le lendemain du dernier jour franc.</td></tr>
+    <tr><td>Jours ouvrables</td><td>Du lundi au samedi, hors jours fériés. Le dimanche est le jour de repos retenu.</td></tr>
+    <tr><td>Jours ouvrés</td><td>Du lundi au vendredi, hors jours fériés.</td></tr>
+    <tr><td>Mois et années</td><td>De date à date. Si le jour n'existe pas dans le mois d'arrivée, dernier jour du mois (28 février ou 29 en année bissextile).</td></tr>
+    <tr><td>Échéance un jour chômé</td><td>Report au premier jour ouvrable suivant (samedi, dimanche, férié), répété si le nouveau jour est lui aussi chômé.</td></tr>
+    </tbody></table></div>
+    <p class="field-help">Sources : <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F31111" rel="noopener">Service-Public F31111 : calcul d'un délai en procédure civile</a> (mise à jour du 31 octobre 2023, articles 640 à 647-1 du Code de procédure civile) et <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F35697" rel="noopener">F35697 : jour ouvrable, ouvré, franc et calendaire</a> (page de 2026). Les pages sont des traductions automatiques et F31111 se contredit sur le jour de départ des délais en mois : l'outil applique la règle de date à date. Les jours fériés sont calculés par l'outil (Pâques, Ascension, Pentecôte comprises). Les allongements pour les personnes domiciliées à l'étranger ou outre-mer ne sont pas pris en compte.</p>
+  </section>
+
+  <section class="info-section" id="astuces">
+    <h2>Quelques délais courants</h2>
+    <ol>
+      <li>Rétractation d'un crédit à la consommation : 14 jours calendaires, voir le <a href="/guides/credit-a-la-consommation-retractation-14-jours-remboursement-anticipe-credit-renouvelable/">guide du crédit à la consommation</a>.</li>
+      <li>Préavis d'un locataire : 1 ou 3 mois, voir le <a href="/guides/preavis-locataire-duree-motifs-1-mois-lettre-type-conge-logement/">guide du préavis du locataire</a>.</li>
+      <li>Contester un licenciement : voir le <a href="/guides/contester-licenciement-delai-prudhommes-bareme/">guide des délais prud'homaux</a>.</li>
+      <li>Fin de période d'essai : utilisez le <a href="/simulateur-periode-essai/">simulateur de période d'essai</a>.</li>
+    </ol>
+    <p class="field-help">Pour compter les jours entre deux dates, utilisez le <a href="/simulateur-jours-ouvrables/">calcul des jours ouvrables, ouvrés et calendaires</a>.</p>
+  </section>
+
+  <section class="info-section sd-fold" id="faq-ind"><details><summary><h2>Questions fréquentes</h2></summary><h3>Le jour de départ compte-t-il dans un délai en jours ?</h3><p>Non : pour un délai en jours, le délai commence le lendemain de l&#x27;acte, de l&#x27;événement ou de la notification. Le jour de réception ne compte pas, d&#x27;après Service-Public.</p><h3>Comment se calcule un délai en mois ?</h3><p>De date à date : le délai se termine le même quantième du mois voulu. Si ce jour n&#x27;existe pas, il se termine le dernier jour du mois (31 juillet + 4 mois = 30 novembre).</p><h3>Que se passe-t-il si l&#x27;échéance tombe un samedi, un dimanche ou un jour férié ?</h3><p>Dans une procédure civile, elle est reportée au premier jour ouvrable suivant. Un nouveau report s&#x27;applique si le jour obtenu est encore chômé.</p><h3>Quelle différence entre jours ouvrables, ouvrés et calendaires ?</h3><p>Les jours calendaires comptent tous les jours. Les jours ouvrables sont tous les jours sauf le jour de repos hebdomadaire (en général le dimanche) et les fériés chômés, soit en général 6 par semaine. Les jours ouvrés sont les jours réellement travaillés dans l&#x27;entreprise, en général du lundi au vendredi.</p><h3>Qu&#x27;est-ce qu&#x27;un jour franc ?</h3><p>Un jour entier de 0 h à 24 h : le jour de l&#x27;événement et le jour d&#x27;échéance ne sont pas comptés. L&#x27;échéance tombe donc le lendemain du dernier jour franc.</p><h3>Cet outil remplace-t-il le texte applicable ?</h3><p>Non. Chaque matière (travail, impôts, justice administrative, pénal, contrats) peut fixer ses propres règles de décompte. Vérifiez le texte qui s&#x27;applique à votre délai, et en cas de doute prévoyez une marge.</p></details></section>
+
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/simulateur-jours-ouvrables/">Jours ouvrables</a><a href="/simulateur-periode-essai/">Période d'essai</a><a href="/simulateur-preavis-licenciement/">Préavis de licenciement</a><a href="/simulateur-preavis-demission/">Préavis de démission</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-11-04">4 novembre 2026</time> (Service-Public). Repère indicatif, sans valeur juridique. <a href="/methode-et-sources/">Méthode et sources</a> · <a href="/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<nav class="sd-explore" aria-label="Toutes les rubriques"><strong>Explorer toutes les rubriques</strong><div><a href="https://simudroit.fr/simulateurs/" style="--c:#4f46e5"><i class="sdi sdi-calc" aria-hidden="true"></i>Simulateurs</a><a href="https://simudroit.fr/guides/" style="--c:#0e7490"><i class="sdi sdi-book" aria-hidden="true"></i>Guides</a><a href="https://simudroit.fr/aides/" style="--c:#0f766e"><i class="sdi sdi-heart" aria-hidden="true"></i>Aides</a><a href="https://simudroit.fr/fiches-revision/" style="--c:#7c3aed"><i class="sdi sdi-notes" aria-hidden="true"></i>Fiches de révision</a><a href="https://simudroit.fr/metiers/" style="--c:#b5530f"><i class="sdi sdi-user" aria-hidden="true"></i>Mon métier</a><a href="https://simudroit.fr/metiers/creer-son-entreprise-batiment/" style="--c:#c2410c"><i class="sdi sdi-hardhat" aria-hidden="true"></i>Créer son entreprise (bâtiment)</a><a href="https://simudroit.fr/independants/" style="--c:#1d4ed8"><i class="sdi sdi-briefcase" aria-hidden="true"></i>Indépendants</a><a href="https://simudroit.fr/retraite/" style="--c:#be185d"><i class="sdi sdi-sun" aria-hidden="true"></i>Retraite</a><a href="https://simudroit.fr/reconversion/" style="--c:#15803d"><i class="sdi sdi-refresh" aria-hidden="true"></i>Reconversion</a><a href="https://simudroit.fr/salaires/" style="--c:#a16207"><i class="sdi sdi-euro" aria-hidden="true"></i>Salaires</a><a href="https://simudroit.fr/modeles-de-lettres/" style="--c:#9333ea"><i class="sdi sdi-mail" aria-hidden="true"></i>Lettres types</a><a href="https://simudroit.fr/generateur-cv/" style="--c:#0f7a6e"><i class="sdi sdi-doc" aria-hidden="true"></i>Générateur de CV</a><a href="https://simudroit.fr/ouvrir-un-commerce/" style="--c:#b5530f"><i class="sdi sdi-briefcase" aria-hidden="true"></i>Ouvrir un commerce</a><a href="https://simudroit.fr/actualites/" style="--c:#475569"><i class="sdi sdi-chart" aria-hidden="true"></i>Chiffres et données</a><a href="https://simudroit.fr/glossaire/" style="--c:#0369a1"><i class="sdi sdi-bookopen" aria-hidden="true"></i>Glossaire</a><a href="https://simudroit.fr/faq/" style="--c:#b91c1c"><i class="sdi sdi-question" aria-hidden="true"></i>FAQ</a></div></nav>
+<footer><nav class="foot-top" aria-label="Les plus consultés"><strong>Les plus consultés</strong><a href="https://simudroit.fr/simulateur-brut-net/">Salaire brut en net</a><a href="https://simudroit.fr/simulateur-indemnite-licenciement/">Indemnité de licenciement</a><a href="https://simudroit.fr/simulateur-rupture-conventionnelle/">Rupture conventionnelle</a><a href="https://simudroit.fr/simulateur-chomage/">Allocation chômage</a><a href="https://simudroit.fr/simulateur-preavis-demission/">Préavis de démission</a><a href="https://simudroit.fr/simulateur-preavis-licenciement/">Préavis de licenciement</a><a href="https://simudroit.fr/simulateur-conges-payes/">Congés payés</a><a href="https://simudroit.fr/simulateur-fiche-de-paie/">Vérifier ma fiche de paie</a><a href="https://simudroit.fr/simulateur-solde-tout-compte/">Solde de tout compte</a><a href="https://simudroit.fr/simulateur-smic/">SMIC 2026</a><a href="https://simudroit.fr/salaire-brut-net/">Brut en net par montant</a><a href="https://simudroit.fr/metiers/">Mon métier : infirmier libéral, assistante maternelle, intérimaire</a><a href="https://simudroit.fr/retraite/">Retraite : par où commencer ?</a><a href="https://simudroit.fr/reconversion/">Reconversion : par où commencer ?</a><a href="https://simudroit.fr/jours-feries-2026-2027/">Jours fériés 2026 et 2027</a><a href="https://simudroit.fr/fiches-revision/">Fiches de révision</a><a href="https://simudroit.fr/aides/">Aides selon votre situation</a><a href="https://simudroit.fr/documents-a-generer/">Documents à générer</a></nav>
+  <p>© 2026 SimuDroit · <a href="https://simudroit.fr/">Tous les simulateurs</a> · <a href="https://simudroit.fr/methode-et-sources/">Méthode et sources</a> · <a href="https://simudroit.fr/contact/">Contact</a> · <a href="https://simudroit.fr/mentions-legales/">Mentions légales</a> · <a href="https://simudroit.fr/confidentialite/">Confidentialité</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+  function setText(id,t){document.getElementById(id).textContent=t}
+  var DAY=86400000,JS=["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"];
+  function mk(y,mo,d){var t=Date.UTC(y,mo-1,d),x=new Date(t);return (x.getUTCFullYear()===y&&x.getUTCMonth()===mo-1&&x.getUTCDate()===d)?t:NaN}
+  function fd(t){var d=new Date(t);return JS[d.getUTCDay()]+" "+d.getUTCDate()+" "+["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"][d.getUTCMonth()]+" "+d.getUTCFullYear()}
+  function easter(y){var a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),mo=Math.floor((h+l-7*m+114)/31),da=((h+l-7*m+114)%31)+1;return Date.UTC(y,mo-1,da)}
+  var cache={};
+  function feries(y,als){
+    var k=y+(als?"a":"n");if(cache[k])return cache[k];
+    var E=easter(y),s={};
+    [Date.UTC(y,0,1),E+DAY,Date.UTC(y,4,1),Date.UTC(y,4,8),E+39*DAY,E+50*DAY,Date.UTC(y,6,14),Date.UTC(y,7,15),Date.UTC(y,10,1),Date.UTC(y,10,11),Date.UTC(y,11,25)].forEach(function(t){s[t]=1});
+    if(als){s[E-2*DAY]=1;s[Date.UTC(y,11,26)]=1}
+    cache[k]=s;return s;
+  }
+  function ferie(t,als){return !!feries(new Date(t).getUTCFullYear(),als)[t]}
+  function chome(t,als,sam){var w=new Date(t).getUTCDay();return w===0||w===6&&!sam||ferie(t,als)}
+  function addMois(t,n){var d=new Date(t),y=d.getUTCFullYear(),m=d.getUTCMonth()+n,day=d.getUTCDate();y+=Math.floor(m/12);m=((m%12)+12)%12;var last=new Date(Date.UTC(y,m+1,0)).getUTCDate();return Date.UTC(y,m,Math.min(day,last))}
+  function calc(o){
+    var t=o.start,n=o.n,u=o.unit,als=!!o.alsace,brut,i;
+    if(u==="cal"){brut=t+n*DAY}
+    else if(u==="fra"){brut=t+(n+1)*DAY}
+    else if(u==="mois"){brut=addMois(t,n)}
+    else if(u==="an"){brut=addMois(t,12*n)}
+    else{
+      var c=0;brut=t;
+      while(c<n){brut+=DAY;var w=new Date(brut).getUTCDay();if(u==="ouv"){if(w!==0&&!ferie(brut,als))c++}else{if(w!==0&&w!==6&&!ferie(brut,als))c++}}
+    }
+    var fin=brut,rep=0;
+    if(o.report){while(chome(fin,als,false)){fin+=DAY;rep++}}
+    return {brut:brut,fin:fin,rep:rep};
+  }
+  window.sdDelai=calc;
+  var td=new Date();document.getElementById("dep").value=td.getFullYear()+"-"+String(td.getMonth()+1).padStart(2,"0")+"-"+String(td.getDate()).padStart(2,"0");
+  document.getElementById("calculate").addEventListener("click",function(){
+    var el=document.getElementById("err");el.hidden=true;
+    var v=document.getElementById("dep").value.match(/^(\d{4})-(\d{2})-(\d{2})$/),n=parseInt(document.getElementById("n").value,10);
+    var st=v?mk(+v[1],+v[2],+v[3]):NaN;
+    if(!(st>0)||!(n>=0)){el.textContent="Indiquez une date de départ et une durée (nombre entier).";el.hidden=false;return}
+    var r=calc({start:st,n:n,unit:document.getElementById("unite").value,report:document.getElementById("report").value==="1",alsace:document.getElementById("alsace").value==="1"});
+    setText("main",fd(r.fin));setText("brut",fd(r.brut));
+    setText("rep",r.rep?r.rep+" jour"+(r.rep>1?"s":"")+" de report (week-end ou jour férié)":"Aucun report");
+    var today=Date.UTC(td.getFullYear(),td.getMonth(),td.getDate()),left=Math.round((r.fin-today)/DAY);
+    setText("reste",left>=0?left+" jour"+(left>1?"s":""):"Échéance dépassée de "+(-left)+" jour"+(left<-1?"s":""));
+    document.getElementById("result").classList.add("visible");
+  });
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>

@@ -285,5 +285,23 @@
    "acquisition pendant un arrêt maladie : non modélisée",
    "fiches en traduction automatique"
   ]
+ },
+ "calcul-delais-echeances": {
+  "date_relecture": "2026-11-04",
+  "urls": [
+   "https://www.service-public.gouv.fr/particuliers/vosdroits/F31111",
+   "https://www.service-public.gouv.fr/particuliers/vosdroits/F35697"
+  ],
+  "regles_confirmees": [
+   "délai en jours : départ le lendemain de l'acte",
+   "délai en mois : même quantième, sinon dernier jour du mois",
+   "échéance un jour chômé : report au premier jour ouvrable suivant",
+   "définitions jour ouvrable, ouvré, franc, calendaire (F35697)"
+  ],
+  "non_verifie": [
+   "F31111 vérifiée le 31 octobre 2023, traduction automatique et contradictoire sur les mois",
+   "Vendredi saint et 26 décembre en Alsace-Moselle : non lus sur ces fiches",
+   "allongements outre-mer et étranger non modélisés"
+  ]
  }
 }

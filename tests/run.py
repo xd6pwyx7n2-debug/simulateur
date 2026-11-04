@@ -349,6 +349,9 @@ for _v in ("60 jours", "30 jours", "8 jours", "F2871", "F144", "15 juin 2026", "
 _sc = _page("suivi-conges-payes-equipe")
 for _v in ("2,5 jours", "30 jours", "1er juin au 31 mai", "F2258", "A15702", "2 mois", "1 mois"):
     if _v not in _sc: fail("suivi des congés payés : mention absente (%s)" % _v)
+_cd = _page("calcul-delais-echeances")
+for _v in ("F31111", "F35697", "jours francs", "dernier jour du mois", "premier jour ouvrable"):
+    if _v not in _cd: fail("calcul de délai : mention absente (%s)" % _v)
 _ps2 = open(os.path.join(ROOT, "mon-plan-de-sortie-surendettement", "index.html"), encoding="utf-8").read(); _psj = open(os.path.join(ROOT, "assets", "plan-sortie.js"), encoding="utf-8").read()
 for _v in ("Rien n'est envoyé", "3 mois", "Mémoriser ma progression sur cet appareil uniquement", "Tout effacer"):
     if _v not in _ps2: fail("plan de sortie : mention absente (%s)" % _v)
@@ -733,6 +736,19 @@ with sync_playwright() as pw:
     if _c["rows"][0]["fin"] != 25: fail("congés : 25 jours ouvrés par an (%s)" % _c)
     pg.fill("#lignes", "Léa ; 2024-03-15 ; 12 ; 0"); pg.fill("#ref", "2026-11-04"); pg.click("#calculate"); pg.wait_for_timeout(300)
     if "1 salarié suivi" not in pg.inner_text("#main") or "01/06/2026" not in pg.inner_text("#periode"): fail("congés : affichage (%s)" % pg.inner_text("#result"))
+    # calcul de délai : mois, report, fériés, jours francs
+    pg.goto(LOCAL + "simulateur-calcul-delais-echeances/"); pg.wait_for_timeout(600)
+    def _d(y, m, d): return int(__import__("datetime").datetime(y, m, d, tzinfo=__import__("datetime").timezone.utc).timestamp() * 1000)
+    def _cdl(y, m, d, n, u, rep=True, als=False):
+        r = pg.evaluate("(o)=>window.sdDelai(o)", {"start": _d(y, m, d), "n": n, "unit": u, "report": rep, "alsace": als})
+        return (__import__("datetime").datetime.fromtimestamp(r["fin"] / 1000, __import__("datetime").timezone.utc).strftime("%Y-%m-%d"), r["rep"])
+    if _cdl(2026, 1, 31, 1, "mois") != ("2026-03-02", 2): fail("délai : 31 janvier + 1 mois, report (%s)" % (_cdl(2026, 1, 31, 1, "mois"),))
+    if _cdl(2026, 1, 31, 1, "mois", False) != ("2026-02-28", 0): fail("délai : sans report")
+    if _cdl(2026, 3, 31, 5, "cal") != ("2026-04-07", 2): fail("délai : Pâques et lundi de Pâques 2026")
+    if _cdl(2026, 11, 4, 5, "oue")[0] != "2026-11-12" or _cdl(2026, 11, 4, 10, "ouv")[0] != "2026-11-17": fail("délai : jours ouvrés et ouvrables avec le 11 novembre")
+    if _cdl(2026, 11, 4, 8, "fra")[0] != "2026-11-13" or _cdl(2024, 2, 29, 1, "an")[0] != "2025-02-28": fail("délai : jours francs, année bissextile")
+    pg.fill("#dep", "2026-11-04"); pg.fill("#n", "14"); pg.click("#calculate"); pg.wait_for_timeout(300)
+    if "mercredi 18 novembre 2026" not in pg.inner_text("#main"): fail("délai : affichage (%s)" % pg.inner_text("#result"))
     # Mon plan de sortie du surendettement : analyse CSV, calendrier, progression (tout en local)
     pg.goto(LOCAL + "mon-plan-de-sortie-surendettement/"); pg.wait_for_timeout(600)
     _csv = "Date;Libellé;Montant\n01/09/2026;SALAIRE;1000,00\n02/09/2026;LOYER;-500,00\n03/09/2026;NETFLIX;-10,00\n03/10/2026;NETFLIX;-10,00\n05/10/2026;CARREFOUR;-40,00"
