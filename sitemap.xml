@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://simudroit.fr/</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-04</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/a-propos/</loc>
@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/assistant/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-04</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/exemples-brut-net/</loc>
@@ -360,7 +360,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/simulateur-capacite-emprunt/</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -858,7 +858,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/simulateurs/</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -1332,6 +1332,10 @@
   </url>
   <url>
     <loc>https://simudroit.fr/simulateur-planning-roulement-equipe/</loc>
+    <lastmod>2026-11-04</lastmod>
+  </url>
+  <url>
+    <loc>https://simudroit.fr/simulateur-suivi-arrets-maladie-equipe/</loc>
     <lastmod>2026-11-04</lastmod>
   </url>
 </urlset>

@@ -114,7 +114,7 @@ for f in pages:
 _th = open(os.path.join(ROOT, "assets", "theme.js"), encoding="utf-8").read()
 OFFICIEL = re.compile(r'^https://([a-z0-9-]+\.)*(service-public\.gouv\.fr|code\.travail\.gouv\.fr|impots\.gouv\.fr|insee\.fr|moncompteformation\.gouv\.fr|dreets\.gouv\.fr|legifrance\.gouv\.fr|economie\.gouv\.fr|info\.gouv\.fr)/')
 for _s in ("indemnite-depart-retraite", "smic", "salaire-horaire-mensuel", "prorata-salaire", "preavis-demission", "fin-contrat-fonction-publique",
-           "cpf", "impot-revenu", "salaire-net-apres-impot", "frais-kilometriques", "aide-carburant-grands-rouleurs", "saisie-sur-salaire", "capacite-emprunt", "seuils-effectifs-entreprise", "planning-roulement-equipe", "comparer-mon-salaire", "rupture-assistante-maternelle"):
+           "cpf", "impot-revenu", "salaire-net-apres-impot", "frais-kilometriques", "aide-carburant-grands-rouleurs", "saisie-sur-salaire", "capacite-emprunt", "seuils-effectifs-entreprise", "planning-roulement-equipe", "suivi-arrets-maladie-equipe", "comparer-mon-salaire", "rupture-assistante-maternelle"):
     _m = re.search(r'^\s+"%s":\[(.*)\],?\s*$' % re.escape(_s), _th, re.M)
     if not _m: fail("sources : %s absent du bandeau « base du calcul » (theme.js)" % _s); continue
     _e = _m.group(1)
@@ -343,6 +343,9 @@ for _v in ("11 salariés", "50 salariés", "12 mois consécutifs", "5 années co
 _pl = _page("planning-roulement-equipe")
 for _v in ("10 heures", "48 heures", "11 heures", "35 heures", "F1911", "F2327", "Pauses"):
     if _v not in _pl: fail("planning en roulement : mention absente (%s)" % _v)
+_sa = _page("suivi-arrets-maladie-equipe")
+for _v in ("60 jours", "30 jours", "8 jours", "F2871", "F144", "15 juin 2026", "Rien n'est envoyé", "jamais de diagnostic"):
+    if _v not in _sa: fail("suivi des arrêts maladie : mention absente (%s)" % _v)
 _ps2 = open(os.path.join(ROOT, "mon-plan-de-sortie-surendettement", "index.html"), encoding="utf-8").read(); _psj = open(os.path.join(ROOT, "assets", "plan-sortie.js"), encoding="utf-8").read()
 for _v in ("Rien n'est envoyé", "3 mois", "Mémoriser ma progression sur cet appareil uniquement", "Tout effacer"):
     if _v not in _ps2: fail("plan de sortie : mention absente (%s)" % _v)
@@ -705,6 +708,18 @@ with sync_playwright() as pw:
     if _p["K"] != 3 or _p["restViol"] != 0 or _p["restFail"] != 0: fail("planning : 3 postes par jour sur 7 jours (%s)" % _p)
     pg.fill("#n", "6"); pg.click("#calculate"); pg.wait_for_timeout(300)
     if len(pg.query_selector_all("#grids table")) != 4 or "respecté" not in pg.inner_text("#checks"): fail("planning : 4 semaines affichées et contrôles (%s)" % pg.inner_text("#result"))
+    # suivi des arrêts maladie : visite de reprise, délais, absences sur 12 mois
+    pg.goto(LOCAL + "simulateur-suivi-arrets-maladie-equipe/"); pg.wait_for_timeout(600)
+    _a = pg.evaluate("(o)=>window.sdArrets(o)", {"ref": 1793750400000, "eff": 10, "lignes": "Léa ; 2026-09-01 ; 2026-11-10 ; maladie\nMarc ; 2026-10-15 ; 2026-11-20 ; accident du travail\nSam ; 2026-10-01 ; 2026-10-20 ; maladie\nNina ; 2026-06-01 ; 2026-06-02 ; maternité\nX ; 2026-13-40 ; 2026-12-01 ; maladie"})
+    _n = {r["nom"]: r for r in _a["rows"]}
+    if _n["Léa"]["dur"] != 71 or not _n["Léa"]["need"] or _n["Sam"]["need"] or not _n["Marc"]["need"] or not _n["Nina"]["need"]: fail("arrêts : seuils 60 j maladie, 30 j accident du travail, maternité (%s)" % _a["rows"])
+    if len(_a["err"]) != 1 or _a["visites"] != 3: fail("arrêts : date impossible rejetée, 3 visites (%s)" % _a)
+    pg.fill("#eff", "10"); pg.fill("#lignes", "Léa ; 2026-09-01 ; 2026-11-10 ; maladie"); pg.fill("#ref", "2026-11-04"); pg.click("#calculate"); pg.wait_for_timeout(300)
+    if "1 arrêt" not in pg.inner_text("#main") or "obligatoire" not in pg.inner_text("#tab") or "19/11/2026" not in pg.inner_text("#tab"): fail("arrêts : affichage (%s)" % pg.inner_text("#result"))
+    # planning : absences et prénoms
+    pg.goto(LOCAL + "simulateur-planning-roulement-equipe/"); pg.wait_for_timeout(600)
+    pg.fill("#noms", "Léa\nMarc\nSam\nNina\nTom\nIris"); pg.fill("#abs", "Léa ; 2 ; mer ; ven"); pg.click("#calculate"); pg.wait_for_timeout(300)
+    if "absent" not in pg.inner_text("#grids") or "Léa" not in pg.inner_text("#grids"): fail("planning : absence et prénoms absents de la grille")
     # Mon plan de sortie du surendettement : analyse CSV, calendrier, progression (tout en local)
     pg.goto(LOCAL + "mon-plan-de-sortie-surendettement/"); pg.wait_for_timeout(600)
     _csv = "Date;Libellé;Montant\n01/09/2026;SALAIRE;1000,00\n02/09/2026;LOYER;-500,00\n03/09/2026;NETFLIX;-10,00\n03/10/2026;NETFLIX;-10,00\n05/10/2026;CARREFOUR;-40,00"

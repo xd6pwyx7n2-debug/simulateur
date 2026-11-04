@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Suivi des arrêts maladie : visites de reprise | SimuDroit</title>
+  <meta name="description" content="Suivez les arrêts maladie de votre équipe : durée, visite de reprise obligatoire et date limite, jours d&#x27;absence sur 12 mois et taux d&#x27;absentéisme, d&#x27;après Service-Public.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://simudroit.fr/simulateur-suivi-arrets-maladie-equipe/">
+  <link rel="icon" href="https://simudroit.fr/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="https://simudroit.fr/favicon.ico" sizes="48x48">
+  <link rel="icon" href="https://simudroit.fr/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="https://simudroit.fr/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Suivi des arrêts maladie : visites de reprise | SimuDroit">
+  <meta property="og:description" content="Suivez les arrêts maladie de votre équipe : durée, visite de reprise obligatoire et date limite, jours d&#x27;absence sur 12 mois et taux d&#x27;absentéisme, d&#x27;après Service-Public.">
+  <meta property="og:url" content="https://simudroit.fr/simulateur-suivi-arrets-maladie-equipe/">
+  <meta property="og:image" content="https://simudroit.fr/assets/og/simulateur-suivi-arrets-maladie-equipe.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://simudroit.fr/assets/og/simulateur-suivi-arrets-maladie-equipe.jpg">
+  <meta name="twitter:title" content="Suivi des arrêts maladie : visites de reprise | SimuDroit">
+  <meta name="twitter:description" content="Suivez les arrêts maladie de votre équipe : durée, visite de reprise obligatoire et date limite, jours d&#x27;absence sur 12 mois et taux d&#x27;absentéisme, d&#x27;après Service-Public.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://simudroit.fr/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Suivi des arrêts maladie : visites de reprise", "url": "https://simudroit.fr/simulateur-suivi-arrets-maladie-equipe/", "description": "Suivez les arrêts maladie de votre équipe : durée, visite de reprise obligatoire et date limite, jours d'absence sur 12 mois et taux d'absentéisme, d'après Service-Public.", "inLanguage": "fr-FR"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://simudroit.fr/"}, {"@type": "ListItem", "position": 2, "name": "Simulateurs", "item": "https://simudroit.fr/simulateurs/"}, {"@type": "ListItem", "position": 3, "name": "Suivi des arrêts maladie", "item": "https://simudroit.fr/simulateur-suivi-arrets-maladie-equipe/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quand la visite de reprise est-elle obligatoire ?", "acceptedAnswer": {"@type": "Answer", "text": "Après un arrêt d'au moins 60 jours pour maladie ou accident non professionnel, d'au moins 30 jours après un accident du travail, après une maladie professionnelle quelle que soit la durée, et après un congé de maternité, d'après Service-Public."}}, {"@type": "Question", "name": "Dans quel délai organiser la visite de reprise ?", "acceptedAnswer": {"@type": "Answer", "text": "Au plus tard 8 jours calendaires après la reprise du travail, à l'initiative de l'employeur, auprès du service de prévention et de santé au travail."}}, {"@type": "Question", "name": "Peut-on se passer de la visite de reprise ?", "acceptedAnswer": {"@type": "Answer", "text": "Pour les arrêts prescrits depuis le 15 juin 2026, la visite n'est pas exigée si le salarié a eu une visite de préreprise dans les 30 jours avant la reprise et si le médecin du travail n'a prévu aucun aménagement. Elle reste due si l'une des parties la demande."}}, {"@type": "Question", "name": "Qu'est-ce que la visite de préreprise ?", "acceptedAnswer": {"@type": "Answer", "text": "Une visite organisée avant la fin d'un arrêt de plus de 30 jours, à la demande du salarié, du médecin traitant, du médecin-conseil ou du médecin du travail, pour préparer le retour."}}, {"@type": "Question", "name": "L'employeur doit-il conserver le motif médical de l'arrêt ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. L'employeur ne connaît pas le motif médical de l'arrêt maladie, seulement ses dates, et ne doit pas le consigner. Cet outil ne demande qu'un type d'arrêt administratif."}}, {"@type": "Question", "name": "Comment est calculé le taux d'absentéisme affiché ?", "acceptedAnswer": {"@type": "Answer", "text": "C'est un repère interne : jours d'arrêt calendaires sur la période, divisés par l'effectif multiplié par le nombre de jours de la période. Il n'a pas de valeur officielle."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Suivi des arrêts maladie de l'équipe", "url": "https://simudroit.fr/simulateur-suivi-arrets-maladie-equipe/", "description": "Suivez les arrêts maladie de votre équipe : durée, visite de reprise obligatoire et date limite, jours d'absence sur 12 mois et taux d'absentéisme, d'après Service-Public.", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}</script>
+  <meta name="theme-color" content="#201e48">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="Suivi des arrêts maladie : visites de reprise | SimuDroit">
+  <link rel="alternate" hreflang="fr" href="https://simudroit.fr/simulateur-suivi-arrets-maladie-equipe/">
+  <link rel="alternate" hreflang="x-default" href="https://simudroit.fr/simulateur-suivi-arrets-maladie-equipe/">
+  <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
+  <script async src="https://plausible.io/js/pa-j8JdUomB9hqqp7em82xdB.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+</head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.fr/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://simudroit.fr/simulateurs/">Simulateurs</a>
+      <a href="https://simudroit.fr/assistant/">Assistant</a>
+      <a href="https://simudroit.fr/guides/">Guides</a>
+      <a href="https://simudroit.fr/aides/">Aides</a>
+      <a href="https://simudroit.fr/fiches-revision/">Fiches</a>
+      <a href="https://simudroit.fr/actualites/">Chiffres clés</a>
+      <a href="https://simudroit.fr/metiers/">Métiers</a>
+      <a href="https://simudroit.fr/faq/">FAQ</a>
+      <a href="https://simudroit.fr/#recherche">Rechercher</a>
+      <a class="cta-link" href="https://simudroit.fr/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://simudroit.fr/">Accueil</a> &nbsp;›&nbsp; <a href="https://simudroit.fr/simulateurs/">Simulateurs</a> &nbsp;›&nbsp; Suivi des arrêts maladie
+  </div>
+
+  <section class="hero">
+    <h1>Suivi des arrêts maladie de l'équipe</h1>
+    <p>Saisissez les arrêts de vos salariés : l'outil calcule les durées, repère les visites de reprise obligatoires et leur date limite, et totalise les jours d'absence sur 12 mois. Tout se passe dans votre navigateur.</p>
+      <div class="badges"><span class="badge">✓ Règles relues le 4 novembre 2026</span><span class="badge">Gratuit, sans inscription</span><span class="badge">Rien n'est envoyé</span></div>
+  </section>
+<section class="info-section sd-know" id="a-savoir">
+    <h2>À savoir avant de saisir</h2>
+    <div class="sd-know-grid">
+      <div class="sd-know-card"><h3>Pas de motif médical</h3><p>Vous ne connaissez que les dates de l'arrêt. Ne saisissez jamais de diagnostic : prénom ou initiales, dates et type administratif suffisent.</p></div>
+      <div class="sd-know-card"><h3>Données sur votre appareil</h3><p>Rien n'est envoyé à SimuDroit. La mémorisation est facultative et reste dans ce navigateur : effacez-la à tout moment.</p></div>
+      <div class="sd-know-card"><h3>Repères, pas conseil juridique</h3><p>Les seuils viennent de Service-Public. Votre convention et le service de santé au travail précisent la suite.</p></div>
+    </div>
+  </section>
+  <style>#calcul textarea{width:100%;box-sizing:border-box;font:inherit;padding:10px 12px;border:1px solid #cbd5e1;border-radius:10px;background:#fff;color:#1f2937}</style>
+  <section class="calculator" id="calcul">
+    <h2>Mes arrêts à suivre</h2>
+    <noscript><p class="intro-note"><strong>JavaScript requis :</strong> ce simulateur calcule directement dans votre navigateur.</p></noscript>
+    <div class="field"><label for="ref">Date de référence (aujourd'hui par défaut)</label><input type="date" id="ref"></div>
+    <div class="field"><label for="eff">Effectif de l'entreprise</label><input type="number" id="eff" min="1" max="100000" step="1" inputmode="numeric" placeholder="Ex. 12"></div>
+    <div class="field"><label for="lignes">Un arrêt par ligne : prénom ; début ; fin ; type</label><textarea id="lignes" rows="6" placeholder="Léa ; 2026-09-01 ; 2026-11-10 ; maladie&#10;Marc ; 2026-10-15 ; 2026-11-20 ; accident du travail&#10;Types : maladie, accident du travail, maladie professionnelle, maternité. Dates au format AAAA-MM-JJ ou JJ/MM/AAAA."></textarea></div>
+    <button type="button" id="calculate">Analyser les arrêts</button>
+    <label class="field-help"><input type="checkbox" id="memo"> Mémoriser ma saisie sur cet appareil uniquement</label>
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">Vos arrêts</div>
+      <div class="result-main" data-noanim id="main">-</div>
+      <div class="result-row"><span>Jours d'arrêt sur les 12 derniers mois</span><strong id="jours">-</strong></div>
+      <div class="result-row"><span>Taux d'absentéisme indicatif</span><strong id="taux">-</strong></div>
+      <div class="result-row"><span>Visites de reprise à organiser</span><strong id="visites">-</strong></div>
+      <div class="table-wrap" id="tab"></div>
+      <p><button type="button" id="copier">Copier le tableau</button> <button type="button" id="effacer">Tout effacer</button></p>
+      <div class="warning" id="wnote">Repères indicatifs. Le service de santé au travail et votre convention collective précisent les obligations.</div>
+    </div>
+  </section>
+
+  <section class="info-section" id="regles">
+    <h2>Les règles de la visite de reprise</h2>
+    <div class="table-wrap"><table class="sd-table"><thead><tr><th>Situation</th><th>Visite de reprise</th></tr></thead><tbody>
+    <tr><td>Maladie ou accident non professionnel</td><td>Obligatoire dès 60 jours d'arrêt</td></tr>
+    <tr><td>Accident du travail</td><td>Obligatoire dès 30 jours d'arrêt</td></tr>
+    <tr><td>Maladie professionnelle</td><td>Obligatoire, quelle que soit la durée</td></tr>
+    <tr><td>Congé de maternité</td><td>Obligatoire</td></tr>
+    <tr><td>Délai</td><td>Au plus tard 8 jours calendaires après la reprise, à l'initiative de l'employeur</td></tr>
+    <tr><td>Arrêt de plus de 30 jours</td><td>Visite de préreprise possible avant la fin de l'arrêt</td></tr>
+    </tbody></table></div>
+    <p class="field-help">Source : <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F2871" rel="noopener">Service-Public F2871 : visite médicale après un arrêt de travail</a> (page mise à jour le 31 août 2026). Pour les arrêts prescrits depuis le 15 juin 2026, la visite n'est pas exigée si une visite de préreprise a eu lieu dans les 30 jours avant la reprise sans aménagement nécessaire. La fiche <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F144" rel="noopener">F144</a> (mise à jour le 1er juin 2026) cite un seuil de 30 jours pour la maladie : les deux fiches ne concordent pas, ce suivi retient 60 jours (F2871, la plus récente). Les fiches sont des traductions automatiques.</p>
+  </section>
+
+  <section class="info-section" id="astuces">
+    <h2>Gérer les arrêts maladie, pas à pas</h2>
+    <ol>
+      <li>Notez la date de début et de fin prévue dès réception de l'arrêt.</li>
+      <li>Au-delà de 30 jours, proposez une visite de préreprise ou un rendez-vous de liaison.</li>
+      <li>Planifiez la visite de reprise avant la date de retour quand elle est obligatoire.</li>
+      <li>Calculez le maintien de salaire avec le <a href="/simulateur-maintien-salaire-maladie/">simulateur de maintien de salaire</a> et prévoyez le remplacement avec le <a href="/simulateur-planning-roulement-equipe/">planning en roulement</a>.</li>
+    </ol>
+    <p class="field-help">Après un arrêt long, l'inaptitude est possible : voyez le <a href="/guides/inaptitude-medicale-au-travail-reclassement-licenciement-indemnites/">guide sur l'inaptitude</a>.</p>
+  </section>
+
+  <section class="info-section sd-fold" id="faq-ind"><details><summary><h2>Questions fréquentes</h2></summary><h3>Quand la visite de reprise est-elle obligatoire ?</h3><p>Après un arrêt d&#x27;au moins 60 jours pour maladie ou accident non professionnel, d&#x27;au moins 30 jours après un accident du travail, après une maladie professionnelle quelle que soit la durée, et après un congé de maternité, d&#x27;après Service-Public.</p><h3>Dans quel délai organiser la visite de reprise ?</h3><p>Au plus tard 8 jours calendaires après la reprise du travail, à l&#x27;initiative de l&#x27;employeur, auprès du service de prévention et de santé au travail.</p><h3>Peut-on se passer de la visite de reprise ?</h3><p>Pour les arrêts prescrits depuis le 15 juin 2026, la visite n&#x27;est pas exigée si le salarié a eu une visite de préreprise dans les 30 jours avant la reprise et si le médecin du travail n&#x27;a prévu aucun aménagement. Elle reste due si l&#x27;une des parties la demande.</p><h3>Qu&#x27;est-ce que la visite de préreprise ?</h3><p>Une visite organisée avant la fin d&#x27;un arrêt de plus de 30 jours, à la demande du salarié, du médecin traitant, du médecin-conseil ou du médecin du travail, pour préparer le retour.</p><h3>L&#x27;employeur doit-il conserver le motif médical de l&#x27;arrêt ?</h3><p>Non. L&#x27;employeur ne connaît pas le motif médical de l&#x27;arrêt maladie, seulement ses dates, et ne doit pas le consigner. Cet outil ne demande qu&#x27;un type d&#x27;arrêt administratif.</p><h3>Comment est calculé le taux d&#x27;absentéisme affiché ?</h3><p>C&#x27;est un repère interne : jours d&#x27;arrêt calendaires sur la période, divisés par l&#x27;effectif multiplié par le nombre de jours de la période. Il n&#x27;a pas de valeur officielle.</p></details></section>
+
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/simulateur-maintien-salaire-maladie/">Maintien de salaire</a><a href="/simulateur-indemnites-journalieres-maladie/">Indemnités journalières</a><a href="/simulateur-temps-partiel-therapeutique/">Mi-temps thérapeutique</a><a href="/simulateur-planning-roulement-equipe/">Planning en roulement</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-11-04">4 novembre 2026</time> (Service-Public). Repères indicatifs, sans valeur juridique. <a href="/methode-et-sources/">Méthode et sources</a> · <a href="/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<nav class="sd-explore" aria-label="Toutes les rubriques"><strong>Explorer toutes les rubriques</strong><div><a href="https://simudroit.fr/simulateurs/" style="--c:#4f46e5"><i class="sdi sdi-calc" aria-hidden="true"></i>Simulateurs</a><a href="https://simudroit.fr/guides/" style="--c:#0e7490"><i class="sdi sdi-book" aria-hidden="true"></i>Guides</a><a href="https://simudroit.fr/aides/" style="--c:#0f766e"><i class="sdi sdi-heart" aria-hidden="true"></i>Aides</a><a href="https://simudroit.fr/fiches-revision/" style="--c:#7c3aed"><i class="sdi sdi-notes" aria-hidden="true"></i>Fiches de révision</a><a href="https://simudroit.fr/metiers/" style="--c:#b5530f"><i class="sdi sdi-user" aria-hidden="true"></i>Mon métier</a><a href="https://simudroit.fr/metiers/creer-son-entreprise-batiment/" style="--c:#c2410c"><i class="sdi sdi-hardhat" aria-hidden="true"></i>Créer son entreprise (bâtiment)</a><a href="https://simudroit.fr/independants/" style="--c:#1d4ed8"><i class="sdi sdi-briefcase" aria-hidden="true"></i>Indépendants</a><a href="https://simudroit.fr/retraite/" style="--c:#be185d"><i class="sdi sdi-sun" aria-hidden="true"></i>Retraite</a><a href="https://simudroit.fr/reconversion/" style="--c:#15803d"><i class="sdi sdi-refresh" aria-hidden="true"></i>Reconversion</a><a href="https://simudroit.fr/salaires/" style="--c:#a16207"><i class="sdi sdi-euro" aria-hidden="true"></i>Salaires</a><a href="https://simudroit.fr/modeles-de-lettres/" style="--c:#9333ea"><i class="sdi sdi-mail" aria-hidden="true"></i>Lettres types</a><a href="https://simudroit.fr/generateur-cv/" style="--c:#0f7a6e"><i class="sdi sdi-doc" aria-hidden="true"></i>Générateur de CV</a><a href="https://simudroit.fr/ouvrir-un-commerce/" style="--c:#b5530f"><i class="sdi sdi-briefcase" aria-hidden="true"></i>Ouvrir un commerce</a><a href="https://simudroit.fr/actualites/" style="--c:#475569"><i class="sdi sdi-chart" aria-hidden="true"></i>Chiffres et données</a><a href="https://simudroit.fr/glossaire/" style="--c:#0369a1"><i class="sdi sdi-bookopen" aria-hidden="true"></i>Glossaire</a><a href="https://simudroit.fr/faq/" style="--c:#b91c1c"><i class="sdi sdi-question" aria-hidden="true"></i>FAQ</a></div></nav>
+<footer><nav class="foot-top" aria-label="Les plus consultés"><strong>Les plus consultés</strong><a href="https://simudroit.fr/simulateur-brut-net/">Salaire brut en net</a><a href="https://simudroit.fr/simulateur-indemnite-licenciement/">Indemnité de licenciement</a><a href="https://simudroit.fr/simulateur-rupture-conventionnelle/">Rupture conventionnelle</a><a href="https://simudroit.fr/simulateur-chomage/">Allocation chômage</a><a href="https://simudroit.fr/simulateur-preavis-demission/">Préavis de démission</a><a href="https://simudroit.fr/simulateur-preavis-licenciement/">Préavis de licenciement</a><a href="https://simudroit.fr/simulateur-conges-payes/">Congés payés</a><a href="https://simudroit.fr/simulateur-fiche-de-paie/">Vérifier ma fiche de paie</a><a href="https://simudroit.fr/simulateur-solde-tout-compte/">Solde de tout compte</a><a href="https://simudroit.fr/simulateur-smic/">SMIC 2026</a><a href="https://simudroit.fr/salaire-brut-net/">Brut en net par montant</a><a href="https://simudroit.fr/metiers/">Mon métier : infirmier libéral, assistante maternelle, intérimaire</a><a href="https://simudroit.fr/retraite/">Retraite : par où commencer ?</a><a href="https://simudroit.fr/reconversion/">Reconversion : par où commencer ?</a><a href="https://simudroit.fr/jours-feries-2026-2027/">Jours fériés 2026 et 2027</a><a href="https://simudroit.fr/fiches-revision/">Fiches de révision</a><a href="https://simudroit.fr/aides/">Aides selon votre situation</a><a href="https://simudroit.fr/documents-a-generer/">Documents à générer</a></nav>
+  <p>© 2026 SimuDroit · <a href="https://simudroit.fr/">Tous les simulateurs</a> · <a href="https://simudroit.fr/methode-et-sources/">Méthode et sources</a> · <a href="https://simudroit.fr/contact/">Contact</a> · <a href="https://simudroit.fr/mentions-legales/">Mentions légales</a> · <a href="https://simudroit.fr/confidentialite/">Confidentialité</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+  function setText(id,t){document.getElementById(id).textContent=t}
+  var DAY=86400000,KEY="sd-arrets-v1";
+  function mk(y,mo,d){var t=Date.UTC(y,mo-1,d),x=new Date(t);return (x.getUTCFullYear()===y&&x.getUTCMonth()===mo-1&&x.getUTCDate()===d)?t:NaN}
+  function pd(s){s=String(s).trim();var m=s.match(/^(\d{4})-(\d{2})-(\d{2})$/);if(m)return mk(+m[1],+m[2],+m[3]);m=s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);if(m)return mk(+m[3],+m[2],+m[1]);return NaN}
+  function fd(t){var d=new Date(t);return String(d.getUTCDate()).padStart(2,"0")+"/"+String(d.getUTCMonth()+1).padStart(2,"0")+"/"+d.getUTCFullYear()}
+  function typ(s){s=s.toLowerCase().trim();if(/maternit/.test(s))return "mat";if(/professionnelle|^mp$/.test(s))return "mp";if(/accident|^at$/.test(s))return "at";return "mal"}
+  var LAB={mal:"Maladie",at:"Accident du travail",mp:"Maladie professionnelle",mat:"Maternité"};
+  function calc(o){
+    var ref=o.ref,rows=[],err=[],lines=String(o.lignes||"").split(/\n/),i;
+    for(i=0;i<lines.length;i++){
+      var l=lines[i].trim();if(!l)continue;
+      var p=l.split(/\s*;\s*/);
+      if(p.length<3){err.push("Ligne "+(i+1)+" : format attendu « prénom ; début ; fin ; type ».");continue}
+      var a=pd(p[1]),b=pd(p[2]);
+      if(!(a>0)||!(b>0)){err.push("Ligne "+(i+1)+" : dates illisibles.");continue}
+      if(b<a){err.push("Ligne "+(i+1)+" : la fin précède le début.");continue}
+      var t=typ(p[3]||""),dur=Math.round((b-a)/DAY)+1;
+      var need=(t==="mp"||t==="mat")||(t==="at"&&dur>=30)||(t==="mal"&&dur>=60);
+      rows.push({nom:p[0],a:a,b:b,t:t,dur:dur,need:need,dl:need?b+DAY+8*DAY:null,pre:dur>30,lim:b+DAY});
+    }
+    var start=ref-364*DAY,total=0,per={};
+    rows.forEach(function(r){
+      var s=Math.max(r.a,start),e=Math.min(r.b,ref);
+      if(e>=s){var d=Math.round((e-s)/DAY)+1;total+=d;per[r.nom]=(per[r.nom]||0)+d}
+    });
+    var eff=Math.max(1,o.eff||1),taux=total/(eff*365);
+    return {rows:rows,err:err,total:total,taux:taux,per:per,visites:rows.filter(function(r){return r.need}).length};
+  }
+  window.sdArrets=calc;
+  var last="";
+  function render(r,ref){
+    var host=document.getElementById("tab");host.innerHTML="";
+    if(!r.rows.length)return;
+    var t=document.createElement("table");t.className="sd-table";
+    var hd=["Salarié","Début","Fin","Type","Durée","Visite de reprise","Date limite"];
+    var tr=document.createElement("tr");hd.forEach(function(x){var th=document.createElement("th");th.textContent=x;tr.appendChild(th)});t.appendChild(tr);
+    var txt=[hd.join("\t")];
+    r.rows.forEach(function(x){
+      var v=x.need?(x.dl<ref?"à vérifier : délai dépassé":"obligatoire"):(x.pre?"préreprise possible":"non exigée");
+      var cells=[x.nom,fd(x.a),fd(x.b),LAB[x.t],x.dur+" j",v,x.need?"avant le "+fd(x.dl):"-"];
+      var row=document.createElement("tr");cells.forEach(function(c,i){var td=document.createElement(i===0?"th":"td");td.textContent=c;row.appendChild(td)});t.appendChild(row);txt.push(cells.join("\t"));
+    });
+    host.appendChild(t);last=txt.join("\n");
+  }
+  function save(){try{if(document.getElementById("memo").checked)localStorage.setItem(KEY,JSON.stringify({eff:document.getElementById("eff").value,lignes:document.getElementById("lignes").value}));else localStorage.removeItem(KEY)}catch(e){}}
+  function load(){try{var s=JSON.parse(localStorage.getItem(KEY)||"null");if(s){document.getElementById("eff").value=s.eff||"";document.getElementById("lignes").value=s.lignes||"";document.getElementById("memo").checked=true}}catch(e){}}
+  var td=new Date();document.getElementById("ref").value=td.getFullYear()+"-"+String(td.getMonth()+1).padStart(2,"0")+"-"+String(td.getDate()).padStart(2,"0");
+  load();
+  document.getElementById("calculate").addEventListener("click",function(){
+    var ref=pd(document.getElementById("ref").value);if(!(ref>0)){ref=Date.UTC(td.getFullYear(),td.getMonth(),td.getDate())}
+    var r=calc({ref:ref,eff:parseFloat(document.getElementById("eff").value),lignes:document.getElementById("lignes").value});
+    setText("main",r.rows.length+" arrêt"+(r.rows.length>1?"s":"")+" analysé"+(r.rows.length>1?"s":""));
+    setText("jours",r.total+" jours");
+    setText("taux",(Math.round(r.taux*1000)/10).toString().replace(".",",")+" %");
+    setText("visites",String(r.visites));
+    render(r,ref);
+    var w="Repères indicatifs. Le service de santé au travail et votre convention collective précisent les obligations.";
+    if(r.err.length)w=r.err.join(" ")+" "+w;
+    setText("wnote",w);save();
+    document.getElementById("result").classList.add("visible");
+  });
+  document.getElementById("memo").addEventListener("change",save);
+  document.getElementById("copier").addEventListener("click",function(){if(!last)return;try{navigator.clipboard.writeText(last);this.textContent="Tableau copié"}catch(e){}});
+  document.getElementById("effacer").addEventListener("click",function(){document.getElementById("lignes").value="";document.getElementById("eff").value="";document.getElementById("memo").checked=false;try{localStorage.removeItem(KEY)}catch(e){}document.getElementById("tab").innerHTML="";document.getElementById("result").classList.remove("visible")});
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>

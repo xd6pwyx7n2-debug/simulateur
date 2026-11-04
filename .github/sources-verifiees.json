@@ -246,5 +246,25 @@
    "travail de nuit, jeunes de moins de 18 ans, conventions collectives : non modélisés",
    "fiche F1911 vérifiée le 9 janvier 2023 et F2327 le 26 octobre 2023 : traductions automatiques"
   ]
+ },
+ "suivi-arrets-maladie-equipe": {
+  "date_relecture": "2026-11-04",
+  "urls": [
+   "https://www.service-public.gouv.fr/particuliers/vosdroits/F2871",
+   "https://www.service-public.gouv.fr/particuliers/vosdroits/F144"
+  ],
+  "regles_confirmees": [
+   "visite de reprise obligatoire après 60 jours d'arrêt non professionnel",
+   "visite de reprise obligatoire après 30 jours d'accident du travail",
+   "visite de reprise obligatoire pour une maladie professionnelle quelle que soit la durée, et après un congé de maternité",
+   "délai de 8 jours calendaires après la reprise",
+   "visite de préreprise possible pour un arrêt de plus de 30 jours",
+   "dispense pour les arrêts prescrits depuis le 15 juin 2026 avec visite de préreprise dans les 30 jours sans aménagement"
+  ],
+  "non_verifie": [
+   "F144 cite 30 jours pour la maladie : contradiction non tranchée par une source officielle en français",
+   "taux d'absentéisme : formule interne, non officielle",
+   "fiches en traduction automatique"
+  ]
  }
 }
