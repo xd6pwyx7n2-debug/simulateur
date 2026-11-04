@@ -345,5 +345,18 @@
    "jours fériés et prolongations non modélisés",
    "trames de lettres propres au site"
   ]
+ },
+ "comparer-demission-rupture-licenciement": {
+  "date_relecture": "2026-11-04",
+  "urls": [
+   "https://www.service-public.gouv.fr/particuliers/vosdroits/F987"
+  ],
+  "regles_confirmees": [
+   "indemnité légale : 1/4 puis 1/3 de mois par année, 8 mois d'ancienneté minimum (règle reprise du simulateur indemnité de licenciement du site)"
+  ],
+  "non_verifie": [
+   "fiche F987 non relue à cette date : règle reprise des simulateurs existants du site",
+   "convention collective, faute grave, préavis et chômage non calculés"
+  ]
  }
 }

@@ -420,6 +420,9 @@ for _v in ("F10485", "F11094", "F2474", "F33338", "F31269", "sdLettre"):
 _qz = open(os.path.join(ROOT, "quiz-droits-consommateur-vrai-ou-faux", "index.html"), encoding="utf-8").read()
 for _v in ("F10485", "F11094", "F33338", "F2474", "F31269", "qz-static"):
     if _v not in _qz: fail("quiz droits : mention absente (%s)" % _v)
+_cp = _page("comparer-demission-rupture-licenciement")
+for _v in ("sdPartir", "indemnité légale", "15 jours calendaires"):
+    if _v not in _cp: fail("comparateur départ : mention absente (%s)" % _v)
 _ps2 = open(os.path.join(ROOT, "mon-plan-de-sortie-surendettement", "index.html"), encoding="utf-8").read(); _psj = open(os.path.join(ROOT, "assets", "plan-sortie.js"), encoding="utf-8").read()
 for _v in ("Rien n'est envoyé", "3 mois", "Mémoriser ma progression sur cet appareil uniquement", "Tout effacer"):
     if _v not in _ps2: fail("plan de sortie : mention absente (%s)" % _v)
@@ -845,6 +848,15 @@ with sync_playwright() as pw:
     for _k in range(10):
         pg.click('.qz-btns button[data-a="1"]'); pg.click("#qz-n"); pg.wait_for_timeout(60)
     if "/ 10" not in pg.inner_text("#qz") or "Rejouer" not in pg.inner_text("#qz"): fail("quiz droits : écran de résultat")
+    # comparateur départ : indemnité légale
+    pg.goto(LOCAL + "simulateur-comparer-demission-rupture-licenciement/"); pg.wait_for_timeout(500)
+    _p = pg.evaluate("()=>window.sdPartir({sal:2400,an:6,mo:0})")
+    if abs(_p["legale"] - 3600) > 0.01: fail("comparateur départ : 6 ans à 2400 euros (%s)" % _p)
+    _p = pg.evaluate("()=>window.sdPartir({sal:3000,an:12,mo:0})")
+    if abs(_p["legale"] - (3000*0.25*10 + 3000/3*2)) > 0.01: fail("comparateur départ : 12 ans")
+    if pg.evaluate("()=>window.sdPartir({sal:2400,an:0,mo:7})")["legale"] != 0: fail("comparateur départ : moins de 8 mois")
+    pg.fill("#sal", "2400"); pg.fill("#an", "6"); pg.click("#calculate"); pg.wait_for_timeout(200)
+    if "3 600" not in pg.inner_text("#main").replace("\u202f", " ").replace("\xa0", " "): fail("comparateur départ : affichage (%s)" % pg.inner_text("#main"))
     # Mon plan de sortie du surendettement : analyse CSV, calendrier, progression (tout en local)
     pg.goto(LOCAL + "mon-plan-de-sortie-surendettement/"); pg.wait_for_timeout(600)
     _csv = "Date;Libellé;Montant\n01/09/2026;SALAIRE;1000,00\n02/09/2026;LOYER;-500,00\n03/09/2026;NETFLIX;-10,00\n03/10/2026;NETFLIX;-10,00\n05/10/2026;CARREFOUR;-40,00"
