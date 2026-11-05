@@ -377,6 +377,10 @@ for _v in ('F2385', '150 000', '225 000', 'Limites'):
 _lcrypto = _g("cryptomonnaies-impots-risques-prestataires-agrees-mica-declarer-2026")
 for _v in ('305 €', '31,4', '2086', 'MiCA', 'Limites'):
     if _v not in _lcrypto: fail("guide litiges cryptomonnai : mention absente (%s)" % _v)
+# Guide litiges pret-immobil
+_lpreti = _g("pret-immobilier-constituer-son-dossier-banque-apport-endettement-reste-a-vivre")
+for _v in ('35 %', 'F16123', '10 jours', 'FISE', 'Limites'):
+    if _v not in _lpreti: fail("guide litiges pret-immobil : mention absente (%s)" % _v)
 # Guide Black Friday
 _bf = _g("black-friday-achats-en-ligne-droit-de-retractation-14-jours-garantie-2-ans")
 for _v in ("14 jours", "2 ans", "27 novembre 2026", "F10485", "F11094", "F10868", "Limites"):
@@ -627,6 +631,23 @@ with sync_playwright() as pw:
     if "REÇU DE PAIEMENT PARTIEL" not in _q2 or "300,00" not in _q2: fail("quittance : reçu de paiement partiel ou reste dû absent : %s" % _q2[:300])
     with pg.expect_download() as _dq: pg.click("#qt-docx")
     if "word/document.xml" not in __import__("zipfile").ZipFile(_dq.value.path()).namelist(): fail("quittance : fichier .docx invalide")
+    pg.goto(LOCAL + "generateur-dossier-pret-immobilier/"); pg.wait_for_timeout(300); pg.click("#dp-example"); pg.wait_for_timeout(200)
+    _dp = pg.inner_text("#dp-sheet").replace("\u202f", " ").replace("\u00a0", " ")
+    for _m in ("DOSSIER DE DEMANDE DE PRÊT IMMOBILIER", "Plan de financement", "Taux d'endettement", "Reste à vivre", "Pièces à joindre", "Capital restant dû", "Taux actuel"):
+        if _m.lower() not in _dp.lower(): fail("dossier de prêt : mention absente (%s)" % _m)
+    if pg.evaluate("document.querySelectorAll('#dp-sheet .dp-bar').length") < 3: fail("dossier de prêt : graphiques en barres absents")
+    _r = pg.evaluate("sdDP({prix:200000,duree:20,taux:4,rev1:4000})")
+    if abs(_r["mensualite"] - 1211.96) > 0.02 or _r["endettement"] != 30.3 or abs(_r["crd10"] - 119705.57) > 1: fail("dossier de prêt : calcul faux %s" % _r)
+    _r2 = pg.evaluate("sdDP({prix:250000,notaire:20000,apport:50000,duree:25,taux:3.8,tass:0.3,rev1:4000,credits:200,charges:1100})")
+    if _r2["emprunt"] != 220000 or _r2["endettement"] != 34.8 or _r2["pApport"] != 18.5: fail("dossier de prêt : synthèse fausse %s" % _r2)
+    pg.select_option("#dp-destin", "Investissement locatif"); pg.fill("#dp-loyerprevu", "900"); pg.fill("#dp-chargesloc", "1800"); pg.wait_for_timeout(200)
+    _dp2 = pg.inner_text("#dp-sheet")
+    if "Projet locatif" not in _dp2 or "Rendement brut" not in _dp2 or "Investissement locatif" not in _dp2: fail("dossier de prêt : bloc investissement locatif absent")
+    pg.emulate_media(media="print")
+    for _pgn in ("generateur-dossier-pret-immobilier/", "generateur-devis/", "generateur-quittance-de-loyer/", "generateur-attestation-d-hebergement/"):
+        pg.goto(LOCAL + _pgn); pg.wait_for_timeout(200)
+        if pg.evaluate("getComputedStyle(document.querySelector('main')).display") == "none": fail("impression : le contenu du générateur est masqué (%s)" % _pgn)
+    pg.emulate_media(media="screen")
     pg.goto(LOCAL + "generateur-attestation-d-hebergement/"); pg.wait_for_timeout(300); pg.click("#ht-example"); pg.wait_for_timeout(200)
     _h = pg.inner_text("#dv-sheet").replace("\u202f", " ").replace("\u00a0", " ")
     if "ATTESTATION D'HÉBERGEMENT" not in _h or "Jean Dupont" not in _h or "Camille Martin" not in _h or "441-7" not in _h or "justificatif de domicile" not in _h: fail("hébergement : exemple ou mentions absents : %s" % _h[:300])

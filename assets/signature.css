@@ -289,3 +289,6 @@ html.sd-lock .sd-theme-float{display:none!important}
 .bd-ticks span:nth-child(2){margin-left:20%}
 .bd-loan p{margin:0;color:var(--ink)}
 @media(max-width:640px){.bd-card{grid-template-columns:1fr}.bd-grp{padding:14px 12px 4px}}
+
+/* Impression des generateurs : la regle du simulateur masquait tout le main */
+@media print{body>main:has(#dv-sheet,#gp-sheet,#pt-doc,#dp-sheet):not(#sd-print){display:block!important}}
