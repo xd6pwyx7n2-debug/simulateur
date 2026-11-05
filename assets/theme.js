@@ -289,3 +289,9 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
 /* Tableaux : étiquette de colonne sur chaque cellule (lecture mobile) */
 (function(){function go(){try{[].forEach.call(document.querySelectorAll("table.sd-table"),function(t){var h=[].map.call(t.querySelectorAll("thead th"),function(x){return x.textContent.trim()});if(!h.length)return;[].forEach.call(t.querySelectorAll("tbody tr"),function(r){[].forEach.call(r.children,function(c,i){if(i>0&&c.tagName==="TD"&&!c.hasAttribute("data-label")&&h[i])c.setAttribute("data-label",h[i])})})})}catch(e){}}
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else go()})();
+
+/* L'outil d'abord : bloc « À savoir » replié, parcours sous l'outil */
+(function(){function go(){try{var c=document.querySelector("main>section.calculator");if(!c)return;document.body.classList.add("sd-tool");
+var n=[].filter.call(c.querySelectorAll(":scope>div.intro-note"),function(e){return !e.id&&/^\s*À savoir/.test(e.textContent)})[0];if(n&&!n.closest("details")){var d=document.createElement("details");d.className="sd-savoir";var s=document.createElement("summary");s.textContent="À savoir avant de calculer";d.appendChild(s);n.parentNode.insertBefore(d,n);n.className="";d.appendChild(n)}
+var l=document.querySelector("main>nav.sd-line");if(l&&c.nextSibling)c.parentNode.insertBefore(l,c.nextSibling)}catch(e){}}
+if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else go()})();
