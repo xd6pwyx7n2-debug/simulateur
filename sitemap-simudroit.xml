@@ -811,6 +811,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://simudroit.fr/guides/pyramide-de-l-epargne-livret-a-assurance-vie-per-bourse-crypto-par-ou-commencer/</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://simudroit.fr/guides/livret-a-ldds-lep-taux-aout-2026-plafonds-interets-prochaine-revision/</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://simudroit.fr/guides/jours-feries-2027-dates-ponts-regles-salaries-1er-mai/</loc>
     <lastmod>2026-11-05</lastmod>
     <changefreq>monthly</changefreq>
@@ -1562,6 +1574,14 @@
   </url>
   <url>
     <loc>https://simudroit.fr/simulateur-prime-de-noel/</loc>
+    <lastmod>2026-11-05</lastmod>
+  </url>
+  <url>
+    <loc>https://simudroit.fr/simulateur-interets-composes/</loc>
+    <lastmod>2026-11-05</lastmod>
+  </url>
+  <url>
+    <loc>https://simudroit.fr/simulateur-budget-mensuel/</loc>
     <lastmod>2026-11-05</lastmod>
   </url>
 </urlset>

@@ -353,6 +353,14 @@ for _v in ('F20706', 'F15018', 'F18074', '12 957', 'Limites'):
 _ljours = _g("jours-feries-2027-dates-ponts-regles-salaries-1er-mai")
 for _v in ('A19019', 'F2405', '29 mars', 'Ascension', 'Limites'):
     if _v not in _ljours: fail("guide litiges jours-feries : mention absente (%s)" % _v)
+# Guide litiges livret-a-ldd
+_llivret = _g("livret-a-ldds-lep-taux-aout-2026-plafonds-interets-prochaine-revision")
+for _v in ('F2365', 'F2368', 'F2367', '22 950', '1,7 %', 'Limites'):
+    if _v not in _llivret: fail("guide litiges livret-a-ldd : mention absente (%s)" % _v)
+# Guide litiges pyramide-de-
+_lpyrami = _g("pyramide-de-l-epargne-livret-a-assurance-vie-per-bourse-crypto-par-ou-commencer")
+for _v in ('F2365', 'F22414', 'F36526', 'F2385', '31,4 %', 'Limites'):
+    if _v not in _lpyrami: fail("guide litiges pyramide-de- : mention absente (%s)" % _v)
 # Guide Black Friday
 _bf = _g("black-friday-achats-en-ligne-droit-de-retractation-14-jours-garantie-2-ans")
 for _v in ("14 jours", "2 ans", "27 novembre 2026", "F10485", "F11094", "F10868", "Limites"):
@@ -463,6 +471,13 @@ for _v in ("F18074", "12 957", "sdAJ", "55 %"):
 _pn = _page("prime-de-noel")
 for _v in ("152,45", "442,11", "sdPN", "16 décembre"):
     if _v not in _pn: fail("prime de Noël : mention absente (%s)" % _v)
+_ic = _page("interets-composes")
+for _v in ("F2365", "22 950", "sdIC", "1,7"):
+    if _v not in _ic: fail("intérêts composés : mention absente (%s)" % _v)
+_bu = _page("budget-mensuel")
+for _v in ("sdBU", "fiche-budget-12-mois-simudroit.pdf", "50/30/20"):
+    if _v not in _bu: fail("budget mensuel : mention absente (%s)" % _v)
+if not os.path.exists(os.path.join(ROOT, "assets", "docs", "fiche-budget-12-mois-simudroit.pdf")): fail("fiche budget PDF absente")
 _ps2 = open(os.path.join(ROOT, "mon-plan-de-sortie-surendettement", "index.html"), encoding="utf-8").read(); _psj = open(os.path.join(ROOT, "assets", "plan-sortie.js"), encoding="utf-8").read()
 for _v in ("Rien n'est envoyé", "3 mois", "Mémoriser ma progression sur cet appareil uniquement", "Tout effacer"):
     if _v not in _ps2: fail("plan de sortie : mention absente (%s)" % _v)
@@ -919,6 +934,21 @@ with sync_playwright() as pw:
     for _a, _s, _e, _x in (("rsa", "seul", 0, 15245), ("rsa", "seul", 2, 27441), ("rsa", "couple", 4, 44211), ("rsa", "couple", 5, 50309), ("rsa", "seul", 6, 39637 + 2 * 6098), ("ass", "couple", 3, 15245)):
         _o = pg.evaluate("(a)=>window.sdPN(a)", {"alloc": _a, "sit": _s, "enf": _e})
         if _o["cents"] != _x: fail("prime de Noël : %s %s %s enfants attendu %s obtenu %s" % (_a, _s, _e, _x, _o["cents"]))
+    # intérêts composés
+    pg.goto(LOCAL + "simulateur-interets-composes/"); pg.wait_for_timeout(500)
+    _a = pg.evaluate("()=>window.sdIC({capital:1000,mensuel:0,taux:5,annees:10,livret:1.7})")
+    if abs(_a["final"] - 1628.8946) > 0.01: fail("intérêts composés : 1000 euros à 5 %% sur 10 ans attendu 1628,89 obtenu %s" % _a["final"])
+    if abs(_a["livret"] - 1183.6125) > 0.01: fail("intérêts composés : Livret A 1000 euros 10 ans attendu 1183,61 obtenu %s" % _a["livret"])
+    _b = pg.evaluate("()=>window.sdIC({capital:0,mensuel:100,taux:0,annees:10,livret:0})")
+    if abs(_b["final"] - 12000) > 0.01: fail("intérêts composés : 100 euros par mois à 0 %% sur 10 ans attendu 12000 obtenu %s" % _b["final"])
+    _c = pg.evaluate("()=>window.sdIC({capital:0,mensuel:1000,taux:0,annees:5,livret:1.7})")
+    if _c["verseLivret"] > 22950 + 1: fail("intérêts composés : dépôts au Livret A au-delà du plafond (%s)" % _c["verseLivret"])
+    # budget mensuel
+    pg.goto(LOCAL + "simulateur-budget-mensuel/"); pg.wait_for_timeout(500)
+    _o = pg.evaluate("()=>window.sdBU({rev:2000,log:700,ali:300,loi:200,epa:200})")
+    if abs(_o["reste"] - 600) > 0.01 or abs(_o["pBesoins"] - 50) > 0.01 or abs(_o["pEpargne"] - 10) > 0.01 or abs(_o["pEnvies"] - 10) > 0.01: fail("budget mensuel : cas de référence %s" % _o)
+    _n = pg.evaluate("()=>window.sdBU({rev:1000,log:900,ali:300})")
+    if _n["reste"] != -200: fail("budget mensuel : reste négatif attendu -200, obtenu %s" % _n["reste"])
     # Mon plan de sortie du surendettement : analyse CSV, calendrier, progression (tout en local)
     pg.goto(LOCAL + "mon-plan-de-sortie-surendettement/"); pg.wait_for_timeout(600)
     _csv = "Date;Libellé;Montant\n01/09/2026;SALAIRE;1000,00\n02/09/2026;LOYER;-500,00\n03/09/2026;NETFLIX;-10,00\n03/10/2026;NETFLIX;-10,00\n05/10/2026;CARREFOUR;-40,00"

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Calculatrice d&#x27;intérêts composés avec versements et Livret A | SimuDroit</title>
+  <meta name="description" content="Simulez l&#x27;effet des intérêts composés avec un capital de départ et un versement mensuel (DCA), et comparez avec le Livret A. Avant fiscalité et frais. Rien n&#x27;est enregistré.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://simudroit.fr/simulateur-interets-composes/">
+  <link rel="icon" href="https://simudroit.fr/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="https://simudroit.fr/favicon.ico" sizes="48x48">
+  <link rel="icon" href="https://simudroit.fr/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="https://simudroit.fr/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Calculatrice d&#x27;intérêts composés avec versements et Livret A | SimuDroit">
+  <meta property="og:description" content="Simulez l&#x27;effet des intérêts composés avec un capital de départ et un versement mensuel (DCA), et comparez avec le Livret A. Avant fiscalité et frais. Rien n&#x27;est enregistré.">
+  <meta property="og:url" content="https://simudroit.fr/simulateur-interets-composes/">
+  <meta property="og:image" content="https://simudroit.fr/assets/og/simulateur-interets-composes.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://simudroit.fr/assets/og/simulateur-interets-composes.jpg">
+  <meta name="twitter:title" content="Calculatrice d&#x27;intérêts composés avec versements et Livret A | SimuDroit">
+  <meta name="twitter:description" content="Simulez l&#x27;effet des intérêts composés avec un capital de départ et un versement mensuel (DCA), et comparez avec le Livret A. Avant fiscalité et frais. Rien n&#x27;est enregistré.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://simudroit.fr/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Calculatrice d'intérêts composés avec versements et Livret A", "url": "https://simudroit.fr/simulateur-interets-composes/", "description": "Simulez l'effet des intérêts composés avec un capital de départ et un versement mensuel (DCA), et comparez avec le Livret A. Avant fiscalité et frais. Rien n'est enregistré.", "inLanguage": "fr-FR"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://simudroit.fr/"}, {"@type": "ListItem", "position": 2, "name": "Simulateurs", "item": "https://simudroit.fr/simulateurs/"}, {"@type": "ListItem", "position": 3, "name": "Intérêts composés", "item": "https://simudroit.fr/simulateur-interets-composes/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Qu'est-ce que l'intérêt composé ?", "acceptedAnswer": {"@type": "Answer", "text": "Les intérêts gagnés s'ajoutent au capital et produisent à leur tour des intérêts les années suivantes. Plus la durée est longue, plus l'écart avec un simple cumul de versements grandit."}}, {"@type": "Question", "name": "Qu'est-ce que le DCA ?", "acceptedAnswer": {"@type": "Answer", "text": "L'investissement programmé : verser une somme fixe chaque mois plutôt qu'un seul gros montant. Le simulateur le représente par le versement mensuel."}}, {"@type": "Question", "name": "Comment le Livret A est-il calculé ici ?", "acceptedAnswer": {"@type": "Answer", "text": "Les intérêts courent mois par mois sur le solde et s'ajoutent au capital au 31 décembre, comme l'indique Service-Public. La vraie règle compte par quinzaines : le résultat est une estimation. Le plafond de 22 950 € bloque les nouveaux dépôts."}}, {"@type": "Question", "name": "Quel est le taux du Livret A ?", "acceptedAnswer": {"@type": "Answer", "text": "1,7 % du 1er août 2026 au 31 janvier 2027 (Service-Public). Il est révisé tous les six mois : vous pouvez modifier le taux dans le simulateur."}}, {"@type": "Question", "name": "Le rendement indiqué est-il garanti ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Un taux de 5 % par exemple n'est pas garanti : les placements en actions, en unités de compte ou en cryptoactifs peuvent perdre de la valeur. Le simulateur applique un taux constant, ce qui n'arrive pas en pratique."}}, {"@type": "Question", "name": "Les impôts et frais sont-ils pris en compte ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Les intérêts du Livret A sont exonérés d'impôt et de prélèvements sociaux, mais les autres placements peuvent être taxés et avoir des frais, qui réduisent le résultat."}}, {"@type": "Question", "name": "Mes données sont-elles enregistrées ?", "acceptedAnswer": {"@type": "Answer", "text": "Non, le calcul se fait dans votre navigateur."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Calculatrice d'intérêts composés", "url": "https://simudroit.fr/simulateur-interets-composes/", "description": "Simulez l'effet des intérêts composés avec un capital de départ et un versement mensuel (DCA), et comparez avec le Livret A. Avant fiscalité et frais. Rien n'est enregistré.", "applicationCategory": "WebApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}</script>
+  <meta name="theme-color" content="#1b1f2a">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="Calculatrice d&#x27;intérêts composés avec versements et Livret A | SimuDroit">
+  <link rel="alternate" hreflang="fr" href="https://simudroit.fr/simulateur-interets-composes/">
+  <link rel="alternate" hreflang="x-default" href="https://simudroit.fr/simulateur-interets-composes/">
+  <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
+  <script async src="https://plausible.io/js/pa-j8JdUomB9hqqp7em82xdB.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+<link rel="stylesheet" href="/assets/signature.css"></head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.fr/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://simudroit.fr/simulateurs/">Simulateurs</a>
+      <a href="https://simudroit.fr/assistant/">Assistant</a>
+      <a href="https://simudroit.fr/guides/">Guides</a>
+      <a href="https://simudroit.fr/aides/">Aides</a>
+      <a href="https://simudroit.fr/fiches-revision/">Fiches</a>
+      <a href="https://simudroit.fr/actualites/">Chiffres clés</a>
+      <a href="https://simudroit.fr/metiers/">Métiers</a>
+      <a href="https://simudroit.fr/faq/">FAQ</a>
+      <a href="https://simudroit.fr/#recherche">Rechercher</a>
+      <a class="cta-link" href="https://simudroit.fr/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://simudroit.fr/">Accueil</a> &nbsp;›&nbsp; <a href="https://simudroit.fr/simulateurs/">Simulateurs</a> &nbsp;›&nbsp; Intérêts composés
+  </div>
+
+  <section class="hero">
+    <h1>Intérêts composés : combien peut rapporter mon épargne ?</h1>
+    <p>Indiquez un capital de départ, un versement mensuel, un rendement et une durée : vous comparez votre placement au Livret A.</p>
+      <div class="badges"><span class="badge">Gratuit, sans inscription</span><span class="badge">Rien n'est enregistré</span><span class="badge">Livret A à 1,7 %</span></div>
+  </section>
+  <section class="calculator" id="calcul">
+    <h2>Mon projet d'épargne</h2>
+    <div class="field-row"><div class="field"><label for="cap">Capital de départ (euros)</label><input type="number" id="cap" min="0" step="100" value="1000" inputmode="decimal"></div>
+    <div class="field"><label for="mens">Versement mensuel (euros)</label><input type="number" id="mens" min="0" step="10" value="100" inputmode="decimal"></div></div>
+    <div class="field-row"><div class="field"><label for="taux">Rendement annuel du placement (%)</label><input type="number" id="taux" min="0" max="30" step="0.1" value="5" inputmode="decimal"></div>
+    <div class="field"><label for="ans">Durée (années)</label><input type="number" id="ans" min="1" max="60" step="1" value="20" inputmode="numeric"></div></div>
+    <div class="field-row"><div class="field"><label for="la">Taux du Livret A pour la comparaison (%)</label><input type="number" id="la" min="0" max="10" step="0.1" value="1.7" inputmode="decimal"></div></div>
+    <button type="button" id="calculate">Calculer</button>
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">Capital estimé au bout de la durée</div>
+      <div class="result-main" data-noanim id="main">-</div>
+      <p id="det"></p>
+      <p id="cmp"></p>
+      <div class="table-wrap" id="tbl" hidden></div>
+      <div class="warning" id="wnote">Estimation avant impôts et frais, avec un rendement constant qui n'est pas garanti. Le Livret A est limité à 22 950 € de dépôts.</div>
+    </div>
+  </section>
+
+  <section class="info-section" id="regles">
+    <h2>Comment le calcul est fait</h2>
+    <p><strong>Votre placement :</strong> le rendement annuel est converti en taux mensuel équivalent. Chaque mois, le capital produit des intérêts, puis le versement est ajouté.</p>
+    <p><strong>Le Livret A :</strong> d'après Service-Public (fiche F2365, mise à jour le 1er août 2026), les intérêts sont exonérés d'impôt et de prélèvements sociaux, s'ajoutent au capital au 31 décembre, et le plafond de dépôt est de 22 950 €. Le taux est de 1,7 % du 1er août 2026 au 31 janvier 2027, puis révisé.</p>
+    <p>Pour situer le Livret A parmi les autres placements, lisez <a href="/guides/pyramide-de-l-epargne-livret-a-assurance-vie-per-bourse-crypto-par-ou-commencer/">la pyramide de l'épargne</a>.</p>
+  </section>
+
+  <section class="info-section sd-fold" id="faq-ind"><details><summary><h2>Questions fréquentes</h2></summary><h3>Qu&#x27;est-ce que l&#x27;intérêt composé ?</h3><p>Les intérêts gagnés s&#x27;ajoutent au capital et produisent à leur tour des intérêts les années suivantes. Plus la durée est longue, plus l&#x27;écart avec un simple cumul de versements grandit.</p><h3>Qu&#x27;est-ce que le DCA ?</h3><p>L&#x27;investissement programmé : verser une somme fixe chaque mois plutôt qu&#x27;un seul gros montant. Le simulateur le représente par le versement mensuel.</p><h3>Comment le Livret A est-il calculé ici ?</h3><p>Les intérêts courent mois par mois sur le solde et s&#x27;ajoutent au capital au 31 décembre, comme l&#x27;indique Service-Public. La vraie règle compte par quinzaines : le résultat est une estimation. Le plafond de 22 950 € bloque les nouveaux dépôts.</p><h3>Quel est le taux du Livret A ?</h3><p>1,7 % du 1er août 2026 au 31 janvier 2027 (Service-Public). Il est révisé tous les six mois : vous pouvez modifier le taux dans le simulateur.</p><h3>Le rendement indiqué est-il garanti ?</h3><p>Non. Un taux de 5 % par exemple n&#x27;est pas garanti : les placements en actions, en unités de compte ou en cryptoactifs peuvent perdre de la valeur. Le simulateur applique un taux constant, ce qui n&#x27;arrive pas en pratique.</p><h3>Les impôts et frais sont-ils pris en compte ?</h3><p>Non. Les intérêts du Livret A sont exonérés d&#x27;impôt et de prélèvements sociaux, mais les autres placements peuvent être taxés et avoir des frais, qui réduisent le résultat.</p><h3>Mes données sont-elles enregistrées ?</h3><p>Non, le calcul se fait dans votre navigateur.</p></details></section>
+
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/guides/pyramide-de-l-epargne-livret-a-assurance-vie-per-bourse-crypto-par-ou-commencer/">Pyramide de l'épargne</a><a href="/guides/livret-a-ldds-lep-taux-aout-2026-plafonds-interets-prochaine-revision/">Livret A, LDDS, LEP</a><a href="/simulateur-budget-mensuel/">Budget mensuel</a><a href="/simulateurs/">Tous les simulateurs</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-11-05">5 novembre 2026</time>. Estimation indicative, sans valeur juridique ni conseil en investissement. <a href="/methode-et-sources/">Méthode et sources</a> · <a href="/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<nav class="sd-explore" aria-label="Toutes les rubriques"><strong>Explorer toutes les rubriques</strong><div><a href="https://simudroit.fr/simulateurs/" style="--c:#4f46e5"><i class="sdi sdi-calc" aria-hidden="true"></i>Simulateurs</a><a href="https://simudroit.fr/guides/" style="--c:#0e7490"><i class="sdi sdi-book" aria-hidden="true"></i>Guides</a><a href="https://simudroit.fr/aides/" style="--c:#0f766e"><i class="sdi sdi-heart" aria-hidden="true"></i>Aides</a><a href="https://simudroit.fr/fiches-revision/" style="--c:#7c3aed"><i class="sdi sdi-notes" aria-hidden="true"></i>Fiches de révision</a><a href="https://simudroit.fr/metiers/" style="--c:#b5530f"><i class="sdi sdi-user" aria-hidden="true"></i>Mon métier</a><a href="https://simudroit.fr/metiers/creer-son-entreprise-batiment/" style="--c:#c2410c"><i class="sdi sdi-hardhat" aria-hidden="true"></i>Créer son entreprise (bâtiment)</a><a href="https://simudroit.fr/independants/" style="--c:#1d4ed8"><i class="sdi sdi-briefcase" aria-hidden="true"></i>Indépendants</a><a href="https://simudroit.fr/retraite/" style="--c:#be185d"><i class="sdi sdi-sun" aria-hidden="true"></i>Retraite</a><a href="https://simudroit.fr/reconversion/" style="--c:#15803d"><i class="sdi sdi-refresh" aria-hidden="true"></i>Reconversion</a><a href="https://simudroit.fr/salaires/" style="--c:#a16207"><i class="sdi sdi-euro" aria-hidden="true"></i>Salaires</a><a href="https://simudroit.fr/modeles-de-lettres/" style="--c:#9333ea"><i class="sdi sdi-mail" aria-hidden="true"></i>Lettres types</a><a href="https://simudroit.fr/generateur-cv/" style="--c:#0f7a6e"><i class="sdi sdi-doc" aria-hidden="true"></i>Générateur de CV</a><a href="https://simudroit.fr/ouvrir-un-commerce/" style="--c:#b5530f"><i class="sdi sdi-briefcase" aria-hidden="true"></i>Ouvrir un commerce</a><a href="https://simudroit.fr/actualites/" style="--c:#475569"><i class="sdi sdi-chart" aria-hidden="true"></i>Chiffres et données</a><a href="https://simudroit.fr/glossaire/" style="--c:#0369a1"><i class="sdi sdi-bookopen" aria-hidden="true"></i>Glossaire</a><a href="https://simudroit.fr/faq/" style="--c:#b91c1c"><i class="sdi sdi-question" aria-hidden="true"></i>FAQ</a></div></nav>
+<footer><nav class="foot-top" aria-label="Les plus consultés"><strong>Les plus consultés</strong><a href="https://simudroit.fr/simulateur-brut-net/">Salaire brut en net</a><a href="https://simudroit.fr/simulateur-indemnite-licenciement/">Indemnité de licenciement</a><a href="https://simudroit.fr/simulateur-rupture-conventionnelle/">Rupture conventionnelle</a><a href="https://simudroit.fr/simulateur-chomage/">Allocation chômage</a><a href="https://simudroit.fr/simulateur-preavis-demission/">Préavis de démission</a><a href="https://simudroit.fr/simulateur-preavis-licenciement/">Préavis de licenciement</a><a href="https://simudroit.fr/simulateur-conges-payes/">Congés payés</a><a href="https://simudroit.fr/simulateur-fiche-de-paie/">Vérifier ma fiche de paie</a><a href="https://simudroit.fr/simulateur-solde-tout-compte/">Solde de tout compte</a><a href="https://simudroit.fr/simulateur-smic/">SMIC 2026</a><a href="https://simudroit.fr/salaire-brut-net/">Brut en net par montant</a><a href="https://simudroit.fr/metiers/">Mon métier : infirmier libéral, assistante maternelle, intérimaire</a><a href="https://simudroit.fr/retraite/">Retraite : par où commencer ?</a><a href="https://simudroit.fr/reconversion/">Reconversion : par où commencer ?</a><a href="https://simudroit.fr/jours-feries-2026-2027/">Jours fériés 2026 et 2027</a><a href="https://simudroit.fr/fiches-revision/">Fiches de révision</a><a href="https://simudroit.fr/aides/">Aides selon votre situation</a><a href="https://simudroit.fr/documents-a-generer/">Documents à générer</a></nav>
+  <p>© 2026 SimuDroit · <a href="https://simudroit.fr/">Tous les simulateurs</a> · <a href="https://simudroit.fr/methode-et-sources/">Méthode et sources</a> · <a href="https://simudroit.fr/contact/">Contact</a> · <a href="https://simudroit.fr/mentions-legales/">Mentions légales</a> · <a href="https://simudroit.fr/confidentialite/">Confidentialité</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+  var PLAF=22950;
+  function eur(n){return Math.round(n).toLocaleString("fr-FR")+" €"}
+  function sdIC(o){
+    var c=Math.max(0,o.capital||0),v=Math.max(0,o.mensuel||0),t=Math.max(0,o.taux||0)/100,la=Math.max(0,o.livret||0)/100,N=Math.max(1,Math.min(60,Math.floor(o.annees||1)));
+    var m=Math.pow(1+t,1/12)-1,bal=c,vers=c,rows=[];
+    var P=Math.min(c,PLAF),acc=0,versA=P;
+    for(var y=1;y<=N;y++){
+      for(var k=0;k<12;k++){
+        bal=bal*(1+m)+v;vers+=v;
+        acc+=P*la/12;
+        var room=Math.max(0,PLAF-(P+acc)),dep=Math.min(v,room);P+=dep;versA+=dep;
+      }
+      P+=acc;acc=0;
+      rows.push({an:y,verse:vers,placement:bal,livret:P});
+    }
+    return {final:bal,verse:vers,interets:bal-vers,livret:P,verseLivret:versA,interetsLivret:P-versA,rows:rows,annees:N};
+  }
+  window.sdIC=sdIC;
+  function num(id){return parseFloat(document.getElementById(id).value.replace(",","."))}
+  document.getElementById("calculate").addEventListener("click",function(){
+    var r=sdIC({capital:num("cap"),mensuel:num("mens"),taux:num("taux"),annees:num("ans"),livret:num("la")});
+    var res=document.getElementById("result");
+    document.getElementById("main").textContent=eur(r.final);
+    document.getElementById("det").innerHTML="Vous versez <strong>"+eur(r.verse)+"</strong> en tout et les intérêts rapportent <strong>"+eur(r.interets)+"</strong> sur "+r.annees+" an"+(r.annees>1?"s":"")+".";
+    var diff=r.final-r.livret;
+    document.getElementById("cmp").innerHTML="Au Livret A, vous auriez environ <strong>"+eur(r.livret)+"</strong> (dépôts limités à 22 950 €, intérêts exonérés). Écart avec votre placement : <strong>"+(diff>=0?"+":"-")+eur(Math.abs(diff))+"</strong>, à condition que le rendement soit au rendez-vous.";
+    var h="<table class='sd-table'><thead><tr><th scope='col'>Année</th><th scope='col'>Total versé</th><th scope='col'>Votre placement</th><th scope='col'>Livret A</th></tr></thead><tbody>";
+    r.rows.forEach(function(x){if(x.an<=10||x.an%5===0||x.an===r.annees)h+="<tr><td>"+x.an+"</td><td data-label='Total versé'>"+eur(x.verse)+"</td><td data-label='Votre placement'>"+eur(x.placement)+"</td><td data-label='Livret A'>"+eur(x.livret)+"</td></tr>"});
+    h+="</tbody></table>";var t=document.getElementById("tbl");t.innerHTML=h;t.hidden=false;
+    res.classList.add("visible")});
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Budget mensuel : calculer son reste à vivre et sa part d&#x27;épargne | SimuDroit</title>
+  <meta name="description" content="Saisissez vos revenus et vos dépenses du mois : reste à vivre, taux d&#x27;épargne et comparaison avec le repère 50/30/20. Fiche budget 12 mois à imprimer en PDF. Rien n&#x27;est enregistré.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://simudroit.fr/simulateur-budget-mensuel/">
+  <link rel="icon" href="https://simudroit.fr/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="https://simudroit.fr/favicon.ico" sizes="48x48">
+  <link rel="icon" href="https://simudroit.fr/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="https://simudroit.fr/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Budget mensuel : calculer son reste à vivre et sa part d&#x27;épargne | SimuDroit">
+  <meta property="og:description" content="Saisissez vos revenus et vos dépenses du mois : reste à vivre, taux d&#x27;épargne et comparaison avec le repère 50/30/20. Fiche budget 12 mois à imprimer en PDF. Rien n&#x27;est enregistré.">
+  <meta property="og:url" content="https://simudroit.fr/simulateur-budget-mensuel/">
+  <meta property="og:image" content="https://simudroit.fr/assets/og/simulateur-budget-mensuel.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://simudroit.fr/assets/og/simulateur-budget-mensuel.jpg">
+  <meta name="twitter:title" content="Budget mensuel : calculer son reste à vivre et sa part d&#x27;épargne | SimuDroit">
+  <meta name="twitter:description" content="Saisissez vos revenus et vos dépenses du mois : reste à vivre, taux d&#x27;épargne et comparaison avec le repère 50/30/20. Fiche budget 12 mois à imprimer en PDF. Rien n&#x27;est enregistré.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://simudroit.fr/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Budget mensuel : calculer son reste à vivre et sa part d'épargne", "url": "https://simudroit.fr/simulateur-budget-mensuel/", "description": "Saisissez vos revenus et vos dépenses du mois : reste à vivre, taux d'épargne et comparaison avec le repère 50/30/20. Fiche budget 12 mois à imprimer en PDF. Rien n'est enregistré.", "inLanguage": "fr-FR"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://simudroit.fr/"}, {"@type": "ListItem", "position": 2, "name": "Simulateurs", "item": "https://simudroit.fr/simulateurs/"}, {"@type": "ListItem", "position": 3, "name": "Budget mensuel", "item": "https://simudroit.fr/simulateur-budget-mensuel/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Qu'est-ce que la règle 50/30/20 ?", "acceptedAnswer": {"@type": "Answer", "text": "Un repère répandu, pas une règle officielle : environ 50 % des revenus pour les besoins, 30 % pour les envies et 20 % pour l'épargne. À adapter à votre situation, par exemple si votre loyer dépasse déjà la moitié de vos revenus."}}, {"@type": "Question", "name": "Que compte-t-on dans les besoins ?", "acceptedAnswer": {"@type": "Answer", "text": "Dans ce simulateur : logement, énergie, alimentation, transports, santé, assurances et crédits. Abonnements, loisirs et divers sont comptés dans les envies."}}, {"@type": "Question", "name": "Qu'est-ce que le reste à vivre ?", "acceptedAnswer": {"@type": "Answer", "text": "Ce qu'il reste de vos revenus après les dépenses du mois et l'épargne. S'il est négatif, vos dépenses dépassent vos revenus."}}, {"@type": "Question", "name": "Comment suivre mon budget toute l'année ?", "acceptedAnswer": {"@type": "Answer", "text": "Téléchargez la fiche PDF de 12 mois : une page de budget par catégorie et mois, une page de suivi de l'épargne. Elle s'imprime en A4 paysage."}}, {"@type": "Question", "name": "Mes données sont-elles enregistrées ?", "acceptedAnswer": {"@type": "Answer", "text": "Non, le calcul se fait dans votre navigateur. Rien n'est envoyé ni conservé : notez vos chiffres sur la fiche imprimée si vous voulez les garder."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Budget mensuel : reste à vivre et épargne", "url": "https://simudroit.fr/simulateur-budget-mensuel/", "description": "Saisissez vos revenus et vos dépenses du mois : reste à vivre, taux d'épargne et comparaison avec le repère 50/30/20. Fiche budget 12 mois à imprimer en PDF. Rien n'est enregistré.", "applicationCategory": "WebApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}</script>
+  <meta name="theme-color" content="#1b1f2a">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="Budget mensuel : calculer son reste à vivre et sa part d&#x27;épargne | SimuDroit">
+  <link rel="alternate" hreflang="fr" href="https://simudroit.fr/simulateur-budget-mensuel/">
+  <link rel="alternate" hreflang="x-default" href="https://simudroit.fr/simulateur-budget-mensuel/">
+  <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
+  <script async src="https://plausible.io/js/pa-j8JdUomB9hqqp7em82xdB.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+<link rel="stylesheet" href="/assets/signature.css"></head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.fr/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://simudroit.fr/simulateurs/">Simulateurs</a>
+      <a href="https://simudroit.fr/assistant/">Assistant</a>
+      <a href="https://simudroit.fr/guides/">Guides</a>
+      <a href="https://simudroit.fr/aides/">Aides</a>
+      <a href="https://simudroit.fr/fiches-revision/">Fiches</a>
+      <a href="https://simudroit.fr/actualites/">Chiffres clés</a>
+      <a href="https://simudroit.fr/metiers/">Métiers</a>
+      <a href="https://simudroit.fr/faq/">FAQ</a>
+      <a href="https://simudroit.fr/#recherche">Rechercher</a>
+      <a class="cta-link" href="https://simudroit.fr/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://simudroit.fr/">Accueil</a> &nbsp;›&nbsp; <a href="https://simudroit.fr/simulateurs/">Simulateurs</a> &nbsp;›&nbsp; Budget mensuel
+  </div>
+
+  <section class="hero">
+    <h1>Budget mensuel : où part mon argent ?</h1>
+    <p>Saisissez vos revenus et vos dépenses du mois : vous voyez votre reste à vivre, votre taux d'épargne et la répartition besoins, envies, épargne.</p>
+      <div class="badges"><span class="badge">Gratuit, sans inscription</span><span class="badge">Rien n'est enregistré</span><span class="badge">Fiche PDF 12 mois</span></div>
+  </section>
+  <section class="calculator" id="calcul">
+    <h2>Mon mois</h2>
+    <div class="field-row"><div class="field"><label for="rev">Revenus nets du mois (euros)</label><input type="number" id="rev" min="0" step="10" value="2000" placeholder="0" inputmode="decimal"></div></div>
+    <h3>Besoins</h3>
+    <div class="field-row"><div class="field"><label for="log">Logement (loyer ou crédit, charges)</label><input type="number" id="log" min="0" step="10" value="700" placeholder="0" inputmode="decimal"></div><div class="field"><label for="ene">Énergie et eau</label><input type="number" id="ene" min="0" step="10" value="90" placeholder="0" inputmode="decimal"></div><div class="field"><label for="ali">Alimentation</label><input type="number" id="ali" min="0" step="10" value="300" placeholder="0" inputmode="decimal"></div></div>
+    <div class="field-row"><div class="field"><label for="tra">Transports</label><input type="number" id="tra" min="0" step="10" value="120" placeholder="0" inputmode="decimal"></div><div class="field"><label for="san">Santé, mutuelle</label><input type="number" id="san" min="0" step="10" value="60" placeholder="0" inputmode="decimal"></div><div class="field"><label for="ass">Assurances</label><input type="number" id="ass" min="0" step="10" value="50" placeholder="0" inputmode="decimal"></div><div class="field"><label for="cre">Crédits et dettes</label><input type="number" id="cre" min="0" step="10" value="0" placeholder="0" inputmode="decimal"></div></div>
+    <h3>Envies</h3>
+    <div class="field-row"><div class="field"><label for="abo">Abonnements, téléphone, internet</label><input type="number" id="abo" min="0" step="10" value="60" placeholder="0" inputmode="decimal"></div><div class="field"><label for="loi">Loisirs, sorties</label><input type="number" id="loi" min="0" step="10" value="150" placeholder="0" inputmode="decimal"></div><div class="field"><label for="aut">Autres dépenses</label><input type="number" id="aut" min="0" step="10" value="100" placeholder="0" inputmode="decimal"></div></div>
+    <h3>Épargne</h3>
+    <div class="field-row"><div class="field"><label for="epa">Mise de côté ce mois-ci</label><input type="number" id="epa" min="0" step="10" value="150" placeholder="0" inputmode="decimal"></div></div>
+    <button type="button" id="calculate">Calculer mon budget</button>
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">Reste à vivre du mois</div>
+      <div class="result-main" data-noanim id="main">-</div>
+      <p id="det"></p>
+      <div class="table-wrap" id="tbl" hidden></div>
+      <div class="warning" id="wnote">Le repère 50/30/20 est indicatif : il ne tient pas compte de votre situation. Pas de conseil financier.</div>
+      <p><button type="button" id="print">Imprimer ce bilan</button></p>
+    </div>
+  </section>
+
+  <section class="info-section" id="fiche">
+    <h2>La fiche budget sur 12 mois, à imprimer</h2>
+    <p>Une feuille A4 paysage avec les 12 mois de l'année et les catégories de dépenses, et une seconde feuille pour suivre l'épargne mois par mois : Livret A, LDDS, LEP, assurance-vie, PER. Elle fonctionne sur téléphone : téléchargez-la puis imprimez-la.</p>
+    <p><a class="cta-link" href="/assets/docs/fiche-budget-12-mois-simudroit.pdf" download>Télécharger la fiche budget 12 mois (PDF)</a></p>
+    <p>Pour placer votre épargne, voir <a href="/guides/pyramide-de-l-epargne-livret-a-assurance-vie-per-bourse-crypto-par-ou-commencer/">la pyramide de l'épargne</a> et <a href="/simulateur-interets-composes/">la calculatrice d'intérêts composés</a>.</p>
+  </section>
+
+  <section class="info-section sd-fold" id="faq-ind"><details><summary><h2>Questions fréquentes</h2></summary><h3>Qu&#x27;est-ce que la règle 50/30/20 ?</h3><p>Un repère répandu, pas une règle officielle : environ 50 % des revenus pour les besoins, 30 % pour les envies et 20 % pour l&#x27;épargne. À adapter à votre situation, par exemple si votre loyer dépasse déjà la moitié de vos revenus.</p><h3>Que compte-t-on dans les besoins ?</h3><p>Dans ce simulateur : logement, énergie, alimentation, transports, santé, assurances et crédits. Abonnements, loisirs et divers sont comptés dans les envies.</p><h3>Qu&#x27;est-ce que le reste à vivre ?</h3><p>Ce qu&#x27;il reste de vos revenus après les dépenses du mois et l&#x27;épargne. S&#x27;il est négatif, vos dépenses dépassent vos revenus.</p><h3>Comment suivre mon budget toute l&#x27;année ?</h3><p>Téléchargez la fiche PDF de 12 mois : une page de budget par catégorie et mois, une page de suivi de l&#x27;épargne. Elle s&#x27;imprime en A4 paysage.</p><h3>Mes données sont-elles enregistrées ?</h3><p>Non, le calcul se fait dans votre navigateur. Rien n&#x27;est envoyé ni conservé : notez vos chiffres sur la fiche imprimée si vous voulez les garder.</p></details></section>
+
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/simulateur-interets-composes/">Intérêts composés</a><a href="/guides/livret-a-ldds-lep-taux-aout-2026-plafonds-interets-prochaine-revision/">Livret A, LDDS, LEP</a><a href="/simulateur-capacite-emprunt/">Capacité d'emprunt</a><a href="/simulateurs/">Tous les simulateurs</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-11-05">5 novembre 2026</time>. Outil de calcul indicatif, sans conseil financier. <a href="/methode-et-sources/">Méthode et sources</a> · <a href="/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<nav class="sd-explore" aria-label="Toutes les rubriques"><strong>Explorer toutes les rubriques</strong><div><a href="https://simudroit.fr/simulateurs/" style="--c:#4f46e5"><i class="sdi sdi-calc" aria-hidden="true"></i>Simulateurs</a><a href="https://simudroit.fr/guides/" style="--c:#0e7490"><i class="sdi sdi-book" aria-hidden="true"></i>Guides</a><a href="https://simudroit.fr/aides/" style="--c:#0f766e"><i class="sdi sdi-heart" aria-hidden="true"></i>Aides</a><a href="https://simudroit.fr/fiches-revision/" style="--c:#7c3aed"><i class="sdi sdi-notes" aria-hidden="true"></i>Fiches de révision</a><a href="https://simudroit.fr/metiers/" style="--c:#b5530f"><i class="sdi sdi-user" aria-hidden="true"></i>Mon métier</a><a href="https://simudroit.fr/metiers/creer-son-entreprise-batiment/" style="--c:#c2410c"><i class="sdi sdi-hardhat" aria-hidden="true"></i>Créer son entreprise (bâtiment)</a><a href="https://simudroit.fr/independants/" style="--c:#1d4ed8"><i class="sdi sdi-briefcase" aria-hidden="true"></i>Indépendants</a><a href="https://simudroit.fr/retraite/" style="--c:#be185d"><i class="sdi sdi-sun" aria-hidden="true"></i>Retraite</a><a href="https://simudroit.fr/reconversion/" style="--c:#15803d"><i class="sdi sdi-refresh" aria-hidden="true"></i>Reconversion</a><a href="https://simudroit.fr/salaires/" style="--c:#a16207"><i class="sdi sdi-euro" aria-hidden="true"></i>Salaires</a><a href="https://simudroit.fr/modeles-de-lettres/" style="--c:#9333ea"><i class="sdi sdi-mail" aria-hidden="true"></i>Lettres types</a><a href="https://simudroit.fr/generateur-cv/" style="--c:#0f7a6e"><i class="sdi sdi-doc" aria-hidden="true"></i>Générateur de CV</a><a href="https://simudroit.fr/ouvrir-un-commerce/" style="--c:#b5530f"><i class="sdi sdi-briefcase" aria-hidden="true"></i>Ouvrir un commerce</a><a href="https://simudroit.fr/actualites/" style="--c:#475569"><i class="sdi sdi-chart" aria-hidden="true"></i>Chiffres et données</a><a href="https://simudroit.fr/glossaire/" style="--c:#0369a1"><i class="sdi sdi-bookopen" aria-hidden="true"></i>Glossaire</a><a href="https://simudroit.fr/faq/" style="--c:#b91c1c"><i class="sdi sdi-question" aria-hidden="true"></i>FAQ</a></div></nav>
+<footer><nav class="foot-top" aria-label="Les plus consultés"><strong>Les plus consultés</strong><a href="https://simudroit.fr/simulateur-brut-net/">Salaire brut en net</a><a href="https://simudroit.fr/simulateur-indemnite-licenciement/">Indemnité de licenciement</a><a href="https://simudroit.fr/simulateur-rupture-conventionnelle/">Rupture conventionnelle</a><a href="https://simudroit.fr/simulateur-chomage/">Allocation chômage</a><a href="https://simudroit.fr/simulateur-preavis-demission/">Préavis de démission</a><a href="https://simudroit.fr/simulateur-preavis-licenciement/">Préavis de licenciement</a><a href="https://simudroit.fr/simulateur-conges-payes/">Congés payés</a><a href="https://simudroit.fr/simulateur-fiche-de-paie/">Vérifier ma fiche de paie</a><a href="https://simudroit.fr/simulateur-solde-tout-compte/">Solde de tout compte</a><a href="https://simudroit.fr/simulateur-smic/">SMIC 2026</a><a href="https://simudroit.fr/salaire-brut-net/">Brut en net par montant</a><a href="https://simudroit.fr/metiers/">Mon métier : infirmier libéral, assistante maternelle, intérimaire</a><a href="https://simudroit.fr/retraite/">Retraite : par où commencer ?</a><a href="https://simudroit.fr/reconversion/">Reconversion : par où commencer ?</a><a href="https://simudroit.fr/jours-feries-2026-2027/">Jours fériés 2026 et 2027</a><a href="https://simudroit.fr/fiches-revision/">Fiches de révision</a><a href="https://simudroit.fr/aides/">Aides selon votre situation</a><a href="https://simudroit.fr/documents-a-generer/">Documents à générer</a></nav>
+  <p>© 2026 SimuDroit · <a href="https://simudroit.fr/">Tous les simulateurs</a> · <a href="https://simudroit.fr/methode-et-sources/">Méthode et sources</a> · <a href="https://simudroit.fr/contact/">Contact</a> · <a href="https://simudroit.fr/mentions-legales/">Mentions légales</a> · <a href="https://simudroit.fr/confidentialite/">Confidentialité</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+  function eur(n){return Math.round(n).toLocaleString("fr-FR")+" €"}
+  function pct(a,b){return b>0?Math.round(a/b*1000)/10:0}
+  function sdBU(o){
+    var v=function(k){var x=+o[k];return x>0?x:0};
+    var rev=v("rev"),besoins=v("log")+v("ene")+v("ali")+v("tra")+v("san")+v("ass")+v("cre"),envies=v("abo")+v("loi")+v("aut"),epa=v("epa");
+    var dep=besoins+envies,reste=rev-dep-epa;
+    return {rev:rev,besoins:besoins,envies:envies,epargne:epa,depenses:dep,reste:reste,pBesoins:pct(besoins,rev),pEnvies:pct(envies,rev),pEpargne:pct(epa,rev)};
+  }
+  window.sdBU=sdBU;
+  function g(id){return parseFloat((document.getElementById(id).value||"0").replace(",","."))||0}
+  var IDS=["rev","log","ene","ali","tra","san","ass","cre","abo","loi","aut","epa"];
+  document.getElementById("calculate").addEventListener("click",function(){
+    var o={};IDS.forEach(function(k){o[k]=g(k)});var r=sdBU(o);
+    var res=document.getElementById("result"),m=document.getElementById("main"),d=document.getElementById("det");
+    if(!(r.rev>0)){m.textContent="Indiquez vos revenus du mois.";d.textContent="";document.getElementById("tbl").hidden=true;res.classList.add("visible");return}
+    m.textContent=(r.reste<0?"-":"")+eur(Math.abs(r.reste));
+    d.innerHTML=r.reste<0?"Vos dépenses et votre épargne dépassent vos revenus de <strong>"+eur(-r.reste)+"</strong> ce mois-ci.":"Il vous reste <strong>"+eur(r.reste)+"</strong> après vos dépenses et votre épargne. Taux d'épargne : <strong>"+r.pEpargne.toString().replace(".",",")+" %</strong> de vos revenus.";
+    var f=function(x){return x.toString().replace(".",",")+" %"};
+    var h="<table class='sd-table'><thead><tr><th scope='col'>Poste</th><th scope='col'>Montant</th><th scope='col'>Votre part</th><th scope='col'>Repère</th></tr></thead><tbody>"+
+    "<tr><td>Besoins</td><td data-label='Montant'>"+eur(r.besoins)+"</td><td data-label='Votre part'>"+f(r.pBesoins)+"</td><td data-label='Repère'>50 %</td></tr>"+
+    "<tr><td>Envies</td><td data-label='Montant'>"+eur(r.envies)+"</td><td data-label='Votre part'>"+f(r.pEnvies)+"</td><td data-label='Repère'>30 %</td></tr>"+
+    "<tr><td>Épargne</td><td data-label='Montant'>"+eur(r.epargne)+"</td><td data-label='Votre part'>"+f(r.pEpargne)+"</td><td data-label='Repère'>20 %</td></tr></tbody></table>";
+    var t=document.getElementById("tbl");t.innerHTML=h;t.hidden=false;res.classList.add("visible")});
+  document.getElementById("print").addEventListener("click",function(){window.print()});
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>

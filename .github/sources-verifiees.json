@@ -409,5 +409,34 @@
    "conditions détaillées d'accès pour l'ASS et l'AER",
    "montants à Mayotte pour le RSA"
   ]
+ },
+ "interets-composes": {
+  "date_relecture": "2026-11-05",
+  "urls": [
+   "https://www.service-public.gouv.fr/particuliers/vosdroits/F2365",
+   "https://www.service-public.gouv.fr/particuliers/actualites/A15818"
+  ],
+  "regles_confirmees": [
+   "Livret A 1,7 % du 1er août 2026 au 31 janvier 2027",
+   "plafond de dépôt 22 950 €",
+   "intérêts exonérés d'impôt et de prélèvements sociaux",
+   "capitalisation au 31 décembre, calcul par quinzaines"
+  ],
+  "non_verifie": [
+   "fiscalité et frais des autres placements",
+   "rendements futurs"
+  ]
+ },
+ "budget-mensuel": {
+  "date_relecture": "2026-11-05",
+  "urls": [
+   "https://www.service-public.gouv.fr/particuliers/vosdroits/F2365"
+  ],
+  "regles_confirmees": [
+   "somme des postes et reste à vivre calculés dans le navigateur"
+  ],
+  "non_verifie": [
+   "repère 50/30/20 : convention non officielle"
+  ]
  }
 }
