@@ -289,6 +289,10 @@ for _v in ("19 décembre 2026 au 4 janvier 2027", "13 février au 1er mars 2027"
 _cc = _g("credit-a-la-consommation-retractation-14-jours-remboursement-anticipe-credit-renouvelable")
 for _v in ("14 jours", "75 000 €", "10 000 €", "0,5 %", "TAEG", "8 %", "F2451", "F2436", "Limites"):
     if _v not in _cc: fail("guide crédit conso : mention absente (%s)" % _v)
+# Lettres types : nouvelles pages dédiées
+for _s, _k in (("modele-lettre-signalement-harcelement-moral-employeur", "harcelement"), ("modele-lettre-priorite-de-reembauche-licenciement-economique", "reembauche"), ("modele-lettre-demande-copie-contrat-de-travail", "copiecontrat"), ("modele-lettre-reclamation-indemnite-conges-payes-non-pris", "indcp"), ("modele-lettre-demande-report-entretien-prealable-licenciement", "reportentretien"), ("modele-lettre-demande-amenagement-de-poste-medecin-du-travail", "amenagement"), ("modele-lettre-demande-temps-partiel-therapeutique", "tpt")):
+    _lp = open(_s + "/index.html", encoding="utf-8").read()
+    if 'window.SD_TYPE="%s"' % _k not in _lp or "Avant d'envoyer cette lettre" not in _lp: fail("lettre %s : type ou conseil absent" % _s)
 # Guide litiges litige-se-de
 _llitige = _g("litige-se-defendre-sans-tribunal-etapes-reclamation-mediation-conciliation")
 for _v in ('5 000 €', '1er octobre 2023', 'F1736', 'F33338', 'F13158', 'F31301', 'Limites'):
