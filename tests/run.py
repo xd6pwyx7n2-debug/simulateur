@@ -289,6 +289,22 @@ for _v in ("19 décembre 2026 au 4 janvier 2027", "13 février au 1er mars 2027"
 _cc = _g("credit-a-la-consommation-retractation-14-jours-remboursement-anticipe-credit-renouvelable")
 for _v in ("14 jours", "75 000 €", "10 000 €", "0,5 %", "TAEG", "8 %", "F2451", "F2436", "Limites"):
     if _v not in _cc: fail("guide crédit conso : mention absente (%s)" % _v)
+# Données structurées des guides : le fil d'Ariane doit porter le nom de la page, pas celui d'un autre guide
+import json as _jsb, re as _reb
+for _gs in sorted(os.listdir(os.path.join(ROOT, "guides"))):
+    _gp = os.path.join(ROOT, "guides", _gs, "index.html")
+    if not os.path.isfile(_gp): continue
+    _gh = open(_gp, encoding="utf-8").read()
+    for _bm in _reb.finditer(r'<script type="application/ld\+json">(.*?)</script>', _gh, _reb.S):
+        _bj = _jsb.loads(_bm.group(1))
+        if _bj.get("@type") == "BreadcrumbList":
+            _last = _bj["itemListElement"][-1]
+            if _last["item"].rstrip("/").split("/")[-1] != _gs: fail("guide %s : fil d'Ariane pointe vers %s" % (_gs, _last["item"]))
+            if _last["name"] == "Prime de précarité en CDD : comment la calculer ?" and _gs != "prime-precarite-cdd": fail("guide %s : fil d'Ariane nommé « %s »" % (_gs, _last["name"]))
+_dm = _g("demission-et-chomage-droits")
+for _m in ("contrat d'insertion par l'activité", "CUI", "au moins un an", "108 jours ou 758 heures", "https://demission-reconversion.gouv.fr/", "1 300 jours", "Transitions Pro"):
+    if _m not in _dm: fail("guide démission et chômage : mention absente (%s)" % _m)
+if "d'un CUI ou d'un service civique, pour un emploi" in _dm: fail("guide démission et chômage : ancien passage imprécis encore présent")
 # Parcours simplifié : "Par où commencer" en tête des pages thématiques
 for _h in ("independants", "employeurs-rh", "epargne", "retraite", "guides", "aides"):
     _hp = open(_h + "/index.html", encoding="utf-8").read()
