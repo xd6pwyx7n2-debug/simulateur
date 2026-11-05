@@ -446,6 +446,9 @@ for _v in ("sdPartir", "indemnité légale", "15 jours calendaires"):
 _cr = _page("cout-rupture-conventionnelle-employeur")
 for _v in ("A16711", "30 %", "CTP 719", "sdCoutRC"):
     if _v not in _cr: fail("coût rupture conventionnelle : mention absente (%s)" % _v)
+_qz = open(os.path.join(ROOT, "quiz-droit-du-travail-vrai-ou-faux", "index.html"), encoding="utf-8").read()
+for _v in ("F1643", "F19030", "L1237-1-1", "L3245-1", "F24661", "L6315-1", "qz-static"):
+    if _v not in _qz: fail("quiz travail : mention absente (%s)" % _v)
 _ps2 = open(os.path.join(ROOT, "mon-plan-de-sortie-surendettement", "index.html"), encoding="utf-8").read(); _psj = open(os.path.join(ROOT, "assets", "plan-sortie.js"), encoding="utf-8").read()
 for _v in ("Rien n'est envoyé", "3 mois", "Mémoriser ma progression sur cet appareil uniquement", "Tout effacer"):
     if _v not in _ps2: fail("plan de sortie : mention absente (%s)" % _v)
@@ -887,6 +890,11 @@ with sync_playwright() as pw:
     _c = pg.evaluate("()=>window.sdCoutRC({sal:2400,an:6,mo:0,ind:5000})")
     if abs(_c["total"] - 6500) > 0.01 or _c["sousMinimum"]: fail("coût RC : indemnité négociée")
     if not pg.evaluate("()=>window.sdCoutRC({sal:2400,an:6,mo:0,ind:1000})")["sousMinimum"]: fail("coût RC : sous le minimum légal")
+    # quiz travail : parcours complet
+    pg.goto(LOCAL + "quiz-droit-du-travail-vrai-ou-faux/"); pg.wait_for_timeout(500)
+    for _k in range(10):
+        pg.click('.qz-btns button[data-a="1"]'); pg.click("#qz-n"); pg.wait_for_timeout(60)
+    if "/ 10" not in pg.inner_text("#qz") or "Rejouer" not in pg.inner_text("#qz"): fail("quiz travail : écran de résultat")
     # Mon plan de sortie du surendettement : analyse CSV, calendrier, progression (tout en local)
     pg.goto(LOCAL + "mon-plan-de-sortie-surendettement/"); pg.wait_for_timeout(600)
     _csv = "Date;Libellé;Montant\n01/09/2026;SALAIRE;1000,00\n02/09/2026;LOYER;-500,00\n03/09/2026;NETFLIX;-10,00\n03/10/2026;NETFLIX;-10,00\n05/10/2026;CARREFOUR;-40,00"
@@ -962,7 +970,7 @@ with sync_playwright() as pw:
         tx_ = pg.inner_text("#lettre")
         if "SARL Dupont" not in tx_ or "Camille Martin" not in tx_: fail("%s : champs absents de la lettre" % slug_)
     # fiches de révision : export PDF (zone d'impression) et partage (lien copié)
-    for slug_ in ["contrat-de-travail", "smic-salaire-minimum", "rupture-du-cdi", "allocation-chomage", "du-brut-au-net"]:
+    for slug_ in ["contrat-de-travail", "smic-salaire-minimum", "rupture-du-cdi", "allocation-chomage", "du-brut-au-net", "periode-d-essai", "rupture-conventionnelle", "conges-payes-solde", "salaire-paiement-impaye"]:
         pg.goto(LOCAL + "fiches-revision/" + slug_ + "/"); pg.wait_for_timeout(200)
         pg.evaluate("window.print=function(){window.__pr=true}; navigator.share=undefined")
         pg.click(".fiche-pdf"); pg.wait_for_timeout(300)
