@@ -349,6 +349,10 @@ for _v in ('30 novembre', '15 décembre', '20 décembre', '28 décembre', 'Limit
 _ltrouve = _g("trouver-un-avocat-consultation-gratuite-honoraires-aide-juridictionnelle")
 for _v in ('F20706', 'F15018', 'F18074', '12 957', 'Limites'):
     if _v not in _ltrouve: fail("guide litiges trouver-un-a : mention absente (%s)" % _v)
+# Guide litiges jours-feries
+_ljours = _g("jours-feries-2027-dates-ponts-regles-salaries-1er-mai")
+for _v in ('A19019', 'F2405', '29 mars', 'Ascension', 'Limites'):
+    if _v not in _ljours: fail("guide litiges jours-feries : mention absente (%s)" % _v)
 # Guide Black Friday
 _bf = _g("black-friday-achats-en-ligne-droit-de-retractation-14-jours-garantie-2-ans")
 for _v in ("14 jours", "2 ans", "27 novembre 2026", "F10485", "F11094", "F10868", "Limites"):
