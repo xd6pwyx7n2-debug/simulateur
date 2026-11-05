@@ -78,7 +78,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/guides/journee-de-solidarite-2027-date-regles-remuneration/</loc>
-    <lastmod>2026-11-04</lastmod>
+    <lastmod>2026-11-05</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/guides/convention-de-stage-regles-duree-gratification-droits-du-stagiaire/</loc>
@@ -432,7 +432,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/simulateur-anciennete/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -570,7 +570,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/guides/calcul-anciennete-salarie-periodes-prises-en-compte/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1306,7 +1306,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/metiers/grille-indiciaire-infirmier-hospitalier/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-05</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/salaire-par-metier-2024/</loc>
@@ -1480,6 +1480,10 @@
   </url>
   <url>
     <loc>https://simudroit.fr/simulateur-comparer-demission-rupture-licenciement/</loc>
+    <lastmod>2026-11-04</lastmod>
+  </url>
+  <url>
+    <loc>https://simudroit.fr/simulateur-cout-rupture-conventionnelle-employeur/</loc>
     <lastmod>2026-11-04</lastmod>
   </url>
 </urlset>

@@ -358,5 +358,22 @@
    "fiche F987 non relue à cette date : règle reprise des simulateurs existants du site",
    "convention collective, faute grave, préavis et chômage non calculés"
   ]
+ },
+ "cout-rupture-conventionnelle-employeur": {
+  "date_relecture": "2026-11-05",
+  "urls": [
+   "https://entreprendre.service-public.gouv.fr/actualites/A16711",
+   "https://www.urssaf.fr/accueil/employeur/embaucher-gerer-salaries/gerer-fin-relation-travail/rupture-conventionnelle.html"
+  ],
+  "regles_confirmees": [
+   "contribution patronale de 30 % depuis le 1er septembre 2023 (A16711, article ancien)",
+   "indemnité au moins égale à l'indemnité légale de licenciement (Urssaf)",
+   "CDD exclus de la rupture conventionnelle individuelle (Urssaf)"
+  ],
+  "non_verifie": [
+   "taux de 30 % non confirmé sur la page Urssaf consultée (elle renvoie au BOSS)",
+   "plafonds d'exonération de cotisations non vérifiés",
+   "page Urssaf RCI non datée de mise à jour"
+  ]
  }
 }

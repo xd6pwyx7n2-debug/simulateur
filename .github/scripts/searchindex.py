@@ -18,6 +18,7 @@ SYN = {
     "simulateur-duerp-document-unique": "duerp document unique evaluation risques professionnels generateur modele employeur prevention tableau",
     "simulateur-lettre-litige": "lettre litige reclamation mise en demeure retractation resiliation garantie recours depot de garantie voisinage mediateur banque modele courrier",
     "simulateur-comparer-demission-rupture-licenciement": "comparer demission rupture conventionnelle licenciement difference indemnite chomage preavis quitter cdi",
+    "simulateur-cout-rupture-conventionnelle-employeur": "cout rupture conventionnelle employeur contribution patronale 30 indemnite ctp 719 forfait social calcul entreprise",
     "simulateur-capacite-emprunt": "capacite d emprunt taux d endettement credit immobilier mensualite 35 hcsf pret simulateur combien emprunter duree 25 ans assurance",
     "simulateur-saisie-sur-salaire": "saisie sur salaire saisie des remunerations bareme 2026 quotite saisissable reste a vivre solde insaisissable 651,69 pension alimentaire dette commissaire de justice huissier simulateur",
     "simulateur-aide-carburant-grands-rouleurs": "aide carburant grands rouleurs prime carburant 2026 simulateur 100 euros eligibilite travailleurs 22770 revenu fiscal de reference formulaire 31 decembre",

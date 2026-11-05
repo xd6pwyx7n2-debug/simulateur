@@ -439,6 +439,9 @@ for _v in ("F10485", "F11094", "F33338", "F2474", "F31269", "qz-static"):
 _cp = _page("comparer-demission-rupture-licenciement")
 for _v in ("sdPartir", "indemnité légale", "15 jours calendaires"):
     if _v not in _cp: fail("comparateur départ : mention absente (%s)" % _v)
+_cr = _page("cout-rupture-conventionnelle-employeur")
+for _v in ("A16711", "30 %", "CTP 719", "sdCoutRC"):
+    if _v not in _cr: fail("coût rupture conventionnelle : mention absente (%s)" % _v)
 _ps2 = open(os.path.join(ROOT, "mon-plan-de-sortie-surendettement", "index.html"), encoding="utf-8").read(); _psj = open(os.path.join(ROOT, "assets", "plan-sortie.js"), encoding="utf-8").read()
 for _v in ("Rien n'est envoyé", "3 mois", "Mémoriser ma progression sur cet appareil uniquement", "Tout effacer"):
     if _v not in _ps2: fail("plan de sortie : mention absente (%s)" % _v)
@@ -873,6 +876,13 @@ with sync_playwright() as pw:
     if pg.evaluate("()=>window.sdPartir({sal:2400,an:0,mo:7})")["legale"] != 0: fail("comparateur départ : moins de 8 mois")
     pg.fill("#sal", "2400"); pg.fill("#an", "6"); pg.click("#calculate"); pg.wait_for_timeout(200)
     if "3 600" not in pg.inner_text("#main").replace("\u202f", " ").replace("\xa0", " "): fail("comparateur départ : affichage (%s)" % pg.inner_text("#main"))
+    # coût rupture conventionnelle employeur
+    pg.goto(LOCAL + "simulateur-cout-rupture-conventionnelle-employeur/"); pg.wait_for_timeout(500)
+    _c = pg.evaluate("()=>window.sdCoutRC({sal:2400,an:6,mo:0})")
+    if abs(_c["legale"] - 3600) > 0.01 or abs(_c["contrib"] - 1080) > 0.01 or abs(_c["total"] - 4680) > 0.01: fail("coût RC : 2400 euros, 6 ans (%s)" % _c)
+    _c = pg.evaluate("()=>window.sdCoutRC({sal:2400,an:6,mo:0,ind:5000})")
+    if abs(_c["total"] - 6500) > 0.01 or _c["sousMinimum"]: fail("coût RC : indemnité négociée")
+    if not pg.evaluate("()=>window.sdCoutRC({sal:2400,an:6,mo:0,ind:1000})")["sousMinimum"]: fail("coût RC : sous le minimum légal")
     # Mon plan de sortie du surendettement : analyse CSV, calendrier, progression (tout en local)
     pg.goto(LOCAL + "mon-plan-de-sortie-surendettement/"); pg.wait_for_timeout(600)
     _csv = "Date;Libellé;Montant\n01/09/2026;SALAIRE;1000,00\n02/09/2026;LOYER;-500,00\n03/09/2026;NETFLIX;-10,00\n03/10/2026;NETFLIX;-10,00\n05/10/2026;CARREFOUR;-40,00"

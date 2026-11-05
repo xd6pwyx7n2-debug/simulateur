@@ -1,0 +1,102 @@
+/* SimuDroit : identité visuelle « papier et tampon » */
+@font-face{font-family:Caladea;font-style:normal;font-weight:700;font-display:swap;src:url(/assets/fonts/caladea-700.woff) format("woff")}
+@font-face{font-family:Caladea;font-style:italic;font-weight:700;font-display:swap;src:url(/assets/fonts/caladea-700i.woff) format("woff")}
+:root{--ink:#1b1f2a;--text:#2a2f3c;--muted:#5b6070;--bg:#f6f1e6;--background:#f6f1e6;--white:#fffdf8;--paper:#f6f1e6;--paper2:#ece3d0;--line:#1b1f2a;--border:#cfc4aa;
+--purple:#c8321e;--purple-dark:#a32616;--primary:#c8321e;--secondary:#1f5f4a;--coral:#c8321e;--mint:#cfe3d6;--mint-dark:#1f5f4a;--success:#1f5f4a;--dark:#1b1f2a;--stamp:#c8321e;--sapin:#1f5f4a;--jaune:#f2c94c;
+--shadow:0 0 0 transparent;--shadow-lg:0 0 0 transparent;--serif:Caladea,Georgia,"Times New Roman",serif}
+html,body{background:var(--paper)!important;color:var(--text)}
+body{background-image:radial-gradient(#1b1f2a14 1px,transparent 1px);background-size:22px 22px}
+h1,h2,h3,.section-title,.sit-title,.result-main,.fiche-hero h1{font-family:var(--serif)!important;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
+h1 .gradient,.gradient{background:none!important;-webkit-text-fill-color:currentColor!important;color:var(--stamp)!important;font-style:italic}
+/* en-tête */
+header,.site-header{background:var(--paper)!important;border-bottom:2px solid var(--ink)!important;box-shadow:none!important;backdrop-filter:none!important}
+.brand-mark{background:var(--ink)!important;color:var(--paper)!important;border-radius:6px!important;box-shadow:3px 3px 0 var(--stamp)!important}
+.brand{font-family:var(--serif);font-weight:700;color:var(--ink)}
+.brand em{color:var(--stamp)!important;font-style:italic}
+nav a,.nav a{color:var(--ink)}
+.nav-button,.cta-link,a.cta-link{background:var(--ink)!important;color:var(--paper)!important;border-radius:6px!important;box-shadow:3px 3px 0 var(--stamp)!important}
+/* héros : papier plat + tampon */
+.hero,section.hero,.fiche-hero{background:var(--white)!important;background-image:none!important;border:2px solid var(--ink)!important;border-radius:8px!important;box-shadow:6px 6px 0 var(--ink)!important;color:var(--ink)!important}
+.hero::before,.hero::after,.fiche-hero::before,.fiche-hero::after,.hero-art,.hero-bg{display:none!important}
+.hero h1,.fiche-hero h1,.fiche-hero .fh-tx *{color:var(--ink)!important}
+.hero p,.fiche-hero p{color:var(--text)!important}
+.hero.hero-simple{background:transparent!important;border:0!important;box-shadow:none!important}
+.eyebrow,.fh-chip,.kicker,.kick{display:inline-block;border:2px solid var(--stamp)!important;color:var(--stamp)!important;background:transparent!important;border-radius:4px!important;font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:.72rem;padding:3px 10px;transform:rotate(-1.5deg)}
+.eyebrow .dot{display:none}
+.badge,.badges span{background:var(--paper2)!important;color:var(--ink)!important;border:1.5px solid var(--ink)!important;border-radius:4px!important;box-shadow:none!important}
+.fh-ico{background:var(--ink)!important;color:var(--paper)!important;border-radius:6px!important;box-shadow:3px 3px 0 var(--stamp)!important}
+.fh-ico svg{stroke:var(--paper)!important}
+.fh-stat{background:var(--paper2)!important;border:1.5px solid var(--ink)!important;border-radius:6px!important;color:var(--ink)!important}
+.fh-stat b{color:var(--stamp)!important;font-family:var(--serif)}
+.fh-stat span,.fh-stat small{color:var(--text)!important}
+/* cartes et tuiles */
+.card,.cat,.sit,.gd-card,.sd-know-card,.lg-t,.lg-s,.lg-res,.cv-spot .box,.lt-t,.lt-card,.sd-see-grid a,.sd-explore a{background:var(--white)!important;border:2px solid var(--ink)!important;border-radius:8px!important;box-shadow:4px 4px 0 var(--ink)!important;transition:transform .12s,box-shadow .12s}
+.card:hover,.cat:hover,.sit:hover,.gd-card:hover,.sd-know-card:hover,.lg-t:hover,.sd-see-grid a:hover,.sd-explore a:hover,.card:focus-visible,.sit:focus-visible,.gd-card:focus-visible{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--stamp)!important}
+.sit strong,.sit small,.card h3,.cat strong{color:var(--ink)!important;filter:none!important}
+.sit-ico,.card .icon{background:var(--paper2)!important;border:1.5px solid var(--ink);border-radius:6px!important;box-shadow:none!important}
+.tag{background:var(--ink)!important;color:var(--paper)!important;border-radius:3px!important}
+.card-link{color:var(--stamp)!important;font-weight:800}
+/* boutons, filtres */
+button.primary,.button.primary,.calculator #calculate,.calculator .calc-btn,#calculate,.go,button[type=submit]{background:var(--stamp)!important;color:#fff!important;border:2px solid var(--ink)!important;border-radius:6px!important;box-shadow:4px 4px 0 var(--ink)!important;font-weight:800}
+button.primary:hover,.button.primary:hover,#calculate:hover{transform:translate(-1px,-1px);box-shadow:6px 6px 0 var(--ink)!important}
+.filter,.gd-chip,.chip,.quick a,.example,.ex-btn{background:var(--white)!important;border:2px solid var(--ink)!important;border-radius:6px!important;color:var(--ink)!important;box-shadow:none!important}
+.filter.active,.gd-chip.on,.gd-chip[aria-pressed=true],.filter[aria-pressed=true]{background:var(--ink)!important;color:var(--paper)!important}
+input,select,textarea{background:var(--white)!important;border:2px solid var(--ink)!important;border-radius:6px!important;color:var(--ink)!important;box-shadow:none!important}
+input:focus,select:focus,textarea:focus{outline:3px solid var(--jaune)!important;outline-offset:1px}
+/* calculateur et résultat */
+.calculator{background:var(--white)!important;border:2px solid var(--ink)!important;border-radius:8px!important;box-shadow:6px 6px 0 var(--ink)!important}
+.calculator::before{display:none!important}
+.result{background:var(--ink)!important;background-image:none!important;border:2px solid var(--ink)!important;border-radius:8px!important;color:var(--paper)!important}
+.result .result-main,.result-main{color:var(--jaune)!important;font-family:var(--serif)}
+.result-title{color:var(--paper)!important}
+.warning{background:#fff4d6!important;border:2px solid var(--ink)!important;border-left-width:8px!important;border-radius:6px!important;color:var(--ink)!important}
+/* encadrés */
+p.note,.intro-note,article.fiche p.note{background:var(--paper2)!important;border:2px solid var(--ink)!important;border-left:8px solid var(--stamp)!important;border-radius:6px!important;color:var(--ink)!important}
+p.note::before{background-color:var(--ink)!important;border-radius:4px!important}
+.info-section,.sd-fold details{border-radius:8px}
+.gd-metro li::before,.gd-metro>li::before{background:var(--stamp)!important;color:#fff!important}
+article.fiche{background:transparent!important;box-shadow:none!important;border:0!important}
+a{color:#a32616}
+.sd-line li.done:before,.sd-line .now{background:var(--stamp)!important}
+.site-search,.home-search input{border:2px solid var(--ink)!important;border-radius:8px!important;box-shadow:4px 4px 0 var(--ink)!important;background:var(--white)!important}
+footer{background:var(--ink)!important;color:var(--paper)!important}
+footer a{color:var(--paper)!important}
+.sd-theme{background:var(--ink)!important;color:var(--paper)!important;border-radius:6px!important}
+@media(max-width:640px){.hero,.fiche-hero{box-shadow:4px 4px 0 var(--ink)!important}}
+@media(prefers-reduced-motion:reduce){.card,.sit,.gd-card{transition:none}}
+.brand em{background:none!important;-webkit-text-fill-color:var(--stamp)!important;color:var(--stamp)!important}
+.sit-ico{color:var(--ink)!important}.sit-ico .sdi{background-color:var(--ink)!important}
+.sit .sit-ico,.sit[style] .sit-ico{background:var(--paper2)!important}
+.site-search input{border:0!important;box-shadow:none!important;background:transparent!important}
+.site-search form{border:0!important}
+.sd-news{background:var(--ink)!important;background-image:none!important;border-bottom:2px solid var(--stamp)}
+.sd-news a{color:var(--paper)!important}
+.sd-news .sd-news-tag,.sd-news strong+span{background:var(--stamp)!important;color:#fff!important}
+.nav-button{white-space:nowrap}
+
+.logo{font-family:var(--serif)!important;letter-spacing:-.01em!important;font-weight:700!important}
+.logo::before{background-color:var(--ink)!important;border-radius:8px!important;box-shadow:3px 3px 0 var(--stamp)!important;margin-right:10px}
+.logo span{background:none!important;-webkit-text-fill-color:var(--stamp)!important;color:var(--stamp)!important;font-style:italic}
+.header-nav a{color:var(--ink)!important}
+.sd-chip{background:var(--white)!important;border:2px solid var(--ink)!important;border-radius:6px!important;color:var(--ink)!important;box-shadow:none!important}
+.sd-chip[aria-pressed=true]{background:var(--ink)!important;color:var(--paper)!important}
+.fiche-hero h1,article.fiche .fiche-hero .intro,article.fiche .fiche-hero p{color:var(--ink)!important}
+.fh-txt>span:not(.fh-chip),.hero>span,.hero .pill,.hero .tag{display:none!important}
+article.fiche .fiche-hero{background:var(--white)!important}
+
+.logo::before{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M7 3.8h7l4 4V20H7a2 2 0 0 1-2-2V5.8a2 2 0 0 1 2-2Z' stroke='white' stroke-width='1.8' stroke-linejoin='round'/%3E%3Cpath d='M14 4v4h4M8.5 12h6.5M8.5 15.5h6.5' stroke='white' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") center/62% no-repeat,var(--ink)!important}
+.hero h1::before{border:2px solid var(--stamp)!important;color:var(--stamp)!important;background:transparent!important;border-radius:4px!important;transform:rotate(-1.5deg);display:inline-block!important;letter-spacing:.12em}
+details.sd-savoir{background:var(--paper2)!important;border:2px solid var(--ink)!important;border-radius:6px!important}
+details.sd-savoir>summary{color:var(--ink)!important}
+input,select,textarea{background-color:var(--white)!important}
+.header-nav a{padding:6px 7px!important;font-size:.9rem!important}
+article.fiche .fiche-hero h1,.fiche-hero .fh-txt h1,.fiche-hero .fh-tx h1{color:var(--ink)!important;-webkit-text-fill-color:var(--ink)!important}
+.fiche-hero h1::before,.fiche-hero .fh-txt::before,.fiche-hero .fh-tx::before{display:none!important;content:none!important}
+.fiche-hero .fh-chip::after,.fiche-hero .fh-chip+span{display:none!important}
+article.fiche a:not(.button){color:#a32616}
+article.fiche a:hover{color:var(--ink)}
+.sit-ico .sdi,.sd-explore .sdi{background:var(--w) center/56% no-repeat,var(--ink)!important;border-radius:7px!important;box-shadow:2px 2px 0 var(--stamp)!important}
+.sit-ico .sdi{width:44px!important;height:44px!important}
+.sit-ico{border:0!important;background:transparent!important}
+p.note::before{filter:grayscale(1) brightness(.3) contrast(1.6)!important;border-radius:6px!important}
+@media print{body{background:#fff!important}*{box-shadow:none!important}}
