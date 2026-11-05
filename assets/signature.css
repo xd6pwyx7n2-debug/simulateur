@@ -159,3 +159,17 @@ main>article:not(.fiche) h2:nth-of-type(3n+3){border-left-color:var(--bleu)}
 main>article:not(.fiche) h2::before{display:none!important}
 main>article:not(.fiche) .badge,main>article:not(.fiche) .gd-tag,main>article:not(.fiche)>p:first-of-type:not(.intro){color:var(--stamp)}
 main>article:not(.fiche) h1::before,main>article:not(.fiche) .eyebrow{background:transparent!important;border:2px solid var(--stamp)!important;color:var(--stamp)!important;border-radius:4px!important;transform:rotate(-1.5deg)}
+/* menu déroulant mobile */
+.sd-burger{background:var(--white)!important;color:var(--ink)!important;border:2px solid var(--ink)!important;border-radius:6px!important;box-shadow:3px 3px 0 var(--stamp)!important}
+.sd-burger.on{background:var(--ink)!important;color:#fff!important}
+header.sd-menu-on .header-nav#sd-nav,.header-nav.sd-open{background:var(--white)!important;border:2px solid var(--ink)!important;border-radius:8px!important;box-shadow:6px 6px 0 var(--ink)!important;padding:8px!important}
+.header-nav.sd-open a{display:flex!important;align-items:center;gap:12px;padding:13px 12px!important;border-radius:4px!important;border:0!important;border-bottom:1.5px dashed #c9c0aa!important;background:transparent!important;color:var(--ink)!important;font-weight:700}
+.header-nav.sd-open a::before{content:"";flex:0 0 10px;height:10px;border-radius:2px;background:var(--c1);transform:rotate(45deg)}
+.header-nav.sd-open a:nth-child(4n+2)::before{background:var(--c2)}
+.header-nav.sd-open a:nth-child(4n+3)::before{background:var(--c3)}
+.header-nav.sd-open a:nth-child(4n+4)::before{background:var(--c4)}
+.header-nav.sd-open a:hover,.header-nav.sd-open a:focus-visible{background:var(--t4)!important}
+.header-nav.sd-open a:last-child{margin-top:8px;border:2px solid var(--ink)!important;background:var(--ink)!important;color:#fff!important;justify-content:center;box-shadow:3px 3px 0 var(--stamp)}
+.header-nav.sd-open a:last-child::before{display:none}
+.header-nav a:hover,.header-nav a[aria-current]{background:var(--t4)!important;color:var(--ink)!important;border-radius:4px}
+.header-nav a.cta-link:hover{background:var(--ink)!important;color:#fff!important}
