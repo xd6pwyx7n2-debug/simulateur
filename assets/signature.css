@@ -100,3 +100,62 @@ article.fiche a:hover{color:var(--ink)}
 .sit-ico{border:0!important;background:transparent!important}
 p.note::before{filter:grayscale(1) brightness(.3) contrast(1.6)!important;border-radius:6px!important}
 @media print{body{background:#fff!important}*{box-shadow:none!important}}
+
+/* ===== Couleur : la palette "tampon" (rouge, sapin, bleu, jaune) ===== */
+:root{--bleu:#2b5fa8;--rose:#e9b8a8;--c1:#c8321e;--c2:#1f5f4a;--c3:#2b5fa8;--c4:#d99a00;--t1:#fbe3dd;--t2:#dcefe6;--t3:#dde8f6;--t4:#fbefc4}
+/* accueil : tuiles de situation, une couleur chacune */
+.sit{background:color-mix(in srgb,var(--c) 10%,var(--white))!important}
+.sit .sit-ico .sdi{background:var(--w) center/56% no-repeat,var(--c)!important;box-shadow:2px 2px 0 var(--ink)!important}
+.sit:hover{box-shadow:5px 5px 0 var(--c)!important}
+/* sections d'accueil en aplat */
+#une{background:var(--t4)}#guides{background:var(--t2)!important}#simulateurs{background:var(--t3)!important}
+#une,#guides,#simulateurs{border-block:2px solid var(--ink)}
+/* cartes de guides : teinte propre */
+.card{background:color-mix(in srgb,var(--accent) 12%,var(--white))!important;border:2px solid var(--ink)!important}
+.card .tag{background:var(--ink)!important;color:#fff!important;border:0;border-radius:4px}
+.card-link{color:var(--ink)!important}
+/* pages outils et guides : blocs de contenu colorés en rotation */
+.info-section{border-top-width:8px!important;border-top-style:solid}
+main .info-section:nth-of-type(4n+1){border-top-color:var(--c1)}
+main .info-section:nth-of-type(4n+2){border-top-color:var(--c2)}
+main .info-section:nth-of-type(4n+3){border-top-color:var(--c3)}
+main .info-section:nth-of-type(4n+4){border-top-color:var(--c4)}
+.info-section h2{display:inline-block;background:var(--t4);padding:2px 10px;box-shadow:3px 3px 0 var(--ink);border:2px solid var(--ink)}
+main .info-section:nth-of-type(4n+1) h2{background:var(--t1)}
+main .info-section:nth-of-type(4n+2) h2{background:var(--t2)}
+main .info-section:nth-of-type(4n+3) h2{background:var(--t3)}
+/* calculateur : bandeau jaune, résultat bleu nuit avec montant jaune */
+.calculator{border-top:10px solid var(--jaune)!important}
+.calculator h2{color:var(--ink)}
+.result{background:linear-gradient(135deg,#1f3f78,#1b1f2a)!important}
+.sd-chip{background:var(--t3)!important;border:1.5px solid var(--ink)!important;color:var(--ink)!important}
+.sd-chip:hover{background:var(--jaune)!important}
+/* encadrés : vert pour "à savoir", jaune pour "à retenir" */
+p.note,.intro-note{background:var(--t4)!important;border-left-color:var(--c4)!important}
+details.sd-savoir{background:var(--t2)!important;border-color:var(--ink)!important}
+/* pied de page et bandeau en sapin */
+footer{background:var(--sapin)!important}
+.hero .eyebrow{display:table!important;margin:0 0 14px!important}
+.hero h1{color:var(--ink)!important;-webkit-text-fill-color:var(--ink)!important;background:none!important}
+.hero h1 .gradient,.hero h1 em{color:var(--stamp)!important;-webkit-text-fill-color:var(--stamp)!important}
+.hero h1::before{display:table!important;margin:0 0 14px!important;color:var(--stamp)!important}
+.sd-line-tag{background:var(--stamp)!important;color:#fff!important}
+.sd-line a:hover .sd-line-name{color:var(--stamp)}
+.sd-next-n{background:var(--jaune)!important;color:var(--ink)!important;border:2px solid var(--ink)}
+.sd-know-card{border:2px solid var(--ink)!important}
+.sd-know-card:nth-child(1){background:var(--t1)!important}.sd-know-card:nth-child(2){background:var(--t3)!important}.sd-know-card:nth-child(3){background:var(--t2)!important}
+.sd-line-dot{border-color:var(--ink)!important}
+.sd-line li.done .sd-line-dot{background:var(--sapin)!important;border-color:var(--ink)!important}
+.sd-line li.cur .sd-line-dot{border-color:var(--stamp)!important;background:var(--jaune)!important}
+/* anciens guides (bannière violette, titre sans empattement) */
+main>article:not(.fiche){border:2px solid var(--ink)!important;border-radius:8px!important;box-shadow:6px 6px 0 var(--ink)!important;background:var(--white)}
+main>article:not(.fiche) h1{font-family:var(--serif)!important;color:var(--ink)!important;letter-spacing:-.5px}
+main>article:not(.fiche) h2{font-family:var(--serif)!important;color:var(--ink)!important;border-left:8px solid var(--stamp);padding-left:12px}
+main>article:not(.fiche) h2:nth-of-type(3n+2){border-left-color:var(--sapin)}
+main>article:not(.fiche) h2:nth-of-type(3n+3){border-left-color:var(--bleu)}
+.gd-hero{filter:hue-rotate(95deg) saturate(1.15);border:2px solid var(--ink);border-radius:6px!important}
+.gd-maj{background:var(--t4);display:inline-block;padding:2px 10px;border:1.5px solid var(--ink);border-radius:4px;color:var(--ink)}
+.gtable th{background:var(--ink)!important;color:#fff!important}
+main>article:not(.fiche) h2::before{display:none!important}
+main>article:not(.fiche) .badge,main>article:not(.fiche) .gd-tag,main>article:not(.fiche)>p:first-of-type:not(.intro){color:var(--stamp)}
+main>article:not(.fiche) h1::before,main>article:not(.fiche) .eyebrow{background:transparent!important;border:2px solid var(--stamp)!important;color:var(--stamp)!important;border-radius:4px!important;transform:rotate(-1.5deg)}
