@@ -491,7 +491,7 @@ _ic = _page("interets-composes")
 for _v in ("F2365", "22 950", "sdIC", "1,7"):
     if _v not in _ic: fail("intérêts composés : mention absente (%s)" % _v)
 _bu = _page("budget-mensuel")
-for _v in ("sdBU", "fiche-budget-12-mois-simudroit.pdf", "50/30/20"):
+for _v in ("sdBU", "fiche-budget-12-mois-simudroit.pdf", "50/30/20", "prêt immobilier", "35 %"):
     if _v not in _bu: fail("budget mensuel : mention absente (%s)" % _v)
 if not os.path.exists(os.path.join(ROOT, "assets", "docs", "fiche-budget-12-mois-simudroit.pdf")): fail("fiche budget PDF absente")
 _ps2 = open(os.path.join(ROOT, "mon-plan-de-sortie-surendettement", "index.html"), encoding="utf-8").read(); _psj = open(os.path.join(ROOT, "assets", "plan-sortie.js"), encoding="utf-8").read()
@@ -965,6 +965,11 @@ with sync_playwright() as pw:
     if abs(_o["reste"] - 600) > 0.01 or abs(_o["pBesoins"] - 50) > 0.01 or abs(_o["pEpargne"] - 10) > 0.01 or abs(_o["pEnvies"] - 10) > 0.01: fail("budget mensuel : cas de référence %s" % _o)
     _n = pg.evaluate("()=>window.sdBU({rev:1000,log:900,ali:300})")
     if _n["reste"] != -200: fail("budget mensuel : reste négatif attendu -200, obtenu %s" % _n["reste"])
+    _p = pg.evaluate("()=>window.sdBU({rev:2000,cre:200,pret:500})")
+    if abs(_p["tauxEndettement"] - 35) > 0.01 or _p["mensualiteMax"] != 500: fail("budget mensuel : taux d'endettement %s, mensualité max %s" % (_p["tauxEndettement"], _p["mensualiteMax"]))
+    pg.click("#calculate"); pg.wait_for_timeout(300)
+    if pg.locator("#bdsvg circle").count() < 3: fail("budget mensuel : le camembert ne se dessine pas")
+    if pg.locator("#bdleg li").count() < 3: fail("budget mensuel : légende du camembert absente")
     # Mon plan de sortie du surendettement : analyse CSV, calendrier, progression (tout en local)
     pg.goto(LOCAL + "mon-plan-de-sortie-surendettement/"); pg.wait_for_timeout(600)
     _csv = "Date;Libellé;Montant\n01/09/2026;SALAIRE;1000,00\n02/09/2026;LOYER;-500,00\n03/09/2026;NETFLIX;-10,00\n03/10/2026;NETFLIX;-10,00\n05/10/2026;CARREFOUR;-40,00"

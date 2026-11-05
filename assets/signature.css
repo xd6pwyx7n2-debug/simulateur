@@ -253,3 +253,39 @@ header.sd-menu-on nav.sd-open>a:not(.cta-link)::before{display:none!important}
 }
 @media(prefers-reduced-motion:reduce){header.sd-menu-on nav.sd-open,.sd-scrim,.sd-open>a{animation:none!important;opacity:1!important;transform:none!important}}
 html.sd-lock .sd-theme-float{display:none!important}
+
+/* Budget mensuel : formulaire en étapes, camembert et jauge prêt immobilier */
+.bd-calc{max-width:820px!important}
+.bd-intro{margin:0 0 18px;color:var(--muted)}
+.bd-grp{margin:0 0 16px;padding:18px 18px 8px;border:2px solid var(--ink);border-radius:10px;background:var(--white);box-shadow:4px 4px 0 var(--ink)}
+.bd-grp legend{display:flex;align-items:center;gap:10px;padding:0 8px;font-family:var(--serif);font-weight:700;font-size:1.15rem;color:var(--ink)}
+.bd-grp legend span{display:grid;place-items:center;width:28px;height:28px;border:2px solid var(--ink);border-radius:50%;font:800 .9rem Inter,sans-serif}
+.bd-grp legend em{font:600 .8rem Inter,sans-serif;font-style:normal;padding:2px 8px;border:1.5px dashed var(--ink);border-radius:99px;color:var(--muted)}
+.bd-g1{background:var(--t1)}.bd-g1 legend span{background:var(--c1);color:#fff}
+.bd-g2{background:var(--t3)}.bd-g2 legend span{background:#2b5fa8;color:#fff}
+.bd-g3{background:var(--t4)}.bd-g3 legend span{background:var(--jaune)}
+.bd-g4{background:var(--t2)}.bd-g4 legend span{background:var(--sapin);color:#fff}
+.bd-g5{background:var(--white);border-style:dashed}.bd-g5 legend span{background:var(--stamp);color:#fff}
+.bd-grp .field-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:10px}
+.bd-grp .hint{display:block;margin-top:4px;font-size:.8rem;color:var(--muted);line-height:1.35}
+.bd-card{margin:18px 0 0;padding:20px;background:var(--white);color:var(--ink);border:2px solid var(--ink);border-radius:10px;box-shadow:4px 4px 0 var(--stamp);display:grid;grid-template-columns:minmax(200px,260px) 1fr;gap:22px;align-items:center;text-align:left}
+.bd-card[hidden]{display:none}
+.bd-chart{position:relative;width:100%;max-width:260px;margin:auto}
+.bd-chart svg{display:block;width:100%;height:auto}
+.bd-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none}
+.bd-center small{font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.bd-center strong{font:700 1.45rem var(--serif);color:var(--ink)}
+.bd-leg{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.bd-leg li{display:grid;grid-template-columns:16px 1fr auto auto;align-items:center;gap:10px;padding-bottom:8px;border-bottom:1.5px dashed #c9c0aa;color:var(--ink)}
+.bd-leg i{width:16px;height:16px;border:2px solid var(--ink);border-radius:4px}
+.bd-leg em{font-style:normal;min-width:3.6em;text-align:right;color:var(--muted);font-weight:600}
+.bd-loan{display:block}
+.bd-loan h3{margin:0 0 12px;font-family:var(--serif);font-size:1.2rem;color:var(--ink)}
+.bd-bar{position:relative;height:18px;border:2px solid var(--ink);border-radius:99px;background:var(--paper2);overflow:visible}
+.bd-bar i{display:block;height:100%;border-radius:99px;background:var(--sapin);transition:width .5s}
+.bd-bar i.ko{background:var(--stamp)}
+.bd-bar b{position:absolute;left:70%;top:-6px;bottom:-6px;width:3px;background:var(--ink)}
+.bd-ticks{display:flex;justify-content:space-between;margin:6px 0 10px;font-size:.78rem;color:var(--muted);font-weight:600}
+.bd-ticks span:nth-child(2){margin-left:20%}
+.bd-loan p{margin:0;color:var(--ink)}
+@media(max-width:640px){.bd-card{grid-template-columns:1fr}.bd-grp{padding:14px 12px 4px}}

@@ -388,25 +388,47 @@
     <p>Saisissez vos revenus et vos dépenses du mois : vous voyez votre reste à vivre, votre taux d'épargne et la répartition besoins, envies, épargne.</p>
       <div class="badges"><span class="badge">Gratuit, sans inscription</span><span class="badge">Rien n'est enregistré</span><span class="badge">Fiche PDF 12 mois</span></div>
   </section>
-  <section class="calculator" id="calcul">
-    <h2>Mon mois</h2>
-    <div class="field-row"><div class="field"><label for="rev">Revenus nets du mois (euros)</label><input type="number" id="rev" min="0" step="10" value="2000" placeholder="0" inputmode="decimal"></div></div>
-    <h3>Besoins</h3>
-    <div class="field-row"><div class="field"><label for="log">Logement (loyer ou crédit, charges)</label><input type="number" id="log" min="0" step="10" value="700" placeholder="0" inputmode="decimal"></div><div class="field"><label for="ene">Énergie et eau</label><input type="number" id="ene" min="0" step="10" value="90" placeholder="0" inputmode="decimal"></div><div class="field"><label for="ali">Alimentation</label><input type="number" id="ali" min="0" step="10" value="300" placeholder="0" inputmode="decimal"></div></div>
-    <div class="field-row"><div class="field"><label for="tra">Transports</label><input type="number" id="tra" min="0" step="10" value="120" placeholder="0" inputmode="decimal"></div><div class="field"><label for="san">Santé, mutuelle</label><input type="number" id="san" min="0" step="10" value="60" placeholder="0" inputmode="decimal"></div><div class="field"><label for="ass">Assurances</label><input type="number" id="ass" min="0" step="10" value="50" placeholder="0" inputmode="decimal"></div><div class="field"><label for="cre">Crédits et dettes</label><input type="number" id="cre" min="0" step="10" value="0" placeholder="0" inputmode="decimal"></div></div>
-    <h3>Envies</h3>
-    <div class="field-row"><div class="field"><label for="abo">Abonnements, téléphone, internet</label><input type="number" id="abo" min="0" step="10" value="60" placeholder="0" inputmode="decimal"></div><div class="field"><label for="loi">Loisirs, sorties</label><input type="number" id="loi" min="0" step="10" value="150" placeholder="0" inputmode="decimal"></div><div class="field"><label for="aut">Autres dépenses</label><input type="number" id="aut" min="0" step="10" value="100" placeholder="0" inputmode="decimal"></div></div>
-    <h3>Épargne</h3>
-    <div class="field-row"><div class="field"><label for="epa">Mise de côté ce mois-ci</label><input type="number" id="epa" min="0" step="10" value="150" placeholder="0" inputmode="decimal"></div></div>
+  <section class="calculator bd-calc" id="calcul">
+    <h2>Mon budget du mois</h2>
+    <p class="bd-intro">Remplissez les cases avec des montants mensuels. Rien n'est enregistré : tout reste dans votre navigateur.</p>
+    <fieldset class="bd-grp bd-g1"><legend><span>1</span>Mes revenus</legend>
+      <div class="field-row"><div class="field"><label for="rev">Revenus nets du mois (euros)</label><input type="number" id="rev" min="0" step="10" value="2000" placeholder="0" inputmode="decimal"><small class=hint>Salaires, allocations, pensions après prélèvement à la source.</small></div></div></fieldset>
+    <fieldset class="bd-grp bd-g2"><legend><span>2</span>Mes besoins</legend>
+      <div class="field-row"><div class="field"><label for="log">Logement (loyer, charges)</label><input type="number" id="log" min="0" step="10" value="700" placeholder="0" inputmode="decimal"></div><div class="field"><label for="ene">Énergie et eau</label><input type="number" id="ene" min="0" step="10" value="90" placeholder="0" inputmode="decimal"></div><div class="field"><label for="ali">Alimentation</label><input type="number" id="ali" min="0" step="10" value="300" placeholder="0" inputmode="decimal"></div></div>
+      <div class="field-row"><div class="field"><label for="tra">Transports</label><input type="number" id="tra" min="0" step="10" value="120" placeholder="0" inputmode="decimal"></div><div class="field"><label for="san">Santé, mutuelle</label><input type="number" id="san" min="0" step="10" value="60" placeholder="0" inputmode="decimal"></div><div class="field"><label for="ass">Assurances</label><input type="number" id="ass" min="0" step="10" value="50" placeholder="0" inputmode="decimal"></div><div class="field"><label for="cre">Crédits en cours</label><input type="number" id="cre" min="0" step="10" value="0" placeholder="0" inputmode="decimal"><small class=hint>Auto, consommation, hors futur prêt immobilier.</small></div></div></fieldset>
+    <fieldset class="bd-grp bd-g3"><legend><span>3</span>Mes envies</legend>
+      <div class="field-row"><div class="field"><label for="abo">Abonnements, téléphone, internet</label><input type="number" id="abo" min="0" step="10" value="60" placeholder="0" inputmode="decimal"></div><div class="field"><label for="loi">Loisirs, sorties</label><input type="number" id="loi" min="0" step="10" value="150" placeholder="0" inputmode="decimal"></div><div class="field"><label for="aut">Autres dépenses</label><input type="number" id="aut" min="0" step="10" value="100" placeholder="0" inputmode="decimal"></div></div></fieldset>
+    <fieldset class="bd-grp bd-g4"><legend><span>4</span>Mon épargne</legend>
+      <div class="field-row"><div class="field"><label for="epa">Mise de côté ce mois-ci</label><input type="number" id="epa" min="0" step="10" value="150" placeholder="0" inputmode="decimal"></div></div></fieldset>
+    <fieldset class="bd-grp bd-g5"><legend><span>5</span>Mon projet de prêt immobilier <em>facultatif</em></legend>
+      <div class="field-row"><div class="field"><label for="pret">Mensualité envisagée (euros)</label><input type="number" id="pret" min="0" step="10" value="0" placeholder="0" inputmode="decimal"><small class=hint>Si ce prêt remplace votre loyer, retirez le loyer du logement ci-dessus.</small></div></div></fieldset>
     <button type="button" id="calculate">Calculer mon budget</button>
     <div class="result" id="result" aria-live="polite">
       <div class="result-title">Reste à vivre du mois</div>
       <div class="result-main" data-noanim id="main">-</div>
       <p id="det"></p>
+      <div class="bd-card" id="bdcard" hidden>
+        <div class="bd-chart"><svg id="bdsvg" viewBox="0 0 200 200" role="img" aria-label="Répartition du budget"></svg><div class="bd-center" id="bdcenter"></div></div>
+        <ul class="bd-leg" id="bdleg"></ul>
+      </div>
+      <div class="bd-card bd-loan" id="bdloan" hidden>
+        <h3>Préparer ma demande de prêt immobilier</h3>
+        <div class="bd-gauge" aria-hidden="true"><div class="bd-bar"><i id="bdfill"></i><b></b></div><div class="bd-ticks"><span>0 %</span><span>35 %</span><span>50 %</span></div></div>
+        <p id="bdtxt"></p>
+      </div>
       <div class="table-wrap" id="tbl" hidden></div>
-      <div class="warning" id="wnote">Le repère 50/30/20 est indicatif : il ne tient pas compte de votre situation. Pas de conseil financier.</div>
+      <div class="warning" id="wnote">Le repère 50/30/20 et la lecture du taux d'endettement sont indicatifs : la banque décide. Pas de conseil financier.</div>
       <p><button type="button" id="print">Imprimer ce bilan</button></p>
     </div>
+  </section>
+
+    <section class="info-section" id="preparer-pret">
+    <h2>Préparer une demande de prêt immobilier</h2>
+    <p>Avant de rencontrer une banque ou un courtier, faites le point sur votre budget : le simulateur calcule votre reste à vivre et votre taux d'endettement avec la mensualité envisagée.</p>
+    <ul><li><strong>Taux d'endettement :</strong> les banques doivent en principe respecter un taux d'effort maximal de 35 % et une durée maximale de 25 ans, d'après les règles du Haut Conseil de stabilité financière publiées sur economie.gouv.fr (page relue le 3 novembre 2026). Elles disposent d'une flexibilité de 20 % de leur production trimestrielle.</li>
+    <li><strong>Mensualité maximale :</strong> à 35 % de vos revenus, retirez vos crédits en cours : le résultat est la mensualité maximale du futur prêt dans ce repère.</li>
+    <li><strong>Reste à vivre :</strong> la banque regarde aussi ce qu'il vous reste chaque mois ; il n'existe pas de seuil officiel unique, et chaque établissement apprécie votre situation.</li></ul>
+    <p>Pour estimer la somme que vous pouvez emprunter, utilisez le <a href="/simulateur-capacite-emprunt/">simulateur de capacité d'emprunt</a>.</p>
   </section>
 
   <section class="info-section" id="fiche">
@@ -437,21 +459,39 @@
   function pct(a,b){return b>0?Math.round(a/b*1000)/10:0}
   function sdBU(o){
     var v=function(k){var x=+o[k];return x>0?x:0};
-    var rev=v("rev"),besoins=v("log")+v("ene")+v("ali")+v("tra")+v("san")+v("ass")+v("cre"),envies=v("abo")+v("loi")+v("aut"),epa=v("epa");
-    var dep=besoins+envies,reste=rev-dep-epa;
-    return {rev:rev,besoins:besoins,envies:envies,epargne:epa,depenses:dep,reste:reste,pBesoins:pct(besoins,rev),pEnvies:pct(envies,rev),pEpargne:pct(epa,rev)};
+    var rev=v("rev"),besoins=v("log")+v("ene")+v("ali")+v("tra")+v("san")+v("ass")+v("cre"),envies=v("abo")+v("loi")+v("aut"),epa=v("epa"),pret=v("pret"),cre=v("cre");
+    var dep=besoins+envies,reste=rev-dep-epa-pret;
+    var tx=rev>0?Math.round((cre+pret)/rev*1000)/10:0,mmax=Math.max(0,Math.round(rev*0.35-cre));
+    return {rev:rev,besoins:besoins,envies:envies,epargne:epa,pret:pret,depenses:dep,reste:reste,pBesoins:pct(besoins,rev),pEnvies:pct(envies,rev),pEpargne:pct(epa,rev),tauxEndettement:tx,mensualiteMax:mmax};
   }
   window.sdBU=sdBU;
-  function g(id){return parseFloat((document.getElementById(id).value||"0").replace(",","."))||0}
-  var IDS=["rev","log","ene","ali","tra","san","ass","cre","abo","loi","aut","epa"];
+  function g(id){var e=document.getElementById(id);return e?parseFloat((e.value||"0").replace(",","."))||0:0}
+  var IDS=["rev","log","ene","ali","tra","san","ass","cre","abo","loi","aut","epa","pret"];
+  var SEG=[["besoins","Besoins","#2b5fa8"],["envies","Envies","#f2c94c"],["epargne","Épargne","#1f5f4a"],["pret","Prêt immobilier envisagé","#c8321e"],["reste","Reste à vivre","#b9ae93"]];
+  function pc(x){return x.toString().replace(".",",")+" %"}
+  function draw(r){
+    var total=Math.max(r.rev,r.besoins+r.envies+r.epargne+r.pret),svg=document.getElementById("bdsvg"),leg=document.getElementById("bdleg"),R=70,C=2*Math.PI*R,off=0,s='<circle cx="100" cy="100" r="'+R+'" fill="none" stroke="#e8dfca" stroke-width="34"/>',li="";
+    SEG.forEach(function(x){var val=x[0]==="reste"?Math.max(0,r.reste):r[x[0]];if(!(val>0))return;var len=val/total*C;
+      s+='<circle cx="100" cy="100" r="'+R+'" fill="none" stroke="'+x[2]+'" stroke-width="34" stroke-dasharray="'+Math.max(0,len-1.5).toFixed(2)+' '+(C-Math.max(0,len-1.5)).toFixed(2)+'" stroke-dashoffset="'+(-off).toFixed(2)+'" transform="rotate(-90 100 100)"/>';off+=len;
+      li+='<li><i style="background:'+x[2]+'"></i><span>'+x[1]+'</span><strong>'+eur(val)+'</strong><em>'+pc(pct(val,r.rev))+'</em></li>'});
+    svg.innerHTML=s;leg.innerHTML=li;
+    var cn=document.getElementById("bdcenter");cn.innerHTML="<small>"+(r.reste<0?"Déficit":"Reste")+"</small><strong>"+(r.reste<0?"-":"")+eur(Math.abs(r.reste))+"</strong>";
+    svg.setAttribute("aria-label","Répartition du budget : besoins "+eur(r.besoins)+", envies "+eur(r.envies)+", épargne "+eur(r.epargne)+(r.pret>0?", prêt "+eur(r.pret):"")+", reste "+eur(r.reste));
+  }
   document.getElementById("calculate").addEventListener("click",function(){
     var o={};IDS.forEach(function(k){o[k]=g(k)});var r=sdBU(o);
     var res=document.getElementById("result"),m=document.getElementById("main"),d=document.getElementById("det");
-    if(!(r.rev>0)){m.textContent="Indiquez vos revenus du mois.";d.textContent="";document.getElementById("tbl").hidden=true;res.classList.add("visible");return}
+    var card=document.getElementById("bdcard"),loan=document.getElementById("bdloan");
+    if(!(r.rev>0)){m.textContent="Indiquez vos revenus du mois.";d.textContent="";card.hidden=true;loan.hidden=true;document.getElementById("tbl").hidden=true;res.classList.add("visible");return}
     m.textContent=(r.reste<0?"-":"")+eur(Math.abs(r.reste));
-    d.innerHTML=r.reste<0?"Vos dépenses et votre épargne dépassent vos revenus de <strong>"+eur(-r.reste)+"</strong> ce mois-ci.":"Il vous reste <strong>"+eur(r.reste)+"</strong> après vos dépenses et votre épargne. Taux d'épargne : <strong>"+r.pEpargne.toString().replace(".",",")+" %</strong> de vos revenus.";
-    var f=function(x){return x.toString().replace(".",",")+" %"};
-    var h="<table class='sd-table'><thead><tr><th scope='col'>Poste</th><th scope='col'>Montant</th><th scope='col'>Votre part</th><th scope='col'>Repère</th></tr></thead><tbody>"+
+    d.innerHTML=r.reste<0?"Vos dépenses, votre épargne et votre prêt dépassent vos revenus de <strong>"+eur(-r.reste)+"</strong> ce mois-ci.":"Il vous reste <strong>"+eur(r.reste)+"</strong> après vos dépenses, votre épargne et votre prêt envisagé. Taux d'épargne : <strong>"+pc(r.pEpargne)+"</strong> de vos revenus.";
+    draw(r);card.hidden=false;
+    if(r.pret>0||r.tauxEndettement>0||true){
+      loan.hidden=false;var tx=r.tauxEndettement,ok=tx<=35;
+      document.getElementById("bdfill").style.width=Math.min(100,tx/50*100)+"%";document.getElementById("bdfill").className=ok?"ok":"ko";
+      document.getElementById("bdtxt").innerHTML="Avec vos crédits en cours et la mensualité envisagée, votre taux d'endettement est de <strong>"+pc(tx)+"</strong>, "+(ok?"sous":"au-dessus de")+" le repère de 35 %. À ce repère, la mensualité maximale du futur prêt est d'environ <strong>"+eur(Math.max(0,r.mensualiteMax))+"</strong> par mois. La banque apprécie aussi votre reste à vivre, votre apport et la stabilité de vos revenus.";
+    }
+    var f=pc,h="<table class='sd-table'><thead><tr><th scope='col'>Poste</th><th scope='col'>Montant</th><th scope='col'>Votre part</th><th scope='col'>Repère</th></tr></thead><tbody>"+
     "<tr><td>Besoins</td><td data-label='Montant'>"+eur(r.besoins)+"</td><td data-label='Votre part'>"+f(r.pBesoins)+"</td><td data-label='Repère'>50 %</td></tr>"+
     "<tr><td>Envies</td><td data-label='Montant'>"+eur(r.envies)+"</td><td data-label='Votre part'>"+f(r.pEnvies)+"</td><td data-label='Repère'>30 %</td></tr>"+
     "<tr><td>Épargne</td><td data-label='Montant'>"+eur(r.epargne)+"</td><td data-label='Votre part'>"+f(r.pEpargne)+"</td><td data-label='Repère'>20 %</td></tr></tbody></table>";
