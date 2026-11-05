@@ -305,3 +305,7 @@ html.sd-lock .sd-theme-float{display:none!important}
 .rl-kpi span{display:block;font-size:.8rem}
 .rl-kpi b{display:block;font-size:1.3rem}
 .rl-kpi .ok{border-color:#86efac}.rl-kpi .ko{border-color:#fca5a5}.rl-kpi span,.rl-kpi b{color:#fff}
+html[data-theme="dark"] .result .rl-kpi div{color:#1b1f2a!important;background:rgba(255,255,255,.6)!important;border-color:#1b1f2a!important}
+html[data-theme="dark"] .result .rl-kpi span,html[data-theme="dark"] .result .rl-kpi b{color:#1b1f2a!important}
+html[data-theme="dark"] .result .rl-kpi .ok{border-color:#1f5f4a!important}html[data-theme="dark"] .result .rl-kpi .ko{border-color:#c8321e!important}
+html[data-theme="dark"] .rl-bar{border-color:#1b1f2a}html[data-theme="dark"] .rl-leg i{border-color:#1b1f2a}
