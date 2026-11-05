@@ -97,7 +97,6 @@ article.fiche a:hover{color:var(--ink)}
 .sit-ico .sdi,.sd-explore .sdi{background:var(--w) center/56% no-repeat,var(--ink)!important;border-radius:7px!important;box-shadow:2px 2px 0 var(--stamp)!important}
 .sit-ico .sdi{width:44px!important;height:44px!important}
 .sit-ico{border:0!important;background:transparent!important}
-p.note::before{filter:grayscale(1) brightness(.3) contrast(1.6)!important;border-radius:6px!important}
 @media print{body{background:#fff!important}*{box-shadow:none!important}}
 
 /* ===== Couleur : la palette "tampon" (rouge, sapin, bleu, jaune) ===== */
@@ -215,3 +214,8 @@ th[scope=row],tbody th{color:var(--ink)!important}
 .sd-news-sub{background:none!important;color:#f0e8d6!important}
 .sd-voir{max-width:860px;margin:2rem auto 0;padding:14px 18px;background:var(--t3);border:2px solid var(--ink);border-radius:6px;box-shadow:4px 4px 0 var(--ink);font-size:.98rem}
 .sd-voir a{color:#a32616;font-weight:700}
+p.note:before{background:var(--w-bulb) center/62% no-repeat,var(--ink)!important;filter:none!important;border-radius:6px!important;box-shadow:2px 2px 0 var(--stamp)}
+table.sd-table thead th,table.sd-table th[scope=col],.table-wrap table thead th{background:var(--ink)!important;background-image:none!important;color:#fff!important}
+table.sd-table th[scope=row]{background:var(--t4)!important;color:var(--ink)!important}
+article.fiche table.sd-table thead th{background:var(--ink)!important;background-image:none!important;color:#fff!important}
+article.fiche table.sd-table tbody th[scope=row]{background:var(--t4)!important;color:var(--ink)!important}

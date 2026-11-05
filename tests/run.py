@@ -341,6 +341,10 @@ for _v in ('F24661', 'dixième', 'maintien de salaire', '873,60', 'Limites'):
 _lentret = _g("entretien-professionnel-tous-les-4-ans-etat-des-lieux-8-ans-ce-qui-change-2026")
 for _v in ('L6315-1', 'quatre ans', 'huit ans', 'L6323-13', 'Limites'):
     if _v not in _lentret: fail("guide litiges entretien-pr : mention absente (%s)" % _v)
+# Guide litiges calendrier-e
+_lcalend = _g("calendrier-echeances-particuliers-decembre-2026-taxe-habitation-prelevement-mensualisation")
+for _v in ('30 novembre', '15 décembre', '20 décembre', '28 décembre', 'Limites'):
+    if _v not in _lcalend: fail("guide litiges calendrier-e : mention absente (%s)" % _v)
 # Guide Black Friday
 _bf = _g("black-friday-achats-en-ligne-droit-de-retractation-14-jours-garantie-2-ans")
 for _v in ("14 jours", "2 ans", "27 novembre 2026", "F10485", "F11094", "F10868", "Limites"):
