@@ -811,6 +811,30 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://simudroit.fr/guides/cryptomonnaies-impots-risques-prestataires-agrees-mica-declarer-2026/</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://simudroit.fr/guides/pea-plan-d-epargne-en-actions-plafond-fiscalite-retrait-avant-5-ans/</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://simudroit.fr/guides/per-plan-epargne-retraite-deduction-impots-deblocage-sortie-capital-rente/</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://simudroit.fr/guides/assurance-vie-fonctionnement-fiscalite-transmission-frais-ce-qu-il-faut-savoir/</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://simudroit.fr/guides/pyramide-de-l-epargne-livret-a-assurance-vie-per-bourse-crypto-par-ou-commencer/</loc>
     <lastmod>2026-11-05</lastmod>
     <changefreq>monthly</changefreq>
@@ -1532,6 +1556,12 @@
   </url>
   <url>
     <loc>https://simudroit.fr/litiges/</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://simudroit.fr/epargne/</loc>
     <lastmod>2026-11-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

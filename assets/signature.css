@@ -222,7 +222,8 @@ article.fiche table.sd-table tbody th[scope=row]{background:var(--t4)!important;
 .result-main[data-noanim]{font-size:clamp(1.6rem,4.5vw,2.4rem)!important;line-height:1.2!important}
 
 /* Menu mobile : panneau papier et tampon, icônes colorées, accès rapides */
-.sd-mi,.sd-chips,.sd-scrim,.sd-cta-add{display:none}
+.sd-mi,.sd-chips,.sd-scrim{display:none}
+a.cta-link.sd-cta-add{display:none!important}
 @media(max-width:1060px){
 html.sd-lock,html.sd-lock body{overflow:hidden!important}
 .sd-scrim{display:block;position:fixed;inset:0;z-index:60;background:rgba(27,31,42,.5);animation:sdFade .18s ease-out}

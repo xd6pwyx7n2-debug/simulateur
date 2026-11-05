@@ -361,6 +361,22 @@ for _v in ('F2365', 'F2368', 'F2367', '22 950', '1,7 %', 'Limites'):
 _lpyrami = _g("pyramide-de-l-epargne-livret-a-assurance-vie-per-bourse-crypto-par-ou-commencer")
 for _v in ('F2365', 'F22414', 'F36526', 'F2385', '31,4 %', 'Limites'):
     if _v not in _lpyrami: fail("guide litiges pyramide-de- : mention absente (%s)" % _v)
+# Guide litiges assurance-vi
+_lassura = _g("assurance-vie-fonctionnement-fiscalite-transmission-frais-ce-qu-il-faut-savoir")
+for _v in ('F22414', 'F15274', '152 500', '4 600', 'Limites'):
+    if _v not in _lassura: fail("guide litiges assurance-vi : mention absente (%s)" % _v)
+# Guide litiges per-plan-epa
+_lperpl = _g("per-plan-epargne-retraite-deduction-impots-deblocage-sortie-capital-rente")
+for _v in ('F36526', '37 680', '4 710', '31,4', 'Limites'):
+    if _v not in _lperpl: fail("guide litiges per-plan-epa : mention absente (%s)" % _v)
+# Guide litiges pea-plan-d-e
+_lpeapl = _g("pea-plan-d-epargne-en-actions-plafond-fiscalite-retrait-avant-5-ans")
+for _v in ('F2385', '150 000', '225 000', 'Limites'):
+    if _v not in _lpeapl: fail("guide litiges pea-plan-d-e : mention absente (%s)" % _v)
+# Guide litiges cryptomonnai
+_lcrypto = _g("cryptomonnaies-impots-risques-prestataires-agrees-mica-declarer-2026")
+for _v in ('305 €', '31,4', '2086', 'MiCA', 'Limites'):
+    if _v not in _lcrypto: fail("guide litiges cryptomonnai : mention absente (%s)" % _v)
 # Guide Black Friday
 _bf = _g("black-friday-achats-en-ligne-droit-de-retractation-14-jours-garantie-2-ans")
 for _v in ("14 jours", "2 ans", "27 novembre 2026", "F10485", "F11094", "F10868", "Limites"):
