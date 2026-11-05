@@ -292,3 +292,16 @@ html.sd-lock .sd-theme-float{display:none!important}
 
 /* Impression des generateurs : la regle du simulateur masquait tout le main */
 @media print{body>main:has(#dv-sheet,#gp-sheet,#pt-doc,#dp-sheet):not(#sd-print){display:block!important}}
+
+/* Rentabilite locative */
+.rl-bar{display:flex;height:22px;border:2px solid rgba(255,255,255,.7);margin:10px 0 6px}
+.rl-bar span{display:block;height:100%}
+.rl-leg{list-style:none;margin:0 0 10px;padding:0;display:grid;gap:4px}
+.rl-leg li{display:flex;gap:8px;align-items:baseline}
+.rl-leg i{width:12px;height:12px;flex:none;border:1px solid #fff;display:inline-block}
+.rl-leg b{margin-left:auto}
+.rl-kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin:10px 0}
+.rl-kpi div{border:2px solid rgba(255,255,255,.55);background:rgba(255,255,255,.1);color:#fff;padding:8px 10px}
+.rl-kpi span{display:block;font-size:.8rem}
+.rl-kpi b{display:block;font-size:1.3rem}
+.rl-kpi .ok{border-color:#86efac}.rl-kpi .ko{border-color:#fca5a5}.rl-kpi span,.rl-kpi b{color:#fff}

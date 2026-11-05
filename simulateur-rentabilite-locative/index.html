@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Rentabilité locative : rendement brut, net et cash-flow | SimuDroit</title>
+  <meta name="description" content="Calculez la rentabilité d&#x27;un investissement locatif : rendement brut et net, mensualité du prêt, cash-flow mensuel et loyer d&#x27;équilibre. Avant impôt. Rien n&#x27;est enregistré.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://simudroit.fr/simulateur-rentabilite-locative/">
+  <link rel="icon" href="https://simudroit.fr/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="https://simudroit.fr/favicon.ico" sizes="48x48">
+  <link rel="icon" href="https://simudroit.fr/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="https://simudroit.fr/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Rentabilité locative : rendement brut, net et cash-flow | SimuDroit">
+  <meta property="og:description" content="Calculez la rentabilité d&#x27;un investissement locatif : rendement brut et net, mensualité du prêt, cash-flow mensuel et loyer d&#x27;équilibre. Avant impôt. Rien n&#x27;est enregistré.">
+  <meta property="og:url" content="https://simudroit.fr/simulateur-rentabilite-locative/">
+  <meta property="og:image" content="https://simudroit.fr/assets/og/simulateur-rentabilite-locative.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://simudroit.fr/assets/og/simulateur-rentabilite-locative.jpg">
+  <meta name="twitter:title" content="Rentabilité locative : rendement brut, net et cash-flow | SimuDroit">
+  <meta name="twitter:description" content="Calculez la rentabilité d&#x27;un investissement locatif : rendement brut et net, mensualité du prêt, cash-flow mensuel et loyer d&#x27;équilibre. Avant impôt. Rien n&#x27;est enregistré.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://simudroit.fr/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Rentabilité locative : rendement brut, net et cash-flow", "url": "https://simudroit.fr/simulateur-rentabilite-locative/", "description": "Calculez la rentabilité d'un investissement locatif : rendement brut et net, mensualité du prêt, cash-flow mensuel et loyer d'équilibre. Avant impôt. Rien n'est enregistré.", "inLanguage": "fr-FR"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://simudroit.fr/"}, {"@type": "ListItem", "position": 2, "name": "Simulateurs", "item": "https://simudroit.fr/simulateurs/"}, {"@type": "ListItem", "position": 3, "name": "Rentabilité locative", "item": "https://simudroit.fr/simulateur-rentabilite-locative/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Comment calculer la rentabilité locative brute ?", "acceptedAnswer": {"@type": "Answer", "text": "Rendement brut = loyers annuels hors charges ÷ prix d'achat × 100. C'est le chiffre le plus souvent affiché dans les annonces. Il ne tient compte ni des charges, ni des frais, ni de la vacance."}}, {"@type": "Question", "name": "Quelle différence entre rendement brut et net ?", "acceptedAnswer": {"@type": "Answer", "text": "Le rendement net déduit les charges du propriétaire (taxe foncière, charges non récupérables, assurance, gestion) et la vacance locative, et se rapporte au coût total de l'opération, frais de notaire et travaux compris. Ici il reste avant impôt."}}, {"@type": "Question", "name": "Qu'est-ce que le cash-flow ?", "acceptedAnswer": {"@type": "Answer", "text": "C'est ce qu'il reste chaque mois : loyers encaissés moins charges moins mensualité du prêt, assurance comprise. Négatif, il représente l'effort d'épargne mensuel que vous devez financer."}}, {"@type": "Question", "name": "Que signifie le loyer d'équilibre ?", "acceptedAnswer": {"@type": "Answer", "text": "C'est le loyer mensuel qui couvre exactement les charges et la mensualité du prêt, soit un cash-flow nul, compte tenu de la vacance."}}, {"@type": "Question", "name": "Les impôts sont-ils pris en compte ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Les revenus fonciers sont imposables et le régime (micro-foncier, réel, meublé) change le résultat : le simulateur donne un résultat avant impôt, à compléter avec les règles officielles."}}, {"@type": "Question", "name": "Les loyers sont-ils comptés dans mon taux d'endettement ?", "acceptedAnswer": {"@type": "Answer", "text": "Cela dépend de la banque, qui décide de la part des loyers qu'elle retient. Le générateur de dossier de prêt ne les ajoute pas à vos revenus, par prudence."}}, {"@type": "Question", "name": "Mes données sont-elles enregistrées ?", "acceptedAnswer": {"@type": "Answer", "text": "Non, le calcul se fait dans votre navigateur."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Simulateur de rentabilité locative", "url": "https://simudroit.fr/simulateur-rentabilite-locative/", "description": "Calculez la rentabilité d'un investissement locatif : rendement brut et net, mensualité du prêt, cash-flow mensuel et loyer d'équilibre. Avant impôt. Rien n'est enregistré.", "applicationCategory": "WebApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}</script>
+  <meta name="theme-color" content="#1b1f2a">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="Rentabilité locative : rendement brut, net et cash-flow | SimuDroit">
+  <link rel="alternate" hreflang="fr" href="https://simudroit.fr/simulateur-rentabilite-locative/">
+  <link rel="alternate" hreflang="x-default" href="https://simudroit.fr/simulateur-rentabilite-locative/">
+  <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
+  <script async src="https://plausible.io/js/pa-j8JdUomB9hqqp7em82xdB.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+<link rel="stylesheet" href="/assets/signature.css"></head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.fr/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://simudroit.fr/simulateurs/">Simulateurs</a>
+      <a href="https://simudroit.fr/assistant/">Assistant</a>
+      <a href="https://simudroit.fr/guides/">Guides</a>
+      <a href="https://simudroit.fr/aides/">Aides</a>
+      <a href="https://simudroit.fr/epargne/">Épargne</a>
+      <a href="https://simudroit.fr/fiches-revision/">Fiches</a>
+      <a href="https://simudroit.fr/actualites/">Chiffres clés</a>
+      <a href="https://simudroit.fr/metiers/">Métiers</a>
+      <a href="https://simudroit.fr/faq/">FAQ</a>
+      <a href="https://simudroit.fr/#recherche">Rechercher</a>
+      <a class="cta-link" href="https://simudroit.fr/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://simudroit.fr/">Accueil</a> &nbsp;›&nbsp; <a href="https://simudroit.fr/simulateurs/">Simulateurs</a> &nbsp;›&nbsp; Rentabilité locative
+  </div>
+
+  <section class="hero">
+    <h1>Rentabilité locative : mon investissement est-il rentable ?</h1>
+    <p>Indiquez le prix, les frais, le loyer et le prêt : vous obtenez les rendements brut et net, le cash-flow mensuel et le loyer d'équilibre.</p>
+      <div class="badges"><span class="badge">Gratuit, sans inscription</span><span class="badge">Rien n'est enregistré</span><span class="badge">Avant impôt</span></div>
+  </section>
+  <section class="calculator" id="calcul">
+    <h2>Mon investissement</h2>
+    <div class="field-row"><div class="field"><label for="prix">Prix d'achat (euros)</label><input type="number" id="prix" min="0" step="1000" value="180000" inputmode="decimal"></div><div class="field"><label for="travaux">Travaux (euros)</label><input type="number" id="travaux" min="0" step="500" value="10000" inputmode="decimal"></div></div>
+    <div class="field-row"><div class="field"><label for="notaire">Frais de notaire (euros)</label><input type="number" id="notaire" min="0" step="100" value="14000" inputmode="decimal"></div><div class="field"><label for="apport">Apport (euros)</label><input type="number" id="apport" min="0" step="1000" value="20000" inputmode="decimal"></div></div>
+    <div class="field-row"><div class="field"><label for="loyer">Loyer mensuel hors charges (euros)</label><input type="number" id="loyer" min="0" step="10" value="850" inputmode="decimal"></div><div class="field"><label for="vac">Vacance locative (mois par an)</label><input type="number" id="vac" min="0" step="0.5" value="1" inputmode="decimal"></div></div>
+    <div class="field-row"><div class="field"><label for="charges">Charges annuelles du propriétaire (euros)</label><input type="number" id="charges" min="0" step="50" value="2200" inputmode="decimal"></div></div>
+    <p class="field-help">Charges : taxe foncière, charges de copropriété non récupérables, assurance propriétaire, gestion, entretien. Pour les frais de notaire, voir <a href="/guides/frais-de-notaire-achat-immobilier-composition-calcul/">le guide</a>.</p>
+    <div class="field-row"><div class="field"><label for="taux">Taux du prêt (% par an)</label><input type="number" id="taux" min="0" step="0.05" value="3.8" inputmode="decimal"></div><div class="field"><label for="duree">Durée du prêt (années)</label><input type="number" id="duree" min="0" step="1" value="20" inputmode="decimal"></div></div>
+    <div class="field-row"><div class="field"><label for="ass">Assurance emprunteur (% par an du capital)</label><input type="number" id="ass" min="0" step="0.05" value="0.3" inputmode="decimal"></div></div>
+    <button type="button" id="calculate">Calculer</button>
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">Cash-flow mensuel avant impôt</div>
+      <div class="result-main" data-noanim id="main">-</div>
+      <p id="det"></p>
+      <div class="rl-kpi" id="kpi"></div>
+      <div id="rlbar"></div>
+      <p id="eq"></p>
+      <div class="warning" id="wnote">Estimation avant impôt : la fiscalité des revenus fonciers, la revalorisation du bien et les travaux imprévus ne sont pas calculés. Ce n'est pas un conseil en investissement.</div>
+    </div>
+  </section>
+  <section class="info-section" id="regles">
+    <h2>Comment le calcul est fait</h2>
+    <p><strong>Rendement brut :</strong> loyers annuels (loyer × 12) ÷ prix d'achat. Le rendement brut sur coût total divise par prix + travaux + frais de notaire.</p>
+    <p><strong>Rendement net avant impôt :</strong> (loyers encaissés, vacance déduite − charges annuelles) ÷ coût total de l'opération.</p>
+    <p><strong>Prêt :</strong> montant emprunté = coût total − apport. La mensualité est celle d'un prêt à mensualités constantes, l'assurance est calculée sur le capital emprunté.</p>
+    <p><strong>Cash-flow :</strong> (loyers encaissés − charges) ÷ 12 − mensualité avec assurance. <strong>Loyer d'équilibre :</strong> loyer qui rend le cash-flow nul.</p>
+    <p>Le coût d'une opération immobilière comprend les frais de notaire et, le cas échéant, d'agence ou de courtage, d'après <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F16123">Service-Public</a>. Pour présenter votre projet à une banque, utilisez le <a href="/generateur-dossier-pret-immobilier/">générateur de dossier de prêt immobilier</a> et le <a href="/guides/pret-immobilier-constituer-son-dossier-banque-apport-endettement-reste-a-vivre/">guide pour constituer son dossier</a>.</p>
+    <p class="note">Limites : les loyers futurs, la vacance et les charges sont des hypothèses de votre part. La fiscalité des revenus fonciers n'est pas calculée.</p>
+  </section>
+
+  <section class="info-section sd-fold" id="faq-ind"><details><summary><h2>Questions fréquentes</h2></summary><h3>Comment calculer la rentabilité locative brute ?</h3><p>Rendement brut = loyers annuels hors charges ÷ prix d&#x27;achat × 100. C&#x27;est le chiffre le plus souvent affiché dans les annonces. Il ne tient compte ni des charges, ni des frais, ni de la vacance.</p><h3>Quelle différence entre rendement brut et net ?</h3><p>Le rendement net déduit les charges du propriétaire (taxe foncière, charges non récupérables, assurance, gestion) et la vacance locative, et se rapporte au coût total de l&#x27;opération, frais de notaire et travaux compris. Ici il reste avant impôt.</p><h3>Qu&#x27;est-ce que le cash-flow ?</h3><p>C&#x27;est ce qu&#x27;il reste chaque mois : loyers encaissés moins charges moins mensualité du prêt, assurance comprise. Négatif, il représente l&#x27;effort d&#x27;épargne mensuel que vous devez financer.</p><h3>Que signifie le loyer d&#x27;équilibre ?</h3><p>C&#x27;est le loyer mensuel qui couvre exactement les charges et la mensualité du prêt, soit un cash-flow nul, compte tenu de la vacance.</p><h3>Les impôts sont-ils pris en compte ?</h3><p>Non. Les revenus fonciers sont imposables et le régime (micro-foncier, réel, meublé) change le résultat : le simulateur donne un résultat avant impôt, à compléter avec les règles officielles.</p><h3>Les loyers sont-ils comptés dans mon taux d&#x27;endettement ?</h3><p>Cela dépend de la banque, qui décide de la part des loyers qu&#x27;elle retient. Le générateur de dossier de prêt ne les ajoute pas à vos revenus, par prudence.</p><h3>Mes données sont-elles enregistrées ?</h3><p>Non, le calcul se fait dans votre navigateur.</p></details></section>
+
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/generateur-dossier-pret-immobilier/">Dossier de prêt immobilier</a><a href="/simulateur-capacite-emprunt/">Capacité d'emprunt</a><a href="/simulateur-budget-mensuel/">Budget mensuel</a><a href="/simulateurs/">Tous les simulateurs</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-11-05">5 novembre 2026</time>. Estimation indicative, sans valeur juridique ni conseil en investissement. <a href="/methode-et-sources/">Méthode et sources</a> · <a href="/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<nav class="sd-explore" aria-label="Toutes les rubriques"><strong>Explorer toutes les rubriques</strong><div><a href="https://simudroit.fr/simulateurs/" style="--c:#4f46e5"><i class="sdi sdi-calc" aria-hidden="true"></i>Simulateurs</a><a href="https://simudroit.fr/guides/" style="--c:#0e7490"><i class="sdi sdi-book" aria-hidden="true"></i>Guides</a><a href="https://simudroit.fr/aides/" style="--c:#0f766e"><i class="sdi sdi-heart" aria-hidden="true"></i>Aides</a><a href="https://simudroit.fr/fiches-revision/" style="--c:#7c3aed"><i class="sdi sdi-notes" aria-hidden="true"></i>Fiches de révision</a><a href="https://simudroit.fr/metiers/" style="--c:#b5530f"><i class="sdi sdi-user" aria-hidden="true"></i>Mon métier</a><a href="https://simudroit.fr/metiers/creer-son-entreprise-batiment/" style="--c:#c2410c"><i class="sdi sdi-hardhat" aria-hidden="true"></i>Créer son entreprise (bâtiment)</a><a href="https://simudroit.fr/independants/" style="--c:#1d4ed8"><i class="sdi sdi-briefcase" aria-hidden="true"></i>Indépendants</a><a href="https://simudroit.fr/retraite/" style="--c:#be185d"><i class="sdi sdi-sun" aria-hidden="true"></i>Retraite</a><a href="https://simudroit.fr/reconversion/" style="--c:#15803d"><i class="sdi sdi-refresh" aria-hidden="true"></i>Reconversion</a><a href="https://simudroit.fr/salaires/" style="--c:#a16207"><i class="sdi sdi-euro" aria-hidden="true"></i>Salaires</a><a href="https://simudroit.fr/modeles-de-lettres/" style="--c:#9333ea"><i class="sdi sdi-mail" aria-hidden="true"></i>Lettres types</a><a href="https://simudroit.fr/generateur-cv/" style="--c:#0f7a6e"><i class="sdi sdi-doc" aria-hidden="true"></i>Générateur de CV</a><a href="https://simudroit.fr/ouvrir-un-commerce/" style="--c:#b5530f"><i class="sdi sdi-briefcase" aria-hidden="true"></i>Ouvrir un commerce</a><a href="https://simudroit.fr/actualites/" style="--c:#475569"><i class="sdi sdi-chart" aria-hidden="true"></i>Chiffres et données</a><a href="https://simudroit.fr/glossaire/" style="--c:#0369a1"><i class="sdi sdi-bookopen" aria-hidden="true"></i>Glossaire</a><a href="https://simudroit.fr/faq/" style="--c:#b91c1c"><i class="sdi sdi-question" aria-hidden="true"></i>FAQ</a></div></nav>
+<footer><nav class="foot-top" aria-label="Les plus consultés"><strong>Les plus consultés</strong><a href="https://simudroit.fr/simulateur-brut-net/">Salaire brut en net</a><a href="https://simudroit.fr/simulateur-indemnite-licenciement/">Indemnité de licenciement</a><a href="https://simudroit.fr/simulateur-rupture-conventionnelle/">Rupture conventionnelle</a><a href="https://simudroit.fr/simulateur-chomage/">Allocation chômage</a><a href="https://simudroit.fr/simulateur-preavis-demission/">Préavis de démission</a><a href="https://simudroit.fr/simulateur-preavis-licenciement/">Préavis de licenciement</a><a href="https://simudroit.fr/simulateur-conges-payes/">Congés payés</a><a href="https://simudroit.fr/simulateur-fiche-de-paie/">Vérifier ma fiche de paie</a><a href="https://simudroit.fr/simulateur-solde-tout-compte/">Solde de tout compte</a><a href="https://simudroit.fr/simulateur-smic/">SMIC 2026</a><a href="https://simudroit.fr/salaire-brut-net/">Brut en net par montant</a><a href="https://simudroit.fr/metiers/">Mon métier : infirmier libéral, assistante maternelle, intérimaire</a><a href="https://simudroit.fr/retraite/">Retraite : par où commencer ?</a><a href="https://simudroit.fr/reconversion/">Reconversion : par où commencer ?</a><a href="https://simudroit.fr/jours-feries-2026-2027/">Jours fériés 2026 et 2027</a><a href="https://simudroit.fr/fiches-revision/">Fiches de révision</a><a href="https://simudroit.fr/aides/">Aides selon votre situation</a><a href="https://simudroit.fr/documents-a-generer/">Documents à générer</a></nav>
+  <p>© 2026 SimuDroit · <a href="https://simudroit.fr/">Tous les simulateurs</a> · <a href="https://simudroit.fr/methode-et-sources/">Méthode et sources</a> · <a href="https://simudroit.fr/contact/">Contact</a> · <a href="https://simudroit.fr/mentions-legales/">Mentions légales</a> · <a href="https://simudroit.fr/confidentialite/">Confidentialité</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+  function eur(n){return Math.round(n).toLocaleString("fr-FR")+" €"}
+  function pc(n){return (Math.round(n*100)/100).toLocaleString("fr-FR")+" %"}
+  function r2(n){return Math.round(n*100)/100}
+  function sdRL(o){
+    var prix=Math.max(0,o.prix||0),tr=Math.max(0,o.travaux||0),no=Math.max(0,o.notaire||0),ap=Math.max(0,o.apport||0),lo=Math.max(0,o.loyer||0),vac=Math.min(12,Math.max(0,o.vac||0)),ch=Math.max(0,o.charges||0);
+    var cout=prix+tr+no,emp=Math.max(0,cout-ap),n=Math.round((o.duree||0)*12),r=(o.taux||0)/1200,m=0;
+    if(n>0&&emp>0)m=r>0?emp*r/(1-Math.pow(1+r,-n)):emp/n;
+    var as=emp*(o.ass||0)/100/12,mt=m+as,loy=lo*(12-vac),net=loy-ch,cf=net/12-mt;
+    return {cout:r2(cout),emprunt:r2(emp),mensualite:r2(mt),assurance:r2(as),loyersAnnuels:r2(loy),brut:prix>0?r2(lo*12/prix*100):0,brutCout:cout>0?r2(lo*12/cout*100):0,net:cout>0?r2(net/cout*100):0,cashflow:r2(cf),effort:r2(Math.max(0,-cf)),loyerEquilibre:vac<12?r2((ch/12+mt)*12/(12-vac)):0,couverture:mt>0?r2(lo/mt*100):0,charges:r2(ch),credit:r2(mt*12),reste:r2(net-mt*12)};
+  }
+  window.sdRL=sdRL;
+  function num(id){var v=parseFloat(document.getElementById(id).value.replace(",","."));return isFinite(v)?v:0}
+  document.getElementById("calculate").addEventListener("click",function(){
+    var r=sdRL({prix:num("prix"),travaux:num("travaux"),notaire:num("notaire"),apport:num("apport"),loyer:num("loyer"),vac:num("vac"),charges:num("charges"),taux:num("taux"),duree:num("duree"),ass:num("ass")});
+    var res=document.getElementById("result");
+    document.getElementById("main").textContent=(r.cashflow>=0?"+":"-")+eur(Math.abs(r.cashflow))+" par mois";
+    document.getElementById("det").innerHTML=r.cashflow>=0?"Le loyer couvre les charges et le prêt : il reste environ <strong>"+eur(r.cashflow)+"</strong> par mois avant impôt.":"Il manque environ <strong>"+eur(r.effort)+"</strong> par mois : c'est l'effort d'épargne à financer avant impôt.";
+    document.getElementById("kpi").innerHTML="<div><span>Rendement brut (prix d'achat)</span><b>"+pc(r.brut)+"</b></div><div><span>Brut sur coût total</span><b>"+pc(r.brutCout)+"</b></div><div class='"+(r.net>=r.brut?"":"")+"'><span>Rendement net avant impôt</span><b>"+pc(r.net)+"</b></div><div class='"+(r.cashflow>=0?"ok":"ko")+"'><span>Mensualité du prêt avec assurance</span><b>"+eur(r.mensualite)+"</b></div>";
+    var tot=Math.max(r.loyersAnnuels,r.charges+r.credit),seg=function(v,c){return v>0?"<span style='width:"+(v/tot*100).toFixed(2)+"%;background:"+c+"'></span>":""};
+    var rest=Math.max(0,r.reste),manque=Math.max(0,-r.reste);
+    document.getElementById("rlbar").innerHTML="<p><strong>Où vont les loyers sur l'année</strong></p><div class='rl-bar' role='img' aria-label='Répartition des loyers'>"+seg(r.charges,"#d9a400")+seg(r.credit,"#2b5fa8")+seg(rest,"#1f5f4a")+seg(manque,"#c8321e")+"</div><ul class='rl-leg'><li><i style='background:#d9a400'></i>Charges du propriétaire <b>"+eur(r.charges)+"</b></li><li><i style='background:#2b5fa8'></i>Prêt et assurance <b>"+eur(r.credit)+"</b></li>"+(rest>0?"<li><i style='background:#1f5f4a'></i>Reste après charges et prêt <b>"+eur(rest)+"</b></li>":"")+(manque>0?"<li><i style='background:#c8321e'></i>Manque à financer <b>"+eur(manque)+"</b></li>":"")+"<li><i style='background:#fff'></i>Loyers encaissés (vacance déduite) <b>"+eur(r.loyersAnnuels)+"</b></li></ul>";
+    document.getElementById("eq").innerHTML="Loyer d'équilibre (cash-flow nul) : <strong>"+eur(r.loyerEquilibre)+"</strong> par mois. Le loyer couvre <strong>"+Math.round(r.couverture)+" %</strong> de la mensualité.";
+    res.classList.add("visible")});
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>

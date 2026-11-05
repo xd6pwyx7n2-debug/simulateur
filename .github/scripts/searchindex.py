@@ -23,6 +23,7 @@ SYN = {
     "simulateur-prime-de-noel": "prime de noel caf montant 2026 rsa ass aer versement decembre 152,45",
     "simulateur-interets-composes": "interets composes calculatrice epargne dca livret a versement mensuel rendement placement",
     "simulateur-budget-mensuel": "budget mensuel reste a vivre 50 30 20 depenses epargne fiche budget pdf imprimer tableau 12 mois",
+    "simulateur-rentabilite-locative": "rentabilite locative investissement immobilier rendement brut net cash flow loyer equilibre mensualite pret",
     "simulateur-capacite-emprunt": "capacite d emprunt taux d endettement credit immobilier mensualite 35 hcsf pret simulateur combien emprunter duree 25 ans assurance",
     "simulateur-saisie-sur-salaire": "saisie sur salaire saisie des remunerations bareme 2026 quotite saisissable reste a vivre solde insaisissable 651,69 pension alimentaire dette commissaire de justice huissier simulateur",
     "simulateur-aide-carburant-grands-rouleurs": "aide carburant grands rouleurs prime carburant 2026 simulateur 100 euros eligibilite travailleurs 22770 revenu fiscal de reference formulaire 31 decembre",

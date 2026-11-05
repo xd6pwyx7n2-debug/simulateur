@@ -498,6 +498,9 @@ _bu = _page("budget-mensuel")
 for _v in ("sdBU", "fiche-budget-12-mois-simudroit.pdf", "50/30/20", "prêt immobilier", "35 %"):
     if _v not in _bu: fail("budget mensuel : mention absente (%s)" % _v)
 if not os.path.exists(os.path.join(ROOT, "assets", "docs", "fiche-budget-12-mois-simudroit.pdf")): fail("fiche budget PDF absente")
+_rl = _page("rentabilite-locative")
+for _v in ("F16123", "sdRL", "cash-flow", "avant impôt"):
+    if _v not in _rl: fail("rentabilité locative : mention absente (%s)" % _v)
 _ps2 = open(os.path.join(ROOT, "mon-plan-de-sortie-surendettement", "index.html"), encoding="utf-8").read(); _psj = open(os.path.join(ROOT, "assets", "plan-sortie.js"), encoding="utf-8").read()
 for _v in ("Rien n'est envoyé", "3 mois", "Mémoriser ma progression sur cet appareil uniquement", "Tout effacer"):
     if _v not in _ps2: fail("plan de sortie : mention absente (%s)" % _v)
@@ -991,6 +994,12 @@ with sync_playwright() as pw:
     pg.click("#calculate"); pg.wait_for_timeout(300)
     if pg.locator("#bdsvg circle").count() < 3: fail("budget mensuel : le camembert ne se dessine pas")
     if pg.locator("#bdleg li").count() < 3: fail("budget mensuel : légende du camembert absente")
+    # rentabilité locative
+    pg.goto(LOCAL + "simulateur-rentabilite-locative/"); pg.wait_for_timeout(500)
+    _a = pg.evaluate("()=>window.sdRL({prix:200000,travaux:0,notaire:16000,apport:20000,loyer:900,vac:1,charges:1800,taux:4,duree:20,ass:0.3})")
+    if abs(_a["mensualite"] - 1236.72) > 0.02 or _a["brut"] != 5.4 or _a["net"] != 3.75 or abs(_a["cashflow"] + 561.72) > 0.02 or abs(_a["loyerEquilibre"] - 1512.79) > 0.02: fail("rentabilité locative : calcul faux %s" % _a)
+    pg.click("#calculate"); pg.wait_for_timeout(200)
+    if "par mois" not in pg.inner_text("#main") or "Loyer d'équilibre" not in pg.inner_text("#eq") or pg.evaluate("document.querySelectorAll('#rlbar .rl-bar span').length") < 2: fail("rentabilité locative : résultat ou graphique absent")
     # Mon plan de sortie du surendettement : analyse CSV, calendrier, progression (tout en local)
     pg.goto(LOCAL + "mon-plan-de-sortie-surendettement/"); pg.wait_for_timeout(600)
     _csv = "Date;Libellé;Montant\n01/09/2026;SALAIRE;1000,00\n02/09/2026;LOYER;-500,00\n03/09/2026;NETFLIX;-10,00\n03/10/2026;NETFLIX;-10,00\n05/10/2026;CARREFOUR;-40,00"

@@ -438,5 +438,19 @@
   "non_verifie": [
    "repère 50/30/20 : convention non officielle"
   ]
+ },
+ "rentabilite-locative": {
+  "date_relecture": "2026-11-05",
+  "urls": [
+   "https://www.service-public.gouv.fr/particuliers/vosdroits/F16123"
+  ],
+  "regles_confirmees": [
+   "le coût d'une opération immobilière comprend les frais de notaire et, le cas échéant, d'agence ou de courtage"
+  ],
+  "non_verifie": [
+   "fiscalité des revenus fonciers (micro-foncier, réel, meublé)",
+   "formules de rendement : conventions de calcul, non officielles",
+   "loyers futurs, vacance et charges : hypothèses de l'utilisateur"
+  ]
  }
 }
