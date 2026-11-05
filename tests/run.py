@@ -658,9 +658,11 @@ with sync_playwright() as pw:
     _goal("Calculer un montant", "arrêt maladie", "/simulateur-indemnites-journalieres-maladie/")
     _goal("Préparer une démarche", "démissionner", "/simulateur-preavis-demission/")
     _goal("Faire évoluer", "reconvertir", "/faire-le-point-reconversion/")
-    for _q, _u in (("indemnité de licenciement", "/simulateur-indemnite-licenciement/"), ("combien vais-je toucher après mon licenciement", "/simulateur-indemnite-licenciement/"), ("arrêt maladie", "/simulateur-indemnites-journalieres-maladie/"), ("prêt immobilier", "/generateur-dossier-pret-immobilier/"), ("simulateur congés payés", "/simulateur-conges-payes/"), ("je veux démissionner", "/simulateur-preavis-demission/"), ("Je quitte mon entreprise après une rupture conventionnelle", "/simulateur-rupture-conventionnelle/")):
+    for _q, _u in (("indemnité de licenciement", "/simulateur-indemnite-licenciement/"), ("combien vais-je toucher après mon licenciement", "/simulateur-indemnite-licenciement/"), ("arrêt maladie", "/simulateur-indemnites-journalieres-maladie/"), ("prêt immobilier", "/generateur-dossier-pret-immobilier/"), ("simulateur congés payés", "/simulateur-conges-payes/"), ("je veux démissionner", "/simulateur-preavis-demission/"), ("Je quitte mon entreprise après une rupture conventionnelle", "/simulateur-rupture-conventionnelle/"), ("je veux démissionner", "/guides/demission-et-chomage-droits/"), ("calcul indemnité rupture conventionnelle", "/simulateur-rupture-conventionnelle/"), ("combien vais-je toucher après une rupture conventionnelle", "/simulateur-rupture-conventionnelle/"), ("simulateur rupture conventionnelle", "/simulateur-rupture-conventionnelle/")):
         pg.goto(LOCAL); pg.fill("#site-q", _q); pg.wait_for_timeout(500)
         _hr = pg.evaluate("[...document.querySelectorAll('#site-q-list a')].slice(0,4).map(a=>a.getAttribute('href'))")
+        if "rupture conventionnelle" in _q and _hr[0] != "/simulateur-rupture-conventionnelle/": fail("recherche « %s » : le simulateur de rupture conventionnelle n'est pas premier (%s)" % (_q, _hr[:3]))
+        if _q == "je veux démissionner" and _hr[0] != "/simulateur-preavis-demission/": fail("recherche démission : le préavis n'est pas premier (%s)" % _hr[:3])
         if _u not in _hr: fail("recherche « %s » : %s absent des 4 premiers résultats (%s)" % (_q, _u, _hr))
     # visiteur qui revient : « Reprendre là où vous en étiez »
     pg.goto(LOCAL); pg.evaluate("localStorage.removeItem('sd-recents-v1')"); pg.reload(); pg.wait_for_timeout(200)

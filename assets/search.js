@@ -13,6 +13,7 @@ function load(cb){
 }
 var STOP=" le la les un une des de du d l a au aux en et ou pour par sur sous avec sans mon ma mes ton ta tes son sa ses notre nos votre vos je j me m moi vais veux voudrais souhaite souhaiterais vas peux puis dois combien comment quand quel quelle quels quelles est ce c ca que qu quoi apres avant si y il elle on nous vous ils pas ne n se s t sont etre avoir faire fait cas suite pendant lors ai as ont suis ";
 var SYN={demissionner:["demission","preavis"],demissionne:["demission","preavis"],licencier:["licenciement"],licencie:["licenciement"],toucher:["indemnite","allocation"],touche:["indemnite","allocation"],percevoir:["indemnite","allocation"],recevoir:["indemnite","allocation"],gagne:["salaire"],gagner:["salaire"],paye:["salaire"],remuneration:["salaire"],quitter:["demission","rupture"],partir:["demission","rupture","retraite"],virer:["licenciement"],vire:["licenciement"],chomeur:["chomage"],argent:["epargne"],placer:["epargne","placement"],pret:["credit","immobilier"],acheter:["immobilier"],maison:["immobilier"],appartement:["immobilier"],louer:["loyer","logement"],bebe:["maternite","naissance"],enfant:["maternite","naissance","paternite"],enceinte:["maternite"],malade:["maladie","arret"],arret:["maladie"],cv:["cv"],lettre:["modele"]};
+var BOOST=[[/rupture conventionnelle|rupco/,{"/simulateur-rupture-conventionnelle/":8}],[/demissionn|quitter (mon )?(emploi|poste|travail)/,{"/simulateur-preavis-demission/":18,"/guides/demission-et-chomage-droits/":12}]];
 function search(q){
   var all=norm(q).split(" ").filter(Boolean),toks=all.filter(function(w){return STOP.indexOf(" "+w+" ")<0;});
   if(!toks.length)toks=all; if(!toks.length)return[];
@@ -33,6 +34,8 @@ function search(q){
     if(hit<need)return;
     if(hit===toks.length)s+=4;
     var nq=toks.join(" ");if(s&&p.nt.indexOf(norm(q))>=0)s+=6;else if(s&&toks.length>1&&(p.nt.indexOf(nq)>=0||p.nk.indexOf(nq)>=0))s+=6;
+    if(s&&/employeur/.test(p.u)&&!/employeur|cout|patronal|embauch|mes salaries/.test(norm(q)))s-=14;
+    if(s)for(var b=0;b<BOOST.length;b++)if(BOOST[b][0].test(norm(q))&&BOOST[b][1][p.u])s+=BOOST[b][1][p.u];
     if(s&&(p.k==="Simulateur"||p.k==="Outil"))s+=4;
     if(s)out.push([s,p]);
   });
