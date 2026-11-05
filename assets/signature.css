@@ -219,3 +219,4 @@ table.sd-table thead th,table.sd-table th[scope=col],.table-wrap table thead th{
 table.sd-table th[scope=row]{background:var(--t4)!important;color:var(--ink)!important}
 article.fiche table.sd-table thead th{background:var(--ink)!important;background-image:none!important;color:#fff!important}
 article.fiche table.sd-table tbody th[scope=row]{background:var(--t4)!important;color:var(--ink)!important}
+.result-main[data-noanim]{font-size:clamp(1.6rem,4.5vw,2.4rem)!important;line-height:1.2!important}

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Aide juridictionnelle : suis-je éligible ? Plafonds | SimuDroit</title>
+  <meta name="description" content="Vérifiez en quelques secondes si vos revenus ouvrent droit à l&#x27;aide juridictionnelle, totale ou partielle, selon la composition du foyer. Plafonds Service-Public. Rien n&#x27;est enregistré.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://simudroit.fr/simulateur-aide-juridictionnelle/">
+  <link rel="icon" href="https://simudroit.fr/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="https://simudroit.fr/favicon.ico" sizes="48x48">
+  <link rel="icon" href="https://simudroit.fr/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="https://simudroit.fr/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Aide juridictionnelle : suis-je éligible ? Plafonds | SimuDroit">
+  <meta property="og:description" content="Vérifiez en quelques secondes si vos revenus ouvrent droit à l&#x27;aide juridictionnelle, totale ou partielle, selon la composition du foyer. Plafonds Service-Public. Rien n&#x27;est enregistré.">
+  <meta property="og:url" content="https://simudroit.fr/simulateur-aide-juridictionnelle/">
+  <meta property="og:image" content="https://simudroit.fr/assets/og/simulateur-aide-juridictionnelle.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="SimuDroit">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://simudroit.fr/assets/og/simulateur-aide-juridictionnelle.jpg">
+  <meta name="twitter:title" content="Aide juridictionnelle : suis-je éligible ? Plafonds | SimuDroit">
+  <meta name="twitter:description" content="Vérifiez en quelques secondes si vos revenus ouvrent droit à l&#x27;aide juridictionnelle, totale ou partielle, selon la composition du foyer. Plafonds Service-Public. Rien n&#x27;est enregistré.">
+
+  <style>
+    :root {
+      --primary:#0d5d7f;
+      --secondary:#00a896;
+      --dark:#17324d;
+      --text:#263746;
+      --muted:#566574;
+      --background:#f5f8fa;
+      --white:#fff;
+      --border:#dce5ea;
+      --success:#087f5b;
+      --warning:#9a6700;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--background);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header {
+      background:linear-gradient(135deg,var(--primary),#084763);
+      color:white;
+      padding:18px 20px;
+    }
+
+    .header-inner {
+      max-width:1050px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-size:1.45rem;
+      font-weight:800;
+      text-decoration:none;
+      color:white;
+    }
+
+    .logo span {
+      color:#7ee0d5;
+    }
+
+    main {
+      max-width:1050px;
+      margin:auto;
+      padding:25px 20px 60px;
+    }
+
+    .breadcrumb {
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .breadcrumb a {
+      color:var(--primary);
+      text-decoration:none;
+    }
+
+    .hero {
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    h1 {
+      color:var(--dark);
+      font-size:clamp(2rem,5vw,3rem);
+      line-height:1.15;
+      margin:0 0 15px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:1.08rem;
+      margin:0;
+    }
+
+    .calculator {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      max-width:720px;
+      margin:0 auto 35px;
+      box-shadow:0 8px 30px rgba(23,50,77,.06);
+    }
+
+    .calculator h2 {
+      margin-top:0;
+      color:var(--dark);
+    }
+
+    .intro-note {
+      background:#eef7f8;
+      border-left:4px solid var(--secondary);
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:22px;
+      font-size:.95rem;
+    }
+
+    .field {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:700;
+      margin-bottom:7px;
+      color:var(--dark);
+    }
+
+    input,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      font-size:1rem;
+      color:var(--text);
+      background:white;
+    }
+
+    input:focus,
+    select:focus {
+      outline:3px solid rgba(0,168,150,.15);
+      border-color:var(--secondary);
+    }
+
+    .field-help {
+      font-size:.84rem;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    button {
+      width:100%;
+      border:0;
+      border-radius:10px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:white;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:5px;
+    }
+
+    button:hover {
+      background:#084763;
+    }
+
+    .result {
+      display:none;
+      margin-top:22px;
+      background:#edf9f5;
+      border:1px solid #b9e6d7;
+      border-radius:12px;
+      padding:22px;
+    }
+
+    .result.visible {
+      display:block;
+    }
+
+    .result-title {
+      color:var(--success);
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .result-main {
+      font-size:2.3rem;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:18px;
+    }
+
+    .result-row {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding:9px 0;
+      border-bottom:1px solid rgba(8,127,91,.15);
+    }
+
+    .result-row:last-child {
+      border-bottom:0;
+    }
+
+    .official-link {
+      display:block;
+      margin-top:20px;
+      padding:13px 15px;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:9px;
+      color:var(--primary);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .official-link:hover {
+      border-color:var(--secondary);
+    }
+
+    .warning {
+      background:#fff8e8;
+      border-left:4px solid #d89b19;
+      padding:15px 16px;
+      border-radius:8px;
+      margin-top:18px;
+      font-size:.9rem;
+    }
+
+    .info-section {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      margin-bottom:25px;
+    }
+
+    .info-section h2 {
+      color:var(--dark);
+      margin-top:0;
+    }
+
+    .info-section h3 {
+      color:var(--primary);
+      margin-bottom:7px;
+    }
+
+    .info-section a {
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    .links-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+
+    .links-grid a {
+      display:block;
+      background:#f7fafb;
+      border:1px solid var(--border);
+      padding:14px;
+      border-radius:10px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    footer {
+      background:#17324d;
+      color:#dce7ed;
+      text-align:center;
+      padding:28px 20px;
+      font-size:.9rem;
+    }
+
+    footer a {
+      color:#9de5dc;
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding:20px 14px 45px;
+      }
+
+      .calculator,
+      .info-section {
+        padding:20px;
+      }
+
+      .result-row {
+        flex-direction:column;
+        gap:2px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/simulateur.css">
+  <script src="../assets/params.js"></script>
+  <style>
+    table.sd-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.sd-table th,table.sd-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+    table.sd-table th{background:#eef5f8;color:var(--dark)}
+    table.sd-table tr:last-child td{border-bottom:0}
+    .table-wrap{overflow-x:auto}
+  </style>
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "SimuDroit", "url": "https://simudroit.fr/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Aide juridictionnelle : suis-je éligible ? Plafonds", "url": "https://simudroit.fr/simulateur-aide-juridictionnelle/", "description": "Vérifiez en quelques secondes si vos revenus ouvrent droit à l'aide juridictionnelle, totale ou partielle, selon la composition du foyer. Plafonds Service-Public. Rien n'est enregistré.", "inLanguage": "fr-FR"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://simudroit.fr/"}, {"@type": "ListItem", "position": 2, "name": "Simulateurs", "item": "https://simudroit.fr/simulateurs/"}, {"@type": "ListItem", "position": 3, "name": "Aide juridictionnelle", "item": "https://simudroit.fr/simulateur-aide-juridictionnelle/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Que prend en charge l'aide juridictionnelle ?", "acceptedAnswer": {"@type": "Answer", "text": "Elle prend en charge tout ou partie des frais d'avocat et de justice. Elle est totale (100 %) ou partielle (55 % ou 25 %), selon les ressources (Service-Public, F18074)."}}, {"@type": "Question", "name": "Quelles ressources sont prises en compte ?", "acceptedAnswer": {"@type": "Answer", "text": "Le revenu fiscal de référence et le patrimoine, hors résidence principale. Ce simulateur ne regarde que le revenu fiscal de référence."}}, {"@type": "Question", "name": "Peut-on cumuler avec une assurance de protection juridique ?", "acceptedAnswer": {"@type": "Answer", "text": "Non : si vos frais sont couverts par une assurance, l'aide ne couvre que les frais non pris en charge, et vous devez joindre une attestation de non-prise en charge."}}, {"@type": "Question", "name": "Comment faire la demande ?", "acceptedAnswer": {"@type": "Answer", "text": "En ligne ou avec le formulaire, auprès du bureau d'aide juridictionnelle du tribunal de votre domicile avant une procédure, ou du tribunal saisi si elle est en cours."}}, {"@type": "Question", "name": "Les plafonds sont-ils définitifs ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Ils sont revalorisés : la fiche Service-Public mise à jour le 12 juin 2026 s'appuie sur une circulaire du 16 janvier 2026. Vérifiez le barème en vigueur sur justice.fr."}}, {"@type": "Question", "name": "Mes données sont-elles enregistrées ?", "acceptedAnswer": {"@type": "Answer", "text": "Non, le calcul se fait dans votre navigateur."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Aide juridictionnelle : éligibilité et plafonds", "url": "https://simudroit.fr/simulateur-aide-juridictionnelle/", "description": "Vérifiez en quelques secondes si vos revenus ouvrent droit à l'aide juridictionnelle, totale ou partielle, selon la composition du foyer. Plafonds Service-Public. Rien n'est enregistré.", "applicationCategory": "WebApplication", "operatingSystem": "Web", "inLanguage": "fr-FR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}</script>
+  <meta name="theme-color" content="#1b1f2a">
+  <meta name="author" content="SimuDroit">
+  <meta property="og:image:alt" content="Aide juridictionnelle : suis-je éligible ? Plafonds | SimuDroit">
+  <link rel="alternate" hreflang="fr" href="https://simudroit.fr/simulateur-aide-juridictionnelle/">
+  <link rel="alternate" hreflang="x-default" href="https://simudroit.fr/simulateur-aide-juridictionnelle/">
+  <!-- Mesure d'audience Plausible : sans cookie, données anonymes -->
+  <script async src="https://plausible.io/js/pa-j8JdUomB9hqqp7em82xdB.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/theme.css">
+<script src="/assets/theme.js"></script>
+<link rel="stylesheet" href="/assets/signature.css"></head>
+
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://simudroit.fr/">Simu<span>Droit</span></a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="https://simudroit.fr/simulateurs/">Simulateurs</a>
+      <a href="https://simudroit.fr/assistant/">Assistant</a>
+      <a href="https://simudroit.fr/guides/">Guides</a>
+      <a href="https://simudroit.fr/aides/">Aides</a>
+      <a href="https://simudroit.fr/fiches-revision/">Fiches</a>
+      <a href="https://simudroit.fr/actualites/">Chiffres clés</a>
+      <a href="https://simudroit.fr/metiers/">Métiers</a>
+      <a href="https://simudroit.fr/faq/">FAQ</a>
+      <a href="https://simudroit.fr/#recherche">Rechercher</a>
+      <a class="cta-link" href="https://simudroit.fr/">Tous les outils</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu" tabindex="-1">
+
+  <div class="breadcrumb">
+    <a href="https://simudroit.fr/">Accueil</a> &nbsp;›&nbsp; <a href="https://simudroit.fr/simulateurs/">Simulateurs</a> &nbsp;›&nbsp; Aide juridictionnelle
+  </div>
+
+  <section class="hero">
+    <h1>Aide juridictionnelle : suis-je éligible ?</h1>
+    <p>Indiquez la taille de votre foyer fiscal et votre revenu fiscal de référence : vous voyez si l'aide est totale, partielle ou hors plafond.</p>
+      <div class="badges"><span class="badge">Gratuit, sans inscription</span><span class="badge">Rien n'est enregistré</span><span class="badge">Estimation indicative</span></div>
+  </section>
+  <section class="calculator" id="calcul">
+    <h2>Vérifier mes plafonds</h2>
+    <div class="field-row"><div class="field"><label for="n">Personnes du foyer fiscal</label><select id="n"><option value="1">1 personne</option><option value="2">2 personnes</option><option value="3">3 personnes</option><option value="4">4 personnes</option><option value="5">5 personnes</option><option value="6">6 personnes</option></select></div>
+    <div class="field"><label for="rfr">Revenu fiscal de référence annuel (euros)</label><input type="number" id="rfr" min="0" step="1" inputmode="numeric" placeholder="Ligne « revenu fiscal de référence » de l'avis d'impôt"></div></div>
+    <button type="button" id="calculate">Vérifier</button>
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title">Selon votre revenu fiscal de référence</div>
+      <div class="result-main" data-noanim id="main">-</div>
+      <p id="det"></p>
+      <div class="warning" id="wnote">Le patrimoine (hors résidence principale), la nationalité ou la résidence, et l'existence d'une assurance de protection juridique jouent aussi. La décision revient au bureau d'aide juridictionnelle. Au-delà de 6 personnes, consultez justice.fr.</div>
+    </div>
+  </section>
+
+  <section class="info-section" id="regles">
+    <h2>D'où viennent ces plafonds</h2>
+    <p>Les plafonds annuels de revenu fiscal de référence viennent de la fiche Service-Public F18074 (mise à jour le 12 juin 2026).</p>
+    <div class="table-wrap"><table class="sd-table"><thead><tr><th scope="col">Foyer fiscal</th><th scope="col">Aide totale jusqu'à</th><th scope="col">Aide à 55 % jusqu'à</th><th scope="col">Aide à 25 % jusqu'à</th></tr></thead><tbody>
+    <tr><td>1 personne</td><td>12 957 €</td><td>15 316 €</td><td>19 433 €</td></tr><tr><td>2 personnes</td><td>15 289 €</td><td>17 648 €</td><td>21 765 €</td></tr><tr><td>3 personnes</td><td>17 621 €</td><td>19 980 €</td><td>24 097 €</td></tr><tr><td>4 personnes</td><td>19 095 €</td><td>21 454 €</td><td>25 570 €</td></tr><tr><td>5 personnes</td><td>20 568 €</td><td>22 927 €</td><td>27 044 €</td></tr><tr><td>6 personnes</td><td>22 041 €</td><td>24 400 €</td><td>28 517 €</td></tr></tbody></table></div>
+    <p>Pour savoir où et comment consulter un avocat, voir <a href="/guides/trouver-un-avocat-consultation-gratuite-honoraires-aide-juridictionnelle/">le guide pour trouver un avocat</a>.</p>
+  </section>
+
+  <section class="info-section sd-fold" id="faq-ind"><details><summary><h2>Questions fréquentes</h2></summary><h3>Que prend en charge l&#x27;aide juridictionnelle ?</h3><p>Elle prend en charge tout ou partie des frais d&#x27;avocat et de justice. Elle est totale (100 %) ou partielle (55 % ou 25 %), selon les ressources (Service-Public, F18074).</p><h3>Quelles ressources sont prises en compte ?</h3><p>Le revenu fiscal de référence et le patrimoine, hors résidence principale. Ce simulateur ne regarde que le revenu fiscal de référence.</p><h3>Peut-on cumuler avec une assurance de protection juridique ?</h3><p>Non : si vos frais sont couverts par une assurance, l&#x27;aide ne couvre que les frais non pris en charge, et vous devez joindre une attestation de non-prise en charge.</p><h3>Comment faire la demande ?</h3><p>En ligne ou avec le formulaire, auprès du bureau d&#x27;aide juridictionnelle du tribunal de votre domicile avant une procédure, ou du tribunal saisi si elle est en cours.</p><h3>Les plafonds sont-ils définitifs ?</h3><p>Non. Ils sont revalorisés : la fiche Service-Public mise à jour le 12 juin 2026 s&#x27;appuie sur une circulaire du 16 janvier 2026. Vérifiez le barème en vigueur sur justice.fr.</p><h3>Mes données sont-elles enregistrées ?</h3><p>Non, le calcul se fait dans votre navigateur.</p></details></section>
+
+  <section class="sd-see" aria-labelledby="sd-see-t">
+    <h2 id="sd-see-t">Voir aussi</h2>
+    <div class="sd-see-grid"><a href="/guides/trouver-un-avocat-consultation-gratuite-honoraires-aide-juridictionnelle/">Trouver un avocat</a><a href="/litiges/">Litiges : par où commencer</a><a href="/simulateur-lettre-litige/">Lettres de litige</a><a href="/guides/">Guides</a></div>
+    <p class="sd-upd">Dernière vérification des paramètres : <time datetime="2026-11-05">5 novembre 2026</time>. Estimation indicative, sans valeur juridique. <a href="/methode-et-sources/">Méthode et sources</a> · <a href="/a-propos/">À propos</a></p>
+  </section>
+
+</main>
+
+<nav class="sd-explore" aria-label="Toutes les rubriques"><strong>Explorer toutes les rubriques</strong><div><a href="https://simudroit.fr/simulateurs/" style="--c:#4f46e5"><i class="sdi sdi-calc" aria-hidden="true"></i>Simulateurs</a><a href="https://simudroit.fr/guides/" style="--c:#0e7490"><i class="sdi sdi-book" aria-hidden="true"></i>Guides</a><a href="https://simudroit.fr/aides/" style="--c:#0f766e"><i class="sdi sdi-heart" aria-hidden="true"></i>Aides</a><a href="https://simudroit.fr/fiches-revision/" style="--c:#7c3aed"><i class="sdi sdi-notes" aria-hidden="true"></i>Fiches de révision</a><a href="https://simudroit.fr/metiers/" style="--c:#b5530f"><i class="sdi sdi-user" aria-hidden="true"></i>Mon métier</a><a href="https://simudroit.fr/metiers/creer-son-entreprise-batiment/" style="--c:#c2410c"><i class="sdi sdi-hardhat" aria-hidden="true"></i>Créer son entreprise (bâtiment)</a><a href="https://simudroit.fr/independants/" style="--c:#1d4ed8"><i class="sdi sdi-briefcase" aria-hidden="true"></i>Indépendants</a><a href="https://simudroit.fr/retraite/" style="--c:#be185d"><i class="sdi sdi-sun" aria-hidden="true"></i>Retraite</a><a href="https://simudroit.fr/reconversion/" style="--c:#15803d"><i class="sdi sdi-refresh" aria-hidden="true"></i>Reconversion</a><a href="https://simudroit.fr/salaires/" style="--c:#a16207"><i class="sdi sdi-euro" aria-hidden="true"></i>Salaires</a><a href="https://simudroit.fr/modeles-de-lettres/" style="--c:#9333ea"><i class="sdi sdi-mail" aria-hidden="true"></i>Lettres types</a><a href="https://simudroit.fr/generateur-cv/" style="--c:#0f7a6e"><i class="sdi sdi-doc" aria-hidden="true"></i>Générateur de CV</a><a href="https://simudroit.fr/ouvrir-un-commerce/" style="--c:#b5530f"><i class="sdi sdi-briefcase" aria-hidden="true"></i>Ouvrir un commerce</a><a href="https://simudroit.fr/actualites/" style="--c:#475569"><i class="sdi sdi-chart" aria-hidden="true"></i>Chiffres et données</a><a href="https://simudroit.fr/glossaire/" style="--c:#0369a1"><i class="sdi sdi-bookopen" aria-hidden="true"></i>Glossaire</a><a href="https://simudroit.fr/faq/" style="--c:#b91c1c"><i class="sdi sdi-question" aria-hidden="true"></i>FAQ</a></div></nav>
+<footer><nav class="foot-top" aria-label="Les plus consultés"><strong>Les plus consultés</strong><a href="https://simudroit.fr/simulateur-brut-net/">Salaire brut en net</a><a href="https://simudroit.fr/simulateur-indemnite-licenciement/">Indemnité de licenciement</a><a href="https://simudroit.fr/simulateur-rupture-conventionnelle/">Rupture conventionnelle</a><a href="https://simudroit.fr/simulateur-chomage/">Allocation chômage</a><a href="https://simudroit.fr/simulateur-preavis-demission/">Préavis de démission</a><a href="https://simudroit.fr/simulateur-preavis-licenciement/">Préavis de licenciement</a><a href="https://simudroit.fr/simulateur-conges-payes/">Congés payés</a><a href="https://simudroit.fr/simulateur-fiche-de-paie/">Vérifier ma fiche de paie</a><a href="https://simudroit.fr/simulateur-solde-tout-compte/">Solde de tout compte</a><a href="https://simudroit.fr/simulateur-smic/">SMIC 2026</a><a href="https://simudroit.fr/salaire-brut-net/">Brut en net par montant</a><a href="https://simudroit.fr/metiers/">Mon métier : infirmier libéral, assistante maternelle, intérimaire</a><a href="https://simudroit.fr/retraite/">Retraite : par où commencer ?</a><a href="https://simudroit.fr/reconversion/">Reconversion : par où commencer ?</a><a href="https://simudroit.fr/jours-feries-2026-2027/">Jours fériés 2026 et 2027</a><a href="https://simudroit.fr/fiches-revision/">Fiches de révision</a><a href="https://simudroit.fr/aides/">Aides selon votre situation</a><a href="https://simudroit.fr/documents-a-generer/">Documents à générer</a></nav>
+  <p>© 2026 SimuDroit · <a href="https://simudroit.fr/">Tous les simulateurs</a> · <a href="https://simudroit.fr/methode-et-sources/">Méthode et sources</a> · <a href="https://simudroit.fr/contact/">Contact</a> · <a href="https://simudroit.fr/mentions-legales/">Mentions légales</a> · <a href="https://simudroit.fr/confidentialite/">Confidentialité</a></p>
+  <p>Les résultats sont des estimations indicatives. Ils n'ont pas de valeur juridique et ne remplacent pas un calcul officiel ni l'avis d'un professionnel.</p>
+</footer>
+
+<script>
+  var PL={1:[12957,15316,19433],2:[15289,17648,21765],3:[17621,19980,24097],4:[19095,21454,25570],5:[20568,22927,27044],6:[22041,24400,28517]};
+  function f(n){return n.toLocaleString("fr-FR")+" €"}
+  function sdAJ(o){var p=PL[o.n];if(!p||!(o.rfr>=0))return null;var r=o.rfr,niv=r<=p[0]?"totale":r<=p[1]?"55":r<=p[2]?"25":"non";return {niveau:niv,plafonds:p}}
+  window.sdAJ=sdAJ;
+  document.getElementById("calculate").addEventListener("click",function(){
+    var r=sdAJ({n:parseInt(document.getElementById("n").value,10),rfr:parseFloat(document.getElementById("rfr").value)});
+    var res=document.getElementById("result"),m=document.getElementById("main"),d=document.getElementById("det");
+    if(!r){m.textContent="Indiquez votre revenu fiscal de référence.";d.textContent="";res.classList.add("visible");return}
+    var t={totale:"Aide totale (100 %) possible sur le critère de revenu",55:"Aide partielle à 55 % possible sur le critère de revenu",25:"Aide partielle à 25 % possible sur le critère de revenu",non:"Au-dessus des plafonds de revenu"};
+    m.textContent=t[r.niveau];
+    d.innerHTML="Plafonds pour votre foyer : totale jusqu'à <strong>"+f(r.plafonds[0])+"</strong>, 55 % jusqu'à <strong>"+f(r.plafonds[1])+"</strong>, 25 % jusqu'à <strong>"+f(r.plafonds[2])+"</strong>."+(r.niveau==="non"?" Si vous n'avez pas de revenu fiscal de référence ou si votre situation est particulière, un autre mode de calcul existe : voir la fiche Service-Public.":"");
+    res.classList.add("visible")});
+</script>
+<script id="sd-inline-errors">
+(function () {
+  var style = document.createElement("style");
+  style.textContent = ".sd-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1c13;padding:12px 14px;border-radius:8px;margin:14px 0;font-size:.95rem}";
+  document.head.appendChild(style);
+
+  function clearError() {
+    var old = document.getElementById("sd-error");
+    if (old) old.remove();
+  }
+
+  window.alert = function (message) {
+    clearError();
+    var box = document.createElement("div");
+    box.id = "sd-error";
+    box.className = "sd-error";
+    box.setAttribute("role", "alert");
+    box.textContent = message;
+    var button = document.querySelector("main button");
+    if (button && button.parentNode) {
+      button.parentNode.insertBefore(box, button);
+    } else {
+      document.querySelector("main").prepend(box);
+    }
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  document.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("main button")) clearError();
+  }, true);
+})();
+</script>
+<script src="../assets/simulateur.js" defer></script>
+</body>
+</html>

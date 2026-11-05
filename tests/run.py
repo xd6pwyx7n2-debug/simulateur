@@ -453,6 +453,9 @@ for _v in ("A16711", "30 %", "CTP 719", "sdCoutRC"):
 _qz = open(os.path.join(ROOT, "quiz-droit-du-travail-vrai-ou-faux", "index.html"), encoding="utf-8").read()
 for _v in ("F1643", "F19030", "L1237-1-1", "L3245-1", "F24661", "L6315-1", "qz-static"):
     if _v not in _qz: fail("quiz travail : mention absente (%s)" % _v)
+_aj = _page("aide-juridictionnelle")
+for _v in ("F18074", "12 957", "sdAJ", "55 %"):
+    if _v not in _aj: fail("aide juridictionnelle : mention absente (%s)" % _v)
 _ps2 = open(os.path.join(ROOT, "mon-plan-de-sortie-surendettement", "index.html"), encoding="utf-8").read(); _psj = open(os.path.join(ROOT, "assets", "plan-sortie.js"), encoding="utf-8").read()
 for _v in ("Rien n'est envoyé", "3 mois", "Mémoriser ma progression sur cet appareil uniquement", "Tout effacer"):
     if _v not in _ps2: fail("plan de sortie : mention absente (%s)" % _v)
@@ -899,6 +902,11 @@ with sync_playwright() as pw:
     for _k in range(10):
         pg.click('.qz-btns button[data-a="1"]'); pg.click("#qz-n"); pg.wait_for_timeout(60)
     if "/ 10" not in pg.inner_text("#qz") or "Rejouer" not in pg.inner_text("#qz"): fail("quiz travail : écran de résultat")
+    # aide juridictionnelle : plafonds
+    pg.goto(LOCAL + "simulateur-aide-juridictionnelle/"); pg.wait_for_timeout(500)
+    for _n, _r, _e in ((1, 12957, "totale"), (1, 12958, "55"), (1, 15316, "55"), (1, 15317, "25"), (1, 19433, "25"), (1, 19434, "non"), (4, 19095, "totale"), (6, 28518, "non")):
+        _o = pg.evaluate("(a)=>window.sdAJ(a)", {"n": _n, "rfr": _r})
+        if _o["niveau"] != _e: fail("aide juridictionnelle : %s pers, %s euros attendu %s obtenu %s" % (_n, _r, _e, _o["niveau"]))
     # Mon plan de sortie du surendettement : analyse CSV, calendrier, progression (tout en local)
     pg.goto(LOCAL + "mon-plan-de-sortie-surendettement/"); pg.wait_for_timeout(600)
     _csv = "Date;Libellé;Montant\n01/09/2026;SALAIRE;1000,00\n02/09/2026;LOYER;-500,00\n03/09/2026;NETFLIX;-10,00\n03/10/2026;NETFLIX;-10,00\n05/10/2026;CARREFOUR;-40,00"

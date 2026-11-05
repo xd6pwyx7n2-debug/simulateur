@@ -375,5 +375,21 @@
    "plafonds d'exonération de cotisations non vérifiés",
    "page Urssaf RCI non datée de mise à jour"
   ]
+ },
+ "aide-juridictionnelle": {
+  "date_relecture": "2026-11-05",
+  "urls": [
+   "https://www.service-public.gouv.fr/particuliers/vosdroits/F18074"
+  ],
+  "regles_confirmees": [
+   "plafonds de revenu fiscal de référence par foyer de 1 à 6 personnes (aide totale, 55 %, 25 %)",
+   "demande auprès du bureau d'aide juridictionnelle",
+   "non-cumul avec une assurance de protection juridique"
+  ],
+  "non_verifie": [
+   "plafonds de patrimoine",
+   "foyers de 7 personnes et plus",
+   "date d'application exacte du barème (circulaire du 16 janvier 2026 citée, non consultée)"
+  ]
  }
 }
