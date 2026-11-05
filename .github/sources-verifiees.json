@@ -391,5 +391,23 @@
    "foyers de 7 personnes et plus",
    "date d'application exacte du barème (circulaire du 16 janvier 2026 citée, non consultée)"
   ]
+ },
+ "prime-de-noel": {
+  "date_relecture": "2026-11-05",
+  "urls": [
+   "https://caf.fr/professionnels/presse/publications/les-caf-versent-la-prime-de-noel-22-millions-de-familles-compter-du-16-decembre",
+   "https://www.francetravail.fr/candidat/mes-droits-aux-aides-et-allocati/aides-financieres-et-autres-allo/aide-exceptionnelle-de-fin-danne.html"
+  ],
+  "regles_confirmees": [
+   "barème RSA 2025 par composition du foyer (152,45 € à 442,11 €, 60,98 € par enfant en plus)",
+   "ASS et AER : 152,45 € fixe (76,23 € à Mayotte)",
+   "versement automatique à partir du 16 décembre 2025",
+   "prime non imposable"
+  ],
+  "non_verifie": [
+   "montants et date 2026",
+   "conditions détaillées d'accès pour l'ASS et l'AER",
+   "montants à Mayotte pour le RSA"
+  ]
  }
 }
