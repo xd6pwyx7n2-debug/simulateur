@@ -333,6 +333,14 @@ for _v in ('F20314', '15 jours', 'après un an', 'Limites'):
 _ldeclar = _g("declaration-de-revenus-qui-doit-declarer-en-ligne-obligatoire-majoration-corriger")
 for _v in ('F358', '0,2 %', '60 €', '3 ans', 'Limites'):
     if _v not in _ldeclar: fail("guide litiges declaration- : mention absente (%s)" % _v)
+# Guide litiges solde-de-con
+_lsolde = _g("solde-de-conges-payes-a-la-sortie-indemnite-compensatrice-quand-elle-est-due-calcul")
+for _v in ('F24661', 'dixième', 'maintien de salaire', '873,60', 'Limites'):
+    if _v not in _lsolde: fail("guide litiges solde-de-con : mention absente (%s)" % _v)
+# Guide litiges entretien-pr
+_lentret = _g("entretien-professionnel-tous-les-4-ans-etat-des-lieux-8-ans-ce-qui-change-2026")
+for _v in ('L6315-1', 'quatre ans', 'huit ans', 'L6323-13', 'Limites'):
+    if _v not in _lentret: fail("guide litiges entretien-pr : mention absente (%s)" % _v)
 # Guide Black Friday
 _bf = _g("black-friday-achats-en-ligne-droit-de-retractation-14-jours-garantie-2-ans")
 for _v in ("14 jours", "2 ans", "27 novembre 2026", "F10485", "F11094", "F10868", "Limites"):
