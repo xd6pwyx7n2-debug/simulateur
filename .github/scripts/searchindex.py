@@ -62,6 +62,7 @@ SYN = {
     "guides/solde-de-conges-payes-a-la-sortie-indemnite-compensatrice-quand-elle-est-due-calcul": "solde conges payes sortie indemnite compensatrice fin de contrat demission licenciement cdd interim dixieme maintien de salaire solde de tout compte",
     "guides/entretien-professionnel-tous-les-4-ans-etat-des-lieux-8-ans-ce-qui-change-2026": "entretien professionnel parcours professionnel tous les 4 ans etat des lieux 8 ans cpf abondement employeur salarie loi 2025",
     "guides/calendrier-echeances-particuliers-decembre-2026-taxe-habitation-prelevement-mensualisation": "echeances decembre 2026 taxe habitation prelevement mensualisation acompte impots calendrier fiscal",
+    "guides/trouver-un-avocat-consultation-gratuite-honoraires-aide-juridictionnelle": "avocat trouver consultation gratuite honoraires convention aide juridictionnelle point-justice barreau plafonds",
     "guides/credit-a-la-consommation-retractation-14-jours-remboursement-anticipe-credit-renouvelable": "credit consommation retractation 14 jours remboursement anticipe credit renouvelable revolving taeg pret personnel taux usure",
     "guides/pension-alimentaire-impayee-aripa-intermediation-allocation-soutien-familial": "pension alimentaire impayee aripa intermediation financiere caf msa allocation soutien familial asf recouvrement enfant parent",
     "guides/salaire-impaye-ou-en-retard-que-faire-prescription-3-ans-prud-hommes": "salaire impaye retard paiement prescription 3 ans prud hommes mise en demeure rappel de salaire employeur ne paie pas",

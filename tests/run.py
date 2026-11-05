@@ -345,6 +345,10 @@ for _v in ('L6315-1', 'quatre ans', 'huit ans', 'L6323-13', 'Limites'):
 _lcalend = _g("calendrier-echeances-particuliers-decembre-2026-taxe-habitation-prelevement-mensualisation")
 for _v in ('30 novembre', '15 décembre', '20 décembre', '28 décembre', 'Limites'):
     if _v not in _lcalend: fail("guide litiges calendrier-e : mention absente (%s)" % _v)
+# Guide litiges trouver-un-a
+_ltrouve = _g("trouver-un-avocat-consultation-gratuite-honoraires-aide-juridictionnelle")
+for _v in ('F20706', 'F15018', 'F18074', '12 957', 'Limites'):
+    if _v not in _ltrouve: fail("guide litiges trouver-un-a : mention absente (%s)" % _v)
 # Guide Black Friday
 _bf = _g("black-friday-achats-en-ligne-droit-de-retractation-14-jours-garantie-2-ans")
 for _v in ("14 jours", "2 ans", "27 novembre 2026", "F10485", "F11094", "F10868", "Limites"):
