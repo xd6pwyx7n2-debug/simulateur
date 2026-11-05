@@ -213,3 +213,5 @@ th[scope=row],tbody th{color:var(--ink)!important}
 .fiche table{border:2px solid var(--ink)!important;border-radius:6px!important;box-shadow:4px 4px 0 var(--ink)}
 .sd-news{background:var(--ink)!important;background-image:none!important;border-bottom:3px solid var(--stamp)}
 .sd-news-sub{background:none!important;color:#f0e8d6!important}
+.sd-voir{max-width:860px;margin:2rem auto 0;padding:14px 18px;background:var(--t3);border:2px solid var(--ink);border-radius:6px;box-shadow:4px 4px 0 var(--ink);font-size:.98rem}
+.sd-voir a{color:#a32616;font-weight:700}
