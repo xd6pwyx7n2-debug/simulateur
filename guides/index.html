@@ -117,7 +117,7 @@
       c.hidden=!ok; if(ok)n++;
     });
     var mob=window.matchMedia("(max-width:600px)").matches,lim=12,wrap=document.getElementById("gd-morewrap"),btn=document.getElementById("gd-more");
-    if(mob&&cat==="all"&&!term&&!expanded){var k=0;cards.forEach(function(c){if(!c.hidden){k++;if(k>lim)c.hidden=true;}});wrap.hidden=n<=lim;btn.textContent="Voir les "+(n-lim)+" autres guides";}else wrap.hidden=true;
+    if(cat==="all"&&!term&&!expanded){var k=0;cards.forEach(function(c){if(!c.hidden){k++;if(k>lim)c.hidden=true;}});wrap.hidden=n<=lim;btn.textContent="Voir les "+(n-lim)+" autres guides";}else wrap.hidden=true;
     feat.hidden=!(cat==="all"&&!term);
     empty.hidden=n>0; count.textContent="("+n+")";
   }

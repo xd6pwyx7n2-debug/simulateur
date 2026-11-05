@@ -11,20 +11,29 @@ function load(cb){
     cb();
   }).catch(function(){loading=false;});
 }
+var STOP=" le la les un une des de du d l a au aux en et ou pour par sur sous avec sans mon ma mes ton ta tes son sa ses notre nos votre vos je j me m moi vais veux voudrais souhaite souhaiterais vas peux puis dois combien comment quand quel quelle quels quelles est ce c ca que qu quoi apres avant si y il elle on nous vous ils pas ne n se s t sont etre avoir faire fait cas suite pendant lors ai as ont suis ";
+var SYN={demissionner:["demission","preavis"],demissionne:["demission","preavis"],licencier:["licenciement"],licencie:["licenciement"],toucher:["indemnite","allocation"],touche:["indemnite","allocation"],percevoir:["indemnite","allocation"],recevoir:["indemnite","allocation"],gagne:["salaire"],gagner:["salaire"],paye:["salaire"],remuneration:["salaire"],quitter:["demission","rupture"],partir:["demission","rupture","retraite"],virer:["licenciement"],vire:["licenciement"],chomeur:["chomage"],argent:["epargne"],placer:["epargne","placement"],pret:["credit","immobilier"],acheter:["immobilier"],maison:["immobilier"],appartement:["immobilier"],louer:["loyer","logement"],bebe:["maternite","naissance"],enfant:["maternite","naissance","paternite"],enceinte:["maternite"],malade:["maladie","arret"],arret:["maladie"],cv:["cv"],lettre:["modele"]};
 function search(q){
-  var toks=norm(q).split(" ").filter(Boolean); if(!toks.length)return[];
+  var all=norm(q).split(" ").filter(Boolean),toks=all.filter(function(w){return STOP.indexOf(" "+w+" ")<0;});
+  if(!toks.length)toks=all; if(!toks.length)return[];
+  var need=toks.length<3?toks.length:Math.ceil(toks.length*0.5);
   var out=[];
+  function sc1(p,w){var sc=0;
+    if(p.nt.indexOf(w)===0||p.nt.indexOf(" "+w)>=0)sc=Math.max(sc,10); else if(p.nt.indexOf(w)>=0)sc=Math.max(sc,7);
+    if(p.nk.indexOf(" "+w)>=0||p.nk.indexOf(w)===0)sc=Math.max(sc,8); else if(p.nk.indexOf(w)>=0)sc=Math.max(sc,5);
+    if(p.nd.indexOf(w)>=0)sc=Math.max(sc,3);
+    return sc;}
   idx.forEach(function(p){
-    var s=0;
+    var s=0,hit=0;
     for(var i=0;i<toks.length;i++){
-      var w=toks[i], sc=0;
-      if(p.nt.indexOf(w)===0||p.nt.indexOf(" "+w)>=0)sc=Math.max(sc,10); else if(p.nt.indexOf(w)>=0)sc=Math.max(sc,7);
-      if(p.nk.indexOf(" "+w)>=0||p.nk.indexOf(w)===0)sc=Math.max(sc,8); else if(p.nk.indexOf(w)>=0)sc=Math.max(sc,5);
-      if(p.nd.indexOf(w)>=0)sc=Math.max(sc,3);
-      if(!sc){s=0;return;} s+=sc;
+      var w=toks[i],sc=sc1(p,w),sy=SYN[w]||[];
+      for(var j=0;j<sy.length;j++)sc=Math.max(sc,sc1(p,sy[j])*0.8);
+      if(sc){s+=sc;hit++;}
     }
-    if(s&&p.nt.indexOf(norm(q))>=0)s+=6;
-    if(s&&(p.k==="Simulateur"||p.k==="Outil"))s+=1.5;
+    if(hit<need)return;
+    if(hit===toks.length)s+=4;
+    var nq=toks.join(" ");if(s&&p.nt.indexOf(norm(q))>=0)s+=6;else if(s&&toks.length>1&&(p.nt.indexOf(nq)>=0||p.nk.indexOf(nq)>=0))s+=6;
+    if(s&&(p.k==="Simulateur"||p.k==="Outil"))s+=4;
     if(s)out.push([s,p]);
   });
   out.sort(function(a,b){return b[0]-a[0]||a[1].t.length-b[1].t.length;});

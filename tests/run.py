@@ -294,7 +294,7 @@ for _h in ("independants", "employeurs-rh", "epargne", "retraite", "guides", "ai
     _hp = open(_h + "/index.html", encoding="utf-8").read()
     if _hp.count('<li><a href=') < 3 or 'class="sd-start"' not in _hp or _hp.index('class="sd-start"') - _hp.index("<main") > 6000: fail("page %s : bloc « Par où commencer » absent ou trop bas" % _h)
 _ix = open("index.html", encoding="utf-8").read()
-if 'class="sd-top"' not in _ix or 'href="/epargne/"><span class="sit-ico"' not in _ix or "Je ne sais pas par où commencer</strong>" in _ix: fail("accueil : raccourcis « les plus demandés » ou tuile « argent et logement » absents")
+if 'class="sd-top"' not in _ix or 'id="objectifs"' not in _ix or "Je ne sais pas par où commencer" in _ix or _ix.count('class="sd-tab"') != 4: fail("accueil : objectifs, raccourcis ou suppression du « je ne sais pas par où commencer »")
 # Lettres types : nouvelles pages dédiées
 for _s, _k in (("modele-lettre-signalement-harcelement-moral-employeur", "harcelement"), ("modele-lettre-priorite-de-reembauche-licenciement-economique", "reembauche"), ("modele-lettre-demande-copie-contrat-de-travail", "copiecontrat"), ("modele-lettre-reclamation-indemnite-conges-payes-non-pris", "indcp"), ("modele-lettre-demande-report-entretien-prealable-licenciement", "reportentretien"), ("modele-lettre-demande-amenagement-de-poste-medecin-du-travail", "amenagement"), ("modele-lettre-demande-temps-partiel-therapeutique", "tpt")):
     _lp = open(_s + "/index.html", encoding="utf-8").read()
@@ -644,6 +644,35 @@ with sync_playwright() as pw:
     if "REÇU DE PAIEMENT PARTIEL" not in _q2 or "300,00" not in _q2: fail("quittance : reçu de paiement partiel ou reste dû absent : %s" % _q2[:300])
     with pg.expect_download() as _dq: pg.click("#qt-docx")
     if "word/document.xml" not in __import__("zipfile").ZipFile(_dq.value.path()).namelist(): fail("quittance : fichier .docx invalide")
+    # Parcours : 5 scénarios visiteurs (au plus 2 clics, ou la recherche)
+    def _goal(_tab, _lien, _cible):
+        pg.goto(LOCAL); pg.wait_for_timeout(300)
+        pg.click('label.sd-tab:has-text("%s")' % _tab); pg.wait_for_timeout(100)
+        _a = pg.locator('.sd-panel a[href="%s"]:visible' % _cible)
+        if _a.count() != 1: fail("parcours : « %s » > « %s » : lien vers %s absent ou en double" % (_tab, _lien, _cible)); return
+        if _lien not in _a.first.inner_text(): fail("parcours : libellé « %s » absent pour %s" % (_lien, _cible))
+        _a.first.click(); pg.wait_for_timeout(300)
+        if not pg.url.rstrip("/").endswith(_cible.rstrip("/")): fail("parcours : %s n'atteint pas %s (%s)" % (_lien, _cible, pg.url))
+    _goal("Calculer un montant", "licenciement", "/simulateur-indemnite-licenciement/")
+    _goal("Calculer un montant", "chômage", "/simulateur-chomage/")
+    _goal("Calculer un montant", "arrêt maladie", "/simulateur-indemnites-journalieres-maladie/")
+    _goal("Préparer une démarche", "démissionner", "/simulateur-preavis-demission/")
+    _goal("Faire évoluer", "reconvertir", "/faire-le-point-reconversion/")
+    for _q, _u in (("indemnité de licenciement", "/simulateur-indemnite-licenciement/"), ("combien vais-je toucher après mon licenciement", "/simulateur-indemnite-licenciement/"), ("arrêt maladie", "/simulateur-indemnites-journalieres-maladie/"), ("prêt immobilier", "/generateur-dossier-pret-immobilier/"), ("simulateur congés payés", "/simulateur-conges-payes/"), ("je veux démissionner", "/simulateur-preavis-demission/"), ("Je quitte mon entreprise après une rupture conventionnelle", "/simulateur-rupture-conventionnelle/")):
+        pg.goto(LOCAL); pg.fill("#site-q", _q); pg.wait_for_timeout(500)
+        _hr = pg.evaluate("[...document.querySelectorAll('#site-q-list a')].slice(0,4).map(a=>a.getAttribute('href'))")
+        if _u not in _hr: fail("recherche « %s » : %s absent des 4 premiers résultats (%s)" % (_q, _u, _hr))
+    # visiteur qui revient : « Reprendre là où vous en étiez »
+    pg.goto(LOCAL); pg.evaluate("localStorage.removeItem('sd-recents-v1')"); pg.reload(); pg.wait_for_timeout(200)
+    if pg.locator("#sd-recents").count() != 0: fail("accueil : bloc « Reprendre » affiché sans historique")
+    pg.goto(LOCAL + "simulateur-chomage/"); pg.wait_for_timeout(200); pg.goto(LOCAL + "simulateur-conges-payes/"); pg.wait_for_timeout(200)
+    pg.goto(LOCAL); pg.wait_for_timeout(300)
+    _rc = pg.evaluate("[...document.querySelectorAll('#sd-recents a')].map(a=>a.getAttribute('href'))")
+    if _rc != ["/simulateur-conges-payes/", "/simulateur-chomage/"]: fail("accueil : « Reprendre » incorrect %s" % _rc)
+    pg.click("#sd-recents .sd-recents-x"); pg.wait_for_timeout(100)
+    if pg.locator("#sd-recents").count() != 0 or pg.evaluate("localStorage.getItem('sd-recents-v1')") is not None: fail("accueil : « Effacer cette liste » inefficace")
+    pg.goto(LOCAL + "assistant/"); pg.wait_for_timeout(200)
+    if pg.locator("label.sd-tab").count() != 4 or pg.locator(".sd-panel a").count() < 20: fail("assistant : parcours par objectif absent")
     pg.goto(LOCAL + "generateur-dossier-pret-immobilier/"); pg.wait_for_timeout(300); pg.click("#dp-example"); pg.wait_for_timeout(200)
     _dp = pg.inner_text("#dp-sheet").replace("\u202f", " ").replace("\u00a0", " ")
     for _m in ("DOSSIER DE DEMANDE DE PRÊT IMMOBILIER", "Plan de financement", "Taux d'endettement", "Reste à vivre", "Pièces à joindre", "Capital restant dû", "Taux actuel"):
