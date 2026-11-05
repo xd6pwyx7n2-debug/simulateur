@@ -309,3 +309,25 @@ html[data-theme="dark"] .result .rl-kpi div{color:#1b1f2a!important;background:r
 html[data-theme="dark"] .result .rl-kpi span,html[data-theme="dark"] .result .rl-kpi b{color:#1b1f2a!important}
 html[data-theme="dark"] .result .rl-kpi .ok{border-color:#1f5f4a!important}html[data-theme="dark"] .result .rl-kpi .ko{border-color:#c8321e!important}
 html[data-theme="dark"] .rl-bar{border-color:#1b1f2a}html[data-theme="dark"] .rl-leg i{border-color:#1b1f2a}
+
+/* Par ou commencer : trois choix clairs en tete des pages thematiques */
+.sd-start{margin:18px 0 26px;padding:18px 18px 16px;border:2.5px solid var(--ink);background:var(--white);box-shadow:6px 6px 0 var(--stamp)}
+.sd-start h2{margin:0 0 12px;font-size:1.25rem}
+.sd-start-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.sd-start-list a{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border:2px solid var(--ink);background:var(--bg);text-decoration:none;color:var(--ink);height:100%}
+.sd-start-list a:hover,.sd-start-list a:focus-visible{background:var(--jaune)}
+.sd-start-n{flex:none;width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--white);display:inline-flex;align-items:center;justify-content:center;font-weight:800}
+.sd-start-t strong{display:block;font-size:1.02rem;line-height:1.25}
+.sd-start-t small{display:block;margin-top:3px;font-size:.88rem;opacity:.85}
+.sd-start-more{margin:12px 0 0;font-size:.92rem}
+@media(max-width:760px){.sd-start-list{grid-template-columns:1fr}.sd-start{padding:14px;box-shadow:4px 4px 0 var(--stamp)}}
+.sit.sit-first{border-width:2.5px;box-shadow:5px 5px 0 var(--stamp)}
+html[data-theme="dark"] .sd-start-list a:hover{color:#1b1f2a}
+.sit.sit-first{grid-column:1/-1}
+
+/* Raccourcis directs sous la recherche de l'accueil */
+.sd-top{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;margin:16px auto 6px;max-width:900px}
+.sd-top-l{font-weight:800;margin-right:4px}
+.sd-top a{padding:8px 14px;border:2px solid var(--ink);background:var(--white);color:var(--ink);text-decoration:none;font-weight:700;font-size:.95rem}
+.sd-top a:hover,.sd-top a:focus-visible{background:var(--jaune);color:#1b1f2a}
+@media(max-width:560px){.sd-top{justify-content:flex-start}.sd-top-l{flex-basis:100%}}

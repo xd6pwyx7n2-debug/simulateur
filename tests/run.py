@@ -289,6 +289,12 @@ for _v in ("19 décembre 2026 au 4 janvier 2027", "13 février au 1er mars 2027"
 _cc = _g("credit-a-la-consommation-retractation-14-jours-remboursement-anticipe-credit-renouvelable")
 for _v in ("14 jours", "75 000 €", "10 000 €", "0,5 %", "TAEG", "8 %", "F2451", "F2436", "Limites"):
     if _v not in _cc: fail("guide crédit conso : mention absente (%s)" % _v)
+# Parcours simplifié : "Par où commencer" en tête des pages thématiques
+for _h in ("independants", "employeurs-rh", "epargne", "retraite", "guides", "aides"):
+    _hp = open(_h + "/index.html", encoding="utf-8").read()
+    if _hp.count('<li><a href=') < 3 or 'class="sd-start"' not in _hp or _hp.index('class="sd-start"') - _hp.index("<main") > 6000: fail("page %s : bloc « Par où commencer » absent ou trop bas" % _h)
+_ix = open("index.html", encoding="utf-8").read()
+if 'class="sd-top"' not in _ix or 'href="/epargne/"><span class="sit-ico"' not in _ix or "Je ne sais pas par où commencer</strong>" in _ix: fail("accueil : raccourcis « les plus demandés » ou tuile « argent et logement » absents")
 # Lettres types : nouvelles pages dédiées
 for _s, _k in (("modele-lettre-signalement-harcelement-moral-employeur", "harcelement"), ("modele-lettre-priorite-de-reembauche-licenciement-economique", "reembauche"), ("modele-lettre-demande-copie-contrat-de-travail", "copiecontrat"), ("modele-lettre-reclamation-indemnite-conges-payes-non-pris", "indcp"), ("modele-lettre-demande-report-entretien-prealable-licenciement", "reportentretien"), ("modele-lettre-demande-amenagement-de-poste-medecin-du-travail", "amenagement"), ("modele-lettre-demande-temps-partiel-therapeutique", "tpt")):
     _lp = open(_s + "/index.html", encoding="utf-8").read()
