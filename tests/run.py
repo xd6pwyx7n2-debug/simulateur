@@ -313,7 +313,7 @@ for _m in ("contrat d'insertion par l'activité", "CUI", "au moins un an", "108 
     if _m not in _dm: fail("guide démission et chômage : mention absente (%s)" % _m)
 if "d'un CUI ou d'un service civique, pour un emploi" in _dm: fail("guide démission et chômage : ancien passage imprécis encore présent")
 _gi = open(os.path.join(ROOT, "metiers", "grille-indiciaire-infirmier-hospitalier", "index.html"), encoding="utf-8").read()
-for _m in ("Grille indiciaire des infirmiers en soins généraux – Fonction publique hospitalière", "JORFTEXT000022866295", "JORFTEXT000044126441", "JORFTEXT000000872483", "JORFTEXT000042345102", "décret n° 2020-1152", "ne constitue pas un élément systématique de rémunération", "Les infirmiers de bloc opératoire et les puéricultrices"):
+for _m in ("<title>Grille indiciaire infirmier en soins généraux (ISGS) – FPH</title>", "<h1>Grille indiciaire des infirmiers en soins généraux – Fonction publique hospitalière</h1>", "décret n° 82-1105", "JORFTEXT000022866295", "JORFTEXT000044126441", "JORFTEXT000000872483", "JORFTEXT000042345102", "décret n° 2020-1152", "ne constitue pas un élément systématique de rémunération", "Les infirmiers de bloc opératoire et les puéricultrices"):
     if _m not in _gi: fail("grille infirmier hospitalier : mention absente (%s)" % _m)
 for _m in ("juristique.org", "salerya.fr", "emploipublic.fr", "Je n'ai pas pu consulter le texte officiel"):
     if _m in _gi: fail("grille infirmier hospitalier : source tierce ou ancienne réserve encore présente (%s)" % _m)
