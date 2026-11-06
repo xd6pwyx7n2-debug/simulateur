@@ -326,13 +326,13 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
     var t=e.target.closest&&e.target.closest("label.sd-tab,.sd-panel a,.sd-top a,.sd-start-list a,.sd-more>summary,.sd-goal-all a");
     if(!t)return;
     if(t.matches("label.sd-tab"))ev("Objectif",{objectif:(t.querySelector("strong")||{}).textContent||""});
-    else if(t.matches(".sd-panel a,.sd-goal-all a"))ev("Situation",{cible:(t.getAttribute("href")||"").slice(0,80)});
+    else if(t.matches(".sd-panel a,.sd-goal-all a")){var pn=t.closest(".sd-panel");ev("Situation",{objectif:(pn&&pn.getAttribute("aria-label"))||"",cible:(t.getAttribute("href")||"").slice(0,80)});}
     else if(t.matches(".sd-top a"))ev("Raccourci",{cible:(t.getAttribute("href")||"").slice(0,80)});
-    else if(t.matches(".sd-start-list a"))ev("Les plus demandés",{cible:(t.getAttribute("href")||"").slice(0,80)});
-    else ev("Catalogue",{page:location.pathname});
+    else if(t.matches(".sd-start-list a"))ev("Les plus demandés",{page:location.pathname,cible:(t.getAttribute("href")||"").slice(0,80)});
+    else if(t.matches(".sd-more>summary")){if(!(t.parentNode&&t.parentNode.open))ev("Catalogue",{page:location.pathname});}
   },true);
-  var q=document.getElementById("site-q"),sent=false;
-  if(q)q.addEventListener("input",function(){if(!sent&&q.value.length>2){sent=true;ev("Recherche");}});
+  var sent=false;
+  document.addEventListener("input",function(e){var q=e.target;if(q&&q.id==="site-q"&&!sent&&q.value.length>2){sent=true;ev("Recherche",{page:location.pathname});}},true);
 })();
 
 /* Visiteur qui revient : derniers outils consultés, stockés uniquement dans ce navigateur (aucun envoi). */

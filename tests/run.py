@@ -687,6 +687,22 @@ with sync_playwright() as pw:
         if "rupture conventionnelle" in _q and _hr[0] != "/simulateur-rupture-conventionnelle/": fail("recherche « %s » : le simulateur de rupture conventionnelle n'est pas premier (%s)" % (_q, _hr[:3]))
         if _q == "je veux démissionner" and _hr[0] != "/simulateur-preavis-demission/": fail("recherche démission : le préavis n'est pas premier (%s)" % _hr[:3])
         if _u not in _hr: fail("recherche « %s » : %s absent des 4 premiers résultats (%s)" % (_q, _u, _hr))
+    # mesure Plausible : événements déclenchés au clic, propriétés attendues, aucune donnée saisie
+    _ctx = pg.context.browser.new_context(); _pe = _ctx.new_page()
+    _pe.add_init_script("window.__ev=[];window.plausible=function(n,o){window.__ev.push([n,(o&&o.props)||{}])};")
+    _pe.goto(LOCAL); _pe.wait_for_timeout(300)
+    if _pe.evaluate("window.__ev.length") != 0: fail("plausible : événement envoyé au simple chargement de l'accueil")
+    _pe.locator("label.sd-tab").nth(2).click(); _pe.wait_for_timeout(100)
+    _pe.locator(".sd-panel:visible a").first.evaluate("a=>{a.addEventListener('click',e=>e.preventDefault());a.click()}")
+    _pe.locator(".sd-top a").first.evaluate("a=>{a.addEventListener('click',e=>e.preventDefault());a.click()}")
+    _sm = _pe.locator("details.sd-more>summary").first; _sm.click(); _pe.wait_for_timeout(80); _sm.click(); _pe.wait_for_timeout(80)
+    _pe.fill("#site-q", "licenciement"); _pe.fill("#site-q", "chômage"); _pe.wait_for_timeout(150)
+    _evs = _pe.evaluate("window.__ev"); _noms = [e[0] for e in _evs]
+    if _noms != ["Objectif", "Situation", "Raccourci", "Catalogue", "Recherche"]: fail("plausible : événements reçus %s (attendu Objectif, Situation, Raccourci, Catalogue, Recherche, sans doublon)" % _noms)
+    elif _evs[0][1].get("objectif") != "Préparer une démarche" or _evs[1][1].get("objectif") != "Préparer une démarche" or not _evs[1][1].get("cible", "").startswith("/"): fail("plausible : propriétés incorrectes %s" % _evs[:2])
+    _pe.goto(LOCAL + "simulateur-chomage/"); _pe.wait_for_timeout(200); _pe.locator("input").first.fill("2500"); _pe.wait_for_timeout(150)
+    if _pe.evaluate("window.__ev.length") != 0: fail("plausible : événement déclenché par une saisie de simulateur")
+    _ctx.close()
     # visiteur qui revient : « Reprendre là où vous en étiez »
     pg.goto(LOCAL); pg.evaluate("localStorage.removeItem('sd-recents-v1')"); pg.reload(); pg.wait_for_timeout(200)
     if pg.locator("#sd-recents").count() != 0: fail("accueil : bloc « Reprendre » affiché sans historique")
