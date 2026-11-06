@@ -312,6 +312,12 @@ if '"dateModified": "2026-11-06"' not in _dm or '<time datetime="2026-11-06">6 n
 for _m in ("contrat d'insertion par l'activité", "CUI", "au moins un an", "108 jours ou 758 heures", "https://demission-reconversion.gouv.fr/", "1 300 jours", "Transitions Pro"):
     if _m not in _dm: fail("guide démission et chômage : mention absente (%s)" % _m)
 if "d'un CUI ou d'un service civique, pour un emploi" in _dm: fail("guide démission et chômage : ancien passage imprécis encore présent")
+_gi = open(os.path.join(ROOT, "metiers", "grille-indiciaire-infirmier-hospitalier", "index.html"), encoding="utf-8").read()
+for _m in ("Grille indiciaire des infirmiers en soins généraux – Fonction publique hospitalière", "JORFTEXT000022866295", "JORFTEXT000044126441", "JORFTEXT000000872483", "JORFTEXT000042345102", "décret n° 2020-1152", "ne constitue pas un élément systématique de rémunération", "Les infirmiers de bloc opératoire et les puéricultrices"):
+    if _m not in _gi: fail("grille infirmier hospitalier : mention absente (%s)" % _m)
+for _m in ("juristique.org", "salerya.fr", "emploipublic.fr", "Je n'ai pas pu consulter le texte officiel"):
+    if _m in _gi: fail("grille infirmier hospitalier : source tierce ou ancienne réserve encore présente (%s)" % _m)
+if _gi.count("<tr><td>") != 22: fail("grille infirmier hospitalier : le tableau ne compte plus 22 lignes d'échelon")
 # Parcours simplifié : "Par où commencer" en tête des pages thématiques
 for _h in ("independants", "employeurs-rh", "epargne", "retraite", "guides", "aides"):
     _hp = open(_h + "/index.html", encoding="utf-8").read()
