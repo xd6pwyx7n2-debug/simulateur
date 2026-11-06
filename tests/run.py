@@ -300,8 +300,15 @@ for _gs in sorted(os.listdir(os.path.join(ROOT, "guides"))):
         if _bj.get("@type") == "BreadcrumbList":
             _last = _bj["itemListElement"][-1]
             if _last["item"].rstrip("/").split("/")[-1] != _gs: fail("guide %s : fil d'Ariane pointe vers %s" % (_gs, _last["item"]))
+            _h1 = _reb.sub(r"<[^>]+>", "", _reb.search(r"<h1[^>]*>(.*?)</h1>", _gh, _reb.S).group(1))
+            _cn = _reb.search(r'<link rel="canonical" href="([^"]*)"', _gh).group(1)
+            _tk = lambda _t: set(_reb.findall(r"[a-z0-9]{3,}", __import__("unicodedata").normalize("NFD", _t.lower()).encode("ascii", "ignore").decode()))
+            _a, _b = _tk(_last["name"]), _tk(_h1)
+            if _last["item"] != _cn: fail("guide %s : fil d'Ariane ≠ canonical (%s / %s)" % (_gs, _last["item"], _cn))
+            if len(_a & _b) / max(1, len(_a)) < 0.6: fail("guide %s : nom du fil d'Ariane « %s » incohérent avec le H1 « %s »" % (_gs, _last["name"], _h1[:60]))
             if _last["name"] == "Prime de précarité en CDD : comment la calculer ?" and _gs != "prime-precarite-cdd": fail("guide %s : fil d'Ariane nommé « %s »" % (_gs, _last["name"]))
 _dm = _g("demission-et-chomage-droits")
+if '"dateModified": "2026-11-06"' not in _dm or '<time datetime="2026-11-06">6 novembre 2026</time>' not in _dm: fail("guide démission et chômage : date de dernière modification non à jour")
 for _m in ("contrat d'insertion par l'activité", "CUI", "au moins un an", "108 jours ou 758 heures", "https://demission-reconversion.gouv.fr/", "1 300 jours", "Transitions Pro"):
     if _m not in _dm: fail("guide démission et chômage : mention absente (%s)" % _m)
 if "d'un CUI ou d'un service civique, pour un emploi" in _dm: fail("guide démission et chômage : ancien passage imprécis encore présent")
