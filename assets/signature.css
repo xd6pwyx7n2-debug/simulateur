@@ -392,3 +392,16 @@ button,.button,.btn,a.button{border-radius:10px}
 .hero,.fiche-hero,.card,.cat,.sit,.gd-card{border-radius:16px!important}
 .sd-top a,.sd-top-l a,.sd-top>a{border-radius:99px!important;border:1px solid var(--edge)!important;box-shadow:var(--sh-s)!important;background:var(--white)!important}
 .sd-news{border-bottom-width:1px}
+/* Accueil : onglets d'objectifs, version dynamique (teinte de chaque rubrique) */
+#sd-g0:checked~.sd-tab-labels label[for=sd-g0],#sd-g1:checked~.sd-tab-labels label[for=sd-g1],#sd-g2:checked~.sd-tab-labels label[for=sd-g2],#sd-g3:checked~.sd-tab-labels label[for=sd-g3]{background:linear-gradient(135deg,color-mix(in srgb,var(--c) 16%,var(--white)),var(--white) 78%);color:var(--ink);border-color:var(--c);box-shadow:0 0 0 1px var(--c),0 10px 24px color-mix(in srgb,var(--c) 22%,transparent);transform:translateY(-2px)}
+.sd-tab:hover{background:color-mix(in srgb,var(--c) 7%,var(--white))}
+.sd-tab .sd-goal-i{transition:transform .2s;box-shadow:0 4px 10px color-mix(in srgb,var(--c) 35%,transparent)}
+.sd-tab:hover .sd-goal-i,#sd-g0:checked~.sd-tab-labels label[for=sd-g0] .sd-goal-i,#sd-g1:checked~.sd-tab-labels label[for=sd-g1] .sd-goal-i,#sd-g2:checked~.sd-tab-labels label[for=sd-g2] .sd-goal-i,#sd-g3:checked~.sd-tab-labels label[for=sd-g3] .sd-goal-i{transform:scale(1.08) rotate(-4deg)}
+.sd-panels{border:1px solid var(--edge);background:var(--white);box-shadow:var(--sh-m)}
+.sd-panel{border-top:0;background:linear-gradient(180deg,color-mix(in srgb,var(--c) 9%,var(--white)),var(--white) 90px);animation:sdPanelIn .28s ease-out}
+.sd-panel li a{border-bottom:0;border-radius:12px;margin:2px 0;transition:background .15s,transform .15s,padding .15s}
+.sd-panel li a:hover,.sd-panel li a:focus-visible{background:color-mix(in srgb,var(--c) 12%,var(--white));color:var(--ink);transform:translateX(4px)}
+.sd-panel li a strong{transition:color .15s}
+.sd-panel li a:hover strong{color:var(--c)}
+@keyframes sdPanelIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.sd-panel{animation:none}.sd-tab,.sd-tab .sd-goal-i,.sd-panel li a{transition:none}.sd-tab:hover .sd-goal-i,.sd-panel li a:hover{transform:none}}
