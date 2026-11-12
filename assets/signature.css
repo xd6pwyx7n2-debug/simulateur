@@ -405,3 +405,14 @@ button,.button,.btn,a.button{border-radius:10px}
 .sd-panel li a:hover strong{color:var(--c)}
 @keyframes sdPanelIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){.sd-panel{animation:none}.sd-tab,.sd-tab .sd-goal-i,.sd-panel li a{transition:none}.sd-tab:hover .sd-goal-i,.sd-panel li a:hover{transform:none}}
+/* Cohérence : boutons pleins, plus de dégradé rouge-violet, bandeaux plus sobres */
+.calculator button:not(.sd-chip):not(.sd-secondary):not(.sd-choice):not(.sd-back),article .cta,.cta-btn{background:var(--stamp)!important;box-shadow:0 1px 2px rgba(200,50,30,.25),0 8px 20px rgba(200,50,30,.22)!important;transition:transform .15s,box-shadow .15s,filter .15s}
+.calculator button:not(.sd-chip):not(.sd-secondary):not(.sd-choice):not(.sd-back):hover,article .cta:hover,.cta-btn:hover{transform:translateY(-1px);filter:brightness(1.06);box-shadow:0 2px 4px rgba(200,50,30,.28),0 12px 26px rgba(200,50,30,.28)!important}
+.calculator{border-top:4px solid var(--stamp)!important;border-radius:18px!important}
+.sd-next-n{background:var(--stamp)!important;color:#fff!important;border:0!important}
+#une{background:linear-gradient(180deg,#fbf6ea,var(--paper))!important}
+.sd-line li.cur .sd-line-dot{background:var(--stamp)!important}
+.sd-chip:hover{background:color-mix(in srgb,var(--stamp) 10%,var(--white))!important}
+textarea{width:100%!important;box-sizing:border-box;font:500 1rem Inter,Arial,sans-serif!important;min-height:92px;padding:12px 14px!important;line-height:1.5;resize:vertical}
+.calculator button#vider,.calculator button#effacer,.calculator button#reset,.calculator button[id*="vider"],.calculator button[id*="effacer"]{background:transparent!important;color:var(--ink)!important;border:1px solid var(--edge)!important;box-shadow:none!important;filter:none}
+.calculator button#vider:hover,.calculator button#effacer:hover,.calculator button[id*="vider"]:hover,.calculator button[id*="effacer"]:hover{background:var(--paper2)!important;box-shadow:none!important}
