@@ -1,0 +1,19 @@
+# SimuDroit
+
+> SimuDroit est un site français gratuit de simulateurs, guides et modèles de lettres sur le droit du travail, la paie, le chômage, les arrêts maladie, la retraite, les aides sociales et l'épargne. Les calculs s'exécutent dans le navigateur : aucune donnée saisie n'est envoyée. Les règles s'appuient sur des sources officielles (Légifrance, Service-Public, Urssaf, impots.gouv.fr, France Travail, ameli). Chaque page indique sa date de mise à jour. Les résultats sont des estimations indicatives, sans valeur juridique.
+
+## Parcourir le site
+- [Simulateurs (65 outils gratuits)](https://simudroit.fr/simulateurs/): salaire brut/net, chômage, indemnité de licenciement, rupture conventionnelle, préavis, congés payés, SMIC, indemnités journalières, temps partiel thérapeutique, retraite
+- [Guides](https://simudroit.fr/guides/): explications sourcées sur le salaire, la rupture du contrat, le chômage, les congés et les arrêts maladie
+- [Modèles de lettres](https://simudroit.fr/modeles-de-lettres/): démission, rupture conventionnelle, contestation, demandes à l'employeur, à compléter, copier, télécharger en PDF ou imprimer
+- [Aides sociales selon la situation](https://simudroit.fr/aides/)
+- [Reconversion professionnelle : financements et aides](https://simudroit.fr/reconversion/)
+- [Salaires](https://simudroit.fr/salaires/) et [jours fériés 2026-2027](https://simudroit.fr/jours-feries-2026-2027/)
+
+## Méthode et fiabilité
+- [Méthode et sources des simulateurs](https://simudroit.fr/methode-et-sources/): origine de chaque règle et paramètre
+- [Mentions légales](https://simudroit.fr/mentions-legales/) et [politique de confidentialité](https://simudroit.fr/confidentialite/)
+
+## Optionnel
+- [Plan du site](https://simudroit.fr/sitemap.xml)
+- [Nouveautés](https://simudroit.fr/nouveautes/)
