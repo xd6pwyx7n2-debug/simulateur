@@ -361,3 +361,37 @@ if(p==="/"||p==="/index.html"){
 }
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",run);else run();
 })();
+
+/* Guides : barre de progression de lecture, temps de lecture et sommaire cliquable */
+(function(){
+  function run(){
+    try{
+      if(!/^\/guides\/[^\/]+\/?$/.test(location.pathname)) return;
+      var art=document.querySelector("main article"); if(!art||art.getAttribute("data-sd-toc")) return;
+      art.setAttribute("data-sd-toc","1");
+      var bar=document.createElement("div"); bar.className="sd-progress"; bar.setAttribute("aria-hidden","true");
+      var fill=document.createElement("i"); bar.appendChild(fill); document.body.appendChild(bar);
+      var tick=false;
+      function upd(){tick=false;var r=art.getBoundingClientRect(),h=art.offsetHeight-window.innerHeight*0.6,p=h>0?Math.min(1,Math.max(0,-r.top/h)):0;fill.style.transform="scaleX("+p+")"}
+      window.addEventListener("scroll",function(){if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});upd();
+      var hs=[].slice.call(art.querySelectorAll("h2")).filter(function(h){return h.id!=="sd-next-t"&&!/^(Guides li|À lire aussi|Voir aussi)/i.test(h.textContent.trim())&&!h.closest(".sd-next,.rel-links,.sd-fold")||(h.closest(".sd-fold")&&false)});
+      hs=hs.filter(function(h){return !h.closest(".sd-next")});
+      var words=(art.innerText||"").trim().split(/\s+/).length, min=Math.max(1,Math.round(words/220));
+      if(hs.length<3) return;
+      var first=hs[0]; var nav=document.createElement("nav"); nav.className="sd-toc"; nav.setAttribute("aria-label","Dans cet article");
+      var t=document.createElement("div"); t.className="sd-toc-h"; t.innerHTML="<strong>Dans cet article</strong><span>"+min+" min de lecture</span>"; nav.appendChild(t);
+      var ul=document.createElement("div"); ul.className="sd-toc-l";
+      hs.forEach(function(h,i){
+        if(!h.id) h.id="sd-s"+(i+1);
+        var a=document.createElement("a"); a.href="#"+h.id; a.textContent=h.textContent.replace(/^\s*\d+\s*/,"").trim(); ul.appendChild(a);
+      });
+      nav.appendChild(ul); first.parentNode.insertBefore(nav,first);
+      if("IntersectionObserver" in window){
+        var links=[].slice.call(ul.children),map={};hs.forEach(function(h,i){map[h.id]=links[i]});
+        var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.remove("on")});map[e.target.id].classList.add("on")}})},{rootMargin:"-15% 0px -70% 0px"});
+        hs.forEach(function(h){io.observe(h)});
+      }
+    }catch(e){}
+  }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",run); else run();
+})();

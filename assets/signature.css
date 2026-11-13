@@ -477,3 +477,16 @@ ul.as-pills li{margin:0}
 ul.as-pills a{display:inline-block;padding:9px 16px;border-radius:99px;background:var(--white);border:1px solid var(--edge);box-shadow:var(--sh-s);font-weight:700;text-decoration:none!important;color:var(--ink)!important;transition:transform .15s,box-shadow .15s,background .15s}
 ul.as-pills a:hover{transform:translateY(-2px);background:color-mix(in srgb,var(--stamp) 8%,var(--white));box-shadow:var(--sh-m)}
 @media(prefers-reduced-motion:reduce){.fiche ul[style*="list-style:none"]>li,.dg-page li,ol.pc-steps>li,ul.as-pills a{transition:none}}
+/* Guides : progression de lecture et sommaire */
+.sd-progress{position:fixed;left:0;right:0;top:0;height:4px;z-index:60;background:transparent;pointer-events:none}
+.sd-progress i{display:block;height:100%;background:linear-gradient(90deg,var(--stamp),#e8742b);transform-origin:0 50%;transform:scaleX(0);border-radius:0 4px 4px 0}
+.sd-toc{margin:18px 0 22px;padding:14px 16px;background:linear-gradient(180deg,color-mix(in srgb,var(--stamp) 6%,var(--white)),var(--white));border:1px solid var(--edge);border-radius:16px;box-shadow:var(--sh-s)}
+.sd-toc-h{display:flex;justify-content:space-between;gap:10px;align-items:baseline;margin-bottom:10px;flex-wrap:wrap}
+.sd-toc-h span{font-size:.82rem;font-weight:700;color:#5b6070;background:color-mix(in srgb,var(--stamp) 10%,var(--white));padding:2px 10px;border-radius:99px}
+.sd-toc-l{display:flex;flex-wrap:wrap;gap:8px}
+.sd-toc-l a{display:inline-block;padding:7px 13px;border-radius:99px;background:var(--white);border:1px solid var(--edge);font-size:.88rem;font-weight:600;color:var(--ink)!important;text-decoration:none!important;transition:background .15s,transform .15s,border-color .15s}
+.sd-toc-l a:hover{transform:translateY(-1px);border-color:var(--stamp);background:color-mix(in srgb,var(--stamp) 8%,var(--white))}
+.sd-toc-l a.on{background:var(--stamp);border-color:var(--stamp);color:#fff!important}
+html{scroll-behavior:smooth}
+article h2{scroll-margin-top:84px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sd-toc-l a{transition:none}}
