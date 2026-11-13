@@ -490,3 +490,13 @@ ul.as-pills a:hover{transform:translateY(-2px);background:color-mix(in srgb,var(
 html{scroll-behavior:smooth}
 article h2{scroll-margin-top:84px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sd-toc-l a{transition:none}}
+/* Méthode et sources : cartes de formules */
+.mt-formulas{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));margin:16px 0}
+.mt-f{padding-right:16px;cursor:default}
+.mt-f:hover{transform:none;background:var(--white)}
+.mt-f .mt-s p{margin:4px 0 0}
+.mt-f .mt-t{color:var(--a)}
+.mt-formulas{grid-template-columns:repeat(auto-fill,minmax(340px,1fr));align-items:start}
+.mt-f .mt-s{font-size:.93rem;line-height:1.5}
+.mt-f .mt-s p{margin:6px 0 0!important;line-height:1.5}
+.mt-formulas{grid-template-columns:repeat(auto-fill,minmax(min(340px,100%),1fr))}
