@@ -6,7 +6,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/a-propos/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-13</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/contact/</loc>
@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/assistant/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-13</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/exemples-brut-net/</loc>
@@ -230,7 +230,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/documents-a-generer/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-13</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/generateur-page-de-garde-rapport-de-stage/</loc>
@@ -290,7 +290,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/parcours/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-13</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/simulateur-accident-du-travail/</loc>
@@ -1210,7 +1210,7 @@
   </url>
   <url>
     <loc>https://simudroit.fr/metiers/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-13</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/metiers/infirmier-liberal/</loc>
@@ -1495,6 +1495,10 @@
   <url>
     <loc>https://simudroit.fr/aides/aah-allocation-aux-adultes-handicapes/</loc>
     <lastmod>2026-11-05</lastmod>
+  </url>
+  <url>
+    <loc>https://simudroit.fr/aides/rqth-reconnaissance-qualite-travailleur-handicape/</loc>
+    <lastmod>2026-11-13</lastmod>
   </url>
   <url>
     <loc>https://simudroit.fr/aides/ass-allocation-de-solidarite-specifique/</loc>
