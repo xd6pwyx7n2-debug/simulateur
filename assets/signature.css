@@ -612,3 +612,16 @@ main .info-section h2::before{display:none!important}
 main .info-section>.note:last-child{margin-bottom:0!important}
 main .sd-fold summary h2,main details>summary h2{padding-left:0!important}
 main .sd-fold summary h2::after,main details>summary h2::after{display:none!important}
+/* Listes "Voir aussi" / hubs : cartes à liseré et flèche */
+main .sd-see-grid{gap:12px!important}
+main .sd-see-grid a{position:relative;padding:14px 38px 14px 18px!important;border-radius:16px!important;box-shadow:var(--sh-s)!important;color:var(--ink)!important;overflow:hidden}
+main .sd-see-grid a::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--stamp)}
+main .sd-see-grid a:nth-child(4n+2)::before{background:#1f7a4d}
+main .sd-see-grid a:nth-child(4n+3)::before{background:#1f6f8b}
+main .sd-see-grid a:nth-child(4n+4)::before{background:#b45309}
+main .sd-see-grid a::after{content:"→";position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--stamp);font-weight:800;transition:transform .15s}
+main .sd-see-grid a:hover::after{transform:translate(4px,-50%)}
+main .sd-see-grid a strong{color:var(--ink)!important;font-size:1.02rem}
+main .sd-see-grid a span{color:#4b5163!important;font-weight:400;font-size:.9rem;line-height:1.45}
+main .sd-see-grid a:hover{transform:translateY(-3px);box-shadow:var(--sh-m)!important}
+@media(prefers-reduced-motion:reduce){main .sd-see-grid a::after{transition:none}}
