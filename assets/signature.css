@@ -552,18 +552,18 @@ article details.sd-m-fold>summary>h2::before{display:none!important}
 article details.sd-m-fold ul:not([class]){list-style:none;padding:0;display:grid;gap:8px}
 article details.sd-m-fold ul:not([class])>li{padding:9px 12px;background:color-mix(in srgb,var(--stamp) 5%,var(--white));border:1px solid var(--edge);border-radius:12px}
 /* Les plus demandés : cartes d'accès rapide */
-article .sd-start{border-radius:20px!important;background:linear-gradient(180deg,color-mix(in srgb,var(--stamp) 7%,var(--white)),var(--white))!important}
-article .sd-start-list a{border-radius:16px!important;background:var(--white)!important;border:1px solid var(--edge)!important;box-shadow:var(--sh-s);align-items:center;transition:transform .15s,box-shadow .15s,border-color .15s}
-article .sd-start-list a:hover,article .sd-start-list a:focus-visible{background:var(--white)!important;transform:translateY(-3px);box-shadow:var(--sh-m);border-color:var(--stamp)!important}
-article .sd-start-list .sd-start-n{width:38px;height:38px;border-radius:12px;background:var(--stamp);font-size:1.1rem}
-article .sd-start-t strong{color:var(--ink)!important;font-size:1.05rem}
-article .sd-start-t small{color:#5b6070!important;opacity:1}
-@media(prefers-reduced-motion:reduce){article .sd-start-list a{transition:none}}
-article .sd-start h2::before{display:none!important}
-article .sd-start-list{align-items:stretch}
-article .sd-start-list li{display:flex;margin:0!important}
-article .sd-start-list a{width:100%;height:auto!important;min-height:84px}
-article .sd-start .sd-start-more{margin:18px 0 0!important}
+main .sd-start{border-radius:20px!important;background:linear-gradient(180deg,color-mix(in srgb,var(--stamp) 7%,var(--white)),var(--white))!important}
+main .sd-start-list a{border-radius:16px!important;background:var(--white)!important;border:1px solid var(--edge)!important;box-shadow:var(--sh-s);align-items:center;transition:transform .15s,box-shadow .15s,border-color .15s}
+main .sd-start-list a:hover,article .sd-start-list a:focus-visible{background:var(--white)!important;transform:translateY(-3px);box-shadow:var(--sh-m);border-color:var(--stamp)!important}
+main .sd-start-list .sd-start-n{width:38px;height:38px;border-radius:12px;background:var(--stamp);font-size:1.1rem}
+main .sd-start-t strong{color:var(--ink)!important;font-size:1.05rem}
+main .sd-start-t small{color:#5b6070!important;opacity:1}
+@media(prefers-reduced-motion:reduce){main .sd-start-list a{transition:none}}
+main .sd-start h2::before{display:none!important}
+main .sd-start-list{align-items:stretch}
+main .sd-start-list li{display:flex;margin:0!important}
+main .sd-start-list a{width:100%;height:auto!important;min-height:84px}
+main .sd-start .sd-start-more{margin:18px 0 0!important}
 #gd-feat-t::before,#gd-all-t::before{display:none!important}
 /* Hubs de rubrique : héros en couleur (couleurs --a/--b de la page) */
 article.fiche .fiche-hero.hub-hero{background-color:color-mix(in srgb,var(--a) 75%,#000)!important;background-image:radial-gradient(circle at 92% 8%,color-mix(in srgb,var(--b) 55%,transparent),transparent 55%),linear-gradient(135deg,color-mix(in srgb,var(--a) 62%,#000) 0%,var(--a) 100%)!important;border:0!important;filter:none!important;border-radius:20px!important;box-shadow:0 18px 40px -18px color-mix(in srgb,var(--a) 70%,#000)!important;position:relative;overflow:hidden}
@@ -583,3 +583,32 @@ section.hero.hub-hero .badge{background:rgba(255,255,255,.16)!important;border:1
 main section.hero.hub-hero h1{color:#fff!important;-webkit-text-fill-color:#fff!important}
 main section.hero.hub-hero h1 .gd-h1a{-webkit-text-fill-color:transparent!important;color:transparent!important}
 main section.hero.hub-hero h1::before{border-color:rgba(255,255,255,.45)!important;color:#fff!important;background:rgba(255,255,255,.16)!important;border-radius:99px!important}
+/* Blocs d'information et cartes de repères : version moderne */
+main .info-section h2{display:block!important;background:none!important;border:0!important;box-shadow:none!important;padding:0 0 0 14px!important;position:relative;margin:0 0 16px!important;line-height:1.2}
+main .info-section h2::after{content:"";position:absolute;left:0;top:.12em;bottom:.12em;width:5px;border-radius:5px;background:var(--stamp)}
+main .info-section:nth-of-type(4n+2) h2::after{background:#1f7a4d}
+main .info-section:nth-of-type(4n+3) h2::after{background:#1f6f8b}
+main .info-section:nth-of-type(4n+4) h2::after{background:#b45309}
+main .info-section{border-top-width:5px!important;border-radius:20px!important;box-shadow:var(--sh-s)}
+main .sd-know-grid{gap:12px!important}
+main .sd-know-card{position:relative;background:var(--white)!important;padding:16px 18px 16px 18px!important;border-radius:16px!important;box-shadow:var(--sh-s)!important;overflow:hidden;display:flex;flex-direction:column;gap:6px}
+main .sd-know-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--stamp)}
+main .sd-know-card:nth-child(4n+2)::before{background:#1f7a4d}
+main .sd-know-card:nth-child(4n+3)::before{background:#1f6f8b}
+main .sd-know-card:nth-child(4n+4)::before{background:#b45309}
+main .sd-know-card h3{margin:0!important;font-size:1.05rem!important;line-height:1.3;padding-right:26px;position:relative}
+main .sd-know-card h3 a{color:var(--ink)!important;text-decoration:none!important}
+main .sd-know-card h3 a::before{content:"";position:absolute;inset:-100vh -100vw;z-index:1}
+main .sd-know-card h3::after{content:"→";position:absolute;right:0;top:0;color:var(--stamp);font-weight:800;transition:transform .15s}
+main .sd-know-card:hover h3::after{transform:translateX(4px)}
+main .sd-know-card:hover{transform:translateY(-3px);box-shadow:var(--sh-m)!important}
+main .sd-know-card p{color:#4b5163!important;font-size:.94rem!important;line-height:1.5}
+@media(max-width:600px){main .info-section{padding:18px 14px!important}main .info-section h2{font-size:1.3rem!important}}
+@media(prefers-reduced-motion:reduce){main .sd-know-card,main .sd-know-card h3::after{transition:none}}
+main .sd-know-grid .sd-know-card:nth-child(n){background:var(--white)!important}
+main .info-section .note{padding:14px 16px 14px 20px!important;border-radius:14px!important}
+main .info-section::before{display:none!important}
+main .info-section h2::before{display:none!important}
+main .info-section>.note:last-child{margin-bottom:0!important}
+main .sd-fold summary h2,main details>summary h2{padding-left:0!important}
+main .sd-fold summary h2::after,main details>summary h2::after{display:none!important}
