@@ -376,7 +376,7 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
       window.addEventListener("scroll",function(){if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});upd();
       var hs=[].slice.call(art.querySelectorAll("h2")).filter(function(h){return h.id!=="sd-next-t"&&!/^(Guides li|À lire aussi|Voir aussi)/i.test(h.textContent.trim())&&!h.closest(".sd-next,.rel-links,.sd-fold")||(h.closest(".sd-fold")&&false)});
       hs=hs.filter(function(h){return !h.closest(".sd-next")});
-      var words=(art.innerText||"").trim().split(/\s+/).length, min=Math.max(1,Math.round(words/220));
+      var words=(art.textContent||"").trim().split(/\s+/).length, min=Math.max(1,Math.round(words/220));
       if(hs.length<3) return;
       var first=hs[0]; var nav=document.createElement("nav"); nav.className="sd-toc"; nav.setAttribute("aria-label","Dans cet article");
       var t=document.createElement("div"); t.className="sd-toc-h"; t.innerHTML="<strong>Dans cet article</strong><span>"+min+" min de lecture</span>"; nav.appendChild(t);
@@ -385,7 +385,18 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
         if(!h.id) h.id="sd-s"+(i+1);
         var a=document.createElement("a"); a.href="#"+h.id; a.textContent=h.textContent.replace(/^\s*\d+\s*/,"").trim(); ul.appendChild(a);
       });
-      nav.appendChild(ul); first.parentNode.insertBefore(nav,first);
+      nav.appendChild(ul); var anc=first.closest("details.sd-m-fold")||first; anc.parentNode.insertBefore(nav,anc);
+      ul.addEventListener("click",function(ev){var a=ev.target.closest("a");if(!a)return;var t=document.getElementById(a.getAttribute("href").slice(1)),d=t&&t.closest("details.sd-m-fold");if(d&&!d.open)d.open=true});
+      try{ /* sections en cartes */
+        var kids=[].slice.call(art.children),cur=null,idx=0;
+        kids.forEach(function(k){
+          if(k.tagName==="H2"){idx++;cur=document.createElement("section");cur.className="sd-sec sd-sec-"+((idx-1)%4);art.insertBefore(cur,k);cur.appendChild(k);return}
+          if(!cur) return;
+          if(k.tagName==="SECTION"&&!k.classList.contains("sd-sec")||k.classList.contains("sd-next")){cur=null;return}
+          cur.appendChild(k);
+        });
+      }catch(e){}
+
       if("IntersectionObserver" in window){
         var links=[].slice.call(ul.children),map={};hs.forEach(function(h,i){map[h.id]=links[i]});
         var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.remove("on")});map[e.target.id].classList.add("on")}})},{rootMargin:"-15% 0px -70% 0px"});

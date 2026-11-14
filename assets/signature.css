@@ -521,3 +521,47 @@ article.fiche .fiche-hero.gd-hero .fh-txt h1 .gd-h1a{background:linear-gradient(
 article.fiche .fiche-hero.gd-hero .gd-hero-stats span{color:#fff!important}
 article.fiche .fiche-hero.gd-hero .gd-hero-links a{color:#a32616!important;background:#fff!important}
 article.fiche .fiche-hero.gd-hero{filter:none!important;border-radius:20px!important}
+/* Guides : sections en cartes */
+article .sd-sec{position:relative;margin:20px 0;padding:22px 24px 18px;background:var(--white);border:1px solid var(--edge);border-radius:20px;box-shadow:var(--sh-s);overflow:hidden;transition:box-shadow .2s,transform .2s}
+article .sd-sec::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:var(--stamp)}
+article .sd-sec-1::before{background:#1f7a4d}
+article .sd-sec-2::before{background:#1f6f8b}
+article .sd-sec-3::before{background:#b45309}
+article .sd-sec:hover{box-shadow:var(--sh-m)}
+article .sd-sec>h2{margin-top:6px!important}
+article .sd-sec>h2:first-child::before{display:none!important}
+article .sd-sec ul:not([class]){list-style:none;padding:0;margin:12px 0;display:grid;gap:8px}
+article .sd-sec ul:not([class])>li{position:relative;padding:10px 14px 10px 40px;background:color-mix(in srgb,var(--stamp) 5%,var(--white));border:1px solid var(--edge);border-radius:12px;line-height:1.5}
+article .sd-sec ul:not([class])>li::before{content:"";position:absolute;left:13px;top:15px;width:16px;height:16px;border-radius:50%;background:var(--stamp) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.3l2.3 2.3 4.7-4.9' fill='none' stroke='white' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat}
+article .sd-sec-1 ul:not([class])>li::before{background-color:#1f7a4d}
+article .sd-sec-2 ul:not([class])>li::before{background-color:#1f6f8b}
+article .sd-sec-3 ul:not([class])>li::before{background-color:#b45309}
+article .sd-sec ol:not([class]){counter-reset:sdo;list-style:none;padding:0;margin:12px 0;display:grid;gap:8px}
+article .sd-sec ol:not([class])>li{counter-increment:sdo;position:relative;padding:10px 14px 10px 46px;background:color-mix(in srgb,var(--stamp) 5%,var(--white));border:1px solid var(--edge);border-radius:12px}
+article .sd-sec ol:not([class])>li::before{content:counter(sdo);position:absolute;left:11px;top:9px;width:26px;height:26px;border-radius:9px;background:var(--ink);color:#fff;font-weight:800;font-size:.85rem;display:grid;place-items:center}
+article .sd-sec h3{margin:16px 0 4px;padding:10px 14px;background:color-mix(in srgb,var(--stamp) 7%,var(--white));border-radius:12px;font-size:1.02rem}
+article .sd-sec h3+p{padding:0 6px}
+@media(max-width:600px){article .sd-sec{padding:18px 15px 14px;border-radius:16px}}
+@media(prefers-reduced-motion:reduce){article .sd-sec{transition:none}}
+/* Guides mobile : accordéons en cartes */
+article details.sd-m-fold{border:1px solid var(--edge)!important;border-top:4px solid var(--stamp)!important;border-radius:16px!important;background:var(--white)!important;box-shadow:var(--sh-s)}
+article details.sd-m-fold:nth-of-type(4n+2){border-top-color:#1f7a4d!important}
+article details.sd-m-fold:nth-of-type(4n+3){border-top-color:#1f6f8b!important}
+article details.sd-m-fold:nth-of-type(4n+4){border-top-color:#b45309!important}
+article details.sd-m-fold>summary>h2::before{display:none!important}
+article details.sd-m-fold ul:not([class]){list-style:none;padding:0;display:grid;gap:8px}
+article details.sd-m-fold ul:not([class])>li{padding:9px 12px;background:color-mix(in srgb,var(--stamp) 5%,var(--white));border:1px solid var(--edge);border-radius:12px}
+/* Les plus demandés : cartes d'accès rapide */
+article .sd-start{border-radius:20px!important;background:linear-gradient(180deg,color-mix(in srgb,var(--stamp) 7%,var(--white)),var(--white))!important}
+article .sd-start-list a{border-radius:16px!important;background:var(--white)!important;border:1px solid var(--edge)!important;box-shadow:var(--sh-s);align-items:center;transition:transform .15s,box-shadow .15s,border-color .15s}
+article .sd-start-list a:hover,article .sd-start-list a:focus-visible{background:var(--white)!important;transform:translateY(-3px);box-shadow:var(--sh-m);border-color:var(--stamp)!important}
+article .sd-start-list .sd-start-n{width:38px;height:38px;border-radius:12px;background:var(--stamp);font-size:1.1rem}
+article .sd-start-t strong{color:var(--ink)!important;font-size:1.05rem}
+article .sd-start-t small{color:#5b6070!important;opacity:1}
+@media(prefers-reduced-motion:reduce){article .sd-start-list a{transition:none}}
+article .sd-start h2::before{display:none!important}
+article .sd-start-list{align-items:stretch}
+article .sd-start-list li{display:flex;margin:0!important}
+article .sd-start-list a{width:100%;height:auto!important;min-height:84px}
+article .sd-start .sd-start-more{margin:18px 0 0!important}
+#gd-feat-t::before,#gd-all-t::before{display:none!important}
